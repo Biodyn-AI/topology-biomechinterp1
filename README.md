@@ -159,7 +159,7 @@ If you use this code or data in your research, please cite:
 
 This project builds directly on:
 
-> Kendiukhov, I. (2025). Systematic evaluation of single-cell foundation model interpretability reveals attention captures co-expression rather than unique regulatory signal. arXiv:2602.17532.
+> Kendiukhov, I. (2026). Systematic evaluation of single-cell foundation model interpretability reveals attention captures co-expression rather than unique regulatory signal. arXiv:2602.17532.
 
 ## License
 
