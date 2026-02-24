@@ -1,0 +1,41 @@
+{
+  "iteration": "iter_0002",
+  "hypotheses": [
+    {
+      "id": "H01_graph_topology_cc",
+      "name": "kNN Clustering Coefficient vs Feature-Shuffle Null",
+      "family": "graph_topology",
+      "split_regime": "by_layer",
+      "method": "kNN graph (k=10, PCA-20) → clustering coefficient → empirical null (15 feature-shuffle replicates)",
+      "status": "tested",
+      "primary_metric": "mean_cc_z_score",
+      "result_value": 27.64,
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0002/graph_topology_knn_summary.json",
+        "iterations/iter_0002/graph_topology_knn_layer_summary.csv",
+        "iterations/iter_0002/graph_topology_knn_by_seed_layer.csv"
+      ],
+      "decision": "promising",
+      "next_action": "Consolidate as anchor result; test biological grounding (H02 TRRUST) to validate signal source"
+    },
+    {
+      "id": "H02_graph_topology_tr",
+      "name": "kNN Transitivity vs Feature-Shuffle Null",
+      "family": "graph_topology",
+      "split_regime": "by_layer",
+      "method": "kNN graph (k=10, PCA-20) → transitivity → empirical null (15 feature-shuffle replicates)",
+      "status": "tested",
+      "primary_metric": "mean_tr_z_score",
+      "result_value": -34.78,
+      "result_direction": "negative",
+      "artifact_paths": [
+        "iterations/iter_0002/graph_topology_knn_summary.json",
+        "iterations/iter_0002/graph_topology_knn_layer_summary.csv",
+        "iterations/iter_0002/graph_topology_knn_by_seed_layer.csv"
+      ],
+      "decision": "negative",
+      "next_action": "Archive; transitivity in shuffled features is higher than real, suggests CC is main structural signal"
+    }
+  ]
+}

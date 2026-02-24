@@ -1,0 +1,17 @@
+{
+  "sv1_obs_p": 0.0002574644601557992,
+  "sv1_obs_term": "GO:0005615",
+  "sv1_null_p5": 0.00292162135841249,
+  "sv1_null_mean": 0.023097813945173493,
+  "sv1_empirical_p": 0.004,
+  "sv1_pass": true,
+  "drift_obs_p": 0.0019803456315669156,
+  "drift_obs_term": "GO:0000981",
+  "drift_obs_or": 2.75,
+  "drift_obs_nsig_p05": 15,
+  "drift_null_p5": 0.0008191830741460645,
+  "drift_null_mean": 0.01205389432669998,
+  "drift_empirical_p": 0.124,
+  "drift_pass": false,
+  "n_shuffle": 500
+}

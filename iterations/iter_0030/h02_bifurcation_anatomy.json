@@ -1,0 +1,98 @@
+{
+  "n_diverging": 14,
+  "n_converging": 195,
+  "by_layer": [
+    {
+      "layer": 0,
+      "intergroup_dist": 17.73763084411621,
+      "intra_div": 0.0,
+      "intra_conv": 11.338674545288086,
+      "ratio": 3.128695646615465
+    },
+    {
+      "layer": 1,
+      "intergroup_dist": 18.16333770751953,
+      "intra_div": 0.0,
+      "intra_conv": 9.757956504821777,
+      "ratio": 3.7227748860213374
+    },
+    {
+      "layer": 2,
+      "intergroup_dist": 18.648088455200195,
+      "intra_div": 0.0,
+      "intra_conv": 9.054770469665527,
+      "ratio": 4.11895332248859
+    },
+    {
+      "layer": 3,
+      "intergroup_dist": 19.106285095214844,
+      "intra_div": 0.0,
+      "intra_conv": 8.940317153930664,
+      "ratio": 4.274185080070599
+    },
+    {
+      "layer": 4,
+      "intergroup_dist": 19.7005558013916,
+      "intra_div": 0.0,
+      "intra_conv": 8.300928115844727,
+      "ratio": 4.746591110405445
+    },
+    {
+      "layer": 5,
+      "intergroup_dist": 19.785457611083984,
+      "intra_div": 0.0,
+      "intra_conv": 8.00436782836914,
+      "ratio": 4.943665267595579
+    },
+    {
+      "layer": 6,
+      "intergroup_dist": 20.21868133544922,
+      "intra_div": 0.0,
+      "intra_conv": 7.869736671447754,
+      "ratio": 5.138337451316448
+    },
+    {
+      "layer": 7,
+      "intergroup_dist": 20.72881317138672,
+      "intra_div": 0.0,
+      "intra_conv": 7.696529388427734,
+      "ratio": 5.386535183651459
+    },
+    {
+      "layer": 8,
+      "intergroup_dist": 21.49506187438965,
+      "intra_div": 0.0,
+      "intra_conv": 7.592230796813965,
+      "ratio": 5.662383678696893
+    },
+    {
+      "layer": 9,
+      "intergroup_dist": 22.62720489501953,
+      "intra_div": 0.0,
+      "intra_conv": 6.615597248077393,
+      "ratio": 6.840563004827838
+    },
+    {
+      "layer": 10,
+      "intergroup_dist": 24.075361251831055,
+      "intra_div": 0.0,
+      "intra_conv": 5.164735317230225,
+      "ratio": 9.322979697144417
+    },
+    {
+      "layer": 11,
+      "intergroup_dist": 21.752330780029297,
+      "intra_div": 0.0,
+      "intra_conv": 3.8034238815307617,
+      "ratio": 11.438289003577824
+    }
+  ],
+  "bifurcation_layer": 11,
+  "max_ratio": 11.438289003577824,
+  "l0_ratio": 3.128695646615465,
+  "l11_ratio": 11.438289003577824,
+  "rho_layer_vs_ratio": 1.0,
+  "p_layer_vs_ratio": 0.0,
+  "rho_layer_vs_intergroup": 0.9790209790209792,
+  "p_layer_vs_intergroup": 3.0898013985487064e-08
+}

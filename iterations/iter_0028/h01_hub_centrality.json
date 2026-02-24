@@ -1,0 +1,187 @@
+{
+  "n_hub_genes": 201,
+  "degree_range": [
+    1,
+    130
+  ],
+  "degree_median": 22.0,
+  "layer_results": [
+    {
+      "layer": 0,
+      "spearman_rho": 0.009245674009175997,
+      "pval": 0.8963565178585988,
+      "null_p": 0.898,
+      "null_rho_mean": -0.0002758098001697481,
+      "null_rho_std": 0.06766429977102252
+    },
+    {
+      "layer": 1,
+      "spearman_rho": 0.012969235730196727,
+      "pval": 0.8550086388884415,
+      "null_p": 0.834,
+      "null_rho_mean": -0.0015234832607022128,
+      "null_rho_std": 0.06983648733580562
+    },
+    {
+      "layer": 2,
+      "spearman_rho": 0.021149978482516745,
+      "pval": 0.7656910096643653,
+      "null_p": 0.8,
+      "null_rho_mean": 0.001133378234319205,
+      "null_rho_std": 0.0746302152561872
+    },
+    {
+      "layer": 3,
+      "spearman_rho": 0.02917763736666372,
+      "pval": 0.6809463913357807,
+      "null_p": 0.65,
+      "null_rho_mean": 0.0009157225552009347,
+      "null_rho_std": 0.07107341373231478
+    },
+    {
+      "layer": 4,
+      "spearman_rho": 0.04218902662577766,
+      "pval": 0.5520660044182852,
+      "null_p": 0.522,
+      "null_rho_mean": -0.0011292900815498311,
+      "null_rho_std": 0.07181146782154614
+    },
+    {
+      "layer": 5,
+      "spearman_rho": 0.05401863800401949,
+      "pval": 0.44628309408876965,
+      "null_p": 0.436,
+      "null_rho_mean": 0.002739146662539013,
+      "null_rho_std": 0.068792330646969
+    },
+    {
+      "layer": 6,
+      "spearman_rho": 0.08286570295970082,
+      "pval": 0.24219840457984257,
+      "null_p": 0.234,
+      "null_rho_mean": 0.005502804492839994,
+      "null_rho_std": 0.06816253744910657
+    },
+    {
+      "layer": 7,
+      "spearman_rho": 0.13417394300790284,
+      "pval": 0.05756768113463411,
+      "null_p": 0.044,
+      "null_rho_mean": -0.006197874770691561,
+      "null_rho_std": 0.06785337279619877
+    },
+    {
+      "layer": 8,
+      "spearman_rho": 0.17718385414417365,
+      "pval": 0.011859780690006868,
+      "null_p": 0.01,
+      "null_rho_mean": -0.000791448035668223,
+      "null_rho_std": 0.06878126296513729
+    },
+    {
+      "layer": 9,
+      "spearman_rho": 0.19939728481235627,
+      "pval": 0.004541603435207447,
+      "null_p": 0.008,
+      "null_rho_mean": 0.0030432200340799564,
+      "null_rho_std": 0.07309692712964039
+    },
+    {
+      "layer": 10,
+      "spearman_rho": 0.22463615559984298,
+      "pval": 0.001346042390414738,
+      "null_p": 0.0,
+      "null_rho_mean": 0.004394583780392821,
+      "null_rho_std": 0.07113167182557052
+    },
+    {
+      "layer": 11,
+      "spearman_rho": 0.17758542197227975,
+      "pval": 0.011666170430513038,
+      "null_p": 0.014,
+      "null_rho_mean": -0.0020429552487253675,
+      "null_rho_std": 0.07165887265142647
+    }
+  ],
+  "best_layer": 10,
+  "best_rho": 0.22463615559984298,
+  "best_pval": 0.001346042390414738,
+  "best_null_p": 0.0,
+  "top_hub_genes_L11": [
+    {
+      "gene": "ETS1",
+      "string_degree": 53,
+      "dist_to_centroid": 3.3615429401397705
+    },
+    {
+      "gene": "IRF8",
+      "string_degree": 61,
+      "dist_to_centroid": 3.4773285388946533
+    },
+    {
+      "gene": "TGFBR2",
+      "string_degree": 36,
+      "dist_to_centroid": 3.502908229827881
+    },
+    {
+      "gene": "SP100",
+      "string_degree": 4,
+      "dist_to_centroid": 3.5347557067871094
+    },
+    {
+      "gene": "REL",
+      "string_degree": 43,
+      "dist_to_centroid": 3.6101229190826416
+    },
+    {
+      "gene": "NCOA3",
+      "string_degree": 14,
+      "dist_to_centroid": 3.625309467315674
+    },
+    {
+      "gene": "ATM",
+      "string_degree": 30,
+      "dist_to_centroid": 3.6484508514404297
+    },
+    {
+      "gene": "PRDM1",
+      "string_degree": 2,
+      "dist_to_centroid": 3.658477544784546
+    },
+    {
+      "gene": "ALOX5AP",
+      "string_degree": 13,
+      "dist_to_centroid": 3.7031309604644775
+    },
+    {
+      "gene": "ITGB2",
+      "string_degree": 57,
+      "dist_to_centroid": 3.722852945327759
+    },
+    {
+      "gene": "POU2F2",
+      "string_degree": 6,
+      "dist_to_centroid": 3.7288637161254883
+    },
+    {
+      "gene": "ELF1",
+      "string_degree": 5,
+      "dist_to_centroid": 3.741359233856201
+    },
+    {
+      "gene": "RUNX1",
+      "string_degree": 58,
+      "dist_to_centroid": 3.7434120178222656
+    },
+    {
+      "gene": "ZEB2",
+      "string_degree": 24,
+      "dist_to_centroid": 3.7596640586853027
+    },
+    {
+      "gene": "TCF4",
+      "string_degree": 17,
+      "dist_to_centroid": 3.7783963680267334
+    }
+  ]
+}

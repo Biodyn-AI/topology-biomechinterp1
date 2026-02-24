@@ -1,0 +1,63 @@
+{
+  "iteration": "iter_0034",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "Layer-wise B-cell community purity emergence",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "k=10 kNN greedy-modularity communities per layer (L0-L11). Fisher OR for B-cell marker enrichment in PC1-negative community. Spearman rho(layer, OR).",
+      "status": "tested",
+      "primary_metric": "Spearman rho(layer, Fisher OR)",
+      "result_value": "rho=0.081, p=0.804 (not significant); but L2=OR16, L3=OR12, L5=OR15 early-layer peaks",
+      "result_direction": "mixed",
+      "artifact_paths": [
+        "iterations/iter_0034/h01_layer_bcell_community_purity.json"
+      ],
+      "decision": "inconclusive",
+      "next_action": "Reframe as early-layer geometry: B-cell separation baked in from L2, not a late-layer crystallization. Test whether L2 community maps biologically.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0033/H01",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "PC2/PC3 cell-type axes at L11",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "SVD at L11 on 195 in-vocab genes. Mann-Whitney AUROC for T-cell (n=14), Myeloid (n=6), B-cell (n=9) at PC2+/PC2-/PC3+/PC3- poles.",
+      "status": "tested",
+      "primary_metric": "Mann-Whitney AUROC (p-values for T-cell/Myeloid on PC2, PC3)",
+      "result_value": "PC2 T-cell AUROC=0.442 p=0.767; PC2 Myeloid AUROC=0.618 p=0.168; all PC2/PC3 p>0.14",
+      "result_direction": "negative",
+      "artifact_paths": [
+        "iterations/iter_0034/h02_pc2_pc3_axes.json"
+      ],
+      "decision": "negative",
+      "next_action": "Retire PC2/PC3 T-cell/myeloid axes for 195-gene set. Consider full-vocab expansion for myeloid axis test.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0033/H03",
+      "retired": false,
+      "retirement_reason": "No significant T-cell or Myeloid enrichment in PC2/PC3 with current 195-gene set."
+    },
+    {
+      "id": "H03",
+      "name": "Expression-level confound test for B-cell PC1 signal",
+      "family": "null_sensitivity",
+      "split_regime": "other",
+      "method": "At L11: (1) Pearson r(PC1, L2 norm); (2) regress PC1 on L2 norm, test B-cell in residual AUROC; (3) bootstrap null: 1000 random 9-gene sets, empirical p.",
+      "status": "tested",
+      "primary_metric": "Bootstrap empirical p (z-score vs null)",
+      "result_value": "empirical_p=0.000, z=-3.06; B-cell residual AUROC=0.214 p=0.002; L2 norm confound AUROC=0.601 p=0.847",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0034/h03_expression_confound_test.json"
+      ],
+      "decision": "promising",
+      "next_action": "Replicate confound test at L2 (where OR is highest). Also test: does the B-cell signal survive gene co-expression shuffle (expression matrix shuffle).",
+      "novelty_type": "new_method",
+      "lineage": "none",
+      "retired": false
+    }
+  ]
+}

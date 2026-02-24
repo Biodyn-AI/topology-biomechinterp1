@@ -1,0 +1,58 @@
+{
+  "layers": [
+    {
+      "layer": 0,
+      "var_pc1": 0.08019675314426422,
+      "tf_vs_nontf_auroc": 0.6398985629754861,
+      "tf_vs_nontf_pval": 0.0927185867064643,
+      "tf_n": 13,
+      "nontf_n": 182,
+      "tcell_auroc": 0.4957894736842105,
+      "tcell_pval": 0.9782764989848282,
+      "bcell_auroc": 0.21875,
+      "bcell_pval": 0.09912849823111028,
+      "monocyte_auroc": 0.5,
+      "monocyte_pval": 1.0
+    },
+    {
+      "layer": 5,
+      "var_pc1": 0.1091262623667717,
+      "tf_vs_nontf_auroc": 0.6327134404057481,
+      "tf_vs_nontf_pval": 0.11076802762416561,
+      "tf_n": 13,
+      "nontf_n": 182,
+      "tcell_auroc": 0.5831578947368421,
+      "tcell_pval": 0.5396467411548468,
+      "bcell_auroc": 0.16145833333333334,
+      "bcell_pval": 0.04101030106051205,
+      "monocyte_auroc": 0.5,
+      "monocyte_pval": 1.0
+    },
+    {
+      "layer": 11,
+      "var_pc1": 0.25889164209365845,
+      "tf_vs_nontf_auroc": 0.6551141166525782,
+      "tf_vs_nontf_pval": 0.0622715157887373,
+      "tf_n": 13,
+      "nontf_n": 182,
+      "tcell_auroc": 0.588421052631579,
+      "tcell_pval": 0.5139139675782177,
+      "bcell_auroc": 0.2152777777777778,
+      "bcell_pval": 0.09460539994165335,
+      "monocyte_auroc": 0.5,
+      "monocyte_pval": 1.0,
+      "hub_vs_nonhub_auroc": 0.5295479302832244,
+      "hub_vs_nonhub_pval": 0.5319010307227243,
+      "n_hubs": 51
+    }
+  ],
+  "summary": {
+    "l11_var_pc1": 0.25889164209365845,
+    "l0_var_pc1": 0.08019675314426422,
+    "l11_tf_auroc": 0.6551141166525782,
+    "l0_tf_auroc": 0.6398985629754861,
+    "l11_tcell_auroc": 0.588421052631579,
+    "l11_bcell_auroc": 0.2152777777777778,
+    "l11_monocyte_auroc": 0.5
+  }
+}

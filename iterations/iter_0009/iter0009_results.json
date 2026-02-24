@@ -1,0 +1,113 @@
+{
+  "iteration": "iter_0009",
+  "H01_sv2_bot_null": {
+    "term": "GO:0070062",
+    "label": "extracellular_vesicle",
+    "n_annotated": 48,
+    "n_in_bottom_pole": 28,
+    "obs_or": 7.992,
+    "obs_p": 8.69e-09,
+    "null_mean_p": 0.5456620373927803,
+    "empirical_p": 0.0,
+    "ev_genes": [
+      "AKR1B1",
+      "ALDH1A1",
+      "APP",
+      "ASAH1",
+      "ASS1",
+      "ATP1B1",
+      "CA2",
+      "CLU",
+      "CTSB",
+      "EPCAM",
+      "FXYD2",
+      "GSTP1",
+      "HLA-A",
+      "HLA-B",
+      "HLA-C",
+      "HLA-DRA",
+      "HPGD",
+      "ITGB8",
+      "LDHA",
+      "LGALS1",
+      "MIF",
+      "MMP7",
+      "PCBD1",
+      "RHOB",
+      "RHOC",
+      "TNFSF10",
+      "VIM",
+      "WFDC2"
+    ],
+    "pass": true
+  },
+  "H02_layer_compartment_scan": {
+    "n_compartments": 8,
+    "n_layers": 12,
+    "n_sig_cells_emp05": 33,
+    "top_hits": [
+      {
+        "layer": 10,
+        "comp": "mitochondrion",
+        "OR": 13.77,
+        "p": 1.83e-05,
+        "emp_p": 0.0
+      },
+      {
+        "layer": 11,
+        "comp": "ER_lumen",
+        "OR": 18.45,
+        "p": 1.94e-05,
+        "emp_p": 0.0
+      },
+      {
+        "layer": 1,
+        "comp": "ER_lumen",
+        "OR": 4.73,
+        "p": 0.0115,
+        "emp_p": 0.0
+      },
+      {
+        "layer": 9,
+        "comp": "ER_lumen",
+        "OR": 10.74,
+        "p": 0.000241,
+        "emp_p": 0.0
+      }
+    ]
+  },
+  "H03_sv1_stability": {
+    "adjacent_spearman_r": [
+      0.9505260408133186,
+      0.9452014773492202,
+      0.9795663626032982,
+      0.9765303349434677,
+      0.9700490015127499,
+      0.9655140421214293,
+      0.9515130459042909,
+      0.9544806412111474,
+      0.9580825517898022,
+      0.8988253981414035,
+      0.6629035452564864
+    ],
+    "mean_adjacent_r": 0.9284720401496922,
+    "min_adjacent_r": 0.6629035452564864,
+    "sv1_var_explained": [
+      0.191,
+      0.246,
+      0.281,
+      0.296,
+      0.344,
+      0.366,
+      0.389,
+      0.416,
+      0.448,
+      0.546,
+      0.69,
+      0.767
+    ],
+    "null_mean_adj_r": 0.0027,
+    "empirical_p": 0.0,
+    "pass": true
+  }
+}

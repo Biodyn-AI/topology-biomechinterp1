@@ -1,0 +1,44 @@
+{
+  "obs_enrichment_count3_layer8": 1.3269751568067614,
+  "obs_enrichment_by_count_mean_across_layers": {
+    "0": 0.7080173823605236,
+    "1": 0.8541111718081025,
+    "2": 1.0760909647896175,
+    "3": 1.4517752147826186
+  },
+  "perm_null_mean": 0.9985809467638617,
+  "perm_null_std": 0.06729462842635962,
+  "perm_z_score": 4.879946850399521,
+  "perm_p_value": 0.0,
+  "n_permutations": 1000,
+  "quintile_enrichments": [
+    {
+      "quintile": 1,
+      "n": 610,
+      "enrichment": 0.8297414798634234
+    },
+    {
+      "quintile": 2,
+      "n": 615,
+      "enrichment": 1.0973274855646358
+    },
+    {
+      "quintile": 3,
+      "n": 612,
+      "enrichment": 1.378383177333029
+    },
+    {
+      "quintile": 4,
+      "n": 612,
+      "enrichment": 1.8723038158773644
+    },
+    {
+      "quintile": 5,
+      "n": 613,
+      "enrichment": 1.4564091092309996
+    }
+  ],
+  "quintile_spearman_r": 0.8999999999999998,
+  "quintile_spearman_p": 0.03738607346849875,
+  "n_pairs_count3": 3062
+}

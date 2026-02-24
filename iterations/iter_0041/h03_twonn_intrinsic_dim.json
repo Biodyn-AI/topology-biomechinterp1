@@ -1,0 +1,122 @@
+[
+  {
+    "layer": 0,
+    "id_bcell_markers": 8.162202160145716,
+    "id_tcell_markers": 11.039078117140365,
+    "id_myeloid_markers": 4.397985065514214,
+    "id_gc_tfs": null,
+    "id_tcell_tfs": null,
+    "id_myeloid_tfs": null,
+    "id_immune_panel": 9.112017167576411
+  },
+  {
+    "layer": 1,
+    "id_bcell_markers": 8.248790637223886,
+    "id_tcell_markers": 10.841495968179398,
+    "id_myeloid_markers": 4.302048683801428,
+    "id_gc_tfs": null,
+    "id_tcell_tfs": null,
+    "id_myeloid_tfs": null,
+    "id_immune_panel": 8.847028538983679
+  },
+  {
+    "layer": 2,
+    "id_bcell_markers": 8.929327235612575,
+    "id_tcell_markers": 10.962688380356504,
+    "id_myeloid_markers": 4.374708484336406,
+    "id_gc_tfs": null,
+    "id_tcell_tfs": null,
+    "id_myeloid_tfs": null,
+    "id_immune_panel": 8.952961087712975
+  },
+  {
+    "layer": 3,
+    "id_bcell_markers": 7.851992620717953,
+    "id_tcell_markers": 10.841893042216116,
+    "id_myeloid_markers": 4.271072988182481,
+    "id_gc_tfs": null,
+    "id_tcell_tfs": null,
+    "id_myeloid_tfs": null,
+    "id_immune_panel": 8.419475038738849
+  },
+  {
+    "layer": 4,
+    "id_bcell_markers": 6.641292470014557,
+    "id_tcell_markers": 11.694322602452052,
+    "id_myeloid_markers": 4.274126282969427,
+    "id_gc_tfs": null,
+    "id_tcell_tfs": null,
+    "id_myeloid_tfs": null,
+    "id_immune_panel": 8.496400179700688
+  },
+  {
+    "layer": 5,
+    "id_bcell_markers": 6.44393726543425,
+    "id_tcell_markers": 11.890490482001173,
+    "id_myeloid_markers": 4.310787146291245,
+    "id_gc_tfs": null,
+    "id_tcell_tfs": null,
+    "id_myeloid_tfs": null,
+    "id_immune_panel": 8.351448231829687
+  },
+  {
+    "layer": 6,
+    "id_bcell_markers": 5.8821815759040685,
+    "id_tcell_markers": 10.120078196600428,
+    "id_myeloid_markers": 4.337056183982181,
+    "id_gc_tfs": null,
+    "id_tcell_tfs": null,
+    "id_myeloid_tfs": null,
+    "id_immune_panel": 8.027435094746952
+  },
+  {
+    "layer": 7,
+    "id_bcell_markers": 6.171385663033921,
+    "id_tcell_markers": 9.845761086558559,
+    "id_myeloid_markers": 4.450903714517832,
+    "id_gc_tfs": null,
+    "id_tcell_tfs": null,
+    "id_myeloid_tfs": null,
+    "id_immune_panel": 8.19332708986614
+  },
+  {
+    "layer": 8,
+    "id_bcell_markers": 6.133761556649144,
+    "id_tcell_markers": 9.745165323988834,
+    "id_myeloid_markers": 4.7414584561494495,
+    "id_gc_tfs": null,
+    "id_tcell_tfs": null,
+    "id_myeloid_tfs": null,
+    "id_immune_panel": 8.58385743206696
+  },
+  {
+    "layer": 9,
+    "id_bcell_markers": 5.764201131365286,
+    "id_tcell_markers": 11.682010974976794,
+    "id_myeloid_markers": 4.658462111123141,
+    "id_gc_tfs": null,
+    "id_tcell_tfs": null,
+    "id_myeloid_tfs": null,
+    "id_immune_panel": 9.151119939451826
+  },
+  {
+    "layer": 10,
+    "id_bcell_markers": 5.360109105304662,
+    "id_tcell_markers": 13.567792533110895,
+    "id_myeloid_markers": 4.692715036571162,
+    "id_gc_tfs": null,
+    "id_tcell_tfs": null,
+    "id_myeloid_tfs": null,
+    "id_immune_panel": 9.19003171901863
+  },
+  {
+    "layer": 11,
+    "id_bcell_markers": 5.089542633263739,
+    "id_tcell_markers": 13.489794913468222,
+    "id_myeloid_markers": 4.676265517661479,
+    "id_gc_tfs": null,
+    "id_tcell_tfs": null,
+    "id_myeloid_tfs": null,
+    "id_immune_panel": 9.159204758712479
+  }
+]

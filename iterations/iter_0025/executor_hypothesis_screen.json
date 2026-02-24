@@ -1,0 +1,65 @@
+{
+  "iteration": "iter_0025",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "Multi-predictor joint model (STRING + Dorothea + GO CC + GO BP)",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "For 21,736 named-gene pairs, build feature matrix [STRING_score, Dorothea_conf, GO_BP_jaccard, GO_CC_jaccard]. Compute partial Spearman R^2 at each of 12 layers via rank-regression residualization. VIF computed at L8 from rank-correlation matrix inversion. STRING from iter_0015 cache (3092 pairs), Dorothea from dorothea_human.tsv (1137 pairs, confidence A-E→5-1), GO from mygene API.",
+      "status": "tested",
+      "primary_metric": "total_partial_R2_layer8",
+      "result_value": "0.01695 (3/4 predictors sig: STRING partial R^2=0.00962, Dorothea=0.00205, GO_CC=0.00519; VIF all <2)",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0025/h01_multi_predictor_joint_model.json",
+        "iterations/iter_0025/run_iter0025_h01_fix.py"
+      ],
+      "decision": "promising",
+      "next_action": "Replicate joint model on Geneformer embeddings to validate cross-model consistency",
+      "novelty_type": "new_method",
+      "lineage": "iter_0024/H01,H03",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "Layer-resolved encoding timeline across 5 biological anchors",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "Compile existing per-layer Spearman/AUROC curves from iter_0022 (STRING), iter_0023 (TRRUST activation), iter_0024 (Dorothea, GO CC, GO BP). Find peak layer per anchor. Compute pairwise Spearman between 12-point curves. Classify each anchor as early/mid/late encoding by epoch mean.",
+      "status": "tested",
+      "primary_metric": "peak_span_layers",
+      "result_value": "7 layers span (L0-L7), 3 unique peak layers; GO_CC peaks L5 (mid), GO_BP peaks L7 (late), Dorothea peaks L7 (mid-late); inter-anchor mean rho=0.250",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0025/h02_layer_encoding_timeline.json",
+        "iterations/iter_0025/run_iter0025_h02_timeline.py"
+      ],
+      "decision": "promising",
+      "next_action": "Test if GO_CC early advantage (L0-L4 > L8-L11 controlling for GO_BP) is statistically significant — partial timeline decomposition",
+      "novelty_type": "new_method",
+      "lineage": "iter_0022/H01,iter_0023/H03,iter_0024/H01,H03",
+      "retired": false
+    },
+    {
+      "id": "H03",
+      "name": "Chromosomal proximity negative control",
+      "family": "null_sensitivity",
+      "split_regime": "other",
+      "method": "Fetch chromosomal locations for 209 named genes via mygene API (genomic_pos.chr). Classify 21,736 pairs as same-chromosome (n=1212) vs different-chromosome (n=20524). Mann-Whitney AUROC at each layer: does cross-chromosome distance exceed same-chromosome distance? Expected null if signals are functional not genomic.",
+      "status": "tested",
+      "primary_metric": "AUROC_diff_gt_same_chr_L8",
+      "result_value": "0.5150 (vs null 0.5; effect size ~0.01-0.03; weakens to non-significant at L11 p=0.096)",
+      "result_direction": "negative",
+      "artifact_paths": [
+        "iterations/iter_0025/h03_chromosomal_proximity_control.json",
+        "iterations/iter_0025/run_iter0025_screen.py"
+      ],
+      "decision": "negative",
+      "next_action": "This is the expected null result — confirms functional specificity of STRING/GO/Dorothea signals. No follow-up needed.",
+      "novelty_type": "new_method",
+      "lineage": "none",
+      "retired": false
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "iteration": "iter_0022",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "STRING continuous AUROC + TRRUST-exclusive proximity (overlap-corrected)",
+      "family": "manifold_distance",
+      "split_regime": "edge_stratified",
+      "method": "Pairwise Spearman(STRING_score, L2_distance) over all 3092 STRING pairs at each of 12 layers. AUROC for binary STRING membership vs distance. Overlap-corrected TRRUST: separate 141 TRRUST-exclusive pairs (not in STRING) from 185 STRING-overlapping TRRUST pairs. Mann-Whitney test TRRUST-exclusive vs 9276 non-STRING named-gene pairs per layer.",
+      "status": "tested",
+      "primary_metric": "STRING Spearman rho + TRRUST-exclusive AUROC",
+      "result_value": "STRING rho=-0.093 (all 12 layers p<1e-5), AUROC=0.614; TRRUST-excl effect=-0.030, AUROC=0.573 (all 12 layers p<0.007)",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0022/h01_string_auroc_trrust_exclusive.json"
+      ],
+      "decision": "promising",
+      "next_action": "Test STRING confidence in deciles (10 points vs 5) for nonlinear threshold; extend TRRUST to directional test (activation vs repression)",
+      "novelty_type": "new_method",
+      "lineage": "iter_0021_H01",
+      "retired": false,
+      "notes": "Fixes iter_0021 H01 (5-quintile underpowered test) with continuous Spearman over 3092 pairs. STRING confidence predicts distance (rho=-0.093). TRRUST-exclusive pairs (NOT in STRING, N=141) still show proximity (effect=-0.030), confirming regulatory program geometry independent of PPI overlap."
+    },
+    {
+      "id": "H02",
+      "name": "Cell-type marker gene cluster separation",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "Map 209 named genes to 3 lung cell-type categories (T cell: 7 genes, B cell: 4 genes, fibroblast: 3 genes) using canonical literature markers. Compute within-cell-type (N=30 pairs) vs cross-cell-type (N=61 pairs) pairwise L2 distances on unit sphere at each of 12 layers. Mann-Whitney test within < cross. Permutation null: 500 shuffles of cell-type assignments preserving group sizes.",
+      "status": "tested",
+      "primary_metric": "AUROC (within vs cross cell-type distance)",
+      "result_value": "AUROC=0.853 mean (range [0.811,0.890]), effect=-0.222, z=-4.55, 12/12 layers significant (p<1e-6), 12/12 permutation sig",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0022/h02_cell_type_marker_separation.json"
+      ],
+      "decision": "promising",
+      "next_action": "Expand to more cell types (macrophage, NK, endothelial); test Geneformer replication; visualize with UMAP; check if effect holds for non-marker named genes (contamination control)",
+      "novelty_type": "new_family",
+      "lineage": "none",
+      "retired": false,
+      "notes": "Strongest geometric effect found in the project. scGPT embedding geometry clusters cell-type marker genes within cell types far more tightly than across cell types. AUROC=0.853 >> STRING proximity AUROC=0.614. Effect deepens with layer depth (L0: -0.164 -> L11: -0.276), consistent with progressive cell-type specialization. All 12 layers significant by both MW and permutation test."
+    },
+    {
+      "id": "H03",
+      "name": "Per-layer bootstrap CIs for co-polarity enrichment + persistence entropy proxy",
+      "family": "topology_stability",
+      "split_regime": "other",
+      "method": "(a) Proxy persistence entropy via pairwise distance histogram entropy per layer. (b) Per-layer bootstrap CIs (N=500) for STRING co-polarity enrichment ratio across SV2+SV3+SV4 (count=3). Extends iter_0021 H03 from layer-8-only CI to all 12 layers.",
+      "status": "tested",
+      "primary_metric": "Co-polarity enrichment ratio CI lower bound > 1.0",
+      "result_value": "All 12/12 layers: CI lower bound > 1.0 (mean ratio=1.542, range=[1.340,1.689]). Entropy proxy: rho=-0.434 vs layer, p=0.16 (not significant).",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0022/h03_entropy_copolar_bootstrap.json"
+      ],
+      "decision": "promising",
+      "next_action": "Run full ripser per-layer to get actual H1 lifetime arrays for true persistence entropy; co-polarity result is now publish-ready (all 12 layers with CIs)",
+      "novelty_type": "new_method",
+      "lineage": "iter_0021_H03",
+      "retired": false,
+      "notes": "Co-polarity bootstrap CI extended to all 12 layers - all exclude null (CI_low > 1.0 everywhere). Mean ratio=1.542, no significant layer trend (rho=0.084). This confirms the co-polarity enrichment is a stable, layer-invariant geometric property. Proxy entropy insufficient for persistence entropy measurement - needs proper ripser lifetime arrays."
+    }
+  ]
+}

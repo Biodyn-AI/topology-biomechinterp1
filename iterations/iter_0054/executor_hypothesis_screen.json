@@ -1,0 +1,65 @@
+{
+  "iteration": "iter_0054",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "LR classifier: TF vs target-only from SV5-7 L0 coords",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "LogisticRegression (C=1.0, StandardScaler) on 3D SV5-7 coordinates at L0. 5-fold stratified CV. TF genes (n=68, appear as source in TRRUST pos edges) vs target-only genes (n=215, target but never source). 100-permutation null. Controls: SV2-4 at L0, SV5-7 at L8.",
+      "status": "tested",
+      "primary_metric": "AUROC (5-fold CV)",
+      "result_value": "0.694 ± 0.017 (null: 0.494 ± 0.051, p=0.000)",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0054/h01_lr_tf_target_sv57.json",
+        "iterations/iter_0054/iter54_summary.json"
+      ],
+      "decision": "promising",
+      "next_action": "Test across seeds (cycle4_immune_seed43/44) for cross-seed replication. Also test with more SV axes (full SV1-7) to check if additional axes improve AUROC.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0053_H02",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "BFS hierarchy depth vs SV5-7 dominant axis (L0)",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "Build directed graph from 589 positive TRRUST pairs (nonzero genes). BFS from 33 master TFs (in-degree=0). Spearman correlation: BFS depth vs SV5-7 coordinates at L0 and L8. n=283 nodes with assigned depth (depth 0-3).",
+      "status": "tested",
+      "primary_metric": "Spearman rho (depth vs SV axis)",
+      "result_value": "SV5 rho=0.167 p=0.0048, SV7 rho=0.169 p=0.0044 at L0; L8 all p>0.18",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0054/h02_bfs_depth_sv57_corr.csv",
+        "iterations/iter_0054/iter54_summary.json"
+      ],
+      "decision": "neutral",
+      "next_action": "Use partial Spearman controlling for TF/target role to isolate depth effect. Also test on larger graph if more TRRUST pairs available.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0053_H02",
+      "retired": false
+    },
+    {
+      "id": "H03",
+      "name": "Layer-resolved TF->target directionality trajectory (all 12 layers, SV5-7)",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "At each of 12 layers: SVD of centered nonzero embeddings [2039,512], project to SV5-7. For 589 positive pairs, compute displacement vector (target - source). Combined magnitude of mean displacement and Cohen's d per axis. No null needed (t-test against 0).",
+      "status": "tested",
+      "primary_metric": "Combined displacement magnitude across layers",
+      "result_value": "L0=0.00568 -> L9=0.01997 (3.5x increase); peak at L9; all 12 layers p<0.05 on at least one axis",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0054/h03_layer_directionality_sv57.csv",
+        "iterations/iter_0054/iter54_summary.json"
+      ],
+      "decision": "promising",
+      "next_action": "Cross-seed replication of trajectory (seed43/44). Test if L9 peak corresponds to specific biological function (L9 = 10th transformer block). Also compute SV2-4 directionality trajectory as comparative control.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0053_H02",
+      "retired": false
+    }
+  ]
+}

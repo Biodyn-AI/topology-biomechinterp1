@@ -1,0 +1,68 @@
+{
+  "iter": "iter_0016",
+  "H01_sv3_confidence_gradient": {
+    "spearman_rho": 0.9,
+    "spearman_p": 0.03738607346849875,
+    "quintile_mean_z": [
+      1.238,
+      1.447,
+      1.397,
+      1.906,
+      3.813
+    ]
+  },
+  "H02_axis_independence": {
+    "inter_axis_correlations": {
+      "SV2_SV3": -0.0155,
+      "SV2_SV4": 0.2128,
+      "SV3_SV4": 0.2473
+    },
+    "axis_dominant_pair_counts": {
+      "SV2": 1547,
+      "SV3": 850,
+      "SV4": 695
+    },
+    "jaccard_overlaps_summary": {
+      "SV2_vs_SV3": 0.1326,
+      "SV2_vs_SV4": 0.1717,
+      "SV3_vs_SV4": 0.1836
+    }
+  },
+  "H03_sv4_go_biology": {
+    "layer_7": {
+      "top_go": "GO:0005768",
+      "top_pval": 0.0008206912318698542,
+      "top_pole": "bottom",
+      "overlap_genes": [
+        "APP",
+        "FLT1",
+        "IL2RB",
+        "KDR",
+        "OPRM1"
+      ]
+    },
+    "layer_8": {
+      "top_go": "GO:0009615",
+      "top_pval": 0.002682175549713405,
+      "top_pole": "top",
+      "overlap_genes": [
+        "CCL5",
+        "CLU",
+        "FOXP3",
+        "IFNG",
+        "ITGB8"
+      ]
+    },
+    "layer_11": {
+      "top_go": "GO:0045202",
+      "top_pval": 0.003505035469444168,
+      "top_pole": "top",
+      "overlap_genes": [
+        "ALDH1A1",
+        "APP",
+        "CLU",
+        "EGR3"
+      ]
+    }
+  }
+}

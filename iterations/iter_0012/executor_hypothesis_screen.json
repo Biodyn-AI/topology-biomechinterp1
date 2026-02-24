@@ -1,0 +1,65 @@
+{
+  "iteration": "iter_0012",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "Bootstrap CI on activation vs repression co-pole differential",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "Bootstrap resample (N=2000) TRRUST activation (116) and repression (64) pairs separately at each of 12 layers. Compute 95% CI on obs_act - obs_rep co-pole rate. Report CI coverage of zero and one-sided p-value.",
+      "novelty_type": "refinement",
+      "lineage": "H01_iter_0011",
+      "status": "tested",
+      "primary_metric": "n_layers_ci_excludes_zero",
+      "result_value": "0/12 layers 95% CI excludes zero; 0/12 layers p<0.05; obs_diff range 0.005-0.062",
+      "result_direction": "negative",
+      "artifact_paths": [
+        "iterations/iter_0012/h01_bootstrap_act_rep_diff.json",
+        "iterations/iter_0012/iter0012_results.json"
+      ],
+      "decision": "negative",
+      "next_action": "Retire act-vs-rep CI test as a standalone claim. The per-edge-type empirical p-values from iter_0011 (act significant 12/12, rep significant 1/12) remain valid but the bootstrap CI on the differential is inconclusive due to small sample size (n_rep=64). Focus on alternative evidence for signed geometry.",
+      "retired": false,
+      "retirement_reason": "null"
+    },
+    {
+      "id": "H02",
+      "name": "Mean pairwise SV2 distance — spatial concentration test (activation vs repression)",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "For each of 12 layers: compute SV2 projections for 209 named genes. Compute mean absolute SV2 distance for TRRUST activation (116) and repression (64) pairs. Null: N=500 gene-label shuffles. Empirical p: fraction null <= obs.",
+      "novelty_type": "new_method",
+      "lineage": "H01_iter_0011",
+      "status": "tested",
+      "primary_metric": "n_layers_act_concentrated_p05",
+      "result_value": "act concentrated (lower distance) at 10/12 layers p<0.05; rep concentrated at 6/12 layers p<0.05; act_dist < rep_dist at only 4/12 layers",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0012/h02_sv2_pairwise_dist.json",
+        "iterations/iter_0012/iter0012_results.json"
+      ],
+      "decision": "promising",
+      "next_action": "TRRUST activation pairs are significantly more spatially concentrated in SV2 than random at 10/12 layers. This is independent evidence of regulatory geometry beyond pole membership. Follow up: test whether act pairs are more concentrated than rep pairs using direct paired comparison."
+    },
+    {
+      "id": "H03",
+      "name": "STRING PPI co-pole enrichment across 12 layers",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "Download STRING v12.0 PPI for 209 named genes via API. Filter to score>=0.7 (high-confidence): 1022 unique pairs. Run co-pole enrichment test (top-K=52 / bottom-K=52 SV2 poles, N=500 gene-label shuffles) at each of 12 layers.",
+      "novelty_type": "new_method",
+      "lineage": "H01_iter_0011",
+      "status": "tested",
+      "primary_metric": "n_layers_significant_emp_p05",
+      "result_value": "12/12 layers significant (emp_p<0.05); z-scores range 3.26-6.52; obs co-pole 0.198-0.266 vs null mean 0.121-0.123",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0012/h03_ppi_copole.json",
+        "iterations/iter_0012/string_ppi_named_genes.json",
+        "iterations/iter_0012/iter0012_results.json"
+      ],
+      "decision": "promising",
+      "next_action": "STRING PPI co-pole signal is extremely strong (z=3.3-6.5, 12/12 layers). This provides cross-graph-type convergent validation: physical protein-protein interactions are geometrically co-localized in SV2 space, independent of transcriptional regulation. Next: test STRING PPI co-pole on SV1 and SV3 to see if the effect is SV2-specific."
+    }
+  ]
+}

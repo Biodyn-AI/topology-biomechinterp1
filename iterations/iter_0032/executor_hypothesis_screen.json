@@ -1,0 +1,62 @@
+{
+  "iteration": "iter_0032",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "Community Detection at L11 → Biological Annotation",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "Greedy modularity community detection (networkx) on k=10 kNN graph of 195 in-vocab genes at L11. Map communities to curated gene families (AP1, HLA-I/II, BCL2fam, TNFSF, IL2_pathway, RUNX, KLF) and cell-type markers (T-cell, B-cell, NK, monocyte) using Fisher's exact test (one-sided). Null: 100 random community labelings of same sizes.",
+      "status": "tested",
+      "primary_metric": "modularity z-score vs null; Fisher p-value for enrichment",
+      "result_value": "modularity=0.4342, z=34.12 vs null (0.434 vs -0.001±0.013); 2 communities (sizes 107, 88); B-cell markers: 3/3 in comm 1, OR=inf, p=0.090; IL2_pathway: 3/3 in comm 0, OR=inf, p=0.163; T-cell: 4/5 in comm 0, OR=3.38, p=0.251",
+      "result_direction": "mixed",
+      "artifact_paths": [
+        "iterations/iter_0032/h01_community_detection_l11.json"
+      ],
+      "decision": "promising",
+      "next_action": "The 2-community split is geometrically very robust (z=34). Biological enrichments are marginal (p 0.09-0.25). Test what DOES drive the 2-community split: compute differential expression of PC1 between communities, or check if community membership predicts known functional annotations (cytokines vs receptors, secreted vs membrane). Also test with k=5/20 to verify robustness.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0031_H01",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "Dorothea Regulatory Pairs → Embedding Distance Decay Across Layers (195 in-vocab)",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "Load Dorothea high-confidence (A/B, n=205) and low-confidence (C/D/E, n=693) TF-target pairs filtered to 195 in-vocab genes. Compare L2 embedding distance to 5000 random gene pairs. AUROC per layer (TF-target closer than random). Spearman rho(layer, AUROC).",
+      "status": "tested",
+      "primary_metric": "Spearman rho(layer, AUROC_high_conf)",
+      "result_value": "High-conf AUROC: L0=0.564, L1=0.566, L2=0.571, ..., L11=0.505; rho=-0.853 (p=0.0004). Low-conf: AUROC~0.50 throughout, rho=0.175 (p=0.587). Regulatory geometry is early-layer signal.",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0032/h02_dorothea_dist_195invocab.json"
+      ],
+      "decision": "promising",
+      "next_action": "KEY FINDING: regulatory proximity decays with layer depth on OOV-corrected gene set (rho=-0.85 vs iter_0024 full-gene result which showed stable AUROC ~0.67 across layers). This dissociation — early layers preserve regulatory geometry, late layers fragment it — aligns with PR collapse in iter_0031. Validate on cross-validation splits. Also test whether activation vs repression pairs have different decay profiles.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0024_H01",
+      "retired": false
+    },
+    {
+      "id": "H03",
+      "name": "PC1 at L11 Separates TFs from B-cell Markers (Biological PC1 Polarity)",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "Project 195 in-vocab genes onto PC1 at L0, L5, L11. Mann-Whitney AUROC for TFs (n=13) vs non-TF (n=182), T-cell markers (n=5), B-cell markers (n=3), monocyte markers (n=0). Two-sided test; report AUROC and p-value. Compare L0 vs L11 as early/late control.",
+      "status": "tested",
+      "primary_metric": "B-cell AUROC (inverse, i.e. B-cells at negative PC1 pole) at L5",
+      "result_value": "L5: B-cell AUROC=0.161 (p=0.041, significant); L0=0.219 (p=0.099); L11=0.215 (p=0.095). TF AUROC: L0=0.640(p=0.093), L5=0.633(p=0.111), L11=0.655(p=0.062). PC1 variance: L0=8%, L5=11%, L11=26%.",
+      "result_direction": "mixed",
+      "artifact_paths": [
+        "iterations/iter_0032/h03_pc1_biological_partitions.json"
+      ],
+      "decision": "inconclusive",
+      "next_action": "B-cell markers consistently on negative PC1 pole (AUROC<0.5 at all layers, significant at L5). TFs trend toward positive PC1 pole (p=0.062 at L11). Only 3 B-cell markers in vocab limits power. Expand: get all genes in B-cell programs (IGHV, CD27, MZB1, JCHAIN etc.) from the full vocab (not just 195 named genes). Also test PC2 for complementary separation.",
+      "novelty_type": "refinement",
+      "lineage": "iter_0031_H03",
+      "retired": false
+    }
+  ]
+}

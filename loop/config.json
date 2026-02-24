@@ -1,0 +1,8 @@
+{
+  "project_root": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_40_topology_hypothesis_screening_autoloop",
+  "executor_prompt_file": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_40_topology_hypothesis_screening_autoloop/prompts/executor_prompt_topology_hypothesis_screening.md",
+  "brainstormer_prompt_template_file": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_40_topology_hypothesis_screening_autoloop/prompts/brainstormer_prompt_template.md",
+  "brainstormer_reference_root": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_38_geometric_residual_stream_interpretability",
+  "executor_workdir": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_40_topology_hypothesis_screening_autoloop",
+  "codex_bin": "/opt/homebrew/bin/codex"
+}

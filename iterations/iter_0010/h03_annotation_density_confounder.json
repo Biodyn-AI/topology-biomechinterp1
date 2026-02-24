@@ -1,0 +1,92 @@
+{
+  "SV2_mitochondrion": {
+    "spearman_r": NaN,
+    "p": NaN,
+    "n": 12
+  },
+  "SV2_ER_lumen": {
+    "spearman_r": NaN,
+    "p": NaN,
+    "n": 12
+  },
+  "SV2_extracellular_vesicle": {
+    "spearman_r": NaN,
+    "p": NaN,
+    "n": 12
+  },
+  "SV2_cytoskeleton": {
+    "spearman_r": NaN,
+    "p": NaN,
+    "n": 12
+  },
+  "SV2_plasma_membrane": {
+    "spearman_r": NaN,
+    "p": NaN,
+    "n": 12
+  },
+  "SV2_nucleus": {
+    "spearman_r": NaN,
+    "p": NaN,
+    "n": 12
+  },
+  "SV2_secreted": {
+    "spearman_r": NaN,
+    "p": NaN,
+    "n": 12
+  },
+  "SV2_cytoplasm": {
+    "spearman_r": NaN,
+    "p": NaN,
+    "n": 12
+  },
+  "SV2_lysosome": {
+    "spearman_r": NaN,
+    "p": NaN,
+    "n": 12
+  },
+  "SV3_mitochondrion": {
+    "spearman_r": NaN,
+    "p": NaN,
+    "n": 12
+  },
+  "SV3_ER_lumen": {
+    "spearman_r": NaN,
+    "p": NaN,
+    "n": 12
+  },
+  "SV3_extracellular_vesicle": {
+    "spearman_r": NaN,
+    "p": NaN,
+    "n": 12
+  },
+  "SV3_cytoskeleton": {
+    "spearman_r": NaN,
+    "p": NaN,
+    "n": 12
+  },
+  "SV3_plasma_membrane": {
+    "spearman_r": NaN,
+    "p": NaN,
+    "n": 12
+  },
+  "SV3_nucleus": {
+    "spearman_r": NaN,
+    "p": NaN,
+    "n": 12
+  },
+  "SV3_secreted": {
+    "spearman_r": NaN,
+    "p": NaN,
+    "n": 12
+  },
+  "SV3_cytoplasm": {
+    "spearman_r": NaN,
+    "p": NaN,
+    "n": 12
+  },
+  "SV3_lysosome": {
+    "spearman_r": NaN,
+    "p": NaN,
+    "n": 12
+  }
+}

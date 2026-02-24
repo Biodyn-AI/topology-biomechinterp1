@@ -1,0 +1,138 @@
+{
+  "hypothesis": "H02_GO_BP_proximity",
+  "n_genes_with_go_bp": 209,
+  "n_genes_with_nonempty_go": 209,
+  "n_go_pairs_total": 20000,
+  "n_go_pairs_positive_jaccard": 8425,
+  "n_go_pairs_zero_jaccard": 11575,
+  "median_positive_jaccard": 0.03225806451612903,
+  "per_layer": [
+    {
+      "layer": 0,
+      "spearman_rho_all": -0.06346236996075315,
+      "spearman_p_all": 2.624561346148558e-19,
+      "spearman_rho_positive": -0.03609867204444005,
+      "spearman_p_positive": 0.0009196951406262402,
+      "auroc_high_vs_zero_jaccard": 0.5454500868829255,
+      "mw_p_high_vs_zero": 6.46530403779698e-19,
+      "effect_high_vs_zero": -0.01611030101776123
+    },
+    {
+      "layer": 1,
+      "spearman_rho_all": -0.06559310489181387,
+      "spearman_p_all": 1.6066807054949877e-20,
+      "spearman_rho_positive": -0.04160839260415531,
+      "spearman_p_positive": 0.0001333270737145199,
+      "auroc_high_vs_zero_jaccard": 0.5479829274167769,
+      "mw_p_high_vs_zero": 7.190307749940587e-21,
+      "effect_high_vs_zero": -0.020029425621032715
+    },
+    {
+      "layer": 2,
+      "spearman_rho_all": -0.06532368668245865,
+      "spearman_p_all": 2.2988095731997675e-20,
+      "spearman_rho_positive": -0.049007127930409206,
+      "spearman_p_positive": 6.785987158891088e-06,
+      "auroc_high_vs_zero_jaccard": 0.5485754179646923,
+      "mw_p_high_vs_zero": 2.3770038677396923e-21,
+      "effect_high_vs_zero": -0.022202670574188232
+    },
+    {
+      "layer": 3,
+      "spearman_rho_all": -0.06858488107750095,
+      "spearman_p_all": 2.7281377734398977e-22,
+      "spearman_rho_positive": -0.05296094117087455,
+      "spearman_p_positive": 1.1511814323589292e-06,
+      "auroc_high_vs_zero_jaccard": 0.5508160329170393,
+      "mw_p_high_vs_zero": 3.59213779667164e-23,
+      "effect_high_vs_zero": -0.02408897876739502
+    },
+    {
+      "layer": 4,
+      "spearman_rho_all": -0.07593585360171354,
+      "spearman_p_all": 5.6864005030572116e-27,
+      "spearman_rho_positive": -0.06078308421495467,
+      "spearman_p_positive": 2.3575228143727476e-08,
+      "auroc_high_vs_zero_jaccard": 0.5563337677900428,
+      "mw_p_high_vs_zero": 4.806415174350741e-28,
+      "effect_high_vs_zero": -0.02801758050918579
+    },
+    {
+      "layer": 5,
+      "spearman_rho_all": -0.08624763604583252,
+      "spearman_p_all": 2.45281382718089e-34,
+      "spearman_rho_positive": -0.06551116671060907,
+      "spearman_p_positive": 1.758240661122211e-09,
+      "auroc_high_vs_zero_jaccard": 0.5630916484829449,
+      "mw_p_high_vs_zero": 1.1506407525989006e-34,
+      "effect_high_vs_zero": -0.030385613441467285
+    },
+    {
+      "layer": 6,
+      "spearman_rho_all": -0.08678277808183382,
+      "spearman_p_all": 9.59140353668985e-35,
+      "spearman_rho_positive": -0.08373330326648194,
+      "spearman_p_positive": 1.3812983796681864e-14,
+      "auroc_high_vs_zero_jaccard": 0.5650088397884915,
+      "mw_p_high_vs_zero": 1.1022209965354611e-36,
+      "effect_high_vs_zero": -0.032474517822265625
+    },
+    {
+      "layer": 7,
+      "spearman_rho_all": -0.09023010095547415,
+      "spearman_p_all": 1.9694959875338114e-37,
+      "spearman_rho_positive": -0.08125296420602322,
+      "spearman_p_positive": 8.063713392382607e-14,
+      "auroc_high_vs_zero_jaccard": 0.5665182040054518,
+      "mw_p_high_vs_zero": 2.5045105355974683e-38,
+      "effect_high_vs_zero": -0.03396165370941162
+    },
+    {
+      "layer": 8,
+      "spearman_rho_all": -0.08753853508456902,
+      "spearman_p_all": 2.5216380592598566e-35,
+      "spearman_rho_positive": -0.08389157199201923,
+      "spearman_p_positive": 1.2320433224012804e-14,
+      "auroc_high_vs_zero_jaccard": 0.5647587199804469,
+      "mw_p_high_vs_zero": 2.0348816745739353e-36,
+      "effect_high_vs_zero": -0.034834086894989014
+    },
+    {
+      "layer": 9,
+      "spearman_rho_all": -0.08386632496934386,
+      "spearman_p_all": 1.491453294792054e-32,
+      "spearman_rho_positive": -0.0867245501280089,
+      "spearman_p_positive": 1.5349373473116969e-15,
+      "auroc_high_vs_zero_jaccard": 0.5632230661668647,
+      "mw_p_high_vs_zero": 8.352353479209355e-35,
+      "effect_high_vs_zero": -0.03707876801490784
+    },
+    {
+      "layer": 10,
+      "spearman_rho_all": -0.07827092402078378,
+      "spearman_p_all": 1.4752839668637693e-28,
+      "spearman_rho_positive": -0.09032916387644524,
+      "spearman_p_positive": 9.825928993234795e-17,
+      "auroc_high_vs_zero_jaccard": 0.5599289988996344,
+      "mw_p_high_vs_zero": 1.7371828626590907e-31,
+      "effect_high_vs_zero": -0.039128899574279785
+    },
+    {
+      "layer": 11,
+      "spearman_rho_all": -0.07371835208845862,
+      "spearman_p_all": 1.647036172491793e-25,
+      "spearman_rho_positive": -0.09456062556144346,
+      "spearman_p_positive": 3.386245200985071e-18,
+      "auroc_high_vs_zero_jaccard": 0.5572291290346527,
+      "mw_p_high_vs_zero": 7.0953771718973e-29,
+      "effect_high_vs_zero": -0.04016217589378357
+    }
+  ],
+  "summary": {
+    "spearman_rho_all_mean": -0.07712954562171132,
+    "auroc_high_vs_zero_mean": 0.5574097366108303,
+    "n_layers_spearman_sig": 12,
+    "n_layers_auroc_sig": 12,
+    "direction": "positive"
+  }
+}

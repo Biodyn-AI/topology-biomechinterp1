@@ -1,0 +1,39 @@
+{
+  "axes": [
+    "SV2",
+    "SV3",
+    "SV4"
+  ],
+  "K": 52,
+  "n_pairs": 3092,
+  "jaccard_overlaps": {
+    "SV2_vs_SV3": {
+      "top_top_mean_jaccard": 0.1326,
+      "bot_bot_mean_jaccard": 0.1578,
+      "top_bot_mean_jaccard": 0.1838,
+      "bot_top_mean_jaccard": 0.1218
+    },
+    "SV2_vs_SV4": {
+      "top_top_mean_jaccard": 0.1717,
+      "bot_bot_mean_jaccard": 0.1574,
+      "top_bot_mean_jaccard": 0.1843,
+      "bot_top_mean_jaccard": 0.1567
+    },
+    "SV3_vs_SV4": {
+      "top_top_mean_jaccard": 0.1836,
+      "bot_bot_mean_jaccard": 0.1414,
+      "top_bot_mean_jaccard": 0.1376,
+      "bot_top_mean_jaccard": 0.166
+    }
+  },
+  "axis_dominant_pair_counts": {
+    "SV2": 1547,
+    "SV3": 850,
+    "SV4": 695
+  },
+  "inter_axis_copole_rate_correlations": {
+    "SV2_SV3": -0.0155,
+    "SV2_SV4": 0.2128,
+    "SV3_SV4": 0.2473
+  }
+}

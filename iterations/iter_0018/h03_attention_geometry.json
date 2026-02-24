@@ -1,0 +1,33 @@
+{
+  "hypothesis": "H03_attention_copresence_geometry",
+  "description": "scGPT aggregated attention scores (8181x8181 from lung processed.h5ad). STRING/TRRUST pairs vs non-STRING background within 209-gene universe. Also STRING confidence quintile gradient on attention.",
+  "n_valid_named_genes": 208,
+  "n_string_att_pairs": 3091,
+  "n_trrust_att_pairs": 116,
+  "n_non_string_bg": 18437,
+  "string_mean_att": 0.010190906830830123,
+  "null_mean_att": 0.008893257235328276,
+  "null_std_att": 0.019662792054890788,
+  "z_score_string": 0.0659951848079011,
+  "mw_p_string": 0.09111932832115394,
+  "z_score_trrust": 0.4438306255721635,
+  "mw_p_trrust": 9.876805520286933e-09,
+  "quintile_means": [
+    0.010215336646612226,
+    0.010487857226298936,
+    0.008255598319334229,
+    0.007888327198485229,
+    0.014104846914495178
+  ],
+  "quintile_edges": [
+    0.4,
+    0.459,
+    0.533,
+    0.64,
+    0.796,
+    0.999
+  ],
+  "quintile_gradient_spearman_rho": 0.09999999999999999,
+  "quintile_gradient_spearman_p": 0.8728885715695383,
+  "conclusion": "inconclusive"
+}

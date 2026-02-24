@@ -1,0 +1,65 @@
+{
+  "iteration": "iter_0043",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "GC repression circuit PRDM1/IRF4 anti-convergence test",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "Compute Spearman rho of distance-to-B-cell-centroid vs layer for {PAX5, BATF, BACH2, BCL6, PRDM1} (IRF4 not in vocab). Prediction: activators converge (rho<0), repressors diverge (rho>0). Null: 20 random genes. Full pairwise distance matrix at L0,L3,L6,L11.",
+      "status": "tested",
+      "primary_metric": "Spearman rho of PRDM1 distance trajectory",
+      "result_value": "PRDM1 rho=-1.000; BATF rho=-1.000; BACH2 rho=-1.000; BCL6 rho=-0.993; PAX5 rho=-1.000. BACH2-PRDM1 L11 distance=3.940 (tightest pair). Null rho mean=0.275±0.931.",
+      "result_direction": "negative",
+      "artifact_paths": [
+        "iterations/iter_0043/h01_gc_repression_circuit.json"
+      ],
+      "decision": "negative",
+      "next_action": "Anti-convergence hypothesis retired. GC circuit unity (all converge) is the dominant finding — test if other immune circuits (e.g., T-cell activation: CD28, CTLA4, LAT) also show uniform convergence or if divergence is lineage-specific.",
+      "novelty_type": "new_method",
+      "lineage": "H03_iter0042",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H02",
+      "name": "BCL6 divergence from B-cell centroid",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "Track BCL6 Euclidean distance and rank to B-cell centroid (MS4A1, CD79A, BLK, PAX5) across L0-L11. Compute rho. Null: 20 random non-B-cell genes. Check for rank anomaly indicating transient divergence.",
+      "status": "tested",
+      "primary_metric": "BCL6 Spearman rho (distance vs layer)",
+      "result_value": "BCL6 rho=-0.993 (p=0.0000). Rank anomaly: L0=654, L2=1311, L11=927. Null mean=0.081±0.969.",
+      "result_direction": "negative",
+      "artifact_paths": [
+        "iterations/iter_0043/h02_bcl6_divergence.json"
+      ],
+      "decision": "negative",
+      "next_action": "BCL6 divergence hypothesis retired. BCL6 rank anomaly at L2 (rank increases to 1311) is a secondary finding — could test if this L2 dip correlates with the metabolic cluster density peak (iter_0042: overlap 9/20 at L0-L4). Consider cross-layer correlation of BCL6 rank vs BCL6 metabolic cluster size.",
+      "novelty_type": "new_method",
+      "lineage": "H02_iter0042",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H03",
+      "name": "T-cell subtype ID stratification at L7 breakpoint",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "TwoNN intrinsic dimensionality at each layer for effector CD8 (n=5/5 in vocab), general T-cell (n=4/4), Treg (n=2/4), exhaustion (n=1/4), TFH (n=2/5). Compare pre-L7 vs post-L7 mean ID for subtypes with >=3 genes in vocab.",
+      "status": "tested",
+      "primary_metric": "delta ID at L7 breakpoint (effector CD8 vs general T-cell)",
+      "result_value": "effector_cd8: pre-L7=139.3, post-L7=93.5, delta=-45.8. general_t: pre-L7=96.8, post-L7=123.0, delta=+26.2. Dissociation = 72 units.",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0043/h03_tcell_subtype_id.json"
+      ],
+      "decision": "promising",
+      "next_action": "Extend to NK cells (NCAM1, KLRD1, FCGR3A) and gamma-delta T cells if in vocab. Test whether effector CD8 compression monotone or has a layer-specific breakpoint. Compare against naive T-cell markers (CCR7, LEF1, TCF7) if in vocab — prediction: naive T-cell expands like general_t, effector compresses.",
+      "novelty_type": "new_method",
+      "lineage": "H01_iter0042",
+      "retired": false,
+      "retirement_reason": ""
+    }
+  ]
+}

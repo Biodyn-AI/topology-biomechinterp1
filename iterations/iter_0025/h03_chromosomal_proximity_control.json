@@ -1,0 +1,120 @@
+{
+  "hypothesis": "H03_chromosomal_proximity_negative_control",
+  "n_genes_with_chrom": 209,
+  "n_same_chr_pairs": 1212,
+  "n_diff_chr_pairs": 20524,
+  "layer8_auroc_diff_gt_same": 0.5149941781110483,
+  "n_layers_significant": 9,
+  "per_layer": [
+    {
+      "layer": 0,
+      "auroc_diff_gt_same": 0.5188061445249963,
+      "mw_p": 0.013769105911148221,
+      "mean_same_chr": 17.332456588745117,
+      "mean_diff_chr": 17.489078521728516,
+      "n_same": 1212,
+      "n_diff": 20524
+    },
+    {
+      "layer": 1,
+      "auroc_diff_gt_same": 0.5224206644012677,
+      "mw_p": 0.004302363665021841,
+      "mean_same_chr": 15.42016315460205,
+      "mean_diff_chr": 15.612009048461914,
+      "n_same": 1212,
+      "n_diff": 20524
+    },
+    {
+      "layer": 2,
+      "auroc_diff_gt_same": 0.5265190016614213,
+      "mw_p": 0.000942947908559505,
+      "mean_same_chr": 14.628107070922852,
+      "mean_diff_chr": 14.852762222290039,
+      "n_same": 1212,
+      "n_diff": 20524
+    },
+    {
+      "layer": 3,
+      "auroc_diff_gt_same": 0.52211178107189,
+      "mw_p": 0.004782440103618906,
+      "mean_same_chr": 14.573956489562988,
+      "mean_diff_chr": 14.781219482421875,
+      "n_same": 1212,
+      "n_diff": 20524
+    },
+    {
+      "layer": 4,
+      "auroc_diff_gt_same": 0.521371321379848,
+      "mw_p": 0.00613289294786093,
+      "mean_same_chr": 13.78909969329834,
+      "mean_diff_chr": 14.008917808532715,
+      "n_same": 1212,
+      "n_diff": 20524
+    },
+    {
+      "layer": 5,
+      "auroc_diff_gt_same": 0.5205305002338082,
+      "mw_p": 0.008066955135228204,
+      "mean_same_chr": 13.363590240478516,
+      "mean_diff_chr": 13.589452743530273,
+      "n_same": 1212,
+      "n_diff": 20524
+    },
+    {
+      "layer": 6,
+      "auroc_diff_gt_same": 0.5218055710998891,
+      "mw_p": 0.005304940621577168,
+      "mean_same_chr": 13.163018226623535,
+      "mean_diff_chr": 13.408975601196289,
+      "n_same": 1212,
+      "n_diff": 20524
+    },
+    {
+      "layer": 7,
+      "auroc_diff_gt_same": 0.5167167448814654,
+      "mw_p": 0.025058983975980362,
+      "mean_same_chr": 12.950322151184082,
+      "mean_diff_chr": 13.184623718261719,
+      "n_same": 1212,
+      "n_diff": 20524
+    },
+    {
+      "layer": 8,
+      "auroc_diff_gt_same": 0.5149941781110483,
+      "mw_p": 0.039450713708474534,
+      "mean_same_chr": 12.802820205688477,
+      "mean_diff_chr": 13.051779747009277,
+      "n_same": 1212,
+      "n_diff": 20524
+    },
+    {
+      "layer": 9,
+      "auroc_diff_gt_same": 0.5132260637630709,
+      "mw_p": 0.060582884170219065,
+      "mean_same_chr": 11.7357177734375,
+      "mean_diff_chr": 12.004768371582031,
+      "n_same": 1212,
+      "n_diff": 20524
+    },
+    {
+      "layer": 10,
+      "auroc_diff_gt_same": 0.5109639009116269,
+      "mw_p": 0.09942994668256627,
+      "mean_same_chr": 10.218034744262695,
+      "mean_diff_chr": 10.510104179382324,
+      "n_same": 1212,
+      "n_diff": 20524
+    },
+    {
+      "layer": 11,
+      "auroc_diff_gt_same": 0.5111232571317939,
+      "mw_p": 0.09620533830252648,
+      "mean_same_chr": 8.251691818237305,
+      "mean_diff_chr": 8.527534484863281,
+      "n_same": 1212,
+      "n_diff": 20524
+    }
+  ],
+  "interpretation": "NULL: chromosomal co-location does NOT predict embedding proximity (positive control for specificity)",
+  "summary_direction": "negative"
+}

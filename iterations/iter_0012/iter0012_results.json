@@ -1,0 +1,34 @@
+{
+  "iteration": "iter_0012",
+  "hypotheses": {
+    "H01": {
+      "name": "Bootstrap CI on activation vs repression co-pole differential",
+      "n_layers_ci_excludes_zero": 0,
+      "n_layers_p_lt_05": 0,
+      "n_boot": 2000,
+      "artifact": "h01_bootstrap_act_rep_diff.json"
+    },
+    "H02": {
+      "name": "Mean pairwise SV2 distance \u2014 spatial concentration test",
+      "n_act_significant_concentrated": 10,
+      "n_rep_significant_concentrated": 6,
+      "n_act_more_concentrated_than_rep": 4,
+      "n_shuffle": 500,
+      "artifact": "h02_sv2_pairwise_dist.json"
+    },
+    "H03": {
+      "name": "STRING/proxy PPI co-pole enrichment",
+      "meta": {
+        "fallback": false,
+        "edge_type": "STRING_v12_score_ge0.7",
+        "n_pairs": 1022,
+        "score_threshold": 0.7,
+        "skipped": false,
+        "skip_reason": "fewer than 5 pairs",
+        "n_layers_significant": 12
+      },
+      "n_layers_significant": 12,
+      "artifact": "h03_ppi_copole.json"
+    }
+  }
+}

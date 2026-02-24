@@ -1,0 +1,174 @@
+{
+  "hypothesis": "H01_immune_family_AUROC",
+  "n_families": 9,
+  "family_names": [
+    "AP1",
+    "RUNX",
+    "KLF",
+    "BCL2fam",
+    "HLA_I",
+    "HLA_II",
+    "CCL",
+    "TNFSF",
+    "IL2_path"
+  ],
+  "n_within": 40,
+  "n_cross": 40,
+  "per_layer": [
+    {
+      "layer": 0,
+      "AUROC": 0.744375,
+      "within_mean": 14.182195663452148,
+      "cross_mean": 16.82210922241211,
+      "effect_size": 1.426203966140747
+    },
+    {
+      "layer": 1,
+      "AUROC": 0.743125,
+      "within_mean": 12.439457893371582,
+      "cross_mean": 14.863848686218262,
+      "effect_size": 1.1332348585128784
+    },
+    {
+      "layer": 2,
+      "AUROC": 0.744375,
+      "within_mean": 11.710882186889648,
+      "cross_mean": 14.032750129699707,
+      "effect_size": 1.0104641914367676
+    },
+    {
+      "layer": 3,
+      "AUROC": 0.729375,
+      "within_mean": 11.587756156921387,
+      "cross_mean": 13.918253898620605,
+      "effect_size": 0.9478811621665955
+    },
+    {
+      "layer": 4,
+      "AUROC": 0.73875,
+      "within_mean": 10.645466804504395,
+      "cross_mean": 12.94972038269043,
+      "effect_size": 0.8423349857330322
+    },
+    {
+      "layer": 5,
+      "AUROC": 0.74375,
+      "within_mean": 10.184597969055176,
+      "cross_mean": 12.469836235046387,
+      "effect_size": 0.8036916255950928
+    },
+    {
+      "layer": 6,
+      "AUROC": 0.74125,
+      "within_mean": 9.912274360656738,
+      "cross_mean": 12.200626373291016,
+      "effect_size": 0.7530277371406555
+    },
+    {
+      "layer": 7,
+      "AUROC": 0.7475,
+      "within_mean": 9.63001823425293,
+      "cross_mean": 11.959614753723145,
+      "effect_size": 0.7248919010162354
+    },
+    {
+      "layer": 8,
+      "AUROC": 0.75375,
+      "within_mean": 9.298057556152344,
+      "cross_mean": 11.727747917175293,
+      "effect_size": 0.6969162225723267
+    },
+    {
+      "layer": 9,
+      "AUROC": 0.740625,
+      "within_mean": 8.252272605895996,
+      "cross_mean": 10.437950134277344,
+      "effect_size": 0.5486378073692322
+    },
+    {
+      "layer": 10,
+      "AUROC": 0.716875,
+      "within_mean": 6.73898458480835,
+      "cross_mean": 8.586504936218262,
+      "effect_size": 0.39231327176094055
+    },
+    {
+      "layer": 11,
+      "AUROC": 0.69375,
+      "within_mean": 5.251626014709473,
+      "cross_mean": 6.687507629394531,
+      "effect_size": 0.31864234805107117
+    }
+  ],
+  "best_layer": 8,
+  "per_family_best_layer": {
+    "AP1": {
+      "AUROC": 0.9691358024691358,
+      "within_mean": 7.11279821395874,
+      "cross_mean": 10.921967506408691,
+      "n_within": 6,
+      "n_cross": 108
+    },
+    "RUNX": {
+      "AUROC": 0.9246031746031746,
+      "within_mean": 8.663189888000488,
+      "cross_mean": 10.923904418945312,
+      "n_within": 3,
+      "n_cross": 84
+    },
+    "KLF": {
+      "AUROC": 0.30952380952380953,
+      "within_mean": 18.536672592163086,
+      "cross_mean": 14.265979766845703,
+      "n_within": 3,
+      "n_cross": 84
+    },
+    "BCL2fam": {
+      "AUROC": 0.5370370370370371,
+      "within_mean": 10.589797973632812,
+      "cross_mean": 11.111224174499512,
+      "n_within": 6,
+      "n_cross": 108
+    },
+    "HLA_I": {
+      "AUROC": 1.0,
+      "within_mean": 3.82342529296875,
+      "cross_mean": 11.38355541229248,
+      "n_within": 3,
+      "n_cross": 84
+    },
+    "HLA_II": {
+      "AUROC": 0.8238461538461539,
+      "within_mean": 8.095659255981445,
+      "cross_mean": 11.230838775634766,
+      "n_within": 10,
+      "n_cross": 130
+    },
+    "CCL": {
+      "AUROC": 0.6071428571428571,
+      "within_mean": 9.68798542022705,
+      "cross_mean": 10.825396537780762,
+      "n_within": 3,
+      "n_cross": 84
+    },
+    "TNFSF": {
+      "AUROC": 0.4801587301587302,
+      "within_mean": 11.426629066467285,
+      "cross_mean": 11.64734172821045,
+      "n_within": 3,
+      "n_cross": 84
+    },
+    "IL2_path": {
+      "AUROC": 0.8690476190476191,
+      "within_mean": 9.445480346679688,
+      "cross_mean": 11.73226261138916,
+      "n_within": 3,
+      "n_cross": 84
+    }
+  },
+  "peak_AUROC": 0.75375,
+  "spearman_auroc_vs_layer": {
+    "rho": -0.3712790282193235,
+    "p": 0.2347366906291988
+  }
+}

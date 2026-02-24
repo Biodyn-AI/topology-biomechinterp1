@@ -1,0 +1,141 @@
+{
+  "circuit_genes": [
+    "CD28",
+    "LCK",
+    "CD247"
+  ],
+  "centroid_genes": [
+    "CD3E",
+    "CD3D",
+    "TRAC",
+    "TRBC1",
+    "CD247"
+  ],
+  "layers": {
+    "0": {
+      "ranks": {
+        "CD28": 260,
+        "LCK": 7,
+        "CD247": 8
+      },
+      "mean_rank": 91.66666666666667,
+      "precision_at_20": 0.6666666666666666,
+      "n_circuit_in_top20": 2
+    },
+    "1": {
+      "ranks": {
+        "CD28": 228,
+        "LCK": 7,
+        "CD247": 8
+      },
+      "mean_rank": 81.0,
+      "precision_at_20": 0.6666666666666666,
+      "n_circuit_in_top20": 2
+    },
+    "2": {
+      "ranks": {
+        "CD28": 267,
+        "LCK": 7,
+        "CD247": 8
+      },
+      "mean_rank": 94.0,
+      "precision_at_20": 0.6666666666666666,
+      "n_circuit_in_top20": 2
+    },
+    "3": {
+      "ranks": {
+        "CD28": 213,
+        "LCK": 7,
+        "CD247": 8
+      },
+      "mean_rank": 76.0,
+      "precision_at_20": 0.6666666666666666,
+      "n_circuit_in_top20": 2
+    },
+    "4": {
+      "ranks": {
+        "CD28": 147,
+        "LCK": 7,
+        "CD247": 8
+      },
+      "mean_rank": 54.0,
+      "precision_at_20": 0.6666666666666666,
+      "n_circuit_in_top20": 2
+    },
+    "5": {
+      "ranks": {
+        "CD28": 118,
+        "LCK": 7,
+        "CD247": 8
+      },
+      "mean_rank": 44.333333333333336,
+      "precision_at_20": 0.6666666666666666,
+      "n_circuit_in_top20": 2
+    },
+    "6": {
+      "ranks": {
+        "CD28": 97,
+        "LCK": 7,
+        "CD247": 8
+      },
+      "mean_rank": 37.333333333333336,
+      "precision_at_20": 0.6666666666666666,
+      "n_circuit_in_top20": 2
+    },
+    "7": {
+      "ranks": {
+        "CD28": 141,
+        "LCK": 6,
+        "CD247": 8
+      },
+      "mean_rank": 51.666666666666664,
+      "precision_at_20": 0.6666666666666666,
+      "n_circuit_in_top20": 2
+    },
+    "8": {
+      "ranks": {
+        "CD28": 153,
+        "LCK": 6,
+        "CD247": 8
+      },
+      "mean_rank": 55.666666666666664,
+      "precision_at_20": 0.6666666666666666,
+      "n_circuit_in_top20": 2
+    },
+    "9": {
+      "ranks": {
+        "CD28": 155,
+        "LCK": 6,
+        "CD247": 8
+      },
+      "mean_rank": 56.333333333333336,
+      "precision_at_20": 0.6666666666666666,
+      "n_circuit_in_top20": 2
+    },
+    "10": {
+      "ranks": {
+        "CD28": 151,
+        "LCK": 6,
+        "CD247": 8
+      },
+      "mean_rank": 55.0,
+      "precision_at_20": 0.6666666666666666,
+      "n_circuit_in_top20": 2
+    },
+    "11": {
+      "ranks": {
+        "CD28": 110,
+        "LCK": 6,
+        "CD247": 7
+      },
+      "mean_rank": 41.0,
+      "precision_at_20": 0.6666666666666666,
+      "n_circuit_in_top20": 2
+    }
+  },
+  "rank_change_l0_to_l11": -50.66666666666667,
+  "prec_change_l0_to_l11": 0.0,
+  "null_rank_change_mean": 0.6166666666666708,
+  "null_rank_change_std": 211.09248302317374,
+  "null_pval_rank_change": 0.275
+}

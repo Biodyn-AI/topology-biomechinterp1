@@ -1,0 +1,64 @@
+{
+  "iteration": "iter_0011",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "TRRUST co-pole x 12 layers + Activation/Repression stratification",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "For each of 12 layers, SVD of 209-gene mean-centered embedding. SV2 top-K=52 / bottom-K=52 poles. Compute co-pole rate for 333 all TRRUST pairs, 116 activation pairs, 64 repression pairs. Empirical null N=500 gene-label shuffles per layer. 1-sided emp_p.",
+      "status": "tested",
+      "primary_metric": "emp_p_all (TRRUST co-pole vs null)",
+      "result_value": "All 12 layers p<0.05 (peak L4: emp_p=0.000, obs=0.234 vs null=0.130). Activation: 12/12 layers p<0.05. Repression: 1/12 layers p<0.05 (L4 only).",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0011/h01_trrust_copole_12layers.json",
+        "iterations/iter_0011/iter0011_results.json"
+      ],
+      "decision": "promising",
+      "next_action": "Test activation vs repression difference significance (e.g., bootstrap test of act_copole > rep_copole). Also test STRING PPI pairs for convergent evidence.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0010/H02",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "SV2 mito pole-flip gene tracking at L3-to-L4 transition",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "Compute SV2 raw projection sign for 14 mito genes (GO:0005739) at each of 12 layers. Track sign-flip events. Characterize flip vs stable gene sets. Check flip-gene GO annotations.",
+      "status": "tested",
+      "primary_metric": "n_flip_genes_L3_to_L4",
+      "result_value": "0 flips at L3->L4. 12/14 genes flip at L0->L1 then stable bottom-pole. 2/14 stable top. HIF3A flips at layers 0, 8, 10.",
+      "result_direction": "negative",
+      "artifact_paths": [
+        "iterations/iter_0011/h02_mito_pole_flip.json"
+      ],
+      "decision": "neutral",
+      "next_action": "Reframe: investigate HIF3A as multi-flip outlier. Examine rank-based pole assignment (not raw sign) to reconcile with iter_0010 compartment OR direction shift. Mito genes are stably bottom-pole from L1+.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0010/H01",
+      "retired": false
+    },
+    {
+      "id": "H03",
+      "name": "GO Biological Process enrichment in SV2 poles (broad functional screen)",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "591 GO terms with 3-50 named genes. For layers 7, 8, 11: SV2 poles (top-K=52, bottom-K=52). Fisher exact OR per term, best pole. Empirical null N=200 gene-label shuffles.",
+      "status": "tested",
+      "primary_metric": "n_significant_BP_terms (emp_p<0.05)",
+      "result_value": "0/591 significant terms at any of 3 layers. Top hit: GO:0007417 OR=3.1, emp_p=1.0",
+      "result_direction": "negative",
+      "artifact_paths": [
+        "iterations/iter_0011/h03_gobp_sv2_poles.json"
+      ],
+      "decision": "negative",
+      "next_action": "Retire GO BP -> SV2 enrichment. SV2 encodes CC compartments but not BP programs. Redirect to STRING PPI co-pole or multi-layer activation analysis.",
+      "novelty_type": "new_family",
+      "lineage": "none",
+      "retired": true,
+      "retirement_reason": "0/591 BP terms significant after null correction at 3 layers; direction is negative"
+    }
+  ]
+}

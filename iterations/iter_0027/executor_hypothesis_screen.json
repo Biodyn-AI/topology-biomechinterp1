@@ -1,0 +1,56 @@
+{
+  "iteration": "iter_0027",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "PC1 Biological Identity at L11",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "At L11 (67.6% variance in PC1), project 209 named genes onto PC1. Mann-Whitney AUROC for TF vs non-TF, HLA membership, AP1 family. Spearman(TRRUST hub degree, PC1). Per-layer TF AUROC on PC1.",
+      "status": "tested",
+      "primary_metric": "AUROC_TF_vs_nonTF_L11",
+      "result_value": "AUROC=0.492, p=0.86; HLA AUROC=0.433 p=0.58; AP1 AUROC=0.381 p=0.42; Hub rho=-0.051 p=0.68",
+      "result_direction": "negative",
+      "artifact_paths": ["iterations/iter_0027/h01_pc1_identity.json"],
+      "decision": "negative",
+      "next_action": "PC1 identity at L11 remains unexplained by simple binary features. Try continuous biological features (gene expression variance, RNA-seq signal strength) or focus on the JUN-top / FOS-bottom / LCK-top / HLA-bottom pattern as cell-type axis hypothesis.",
+      "novelty_type": "refinement",
+      "lineage": "H03_iter_0026",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "TRRUST Activator/Repressor Geometric Polarity",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "116 activation and 64 repression TRRUST named-gene pairs. Test Act vs Rep targets on PC1 at L11 (AUROC + MWU). Per-layer polarity AUROC. Within-TF deltas for 10 TFs with >=2 act and >=2 rep named targets. L2 distance comparison act vs rep pairs at L11.",
+      "status": "tested",
+      "primary_metric": "AUROC_polarity_PC1_L11",
+      "result_value": "AUROC=0.514, p=0.794; per-layer max=0.527 at L1; L2 dist p=0.178 (mean_act=7.64 vs mean_rep=9.04); within-TF: ETS1 delta=+10.85 but n_rep=2",
+      "result_direction": "negative",
+      "artifact_paths": ["iterations/iter_0027/h02_trrust_polarity.json"],
+      "decision": "negative",
+      "next_action": "Directional encoding not found at population level. Within-TF ETS1 delta is suggestive but requires >=5 pairs. Could revisit with STRING MOR annotations if available.",
+      "novelty_type": "new_method",
+      "lineage": "none",
+      "retired": false
+    },
+    {
+      "id": "H03",
+      "name": "Dorothea Threshold Sensitivity + PR Elbow Alignment",
+      "family": "null_sensitivity",
+      "split_regime": "other",
+      "method": "Swept 5 Dorothea confidence thresholds (0.25=D+, 0.50=C+, 0.625=B+, 0.75=B+, 1.0=A-only). AUROC vs 500 random null pairs from all 209 named genes. Compared best-AUROC layer vs PR-collapse curve (from iter_0026 H03).",
+      "status": "tested",
+      "primary_metric": "best_AUROC_per_threshold",
+      "result_value": "All thresholds: AUROC 0.444-0.451 (all < 0.5); best at L8 for C+/B+/A. Contradicts iter_0026 AUROC=0.658. Discrepancy attributed to null construction: same-gene-pool null vs population-level null.",
+      "result_direction": "negative",
+      "artifact_paths": ["iterations/iter_0027/h03_threshold_sweep.json"],
+      "decision": "negative",
+      "next_action": "Retire simple Dorothea-vs-null regulatory proximity as main evidence. Prior positive results appear null-sensitive (hub centrality confound). Can still use Dorothea for directional/confidence-tier differential tests with matched null.",
+      "novelty_type": "new_method",
+      "lineage": "H02_iter_0026",
+      "retired": false
+    }
+  ]
+}

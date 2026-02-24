@@ -1,0 +1,19 @@
+{
+  "n_pairs_total": 21736,
+  "n_pairs_with_attention": 10479,
+  "n_string_positives": 3092,
+  "n_trrust_positives": 288,
+  "n_trrust_positives_att_valid": 175,
+  "string_auroc": {
+    "attention_only": 0.48181236250404114,
+    "svd_count_only": 0.5478602779416518,
+    "magnitude_only": 0.5266309018874714,
+    "joint_att_svd": 0.5312920552155815,
+    "joint_att_mag": 0.5079144627290524
+  },
+  "trrust_auroc": {
+    "attention_only": 0.5820840727595387,
+    "svd_count_only": 0.5066312666370897,
+    "joint_att_svd": 0.5473308562555457
+  }
+}

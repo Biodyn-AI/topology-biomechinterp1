@@ -1,0 +1,96 @@
+{
+  "k_neighbors": 10,
+  "layer_results": [
+    {
+      "layer": 0,
+      "spectral_gap": 0.16137667658081814,
+      "spectral_entropy": 2.823835249838657,
+      "n_components": 2,
+      "mean_knn_degree": 15.770334928229666
+    },
+    {
+      "layer": 1,
+      "spectral_gap": 0.16836178794854287,
+      "spectral_entropy": 2.8277600271252576,
+      "n_components": 2,
+      "mean_knn_degree": 15.703349282296651
+    },
+    {
+      "layer": 2,
+      "spectral_gap": 0.15419653114195273,
+      "spectral_entropy": 2.8171657082753363,
+      "n_components": 2,
+      "mean_knn_degree": 15.569377990430622
+    },
+    {
+      "layer": 3,
+      "spectral_gap": 0.13330145924013598,
+      "spectral_entropy": 2.812640289421102,
+      "n_components": 2,
+      "mean_knn_degree": 15.186602870813397
+    },
+    {
+      "layer": 4,
+      "spectral_gap": 0.12418321629496663,
+      "spectral_entropy": 2.8110155224769264,
+      "n_components": 2,
+      "mean_knn_degree": 15.148325358851675
+    },
+    {
+      "layer": 5,
+      "spectral_gap": 0.1057358118474607,
+      "spectral_entropy": 2.802729031740783,
+      "n_components": 2,
+      "mean_knn_degree": 14.889952153110048
+    },
+    {
+      "layer": 6,
+      "spectral_gap": 0.09400506084909477,
+      "spectral_entropy": 2.8008151455827606,
+      "n_components": 2,
+      "mean_knn_degree": 14.708133971291867
+    },
+    {
+      "layer": 7,
+      "spectral_gap": 0.07311895991001528,
+      "spectral_entropy": 2.794902042736432,
+      "n_components": 2,
+      "mean_knn_degree": 14.526315789473685
+    },
+    {
+      "layer": 8,
+      "spectral_gap": 0.06622742031968384,
+      "spectral_entropy": 2.7952106274617647,
+      "n_components": 2,
+      "mean_knn_degree": 14.373205741626794
+    },
+    {
+      "layer": 9,
+      "spectral_gap": 0.05999649771444831,
+      "spectral_entropy": 2.793573013312194,
+      "n_components": 2,
+      "mean_knn_degree": 14.45933014354067
+    },
+    {
+      "layer": 10,
+      "spectral_gap": 0.04853322135097061,
+      "spectral_entropy": 2.7918520081411136,
+      "n_components": 2,
+      "mean_knn_degree": 14.555023923444976
+    },
+    {
+      "layer": 11,
+      "spectral_gap": 0.03606486940595274,
+      "spectral_entropy": 2.791118613276417,
+      "n_components": 2,
+      "mean_knn_degree": 14.631578947368421
+    }
+  ],
+  "spectral_gap_trend_rho": -0.9930069930069931,
+  "spectral_gap_trend_pval": 1.3016730560634403e-10,
+  "entropy_trend_rho": -0.9860139860139862,
+  "entropy_trend_pval": 4.1168959116543284e-09,
+  "L11_null_gap_mean": 0.03606486940595263,
+  "L11_null_gap_std": 1.5551019525801007e-16,
+  "L11_null_p": 0.19
+}

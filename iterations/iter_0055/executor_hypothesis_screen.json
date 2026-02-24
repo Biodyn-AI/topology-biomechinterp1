@@ -1,0 +1,65 @@
+{
+  "iteration": "iter_0055",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "Cross-seed replication: TF vs target-only AUROC (SV5-7, L0)",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "At L0, SVD of centered nonzero embeddings. Project to SV5-7. 5-fold stratified LR, 100-perm null. Applied to main (n_nz=2039), seed43 (n_nz=2080), seed44 (n_nz=1972). TF genes: n≈70; target-only: n≈215.",
+      "status": "tested",
+      "primary_metric": "AUROC (5-fold CV), 100-perm p-value",
+      "result_value": "main=0.708±0.045 p=0.0099; seed43=0.717±0.106 p=0.0099; seed44=0.738±0.078 p=0.0099; all vs null~0.50",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0055/h01_cross_seed_auroc.csv",
+        "iterations/iter_0055/iter55_summary.json"
+      ],
+      "decision": "promising",
+      "next_action": "Combine SV2-7 (6D) for joint classifier to test if combined subspaces give higher and layer-stable AUROC.",
+      "novelty_type": "refinement",
+      "lineage": "iter_0054_H01",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "Layer-resolved AUROC: SV5-7 vs SV2-4 across all 12 layers",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "At each of 12 layers: SVD of centered nonzero embeddings [2039,512], project to SV5-7 and SV2-4 separately. 5-fold stratified LR AUROC for TF vs target-only. SV2-4 used as same-subspace control. Main seed only.",
+      "status": "tested",
+      "primary_metric": "Per-layer AUROC (SV5-7 and SV2-4)",
+      "result_value": "SV5-7 peaks at L3=0.728; drops to L8=0.543; recovers at L9-L11 (~0.67-0.68). SV2-4 peaks at L5=0.740; drops at L9-L11 (~0.65). Complementary encoding: SV5-7 high early+late, SV2-4 high mid-depth.",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0055/h02_layer_auroc.csv",
+        "iterations/iter_0055/iter55_summary.json"
+      ],
+      "decision": "promising",
+      "next_action": "Joint SV2-7 classifier at all 12 layers. GO enrichment of top-displacement genes at L9 crossover.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0054_H01",
+      "retired": false
+    },
+    {
+      "id": "H03",
+      "name": "Directionality trajectory SV2-4 vs SV5-7 (opposite dynamics control)",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "At each of 12 layers: compute mean displacement vector (target - source) for 589 TRRUST positive pairs in SV2-4 and SV5-7 subspaces. Report displacement magnitude and Cohen's d. SV2-4 as control for SV5-7.",
+      "status": "tested",
+      "primary_metric": "Displacement magnitude per layer (SV2-4 vs SV5-7)",
+      "result_value": "SV2-4: monotone decrease L0=2.035 -> L11=0.635. SV5-7: increase L0=0.416 -> L9=1.295, then decrease to L11=0.613. Crossover at L9 (SV5-7 > SV2-4). All layers p<0.001.",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0055/h03_directionality_sv24_vs_sv57.csv",
+        "iterations/iter_0055/iter55_summary.json"
+      ],
+      "decision": "promising",
+      "next_action": "Replicate directionality trajectory on seed43/seed44. Add label-shuffle null for magnitude. GO enrichment of L9 top-moving genes.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0054_H03",
+      "retired": false
+    }
+  ]
+}

@@ -1,0 +1,241 @@
+{
+  "hypothesis": "H01_cell_type_marker_expansion_contamination_control",
+  "n_cell_types": 4,
+  "cell_types": {
+    "T_cell": [
+      "CD3G",
+      "CD8A",
+      "CD8B",
+      "CD6",
+      "RUNX3",
+      "FOXP3",
+      "PRF1"
+    ],
+    "B_cell": [
+      "CD19",
+      "MS4A1",
+      "CD79A",
+      "SPIB",
+      "PAX5"
+    ],
+    "fibroblast": [
+      "DCN",
+      "COL1A1",
+      "VIM"
+    ],
+    "epithelial": [
+      "EPCAM",
+      "MUC1"
+    ]
+  },
+  "n_within_pairs": 35,
+  "n_cross_pairs": 101,
+  "n_marker_genes": 17,
+  "n_non_marker_genes": 192,
+  "per_layer": [
+    {
+      "layer": 0,
+      "within_mean_dist": 0.7067267298698425,
+      "cross_mean_dist": 0.8618828654289246,
+      "effect": -0.15515613555908203,
+      "auroc": 0.8632248939179632,
+      "mw_p": 7.360154897498939e-11,
+      "control_auroc": 0.4824611032531825,
+      "control_effect": 0.01745891571044922,
+      "control_mw_p": 0.6237207745159543,
+      "specificity_auroc_delta": 0.3807637906647807
+    },
+    {
+      "layer": 1,
+      "within_mean_dist": 0.6461575031280518,
+      "cross_mean_dist": 0.8142779469490051,
+      "effect": -0.16812044382095337,
+      "auroc": 0.8598302687411599,
+      "mw_p": 8.3584227678858e-11,
+      "control_auroc": 0.5707213578500707,
+      "control_effect": -0.013634860515594482,
+      "control_mw_p": 0.10708787702181904,
+      "specificity_auroc_delta": 0.28910891089108914
+    },
+    {
+      "layer": 2,
+      "within_mean_dist": 0.6046209931373596,
+      "cross_mean_dist": 0.7851030230522156,
+      "effect": -0.18048202991485596,
+      "auroc": 0.8547383309759548,
+      "mw_p": 1.501871998442943e-10,
+      "control_auroc": 0.416973125884017,
+      "control_effect": 0.025203347206115723,
+      "control_mw_p": 0.9288880902591272,
+      "specificity_auroc_delta": 0.4377652050919377
+    },
+    {
+      "layer": 3,
+      "within_mean_dist": 0.5791337490081787,
+      "cross_mean_dist": 0.7714546322822571,
+      "effect": -0.19232088327407837,
+      "auroc": 0.8775106082036775,
+      "mw_p": 1.300790686417034e-11,
+      "control_auroc": 0.5330975954738331,
+      "control_effect": -0.04335755109786987,
+      "control_mw_p": 0.2805533146738797,
+      "specificity_auroc_delta": 0.3444130127298445
+    },
+    {
+      "layer": 4,
+      "within_mean_dist": 0.5305694937705994,
+      "cross_mean_dist": 0.7394775748252869,
+      "effect": -0.2089080810546875,
+      "auroc": 0.8677510608203678,
+      "mw_p": 4.474376721074151e-11,
+      "control_auroc": 0.5272984441301273,
+      "control_effect": -0.012103497982025146,
+      "control_mw_p": 0.3161174085294982,
+      "specificity_auroc_delta": 0.3404526166902405
+    },
+    {
+      "layer": 5,
+      "within_mean_dist": 0.5050935745239258,
+      "cross_mean_dist": 0.7264873385429382,
+      "effect": -0.22139376401901245,
+      "auroc": 0.8736916548797737,
+      "mw_p": 1.9087286195326545e-11,
+      "control_auroc": 0.5188118811881188,
+      "control_effect": -0.012510836124420166,
+      "control_mw_p": 0.37125418665875487,
+      "specificity_auroc_delta": 0.3548797736916549
+    },
+    {
+      "layer": 6,
+      "within_mean_dist": 0.4785331189632416,
+      "cross_mean_dist": 0.7060747146606445,
+      "effect": -0.22754159569740295,
+      "auroc": 0.8666195190947666,
+      "mw_p": 4.96018286346398e-11,
+      "control_auroc": 0.4458274398868458,
+      "control_effect": 0.008863687515258789,
+      "control_mw_p": 0.8303965813341776,
+      "specificity_auroc_delta": 0.42079207920792083
+    },
+    {
+      "layer": 7,
+      "within_mean_dist": 0.4523906707763672,
+      "cross_mean_dist": 0.6881810426712036,
+      "effect": -0.23579037189483643,
+      "auroc": 0.8517680339462518,
+      "mw_p": 2.2886179785353634e-10,
+      "control_auroc": 0.4691654879773691,
+      "control_effect": 0.03191065788269043,
+      "control_mw_p": 0.7071875896837687,
+      "specificity_auroc_delta": 0.38260254596888266
+    },
+    {
+      "layer": 8,
+      "within_mean_dist": 0.4301510751247406,
+      "cross_mean_dist": 0.6715333461761475,
+      "effect": -0.24138227105140686,
+      "auroc": 0.8350777934936351,
+      "mw_p": 1.5476872629647291e-09,
+      "control_auroc": 0.4741159830268741,
+      "control_effect": 0.003469616174697876,
+      "control_mw_p": 0.676507861535112,
+      "specificity_auroc_delta": 0.360961810466761
+    },
+    {
+      "layer": 9,
+      "within_mean_dist": 0.37454134225845337,
+      "cross_mean_dist": 0.6272383332252502,
+      "effect": -0.2526969909667969,
+      "auroc": 0.8154172560113154,
+      "mw_p": 1.3422218505686195e-08,
+      "control_auroc": 0.44441301272984446,
+      "control_effect": 0.03240126371383667,
+      "control_mw_p": 0.8383857966651265,
+      "specificity_auroc_delta": 0.37100424328147097
+    },
+    {
+      "layer": 10,
+      "within_mean_dist": 0.29843321442604065,
+      "cross_mean_dist": 0.5680544972419739,
+      "effect": -0.2696212828159332,
+      "auroc": 0.8205091937765205,
+      "mw_p": 7.195191349107658e-09,
+      "control_auroc": 0.40509193776520513,
+      "control_effect": 0.06173968315124512,
+      "control_mw_p": 0.9528486148066978,
+      "specificity_auroc_delta": 0.4154172560113154
+    },
+    {
+      "layer": 11,
+      "within_mean_dist": 0.25623899698257446,
+      "cross_mean_dist": 0.5371452569961548,
+      "effect": -0.2809062600135803,
+      "auroc": 0.8229137199434229,
+      "mw_p": 6.204592447654559e-09,
+      "control_auroc": 0.5660537482319661,
+      "control_effect": -0.010439202189445496,
+      "control_mw_p": 0.12306052883504975,
+      "specificity_auroc_delta": 0.2568599717114568
+    }
+  ],
+  "pairwise_auroc_layer8": {
+    "T_cell_vs_B_cell": {
+      "n_pairs": 35,
+      "mean_cross_dist": 0.4565032124519348,
+      "mean_rand_dist": 0.5540856122970581,
+      "auroc_vs_random": 0.6775510204081633,
+      "mw_p": 0.005401751349328666
+    },
+    "T_cell_vs_fibroblast": {
+      "n_pairs": 21,
+      "mean_cross_dist": 0.8387891054153442,
+      "mean_rand_dist": 0.5420854091644287,
+      "auroc_vs_random": 0.19501133786848068,
+      "mw_p": 0.9996962702716756
+    },
+    "T_cell_vs_epithelial": {
+      "n_pairs": 14,
+      "mean_cross_dist": 0.7460803389549255,
+      "mean_rand_dist": 0.6895032525062561,
+      "auroc_vs_random": 0.41326530612244894,
+      "mw_p": 0.7933457411777838
+    },
+    "B_cell_vs_fibroblast": {
+      "n_pairs": 15,
+      "mean_cross_dist": 0.8488706350326538,
+      "mean_rand_dist": 0.5695501565933228,
+      "auroc_vs_random": 0.21777777777777774,
+      "mw_p": 0.9964420514940577
+    },
+    "B_cell_vs_epithelial": {
+      "n_pairs": 10,
+      "mean_cross_dist": 0.7647374272346497,
+      "mean_rand_dist": 0.5594671964645386,
+      "auroc_vs_random": 0.255,
+      "mw_p": 0.9711312864337454
+    },
+    "fibroblast_vs_epithelial": {
+      "n_pairs": 6,
+      "mean_cross_dist": 0.5678548216819763,
+      "mean_rand_dist": 0.6322140097618103,
+      "auroc_vs_random": 0.6111111111111112,
+      "mw_p": 0.28555363602106737
+    }
+  },
+  "layer_curve_fit": {
+    "slope_logit_auroc_vs_layer": -0.035721443840441555,
+    "r_value": -0.7649053495207261,
+    "p_value": 0.0037520183388868806
+  },
+  "summary": {
+    "auroc_mean": 0.8507543611504008,
+    "auroc_range": [
+      0.8154172560113154,
+      0.8775106082036775
+    ],
+    "control_auroc_mean": 0.48783592644978796,
+    "specificity_delta_mean": 0.3629184347006129,
+    "n_layers_sig_mw": 12,
+    "n_layers_control_not_sig": 12
+  }
+}

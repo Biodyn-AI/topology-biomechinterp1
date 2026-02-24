@@ -1,0 +1,56 @@
+{
+  "hypothesis": "H03",
+  "description": "Master B-cell TF proximity + NK/myeloid precision@10 at L2",
+  "target_layer": 2,
+  "k": 10,
+  "bcell_identity_panel": [
+    "MS4A1",
+    "CD19",
+    "CD79A",
+    "BLK",
+    "PRDM1"
+  ],
+  "null_mean_dist": 10.064937591552734,
+  "null_std_dist": 1.936407446861267,
+  "master_bcell_tfs": {
+    "PAX5": {
+      "in_vocab": false
+    },
+    "EBF1": {
+      "in_vocab": false
+    },
+    "BCL6": {
+      "in_vocab": false
+    }
+  },
+  "gc_tfs_reference": {
+    "BATF": {
+      "dist_to_bcell_centroid": 6.234925746917725,
+      "z_vs_null": -1.9778956390831361,
+      "closeness_percentile": 0.958974358974359
+    },
+    "SPIB": {
+      "dist_to_bcell_centroid": 6.84132719039917,
+      "z_vs_null": -1.6647376596174175,
+      "closeness_percentile": 0.9384615384615385
+    },
+    "BACH2": {
+      "dist_to_bcell_centroid": 7.771769046783447,
+      "z_vs_null": -1.1842386520906516,
+      "closeness_percentile": 0.8615384615384616
+    }
+  },
+  "nk_precision_at_k": {
+    "n_invocab": 1,
+    "status": "skipped"
+  },
+  "myeloid_precision_at_k": {
+    "n_invocab": 0,
+    "status": "skipped"
+  },
+  "bcell_reference": {
+    "precision_at_k": 0.18,
+    "z_score": 6.68989346362204,
+    "null_mean": 0.01968
+  }
+}

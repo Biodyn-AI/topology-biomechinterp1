@@ -1,0 +1,62 @@
+{
+  "0": {
+    "centroid_cosine_sims": {
+      "B_cell_vs_T_cell": 0.8715714812278748,
+      "B_cell_vs_Myeloid": 0.8258426785469055,
+      "T_cell_vs_Myeloid": 0.7954723238945007
+    },
+    "null_mean_cos": 0.8262384119904489,
+    "null_std_cos": 0.05944005272911497,
+    "real_mean_cos": 0.8309621612230936,
+    "z_score": 0.07947081161203186,
+    "n_null": 586
+  },
+  "3": {
+    "centroid_cosine_sims": {
+      "B_cell_vs_T_cell": 0.9228991270065308,
+      "B_cell_vs_Myeloid": 0.8955879807472229,
+      "T_cell_vs_Myeloid": 0.8803526163101196
+    },
+    "null_mean_cos": 0.8967001067900413,
+    "null_std_cos": 0.04125964916551422,
+    "real_mean_cos": 0.8996132413546244,
+    "z_score": 0.07060492814412858,
+    "n_null": 586
+  },
+  "6": {
+    "centroid_cosine_sims": {
+      "B_cell_vs_T_cell": 0.9532950520515442,
+      "B_cell_vs_Myeloid": 0.9315489530563354,
+      "T_cell_vs_Myeloid": 0.9282592535018921
+    },
+    "null_mean_cos": 0.9309197089145813,
+    "null_std_cos": 0.030795016632227504,
+    "real_mean_cos": 0.9377010862032572,
+    "z_score": 0.220210216791345,
+    "n_null": 598
+  },
+  "9": {
+    "centroid_cosine_sims": {
+      "B_cell_vs_T_cell": 0.9779461622238159,
+      "B_cell_vs_Myeloid": 0.962888240814209,
+      "T_cell_vs_Myeloid": 0.9659013152122498
+    },
+    "null_mean_cos": 0.9644749773941499,
+    "null_std_cos": 0.017030274580104313,
+    "real_mean_cos": 0.9689119060834249,
+    "z_score": 0.2605318351389644,
+    "n_null": 582
+  },
+  "11": {
+    "centroid_cosine_sims": {
+      "B_cell_vs_T_cell": 0.9929882884025574,
+      "B_cell_vs_Myeloid": 0.985901951789856,
+      "T_cell_vs_Myeloid": 0.9875014424324036
+    },
+    "null_mean_cos": 0.9871911539990678,
+    "null_std_cos": 0.007888776855447633,
+    "real_mean_cos": 0.9887972275416056,
+    "z_score": 0.2035896783452243,
+    "n_null": 585
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "iteration": "iter_0040",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "Full 12-layer GC attractor onset scan + IRF4 plasma-bridge (cycle4_immune)",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "cycle4_immune embeddings [12,4941,512], 2039 valid genes. B-cell anchor: MS4A1, CD79A, BLK (3 genes). For each layer L0..L11: compute centroid, rank all 4 GC-TFs (BATF, BACH2, BCL6, PAX5) and IRF4 by L2 distance to centroid. Report attractor onset = first layer where any GC-TF rank <= 20. Spearman rho of mean GC rank vs layer.",
+      "status": "tested",
+      "primary_metric": "GC mean rank Spearman rho vs layer (monotonic decrease test)",
+      "result_value": "rho=-0.951, p=0.000002; attractor onset L3 (PAX5 rank=19). L11 ranks: BATF=156, BACH2=153, PAX5=18, BCL6=899. IRF4=OOV.",
+      "result_direction": "positive",
+      "artifact_paths": ["h01_gc_attractor_scan.json", "iter_0040_summary.csv"],
+      "decision": "promising",
+      "next_action": "BCL6 remains distant (rank ~900) across all layers — remove from GC attractor claim. PAX5 is earliest GC-TF attractor gene (rank 36 at L0, 18 at L11). Replicate PAX5 early proximity in cycle1. Test IRF4 in cycle1 where it may be in-vocab.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0039_H01",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "Geneformer cross-model B-cell precision@10 (input token embeddings)",
+      "family": "cross_model_alignment",
+      "split_regime": "other",
+      "method": "Load Geneformer (ctheodoris/Geneformer, 20275 tokens, 1152-dim) input word embeddings via safetensors. Map 2047 immune genes via cycle12 token map. Compute B-cell centroid (MS4A1, CD79A, BLK, PRDM1; CD19 absent) in Geneformer embedding space. Precision@10 for GC-TFs. Null: 200 random 4-gene anchor sets. Report z-score and top-20 neighbors.",
+      "status": "tested",
+      "primary_metric": "precision@10 for GC-TFs in Geneformer input embedding space",
+      "result_value": "precision@10=0.000; top-20 neighbors are olfactory receptors/spurious genes; CD19 absent from Geneformer vocab. Null mean=0.0000 (floor). Result: Geneformer INPUT embeddings do not encode B-cell/GC-TF proximity.",
+      "result_direction": "negative",
+      "artifact_paths": ["h02_geneformer_bcell.json"],
+      "decision": "negative",
+      "next_action": "Negative is informative: B-cell/GC-TF proximity is specific to scGPT LEARNED layer representations, not generic to Geneformer input token space. For true cross-model test, need to extract Geneformer LAYER-WISE gene embeddings (requires running forward pass with gene-level aggregation). This is a larger engineering task; flag as future work.",
+      "novelty_type": "new_family",
+      "lineage": "none",
+      "retired": false
+    },
+    {
+      "id": "H03",
+      "name": "GC-plasma subspace principal angle + CD19+BLK minimal anchor precision@10 all layers",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "cycle4_immune [12,2039,512]. Part A: scipy.linalg.subspace_angles between GC subspace (BATF, BACH2, BCL6, PAX5) and (1) plasma subspace (JCHAIN, SDC1, PRDM1) and (2) B-cell subspace (MS4A1, CD79A, BLK) at each layer. Spearman rho of angle vs layer. Part B: precision@10 with CD19+BLK minimal anchor -> GC-TFs at each layer (onset detection). L11 null: 200 random 2-gene anchors.",
+      "status": "tested",
+      "primary_metric": "GC-bcell subspace angle Spearman rho vs layer (convergence test)",
+      "result_value": "GC-bcell angle Spearman rho=-0.888 (p=0.0001): angle 84.3 deg L0 -> 76.4 deg L11 (converging). GC-plasma angle Spearman rho=-0.098 (p=0.76): no significant trend (null). p@10 minimal (CD19+BLK): 0.0 L0-L2, 0.1 L3-L11 onset L3; L11 z=9.95 (99th pctile). p@10 full anchor (no CD19): 0.0 all layers (confirms CD19 critical).",
+      "result_direction": "positive",
+      "artifact_paths": ["h03_subspace_angles.json", "iter_0040_summary.csv"],
+      "decision": "promising",
+      "next_action": "GC-bcell subspace convergence confirmed (rho=-0.888). GC-plasma subspace angle null confirms plasma is geometrically distinct from GC subspace. Both findings consistent: GC-TFs converge toward B-cell subspace specifically. CD19 criticality confirmed for 3rd iteration. Onset at L3 reproducible across H01 and H03.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0039_H03",
+      "retired": false
+    }
+  ]
+}

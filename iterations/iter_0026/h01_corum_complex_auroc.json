@@ -1,0 +1,95 @@
+{
+  "hypothesis": "H01_CORUM_complex_AUROC",
+  "n_within": 6,
+  "n_cross": 0,
+  "n_complexes_used": 1,
+  "complex_names": [
+    "AP1"
+  ],
+  "per_layer": [
+    {
+      "layer": 0,
+      "AUROC": NaN,
+      "within_dist_mean": 12.104653358459473,
+      "cross_dist_mean": NaN,
+      "dist_ratio": NaN
+    },
+    {
+      "layer": 1,
+      "AUROC": NaN,
+      "within_dist_mean": 10.356203079223633,
+      "cross_dist_mean": NaN,
+      "dist_ratio": NaN
+    },
+    {
+      "layer": 2,
+      "AUROC": NaN,
+      "within_dist_mean": 9.489372253417969,
+      "cross_dist_mean": NaN,
+      "dist_ratio": NaN
+    },
+    {
+      "layer": 3,
+      "AUROC": NaN,
+      "within_dist_mean": 9.130969047546387,
+      "cross_dist_mean": NaN,
+      "dist_ratio": NaN
+    },
+    {
+      "layer": 4,
+      "AUROC": NaN,
+      "within_dist_mean": 8.22728443145752,
+      "cross_dist_mean": NaN,
+      "dist_ratio": NaN
+    },
+    {
+      "layer": 5,
+      "AUROC": NaN,
+      "within_dist_mean": 7.854404449462891,
+      "cross_dist_mean": NaN,
+      "dist_ratio": NaN
+    },
+    {
+      "layer": 6,
+      "AUROC": NaN,
+      "within_dist_mean": 7.485281467437744,
+      "cross_dist_mean": NaN,
+      "dist_ratio": NaN
+    },
+    {
+      "layer": 7,
+      "AUROC": NaN,
+      "within_dist_mean": 7.393311023712158,
+      "cross_dist_mean": NaN,
+      "dist_ratio": NaN
+    },
+    {
+      "layer": 8,
+      "AUROC": NaN,
+      "within_dist_mean": 7.11279821395874,
+      "cross_dist_mean": NaN,
+      "dist_ratio": NaN
+    },
+    {
+      "layer": 9,
+      "AUROC": NaN,
+      "within_dist_mean": 6.139064788818359,
+      "cross_dist_mean": NaN,
+      "dist_ratio": NaN
+    },
+    {
+      "layer": 10,
+      "AUROC": NaN,
+      "within_dist_mean": 4.8068413734436035,
+      "cross_dist_mean": NaN,
+      "dist_ratio": NaN
+    },
+    {
+      "layer": 11,
+      "AUROC": NaN,
+      "within_dist_mean": 3.633798360824585,
+      "cross_dist_mean": NaN,
+      "dist_ratio": NaN
+    }
+  ]
+}

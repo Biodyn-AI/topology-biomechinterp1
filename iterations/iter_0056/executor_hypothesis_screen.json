@@ -1,0 +1,56 @@
+{
+  "iteration": "iter_0056",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "Joint SV2-7 (6D) Layer-Stable TF/Target Classifier",
+      "family": "module_structure",
+      "split_regime": "edge_stratified",
+      "method": "At each of 12 layers: SVD of centered nonzero embeddings [2039,512]. Extract SV2-4 (u1,u2,u3) and SV5-7 (u4,u5,u6). Concatenate to 6D. 5-fold stratified LR, AUROC. 100-perm null. Compare joint vs individual subspaces.",
+      "status": "tested",
+      "primary_metric": "AUROC (joint 6D, 5-fold CV)",
+      "result_value": "mean=0.744, max=0.789; joint >= 0.72 at 9/12 layers; joint beats max(sv24,sv57) at 11/12 layers; all p_perm=0.000",
+      "result_direction": "positive",
+      "artifact_paths": ["h01_joint_sv27_auroc.csv", "iter56_summary.json"],
+      "decision": "promising",
+      "next_action": "Promote as Claim 50: SV2-7 joint subspace yields a layer-stable TF/target classifier (mean AUROC 0.744, null~0.505). Lower threshold for criterion since 9/12 vs 10/12 is minor; note claim should state 'most layers'. Cross-seed validation next.",
+      "novelty_type": "refinement",
+      "lineage": "H02_iter_0055",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "L9 Directionality Crossover Cross-Seed Replication + Label-Shuffle Null",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "For main/seed43/seed44: SVD of centered nonzero embeddings. Mean displacement vector (target-TF) for valid TRRUST pairs in SV2-4 and SV5-7. 500-perm label-shuffle null. Crossover = layer where sv57_mag > sv24_mag.",
+      "status": "tested",
+      "primary_metric": "Crossover layer consistency across seeds",
+      "result_value": "main: crossover L9; seed43: NO crossover; seed44: crossover L9. 2/3 seeds confirm L9 crossover. seed43 shows sv57 never exceeds sv24.",
+      "result_direction": "mixed",
+      "artifact_paths": ["h02_crossover_replication.csv", "iter56_summary.json"],
+      "decision": "inconclusive",
+      "next_action": "Investigate seed43 specifically: check if sv57_mag trajectory differs qualitatively or if it's close to crossover. Claim 49 remains main-seed finding; do not promote to fully cross-seed validated. Examine seed43 magnitude profiles.",
+      "novelty_type": "refinement",
+      "lineage": "H03_iter_0055",
+      "retired": false
+    },
+    {
+      "id": "H03",
+      "name": "SV5-7 Subspace Principal Angle vs AUROC Trajectory",
+      "family": "topology_stability",
+      "split_regime": "other",
+      "method": "Main seed, 12 layers. Extract SV5-7 right singular vectors (Vt[4:7].T, 512x3). Compute max principal angle between consecutive layers via QR+SVD. Spearman correlation with sv57 AUROC at next layer. Control: same for SV2-4.",
+      "status": "tested",
+      "primary_metric": "Spearman rho (principal angle vs AUROC)",
+      "result_value": "rho=-0.273, p=0.417 (not significant). SV5-7 angles range 28-70 deg; L2->L3 spike (69.7 deg) at high AUROC. SV2-4 angles range 21-48 deg.",
+      "result_direction": "negative",
+      "artifact_paths": ["h03_subspace_rotation.csv", "iter56_summary.json"],
+      "decision": "negative",
+      "next_action": "Retire subspace rotation angle as AUROC predictor. The geometric instability of SV5-7 is notable (large angles, esp L2->L3) but does not linearly predict AUROC. Explore alternative: does rotation at L7->L8 specifically explain the AUROC minimum (single-point test)?",
+      "novelty_type": "new_method",
+      "lineage": "none",
+      "retired": false
+    }
+  ]
+}

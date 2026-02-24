@@ -1,0 +1,305 @@
+{
+  "hypothesis": "H02_TRRUST_polarity",
+  "n_act_pairs": 116,
+  "n_rep_pairs": 64,
+  "target_polarity_L11_pc1": {
+    "n_act": 86,
+    "n_rep": 42,
+    "mean_act_pc1": -0.31559398770332336,
+    "mean_rep_pc1": -0.631257176399231,
+    "auroc": 0.5143964562569213,
+    "p_value": 0.7937508876389205
+  },
+  "within_tf_polarity": [
+    {
+      "tf": "ATM",
+      "n_act": 3,
+      "n_rep": 2,
+      "delta_act_minus_rep": 0.03228259086608887,
+      "act_targets": [
+        "DUSP1",
+        "GADD45A",
+        "KLRK1"
+      ],
+      "rep_targets": [
+        "BCL2",
+        "PMAIP1"
+      ]
+    },
+    {
+      "tf": "CIITA",
+      "n_act": 6,
+      "n_rep": 3,
+      "delta_act_minus_rep": -3.680879831314087,
+      "act_targets": [
+        "HLA-A",
+        "HLA-B",
+        "HLA-C",
+        "HLA-DMB",
+        "HLA-DOB",
+        "HLA-DRA"
+      ],
+      "rep_targets": [
+        "COL1A1",
+        "MMP9",
+        "S100A4"
+      ]
+    },
+    {
+      "tf": "EGR1",
+      "n_act": 7,
+      "n_rep": 6,
+      "delta_act_minus_rep": 0.6025075912475586,
+      "act_targets": [
+        "ALOX5",
+        "CCND1",
+        "HIF1A",
+        "PLAUR",
+        "STIM1",
+        "TCF4",
+        "TNF"
+      ],
+      "rep_targets": [
+        "ALOX5",
+        "CXCL8",
+        "FCER2",
+        "IL6",
+        "PTGS2",
+        "TNFSF10"
+      ]
+    },
+    {
+      "tf": "ETS1",
+      "n_act": 10,
+      "n_rep": 2,
+      "delta_act_minus_rep": 10.849296569824219,
+      "act_targets": [
+        "CD8A",
+        "CSF3R",
+        "EGR1",
+        "FLI1",
+        "IL2RB",
+        "LCK",
+        "MMP9",
+        "RHOC",
+        "TGFBR2",
+        "TNFSF14"
+      ],
+      "rep_targets": [
+        "IL2",
+        "TBXAS1"
+      ]
+    },
+    {
+      "tf": "FLI1",
+      "n_act": 4,
+      "n_rep": 2,
+      "delta_act_minus_rep": -0.06157088279724121,
+      "act_targets": [
+        "FLI1",
+        "ID2",
+        "IL10",
+        "TGFBR2"
+      ],
+      "rep_targets": [
+        "IGFBP3",
+        "TGFBR2"
+      ]
+    },
+    {
+      "tf": "FOS",
+      "n_act": 2,
+      "n_rep": 4,
+      "delta_act_minus_rep": -5.364736557006836,
+      "act_targets": [
+        "MMP9",
+        "PTGS2"
+      ],
+      "rep_targets": [
+        "CCND1",
+        "CLU",
+        "FOS",
+        "MMP9"
+      ]
+    },
+    {
+      "tf": "HIF1A",
+      "n_act": 9,
+      "n_rep": 3,
+      "delta_act_minus_rep": -2.2721798419952393,
+      "act_targets": [
+        "ASS1",
+        "BNIP3",
+        "CCR7",
+        "CXCR4",
+        "ITGB2",
+        "LDHA",
+        "MIF",
+        "RORA",
+        "VIM"
+      ],
+      "rep_targets": [
+        "CCND1",
+        "HIF1A",
+        "SDHB"
+      ]
+    },
+    {
+      "tf": "JUN",
+      "n_act": 17,
+      "n_rep": 4,
+      "delta_act_minus_rep": -3.793602466583252,
+      "act_targets": [
+        "CCND1",
+        "CXCL8",
+        "ETS1",
+        "IFNG",
+        "IL12B",
+        "IL6",
+        "JUN",
+        "LDHA",
+        "MMP7",
+        "MMP9",
+        "MSR1",
+        "PLAT",
+        "PLAUR",
+        "PTGS2",
+        "RHOB",
+        "TNF",
+        "TNFRSF1B"
+      ],
+      "rep_targets": [
+        "CCND1",
+        "DCN",
+        "IL2",
+        "MMP9"
+      ]
+    },
+    {
+      "tf": "KLF6",
+      "n_act": 2,
+      "n_rep": 3,
+      "delta_act_minus_rep": 0.1608293056488037,
+      "act_targets": [
+        "DAPK2",
+        "PMAIP1"
+      ],
+      "rep_targets": [
+        "CCND1",
+        "MMP9",
+        "PTTG1"
+      ]
+    },
+    {
+      "tf": "PAX5",
+      "n_act": 3,
+      "n_rep": 4,
+      "delta_act_minus_rep": 0.09195888042449951,
+      "act_targets": [
+        "CD19",
+        "CD79A",
+        "LEF1"
+      ],
+      "rep_targets": [
+        "BCL2",
+        "BLK",
+        "CCND1",
+        "PRDM1"
+      ]
+    }
+  ],
+  "polarity_per_layer": [
+    {
+      "layer": 0,
+      "auroc": 0.5232558139534884,
+      "pval": 0.6716438154666755,
+      "mean_act": 0.349195659160614,
+      "mean_rep": 0.5324594378471375
+    },
+    {
+      "layer": 1,
+      "auroc": 0.5271317829457365,
+      "pval": 0.6206248728214541,
+      "mean_act": 0.3258764445781708,
+      "mean_rep": 0.5499545335769653
+    },
+    {
+      "layer": 2,
+      "auroc": 0.5116279069767442,
+      "pval": 0.83313902469292,
+      "mean_act": 0.31455111503601074,
+      "mean_rep": 0.5572381019592285
+    },
+    {
+      "layer": 3,
+      "auroc": 0.49778516057585825,
+      "pval": 0.9696285012845751,
+      "mean_act": -0.30122509598731995,
+      "mean_rep": -0.5774062871932983
+    },
+    {
+      "layer": 4,
+      "auroc": 0.49197120708748615,
+      "pval": 0.884961905878889,
+      "mean_act": -0.2991698980331421,
+      "mean_rep": -0.5834610462188721
+    },
+    {
+      "layer": 5,
+      "auroc": 0.49916943521594687,
+      "pval": 0.9898739928755305,
+      "mean_act": -0.29387733340263367,
+      "mean_rep": -0.5876172780990601
+    },
+    {
+      "layer": 6,
+      "auroc": 0.5094130675526024,
+      "pval": 0.8649591167840263,
+      "mean_act": -0.28740549087524414,
+      "mean_rep": -0.595231294631958
+    },
+    {
+      "layer": 7,
+      "auroc": 0.510797342192691,
+      "pval": 0.8450424835262169,
+      "mean_act": -0.28766632080078125,
+      "mean_rep": -0.6168143153190613
+    },
+    {
+      "layer": 8,
+      "auroc": 0.508859357696567,
+      "pval": 0.8729505939620548,
+      "mean_act": -0.28721335530281067,
+      "mean_rep": -0.625910758972168
+    },
+    {
+      "layer": 9,
+      "auroc": 0.5013842746400886,
+      "pval": 0.9817742831349934,
+      "mean_act": -0.2963702976703644,
+      "mean_rep": -0.641498863697052
+    },
+    {
+      "layer": 10,
+      "auroc": 0.5047065337763013,
+      "pval": 0.9332446304729524,
+      "mean_act": -0.3076631724834442,
+      "mean_rep": -0.6527647376060486
+    },
+    {
+      "layer": 11,
+      "auroc": 0.5143964562569213,
+      "pval": 0.7937508876389205,
+      "mean_act": -0.31559422612190247,
+      "mean_rep": -0.6312575340270996
+    }
+  ],
+  "l2_dist_act_vs_rep_L11": {
+    "n_act": 116,
+    "n_rep": 64,
+    "mean_act_dist": 7.6402013651255904,
+    "mean_rep_dist": 9.041027966886759,
+    "auroc_closer_is_act": 0.5608162715517242,
+    "p_value": 0.17772207190959177
+  }
+}

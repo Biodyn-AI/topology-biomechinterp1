@@ -1,0 +1,56 @@
+{
+  "iteration": "iter_0038",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "GC-TF vs Plasma-TF centroid proximity divergence across layers",
+      "family": "manifold_distance",
+      "split_regime": "edge_stratified",
+      "method": "For GC-TFs (BATF, SPIB, BACH2; n=3) and plasma-TFs (IRF4, PRDM1; n=2): compute mean distance to B-cell identity centroid at each layer L0-L11. z-score vs null (all 195 genes). Spearman trend on z-scores.",
+      "status": "tested",
+      "primary_metric": "plasma_z_vs_null_L11",
+      "result_value": "+0.55 (L11 plasma z), GC z=-1.52 (L11), GC-plasma separation rho=-0.643 p=0.024",
+      "result_direction": "positive",
+      "artifact_paths": ["h01_gc_plasma_separation.json"],
+      "decision": "promising",
+      "next_action": "Cross-validate: measure plasma-TF z trajectory with a larger plasma marker set if more in-vocab. Consider Geneformer comparison of GC/plasma proximity patterns.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0037_H02",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "B-cell centroid directional drift alignment with differentiation axis",
+      "family": "manifold_distance",
+      "split_regime": "edge_stratified",
+      "method": "Track B-cell centroid (n=5 in-vocab) displacement from L0 at each layer. Measure cosine similarity of drift with B->plasma direction vector (L11). Also compute GC-plasma centroid angle from B-cell perspective per layer. Spearman trends.",
+      "status": "tested",
+      "primary_metric": "cosine_drift_to_plasma_trend_rho",
+      "result_value": "rho=-0.531, p=0.075; angle GC-plasma from BC: 77deg(L0) to 94deg(L11); drift_mag rho=0.993 p<0.0001",
+      "result_direction": "mixed",
+      "artifact_paths": ["h02_directional_drift.json"],
+      "decision": "inconclusive",
+      "next_action": "GC-plasma angle becoming orthogonal (94deg at L11) is novel — quantify in cross-model Geneformer. Drift magnitude is huge but directionless relative to plasma. Investigate what direction B-cell drifts toward.",
+      "novelty_type": "new_method",
+      "lineage": "none",
+      "retired": false
+    },
+    {
+      "id": "H03",
+      "name": "Master B-cell TF proximity + NK/myeloid specificity screen",
+      "family": "null_sensitivity",
+      "split_regime": "edge_stratified",
+      "method": "Part A: PAX5/EBF1/BCL6 distance to B-cell centroid at L2 (blocked - not in vocab). Part B: NK precision@10 (blocked - only PRF1 in vocab). Part C: Myeloid precision@10 (blocked - 0 in vocab). GC-TF reference values confirmed.",
+      "status": "partial",
+      "primary_metric": "nk_precision_at_10",
+      "result_value": "blocked: PAX5/EBF1/BCL6/myeloid/NK not in vocab; GC-TF reference confirmed: BATF 96th pctile, SPIB 94th, BACH2 86th",
+      "result_direction": "inconclusive",
+      "artifact_paths": ["h03_master_tf_nk_myeloid.json"],
+      "decision": "inconclusive",
+      "next_action": "Use extended vocabulary (cycle2_maxgenes1024) which may include PAX5/EBF1/BCL6. This is required for specificity validation.",
+      "novelty_type": "new_method",
+      "lineage": "none",
+      "retired": false
+    }
+  ]
+}

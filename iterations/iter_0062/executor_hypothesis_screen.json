@@ -1,0 +1,59 @@
+{
+  "iteration": "iter_0062",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "cycle4_immune edge-level AUROC (735 pairs, SV5-7/SV2-4, all layers)",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "At each of 12 layers: SVD of centered nonzero embeddings [2039,512], project to SV5-7 and SV2-4. For each TRRUST edge pair compute cosine similarity between projected embeddings. AUROC for 589 valid edges. Permutation null (N=200, gene-position shuffle). Cross-seed replication at L2, L3.",
+      "status": "tested",
+      "primary_metric": "edge-level AUROC SV5-7",
+      "result_value": "Peak AUROC=0.602 at L0, L1=0.601; monotonic decline to L9-L11 (~0.49-0.50). L0-L8 all significant (perm_p≤0.045). L9-L11 not significant (perm_p>0.5). L3 cross-seed: main=0.574, seed43=0.574, seed44=0.566.",
+      "result_direction": "positive",
+      "artifact_paths": ["m1_edge_auroc_cycle4.csv", "iter62_summary.json"],
+      "decision": "promising",
+      "next_action": "Test L0-L8 significance with Bonferroni correction. Compare edge AUROC to class-AUROC (prior iterations) using same data. Investigate why SV2-4 shows sub-null AUROC (possible edge repulsion).",
+      "novelty_type": "new_method",
+      "lineage": "iter_0055/H02",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H02",
+      "name": "AUROC mechanism diagnostic: sparsity vs depth as confound",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "Per-layer permutation null (N=200) + Spearman correlation of AUROC with layer index and per-layer nonzero gene count. Nonzero count extracted per-layer from embeddings.",
+      "status": "tested",
+      "primary_metric": "Spearman(AUROC, layer) and Spearman(AUROC, nz_count)",
+      "result_value": "Spearman(AUROC, layer)=-0.958, p=9.5e-7. nz_count constant at 2039 for all 12 layers (NaN correlation). Sparsity is NOT a confound. AUROC decline with depth is genuine geometric structure loss.",
+      "result_direction": "positive",
+      "artifact_paths": ["m2_auroc_mechanism.csv", "iter62_summary.json"],
+      "decision": "promising",
+      "next_action": "Sparsity confound eliminated. Claim AUROC trend as genuine. Test other potential confounds: embedding norm per layer, effective rank per layer.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0059/H03",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H03",
+      "name": "Cross-cycle Procrustes alignment transfer (cycle1 to cycle4)",
+      "family": "cross_model_alignment",
+      "split_regime": "other",
+      "method": "Find 80 shared genes between cycle1 and cycle4 edge sets. Fit Procrustes rotation (cycle4 SV5-7 -> cycle1 SV5-7). Compute edge-level cosine-similarity AUROC before and after alignment.",
+      "status": "tested",
+      "primary_metric": "AUROC change after Procrustes alignment",
+      "result_value": "c4_aligned = c4_raw for all layers (rotation-invariant metric). Design flaw: cosine similarity AUROC is invariant to orthogonal transformation. c1_own AUROC=0.54-0.56; c4_raw AUROC=0.50-0.60. Only 80 shared genes between cycles.",
+      "result_direction": "negative",
+      "artifact_paths": ["c1_procrustes_transfer.csv"],
+      "decision": "negative",
+      "next_action": "Redesign C1: use LR classifier (trained on cycle1 in SV5-7) applied to Procrustes-aligned cycle4 gene embeddings. Metric must not be rotation-invariant. Requires class labels (TF/target) in cycle1 space.",
+      "novelty_type": "new_method",
+      "lineage": "none",
+      "retired": false,
+      "retirement_reason": ""
+    }
+  ]
+}

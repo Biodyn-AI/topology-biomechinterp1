@@ -1,0 +1,65 @@
+{
+  "iteration": "iter_0015",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "SV4/SV5 PPI co-pole test",
+      "family": "module_structure",
+      "split_regime": "edge_stratified",
+      "method": "SVD of 209-gene mean-centered embeddings at each of 12 layers. For SV4 (index 3) and SV5 (index 4): compute co-pole rate (K=52 top/bottom) for 3092 STRING pairs (score>=0.4). Compare to gene-label shuffle null (N=300). Report z-score and emp_p per layer.",
+      "status": "tested",
+      "primary_metric": "mean z-score across 12 layers (sig layers)",
+      "result_value": "SV4 mean_z=2.21, sig=7/12; SV5 mean_z=1.65, sig=6/12",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0015/h01_sv45_ppi_copole.json",
+        "iterations/iter_0015/iter0015_results.json"
+      ],
+      "decision": "promising",
+      "next_action": "SV4 shows meaningful PPI co-pole geometry (z=5.16 at L0, prominent early layers). Profile SV4's GO biology (analogous to H01 in iter_0014 for SV3). SV5 intermittent (L3-L4, L8-L10); less robust.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0013_H01",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "STRING confidence gradient: co-pole z vs score quintile",
+      "family": "graph_topology",
+      "split_regime": "edge_stratified",
+      "method": "Split 3092 STRING pairs into 5 quintiles by score (edges: [0.40,0.46), [0.46,0.53), [0.53,0.64), [0.64,0.80), [0.80,1.0]). For each quintile, compute mean SV2 co-pole z-score across 12 layers (K=52, N_null=200). Compute Spearman correlation between quintile midpoint score and mean z.",
+      "status": "tested",
+      "primary_metric": "Spearman rho (quintile_score_mid vs mean_z_across_layers)",
+      "result_value": "rho=1.000, p=1.4e-24. Per-quintile mean_z: [1.00, 1.48, 2.09, 3.18, 5.02]",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0015/h02_string_confidence_gradient.json",
+        "iterations/iter_0015/iter0015_results.json"
+      ],
+      "decision": "promising",
+      "next_action": "Near-perfect monotonic gradient: interaction confidence directly predicts geometric co-localization strength. This is a key quantitative claim. Replicate with SV3 axis and report in paper. Also test at individual layers for layer-specificity.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0014_H03",
+      "retired": false
+    },
+    {
+      "id": "H03",
+      "name": "GO co-annotation vs PPI as driver of SV2 geometry",
+      "family": "module_structure",
+      "split_regime": "edge_stratified",
+      "method": "Compute GO Jaccard similarity for all 3092 STRING pairs. Median-split by GO Jaccard (thresh=0.042) and STRING score (thresh=0.585). Define 4 groups: PPI-only (high string, low GO), GO-only (low string, high GO), Both, Neither. Compute SV2 co-pole z-score per group at each of 12 layers (K=52, N_null=300).",
+      "status": "tested",
+      "primary_metric": "mean z-score per group across 12 layers",
+      "result_value": "Both: z=5.27 (12/12 sig); PPI-only: z=2.66 (12/12 sig); GO-only: z=1.89 (7/12 sig); Neither: z=0.70 (0/12 sig)",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0015/h03_go_vs_ppi_driver.json",
+        "iterations/iter_0015/iter0015_results.json"
+      ],
+      "decision": "promising",
+      "next_action": "PPI-only signal (z=2.66, 12/12 sig) confirms physical interaction drives geometry independent of functional annotation. GO-only signal (z=1.89, 7/12 sig) suggests GO co-annotation also contributes but is weaker. 'Both' synergy (z=5.27) suggests the two signals are partially additive. Reduce GO Jaccard threshold to top/bottom quintile for cleaner separation.",
+      "novelty_type": "new_family",
+      "lineage": "none",
+      "retired": false
+    }
+  ]
+}

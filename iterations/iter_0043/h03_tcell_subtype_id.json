@@ -1,0 +1,105 @@
+{
+  "effector_cd8": {
+    "in_vocab": [
+      "CD8A",
+      "GZMB",
+      "PRF1",
+      "NKG7",
+      "GNLY"
+    ],
+    "ids_per_layer": [
+      176.72599306529844,
+      197.2271848825691,
+      160.8636121252479,
+      165.46480937019209,
+      105.51586210829859,
+      79.96476248494152,
+      89.23015962467336,
+      87.79911255335158,
+      123.06160613352822,
+      98.29616195890748,
+      84.46281355005536,
+      73.91750614064618
+    ],
+    "pre_l7_mean": 139.28462623731727,
+    "post_l7_mean": 93.50744006729776,
+    "l7_slope_change": -45.777186170019505
+  },
+  "treg": {
+    "in_vocab": [
+      "CTLA4",
+      "IKZF2"
+    ],
+    "ids_per_layer": [
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN
+    ],
+    "pre_l7_mean": NaN,
+    "post_l7_mean": NaN,
+    "l7_slope_change": NaN
+  },
+  "exhaustion": {
+    "status": "insufficient_genes",
+    "in_vocab": [
+      "TIGIT"
+    ]
+  },
+  "helper_tfh": {
+    "in_vocab": [
+      "ICOS",
+      "BCL6"
+    ],
+    "ids_per_layer": [
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN
+    ],
+    "pre_l7_mean": NaN,
+    "post_l7_mean": NaN,
+    "l7_slope_change": NaN
+  },
+  "general_t": {
+    "in_vocab": [
+      "CD3E",
+      "CD3D",
+      "TRAC",
+      "TRBC1"
+    ],
+    "ids_per_layer": [
+      100.23486913134896,
+      100.58423148060949,
+      102.456846101928,
+      102.41807120035281,
+      96.15689018529078,
+      91.14592344739937,
+      84.63434822952185,
+      92.21365465348882,
+      101.54885546655075,
+      109.12695718380613,
+      146.54091171326723,
+      165.50450863040626
+    ],
+    "pre_l7_mean": 96.80445425377876,
+    "post_l7_mean": 122.98697752950383,
+    "l7_slope_change": 26.182523275725075
+  }
+}

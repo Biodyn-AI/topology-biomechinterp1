@@ -1,0 +1,265 @@
+{
+  "layers": [
+    {
+      "layer": 0,
+      "anchor_genes": [
+        "MS4A1",
+        "CD79A",
+        "BLK"
+      ],
+      "ranks": {
+        "BATF": 1519,
+        "BACH2": 562,
+        "BCL6": 830,
+        "PAX5": 36,
+        "IRF4": null,
+        "JCHAIN": 87,
+        "SDC1": 952,
+        "PRDM1": 1298
+      },
+      "centroid_drift_from_L0": 0.0
+    },
+    {
+      "layer": 1,
+      "anchor_genes": [
+        "MS4A1",
+        "CD79A",
+        "BLK"
+      ],
+      "ranks": {
+        "BATF": 1335,
+        "BACH2": 524,
+        "BCL6": 880,
+        "PAX5": 31,
+        "IRF4": null,
+        "JCHAIN": 86,
+        "SDC1": 932,
+        "PRDM1": 1209
+      },
+      "centroid_drift_from_L0": 12.212385177612305
+    },
+    {
+      "layer": 2,
+      "anchor_genes": [
+        "MS4A1",
+        "CD79A",
+        "BLK"
+      ],
+      "ranks": {
+        "BATF": 1282,
+        "BACH2": 274,
+        "BCL6": 1377,
+        "PAX5": 24,
+        "IRF4": null,
+        "JCHAIN": 62,
+        "SDC1": 617,
+        "PRDM1": 1225
+      },
+      "centroid_drift_from_L0": 13.886999130249023
+    },
+    {
+      "layer": 3,
+      "anchor_genes": [
+        "MS4A1",
+        "CD79A",
+        "BLK"
+      ],
+      "ranks": {
+        "BATF": 1029,
+        "BACH2": 262,
+        "BCL6": 1146,
+        "PAX5": 19,
+        "IRF4": null,
+        "JCHAIN": 32,
+        "SDC1": 716,
+        "PRDM1": 837
+      },
+      "centroid_drift_from_L0": 15.550633430480957
+    },
+    {
+      "layer": 4,
+      "anchor_genes": [
+        "MS4A1",
+        "CD79A",
+        "BLK"
+      ],
+      "ranks": {
+        "BATF": 493,
+        "BACH2": 486,
+        "BCL6": 1128,
+        "PAX5": 19,
+        "IRF4": null,
+        "JCHAIN": 29,
+        "SDC1": 844,
+        "PRDM1": 340
+      },
+      "centroid_drift_from_L0": 16.285747528076172
+    },
+    {
+      "layer": 5,
+      "anchor_genes": [
+        "MS4A1",
+        "CD79A",
+        "BLK"
+      ],
+      "ranks": {
+        "BATF": 343,
+        "BACH2": 508,
+        "BCL6": 1100,
+        "PAX5": 19,
+        "IRF4": null,
+        "JCHAIN": 37,
+        "SDC1": 1149,
+        "PRDM1": 429
+      },
+      "centroid_drift_from_L0": 17.481016159057617
+    },
+    {
+      "layer": 6,
+      "anchor_genes": [
+        "MS4A1",
+        "CD79A",
+        "BLK"
+      ],
+      "ranks": {
+        "BATF": 346,
+        "BACH2": 387,
+        "BCL6": 948,
+        "PAX5": 16,
+        "IRF4": null,
+        "JCHAIN": 35,
+        "SDC1": 1054,
+        "PRDM1": 352
+      },
+      "centroid_drift_from_L0": 18.90401840209961
+    },
+    {
+      "layer": 7,
+      "anchor_genes": [
+        "MS4A1",
+        "CD79A",
+        "BLK"
+      ],
+      "ranks": {
+        "BATF": 268,
+        "BACH2": 388,
+        "BCL6": 1042,
+        "PAX5": 15,
+        "IRF4": null,
+        "JCHAIN": 31,
+        "SDC1": 1345,
+        "PRDM1": 310
+      },
+      "centroid_drift_from_L0": 20.554901123046875
+    },
+    {
+      "layer": 8,
+      "anchor_genes": [
+        "MS4A1",
+        "CD79A",
+        "BLK"
+      ],
+      "ranks": {
+        "BATF": 279,
+        "BACH2": 285,
+        "BCL6": 825,
+        "PAX5": 16,
+        "IRF4": null,
+        "JCHAIN": 40,
+        "SDC1": 1209,
+        "PRDM1": 220
+      },
+      "centroid_drift_from_L0": 22.87288475036621
+    },
+    {
+      "layer": 9,
+      "anchor_genes": [
+        "MS4A1",
+        "CD79A",
+        "BLK"
+      ],
+      "ranks": {
+        "BATF": 251,
+        "BACH2": 177,
+        "BCL6": 757,
+        "PAX5": 18,
+        "IRF4": null,
+        "JCHAIN": 45,
+        "SDC1": 1019,
+        "PRDM1": 166
+      },
+      "centroid_drift_from_L0": 25.513626098632812
+    },
+    {
+      "layer": 10,
+      "anchor_genes": [
+        "MS4A1",
+        "CD79A",
+        "BLK"
+      ],
+      "ranks": {
+        "BATF": 202,
+        "BACH2": 196,
+        "BCL6": 767,
+        "PAX5": 19,
+        "IRF4": null,
+        "JCHAIN": 48,
+        "SDC1": 812,
+        "PRDM1": 128
+      },
+      "centroid_drift_from_L0": 27.987462997436523
+    },
+    {
+      "layer": 11,
+      "anchor_genes": [
+        "MS4A1",
+        "CD79A",
+        "BLK"
+      ],
+      "ranks": {
+        "BATF": 156,
+        "BACH2": 153,
+        "BCL6": 899,
+        "PAX5": 18,
+        "IRF4": null,
+        "JCHAIN": 48,
+        "SDC1": 887,
+        "PRDM1": 111
+      },
+      "centroid_drift_from_L0": 27.19758415222168
+    }
+  ],
+  "attractor_onset_layer": 3,
+  "gc_mean_rank_spearman_rho": -0.9510489510489512,
+  "gc_mean_rank_spearman_p": 2.0384246324655757e-06,
+  "irf4_rank_spearman_rho": null,
+  "irf4_rank_spearman_p": null,
+  "gc_mean_ranks_by_layer": [
+    736.75,
+    692.5,
+    739.25,
+    614.0,
+    531.5,
+    492.5,
+    424.25,
+    428.25,
+    351.25,
+    300.75,
+    296.0,
+    306.5
+  ],
+  "irf4_ranks_by_layer": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

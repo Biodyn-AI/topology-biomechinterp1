@@ -1,0 +1,1483 @@
+{
+  "n_named": 209,
+  "n_with_string_edge": 201,
+  "rho_degree_vs_slope_all": 0.018227507556018884,
+  "p_degree_vs_slope_all": 0.7933573674641319,
+  "rho_wdegree_vs_slope_all": 0.01197179443257608,
+  "p_wdegree_vs_slope_all": 0.8634041981836125,
+  "rho_degree_vs_slope_subset": 0.0175301653231087,
+  "p_degree_vs_slope_subset": 0.8049067334029452,
+  "high_degree_slope_mean": -0.8026875085698615,
+  "low_degree_slope_mean": -0.881646655231561,
+  "auroc_high_vs_low_degree": 0.5251572327044025,
+  "p_high_vs_low_degree": 0.6826058060066448,
+  "div_degree_mean": 37.142857142857146,
+  "conv_degree_mean": 29.046153846153846,
+  "auroc_div_depleted": 0.5745421245421245,
+  "p_div_depleted": 0.8247469436577745,
+  "per_gene": [
+    {
+      "gene": "AKR1B1",
+      "slope": -1.0,
+      "string_degree": 6,
+      "string_wdegree": 2.559,
+      "is_diverging": false
+    },
+    {
+      "gene": "ALDH1A1",
+      "slope": -1.0,
+      "string_degree": 20,
+      "string_wdegree": 9.863999999999999,
+      "is_diverging": false
+    },
+    {
+      "gene": "ALOX5",
+      "slope": -0.9300699300699302,
+      "string_degree": 16,
+      "string_wdegree": 9.141,
+      "is_diverging": false
+    },
+    {
+      "gene": "ALOX5AP",
+      "slope": -1.0,
+      "string_degree": 13,
+      "string_wdegree": 6.419,
+      "is_diverging": false
+    },
+    {
+      "gene": "APP",
+      "slope": -1.0,
+      "string_degree": 27,
+      "string_wdegree": 16.932999999999996,
+      "is_diverging": false
+    },
+    {
+      "gene": "ASAH1",
+      "slope": -0.9930069930069931,
+      "string_degree": 0,
+      "string_wdegree": 0.0,
+      "is_diverging": false
+    },
+    {
+      "gene": "ASS1",
+      "slope": -0.9860139860139862,
+      "string_degree": 5,
+      "string_wdegree": 2.266,
+      "is_diverging": false
+    },
+    {
+      "gene": "ATM",
+      "slope": -1.0,
+      "string_degree": 30,
+      "string_wdegree": 15.596,
+      "is_diverging": false
+    },
+    {
+      "gene": "ATP1B1",
+      "slope": -1.0,
+      "string_degree": 1,
+      "string_wdegree": 0.999,
+      "is_diverging": false
+    },
+    {
+      "gene": "BACH2",
+      "slope": -1.0,
+      "string_degree": 29,
+      "string_wdegree": 15.941999999999998,
+      "is_diverging": false
+    },
+    {
+      "gene": "BATF",
+      "slope": -0.9510489510489512,
+      "string_degree": 1,
+      "string_wdegree": 0.804,
+      "is_diverging": false
+    },
+    {
+      "gene": "BCL2",
+      "slope": -1.0,
+      "string_degree": 94,
+      "string_wdegree": 57.399000000000015,
+      "is_diverging": false
+    },
+    {
+      "gene": "BCL2A1",
+      "slope": -0.9160839160839163,
+      "string_degree": 25,
+      "string_wdegree": 12.803999999999998,
+      "is_diverging": false
+    },
+    {
+      "gene": "BIRC3",
+      "slope": -0.9930069930069931,
+      "string_degree": 26,
+      "string_wdegree": 16.047,
+      "is_diverging": false
+    },
+    {
+      "gene": "BIRC5",
+      "slope": 0.0,
+      "string_degree": 19,
+      "string_wdegree": 11.523000000000001,
+      "is_diverging": false
+    },
+    {
+      "gene": "BLK",
+      "slope": -0.9020979020979022,
+      "string_degree": 20,
+      "string_wdegree": 12.22,
+      "is_diverging": false
+    },
+    {
+      "gene": "BNIP3",
+      "slope": -0.9090909090909092,
+      "string_degree": 13,
+      "string_wdegree": 7.4479999999999995,
+      "is_diverging": false
+    },
+    {
+      "gene": "CA2",
+      "slope": -1.0,
+      "string_degree": 3,
+      "string_wdegree": 1.274,
+      "is_diverging": false
+    },
+    {
+      "gene": "CAT",
+      "slope": -1.0,
+      "string_degree": 2,
+      "string_wdegree": 0.9650000000000001,
+      "is_diverging": false
+    },
+    {
+      "gene": "CCL20",
+      "slope": -1.0,
+      "string_degree": 43,
+      "string_wdegree": 27.755999999999993,
+      "is_diverging": false
+    },
+    {
+      "gene": "CCL3",
+      "slope": -0.9860139860139862,
+      "string_degree": 64,
+      "string_wdegree": 41.78899999999998,
+      "is_diverging": false
+    },
+    {
+      "gene": "CCL5",
+      "slope": -1.0,
+      "string_degree": 77,
+      "string_wdegree": 50.922000000000004,
+      "is_diverging": false
+    },
+    {
+      "gene": "CCND1",
+      "slope": -1.0,
+      "string_degree": 61,
+      "string_wdegree": 37.803,
+      "is_diverging": false
+    },
+    {
+      "gene": "CCR4",
+      "slope": -0.9930069930069931,
+      "string_degree": 16,
+      "string_wdegree": 9.548000000000002,
+      "is_diverging": false
+    },
+    {
+      "gene": "CCR6",
+      "slope": -1.0,
+      "string_degree": 45,
+      "string_wdegree": 29.791999999999994,
+      "is_diverging": false
+    },
+    {
+      "gene": "CCR7",
+      "slope": -1.0,
+      "string_degree": 68,
+      "string_wdegree": 46.706000000000024,
+      "is_diverging": false
+    },
+    {
+      "gene": "CD19",
+      "slope": -0.9020979020979022,
+      "string_degree": 70,
+      "string_wdegree": 48.41699999999999,
+      "is_diverging": false
+    },
+    {
+      "gene": "CD2",
+      "slope": -1.0,
+      "string_degree": 54,
+      "string_wdegree": 36.52299999999999,
+      "is_diverging": false
+    },
+    {
+      "gene": "CD28",
+      "slope": -1.0,
+      "string_degree": 63,
+      "string_wdegree": 43.72799999999999,
+      "is_diverging": false
+    },
+    {
+      "gene": "CD34",
+      "slope": -0.5244755244755246,
+      "string_degree": 69,
+      "string_wdegree": 41.14,
+      "is_diverging": false
+    },
+    {
+      "gene": "CD3G",
+      "slope": -1.0,
+      "string_degree": 35,
+      "string_wdegree": 21.941000000000006,
+      "is_diverging": false
+    },
+    {
+      "gene": "CD40LG",
+      "slope": -0.9090909090909092,
+      "string_degree": 67,
+      "string_wdegree": 45.083000000000006,
+      "is_diverging": false
+    },
+    {
+      "gene": "CD44",
+      "slope": -0.9930069930069931,
+      "string_degree": 87,
+      "string_wdegree": 60.54199999999999,
+      "is_diverging": false
+    },
+    {
+      "gene": "CD6",
+      "slope": -0.9930069930069931,
+      "string_degree": 33,
+      "string_wdegree": 17.418,
+      "is_diverging": false
+    },
+    {
+      "gene": "CD69",
+      "slope": -1.0,
+      "string_degree": 66,
+      "string_wdegree": 42.30200000000001,
+      "is_diverging": false
+    },
+    {
+      "gene": "CD79A",
+      "slope": -0.9440559440559443,
+      "string_degree": 39,
+      "string_wdegree": 24.191,
+      "is_diverging": false
+    },
+    {
+      "gene": "CD86",
+      "slope": -1.0,
+      "string_degree": 69,
+      "string_wdegree": 45.67099999999999,
+      "is_diverging": false
+    },
+    {
+      "gene": "CD8A",
+      "slope": -1.0,
+      "string_degree": 98,
+      "string_wdegree": 70.31499999999997,
+      "is_diverging": false
+    },
+    {
+      "gene": "CD8B",
+      "slope": -1.0,
+      "string_degree": 33,
+      "string_wdegree": 19.298999999999996,
+      "is_diverging": false
+    },
+    {
+      "gene": "CEBPD",
+      "slope": -0.965034965034965,
+      "string_degree": 22,
+      "string_wdegree": 11.831999999999999,
+      "is_diverging": false
+    },
+    {
+      "gene": "CIITA",
+      "slope": -0.6153846153846154,
+      "string_degree": 1,
+      "string_wdegree": 0.5,
+      "is_diverging": false
+    },
+    {
+      "gene": "CLU",
+      "slope": -0.9720279720279721,
+      "string_degree": 20,
+      "string_wdegree": 11.329,
+      "is_diverging": false
+    },
+    {
+      "gene": "COL1A1",
+      "slope": -1.0,
+      "string_degree": 1,
+      "string_wdegree": 0.531,
+      "is_diverging": false
+    },
+    {
+      "gene": "CR1",
+      "slope": -0.8811188811188813,
+      "string_degree": 0,
+      "string_wdegree": 0.0,
+      "is_diverging": false
+    },
+    {
+      "gene": "CSF3R",
+      "slope": -0.9790209790209792,
+      "string_degree": 26,
+      "string_wdegree": 15.593999999999998,
+      "is_diverging": false
+    },
+    {
+      "gene": "CTLA4",
+      "slope": -1.0,
+      "string_degree": 76,
+      "string_wdegree": 48.68999999999998,
+      "is_diverging": false
+    },
+    {
+      "gene": "CTSB",
+      "slope": -1.0,
+      "string_degree": 26,
+      "string_wdegree": 14.962,
+      "is_diverging": false
+    },
+    {
+      "gene": "CXCL8",
+      "slope": -0.7832167832167832,
+      "string_degree": 86,
+      "string_wdegree": 56.596999999999994,
+      "is_diverging": false
+    },
+    {
+      "gene": "CXCR3",
+      "slope": -0.9930069930069931,
+      "string_degree": 53,
+      "string_wdegree": 35.608000000000004,
+      "is_diverging": false
+    },
+    {
+      "gene": "CXCR4",
+      "slope": -0.9790209790209792,
+      "string_degree": 81,
+      "string_wdegree": 51.58699999999999,
+      "is_diverging": false
+    },
+    {
+      "gene": "CYBB",
+      "slope": -0.9930069930069931,
+      "string_degree": 33,
+      "string_wdegree": 19.98399999999999,
+      "is_diverging": false
+    },
+    {
+      "gene": "DAPK2",
+      "slope": -0.7832167832167832,
+      "string_degree": 6,
+      "string_wdegree": 2.738,
+      "is_diverging": false
+    },
+    {
+      "gene": "DCN",
+      "slope": -1.0,
+      "string_degree": 19,
+      "string_wdegree": 11.998999999999999,
+      "is_diverging": false
+    },
+    {
+      "gene": "DUSP1",
+      "slope": -1.0,
+      "string_degree": 28,
+      "string_wdegree": 16.942999999999998,
+      "is_diverging": false
+    },
+    {
+      "gene": "EGR1",
+      "slope": -0.9930069930069931,
+      "string_degree": 42,
+      "string_wdegree": 25.51599999999999,
+      "is_diverging": false
+    },
+    {
+      "gene": "EGR3",
+      "slope": -1.0,
+      "string_degree": 11,
+      "string_wdegree": 7.409,
+      "is_diverging": false
+    },
+    {
+      "gene": "ELF1",
+      "slope": -1.0,
+      "string_degree": 5,
+      "string_wdegree": 2.7590000000000003,
+      "is_diverging": false
+    },
+    {
+      "gene": "EOMES",
+      "slope": -0.9370629370629372,
+      "string_degree": 49,
+      "string_wdegree": 28.923000000000002,
+      "is_diverging": false
+    },
+    {
+      "gene": "EPCAM",
+      "slope": -0.49650349650349657,
+      "string_degree": 33,
+      "string_wdegree": 17.979000000000003,
+      "is_diverging": false
+    },
+    {
+      "gene": "ETS1",
+      "slope": -1.0,
+      "string_degree": 53,
+      "string_wdegree": 29.199999999999996,
+      "is_diverging": false
+    },
+    {
+      "gene": "FAM162A",
+      "slope": -0.9930069930069931,
+      "string_degree": 1,
+      "string_wdegree": 0.495,
+      "is_diverging": false
+    },
+    {
+      "gene": "FASLG",
+      "slope": -0.9930069930069931,
+      "string_degree": 59,
+      "string_wdegree": 37.368,
+      "is_diverging": false
+    },
+    {
+      "gene": "FCER2",
+      "slope": -0.9020979020979022,
+      "string_degree": 14,
+      "string_wdegree": 7.864,
+      "is_diverging": false
+    },
+    {
+      "gene": "FLI1",
+      "slope": -1.0,
+      "string_degree": 5,
+      "string_wdegree": 3.43,
+      "is_diverging": false
+    },
+    {
+      "gene": "FLT1",
+      "slope": -0.9930069930069931,
+      "string_degree": 34,
+      "string_wdegree": 18.514,
+      "is_diverging": false
+    },
+    {
+      "gene": "FOS",
+      "slope": 0.9790209790209792,
+      "string_degree": 78,
+      "string_wdegree": 50.595000000000006,
+      "is_diverging": true
+    },
+    {
+      "gene": "FOSB",
+      "slope": -1.0,
+      "string_degree": 22,
+      "string_wdegree": 14.465000000000003,
+      "is_diverging": false
+    },
+    {
+      "gene": "FOXP3",
+      "slope": -0.965034965034965,
+      "string_degree": 70,
+      "string_wdegree": 49.25899999999999,
+      "is_diverging": false
+    },
+    {
+      "gene": "FXYD2",
+      "slope": -0.9300699300699302,
+      "string_degree": 2,
+      "string_wdegree": 1.427,
+      "is_diverging": false
+    },
+    {
+      "gene": "GADD45A",
+      "slope": -0.9440559440559443,
+      "string_degree": 16,
+      "string_wdegree": 8.799,
+      "is_diverging": false
+    },
+    {
+      "gene": "GATA3",
+      "slope": -0.9370629370629372,
+      "string_degree": 66,
+      "string_wdegree": 41.473,
+      "is_diverging": false
+    },
+    {
+      "gene": "GBX2",
+      "slope": -1.0,
+      "string_degree": 1,
+      "string_wdegree": 0.4,
+      "is_diverging": false
+    },
+    {
+      "gene": "GCSAM",
+      "slope": -0.9930069930069931,
+      "string_degree": 3,
+      "string_wdegree": 1.5419999999999998,
+      "is_diverging": false
+    },
+    {
+      "gene": "GSTP1",
+      "slope": -0.965034965034965,
+      "string_degree": 11,
+      "string_wdegree": 5.7410000000000005,
+      "is_diverging": false
+    },
+    {
+      "gene": "HDAC9",
+      "slope": -0.9230769230769231,
+      "string_degree": 8,
+      "string_wdegree": 5.256000000000001,
+      "is_diverging": false
+    },
+    {
+      "gene": "HDGF",
+      "slope": -0.9930069930069931,
+      "string_degree": 5,
+      "string_wdegree": 2.645,
+      "is_diverging": false
+    },
+    {
+      "gene": "HIF1A",
+      "slope": -1.0,
+      "string_degree": 78,
+      "string_wdegree": 49.57299999999998,
+      "is_diverging": false
+    },
+    {
+      "gene": "HIF3A",
+      "slope": -0.8461538461538463,
+      "string_degree": 4,
+      "string_wdegree": 2.371,
+      "is_diverging": false
+    },
+    {
+      "gene": "HIPK2",
+      "slope": -1.0,
+      "string_degree": 9,
+      "string_wdegree": 4.811999999999999,
+      "is_diverging": false
+    },
+    {
+      "gene": "HLA-A",
+      "slope": 0.9790209790209792,
+      "string_degree": 42,
+      "string_wdegree": 27.209,
+      "is_diverging": true
+    },
+    {
+      "gene": "HLA-B",
+      "slope": -0.965034965034965,
+      "string_degree": 32,
+      "string_wdegree": 20.227999999999998,
+      "is_diverging": false
+    },
+    {
+      "gene": "HLA-C",
+      "slope": -1.0,
+      "string_degree": 28,
+      "string_wdegree": 18.106000000000005,
+      "is_diverging": false
+    },
+    {
+      "gene": "HLA-DMB",
+      "slope": -0.9930069930069931,
+      "string_degree": 14,
+      "string_wdegree": 10.189,
+      "is_diverging": false
+    },
+    {
+      "gene": "HLA-DOB",
+      "slope": -1.0,
+      "string_degree": 14,
+      "string_wdegree": 10.553,
+      "is_diverging": false
+    },
+    {
+      "gene": "HLA-DPB1",
+      "slope": 0.9790209790209792,
+      "string_degree": 16,
+      "string_wdegree": 11.035,
+      "is_diverging": true
+    },
+    {
+      "gene": "HLA-DRA",
+      "slope": -1.0,
+      "string_degree": 39,
+      "string_wdegree": 24.41,
+      "is_diverging": false
+    },
+    {
+      "gene": "HLA-DRB1",
+      "slope": -1.0,
+      "string_degree": 42,
+      "string_wdegree": 27.033999999999992,
+      "is_diverging": false
+    },
+    {
+      "gene": "HOPX",
+      "slope": -1.0,
+      "string_degree": 2,
+      "string_wdegree": 1.0939999999999999,
+      "is_diverging": false
+    },
+    {
+      "gene": "HPGD",
+      "slope": -1.0,
+      "string_degree": 0,
+      "string_wdegree": 0.0,
+      "is_diverging": false
+    },
+    {
+      "gene": "ID2",
+      "slope": -0.9580419580419581,
+      "string_degree": 28,
+      "string_wdegree": 14.240000000000002,
+      "is_diverging": false
+    },
+    {
+      "gene": "IFNG",
+      "slope": -1.0,
+      "string_degree": 109,
+      "string_wdegree": 75.06599999999997,
+      "is_diverging": false
+    },
+    {
+      "gene": "IGFBP1",
+      "slope": -1.0,
+      "string_degree": 9,
+      "string_wdegree": 4.693,
+      "is_diverging": false
+    },
+    {
+      "gene": "IGFBP3",
+      "slope": -0.9440559440559443,
+      "string_degree": 23,
+      "string_wdegree": 12.632,
+      "is_diverging": false
+    },
+    {
+      "gene": "IL10",
+      "slope": -1.0,
+      "string_degree": 85,
+      "string_wdegree": 60.523000000000025,
+      "is_diverging": false
+    },
+    {
+      "gene": "IL12A",
+      "slope": -1.0,
+      "string_degree": 16,
+      "string_wdegree": 9.713000000000001,
+      "is_diverging": false
+    },
+    {
+      "gene": "IL12B",
+      "slope": -1.0,
+      "string_degree": 16,
+      "string_wdegree": 10.842,
+      "is_diverging": false
+    },
+    {
+      "gene": "IL1B",
+      "slope": -0.9300699300699302,
+      "string_degree": 110,
+      "string_wdegree": 72.86699999999999,
+      "is_diverging": false
+    },
+    {
+      "gene": "IL2",
+      "slope": -1.0,
+      "string_degree": 82,
+      "string_wdegree": 58.257,
+      "is_diverging": false
+    },
+    {
+      "gene": "IL24",
+      "slope": -1.0,
+      "string_degree": 14,
+      "string_wdegree": 8.5,
+      "is_diverging": false
+    },
+    {
+      "gene": "IL2RA",
+      "slope": -1.0,
+      "string_degree": 56,
+      "string_wdegree": 37.99899999999999,
+      "is_diverging": false
+    },
+    {
+      "gene": "IL2RB",
+      "slope": -1.0,
+      "string_degree": 48,
+      "string_wdegree": 32.32000000000001,
+      "is_diverging": false
+    },
+    {
+      "gene": "IL5RA",
+      "slope": -1.0,
+      "string_degree": 14,
+      "string_wdegree": 9.259,
+      "is_diverging": false
+    },
+    {
+      "gene": "IL6",
+      "slope": -0.8671328671328673,
+      "string_degree": 119,
+      "string_wdegree": 80.21700000000001,
+      "is_diverging": false
+    },
+    {
+      "gene": "INS",
+      "slope": -0.9720279720279721,
+      "string_degree": 1,
+      "string_wdegree": 0.531,
+      "is_diverging": false
+    },
+    {
+      "gene": "IRF4",
+      "slope": -0.30069930069930073,
+      "string_degree": 66,
+      "string_wdegree": 39.53400000000003,
+      "is_diverging": false
+    },
+    {
+      "gene": "IRF8",
+      "slope": -1.0,
+      "string_degree": 61,
+      "string_wdegree": 33.787000000000006,
+      "is_diverging": false
+    },
+    {
+      "gene": "ITGAX",
+      "slope": -1.0,
+      "string_degree": 60,
+      "string_wdegree": 39.013999999999996,
+      "is_diverging": false
+    },
+    {
+      "gene": "ITGB2",
+      "slope": -1.0,
+      "string_degree": 57,
+      "string_wdegree": 36.54999999999998,
+      "is_diverging": false
+    },
+    {
+      "gene": "ITGB8",
+      "slope": -1.0,
+      "string_degree": 4,
+      "string_wdegree": 2.996,
+      "is_diverging": false
+    },
+    {
+      "gene": "JARID2",
+      "slope": -1.0,
+      "string_degree": 2,
+      "string_wdegree": 0.94,
+      "is_diverging": false
+    },
+    {
+      "gene": "JUN",
+      "slope": -1.0,
+      "string_degree": 98,
+      "string_wdegree": 63.35999999999999,
+      "is_diverging": false
+    },
+    {
+      "gene": "JUNB",
+      "slope": 0.9790209790209792,
+      "string_degree": 30,
+      "string_wdegree": 18.224,
+      "is_diverging": true
+    },
+    {
+      "gene": "KDR",
+      "slope": -0.9300699300699302,
+      "string_degree": 43,
+      "string_wdegree": 24.434999999999995,
+      "is_diverging": false
+    },
+    {
+      "gene": "KLF14",
+      "slope": -1.0,
+      "string_degree": 0,
+      "string_wdegree": 0.0,
+      "is_diverging": false
+    },
+    {
+      "gene": "KLF2",
+      "slope": -0.9930069930069931,
+      "string_degree": 35,
+      "string_wdegree": 18.4,
+      "is_diverging": false
+    },
+    {
+      "gene": "KLF6",
+      "slope": 0.9790209790209792,
+      "string_degree": 16,
+      "string_wdegree": 8.718,
+      "is_diverging": true
+    },
+    {
+      "gene": "KLK1",
+      "slope": -1.0,
+      "string_degree": 3,
+      "string_wdegree": 1.3559999999999999,
+      "is_diverging": false
+    },
+    {
+      "gene": "KLRK1",
+      "slope": -0.9930069930069931,
+      "string_degree": 51,
+      "string_wdegree": 30.862000000000005,
+      "is_diverging": false
+    },
+    {
+      "gene": "LCK",
+      "slope": -0.965034965034965,
+      "string_degree": 62,
+      "string_wdegree": 39.633999999999986,
+      "is_diverging": false
+    },
+    {
+      "gene": "LDHA",
+      "slope": 0.9790209790209792,
+      "string_degree": 18,
+      "string_wdegree": 9.401,
+      "is_diverging": true
+    },
+    {
+      "gene": "LEF1",
+      "slope": -1.0,
+      "string_degree": 44,
+      "string_wdegree": 24.842999999999996,
+      "is_diverging": false
+    },
+    {
+      "gene": "LGALS1",
+      "slope": 0.9790209790209792,
+      "string_degree": 9,
+      "string_wdegree": 5.151999999999999,
+      "is_diverging": true
+    },
+    {
+      "gene": "LRRFIP1",
+      "slope": -0.9230769230769231,
+      "string_degree": 0,
+      "string_wdegree": 0.0,
+      "is_diverging": false
+    },
+    {
+      "gene": "LTB",
+      "slope": -0.9790209790209792,
+      "string_degree": 23,
+      "string_wdegree": 12.729000000000001,
+      "is_diverging": false
+    },
+    {
+      "gene": "MAFA",
+      "slope": -1.0,
+      "string_degree": 1,
+      "string_wdegree": 0.478,
+      "is_diverging": false
+    },
+    {
+      "gene": "MECOM",
+      "slope": -0.5454545454545455,
+      "string_degree": 8,
+      "string_wdegree": 4.689,
+      "is_diverging": false
+    },
+    {
+      "gene": "MEF2C",
+      "slope": -1.0,
+      "string_degree": 21,
+      "string_wdegree": 11.239,
+      "is_diverging": false
+    },
+    {
+      "gene": "MGAT5",
+      "slope": -1.0,
+      "string_degree": 2,
+      "string_wdegree": 0.944,
+      "is_diverging": false
+    },
+    {
+      "gene": "MGP",
+      "slope": -1.0,
+      "string_degree": 3,
+      "string_wdegree": 2.204,
+      "is_diverging": false
+    },
+    {
+      "gene": "MIF",
+      "slope": -0.965034965034965,
+      "string_degree": 26,
+      "string_wdegree": 15.476999999999999,
+      "is_diverging": false
+    },
+    {
+      "gene": "MKI67",
+      "slope": -0.8881118881118882,
+      "string_degree": 19,
+      "string_wdegree": 10.008,
+      "is_diverging": false
+    },
+    {
+      "gene": "MMP7",
+      "slope": -1.0,
+      "string_degree": 25,
+      "string_wdegree": 15.767000000000003,
+      "is_diverging": false
+    },
+    {
+      "gene": "MMP9",
+      "slope": -0.9930069930069931,
+      "string_degree": 82,
+      "string_wdegree": 52.47700000000001,
+      "is_diverging": false
+    },
+    {
+      "gene": "MS4A1",
+      "slope": -0.7272727272727274,
+      "string_degree": 38,
+      "string_wdegree": 21.952000000000005,
+      "is_diverging": false
+    },
+    {
+      "gene": "MSR1",
+      "slope": -0.8951048951048951,
+      "string_degree": 16,
+      "string_wdegree": 8.546,
+      "is_diverging": false
+    },
+    {
+      "gene": "MUC1",
+      "slope": -1.0,
+      "string_degree": 44,
+      "string_wdegree": 24.3,
+      "is_diverging": false
+    },
+    {
+      "gene": "MYBL1",
+      "slope": -0.6853146853146854,
+      "string_degree": 3,
+      "string_wdegree": 1.421,
+      "is_diverging": false
+    },
+    {
+      "gene": "NCAM1",
+      "slope": 0.9790209790209792,
+      "string_degree": 53,
+      "string_wdegree": 34.203,
+      "is_diverging": true
+    },
+    {
+      "gene": "NCF2",
+      "slope": -1.0,
+      "string_degree": 18,
+      "string_wdegree": 9.685,
+      "is_diverging": false
+    },
+    {
+      "gene": "NCL",
+      "slope": -1.0,
+      "string_degree": 13,
+      "string_wdegree": 6.720000000000001,
+      "is_diverging": false
+    },
+    {
+      "gene": "NCOA3",
+      "slope": 0.9790209790209792,
+      "string_degree": 14,
+      "string_wdegree": 8.649999999999999,
+      "is_diverging": true
+    },
+    {
+      "gene": "NEAT1",
+      "slope": -0.9930069930069931,
+      "string_degree": 0,
+      "string_wdegree": 0.0,
+      "is_diverging": false
+    },
+    {
+      "gene": "NFATC2",
+      "slope": -0.9860139860139862,
+      "string_degree": 27,
+      "string_wdegree": 16.658999999999995,
+      "is_diverging": false
+    },
+    {
+      "gene": "NFIB",
+      "slope": -1.0,
+      "string_degree": 0,
+      "string_wdegree": 0.0,
+      "is_diverging": false
+    },
+    {
+      "gene": "NPPA",
+      "slope": -0.8951048951048951,
+      "string_degree": 13,
+      "string_wdegree": 6.167999999999999,
+      "is_diverging": false
+    },
+    {
+      "gene": "NR3C2",
+      "slope": -0.9930069930069931,
+      "string_degree": 9,
+      "string_wdegree": 4.359999999999999,
+      "is_diverging": false
+    },
+    {
+      "gene": "NR4A2",
+      "slope": -0.9790209790209792,
+      "string_degree": 20,
+      "string_wdegree": 11.637000000000002,
+      "is_diverging": false
+    },
+    {
+      "gene": "NR4A3",
+      "slope": 0.9790209790209792,
+      "string_degree": 14,
+      "string_wdegree": 8.140999999999998,
+      "is_diverging": true
+    },
+    {
+      "gene": "OPRM1",
+      "slope": -1.0,
+      "string_degree": 10,
+      "string_wdegree": 5.1610000000000005,
+      "is_diverging": false
+    },
+    {
+      "gene": "PAX5",
+      "slope": 0.9790209790209792,
+      "string_degree": 31,
+      "string_wdegree": 20.753999999999998,
+      "is_diverging": true
+    },
+    {
+      "gene": "PBK",
+      "slope": -1.0,
+      "string_degree": 3,
+      "string_wdegree": 2.601,
+      "is_diverging": false
+    },
+    {
+      "gene": "PCBD1",
+      "slope": -0.7132867132867133,
+      "string_degree": 1,
+      "string_wdegree": 0.428,
+      "is_diverging": false
+    },
+    {
+      "gene": "PDHA1",
+      "slope": -1.0,
+      "string_degree": 4,
+      "string_wdegree": 2.4530000000000003,
+      "is_diverging": false
+    },
+    {
+      "gene": "PLAT",
+      "slope": -0.9720279720279721,
+      "string_degree": 19,
+      "string_wdegree": 11.145,
+      "is_diverging": false
+    },
+    {
+      "gene": "PLAUR",
+      "slope": -0.9930069930069931,
+      "string_degree": 24,
+      "string_wdegree": 13.503000000000004,
+      "is_diverging": false
+    },
+    {
+      "gene": "PMAIP1",
+      "slope": -0.9090909090909092,
+      "string_degree": 13,
+      "string_wdegree": 7.925,
+      "is_diverging": false
+    },
+    {
+      "gene": "POU1F1",
+      "slope": -1.0,
+      "string_degree": 4,
+      "string_wdegree": 2.689,
+      "is_diverging": false
+    },
+    {
+      "gene": "POU2AF1",
+      "slope": -1.0,
+      "string_degree": 18,
+      "string_wdegree": 12.241,
+      "is_diverging": false
+    },
+    {
+      "gene": "POU2F2",
+      "slope": -0.9720279720279721,
+      "string_degree": 6,
+      "string_wdegree": 3.3819999999999997,
+      "is_diverging": false
+    },
+    {
+      "gene": "PRDM1",
+      "slope": -1.0,
+      "string_degree": 2,
+      "string_wdegree": 1.304,
+      "is_diverging": false
+    },
+    {
+      "gene": "PRF1",
+      "slope": -0.9790209790209792,
+      "string_degree": 54,
+      "string_wdegree": 37.187999999999995,
+      "is_diverging": false
+    },
+    {
+      "gene": "PRKCQ",
+      "slope": -1.0,
+      "string_degree": 18,
+      "string_wdegree": 10.180000000000001,
+      "is_diverging": false
+    },
+    {
+      "gene": "PTGS2",
+      "slope": 0.9790209790209792,
+      "string_degree": 66,
+      "string_wdegree": 39.52399999999999,
+      "is_diverging": true
+    },
+    {
+      "gene": "PTTG1",
+      "slope": -0.9930069930069931,
+      "string_degree": 4,
+      "string_wdegree": 2.845,
+      "is_diverging": false
+    },
+    {
+      "gene": "REL",
+      "slope": -1.0,
+      "string_degree": 43,
+      "string_wdegree": 23.881999999999994,
+      "is_diverging": false
+    },
+    {
+      "gene": "RFX3",
+      "slope": -0.9930069930069931,
+      "string_degree": 0,
+      "string_wdegree": 0.0,
+      "is_diverging": false
+    },
+    {
+      "gene": "RHOB",
+      "slope": -0.9930069930069931,
+      "string_degree": 9,
+      "string_wdegree": 4.705,
+      "is_diverging": false
+    },
+    {
+      "gene": "RHOC",
+      "slope": -0.9790209790209792,
+      "string_degree": 9,
+      "string_wdegree": 4.119,
+      "is_diverging": false
+    },
+    {
+      "gene": "RORA",
+      "slope": -0.9790209790209792,
+      "string_degree": 17,
+      "string_wdegree": 9.175999999999998,
+      "is_diverging": false
+    },
+    {
+      "gene": "RUNX1",
+      "slope": -1.0,
+      "string_degree": 58,
+      "string_wdegree": 38.927,
+      "is_diverging": false
+    },
+    {
+      "gene": "RUNX2",
+      "slope": -0.9090909090909092,
+      "string_degree": 33,
+      "string_wdegree": 21.889000000000003,
+      "is_diverging": false
+    },
+    {
+      "gene": "RUNX3",
+      "slope": -1.0,
+      "string_degree": 39,
+      "string_wdegree": 22.832999999999995,
+      "is_diverging": false
+    },
+    {
+      "gene": "S100A4",
+      "slope": -1.0,
+      "string_degree": 18,
+      "string_wdegree": 9.262999999999998,
+      "is_diverging": false
+    },
+    {
+      "gene": "SDHB",
+      "slope": -1.0,
+      "string_degree": 10,
+      "string_wdegree": 5.567,
+      "is_diverging": false
+    },
+    {
+      "gene": "SELL",
+      "slope": -0.9510489510489512,
+      "string_degree": 63,
+      "string_wdegree": 42.08799999999999,
+      "is_diverging": false
+    },
+    {
+      "gene": "SERPINB2",
+      "slope": -1.0,
+      "string_degree": 14,
+      "string_wdegree": 8.078,
+      "is_diverging": false
+    },
+    {
+      "gene": "SLA2",
+      "slope": -1.0,
+      "string_degree": 3,
+      "string_wdegree": 1.38,
+      "is_diverging": false
+    },
+    {
+      "gene": "SOX18",
+      "slope": -0.9090909090909092,
+      "string_degree": 4,
+      "string_wdegree": 2.546,
+      "is_diverging": false
+    },
+    {
+      "gene": "SP100",
+      "slope": -0.9790209790209792,
+      "string_degree": 4,
+      "string_wdegree": 1.9300000000000002,
+      "is_diverging": false
+    },
+    {
+      "gene": "SPIB",
+      "slope": -0.9090909090909092,
+      "string_degree": 15,
+      "string_wdegree": 9.721,
+      "is_diverging": false
+    },
+    {
+      "gene": "SPP1",
+      "slope": -1.0,
+      "string_degree": 48,
+      "string_wdegree": 28.893000000000004,
+      "is_diverging": false
+    },
+    {
+      "gene": "STAT4",
+      "slope": -0.9930069930069931,
+      "string_degree": 47,
+      "string_wdegree": 28.737000000000005,
+      "is_diverging": false
+    },
+    {
+      "gene": "STIM1",
+      "slope": -1.0,
+      "string_degree": 5,
+      "string_wdegree": 2.6990000000000003,
+      "is_diverging": false
+    },
+    {
+      "gene": "SYK",
+      "slope": -1.0,
+      "string_degree": 52,
+      "string_wdegree": 32.05599999999999,
+      "is_diverging": false
+    },
+    {
+      "gene": "TBX21",
+      "slope": -0.9930069930069931,
+      "string_degree": 56,
+      "string_wdegree": 39.1,
+      "is_diverging": false
+    },
+    {
+      "gene": "TBXAS1",
+      "slope": 0.9790209790209792,
+      "string_degree": 3,
+      "string_wdegree": 1.56,
+      "is_diverging": true
+    },
+    {
+      "gene": "TCF4",
+      "slope": -1.0,
+      "string_degree": 17,
+      "string_wdegree": 9.391,
+      "is_diverging": false
+    },
+    {
+      "gene": "TEK",
+      "slope": -1.0,
+      "string_degree": 17,
+      "string_wdegree": 9.700999999999997,
+      "is_diverging": false
+    },
+    {
+      "gene": "TGFBR2",
+      "slope": -1.0,
+      "string_degree": 36,
+      "string_wdegree": 19.109000000000005,
+      "is_diverging": false
+    },
+    {
+      "gene": "TLR10",
+      "slope": -1.0,
+      "string_degree": 16,
+      "string_wdegree": 8.956000000000001,
+      "is_diverging": false
+    },
+    {
+      "gene": "TLR2",
+      "slope": -0.9860139860139862,
+      "string_degree": 63,
+      "string_wdegree": 40.79100000000002,
+      "is_diverging": false
+    },
+    {
+      "gene": "TLX1",
+      "slope": -0.9790209790209792,
+      "string_degree": 2,
+      "string_wdegree": 0.946,
+      "is_diverging": false
+    },
+    {
+      "gene": "TNF",
+      "slope": 0.9790209790209792,
+      "string_degree": 130,
+      "string_wdegree": 87.48999999999997,
+      "is_diverging": true
+    },
+    {
+      "gene": "TNFAIP3",
+      "slope": -1.0,
+      "string_degree": 40,
+      "string_wdegree": 22.333,
+      "is_diverging": false
+    },
+    {
+      "gene": "TNFRSF17",
+      "slope": -0.9930069930069931,
+      "string_degree": 12,
+      "string_wdegree": 7.532999999999999,
+      "is_diverging": false
+    },
+    {
+      "gene": "TNFRSF1B",
+      "slope": -0.9930069930069931,
+      "string_degree": 36,
+      "string_wdegree": 22.583999999999996,
+      "is_diverging": false
+    },
+    {
+      "gene": "TNFSF10",
+      "slope": -0.9790209790209792,
+      "string_degree": 31,
+      "string_wdegree": 17.788,
+      "is_diverging": false
+    },
+    {
+      "gene": "TNFSF14",
+      "slope": -1.0,
+      "string_degree": 10,
+      "string_wdegree": 5.569,
+      "is_diverging": false
+    },
+    {
+      "gene": "TRERF1",
+      "slope": -0.965034965034965,
+      "string_degree": 2,
+      "string_wdegree": 0.828,
+      "is_diverging": false
+    },
+    {
+      "gene": "TSC22D3",
+      "slope": -0.9440559440559443,
+      "string_degree": 13,
+      "string_wdegree": 6.497,
+      "is_diverging": false
+    },
+    {
+      "gene": "TSHB",
+      "slope": -0.9930069930069931,
+      "string_degree": 2,
+      "string_wdegree": 1.3780000000000001,
+      "is_diverging": false
+    },
+    {
+      "gene": "TXN",
+      "slope": -0.9930069930069931,
+      "string_degree": 22,
+      "string_wdegree": 11.782,
+      "is_diverging": false
+    },
+    {
+      "gene": "TXNIP",
+      "slope": -1.0,
+      "string_degree": 12,
+      "string_wdegree": 6.595000000000001,
+      "is_diverging": false
+    },
+    {
+      "gene": "VCAN",
+      "slope": -1.0,
+      "string_degree": 12,
+      "string_wdegree": 8.023,
+      "is_diverging": false
+    },
+    {
+      "gene": "VIM",
+      "slope": -0.9860139860139862,
+      "string_degree": 30,
+      "string_wdegree": 17.528999999999996,
+      "is_diverging": false
+    },
+    {
+      "gene": "WFDC2",
+      "slope": -1.0,
+      "string_degree": 4,
+      "string_wdegree": 1.9100000000000001,
+      "is_diverging": false
+    },
+    {
+      "gene": "ZEB1",
+      "slope": -1.0,
+      "string_degree": 32,
+      "string_wdegree": 18.545,
+      "is_diverging": false
+    },
+    {
+      "gene": "ZEB2",
+      "slope": -0.3356643356643357,
+      "string_degree": 24,
+      "string_wdegree": 12.146999999999998,
+      "is_diverging": false
+    },
+    {
+      "gene": "ZFP36",
+      "slope": -0.9790209790209792,
+      "string_degree": 20,
+      "string_wdegree": 12.536000000000001,
+      "is_diverging": false
+    }
+  ]
+}

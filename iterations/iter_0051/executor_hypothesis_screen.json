@@ -1,0 +1,59 @@
+{
+  "iteration": "iter_0051",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "Residual TF signal after co-expression regression in SV2-4",
+      "family": "module_structure",
+      "split_regime": "edge_stratified",
+      "method": "At each of 12 layers: SVD of centered nonzero embeddings [2039,512], project to SV2-4 [2039,3]. Compute pairwise SV2-4 Euclidean distances for TRRUST pos (n=589) and neg (n=1523). Compute full-embedding cosine similarity. OLS: regress cos-sim out of distances. Mann-Whitney test on residuals (TRRUST < NEG).",
+      "status": "tested",
+      "primary_metric": "layers significant after co-expression regression (p<0.05)",
+      "result_value": "1/12 layers significant (L8: rbc=0.083, p=0.0016). Residual rbc range: [-0.170, +0.083].",
+      "result_direction": "negative",
+      "artifact_paths": ["h01_coexpr_regression_residual.csv", "iter51_summary.json"],
+      "decision": "negative",
+      "next_action": "Retire SV2-4 regulatory proximity claim. Update paper to reflect that SV2-4 encodes co-expression structure. Explore whether any spectral direction shows regulatory-specific content independent of co-expression.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0050_H01",
+      "retired": false,
+      "retirement_reason": "Definitively closes iter_0049 H03 regulatory proximity claim."
+    },
+    {
+      "id": "H02",
+      "name": "SV1-high genes are depleted of TFs at both L0 and L11",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "Use SV1 loadings [12, 2039] from iter_0049. Split genes into top/bottom 20% at L0 and L11 (n=408 per group). Compute TF fraction (TRRUST TF membership) for each group. Fisher exact test vs rest. 295/2039 nonzero genes have names; analysis on named subset.",
+      "status": "tested",
+      "primary_metric": "Fisher exact OR for TF depletion in high-SV1 group",
+      "result_value": "L0: OR=0.108, p<0.0001. L11: OR=0.348, p=0.007. High-SV1 genes have 18x (L0) / 3x (L11) lower TF fraction than baseline.",
+      "result_direction": "positive",
+      "artifact_paths": ["h02_sv1_groups_identity.csv", "h02_sv1_groups_layer_norms.csv", "iter51_summary.json"],
+      "decision": "promising",
+      "next_action": "Check if high-SV1 genes correspond to housekeeping gene sets (GAPDH-class, ribosomal genes). The SV1 axis may capture housekeeping vs regulatory gene dichotomy — test with external housekeeping gene list.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0050_H02",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H03",
+      "name": "0-dim PH cluster topology for circuit genes in SV2-4 at L8",
+      "family": "persistent_homology",
+      "split_regime": "edge_stratified",
+      "method": "Extract SV2-4 projections of circuit (TF+target, n=295) and matched non-circuit genes at L8. Compute: (1) pairwise distance distributions (KS test), (2) 0-dim PH via single-linkage (KS test on persistence lifetimes), (3) fragmentation integral vs 500-sample bootstrap null.",
+      "status": "tested",
+      "primary_metric": "fragmentation integral ratio (circuit / non-circuit) vs null p-value",
+      "result_value": "Pairwise dist KS p<1e-6 (circuit tighter). PH persistence KS p=0.0065. Frag ratio=0.940, null p=0.116 (NS).",
+      "result_direction": "mixed",
+      "artifact_paths": ["h03_ph0_sv24_L8.csv", "iter51_summary.json"],
+      "decision": "inconclusive",
+      "next_action": "Try higher-dim PH (H1 Betti curves) to test for loops/cycles in circuit gene manifold. Or test at L5-L6 where rbc was also notable. Circuit proximity is confirmed but cluster topology is not.",
+      "novelty_type": "new_family",
+      "lineage": "none",
+      "retired": false,
+      "retirement_reason": ""
+    }
+  ]
+}

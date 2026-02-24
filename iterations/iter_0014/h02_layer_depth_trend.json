@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "source": "iter_0013/h01_sv_axis_specificity.json"
+  },
+  "sv1": {
+    "z_scores": [
+      1.862,
+      1.302,
+      -0.089,
+      -2.092,
+      -1.089,
+      -1.88,
+      0.798,
+      1.38,
+      0.351,
+      0.463,
+      0.084,
+      3.595
+    ],
+    "spearman_rho": 0.1678,
+    "spearman_p": 0.6021
+  },
+  "sv2": {
+    "z_scores": [
+      12.958,
+      13.62,
+      10.039,
+      10.375,
+      9.297,
+      10.72,
+      10.96,
+      8.305,
+      8.303,
+      7.613,
+      7.279,
+      10.999
+    ],
+    "spearman_rho": -0.5594,
+    "spearman_p": 0.05859,
+    "peak_layer": 1
+  },
+  "sv3": {
+    "z_scores": [
+      2.104,
+      5.386,
+      7.404,
+      12.5,
+      12.154,
+      10.952,
+      11.279,
+      9.698,
+      5.211,
+      3.101,
+      2.437,
+      3.892
+    ],
+    "spearman_rho": -0.2587,
+    "spearman_p": 0.41677,
+    "peak_layer": 3
+  },
+  "interpretation": "Positive rho=increasing z with depth. Negative rho=decreasing z with depth."
+}

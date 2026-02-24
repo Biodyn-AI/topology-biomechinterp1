@@ -1,0 +1,18 @@
+{
+  "n_valid_pairs": 326,
+  "layer": 11,
+  "SV1": {
+    "obs_copole_rate": 0.1626,
+    "obs_copole_count": 53,
+    "null_mean_rate": 0.1228,
+    "null_std_rate": 0.0183,
+    "emp_p": 0.016
+  },
+  "SV2": {
+    "obs_copole_rate": 0.2055,
+    "obs_copole_count": 67,
+    "null_mean_rate": 0.1221,
+    "null_std_rate": 0.0179,
+    "emp_p": 0.0
+  }
+}

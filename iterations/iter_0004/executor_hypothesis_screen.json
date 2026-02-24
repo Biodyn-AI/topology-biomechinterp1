@@ -1,0 +1,65 @@
+{
+  "iteration": "iter_0004",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "TwoNN intrinsic dimensionality per layer",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "novelty_type": "new_family",
+      "lineage": "none",
+      "method": "TwoNN estimator on PCA-20 projections of 400 sampled scGPT gene embeddings, 12 layers, seed42; 15 feature-shuffle null replicates.",
+      "status": "tested",
+      "primary_metric": "mean_z_score_vs_null",
+      "result_value": "mean_z=-2.29 (obs<null), id_range=[8.5,10.3], 6/12 layers sig",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "h01_intrinsic_dim_per_layer.csv"
+      ],
+      "decision": "promising",
+      "next_action": "Test ID monotonicity across all 3 seeds; compare Euclidean vs PCA ID; run MADA as cross-check",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "TRRUST co-target distance clustering (random-group null)",
+      "family": "module_structure",
+      "split_regime": "other",
+      "novelty_type": "new_method",
+      "lineage": "iter_0002_H01",
+      "method": "Mean pairwise dist for co-targets of 64 TFs (>=5 mapped targets each) vs 20 random-same-size groups from gene pool; 12 layers, seed42.",
+      "status": "tested",
+      "primary_metric": "mean_z_dist_vs_random_groups",
+      "result_value": "mean_z_dist=0.222, sig_closer=8/768",
+      "result_direction": "inconclusive",
+      "artifact_paths": [
+        "h02b_trrust_cotarget_by_tf_layer.csv",
+        "h02b_trrust_tf_summary.csv"
+      ],
+      "decision": "inconclusive",
+      "next_action": "If positive: test across multiple seeds and compare to GO-term null; if negative: try cosine similarity instead of Euclidean dist",
+      "retired": false
+    },
+    {
+      "id": "H03",
+      "name": "Cross-layer linear CKA alignment",
+      "family": "cross_model_alignment",
+      "split_regime": "other",
+      "novelty_type": "new_family",
+      "lineage": "none",
+      "method": "Linear CKA on PCA-20 projections of 400 sampled gene embeddings; all 12x12 layer pairs, seed42; 15 feature-shuffle null replicates for layer0 row.",
+      "status": "tested",
+      "primary_metric": "mean_adjacent_layer_cka",
+      "result_value": "mean_adj_cka=1.000, mean_z_vs_null=173.74",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "h03_cross_layer_cka_matrix.csv",
+        "h03_cka_matrix.npy",
+        "h03_cka_null.npy"
+      ],
+      "decision": "promising",
+      "next_action": "If positive: compare CKA gradient across depth as signal for representation drift; compare to Geneformer layer CKA if embeddings become available",
+      "retired": false
+    }
+  ]
+}

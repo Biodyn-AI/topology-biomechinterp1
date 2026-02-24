@@ -1,0 +1,59 @@
+{
+  "iteration": "iter_0045",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "kNN lineage community purity at L2 vs L11",
+      "family": "graph_topology",
+      "split_regime": "other",
+      "method": "k=10 nearest-neighbor purity for in-vocab lineage markers (B-cell n=3, T-cell n=2, Myeloid n=1, NK n=1) at layers 0/2/5/8/11. Null: 500 label-shuffle permutations on cycle4_immune [12,4941,512].",
+      "status": "tested",
+      "primary_metric": "mean kNN purity vs null",
+      "result_value": "purity=0.214 flat across all layers; null=0.214; p=0.958",
+      "result_direction": "negative",
+      "artifact_paths": ["h01_knn_lineage_purity.json"],
+      "decision": "negative",
+      "next_action": "Retire this variant. Underpowered: 1 Myeloid + 1 NK gene can never have same-lineage neighbors. Revive only with expanded in-vocab marker sets (>3 per lineage) or modularity-based graph test on full kNN graph.",
+      "novelty_type": "new_family",
+      "lineage": "none",
+      "retired": true,
+      "retirement_reason": "Fundamentally underpowered: n=1 for Myeloid and NK lineages makes same-lineage proximity impossible. Method is valid but test is not meaningful with current vocab coverage."
+    },
+    {
+      "id": "H02",
+      "name": "Full-manifold TwoNN intrinsic dimensionality across 12 layers",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "TwoNN estimator (Facco et al. 2017) on n=2000 randomly sampled gene vectors from all 4941 genes at each layer. Nulls: Gaussian 512D raw (ID=122.97), Gaussian unit-sphere (ID=135.53), L11 feature-shuffled (ID=18.05). cycle4_immune embeddings [12,4941,512].",
+      "status": "tested",
+      "primary_metric": "ID estimate per layer and delta L0->L11",
+      "result_value": "L0=32.57, L1=31.25, L2=29.84, L3=28.01, L4=26.32, L5=24.66, L6=23.99, L7=22.96, L8=21.72, L9=20.82, L10=19.42, L11=18.05. Gaussian null=122.97. Delta=-14.52 (44.6% compression). Ratio=0.554.",
+      "result_direction": "positive",
+      "artifact_paths": ["h02_fullmanifold_twonn.json"],
+      "decision": "promising",
+      "next_action": "Validate with bootstrap resampling across different n_samples (1000, 1500, 2000) to confirm stability. Extend to cycle1 and cycle4_seed43/44 for cross-run consistency. Also compute ID for functional gene subsets (B-cell markers, TFs) embedded in the full manifold context.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0043_H03",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H03",
+      "name": "TCR signaling circuit convergence to T-cell identity centroid (CD247 confound removed)",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "T-cell centroid = CD247/CD8A/RUNX3 (no signaling overlap). Circuit = CD28/LCK. Rank of circuit genes to centroid at each of 12 layers. Null: 200 random 2-gene sets. cycle4_immune [12,4941,512].",
+      "status": "tested",
+      "primary_metric": "mean rank change L0->L11 and null p-value",
+      "result_value": "Rank L0=300.5, L11=78.5, change=-222.0. CD28: 595->86 (L6 minimum)->149. LCK: always rank 5-8. Null mean=-15.6 p=0.320.",
+      "result_direction": "inconclusive",
+      "artifact_paths": ["h03_tcr_circuit_clean.json"],
+      "decision": "inconclusive",
+      "next_action": "CD28 trajectory (595->86->149) is the signal; LCK proximity is constant (ceiling effect). Extend to AP1 components (FOS/JUN if in vocab) as T-cell centroid, or use larger signaling circuit panel. Single-gene (CD28) story needs corroboration from a second gene.",
+      "novelty_type": "refinement",
+      "lineage": "iter_0044_H02",
+      "retired": false,
+      "retirement_reason": ""
+    }
+  ]
+}

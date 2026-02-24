@@ -1,0 +1,55 @@
+{
+  "0": {
+    "id_estimate": 32.572648734219015,
+    "n_valid": 846
+  },
+  "1": {
+    "id_estimate": 31.254591513179935,
+    "n_valid": 846
+  },
+  "2": {
+    "id_estimate": 29.836641872636477,
+    "n_valid": 846
+  },
+  "3": {
+    "id_estimate": 28.012192195490936,
+    "n_valid": 846
+  },
+  "4": {
+    "id_estimate": 26.316728257678328,
+    "n_valid": 846
+  },
+  "5": {
+    "id_estimate": 24.663317941489385,
+    "n_valid": 846
+  },
+  "6": {
+    "id_estimate": 23.993640693387565,
+    "n_valid": 846
+  },
+  "7": {
+    "id_estimate": 22.960549190804567,
+    "n_valid": 846
+  },
+  "8": {
+    "id_estimate": 21.72054100340619,
+    "n_valid": 846
+  },
+  "9": {
+    "id_estimate": 20.820940225106327,
+    "n_valid": 846
+  },
+  "10": {
+    "id_estimate": 19.42496997115748,
+    "n_valid": 846
+  },
+  "11": {
+    "id_estimate": 18.048602556300416,
+    "n_valid": 846
+  },
+  "null_L11_shuffled_genes": 17.928957850522373,
+  "null_gaussian_raw": 122.96790099920148,
+  "null_gaussian_sphere": 135.53297972429343,
+  "null_L11_feature_shuffle": 18.048602556300416,
+  "compression_ratio_L0_to_L11": 0.5541909732883021
+}

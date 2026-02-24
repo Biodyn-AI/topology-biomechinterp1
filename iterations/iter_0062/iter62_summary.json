@@ -1,0 +1,12 @@
+{
+  "M1_peak_auroc_sv57": 0.6017232095977134,
+  "M1_peak_layer_sv57": 0,
+  "M1_mean_auroc_sv57": 0.551848825461022,
+  "M2_r_auroc_layer": -0.9580419580419581,
+  "M2_p_auroc_layer": 9.5435818268384e-07,
+  "M2_r_auroc_nz": NaN,
+  "M2_p_auroc_nz": NaN,
+  "M2_n_sig_layers": 9,
+  "C1_best_auroc_c4_aligned": 0.6017232095977134,
+  "C1_best_auroc_c4_raw": 0.6017232095977134
+}

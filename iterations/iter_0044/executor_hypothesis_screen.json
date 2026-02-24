@@ -1,0 +1,59 @@
+{
+  "iteration": "iter_0044",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "Cross-lineage ID compression law",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "TwoNN intrinsic dimensionality at each layer (pre/post L7 mean) for NK effector (FCGR3A/KLRB1/KLRD1/GNLY), plasma cell (IGHG1/IGKC/JCHAIN/MZB1/DERL3), neutrophil (S100A8/S100A9/CXCR1/FCGR3B/MPO), pan-myeloid (LYZ/CST3/AIF1/FCN1/CD14), effector CD8 (CD8A/GZMB/PRF1/NKG7/GNLY), general-T (CD3E/CD3D/TRAC/TRBC1). All in cycle4_immune embeddings [12,4941,512].",
+      "status": "tested",
+      "primary_metric": "delta_ID = post_L7_mean - pre_L7_mean",
+      "result_value": "NK: -0.7, plasma: +2.7, neutrophil: -0.4, pan_myeloid: +0.5, effector_cd8: +2.8, general_t: -1.8",
+      "result_direction": "negative",
+      "artifact_paths": ["h01_crosslineage_id.json"],
+      "decision": "negative",
+      "next_action": "Retire cross-lineage ID compression as a universal law. The small deltas (all < 3 units) suggest this method (5-point TwoNN in isolation) is insensitive. Iter_0043 result likely used all-gene neighborhood. Retire without direct rescue.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0043_H03",
+      "retired": true,
+      "retirement_reason": "No effector compression signal with 5-point TwoNN; magnitudes ~100x smaller than iter_0043 suggesting methodological incompatibility. Cross-lineage compression law cannot be confirmed."
+    },
+    {
+      "id": "H02",
+      "name": "TCR activation circuit attractor test",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "CD28/LCK/CD247 (3/5 in vocab) vs T-cell centroid (CD3E/CD3D/TRAC/TRBC1/CD247). Precision@20 and mean rank at each layer L0-L11. Null: 200 random gene sets of same size.",
+      "status": "tested",
+      "primary_metric": "mean_rank and precision@20 at L0 vs L11; null p-value",
+      "result_value": "rank change L0->L11: -50.7 (92->41); prec@20=0.67 constant; null p=0.275",
+      "result_direction": "inconclusive",
+      "artifact_paths": ["h02_tcr_circuit_attractor.json"],
+      "decision": "inconclusive",
+      "next_action": "Note CD247 is in both circuit and centroid (inflates precision). Retry with circuit genes strictly excluded from centroid definition. Only 3/5 genes in vocab limits power.",
+      "novelty_type": "new_method",
+      "lineage": "none",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H03",
+      "name": "BCL6 rank B-cell vs metabolic co-movement",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "Track BCL6 rank-to-B-cell-centroid (MS4A1/CD79A/BLK/PAX5) and rank-to-metabolic-centroid (NAMPT/GLUL/PFKFB3/ACSL1/NIBAN1/FNDC3B/VMP1) at L0-L11. Spearman correlation between the two rank tracks.",
+      "status": "tested",
+      "primary_metric": "Spearman rho between B-cell rank and metabolic rank tracks",
+      "result_value": "rho=0.504, p=0.095, interpretation=co-move",
+      "result_direction": "negative",
+      "artifact_paths": ["h03_bcl6_rank_metabolic.json"],
+      "decision": "negative",
+      "next_action": "BCL6 does not preferentially isolate toward metabolic cluster. Both distance tracks co-vary (rho=0.5), suggesting BCL6 moves globally rather than toward a specific metabolic attractor. Retire this specific question.",
+      "novelty_type": "refinement",
+      "lineage": "iter_0042_H02",
+      "retired": true,
+      "retirement_reason": "BCL6 B-cell and metabolic rank tracks co-move (rho=0.5, p=0.095); no selective metabolic isolation. Combined with iter_0043 H01/H02 negatives, BCL6 divergence hypothesis fully retired."
+    }
+  ]
+}

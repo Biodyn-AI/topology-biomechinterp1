@@ -1,0 +1,66 @@
+{
+  "iteration": "iter_0017",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "SV4 confidence quintile gradient",
+      "family": "graph_topology",
+      "split_regime": "other",
+      "method": "Split 3092 STRING pairs (score>=0.4) into 5 quintiles by score. For each quintile compute mean SV4 co-pole z-score (K=52) across all 12 layers. Report Spearman rho of quintile midpoint vs mean z.",
+      "status": "tested",
+      "primary_metric": "Spearman rho (quintile midpoint vs mean z-score)",
+      "result_value": "rho=0.900, p=0.0374, Q5 mean_z=6.073",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0017/h_a_sv4_confidence_gradient.json",
+        "iterations/iter_0017/iter0017_results.json"
+      ],
+      "decision": "promising",
+      "next_action": "Include in paper as third axis replication of the monotonic confidence gradient (SV2 rho=1.00, SV3 rho=0.90, SV4 rho=0.90)",
+      "novelty_type": "new_method",
+      "lineage": "iter_0016/H01",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "Axis-dominant pair GO composition (biological orthogonality)",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "Assign each STRING pair a dominant axis (SV2/SV3/SV4) based on which axis shows most co-pole hits across layers 7,8,11. Extract gene sets per axis. Run Fisher's exact GO enrichment (591 terms, size 3-50) per gene set. Compute GO Jaccard of top-20 hits between axis pairs.",
+      "status": "tested",
+      "primary_metric": "GO Jaccard of top-20 enriched terms between axis-dominant gene sets",
+      "result_value": "SV2-SV3: 0.081, SV2-SV4: 0.026, SV3-SV4: 0.026",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0017/h_b_axis_go_composition.json",
+        "iterations/iter_0017/iter0017_results.json"
+      ],
+      "decision": "promising",
+      "next_action": "Use as primary evidence for biological orthogonality in paper Methods/Results. SV2=innate immunity/exosome, SV3=membrane/cell-surface, SV4=receptor-binding/apoptosis.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0016/H02",
+      "retired": false
+    },
+    {
+      "id": "H03",
+      "name": "TRRUST signed regulation in SV3/SV4",
+      "family": "null_sensitivity",
+      "split_regime": "other",
+      "method": "TRRUST activation (N=116) and repression (N=64) pairs. For SV3 and SV4 at each layer: compare absolute projection distance (|tf_proj - target_proj|) between activation and repression pairs using MWU test. Activation expected to co-pole (smaller distance).",
+      "status": "tested",
+      "primary_metric": "n_layers_significant (MWU p<0.05) out of 12",
+      "result_value": "SV3: 0/12, SV4: 2/12; mean_delta SV3=-0.024, SV4=-0.002",
+      "result_direction": "negative",
+      "artifact_paths": [
+        "iterations/iter_0017/h_e_trrust_sv3_sv4_signed.json",
+        "iterations/iter_0017/iter0017_results.json"
+      ],
+      "decision": "negative",
+      "next_action": "Retire TRRUST signed regulation on SV3/SV4. SV2 retains the signed regulation signal (12/12 layers). Document as axis-specific property.",
+      "novelty_type": "refinement",
+      "lineage": "iter_0012/H02",
+      "retired": true,
+      "retirement_reason": "2 negative tests across SV3 and SV4; SV2 was the only axis with signed regulation signal"
+    }
+  ]
+}

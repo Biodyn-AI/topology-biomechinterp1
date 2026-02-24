@@ -1,0 +1,108 @@
+{
+  "description": "TwoNN ID on all vs nonzero-only genes",
+  "n_total": 4941,
+  "n_nonzero_l11": 2039,
+  "n_all_layers_nonzero": 2039,
+  "layers": {
+    "0": {
+      "id_all_genes": 32.57114500386975,
+      "id_layer_nonzero": 33.66860861219013,
+      "id_all_layers_nonzero": 34.678721398812336,
+      "n_layer_nonzero": 2039,
+      "pct_layer_zero": 58.73304998988059
+    },
+    "1": {
+      "id_all_genes": 31.658155783393802,
+      "id_layer_nonzero": 32.85938362909181,
+      "id_all_layers_nonzero": 33.85033140191985,
+      "n_layer_nonzero": 2039,
+      "pct_layer_zero": 58.73304998988059
+    },
+    "2": {
+      "id_all_genes": 29.60422599222619,
+      "id_layer_nonzero": 33.01088177059078,
+      "id_all_layers_nonzero": 32.64444731841233,
+      "n_layer_nonzero": 2039,
+      "pct_layer_zero": 58.73304998988059
+    },
+    "3": {
+      "id_all_genes": 27.684573419639683,
+      "id_layer_nonzero": 30.685519050143178,
+      "id_all_layers_nonzero": 30.843174830909724,
+      "n_layer_nonzero": 2039,
+      "pct_layer_zero": 58.73304998988059
+    },
+    "4": {
+      "id_all_genes": 26.564518630288763,
+      "id_layer_nonzero": 28.43484325709475,
+      "id_all_layers_nonzero": 28.71500106993183,
+      "n_layer_nonzero": 2039,
+      "pct_layer_zero": 58.73304998988059
+    },
+    "5": {
+      "id_all_genes": 26.70880766868645,
+      "id_layer_nonzero": 27.097363646014696,
+      "id_all_layers_nonzero": 27.2746570218044,
+      "n_layer_nonzero": 2039,
+      "pct_layer_zero": 58.73304998988059
+    },
+    "6": {
+      "id_all_genes": 27.79804804691893,
+      "id_layer_nonzero": 26.67979179215619,
+      "id_all_layers_nonzero": 27.027112764084357,
+      "n_layer_nonzero": 2039,
+      "pct_layer_zero": 58.73304998988059
+    },
+    "7": {
+      "id_all_genes": 23.97258007925541,
+      "id_layer_nonzero": 25.399072710544438,
+      "id_all_layers_nonzero": 25.87475123796982,
+      "n_layer_nonzero": 2039,
+      "pct_layer_zero": 58.73304998988059
+    },
+    "8": {
+      "id_all_genes": 21.150048212421257,
+      "id_layer_nonzero": 24.8130388443872,
+      "id_all_layers_nonzero": 25.205119002253245,
+      "n_layer_nonzero": 2039,
+      "pct_layer_zero": 58.73304998988059
+    },
+    "9": {
+      "id_all_genes": 22.798528109212334,
+      "id_layer_nonzero": 23.475554360661732,
+      "id_all_layers_nonzero": 23.299182131232612,
+      "n_layer_nonzero": 2039,
+      "pct_layer_zero": 58.73304998988059
+    },
+    "10": {
+      "id_all_genes": 20.32658519715582,
+      "id_layer_nonzero": 21.455311670530545,
+      "id_all_layers_nonzero": 21.524388694092554,
+      "n_layer_nonzero": 2039,
+      "pct_layer_zero": 58.73304998988059
+    },
+    "11": {
+      "id_all_genes": 17.926065795500218,
+      "id_layer_nonzero": 19.894122158554854,
+      "id_all_layers_nonzero": 20.304137130012958,
+      "n_layer_nonzero": 2039,
+      "pct_layer_zero": 58.73304998988059
+    }
+  },
+  "svd_comparison": {
+    "0": {
+      "eff_rank_all": 23.22469139099121,
+      "top1_all": 0.5392990112304688,
+      "eff_rank_nonzero": 236.25572204589844,
+      "top1_nonzero": 0.056203193962574005,
+      "n_nonzero": 2039
+    },
+    "11": {
+      "eff_rank_all": 1.6478866338729858,
+      "top1_all": 0.9336559772491455,
+      "eff_rank_nonzero": 48.3824462890625,
+      "top1_nonzero": 0.18736587464809418,
+      "n_nonzero": 2039
+    }
+  }
+}

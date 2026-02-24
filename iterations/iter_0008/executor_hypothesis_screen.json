@@ -1,0 +1,71 @@
+{
+  "iteration": "iter_0008",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "SV2/SV3 axes GO enrichment + gene-label null at layer-11",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "SVD of layer-11 mean-centered 209-gene embedding. Project onto SV2 and SV3. Take top/bottom 25% by projection. Fisher GO enrichment (BP+CC, size 5-200). Gene-label shuffle null (500 reps).",
+      "status": "tested",
+      "primary_metric": "empirical_p (gene-label shuffle)",
+      "result_value": "SV2: obs_p=1e-5 (GO:0032753 IL-4 sig, emp_p=0.000); SV3: obs_p=8.2e-4 (GO:0019886 antigen presentation, emp_p=0.088)",
+      "result_direction": "mixed",
+      "artifact_paths": [
+        "iter_0008/iter0008_results.json",
+        "iter_0008/h01_sv2_enrichment.csv",
+        "iter_0008/h01_sv3_enrichment.csv",
+        "iter_0008/h01_sv2_null_ps.npy",
+        "iter_0008/h01_sv3_null_ps.npy"
+      ],
+      "decision": "promising",
+      "next_action": "SV2 is a strong positive (emp_p=0.000, IL-4 immune signaling axis). Investigate SV2 bottom pole (GO:0070062 extracellular vesicle, emp_p TBD) and cross-layer SV2 stability.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0007 H01",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "Layer-specific compartment transients: mitochondrion (L3), ER lumen (L7/L8)",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "SVD of mean-centered 209-gene embedding at layer 3, 7, 8. Test enrichment of GO:0005739 (mitochondrion) and GO:0005788 (ER lumen) in top-25% SV1. Gene-label shuffle null (500 reps) for each layer.",
+      "status": "tested",
+      "primary_metric": "empirical_p (gene-label shuffle)",
+      "result_value": "mito_L3: OR=23.25 p=1e-7 emp_p=0.000; er_lumen_L7: OR=10.74 p=2.4e-4 emp_p=0.000; er_lumen_L8: OR=6.95 p=2.0e-3 emp_p=0.002",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iter_0008/iter0008_results.json",
+        "iter_0008/h02_layer_compartment_transients.csv",
+        "iter_0008/h02_mito_l3_null_ps.npy",
+        "iter_0008/h02_er_lumen_l7_null_ps.npy",
+        "iter_0008/h02_er_lumen_l8_null_ps.npy"
+      ],
+      "decision": "promising",
+      "next_action": "All three transients are highly significant. Confirm that mitochondrion effect at L3 disappears by L11 (cross-layer trajectory). Test additional compartments (nucleus, cytoplasm) at intermediate layers.",
+      "novelty_type": "new_biological_anchor",
+      "lineage": "iter_0006 H03",
+      "retired": false
+    },
+    {
+      "id": "H03",
+      "name": "Signal peptide proxy vs SV1 top-pole (layer-11)",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "Proxy signal-peptide gene set = union of GO:0005615, GO:0005576, GO:0005788 annotated genes (60 genes). Fisher test: signal-peptide genes enriched in SV1 top-25%? Gene-label shuffle null (500 reps). Mann-Whitney U test on SV1 scores.",
+      "status": "tested",
+      "primary_metric": "empirical_p (gene-label shuffle)",
+      "result_value": "Fisher OR=2.88 p=1.5e-3 emp_p=0.002; MW p=2.4e-4; signal median SV1=-12.79 vs non-signal=-12.85",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iter_0008/iter0008_results.json",
+        "iter_0008/h03_signal_peptide_null_ps.npy"
+      ],
+      "decision": "promising",
+      "next_action": "Signal-peptide proxy enrichment significant. Obtain ground-truth UniProt signal peptide annotations to test with curated set. Also test whether signal peptide genes concentrate specifically at SV1 top vs other SVs.",
+      "novelty_type": "new_biological_anchor",
+      "lineage": "iter_0007 H01",
+      "retired": false
+    }
+  ]
+}

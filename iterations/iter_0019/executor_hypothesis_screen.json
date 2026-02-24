@@ -1,0 +1,65 @@
+{
+  "iteration": "iter_0019",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "Geneformer static token embedding cross-model alignment",
+      "family": "cross_model_alignment",
+      "split_regime": "other",
+      "method": "Load Geneformer bert.embeddings.word_embeddings.weight (20275x1152) from HuggingFace cache. Map 207 named genes to token IDs. Compute pairwise cosine similarities. Test STRING pairs vs non-STRING (Mann-Whitney U). Cross-model correlation: SVD of GF embeddings, Spearman(|scGPT_SV2|, |GF_SV1|) at each of 12 scGPT layers.",
+      "status": "tested",
+      "primary_metric": "cross_model_mean_spearman_abs",
+      "result_value": "GF_MW_p=7.8e-127, z=0.666; cross-model Spearman_abs=0.446 (mean across 12 layers, range 0.289-0.564)",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0019/h01_geneformer_cross_model.json"
+      ],
+      "decision": "promising",
+      "next_action": "Run Geneformer inference on lung data to get contextualized gene embeddings; compare layer-specific GF geometry with scGPT SV2 co-poles.",
+      "novelty_type": "new_family",
+      "lineage": "none",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H02",
+      "name": "Multi-axis composite co-pole P@k enrichment",
+      "family": "graph_topology",
+      "split_regime": "other",
+      "method": "For each of 12 scGPT layers, SVD of 209-gene mean-centered embeddings. For SV2+SV3+SV4 (indices 1,2,3): top-K=52 and bottom-K=52 poles. Count co-polarity axes (0-3) for each named-gene pair. Compute mean fraction of STRING edges (score>=0.4) per count stratum across all 12 layers.",
+      "status": "tested",
+      "primary_metric": "enrichment_at_count_3",
+      "result_value": "2.18x (0-axis=0.86x, 1-axis=1.22x, 2-axis=1.79x, 3-axis=2.18x vs baseline 14.23%)",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0019/h02_multiaxis_composite_pak.json"
+      ],
+      "decision": "promising",
+      "next_action": "Add shuffle null for composite score; test quintile stratification within 3-axis stratum; combine with attention score for joint predictor.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0018_H02",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H03",
+      "name": "TRRUST repression vs activation in scGPT attention",
+      "family": "null_sensitivity",
+      "split_regime": "other",
+      "method": "Load scGPT aggregated attention_scores.npy [8181x8181]. Compute symmetric mean attention for TRRUST activation (N=116), TRRUST repression (N=64), STRING (N=3091), and null (N=4949 sampled named-gene pairs). Mann-Whitney U vs null. Activation vs repression direct comparison. Activation-exclusive (not in STRING) subgroup.",
+      "status": "tested",
+      "primary_metric": "trrust_repression_enrichment",
+      "result_value": "Activation=1.95x (p=9.4e-9), Repression=1.90x (p=4.3e-3), STRING=1.13x (p=0.084, NS). Act vs Rep: p=0.172 (NS). Activation-exclusive: 2.05x (p=7.1e-6).",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0019/h03_trrust_repression_vs_activation_attention.json"
+      ],
+      "decision": "promising",
+      "next_action": "Test attention-SVD joint predictor for TF-target prediction; validate on TRRUST repression-exclusive pairs.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0018_H03",
+      "retired": false,
+      "retirement_reason": ""
+    }
+  ]
+}

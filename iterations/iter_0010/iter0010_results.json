@@ -1,0 +1,251 @@
+{
+  "iteration": "iter_0010",
+  "H01_sv2sv3_compartment_scan": {
+    "n_sig_hits_emp05": 61,
+    "top_hits": [
+      {
+        "sv": "SV2",
+        "layer": 1,
+        "comp": "mitochondrion",
+        "OR": 6.363,
+        "p": 0.001421,
+        "emp_p": 0.0,
+        "n_ann": 14,
+        "pole": "top"
+      },
+      {
+        "sv": "SV2",
+        "layer": 1,
+        "comp": "cytoskeleton",
+        "OR": 20.348,
+        "p": 0.001066,
+        "emp_p": 0.0,
+        "n_ann": 7,
+        "pole": "top"
+      },
+      {
+        "sv": "SV2",
+        "layer": 2,
+        "comp": "mitochondrion",
+        "OR": 6.363,
+        "p": 0.001421,
+        "emp_p": 0.0,
+        "n_ann": 14,
+        "pole": "bot"
+      },
+      {
+        "sv": "SV2",
+        "layer": 2,
+        "comp": "cytoskeleton",
+        "OR": 20.348,
+        "p": 0.001066,
+        "emp_p": 0.0,
+        "n_ann": 7,
+        "pole": "bot"
+      },
+      {
+        "sv": "SV2",
+        "layer": 3,
+        "comp": "mitochondrion",
+        "OR": 6.363,
+        "p": 0.001421,
+        "emp_p": 0.0,
+        "n_ann": 14,
+        "pole": "bot"
+      },
+      {
+        "sv": "SV2",
+        "layer": 3,
+        "comp": "cytoskeleton",
+        "OR": 20.348,
+        "p": 0.001066,
+        "emp_p": 0.0,
+        "n_ann": 7,
+        "pole": "bot"
+      },
+      {
+        "sv": "SV2",
+        "layer": 4,
+        "comp": "extracellular_vesicle",
+        "OR": 4.188,
+        "p": 5.7e-05,
+        "emp_p": 0.0,
+        "n_ann": 48,
+        "pole": "bot"
+      },
+      {
+        "sv": "SV2",
+        "layer": 4,
+        "comp": "cytoskeleton",
+        "OR": 20.348,
+        "p": 0.001066,
+        "emp_p": 0.0,
+        "n_ann": 7,
+        "pole": "bot"
+      },
+      {
+        "sv": "SV2",
+        "layer": 5,
+        "comp": "extracellular_vesicle",
+        "OR": 5.395,
+        "p": 2e-06,
+        "emp_p": 0.0,
+        "n_ann": 48,
+        "pole": "bot"
+      },
+      {
+        "sv": "SV2",
+        "layer": 5,
+        "comp": "cytoskeleton",
+        "OR": 20.348,
+        "p": 0.001066,
+        "emp_p": 0.0,
+        "n_ann": 7,
+        "pole": "bot"
+      }
+    ]
+  },
+  "H02_trrust_copole": {
+    "n_valid_pairs": 326,
+    "layer": 11,
+    "SV1": {
+      "obs_copole_rate": 0.1626,
+      "obs_copole_count": 53,
+      "null_mean_rate": 0.1228,
+      "null_std_rate": 0.0183,
+      "emp_p": 0.016
+    },
+    "SV2": {
+      "obs_copole_rate": 0.2055,
+      "obs_copole_count": 67,
+      "null_mean_rate": 0.1221,
+      "null_std_rate": 0.0179,
+      "emp_p": 0.0
+    }
+  },
+  "H03_spectral_profile": {
+    "spectral_profile": [
+      {
+        "layer": 0,
+        "SV1_var_frac": 0.1905,
+        "SV2_var_frac": 0.0571,
+        "SV3_var_frac": 0.0327,
+        "SV1_SV2_ratio": 1.826,
+        "SV1_magnitude": 78.846,
+        "SV2_magnitude": 43.18,
+        "SV3_magnitude": 32.646
+      },
+      {
+        "layer": 1,
+        "SV1_var_frac": 0.2461,
+        "SV2_var_frac": 0.0566,
+        "SV3_var_frac": 0.0302,
+        "SV1_SV2_ratio": 2.085,
+        "SV1_magnitude": 80.535,
+        "SV2_magnitude": 38.622,
+        "SV3_magnitude": 28.235
+      },
+      {
+        "layer": 2,
+        "SV1_var_frac": 0.2813,
+        "SV2_var_frac": 0.0581,
+        "SV3_var_frac": 0.031,
+        "SV1_SV2_ratio": 2.2,
+        "SV1_magnitude": 82.397,
+        "SV2_magnitude": 37.457,
+        "SV3_magnitude": 27.354
+      },
+      {
+        "layer": 3,
+        "SV1_var_frac": 0.2958,
+        "SV2_var_frac": 0.0658,
+        "SV3_var_frac": 0.033,
+        "SV1_SV2_ratio": 2.12,
+        "SV1_magnitude": 84.337,
+        "SV2_magnitude": 39.784,
+        "SV3_magnitude": 28.166
+      },
+      {
+        "layer": 4,
+        "SV1_var_frac": 0.3437,
+        "SV2_var_frac": 0.0661,
+        "SV3_var_frac": 0.0339,
+        "SV1_SV2_ratio": 2.28,
+        "SV1_magnitude": 87.058,
+        "SV2_magnitude": 38.184,
+        "SV3_magnitude": 27.357
+      },
+      {
+        "layer": 5,
+        "SV1_var_frac": 0.3658,
+        "SV2_var_frac": 0.0686,
+        "SV3_var_frac": 0.0369,
+        "SV1_SV2_ratio": 2.309,
+        "SV1_magnitude": 87.592,
+        "SV2_magnitude": 37.932,
+        "SV3_magnitude": 27.829
+      },
+      {
+        "layer": 6,
+        "SV1_var_frac": 0.3889,
+        "SV2_var_frac": 0.0722,
+        "SV3_var_frac": 0.038,
+        "SV1_SV2_ratio": 2.321,
+        "SV1_magnitude": 89.67,
+        "SV2_magnitude": 38.64,
+        "SV3_magnitude": 28.027
+      },
+      {
+        "layer": 7,
+        "SV1_var_frac": 0.4163,
+        "SV2_var_frac": 0.0851,
+        "SV3_var_frac": 0.0392,
+        "SV1_SV2_ratio": 2.211,
+        "SV1_magnitude": 91.977,
+        "SV2_magnitude": 41.6,
+        "SV3_magnitude": 28.237
+      },
+      {
+        "layer": 8,
+        "SV1_var_frac": 0.4482,
+        "SV2_var_frac": 0.0988,
+        "SV3_var_frac": 0.0416,
+        "SV1_SV2_ratio": 2.13,
+        "SV1_magnitude": 95.498,
+        "SV2_magnitude": 44.839,
+        "SV3_magnitude": 29.103
+      },
+      {
+        "layer": 9,
+        "SV1_var_frac": 0.5455,
+        "SV2_var_frac": 0.0867,
+        "SV3_var_frac": 0.0399,
+        "SV1_SV2_ratio": 2.508,
+        "SV1_magnitude": 100.421,
+        "SV2_magnitude": 40.041,
+        "SV3_magnitude": 27.159
+      },
+      {
+        "layer": 10,
+        "SV1_var_frac": 0.6903,
+        "SV2_var_frac": 0.0707,
+        "SV3_var_frac": 0.0308,
+        "SV1_SV2_ratio": 3.126,
+        "SV1_magnitude": 106.579,
+        "SV2_magnitude": 34.098,
+        "SV3_magnitude": 22.519
+      },
+      {
+        "layer": 11,
+        "SV1_var_frac": 0.7674,
+        "SV2_var_frac": 0.0641,
+        "SV3_var_frac": 0.0222,
+        "SV1_SV2_ratio": 3.46,
+        "SV1_magnitude": 96.58,
+        "SV2_magnitude": 27.913,
+        "SV3_magnitude": 16.41
+      }
+    ],
+    "n_ann_confounders_p05": 0
+  }
+}

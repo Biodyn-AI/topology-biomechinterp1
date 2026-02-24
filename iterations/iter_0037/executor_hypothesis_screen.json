@@ -1,0 +1,59 @@
+{
+  "iteration": "iter_0037",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "Extended cell-type panel kNN precision@10 + centroid distance matrix",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "For B-cell (n=5), T-cell (n=10), DC (n=5), Plasma (n=2) in-vocab marker sets: compute precision@k=10 at L0, L2, L5, L8, L11. Bootstrap null: 500 random gene sets. Also compute centroid-centroid L2 Euclidean distance matrix at L2.",
+      "status": "tested",
+      "primary_metric": "z-score at L2",
+      "result_value": "B-cell z=7.55 (p=0.000), T-cell z=-1.37 (p=0.972), DC z=-0.87 (p=1.000); centroid dist B-cell-T-cell=4.82, B-cell-DC=6.79, B-cell-Plasma=6.18",
+      "result_direction": "positive",
+      "artifact_paths": ["h01_extended_panel_knn.json"],
+      "decision": "promising",
+      "next_action": "Test NK and Myeloid cell types once larger gene-set vocabulary is available. Also test at Geneformer embeddings for cross-model validation.",
+      "novelty_type": "new_method",
+      "lineage": "H01_iter_0036",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H02",
+      "name": "Held-out B-cell marker generalization (germinal center vs plasma TFs)",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "Reference panel: 5 in-vocab from original 7 B-cell markers (MS4A1, CD19, CD79A, BLK, PRDM1). Held-out set: 17 B-cell/plasma TFs not in reference. For each in-vocab held-out gene (n=7), compute distance to B-cell centroid at L2 and rank vs all-195-gene null distribution. Test across L0-L11.",
+      "status": "tested",
+      "primary_metric": "pctile_closeness at L2",
+      "result_value": "BATF=96th pctile, SPIB=94th pctile, BACH2=86th pctile (germinal center TFs close); IRF4=20th pctile, IRF8=44th pctile (plasma/DC TFs far); 3/7 in top quartile",
+      "result_direction": "positive",
+      "artifact_paths": ["h02_held_out_bcell_generalization.json"],
+      "decision": "promising",
+      "next_action": "Expand held-out panel to include PAX5, EBF1, BCL6 by searching wider vocabulary. Quantify the GC-B-cell vs plasma-cell geometric split as a centroid distance: dist(GC-TF-cluster, plasma-TF-cluster).",
+      "novelty_type": "new_method",
+      "lineage": "H03_iter_0036",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H03",
+      "name": "T-cell permutation null + B-cell neighborhood TF scoring",
+      "family": "null_sensitivity",
+      "split_regime": "other",
+      "method": "Part A: Gene-name permutation null (n=200 permutations) applied to T-cell markers (n=10) at L2 — same protocol as B-cell perm null in iter_0036. Part B: For top-50 B-cell neighbors at L2, count known B-cell TF connections vs random-50-gene baseline (200 trials).",
+      "status": "tested",
+      "primary_metric": "T-cell empirical_p vs perm null; z(neighbors vs random)",
+      "result_value": "T-cell perm null emp_p=0.96 (not significant, confirming specificity); B-cell neighbor TF z=1.73 vs random (weak positive)",
+      "result_direction": "positive",
+      "artifact_paths": ["h03_tcell_perm_string_scoring.json"],
+      "decision": "promising",
+      "next_action": "Download STRING PPI file and rerun Part B with full STRING scores for a quantitative TF-connectivity enrichment test. This would strengthen the neighborhood biological content claim.",
+      "novelty_type": "refinement",
+      "lineage": "H02_iter_0036",
+      "retired": false,
+      "retirement_reason": ""
+    }
+  ]
+}

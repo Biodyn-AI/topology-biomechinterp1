@@ -1,0 +1,57 @@
+{
+  "iteration": "iter_0047",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "Zero-norm validity check: TwoNN and SVD on nonzero-only genes",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "Computed norms at all 12 layers. Found 2902 genes have zero norm at ALL layers (same constant set). TwoNN on 2039 nonzero-only genes: L0→L11. SVD eff_rank on nonzero-only at L0 and L11.",
+      "status": "tested",
+      "primary_metric": "TwoNN ID and SVD eff_rank on nonzero-only genes",
+      "result_value": "TwoNN: L0=34.7 → L11=20.0 (ratio=0.58, validated). SVD eff_rank: L0=236.3 → L11=48.4 (4.9x collapse, corrects prior 14x claim). Zero genes are structurally absent at all layers.",
+      "result_direction": "positive",
+      "artifact_paths": ["iterations/iter_0047/h01_zero_norm_validity.json"],
+      "decision": "promising",
+      "next_action": "TwoNN compression claim is validated and corrected. SVD eff_rank should be updated in paper. Characterize what the 2039 nonzero vs 2902 zero genes represent biologically (expression level, coverage).",
+      "novelty_type": "new_method",
+      "lineage": "H01_iter_0046",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "SV1 identity: what does the dominant direction encode?",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "SVD of centered nonzero-gene embeddings at L11. Check SV1/SV2 explained variance fractions. Attempt lineage marker projection onto SV1/SV2 axes. Gene names file missing so biological annotation blocked.",
+      "status": "partial",
+      "primary_metric": "SV1 and SV2 variance fractions in nonzero-only genes",
+      "result_value": "SV1=18.6% variance, SV2=11.7% variance (nonzero-only). Prior claim of 93.4% for SV1 was dominated by zero vectors. Relatively distributed spectrum, not dominated by single axis.",
+      "result_direction": "negative",
+      "artifact_paths": ["iterations/iter_0047/h02_sv1_identity.json"],
+      "decision": "negative",
+      "next_action": "Find gene names file to do biological annotation. Prior SV1-dominance finding from iter_0046 was an artifact of zero vectors. With nonzero-only genes, spectrum is much more distributed (SV1=18.6%).",
+      "novelty_type": "refinement",
+      "lineage": "H02_iter_0046",
+      "retired": false,
+      "retirement_reason": "Blocked by missing gene names file; prior finding invalidated for nonzero-only analysis"
+    },
+    {
+      "id": "H03",
+      "name": "ID compression breakpoint detection across layers",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "TwoNN at each of 12 layers on 2039 nonzero-only genes. Piecewise linear fit to find breakpoint layer. Finite differences for per-layer drops.",
+      "status": "tested",
+      "primary_metric": "Global linear R2 and breakpoint layer",
+      "result_value": "ID decreases nearly linearly (R2=0.986, slope=-1.30/layer). Best piecewise breakpoint at L5 (slopes: -1.61 before, -1.22 after). Largest single drops at L3 (delta=-2.43) and L9 (delta=-1.94). No sharp phase transition.",
+      "result_direction": "negative",
+      "artifact_paths": ["iterations/iter_0047/h03_id_breakpoint.json"],
+      "decision": "negative",
+      "next_action": "Compression is gradual and linear, not phasic. No strong evidence for discrete geometry change points. Record as context for paper: smooth monotone compression, not step-function.",
+      "novelty_type": "new_method",
+      "lineage": "H01_iter_0046",
+      "retired": false
+    }
+  ]
+}

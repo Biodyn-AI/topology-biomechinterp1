@@ -1,0 +1,122 @@
+{
+  "diverging_genes": [
+    "FOS",
+    "JUNB",
+    "TNF",
+    "PTGS2",
+    "HLA-A",
+    "HLA-DPB1",
+    "KLF6",
+    "LDHA",
+    "LGALS1",
+    "NCAM1",
+    "NCOA3",
+    "NR4A3",
+    "PAX5",
+    "TBXAS1"
+  ],
+  "n_diverging": 14,
+  "n_converging": 195,
+  "slope_div_mean": 0.9790209790209795,
+  "slope_conv_mean": -0.9542406311637082,
+  "slope_mw_auroc": 1.0,
+  "slope_mw_p": 2.3394560605619586e-11,
+  "div_top_go_bp": [
+    {
+      "term": "positive regulation of transcription by RNA polymerase II",
+      "count": 20
+    },
+    {
+      "term": "regulation of transcription by RNA polymerase II",
+      "count": 10
+    },
+    {
+      "term": "regulation of DNA-templated transcription",
+      "count": 8
+    },
+    {
+      "term": "positive regulation of canonical NF-kappaB signal transduction",
+      "count": 8
+    },
+    {
+      "term": "immune response",
+      "count": 7
+    },
+    {
+      "term": "positive regulation of gene expression",
+      "count": 7
+    },
+    {
+      "term": "tumor necrosis factor-mediated signaling pathway",
+      "count": 7
+    },
+    {
+      "term": "positive regulation of DNA-templated transcription",
+      "count": 6
+    },
+    {
+      "term": "negative regulation of transcription by RNA polymerase II",
+      "count": 6
+    },
+    {
+      "term": "prostaglandin biosynthetic process",
+      "count": 6
+    },
+    {
+      "term": "negative regulation of gene expression",
+      "count": 5
+    },
+    {
+      "term": "inflammatory response",
+      "count": 4
+    },
+    {
+      "term": "positive regulation of miRNA transcription",
+      "count": 4
+    },
+    {
+      "term": "regulation of cell population proliferation",
+      "count": 4
+    },
+    {
+      "term": "extrinsic apoptotic signaling pathway via death domain receptors",
+      "count": 4
+    },
+    {
+      "term": "positive regulation of fever generation",
+      "count": 4
+    },
+    {
+      "term": "positive regulation of interleukin-8 production",
+      "count": 4
+    },
+    {
+      "term": "positive regulation of apoptotic process",
+      "count": 4
+    },
+    {
+      "term": "cyclooxygenase pathway",
+      "count": 4
+    },
+    {
+      "term": "transcription by RNA polymerase II",
+      "count": 3
+    }
+  ],
+  "div_stress_go_hits": [
+    {
+      "term": "immune response",
+      "count": 7
+    },
+    {
+      "term": "inflammatory response",
+      "count": 4
+    },
+    {
+      "term": "extrinsic apoptotic signaling pathway via death domain receptors",
+      "count": 4
+    }
+  ],
+  "div_go_n_unique_terms": 379,
+  "div_go_n_genes_with_terms": 14
+}

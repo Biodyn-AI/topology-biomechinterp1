@@ -1,0 +1,121 @@
+{
+  "hypothesis": "H02",
+  "n_trrust_pairs": 288,
+  "per_layer": [
+    {
+      "layer": 0,
+      "trrust_mean_dist": 0.7925252914428711,
+      "non_trrust_mean_dist": 0.8210616707801819,
+      "trrust_effect_size": -0.02853637933731079,
+      "trrust_mw_p": 2.6671344963374698e-08,
+      "string_effect_size": -0.03439980745315552,
+      "string_mw_p": 1.5854796815954632e-75
+    },
+    {
+      "layer": 1,
+      "trrust_mean_dist": 0.7174124717712402,
+      "non_trrust_mean_dist": 0.7491747140884399,
+      "trrust_effect_size": -0.03176224231719971,
+      "trrust_mw_p": 7.391522909848864e-09,
+      "string_effect_size": -0.036008477210998535,
+      "string_mw_p": 9.46213768947686e-73
+    },
+    {
+      "layer": 2,
+      "trrust_mean_dist": 0.6749812960624695,
+      "non_trrust_mean_dist": 0.7109003663063049,
+      "trrust_effect_size": -0.03591907024383545,
+      "trrust_mw_p": 2.3380455621030465e-10,
+      "string_effect_size": -0.03858327865600586,
+      "string_mw_p": 1.6868024059236758e-75
+    },
+    {
+      "layer": 3,
+      "trrust_mean_dist": 0.6559531688690186,
+      "non_trrust_mean_dist": 0.6963634490966797,
+      "trrust_effect_size": -0.04041028022766113,
+      "trrust_mw_p": 1.0260355989890598e-11,
+      "string_effect_size": -0.04189842939376831,
+      "string_mw_p": 1.8090706507534166e-84
+    },
+    {
+      "layer": 4,
+      "trrust_mean_dist": 0.6077814102172852,
+      "non_trrust_mean_dist": 0.6523711681365967,
+      "trrust_effect_size": -0.04458975791931152,
+      "trrust_mw_p": 1.5996998236319663e-12,
+      "string_effect_size": -0.045268118381500244,
+      "string_mw_p": 1.021682865371569e-86
+    },
+    {
+      "layer": 5,
+      "trrust_mean_dist": 0.5878932476043701,
+      "non_trrust_mean_dist": 0.633640706539154,
+      "trrust_effect_size": -0.045747458934783936,
+      "trrust_mw_p": 3.4692879046582526e-13,
+      "string_effect_size": -0.04767245054244995,
+      "string_mw_p": 9.569289917001808e-96
+    },
+    {
+      "layer": 6,
+      "trrust_mean_dist": 0.5679172873497009,
+      "non_trrust_mean_dist": 0.6151353716850281,
+      "trrust_effect_size": -0.04721808433532715,
+      "trrust_mw_p": 5.949841675114119e-13,
+      "string_effect_size": -0.05025595426559448,
+      "string_mw_p": 1.124167790756083e-99
+    },
+    {
+      "layer": 7,
+      "trrust_mean_dist": 0.5464591979980469,
+      "non_trrust_mean_dist": 0.5943092107772827,
+      "trrust_effect_size": -0.04785001277923584,
+      "trrust_mw_p": 6.074955494831744e-12,
+      "string_effect_size": -0.0538330078125,
+      "string_mw_p": 6.012484741015702e-110
+    },
+    {
+      "layer": 8,
+      "trrust_mean_dist": 0.5243476629257202,
+      "non_trrust_mean_dist": 0.5711948871612549,
+      "trrust_effect_size": -0.04684722423553467,
+      "trrust_mw_p": 1.514963448815197e-09,
+      "string_effect_size": -0.056837260723114014,
+      "string_mw_p": 1.7660449818989019e-109
+    },
+    {
+      "layer": 9,
+      "trrust_mean_dist": 0.46105051040649414,
+      "non_trrust_mean_dist": 0.5089954137802124,
+      "trrust_effect_size": -0.04794490337371826,
+      "trrust_mw_p": 3.1002289204071427e-09,
+      "string_effect_size": -0.05709490180015564,
+      "string_mw_p": 8.405636270753976e-104
+    },
+    {
+      "layer": 10,
+      "trrust_mean_dist": 0.3784666061401367,
+      "non_trrust_mean_dist": 0.42773064970970154,
+      "trrust_effect_size": -0.04926404356956482,
+      "trrust_mw_p": 1.0783890212556875e-08,
+      "string_effect_size": -0.05727514624595642,
+      "string_mw_p": 1.8360565047897892e-98
+    },
+    {
+      "layer": 11,
+      "trrust_mean_dist": 0.335002064704895,
+      "non_trrust_mean_dist": 0.3855587840080261,
+      "trrust_effect_size": -0.050556719303131104,
+      "trrust_mw_p": 8.864941669708567e-08,
+      "string_effect_size": -0.057669609785079956,
+      "string_mw_p": 8.417286961840915e-97
+    }
+  ],
+  "summary": {
+    "mean_trrust_effect": -0.0430538480480512,
+    "mean_string_effect": -0.04806637018918991,
+    "n_trrust_negative_effect": 12,
+    "n_trrust_sig_p05": 12,
+    "interpretation": "If TRRUST effect \u2248 0 while STRING effect << 0, geometry is PPI-specific not TF-regulation"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "null_size": 4949,
+  "null_mean": 0.009022404912736036,
+  "string": {
+    "n": 3091,
+    "mean": 0.010190906830830123,
+    "enrichment": 1.1295111369303132,
+    "mw_pvalue": 0.08411659439393931
+  },
+  "trrust_activation": {
+    "n": 116,
+    "mean": 0.01762020653354582,
+    "enrichment": 1.952939011712179,
+    "mw_pvalue": 9.43059251062913e-09
+  },
+  "trrust_repression": {
+    "n": 64,
+    "mean": 0.01718580449141882,
+    "enrichment": 1.9047919770436508,
+    "mw_pvalue": 0.004259290812541423
+  },
+  "activation_vs_repression_mw_pvalue": 0.1718423035859245,
+  "activation_exclusive": {
+    "n": 50,
+    "mean": 0.01850158856716007,
+    "enrichment": 2.050627160508304,
+    "mw_pvalue": 7.13404695496094e-06
+  }
+}

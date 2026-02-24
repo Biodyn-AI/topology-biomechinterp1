@@ -1,0 +1,83 @@
+{
+  "per_layer": [
+    {
+      "layer": 0,
+      "lambda2": 0.2060941454329238,
+      "lambda_max": 1.4220624112619273,
+      "spectral_gap_ratio": 0.14492623094502052
+    },
+    {
+      "layer": 1,
+      "lambda2": 0.19440125777981354,
+      "lambda_max": 1.4221916492096995,
+      "spectral_gap_ratio": 0.13669132278178125
+    },
+    {
+      "layer": 2,
+      "lambda2": 0.15951376423212246,
+      "lambda_max": 1.4054235856423771,
+      "spectral_gap_ratio": 0.11349871018359207
+    },
+    {
+      "layer": 3,
+      "lambda2": 0.11201069264387047,
+      "lambda_max": 1.4042084812070028,
+      "spectral_gap_ratio": 0.07976785081621973
+    },
+    {
+      "layer": 4,
+      "lambda2": 0.09065727124876533,
+      "lambda_max": 1.406692829121527,
+      "spectral_gap_ratio": 0.06444709845099296
+    },
+    {
+      "layer": 5,
+      "lambda2": 0.08130141051943265,
+      "lambda_max": 1.4031557197826565,
+      "spectral_gap_ratio": 0.057941830242453765
+    },
+    {
+      "layer": 6,
+      "lambda2": 0.06327249223649357,
+      "lambda_max": 1.3982035064789902,
+      "spectral_gap_ratio": 0.04525270602115964
+    },
+    {
+      "layer": 7,
+      "lambda2": 0.05476257336877839,
+      "lambda_max": 1.376980401348991,
+      "spectral_gap_ratio": 0.03977004561218822
+    },
+    {
+      "layer": 8,
+      "lambda2": 0.04962031148371557,
+      "lambda_max": 1.3801048538448513,
+      "spectral_gap_ratio": 0.03595401562819069
+    },
+    {
+      "layer": 9,
+      "lambda2": 0.047659031444107276,
+      "lambda_max": 1.3890742258177102,
+      "spectral_gap_ratio": 0.0343099242346228
+    },
+    {
+      "layer": 10,
+      "lambda2": 0.04094824238269722,
+      "lambda_max": 1.3614958618087907,
+      "spectral_gap_ratio": 0.030075921294587037
+    },
+    {
+      "layer": 11,
+      "lambda2": 0.031414787463394434,
+      "lambda_max": 1.3575927312445022,
+      "spectral_gap_ratio": 0.023140067518314884
+    }
+  ],
+  "spearman_rho_layer_vs_ratio": -1.0,
+  "spearman_p": 0.0,
+  "null_mean": 0.372914854116927,
+  "null_std": 0.006109906491105093,
+  "real_mean": 0.06714797697742696,
+  "real_std": 0.040698916507983705,
+  "n_inv_genes": 195
+}

@@ -1,0 +1,68 @@
+{
+  "iteration": "iter_0010",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "SV2/SV3 12-layer × 9-compartment scan",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "SVD of 209-gene mean-centered embedding at each of 12 layers. Project genes onto SV2 and SV3. Take top-K=52 and bottom-K=52 genes. Fisher exact OR and empirical null (N=200 gene-label shuffles) for 9 GO compartments (mitochondrion, ER_lumen, extracellular_vesicle, cytoskeleton, plasma_membrane, nucleus, secreted, cytoplasm, lysosome). Novel: first SV2/SV3 systematic scan.",
+      "status": "tested",
+      "primary_metric": "n_sig_cells_emp05",
+      "result_value": "61 of 216 cells significant (emp_p<0.05); SV2 cytoskeleton OR=20.35, SV2 mito OR=6.36, SV2 EV OR=4.2–5.4",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "h01_sv2sv3_layer_compartment_scan.json",
+        "iter0010_results.json"
+      ],
+      "decision": "promising",
+      "next_action": "Characterize SV2 cytoskeleton genes (which cytoskeletal genes?), test SV2 co-pole stability across layers with Spearman r, extend to Geneformer embeddings for cross-model validation.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0009_H02",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "TRRUST TF-target co-pole test in SVD geometry",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "At layer 11, compute SVD of 209-gene embedding. For SV1 and SV2, define top-K=52 and bottom-K=52 poles. 326 TRRUST TF-target pairs with both genes in our 209-gene set. Measure co-pole rate (both genes in same pole). Null: N=1000 random same-size gene pairs sampled from named genes.",
+      "status": "tested",
+      "primary_metric": "emp_p_sv2",
+      "result_value": "SV1: obs=0.163 vs null=0.123, emp_p=0.016; SV2: obs=0.206 vs null=0.122, emp_p=0.000",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "h02_trrust_copole_result.json",
+        "h02_trrust_copole_null_sv1.npy",
+        "h02_trrust_copole_null_sv2.npy",
+        "iter0010_results.json"
+      ],
+      "decision": "promising",
+      "next_action": "Extend across all 12 layers to find peak regulatory co-pole signal. Test STRING PPI pairs for similar co-pole enrichment. Test activation vs repression edge types separately.",
+      "novelty_type": "new_family",
+      "lineage": "none",
+      "retired": false
+    },
+    {
+      "id": "H03",
+      "name": "SV1/SV2/SV3 spectral ratio profile + annotation density confounder check",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "At each of 12 layers, compute SVD of 209-gene embedding. Track SV1/SV2/SV3 variance fractions and SV1/SV2 magnitude ratio. Also: Spearman r between n_ann and best OR across layers per SV×compartment to test annotation-density confound.",
+      "status": "tested",
+      "primary_metric": "n_ann_confounders_p05",
+      "result_value": "0 annotation-density confounders; SV1 var 19%→77% monotone; SV2 peaks L8=9.9% then drops; SV1/SV2 ratio 1.83→3.46",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "h03_spectral_profile.csv",
+        "h03_annotation_density_confounder.json",
+        "iter0010_results.json"
+      ],
+      "decision": "promising",
+      "next_action": "Use SV2 L8 peak as anchor for mito transient investigation. Validate spectral profile trend holds in Geneformer embeddings.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0009_H03",
+      "retired": false
+    }
+  ]
+}

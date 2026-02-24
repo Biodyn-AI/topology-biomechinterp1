@@ -1,0 +1,85 @@
+{
+  "iteration": "iter_0030",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "GO and TRRUST enrichment of 14 diverging genes",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "Mann-Whitney AUROC (div vs conv trajectory slope); mygene API GO BP terms for 14 diverging genes (FOS, JUNB, TNF, PTGS2, HLA-A, HLA-DPB1, KLF6, LDHA, LGALS1, NCAM1, NCOA3, NR4A3, PAX5, TBXAS1). Slope computed as Spearman rho(layer, dist-to-centroid) per gene over 12 layers.",
+      "status": "tested",
+      "primary_metric": "Mann-Whitney AUROC (div > conv slope)",
+      "result_value": "AUROC=1.000, p=2.34e-11; top GO: NF-kB (8), immune response (7), inflammatory (4); 379 unique GO BP terms",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0030/h01_diverging_annotation.json"
+      ],
+      "decision": "positive",
+      "next_action": "Reinterpret: GO enrichment confirms OOV genes are immune/stress-response genes. Retire as OOV artifact. Focus future analyses on 195 in-vocabulary genes.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0029_H01",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H02",
+      "name": "Layer-of-bifurcation anatomy (inter/intra ratio)",
+      "family": "topology_stability",
+      "split_regime": "other",
+      "method": "For each of 12 layers, compute centroid-centroid distance between diverging (n=14) and converging (n=195) gene clusters. Compute intra-group variance (mean dist to own centroid). Report separation ratio = inter / mean(intra). Identify layer where ratio peaks (bifurcation layer).",
+      "status": "tested",
+      "primary_metric": "Spearman rho(layer, inter/intra separation ratio)",
+      "result_value": "rho=1.000, p=0.0; L0 ratio=3.13, L11 ratio=11.44; intra_div=0.000 at ALL layers",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0030/h02_bifurcation_anatomy.json"
+      ],
+      "decision": "negative",
+      "next_action": "Retire diverging-gene analyses. All 14 genes have zero L0 embedding (OOV) and identical embeddings at every layer. The apparent bifurcation is OOV token collapse, not learned geometry.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0029_H02",
+      "retired": true,
+      "retirement_reason": "OOV artifact: all 14 diverging genes have zero L0 norm; they are processed identically by scGPT at all layers, producing a collapsed single point unrelated to biological geometry"
+    },
+    {
+      "id": "H03",
+      "name": "Trajectory slope vs STRING degree (continuous)",
+      "family": "graph_topology",
+      "split_regime": "other",
+      "method": "Per-gene trajectory slope = Spearman rho(layer, dist-to-centroid). Spearman correlation between slope and STRING degree/weighted-degree for all 209 named genes. Quartile comparison (Q75 high vs Q25 low degree slopes).",
+      "status": "tested",
+      "primary_metric": "Spearman rho(degree, slope)",
+      "result_value": "rho=+0.018, p=0.793; high-deg slope=-0.803, low-deg slope=-0.882; AUROC=0.525, p=0.683",
+      "result_direction": "negative",
+      "artifact_paths": [
+        "iterations/iter_0030/h03_slope_vs_degree.json"
+      ],
+      "decision": "negative",
+      "next_action": "Retire slope-vs-degree hypothesis. No correlation found. Note: trajectory slopes are dominated by OOV split artifact. Retest on 195 in-vocab genes only after removing OOV genes.",
+      "novelty_type": "new_method",
+      "lineage": "none",
+      "retired": true,
+      "retirement_reason": "No correlation between STRING degree and trajectory slope (rho=+0.018, p=0.793). Likely confounded by OOV gene artifact."
+    },
+    {
+      "id": "H04",
+      "name": "OOV gene discovery in scGPT named gene set",
+      "family": "null_sensitivity",
+      "split_regime": "other",
+      "method": "Check L0 embedding L2 norm for all 209 named genes. Identify genes with zero-norm embeddings (OOV/unknown token). Confirm pairwise identity of zero-norm genes across all layers.",
+      "status": "tested",
+      "primary_metric": "n_genes with zero L0 embedding",
+      "result_value": "14/209 (6.7%) genes are OOV: FOS, HLA-A, HLA-DPB1, JUNB, KLF6, LDHA, LGALS1, NCAM1, NCOA3, NR4A3, PAX5, PTGS2, TBXAS1, TNF. All identical at ALL 12 layers.",
+      "result_direction": "negative",
+      "artifact_paths": [
+        "iterations/iter_0030/h04_oov_analysis.json"
+      ],
+      "decision": "promising",
+      "next_action": "CRITICAL: Rerun ALL geometric analyses (kNN graph, spectral gap, STRING distance, manifold distance, intrinsic dimensionality) on 195 in-vocabulary named genes ONLY. Remove OOV genes from all future experiments.",
+      "novelty_type": "new_family",
+      "lineage": "none",
+      "retired": false,
+      "retirement_reason": ""
+    }
+  ]
+}

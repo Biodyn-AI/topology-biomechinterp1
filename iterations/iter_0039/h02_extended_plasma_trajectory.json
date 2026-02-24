@@ -1,0 +1,120 @@
+{
+  "hypothesis": "H02",
+  "description": "Extended plasma panel + BCL6/PAX5 GC-TF proximity (cycle4_immune, plasma-exclusive anchor)",
+  "anchor_genes": [
+    "MS4A1",
+    "CD79A",
+    "BLK"
+  ],
+  "gc_tf_genes": [
+    "BATF",
+    "BACH2",
+    "BCL6",
+    "PAX5"
+  ],
+  "plasma_genes": [
+    "JCHAIN",
+    "SDC1"
+  ],
+  "layers": [
+    {
+      "layer": 0,
+      "gc_mean_dist": 15.124564170837402,
+      "gc_z_vs_null": -1.0533827543258667,
+      "plasma_mean_dist": 14.772380828857422,
+      "plasma_z_vs_null": -1.3530642986297607,
+      "null_mean": 15.697771072387695,
+      "gc_per_gene": {
+        "BATF": 16.37418556213379,
+        "BACH2": 15.42235279083252,
+        "BCL6": 15.675786972045898,
+        "PAX5": 13.025927543640137
+      },
+      "plasma_per_gene": {
+        "JCHAIN": 13.756477355957031,
+        "SDC1": 15.788283348083496
+      }
+    },
+    {
+      "layer": 2,
+      "gc_mean_dist": 12.243176460266113,
+      "gc_z_vs_null": -0.8729836940765381,
+      "plasma_mean_dist": 11.763961791992188,
+      "plasma_z_vs_null": -1.3292266130447388,
+      "null_mean": 12.82522964477539,
+      "gc_per_gene": {
+        "BATF": 13.20963191986084,
+        "BACH2": 12.136533737182617,
+        "BCL6": 13.294681549072266,
+        "PAX5": 10.33185863494873
+      },
+      "plasma_per_gene": {
+        "JCHAIN": 10.95088005065918,
+        "SDC1": 12.577044486999512
+      }
+    },
+    {
+      "layer": 5,
+      "gc_mean_dist": 10.592790603637695,
+      "gc_z_vs_null": -1.3816211223602295,
+      "plasma_mean_dist": 10.527122497558594,
+      "plasma_z_vs_null": -0.9378761649131775,
+      "null_mean": 11.487129211425781,
+      "gc_per_gene": {
+        "BATF": 10.941980361938477,
+        "BACH2": 11.21475601196289,
+        "BCL6": 11.86135196685791,
+        "PAX5": 8.353074073791504
+      },
+      "plasma_per_gene": {
+        "JCHAIN": 9.136809349060059,
+        "SDC1": 11.917436599731445
+      }
+    },
+    {
+      "layer": 8,
+      "gc_mean_dist": 8.832653999328613,
+      "gc_z_vs_null": -1.7153947353363037,
+      "plasma_mean_dist": 9.229305267333984,
+      "plasma_z_vs_null": -0.8940355777740479,
+      "null_mean": 10.010954856872559,
+      "gc_per_gene": {
+        "BATF": 9.225146293640137,
+        "BACH2": 9.236381530761719,
+        "BCL6": 10.066895484924316,
+        "PAX5": 6.8021931648254395
+      },
+      "plasma_per_gene": {
+        "JCHAIN": 7.832345485687256,
+        "SDC1": 10.626265525817871
+      }
+    },
+    {
+      "layer": 11,
+      "gc_mean_dist": 4.012145519256592,
+      "gc_z_vs_null": -1.6218998432159424,
+      "plasma_mean_dist": 4.210810661315918,
+      "plasma_z_vs_null": -0.8088296055793762,
+      "null_mean": 4.803601264953613,
+      "gc_per_gene": {
+        "BATF": 4.0055694580078125,
+        "BACH2": 3.9920153617858887,
+        "BCL6": 4.858212947845459,
+        "PAX5": 3.1927850246429443
+      },
+      "plasma_per_gene": {
+        "JCHAIN": 3.573538064956665,
+        "SDC1": 4.84808349609375
+      }
+    }
+  ],
+  "gc_z_trend_rho": -0.7999999999999999,
+  "gc_z_trend_p": 0.10408803866182788,
+  "plasma_z_trend_rho": 0.9999999999999999,
+  "plasma_z_trend_p": 1.4042654220543672e-24,
+  "plasma_z_L0": -1.3530642986297607,
+  "plasma_z_L11": -0.8088296055793762,
+  "gc_z_L0": -1.0533827543258667,
+  "gc_z_L11": -1.6218998432159424,
+  "divergence_confirmed_at_L11": false
+}

@@ -1,0 +1,29 @@
+{
+  "iteration": "iter_0024",
+  "h01_dorothea": {
+    "n_high_conf_AB": 266,
+    "n_low_conf_DE": 775,
+    "n_layers_sig_high_vs_bg": 12,
+    "layer8_auroc_high_vs_bg": 0.6708003759398496,
+    "layer8_perm_p": 0.0,
+    "direction": "positive"
+  },
+  "h02_hub": {
+    "n_act_tfs": 39,
+    "n_rep_tfs": 32,
+    "n_layers_sig_act_degree": 0,
+    "n_layers_sig_topk": 0,
+    "layer8_spearman_act": -0.04710306248213209,
+    "direction": "negative"
+  },
+  "h03_go": {
+    "layer8_sp_bp": 0.08111558456852078,
+    "layer8_sp_mf": 0.08875595853137934,
+    "layer8_sp_cc": 0.10642415482578677,
+    "n_layers_sig_bp": 12,
+    "n_layers_sig_mf": 12,
+    "n_layers_sig_cc": 12,
+    "best_ontology": "CC",
+    "direction": "positive"
+  }
+}

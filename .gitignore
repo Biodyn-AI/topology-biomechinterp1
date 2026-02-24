@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+
+# Environment
+.env
+*.pid
+*.nohup.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# LaTeX
+*.aux
+*.log
+*.out
+*.bbl
+*.blg
+*.synctex.gz
+
+# Data (too large for git)
+*.npy
+*.h5ad
+*.pkl
+*.pickle
+
+# IDE
+.idea/
+.vscode/
+*.swp

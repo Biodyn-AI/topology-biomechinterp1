@@ -1,0 +1,66 @@
+{
+  "iteration": "iter_0005",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "GO term embedding clustering across layers",
+      "family": "module_structure",
+      "split_regime": "other",
+      "novelty_type": "new_method",
+      "lineage": "iter_0004_H02",
+      "method": "For 80 sampled GO BP terms (from 190 valid; 5-200 genes each), compute mean pairwise cosine dist among member genes at each of 12 layers vs 20 random-group null replicates. Gene set: 209 known indexed genes.",
+      "status": "tested",
+      "primary_metric": "mean_z_score_vs_null_across_layers",
+      "result_value": "mean_z=-1.11, 0/12 layers sig (z<-1.96); all layers z<0",
+      "result_direction": "inconclusive",
+      "artifact_paths": [
+        "h01_go_clustering_by_layer.csv"
+      ],
+      "decision": "inconclusive",
+      "next_action": "Recover full 4803-gene vocabulary and rerun with n~500 genes per group for adequate power",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H02",
+      "name": "Per-gene residual drift + GO enrichment",
+      "family": "module_structure",
+      "split_regime": "other",
+      "novelty_type": "new_method",
+      "lineage": "none",
+      "method": "Compute L2(layer_11 - layer_0) per gene = residual drift. Split into top-50/bot-50 genes by drift. Fisher exact test for 187 valid GO BP terms enrichment in top vs bottom drift group.",
+      "status": "tested",
+      "primary_metric": "top_go_hit_p_value",
+      "result_value": "GO:0006357 (regulation of transcription by RNA Pol II) OR=3.58 p=0.0044; 7/187 terms p<0.05; 0 FDR-significant",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "h02_gene_residual_drift.csv",
+        "h02_go_enrichment_drift.csv"
+      ],
+      "decision": "promising",
+      "next_action": "Rerun with full gene vocabulary (4803 genes); validate top hits with permutation test across multiple split thresholds",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H03",
+      "name": "Effective rank per layer (spectral cross-check vs TwoNN ID)",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "novelty_type": "new_method",
+      "lineage": "iter_0004_H01",
+      "method": "Compute effective rank = exp(entropy(squared singular values / sum)) for 209-gene embedding submatrix at each of 12 layers. Compare to TwoNN ID from iter_0004 via Pearson and Spearman correlation.",
+      "status": "tested",
+      "primary_metric": "pearson_r_with_twonn_id",
+      "result_value": "Pearson r=0.793 (p=0.002), Spearman r=0.720 (p=0.008); ER monotone decrease layer 0->11: 7.89->1.28 (6x compression)",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "h03_effective_rank_per_layer.csv"
+      ],
+      "decision": "promising",
+      "next_action": "Run MADA as third independent ID estimator; investigate ER-CKA correlation across layer pairs",
+      "retired": false,
+      "retirement_reason": ""
+    }
+  ]
+}

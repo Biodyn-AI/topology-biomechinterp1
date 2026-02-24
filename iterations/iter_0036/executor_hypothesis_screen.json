@@ -1,0 +1,59 @@
+{
+  "iteration": "iter_0036",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "Multi-cell-type kNN precision@10 specificity panel",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "For B-cell (n=7), T-cell (n=12), Myeloid (n=3) marker sets: compute precision@k=10 (fraction of kNN from same cell type) at L2, L5, L8, L11. Bootstrap null: 500 random gene sets of matching size. Compare z-scores across cell types.",
+      "status": "tested",
+      "primary_metric": "z-score at L2",
+      "result_value": "B-cell z=4.55, T-cell z=0.29, Myeloid z=1.17",
+      "result_direction": "positive",
+      "artifact_paths": ["h01_multi_celltype_knn.json"],
+      "decision": "promising",
+      "next_action": "Expand B-cell marker set further (aim for 15+ in-vocab) and test NK once more markers available. Test at Geneformer embeddings for cross-model validation.",
+      "novelty_type": "new_method",
+      "lineage": "H02_iter_0035",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H02",
+      "name": "Gene-name permutation null for B-cell kNN precision",
+      "family": "null_sensitivity",
+      "split_regime": "other",
+      "method": "Shuffle gene-to-embedding-row assignment (200 permutations) at L2. Recompute B-cell precision@10 and z-score vs bootstrap null for each permuted dataset. Compare real precision/z to permutation null distribution.",
+      "status": "tested",
+      "primary_metric": "z(real_vs_perm_null)",
+      "result_value": "z=4.38, emp_p=0.005; perm z-scores mean=-0.01 std=1.10",
+      "result_direction": "positive",
+      "artifact_paths": ["h02_bcell_perm_null.json"],
+      "decision": "promising",
+      "next_action": "Apply same permutation null test to T-cell markers to confirm cell-type specificity is also not artifact-driven.",
+      "novelty_type": "new_method",
+      "lineage": "none",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H03",
+      "name": "B-cell neighborhood functional characterization",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "At L2: for all 7 B-cell markers, collect k=20 nearest neighbors. Count frequency of each gene across B-cell gene neighborhoods. Compute B-cell enrichment ratio vs random expectation. Categorize neighbors biologically (B-cell markers, TFs, immune genes). Compare L2 vs L11.",
+      "status": "tested",
+      "primary_metric": "B-cell enrichment in neighbors",
+      "result_value": "Enrichment 2.98x at L2 (0.107 vs 0.036 expected); top neighbors BATF, SPIB, BACH2",
+      "result_direction": "positive",
+      "artifact_paths": ["h03_bcell_neighborhood_characterization.json"],
+      "decision": "promising",
+      "next_action": "Look up STRING PPI connections between top neighbors and B-cell markers to quantify biological coherence. Also check if SPIB/BACH2 are in the original TRRUST edge dataset.",
+      "novelty_type": "new_method",
+      "lineage": "none",
+      "retired": false,
+      "retirement_reason": ""
+    }
+  ]
+}

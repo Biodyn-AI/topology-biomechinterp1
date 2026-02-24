@@ -1,0 +1,56 @@
+{
+  "iteration": "iter_0059",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "Cross-seed TF boundary anchor stability + out-degree mechanistic test",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "SVD of centered nonzero embeddings at L2/L3 for main/seed43/seed44. Project to SV5-7. Logistic regression TF vs target. Per-TF signed margin. Cross-seed CV computed. Spearman(mean_margin, TRRUST out-degree).",
+      "status": "tested",
+      "primary_metric": "Spearman(mean_margin, out-degree)",
+      "result_value": "r=-0.012, p=0.90; AUROC stable: 0.729-0.762 across seeds; top anchors: STAT4(CV=0.067), BACH2(CV=0.108), ZEB1(CV=0.158)",
+      "result_direction": "mixed",
+      "artifact_paths": ["h01_crossseed_stability.csv"],
+      "decision": "neutral",
+      "next_action": "TF boundary geometry is reproducible but not driven by hub TFs; retire out-degree mechanistic hypothesis; explore GO annotation overlap for stable anchors",
+      "novelty_type": "refinement",
+      "lineage": "iter_0058/H01",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "Pairwise TF-target 6D distance as edge probability predictor",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "For main seed, 12 layers: SVD of nonzero embeddings, project to SV5-7. L2 distance for 288 pos and 864 neg TRRUST edges. AUROC (small dist = positive). Permutation null (1000 shuffles).",
+      "status": "tested",
+      "primary_metric": "AUROC",
+      "result_value": "Max AUROC=0.565 at L9 (perm_p=0.002); mean 0.536; well below 0.62 threshold",
+      "result_direction": "positive",
+      "artifact_paths": ["h02_pairwise_dist_auroc.csv"],
+      "decision": "negative",
+      "next_action": "Signal real but too weak for regulatory inference; try higher-dimensional projection (SV2-7 joint) or cosine similarity; or retire this branch",
+      "novelty_type": "new_method",
+      "lineage": "iter_0055/H03",
+      "retired": false
+    },
+    {
+      "id": "H03",
+      "name": "Partial Spearman: effective rank vs AUROC controlling for layer depth",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "Residualize ranked eff_rank_full and ranked auroc_joint6d on ranked layer index. Pearson on residuals. Also Lipschitz regularity (mean inter-layer displacement in SV5-7, main seed).",
+      "status": "tested",
+      "primary_metric": "partial_spearman_r",
+      "result_value": "partial_r=-0.045, p=0.795 vs raw_r=0.855; eff_rank fully collinear with layer (r=-0.997); Lipschitz r=-0.573",
+      "result_direction": "negative",
+      "artifact_paths": ["h03_partial_spearman.csv", "h03_lipschitz.csv"],
+      "decision": "negative",
+      "next_action": "Retire eff_rank as independent predictor; focus on what drives layer-depth AUROC trend; test within-layer variance: do seed-to-seed AUROC differences correlate with eff_rank within a single layer?",
+      "novelty_type": "new_method",
+      "lineage": "iter_0058/H03",
+      "retired": false
+    }
+  ]
+}

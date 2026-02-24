@@ -1,0 +1,57 @@
+{
+  "iteration": "iter_0060",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "Signed displacement projection AUROC (directional geometry)",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "For each of 12 layers: SVD of centered nonzero embeddings [~1972, 512], project to SV5-7. Compute mean displacement direction from 288 positive TRRUST TF→target pairs. Project all 961 edge displacements onto this unit direction (signed scalar). AUROC = signed_projection predicts positive edge. Permutation test 2000 shuffles at peak layer (L0).",
+      "status": "tested",
+      "primary_metric": "AUROC (signed projection)",
+      "result_value": "max AUROC=0.563 at L0 (perm_p=0.001, null=0.499±0.021); mean across layers=0.523; AUROC decreases from L0 to L6-L9, partial recovery at L10-L11",
+      "result_direction": "positive",
+      "artifact_paths": ["h01_signed_proj_auroc.csv"],
+      "decision": "negative",
+      "next_action": "Retire directional projection branch — same performance as scalar distance (0.565). The information ceiling in SV5-7 pairwise geometry is ~0.56-0.57, regardless of projection method.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0059/H02",
+      "retired": true,
+      "retirement_reason": "Directional projection AUROC=0.563 not better than scalar distance 0.565; brainstormer prediction of >0.62 falsified. Two negative/equivalent results for this family+method."
+    },
+    {
+      "id": "H02",
+      "name": "TF family-stratified margin trajectory across 12 layers",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "At each of 12 layers: SVD of centered nonzero embeddings → SV5-7 projection. Fit LR (TF vs target, TRRUST-subset genes). Compute per-TF signed margins. Stratify by TF family (bZIP/ETS/C2H2-ZF/bHLH/GATA/RUNX/Rel/Other). Report mean margin per family per layer. Record overall AUROC per layer.",
+      "status": "tested",
+      "primary_metric": "family mean margin trajectory (bHLH flip)",
+      "result_value": "bHLH (HIF1A, n=1): margin=-0.74 at L2 → +2.76 at L10 (dramatic flip at L8); bZIP (n=4): consistently -0.77 to -0.98 across all layers; overall AUROC increases L0=0.570→L11=0.739 (opposite to prior reports on full gene set)",
+      "result_direction": "mixed",
+      "artifact_paths": ["h02_family_margin_trajectory.csv"],
+      "decision": "neutral",
+      "next_action": "bHLH flip (HIF1A) is striking but n=1. Follow up: HIF1A nearest-neighbor composition change in SV5-7 at L8-L11 vs L0-L7. bZIP consistently target-like finding needs GO annotation check.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0058/H01",
+      "retired": false
+    },
+    {
+      "id": "H03",
+      "name": "Feed-forward loop triangle geometry in SV5-7",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "From 288 positive TRRUST edges, build directed graph. Enumerate FFLs (A→B, A→C, B→C where A,B=TFs, C=target). For each FFL triplet and each layer: project to SV5-7. Compute t=(B-A)·(C-A)/|C-A|² (interpolation parameter). One-sample t-test t vs 0. Permutation test for frac_between (0<t<1) at L2 with 2000 shuffles of gene positions.",
+      "status": "tested",
+      "primary_metric": "t_mean (FFL geometric ordering) and perm_p for frac_between",
+      "result_value": "22 FFLs found. t_mean=0.565-0.770 with p<0.002 at L0-L6; collapses at L8-L11 (t_mean~0.1-0.2, p=0.45-0.65). Permutation test frac_between at L2: real=0.550, null=0.461±0.124, p=0.30 (not significant).",
+      "result_direction": "mixed",
+      "artifact_paths": ["h03_ffl_geometry.csv", "h03_ffl_permutation.csv"],
+      "decision": "inconclusive",
+      "next_action": "Expand FFL set (N=22 too small). Try SV2-4 or SV2-7 subspace. Use t_mean test (more powerful than binary betweenness) as primary metric. Pattern (geometric ordering at L0-L6, collapse at L8-L11) is novel and worth expanding.",
+      "novelty_type": "new_family",
+      "lineage": "none",
+      "retired": false
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "hypothesis": "H03",
+  "description": "LOO ablation: which B-cell anchor gene most contributes to GC-TF proximity signal?",
+  "gc_tf_targets": [
+    "BATF",
+    "SPIB",
+    "BACH2"
+  ],
+  "full_bcell_panel": [
+    "MS4A1",
+    "CD19",
+    "CD79A",
+    "BLK",
+    "PRDM1"
+  ],
+  "layers": [
+    2,
+    11
+  ],
+  "results_by_layer": {
+    "2": {
+      "full_panel": {
+        "genes": [
+          "MS4A1",
+          "CD19",
+          "CD79A",
+          "BLK",
+          "PRDM1"
+        ],
+        "precision_at_10": 0.2,
+        "gc_z": -2.767364025115967
+      },
+      "loo_panels": [
+        {
+          "removed_gene": "MS4A1",
+          "remaining_panel": [
+            "CD19",
+            "CD79A",
+            "BLK",
+            "PRDM1"
+          ],
+          "precision_at_10": 0.2,
+          "gc_z": -3.2488338947296143,
+          "delta_precision": 0.0,
+          "delta_gc_z": 0.48146986961364746
+        },
+        {
+          "removed_gene": "CD19",
+          "remaining_panel": [
+            "MS4A1",
+            "CD79A",
+            "BLK",
+            "PRDM1"
+          ],
+          "precision_at_10": 0.1,
+          "gc_z": -2.6848955154418945,
+          "delta_precision": 0.1,
+          "delta_gc_z": -0.08246850967407227
+        },
+        {
+          "removed_gene": "CD79A",
+          "remaining_panel": [
+            "MS4A1",
+            "CD19",
+            "BLK",
+            "PRDM1"
+          ],
+          "precision_at_10": 0.2,
+          "gc_z": -3.0802001953125,
+          "delta_precision": 0.0,
+          "delta_gc_z": 0.3128361701965332
+        },
+        {
+          "removed_gene": "BLK",
+          "remaining_panel": [
+            "MS4A1",
+            "CD19",
+            "CD79A",
+            "PRDM1"
+          ],
+          "precision_at_10": 0.2,
+          "gc_z": -2.9529831409454346,
+          "delta_precision": 0.0,
+          "delta_gc_z": 0.18561911582946777
+        },
+        {
+          "removed_gene": "PRDM1",
+          "remaining_panel": [
+            "MS4A1",
+            "CD19",
+            "CD79A",
+            "BLK"
+          ],
+          "precision_at_10": 0.2,
+          "gc_z": -2.812324047088623,
+          "delta_precision": 0.0,
+          "delta_gc_z": 0.04496002197265625
+        }
+      ],
+      "null_p10_mean": 0.092,
+      "null_p10_std": 0.07096477999684069,
+      "full_panel_pctile_vs_null": 0.995
+    },
+    "11": {
+      "full_panel": {
+        "genes": [
+          "MS4A1",
+          "CD19",
+          "CD79A",
+          "BLK",
+          "PRDM1"
+        ],
+        "precision_at_10": 0.2,
+        "gc_z": -2.619896650314331
+      },
+      "loo_panels": [
+        {
+          "removed_gene": "MS4A1",
+          "remaining_panel": [
+            "CD19",
+            "CD79A",
+            "BLK",
+            "PRDM1"
+          ],
+          "precision_at_10": 0.2,
+          "gc_z": -2.748992443084717,
+          "delta_precision": 0.0,
+          "delta_gc_z": 0.12909579277038574
+        },
+        {
+          "removed_gene": "CD19",
+          "remaining_panel": [
+            "MS4A1",
+            "CD79A",
+            "BLK",
+            "PRDM1"
+          ],
+          "precision_at_10": 0.1,
+          "gc_z": -2.219169855117798,
+          "delta_precision": 0.1,
+          "delta_gc_z": -0.4007267951965332
+        },
+        {
+          "removed_gene": "CD79A",
+          "remaining_panel": [
+            "MS4A1",
+            "CD19",
+            "BLK",
+            "PRDM1"
+          ],
+          "precision_at_10": 0.2,
+          "gc_z": -2.8212087154388428,
+          "delta_precision": 0.0,
+          "delta_gc_z": 0.20131206512451172
+        },
+        {
+          "removed_gene": "BLK",
+          "remaining_panel": [
+            "MS4A1",
+            "CD19",
+            "CD79A",
+            "PRDM1"
+          ],
+          "precision_at_10": 0.1,
+          "gc_z": -2.5338900089263916,
+          "delta_precision": 0.1,
+          "delta_gc_z": -0.08600664138793945
+        },
+        {
+          "removed_gene": "PRDM1",
+          "remaining_panel": [
+            "MS4A1",
+            "CD19",
+            "CD79A",
+            "BLK"
+          ],
+          "precision_at_10": 0.2,
+          "gc_z": -2.4283995628356934,
+          "delta_precision": 0.0,
+          "delta_gc_z": -0.1914970874786377
+        }
+      ],
+      "null_p10_mean": 0.04650000000000001,
+      "null_p10_std": 0.06235182435181828,
+      "full_panel_pctile_vs_null": 1.0
+    }
+  }
+}

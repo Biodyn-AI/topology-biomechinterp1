@@ -1,0 +1,67 @@
+{
+  "iteration": "iter_0024",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "Dorothea confidence stratification",
+      "family": "manifold_distance",
+      "split_regime": "edge_stratified",
+      "method": "Load Dorothea regulon database (dorothea_human.tsv). Split 1137 TF-target pairs among 209 named genes by confidence tier: A/B (N=266, high) vs D/E (N=775, low). Compute AUROC for high-conf vs background (5000 non-Dorothea/non-STRING pairs) at each of 12 scGPT layers. Permutation control: 500 label shuffles at layer 8.",
+      "status": "tested",
+      "primary_metric": "AUROC high-confidence vs background, all layers",
+      "result_value": "AUROC=0.671 at L8, range 0.618-0.679 across 12 layers, 12/12 layers significant (p<1e-10), perm_p=0.000 (0/500 shuffles exceed real)",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0024/h01_dorothea_confidence.json",
+        "iterations/iter_0024/iter0024_summary.json"
+      ],
+      "decision": "promising",
+      "next_action": "Combine Dorothea confidence stratification with STRING score stratification in a joint model. Test if Dorothea A/B signal persists after partialling out STRING score (independent regulatory vs PPI signal).",
+      "novelty_type": "new_method",
+      "lineage": "iter_0022_H01",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H02",
+      "name": "TF activation hub centrality",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "From TRRUST (named genes only), count activation targets per TF (N=39 TFs) and repression targets per TF (N=32 TFs). Compute mean L2 distance from each TF to all other named genes as centrality proxy. Spearman(activation_degree, -mean_dist) at each of 12 layers. Also top-15 activation vs top-15 repression TF centrality comparison (Mann-Whitney AUROC).",
+      "status": "tested",
+      "primary_metric": "Spearman(activation_degree, geometric_proximity) per layer",
+      "result_value": "Layer 8: Spearman=-0.047 p=0.74. Top-K AUROC=0.527 p=0.41. 0/12 layers significant for either metric.",
+      "result_direction": "negative",
+      "artifact_paths": [
+        "iterations/iter_0024/h02_tf_hub_centrality.json"
+      ],
+      "decision": "negative",
+      "next_action": "Retire. The pairwise activation proximity signal (iter_0023 H03) does not generalize to TF hub centrality. Consider instead testing whether activation targets of a single high-degree TF (e.g., JUN) form a compact cluster.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0023_H03",
+      "retired": false,
+      "retirement_reason": "First negative - monitor for second negative before retiring"
+    },
+    {
+      "id": "H03",
+      "name": "GO ontology comparison BP vs MF vs CC",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "Query mygene API for GO BP, MF, CC terms for 209 named genes. Compute pairwise Jaccard similarity for each ontology (21736 pairs). Spearman(Jaccard, -L2_distance) at each of 12 scGPT layers. Compare effect sizes and significance across ontologies.",
+      "status": "tested",
+      "primary_metric": "Spearman(GO_Jaccard, -L2_distance) at layer 8 per ontology",
+      "result_value": "L8: CC=0.106(p=9e-56), MF=0.089(p=3e-39), BP=0.081(p=5e-33). All 12/12 layers significant for all three. CC peak=0.124 at L5. BP shows deepening trend L0=0.050 to L7=0.083.",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0024/h03_go_ontology_comparison.json",
+        "iterations/iter_0024/iter0024_summary.json"
+      ],
+      "decision": "promising",
+      "next_action": "Use GO CC as primary ontology anchor. Test combined GO CC + STRING score + Dorothea confidence in a multi-predictor regression model for embedding distance. Also investigate which CC terms (subcellular compartments) drive the signal.",
+      "novelty_type": "new_family",
+      "lineage": "iter_0023_H02",
+      "retired": false,
+      "retirement_reason": ""
+    }
+  ]
+}

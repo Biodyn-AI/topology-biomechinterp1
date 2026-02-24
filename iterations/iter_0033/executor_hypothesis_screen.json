@@ -1,0 +1,63 @@
+{
+  "iteration": "iter_0033",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "L11 Community Differential Analysis (B-cell vs non-B-cell)",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "Recompute k=10 kNN greedy-modularity 2-community partition at L11 for 195 in-vocab genes. Differential analysis: PC1 projection (Mann-Whitney), L2 norm, STRING degree, TF Fisher-exact enrichment, expanded B-cell (n=9) and T-cell (n=8) marker Fisher-exact enrichment per community.",
+      "status": "tested",
+      "primary_metric": "B-cell marker Fisher exact p-value in Community 1",
+      "result_value": "OR=10.60, p=0.0080; 9/9 B-cell markers in Community 1; PC1 comm0=+1.653 vs comm1=-2.010 (p<1e-9)",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0033/h01_community_differential_analysis.json"
+      ],
+      "decision": "promising",
+      "next_action": "Characterize Community 0 subcommunities (T-cell vs myeloid) using k=15 partition. Track B-cell community purity emergence across layers.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0032_H01",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "Community Partition Stability: k-sweep and Layer Sweep",
+      "family": "topology_stability",
+      "split_regime": "other",
+      "method": "ARI (Adjusted Rand Index) between L11 k=10 reference partition and: (a) same-layer kNN at k in {5,10,15,20,25,30}; (b) k=10 partition at each layer L0-L11. Spearman rho(layer, ARI_vs_L11).",
+      "status": "tested",
+      "primary_metric": "ARI vs L11 k=10 partition at k=15-30",
+      "result_value": "ARI=0.77-0.90 for k=15-30; Spearman rho(layer,ARI)=0.427 p=0.167; L11 uniquely has 2 communities (others 3-4)",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0033/h02_dorothea_activation_repression_decay.json"
+      ],
+      "decision": "promising",
+      "next_action": "Track B-cell community purity across layers to understand when B-cell community consolidates. Test if 3-community partitions contain T-cell and myeloid splits.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0029_H03",
+      "retired": false,
+      "note": "H02 replaced from planned Dorothea activation/repression split (Dorothea files lack sign/mor column). File named h02_dorothea_activation_repression_decay.json but contains community stability data."
+    },
+    {
+      "id": "H03",
+      "name": "PC1 Polarity Expanded Gene Sets — B-cell Stable Across All Layers",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "SVD per layer on 195 in-vocab genes. Project to PC1. Mann-Whitney test: B-cell markers (n=10 in 195-vocab), T-cell (n=15), myeloid (n=6), TFs (n=59) at respective PC1 poles. Background = all 195 genes. Repeat for all 12 layers.",
+      "status": "tested",
+      "primary_metric": "B-cell marker PC1-negative AUROC p-value across all layers",
+      "result_value": "B-cell mean_PC1=-1.908 vs bg=+0.103 at L11 (p=0.0014); p<0.01 at ALL 12 layers (min p=0.001 at L5-L6); T-cell not enriched at any layer",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0033/h03_pc1_expanded_vocab.json"
+      ],
+      "decision": "promising",
+      "next_action": "Cross-model validation: test if Geneformer embeddings show the same B-cell/PC1-negative axis. Test PC2 and PC3 for T-cell or myeloid signal.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0032_H03",
+      "retired": false
+    }
+  ]
+}

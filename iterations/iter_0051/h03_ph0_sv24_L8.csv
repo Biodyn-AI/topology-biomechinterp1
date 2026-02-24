@@ -1,0 +1,2 @@
+layer,n_circuit,n_non_circuit,circuit_pairwise_mean,non_circuit_pairwise_mean,ks_stat_pairwise,ks_pval_pairwise,circuit_ph_median,non_circuit_ph_median,ks_stat_ph,ks_pval_ph,circuit_fragmentation_integral,non_circuit_fragmentation_integral,fragmentation_ratio,frag_ratio_null_mean,frag_ratio_null_std,frag_ratio_pval
+8,295,295,0.03812225529689326,0.04200212533963743,0.06761212959760182,1.2665504586707249e-86,0.00520731607990132,0.005900046813646236,0.13945578231292516,0.006516551541099631,1972.0,2097.0,0.9403910348115908,1.0005081768480535,0.048489838189851996,0.116

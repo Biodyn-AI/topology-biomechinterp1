@@ -1,0 +1,25 @@
+{
+  "hypothesis": "bcell_precision_permutation_null",
+  "layer": 2,
+  "k": 10,
+  "n_bcell_markers": 7,
+  "bcell_markers": [
+    "MS4A1",
+    "CD19",
+    "CD79A",
+    "BLK",
+    "FCER2",
+    "IRF4",
+    "PRDM1"
+  ],
+  "real_precision_at_10": 0.14285714285714285,
+  "real_z_score_vs_bootstrap_null": 4.34642130508084,
+  "n_permutations": 200,
+  "perm_null_mean_precision": 0.030071428571428575,
+  "perm_null_std_precision": 0.02573005468874317,
+  "z_real_vs_perm_null": 4.383423012960614,
+  "empirical_p_vs_perm_null": 0.005,
+  "perm_z_scores_mean": -0.005125878481225499,
+  "perm_z_scores_std": 1.096304946877922,
+  "interpretation": "If z_real_vs_perm_null >> 0 and emp_p << 0.05: B-cell precision cannot be explained by random embedding geometry"
+}

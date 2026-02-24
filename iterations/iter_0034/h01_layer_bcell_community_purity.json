@@ -1,0 +1,311 @@
+{
+  "hypothesis": "layer_wise_bcell_community_purity_emergence",
+  "bcell_markers": [
+    "CD19",
+    "MS4A1",
+    "CD79A",
+    "PRDM1",
+    "IRF4",
+    "CXCR4",
+    "SELL",
+    "BLK",
+    "SPIB"
+  ],
+  "per_layer_results": [
+    {
+      "layer": 0,
+      "n_communities": 3,
+      "modularity": 0.4105998207828655,
+      "pc1_neg_community": 0,
+      "pc1_neg_community_mean": -2.20963454246521,
+      "fisher_neg_comm": {
+        "b_in": 5,
+        "b_out": 4,
+        "nb_in": 61,
+        "nb_out": 125,
+        "odds_ratio": 2.5614754098360657,
+        "fisher_p": 0.14745464822852591
+      },
+      "best_bcell_community": 0,
+      "fisher_best_comm": {
+        "b_in": 5,
+        "b_out": 4,
+        "nb_in": 61,
+        "nb_out": 125,
+        "odds_ratio": 2.5614754098360657,
+        "fisher_p": 0.14745464822852591
+      }
+    },
+    {
+      "layer": 1,
+      "n_communities": 3,
+      "modularity": 0.409516351714006,
+      "pc1_neg_community": 2,
+      "pc1_neg_community_mean": -2.188779830932617,
+      "fisher_neg_comm": {
+        "b_in": 3,
+        "b_out": 6,
+        "nb_in": 53,
+        "nb_out": 133,
+        "odds_ratio": 1.2547169811320755,
+        "fisher_p": 0.5047021824353998
+      },
+      "best_bcell_community": 1,
+      "fisher_best_comm": {
+        "b_in": 6,
+        "b_out": 3,
+        "nb_in": 59,
+        "nb_out": 127,
+        "odds_ratio": 4.305084745762712,
+        "fisher_p": 0.03872945877434397
+      }
+    },
+    {
+      "layer": 2,
+      "n_communities": 3,
+      "modularity": 0.4041453960985969,
+      "pc1_neg_community": 1,
+      "pc1_neg_community_mean": -1.9795856475830078,
+      "fisher_neg_comm": {
+        "b_in": 8,
+        "b_out": 1,
+        "nb_in": 62,
+        "nb_out": 124,
+        "odds_ratio": 16.0,
+        "fisher_p": 0.0013366456013901948
+      },
+      "best_bcell_community": 1,
+      "fisher_best_comm": {
+        "b_in": 8,
+        "b_out": 1,
+        "nb_in": 62,
+        "nb_out": 124,
+        "odds_ratio": 16.0,
+        "fisher_p": 0.0013366456013901948
+      }
+    },
+    {
+      "layer": 3,
+      "n_communities": 3,
+      "modularity": 0.4269305579102096,
+      "pc1_neg_community": 0,
+      "pc1_neg_community_mean": -2.33197283744812,
+      "fisher_neg_comm": {
+        "b_in": 8,
+        "b_out": 1,
+        "nb_in": 75,
+        "nb_out": 111,
+        "odds_ratio": 11.84,
+        "fisher_p": 0.005095400337525981
+      },
+      "best_bcell_community": 0,
+      "fisher_best_comm": {
+        "b_in": 8,
+        "b_out": 1,
+        "nb_in": 75,
+        "nb_out": 111,
+        "odds_ratio": 11.84,
+        "fisher_p": 0.005095400337525981
+      }
+    },
+    {
+      "layer": 4,
+      "n_communities": 3,
+      "modularity": 0.460867465976858,
+      "pc1_neg_community": 2,
+      "pc1_neg_community_mean": -2.417348623275757,
+      "fisher_neg_comm": {
+        "b_in": 3,
+        "b_out": 6,
+        "nb_in": 30,
+        "nb_out": 156,
+        "odds_ratio": 2.6,
+        "fisher_p": 0.18021080681246118
+      },
+      "best_bcell_community": 1,
+      "fisher_best_comm": {
+        "b_in": 6,
+        "b_out": 3,
+        "nb_in": 71,
+        "nb_out": 115,
+        "odds_ratio": 3.23943661971831,
+        "fisher_p": 0.08859831641977535
+      }
+    },
+    {
+      "layer": 5,
+      "n_communities": 3,
+      "modularity": 0.48220935558678385,
+      "pc1_neg_community": 1,
+      "pc1_neg_community_mean": -2.4931509494781494,
+      "fisher_neg_comm": {
+        "b_in": 8,
+        "b_out": 1,
+        "nb_in": 64,
+        "nb_out": 122,
+        "odds_ratio": 15.25,
+        "fisher_p": 0.0016718325301658165
+      },
+      "best_bcell_community": 1,
+      "fisher_best_comm": {
+        "b_in": 8,
+        "b_out": 1,
+        "nb_in": 64,
+        "nb_out": 122,
+        "odds_ratio": 15.25,
+        "fisher_p": 0.0016718325301658165
+      }
+    },
+    {
+      "layer": 6,
+      "n_communities": 3,
+      "modularity": 0.45997478885769233,
+      "pc1_neg_community": 2,
+      "pc1_neg_community_mean": -2.4421281814575195,
+      "fisher_neg_comm": {
+        "b_in": 2,
+        "b_out": 7,
+        "nb_in": 33,
+        "nb_out": 153,
+        "odds_ratio": 1.3246753246753247,
+        "fisher_p": 0.5032749434205221
+      },
+      "best_bcell_community": 1,
+      "fisher_best_comm": {
+        "b_in": 7,
+        "b_out": 2,
+        "nb_in": 67,
+        "nb_out": 119,
+        "odds_ratio": 6.2164179104477615,
+        "fisher_p": 0.01610221445935355
+      }
+    },
+    {
+      "layer": 7,
+      "n_communities": 3,
+      "modularity": 0.501506211067505,
+      "pc1_neg_community": 2,
+      "pc1_neg_community_mean": -2.965458631515503,
+      "fisher_neg_comm": {
+        "b_in": 3,
+        "b_out": 6,
+        "nb_in": 37,
+        "nb_out": 149,
+        "odds_ratio": 2.0135135135135136,
+        "fisher_p": 0.27285771683981375
+      },
+      "best_bcell_community": 1,
+      "fisher_best_comm": {
+        "b_in": 6,
+        "b_out": 3,
+        "nb_in": 67,
+        "nb_out": 119,
+        "odds_ratio": 3.5522388059701493,
+        "fisher_p": 0.06873053429802899
+      }
+    },
+    {
+      "layer": 8,
+      "n_communities": 4,
+      "modularity": 0.5125150804067401,
+      "pc1_neg_community": 2,
+      "pc1_neg_community_mean": -3.2994606494903564,
+      "fisher_neg_comm": {
+        "b_in": 3,
+        "b_out": 6,
+        "nb_in": 37,
+        "nb_out": 149,
+        "odds_ratio": 2.0135135135135136,
+        "fisher_p": 0.27285771683981375
+      },
+      "best_bcell_community": 1,
+      "fisher_best_comm": {
+        "b_in": 6,
+        "b_out": 3,
+        "nb_in": 62,
+        "nb_out": 124,
+        "odds_ratio": 4.0,
+        "fisher_p": 0.048560262588032845
+      }
+    },
+    {
+      "layer": 9,
+      "n_communities": 3,
+      "modularity": 0.5178450445441474,
+      "pc1_neg_community": 2,
+      "pc1_neg_community_mean": -3.2697856426239014,
+      "fisher_neg_comm": {
+        "b_in": 4,
+        "b_out": 5,
+        "nb_in": 38,
+        "nb_out": 148,
+        "odds_ratio": 3.1157894736842104,
+        "fisher_p": 0.10228743612821825
+      },
+      "best_bcell_community": 1,
+      "fisher_best_comm": {
+        "b_in": 5,
+        "b_out": 4,
+        "nb_in": 68,
+        "nb_out": 118,
+        "odds_ratio": 2.1691176470588234,
+        "fisher_p": 0.2103626303344644
+      }
+    },
+    {
+      "layer": 10,
+      "n_communities": 3,
+      "modularity": 0.5094664254531327,
+      "pc1_neg_community": 0,
+      "pc1_neg_community_mean": -2.2534003257751465,
+      "fisher_neg_comm": {
+        "b_in": 6,
+        "b_out": 3,
+        "nb_in": 66,
+        "nb_out": 120,
+        "odds_ratio": 3.6363636363636362,
+        "fisher_p": 0.06429586984287644
+      },
+      "best_bcell_community": 0,
+      "fisher_best_comm": {
+        "b_in": 6,
+        "b_out": 3,
+        "nb_in": 66,
+        "nb_out": 120,
+        "odds_ratio": 3.6363636363636362,
+        "fisher_p": 0.06429586984287644
+      }
+    },
+    {
+      "layer": 11,
+      "n_communities": 2,
+      "modularity": 0.4342365316147976,
+      "pc1_neg_community": 1,
+      "pc1_neg_community_mean": -2.010009527206421,
+      "fisher_neg_comm": {
+        "b_in": 8,
+        "b_out": 1,
+        "nb_in": 80,
+        "nb_out": 106,
+        "odds_ratio": 10.6,
+        "fisher_p": 0.007996809542319998
+      },
+      "best_bcell_community": 1,
+      "fisher_best_comm": {
+        "b_in": 8,
+        "b_out": 1,
+        "nb_in": 80,
+        "nb_out": 106,
+        "odds_ratio": 10.6,
+        "fisher_p": 0.007996809542319998
+      }
+    }
+  ],
+  "spearman_rho_layer_vs_OR_neg_comm": 0.08056054385890982,
+  "spearman_p_layer_vs_OR_neg_comm": 0.80345110920634,
+  "spearman_rho_layer_vs_OR_best_comm": -0.1328671328671329,
+  "spearman_p_layer_vs_OR_best_comm": 0.6805975082860818,
+  "L11_OR_neg_comm": 10.6,
+  "L11_OR_best_comm": 10.6,
+  "summary": "Spearman rho tests progressive B-cell community crystallization across layers"
+}

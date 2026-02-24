@@ -1,0 +1,239 @@
+{
+  "hypothesis": "H02_TF_activation_hub_centrality",
+  "n_act_tfs": 39,
+  "n_rep_tfs": 32,
+  "K_topk": 15,
+  "n_layers_act_degree_sig": 0,
+  "n_layers_topk_sig": 0,
+  "top_act_tfs": [
+    [
+      "JUN",
+      17
+    ],
+    [
+      "ETS1",
+      10
+    ],
+    [
+      "HIF1A",
+      9
+    ],
+    [
+      "EGR1",
+      7
+    ],
+    [
+      "CIITA",
+      6
+    ],
+    [
+      "RUNX1",
+      6
+    ],
+    [
+      "GATA3",
+      5
+    ],
+    [
+      "REL",
+      5
+    ],
+    [
+      "FLI1",
+      4
+    ],
+    [
+      "ATM",
+      3
+    ]
+  ],
+  "top_rep_tfs": [
+    [
+      "EGR1",
+      6
+    ],
+    [
+      "FOS",
+      4
+    ],
+    [
+      "JUN",
+      4
+    ],
+    [
+      "PAX5",
+      4
+    ],
+    [
+      "ZFP36",
+      4
+    ],
+    [
+      "CIITA",
+      3
+    ],
+    [
+      "HIF1A",
+      3
+    ],
+    [
+      "HIPK2",
+      3
+    ],
+    [
+      "KLF6",
+      3
+    ],
+    [
+      "RUNX3",
+      3
+    ]
+  ],
+  "per_layer": [
+    {
+      "layer": 0,
+      "spearman_act_degree_vs_proximity": -0.09852480884160018,
+      "p_act": 0.48712100807070224,
+      "spearman_rep_degree_vs_proximity": 0.12771219845216805,
+      "p_rep": 0.36691833823060094,
+      "auroc_top_act_vs_top_rep": 0.4688888888888889,
+      "p_topk": 0.6222507380865603,
+      "effect_topk_mean_dist_diff": 0.13778584798177107,
+      "n_tfs_total": 52,
+      "K_topk": 15
+    },
+    {
+      "layer": 1,
+      "spearman_act_degree_vs_proximity": -0.10494078658061608,
+      "p_act": 0.4590626958830999,
+      "spearman_rep_degree_vs_proximity": 0.0961821982724054,
+      "p_rep": 0.4975849005683948,
+      "auroc_top_act_vs_top_rep": 0.4822222222222222,
+      "p_topk": 0.5741063485703288,
+      "effect_topk_mean_dist_diff": 0.07059644063313897,
+      "n_tfs_total": 52,
+      "K_topk": 15
+    },
+    {
+      "layer": 2,
+      "spearman_act_degree_vs_proximity": -0.07895914485111136,
+      "p_act": 0.5779297294234992,
+      "spearman_rep_degree_vs_proximity": 0.09139389666305563,
+      "p_rep": 0.5193286466121736,
+      "auroc_top_act_vs_top_rep": 0.5,
+      "p_topk": 0.5082813779724064,
+      "effect_topk_mean_dist_diff": 0.04330526987711458,
+      "n_tfs_total": 52,
+      "K_topk": 15
+    },
+    {
+      "layer": 3,
+      "spearman_act_degree_vs_proximity": -0.04126440477353371,
+      "p_act": 0.7714703624042067,
+      "spearman_rep_degree_vs_proximity": 0.08492468753965941,
+      "p_rep": 0.5494418067429105,
+      "auroc_top_act_vs_top_rep": 0.5133333333333333,
+      "p_topk": 0.45866437601506715,
+      "effect_topk_mean_dist_diff": 0.015236727396645833,
+      "n_tfs_total": 52,
+      "K_topk": 15
+    },
+    {
+      "layer": 4,
+      "spearman_act_degree_vs_proximity": -0.005624246266523235,
+      "p_act": 0.9684348270385574,
+      "spearman_rep_degree_vs_proximity": 0.09847939012368505,
+      "p_rep": 0.48732278117141914,
+      "auroc_top_act_vs_top_rep": 0.5222222222222223,
+      "p_topk": 0.42589365142967117,
+      "effect_topk_mean_dist_diff": 0.03311773935953788,
+      "n_tfs_total": 52,
+      "K_topk": 15
+    },
+    {
+      "layer": 5,
+      "spearman_act_degree_vs_proximity": -0.008040914584169938,
+      "p_act": 0.954883584481577,
+      "spearman_rep_degree_vs_proximity": 0.07439768133660907,
+      "p_rep": 0.6001567161005965,
+      "auroc_top_act_vs_top_rep": 0.5177777777777778,
+      "p_topk": 0.4422295897269543,
+      "effect_topk_mean_dist_diff": 0.03017775217691998,
+      "n_tfs_total": 52,
+      "K_topk": 15
+    },
+    {
+      "layer": 6,
+      "spearman_act_degree_vs_proximity": -0.022236196821520827,
+      "p_act": 0.8756634485157855,
+      "spearman_rep_degree_vs_proximity": 0.058552511002389944,
+      "p_rep": 0.6801061496618224,
+      "auroc_top_act_vs_top_rep": 0.5133333333333333,
+      "p_topk": 0.45866437601506715,
+      "effect_topk_mean_dist_diff": 0.022329902648925426,
+      "n_tfs_total": 52,
+      "K_topk": 15
+    },
+    {
+      "layer": 7,
+      "spearman_act_degree_vs_proximity": -0.003998999823633192,
+      "p_act": 0.9775534519888724,
+      "spearman_rep_degree_vs_proximity": 0.06101929622271277,
+      "p_rep": 0.6673987067643354,
+      "auroc_top_act_vs_top_rep": 0.5088888888888888,
+      "p_topk": 0.47517013399897545,
+      "effect_topk_mean_dist_diff": -0.017542902628580492,
+      "n_tfs_total": 52,
+      "K_topk": 15
+    },
+    {
+      "layer": 8,
+      "spearman_act_degree_vs_proximity": -0.04710306248213209,
+      "p_act": 0.7401971907072884,
+      "spearman_rep_degree_vs_proximity": 0.027893524889313345,
+      "p_rep": 0.844381934345015,
+      "auroc_top_act_vs_top_rep": 0.5266666666666666,
+      "p_topk": 0.40968393031647105,
+      "effect_topk_mean_dist_diff": -0.04319171905517649,
+      "n_tfs_total": 52,
+      "K_topk": 15
+    },
+    {
+      "layer": 9,
+      "spearman_act_degree_vs_proximity": -0.025004735160959187,
+      "p_act": 0.8603285516219082,
+      "spearman_rep_degree_vs_proximity": 0.013522468071406028,
+      "p_rep": 0.924199036372108,
+      "auroc_top_act_vs_top_rep": 0.5444444444444444,
+      "p_topk": 0.346629319988932,
+      "effect_topk_mean_dist_diff": -0.05732440948486328,
+      "n_tfs_total": 52,
+      "K_topk": 15
+    },
+    {
+      "layer": 10,
+      "spearman_act_degree_vs_proximity": 0.004614230565730606,
+      "p_act": 0.9741012347409728,
+      "spearman_rep_degree_vs_proximity": -0.0032965220671586836,
+      "p_rep": 0.9814957295017774,
+      "auroc_top_act_vs_top_rep": 0.5666666666666667,
+      "p_topk": 0.2735754234327258,
+      "effect_topk_mean_dist_diff": -0.08838939666748047,
+      "n_tfs_total": 52,
+      "K_topk": 15
+    },
+    {
+      "layer": 11,
+      "spearman_act_degree_vs_proximity": 0.03282695459619774,
+      "p_act": 0.8172943306470158,
+      "spearman_rep_degree_vs_proximity": -0.032314886386229,
+      "p_rep": 0.8200966524032314,
+      "auroc_top_act_vs_top_rep": 0.5844444444444444,
+      "p_topk": 0.22120984669289773,
+      "effect_topk_mean_dist_diff": -0.10054426193237287,
+      "n_tfs_total": 52,
+      "K_topk": 15
+    }
+  ],
+  "summary_direction": "negative"
+}

@@ -1,0 +1,68 @@
+{
+  "iteration": "iter_0018",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "Random Gaussian embedding null control for SV2 co-pole",
+      "family": "null_sensitivity",
+      "split_regime": "edge_stratified",
+      "method": "Replace scGPT layer_gene_embeddings.npy [12,4803,512] with random Gaussian (seed=42, same shape). Run identical SV2 co-pole test for 3092 STRING pairs (score>=0.4): K=52 top/bottom poles, 300 shuffle nulls per layer. Report n_sig/12 layers and mean z-score.",
+      "status": "tested",
+      "primary_metric": "n_sig_layers (out of 12)",
+      "result_value": "0/12 significant layers, mean_z=-0.085",
+      "result_direction": "negative",
+      "artifact_paths": [
+        "iterations/iter_0018/h01_random_gaussian_null.json",
+        "iterations/iter_0018/iter0018_results.json"
+      ],
+      "decision": "negative",
+      "next_action": "Report as confirmatory null: random embeddings yield z~0 confirming scGPT PPI geometry is model-specific. Include in paper as model-specificity control.",
+      "novelty_type": "new_method",
+      "lineage": "none",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H02",
+      "name": "Out-of-sample PPI precision@k prediction benchmark",
+      "family": "graph_topology",
+      "split_regime": "edge_stratified",
+      "method": "Use SV2 projections of 209 named genes at each of 12 layers. Compute negative absolute distance |proj_i - proj_j| as pairwise similarity. Rank all 21736 pairs. Compute precision@k at k=50,100,200,500,1000 for STRING edges. Compare to random baseline (14.23%). Report enrichment = P@k / baseline.",
+      "status": "tested",
+      "primary_metric": "precision@100 enrichment (best layer)",
+      "result_value": "P@100=0.170 vs random=0.142, enrichment=1.20x (consistent across all 12 layers)",
+      "result_direction": "mixed",
+      "artifact_paths": [
+        "iterations/iter_0018/h02_precision_at_k.json",
+        "iterations/iter_0018/iter0018_results.json"
+      ],
+      "decision": "neutral",
+      "next_action": "Negative for ranking framing. The SV2 axis is a partition metric (co-pole), not a distance metric. Try co-pole membership as ranking signal in next iteration. Report as methodological insight: SVD pole structure is not equivalent to a ranking distance.",
+      "novelty_type": "new_method",
+      "lineage": "none",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H03",
+      "name": "scGPT attention co-occurrence geometry for STRING/TRRUST pairs",
+      "family": "graph_topology",
+      "split_regime": "edge_stratified",
+      "method": "Load aggregated scGPT attention_scores.npy [8181x8181] from lung processed.h5ad. Map 208 named genes to correct attention matrix positions via adata.var_names. Compute mean symmetric attention (att[i,j]+att[j,i])/2 for STRING pairs, TRRUST activation pairs, and non-STRING background pairs within 209-gene universe. Run Mann-Whitney U test (one-sided, greater). Also compute STRING confidence quintile gradient (Spearman rho).",
+      "status": "tested",
+      "primary_metric": "Mann-Whitney p-value vs non-STRING background",
+      "result_value": "STRING: z=0.066, MW_p=0.091 (not significant). TRRUST activation: MW_p=9.9e-09, mean_att=0.01762 vs null=0.00889 (~2x enrichment). STRING quintile gradient rho=0.10 (p=0.87, not significant).",
+      "result_direction": "mixed",
+      "artifact_paths": [
+        "iterations/iter_0018/h03_attention_geometry.json",
+        "iterations/iter_0018/iter0018_results.json"
+      ],
+      "decision": "promising",
+      "next_action": "New finding: scGPT attention encodes TF regulatory co-occurrence (TRRUST act, MW_p=9.9e-09, 2x enrichment) but NOT PPI proximity (STRING z~0). This is mechanistically complementary to SVD geometry: attention=regulatory, SVD=PPI. Plan: test TRRUST repression separately, and test per-layer attention if available.",
+      "novelty_type": "new_family",
+      "lineage": "none",
+      "retired": false,
+      "retirement_reason": ""
+    }
+  ]
+}

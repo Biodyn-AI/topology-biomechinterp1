@@ -1,0 +1,166 @@
+{
+  "hypothesis": "H02",
+  "description": "B-cell centroid drift alignment with B\u2192plasma direction vector",
+  "bcell_identity_invocab": [
+    "MS4A1",
+    "CD19",
+    "CD79A",
+    "BLK",
+    "PRDM1"
+  ],
+  "plasma_tfs_invocab": [
+    "IRF4",
+    "PRDM1"
+  ],
+  "layers": [
+    {
+      "layer": 0,
+      "drift_magnitude": 0.0,
+      "cosine_to_plasma_direction": 0.0,
+      "cosine_to_gc_direction": 0.0,
+      "gc_plasma_dist": 8.97358226776123,
+      "angle_gc_plasma_from_bcell_deg": 77.13659567740818,
+      "bc_centroid_norm": 19.08213233947754,
+      "gc_centroid_norm": 19.554092407226562,
+      "plasma_centroid_norm": 18.95448875427246
+    },
+    {
+      "layer": 1,
+      "drift_magnitude": 12.35544490814209,
+      "cosine_to_plasma_direction": -0.029799994081258774,
+      "cosine_to_gc_direction": 0.09854257106781006,
+      "gc_plasma_dist": 7.48762321472168,
+      "angle_gc_plasma_from_bcell_deg": 76.51453292611114,
+      "bc_centroid_norm": 19.08909797668457,
+      "gc_centroid_norm": 19.521577835083008,
+      "plasma_centroid_norm": 19.118253707885742
+    },
+    {
+      "layer": 2,
+      "drift_magnitude": 13.461853981018066,
+      "cosine_to_plasma_direction": -0.04777739569544792,
+      "cosine_to_gc_direction": 0.061332229524850845,
+      "gc_plasma_dist": 6.963338851928711,
+      "angle_gc_plasma_from_bcell_deg": 76.60049723129212,
+      "bc_centroid_norm": 19.556177139282227,
+      "gc_centroid_norm": 19.8634033203125,
+      "plasma_centroid_norm": 19.51187515258789
+    },
+    {
+      "layer": 3,
+      "drift_magnitude": 14.848325729370117,
+      "cosine_to_plasma_direction": 0.0072641558945178986,
+      "cosine_to_gc_direction": 0.09103598445653915,
+      "gc_plasma_dist": 6.8596014976501465,
+      "angle_gc_plasma_from_bcell_deg": 77.10658974679306,
+      "bc_centroid_norm": 19.989042282104492,
+      "gc_centroid_norm": 20.300561904907227,
+      "plasma_centroid_norm": 19.92582893371582
+    },
+    {
+      "layer": 4,
+      "drift_magnitude": 15.878820419311523,
+      "cosine_to_plasma_direction": -0.004010849632322788,
+      "cosine_to_gc_direction": 0.10181006789207458,
+      "gc_plasma_dist": 6.5998101234436035,
+      "angle_gc_plasma_from_bcell_deg": 80.33454995527556,
+      "bc_centroid_norm": 20.403213500976562,
+      "gc_centroid_norm": 20.72270965576172,
+      "plasma_centroid_norm": 20.370651245117188
+    },
+    {
+      "layer": 5,
+      "drift_magnitude": 17.334779739379883,
+      "cosine_to_plasma_direction": -0.00981863308697939,
+      "cosine_to_gc_direction": 0.1290232390165329,
+      "gc_plasma_dist": 6.594200134277344,
+      "angle_gc_plasma_from_bcell_deg": 81.89795065199078,
+      "bc_centroid_norm": 20.353925704956055,
+      "gc_centroid_norm": 20.679189682006836,
+      "plasma_centroid_norm": 20.306520462036133
+    },
+    {
+      "layer": 6,
+      "drift_magnitude": 18.77581787109375,
+      "cosine_to_plasma_direction": -0.019101450219750404,
+      "cosine_to_gc_direction": 0.13894006609916687,
+      "gc_plasma_dist": 6.684761047363281,
+      "angle_gc_plasma_from_bcell_deg": 82.6145558957506,
+      "bc_centroid_norm": 20.710546493530273,
+      "gc_centroid_norm": 21.05138397216797,
+      "plasma_centroid_norm": 20.61392593383789
+    },
+    {
+      "layer": 7,
+      "drift_magnitude": 20.393918991088867,
+      "cosine_to_plasma_direction": -0.016330841928720474,
+      "cosine_to_gc_direction": 0.1344151794910431,
+      "gc_plasma_dist": 7.1178483963012695,
+      "angle_gc_plasma_from_bcell_deg": 87.06766348376338,
+      "bc_centroid_norm": 21.180660247802734,
+      "gc_centroid_norm": 21.499692916870117,
+      "plasma_centroid_norm": 20.962406158447266
+    },
+    {
+      "layer": 8,
+      "drift_magnitude": 22.76022720336914,
+      "cosine_to_plasma_direction": -0.027063895016908646,
+      "cosine_to_gc_direction": 0.1438116580247879,
+      "gc_plasma_dist": 7.409056186676025,
+      "angle_gc_plasma_from_bcell_deg": 90.88198215474986,
+      "bc_centroid_norm": 21.950847625732422,
+      "gc_centroid_norm": 22.279577255249023,
+      "plasma_centroid_norm": 21.615930557250977
+    },
+    {
+      "layer": 9,
+      "drift_magnitude": 25.155338287353516,
+      "cosine_to_plasma_direction": -0.027628038078546524,
+      "cosine_to_gc_direction": 0.10373833030462265,
+      "gc_plasma_dist": 6.832619667053223,
+      "angle_gc_plasma_from_bcell_deg": 91.5750619826399,
+      "bc_centroid_norm": 23.042797088623047,
+      "gc_centroid_norm": 23.280059814453125,
+      "plasma_centroid_norm": 22.486974716186523
+    },
+    {
+      "layer": 10,
+      "drift_magnitude": 27.55622100830078,
+      "cosine_to_plasma_direction": -0.06043083220720291,
+      "cosine_to_gc_direction": 0.05763721093535423,
+      "gc_plasma_dist": 5.643996238708496,
+      "angle_gc_plasma_from_bcell_deg": 94.12941980433509,
+      "bc_centroid_norm": 24.451141357421875,
+      "gc_centroid_norm": 24.55591583251953,
+      "plasma_centroid_norm": 23.684040069580078
+    },
+    {
+      "layer": 11,
+      "drift_magnitude": 26.399438858032227,
+      "cosine_to_plasma_direction": -0.07460007816553116,
+      "cosine_to_gc_direction": 0.053431082516908646,
+      "gc_plasma_dist": 4.0765485763549805,
+      "angle_gc_plasma_from_bcell_deg": 94.37711852276288,
+      "bc_centroid_norm": 21.88688087463379,
+      "gc_centroid_norm": 21.946325302124023,
+      "plasma_centroid_norm": 21.786991119384766
+    }
+  ],
+  "drift_magnitude_spearman": {
+    "rho": 0.9930069930069931,
+    "p": 1.3016730560634403e-10
+  },
+  "cosine_to_plasma_trend": {
+    "rho": -0.5314685314685316,
+    "p": 0.07536233505348364
+  },
+  "cosine_to_gc_trend": {
+    "rho": 0.2027972027972028,
+    "p": 0.5273023541661082
+  },
+  "gc_plasma_dist_trend": {
+    "rho": -0.6433566433566434,
+    "p": 0.024003191200713644
+  },
+  "interpretation": "If cosine_to_plasma trend is positive, drift aligns with B\u2192plasma direction across layers."
+}

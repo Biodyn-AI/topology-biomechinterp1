@@ -1,0 +1,69 @@
+{
+  "iteration": "iter_0009",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "SV2 bottom-pole extracellular vesicle null (N=1000)",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "edge_stratified",
+      "method": "Gene-label shuffle null (N=1000). Top-K=52 genes at SV2 bottom pole (layer 11, SVD of 209-gene mean-centered embedding). Fisher exact test vs GO:0070062 extracellular vesicle (48 annotated genes). Compare obs Fisher p to null distribution.",
+      "status": "tested",
+      "primary_metric": "empirical_p",
+      "result_value": "emp_p=0.000/1000, OR=7.99, obs_p=8.69e-09",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0009/h01_sv2_bot_null_ps.npy",
+        "iterations/iter_0009/iter0009_results.json"
+      ],
+      "decision": "promising",
+      "next_action": "Identify SV2 top-pole IL-4 gene members; run full SV2 layer scan across all 12 layers",
+      "novelty_type": "refinement",
+      "lineage": "iter_0008_H01",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H02",
+      "name": "12-layer x 8-compartment systematic SV1 scan",
+      "family": "module_structure",
+      "split_regime": "edge_stratified",
+      "method": "For each of 12 layers and 8 GO compartments (mitochondrion GO:0005739, ER_lumen GO:0005788, extracellular_vesicle GO:0070062, cytoskeleton GO:0005856, plasma_membrane GO:0005886, nucleus GO:0005634, secreted GO:0005615, ribosome GO:0005840), compute Fisher OR on SV1 top/bottom-52 genes with N=200 gene-label shuffles. Record emp_p per cell.",
+      "status": "tested",
+      "primary_metric": "n_significant_cells_emp05",
+      "result_value": "33/96 cells significant at emp_p<=0.05; ER_lumen and secreted persistent across all 12 layers; mito transient at L2-4 and L10",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0009/h02_layer_compartment_scan.json",
+        "iterations/iter_0009/h02_layer_compartment_map.csv"
+      ],
+      "decision": "promising",
+      "next_action": "Replicate scan on SV2/SV3 projections to find EV and immune compartment layer profiles",
+      "novelty_type": "new_method",
+      "lineage": "iter_0008_H02",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H03",
+      "name": "Cross-layer SV1 rank stability (Spearman)",
+      "family": "topology_stability",
+      "split_regime": "edge_stratified",
+      "method": "SVD of 209-gene mean-centered embedding at each of 12 layers. Extract SV1 projections [12, 209]. Compute Spearman r between all adjacent layer pairs. Compare mean adjacent r vs null (row-permutation control, N=200). Also compute SV1 variance explained per layer.",
+      "status": "tested",
+      "primary_metric": "mean_adjacent_spearman_r",
+      "result_value": "mean_adj_r=0.929, range=[0.663,0.980], emp_p=0.000 vs null mean=0.003; SV1 var_exp rises 19.1% to 76.7%",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0009/h03_sv1_projections_12layers.npy",
+        "iterations/iter_0009/h03_sv1_spearman_mat.npy",
+        "iterations/iter_0009/h03_sv1_stability.csv"
+      ],
+      "decision": "promising",
+      "next_action": "Compute same stability metric for SV2 and SV3; test if L10-L11 transition coincides with layer-specific mito enrichment change",
+      "novelty_type": "new_method",
+      "lineage": "none",
+      "retired": false,
+      "retirement_reason": ""
+    }
+  ]
+}

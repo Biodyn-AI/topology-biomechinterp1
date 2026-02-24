@@ -1,0 +1,65 @@
+{
+  "iteration": "iter_0016",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "SV3 STRING confidence gradient",
+      "family": "graph_topology",
+      "split_regime": "edge_stratified",
+      "method": "Split 3092 STRING pairs (score>=0.4) into 5 quintiles by score. For each quintile, compute mean SV3 co-pole z-score (K=52, N_null=300) across 12 layers. Compute Spearman rho of quintile midpoint vs mean z.",
+      "status": "tested",
+      "primary_metric": "Spearman rho (quintile_score_mid vs mean_z_sv3)",
+      "result_value": "rho=0.900, p=0.037; Q1→Q5 mean_z=[1.238, 1.447, 1.397, 1.906, 3.813]",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0016/h01_sv3_confidence_gradient.json",
+        "iterations/iter_0016/iter0016_results.json"
+      ],
+      "decision": "promising",
+      "next_action": "Run SV4 quintile gradient (SV4_IDX=3) to check if monotonic confidence encoding extends to a 4th axis. Also add per-layer breakdown for SV3.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0015_H02",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "SV2/SV3/SV4 axis independence test",
+      "family": "module_structure",
+      "split_regime": "edge_stratified",
+      "method": "For each axis (SV2,SV3,SV4), extract top-K=52 and bottom-K=52 gene poles per layer. Compute pairwise Jaccard overlap of pole gene sets (layer-averaged). For each STRING pair, compute per-axis mean co-pole indicator over 12 layers. Report inter-axis Pearson correlation of per-pair copole rates.",
+      "status": "tested",
+      "primary_metric": "inter-axis Pearson correlation of per-pair copole rates",
+      "result_value": "SV2-SV3: r=-0.016; SV2-SV4: r=0.213; SV3-SV4: r=0.247. Top-pole Jaccard: SV2-SV3=0.133, SV2-SV4=0.172, SV3-SV4=0.184",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0016/h02_axis_independence.json",
+        "iterations/iter_0016/iter0016_results.json"
+      ],
+      "decision": "promising",
+      "next_action": "Use axis-dominant pair assignments (SV2=1547, SV3=850, SV4=695) to test whether GO/TRRUST category composition differs across axis-dominant pair subsets — would mechanistically explain orthogonality.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0015_H01",
+      "retired": false
+    },
+    {
+      "id": "H03",
+      "name": "SV4 GO biology profile",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "For SV4 (index 3) at layers 7, 8, 11: extract top-K=52 and bottom-K=52 genes. Run Fisher's exact test for 591 GO terms (size 3-50 named genes). Report top enriched GO terms per layer per pole.",
+      "status": "tested",
+      "primary_metric": "top GO enrichment p-value per layer",
+      "result_value": "Layer 7 bottom: GO:0005768 endosome p=8.2e-4 (APP,FLT1,KDR); Layer 8 top: GO:0009615 virus response p=2.7e-3 (CCL5,IFNG,FOXP3); Layer 11 top: GO:0045202 synapse p=3.5e-3 (APP,CLU,EGR3)",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0016/h03_sv4_go_biology.json",
+        "iterations/iter_0016/iter0016_results.json"
+      ],
+      "decision": "promising",
+      "next_action": "Compare SV4 GO profile systematically against SV2 and SV3 profiles to quantify biological distinctiveness across axes. SV4 endosome/apoptosis vs SV2 immune effector vs SV3 immune/signaling.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0015_H01",
+      "retired": false
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "iteration": "iter_0051",
+  "H01": {
+    "name": "Residual TF signal after co-expression regression",
+    "sig_layers_residual": 1,
+    "best_rbc_residual": 0.0828351245809863,
+    "best_layer": 8,
+    "decision": "negative (1/12 layers significant after regression)"
+  },
+  "H02": {
+    "name": "SV1 L0-high vs L11-high gene identity",
+    "high_sv1_L0_tf_frac": 0.004901960784313725,
+    "low_sv1_L0_tf_frac": 0.08088235294117647,
+    "fisher_OR_L0": 0.10823562062027337,
+    "fisher_p_L0": 1.8857895020279335e-05,
+    "high_sv1_L11_tf_frac": 0.014705882352941176,
+    "low_sv1_L11_tf_frac": 0.056372549019607844,
+    "fisher_OR_L11": 0.34840721764312765,
+    "fisher_p_L11": 0.0072268728838498966,
+    "decision": "positive (TF depletion from high-SV1 significant at both L0 and L11)"
+  },
+  "H03": {
+    "name": "0-dim PH on SV2-4 at L8",
+    "ks_stat_ph": 0.13945578231292516,
+    "ks_pval_ph": 0.006516551541099631,
+    "frag_ratio": 0.9403910348115908,
+    "frag_pval": 0.116,
+    "decision": "negative"
+  }
+}

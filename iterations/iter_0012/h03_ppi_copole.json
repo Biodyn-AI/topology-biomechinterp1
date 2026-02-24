@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "edge_type": "STRING_v12_score_ge0.7",
+    "n_pairs": 1022,
+    "score_threshold": 0.7,
+    "fallback": false,
+    "skipped": false,
+    "n_layers_significant": 12
+  },
+  "results": [
+    {
+      "layer": 0,
+      "obs_copole": 0.2524,
+      "null_mean": 0.1212,
+      "null_std": 0.0225,
+      "z": 5.829,
+      "emp_p": 0.0,
+      "significant_p05": true
+    },
+    {
+      "layer": 1,
+      "obs_copole": 0.2661,
+      "null_mean": 0.1213,
+      "null_std": 0.0222,
+      "z": 6.518,
+      "emp_p": 0.0,
+      "significant_p05": true
+    },
+    {
+      "layer": 2,
+      "obs_copole": 0.226,
+      "null_mean": 0.1214,
+      "null_std": 0.0224,
+      "z": 4.68,
+      "emp_p": 0.0,
+      "significant_p05": true
+    },
+    {
+      "layer": 3,
+      "obs_copole": 0.229,
+      "null_mean": 0.1217,
+      "null_std": 0.022,
+      "z": 4.869,
+      "emp_p": 0.0,
+      "significant_p05": true
+    },
+    {
+      "layer": 4,
+      "obs_copole": 0.2202,
+      "null_mean": 0.1228,
+      "null_std": 0.0224,
+      "z": 4.352,
+      "emp_p": 0.0,
+      "significant_p05": true
+    },
+    {
+      "layer": 5,
+      "obs_copole": 0.2299,
+      "null_mean": 0.1223,
+      "null_std": 0.0216,
+      "z": 4.98,
+      "emp_p": 0.0,
+      "significant_p05": true
+    },
+    {
+      "layer": 6,
+      "obs_copole": 0.2329,
+      "null_mean": 0.1208,
+      "null_std": 0.0217,
+      "z": 5.17,
+      "emp_p": 0.0,
+      "significant_p05": true
+    },
+    {
+      "layer": 7,
+      "obs_copole": 0.2133,
+      "null_mean": 0.1217,
+      "null_std": 0.023,
+      "z": 3.981,
+      "emp_p": 0.0,
+      "significant_p05": true
+    },
+    {
+      "layer": 8,
+      "obs_copole": 0.2104,
+      "null_mean": 0.1216,
+      "null_std": 0.0223,
+      "z": 3.984,
+      "emp_p": 0.0,
+      "significant_p05": true
+    },
+    {
+      "layer": 9,
+      "obs_copole": 0.1977,
+      "null_mean": 0.1207,
+      "null_std": 0.0225,
+      "z": 3.42,
+      "emp_p": 0.002,
+      "significant_p05": true
+    },
+    {
+      "layer": 10,
+      "obs_copole": 0.1977,
+      "null_mean": 0.1228,
+      "null_std": 0.023,
+      "z": 3.259,
+      "emp_p": 0.002,
+      "significant_p05": true
+    },
+    {
+      "layer": 11,
+      "obs_copole": 0.2387,
+      "null_mean": 0.1223,
+      "null_std": 0.0214,
+      "z": 5.453,
+      "emp_p": 0.0,
+      "significant_p05": true
+    }
+  ]
+}

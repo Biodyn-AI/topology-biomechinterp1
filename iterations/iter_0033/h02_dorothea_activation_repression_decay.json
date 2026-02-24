@@ -1,0 +1,208 @@
+{
+  "hypothesis": "community_partition_stability",
+  "reference_k": 10,
+  "k_stability_results": [
+    {
+      "k": 5,
+      "n_communities": 5,
+      "modularity": 0.590618875275049,
+      "ari_vs_reference_k10": 0.3225503026998744,
+      "community_sizes": [
+        60,
+        46,
+        42,
+        38,
+        9
+      ]
+    },
+    {
+      "k": 10,
+      "n_communities": 2,
+      "modularity": 0.4342365316147976,
+      "ari_vs_reference_k10": 1.0,
+      "community_sizes": [
+        107,
+        88
+      ]
+    },
+    {
+      "k": 15,
+      "n_communities": 2,
+      "modularity": 0.43686370489923343,
+      "ari_vs_reference_k10": 0.7678079092798599,
+      "community_sizes": [
+        100,
+        95
+      ]
+    },
+    {
+      "k": 20,
+      "n_communities": 3,
+      "modularity": 0.4367636208799462,
+      "ari_vs_reference_k10": 0.8293042857141181,
+      "community_sizes": [
+        95,
+        91,
+        9
+      ]
+    },
+    {
+      "k": 25,
+      "n_communities": 3,
+      "modularity": 0.4300027788698851,
+      "ari_vs_reference_k10": 0.8199042906495975,
+      "community_sizes": [
+        95,
+        90,
+        10
+      ]
+    },
+    {
+      "k": 30,
+      "n_communities": 2,
+      "modularity": 0.41837636992218014,
+      "ari_vs_reference_k10": 0.899550924138765,
+      "community_sizes": [
+        104,
+        91
+      ]
+    }
+  ],
+  "layer_stability_results": [
+    {
+      "layer": 0,
+      "n_communities": 3,
+      "modularity": 0.4105998207828655,
+      "ari_vs_l11": 0.17479746737670723,
+      "community_sizes": [
+        66,
+        65,
+        64
+      ]
+    },
+    {
+      "layer": 1,
+      "n_communities": 3,
+      "modularity": 0.409516351714006,
+      "ari_vs_l11": 0.34222078743842094,
+      "community_sizes": [
+        74,
+        65,
+        56
+      ]
+    },
+    {
+      "layer": 2,
+      "n_communities": 3,
+      "modularity": 0.4041453960985969,
+      "ari_vs_l11": 0.5353765591941686,
+      "community_sizes": [
+        81,
+        70,
+        44
+      ]
+    },
+    {
+      "layer": 3,
+      "n_communities": 3,
+      "modularity": 0.4269305579102096,
+      "ari_vs_l11": 0.6198698428149384,
+      "community_sizes": [
+        83,
+        81,
+        31
+      ]
+    },
+    {
+      "layer": 4,
+      "n_communities": 3,
+      "modularity": 0.460867465976858,
+      "ari_vs_l11": 0.3900621848965568,
+      "community_sizes": [
+        85,
+        77,
+        33
+      ]
+    },
+    {
+      "layer": 5,
+      "n_communities": 3,
+      "modularity": 0.48220935558678385,
+      "ari_vs_l11": 0.5771385900322694,
+      "community_sizes": [
+        86,
+        72,
+        37
+      ]
+    },
+    {
+      "layer": 6,
+      "n_communities": 3,
+      "modularity": 0.45997478885769233,
+      "ari_vs_l11": 0.40286203675097176,
+      "community_sizes": [
+        86,
+        74,
+        35
+      ]
+    },
+    {
+      "layer": 7,
+      "n_communities": 3,
+      "modularity": 0.501506211067505,
+      "ari_vs_l11": 0.411371665762276,
+      "community_sizes": [
+        82,
+        73,
+        40
+      ]
+    },
+    {
+      "layer": 8,
+      "n_communities": 4,
+      "modularity": 0.5125150804067401,
+      "ari_vs_l11": 0.3686819398876138,
+      "community_sizes": [
+        78,
+        68,
+        40,
+        9
+      ]
+    },
+    {
+      "layer": 9,
+      "n_communities": 3,
+      "modularity": 0.5178450445441474,
+      "ari_vs_l11": 0.41625102099567846,
+      "community_sizes": [
+        80,
+        73,
+        42
+      ]
+    },
+    {
+      "layer": 10,
+      "n_communities": 3,
+      "modularity": 0.5094664254531327,
+      "ari_vs_l11": 0.4906797467461619,
+      "community_sizes": [
+        72,
+        63,
+        60
+      ]
+    },
+    {
+      "layer": 11,
+      "n_communities": 2,
+      "modularity": 0.4342365316147976,
+      "ari_vs_l11": 1.0,
+      "community_sizes": [
+        107,
+        88
+      ]
+    }
+  ],
+  "spearman_rho_layer_vs_ari": 0.4265734265734266,
+  "spearman_p_layer_vs_ari": 0.16669998762494495,
+  "note": "ARI = adjusted rand index between each partition and L11 k=10 partition"
+}

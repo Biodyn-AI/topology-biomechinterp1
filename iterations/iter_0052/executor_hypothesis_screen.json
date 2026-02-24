@@ -1,0 +1,65 @@
+{
+  "iteration": "iter_0052",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "Housekeeping gene enrichment in SV1-high",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "edge_stratified",
+      "method": "Top/bottom 20% split by SV1 loading at L0/L5/L11. Fisher exact test of 238-gene Eisenberg housekeeping set enrichment in SV1-high vs SV1-low groups among 2039 nonzero genes.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0051_H02",
+      "status": "tested",
+      "primary_metric": "odds_ratio_HK_in_SV1high_vs_low",
+      "result_value": "OR=0.0 at L0 (0 vs 4), OR=inf at L5 (4 vs 0), OR=0.499 at L11; only 7 HK genes in nonzero set",
+      "result_direction": "inconclusive",
+      "artifact_paths": [
+        "iterations/iter_0052/h01_housekeeping_sv1.json"
+      ],
+      "decision": "inconclusive",
+      "next_action": "Expand housekeeping gene reference using GO term annotations or STRING connectivity for all 2039 nonzero genes; 7-gene coverage is insufficient",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H02",
+      "name": "H1 Betti loops on circuit genes at L8",
+      "family": "persistent_homology",
+      "split_regime": "edge_stratified",
+      "method": "Ripser Vietoris-Rips PH (maxdim=1) on SV2-4 projections of 295 circuit genes vs 295 matched non-circuit genes at L8. Compare H1 bar count, mean lifetime, total lifetime; MW test.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0051_H03",
+      "status": "tested",
+      "primary_metric": "mw_p_H1_lifetime_circuit_gt_noncircuit",
+      "result_value": "p=0.953, circuit H1 bars=108 vs non-circuit=119, mean_lt=0.00143 vs 0.00178; rbc=0.129 against circuit",
+      "result_direction": "negative",
+      "artifact_paths": [
+        "iterations/iter_0052/h02_h1_betti_circuit_L8.json"
+      ],
+      "decision": "negative",
+      "next_action": "Retire H1-loops for regulatory circuit detection. Non-circuit genes form more and longer loops, opposite of expected.",
+      "retired": true,
+      "retirement_reason": "Opposite direction: non-circuit genes form more H1 loops than circuit genes. MW p=0.953 against hypothesis."
+    },
+    {
+      "id": "H03",
+      "name": "SV5-7 regulatory signal after co-expression residualization",
+      "family": "module_structure",
+      "split_regime": "edge_stratified",
+      "method": "At each of 12 layers: SVD of centered nonzero embeddings [2039,512], project to SV5-7 (indices 4-6). Compute pairwise distances for TRRUST pos/neg pairs. OLS regression: regress full-embedding cosine similarity out of SV5-7 distances. Mann-Whitney test on residuals (pos < neg).",
+      "novelty_type": "new_method",
+      "lineage": "iter_0051_H01",
+      "status": "tested",
+      "primary_metric": "rbc_residual_sv57_at_L0",
+      "result_value": "rbc_resid=0.148 (L0), 0.119 (L1), 0.083 (L2); all p<0.002. L3+ lose significance. SV2-4 retains signal only at L8.",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0052/h03_sv57_regulatory_signal.csv"
+      ],
+      "decision": "promising",
+      "next_action": "Bootstrap validation (100 resamples) of SV5-7 L0-L2 signal. Extend to SV8-10 to characterize spectral decay. Biological annotation of SV5-7 top-loading genes at L0.",
+      "retired": false,
+      "retirement_reason": ""
+    }
+  ]
+}

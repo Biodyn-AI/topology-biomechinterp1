@@ -1,0 +1,60 @@
+{
+  "iteration": "iter_0006",
+  "H01_fullvocab_drift": {
+    "full_vocab_summary": {
+      "n_genes": 4803,
+      "mean": 11.297091484069824,
+      "std": 13.539139747619629,
+      "median": 0.0,
+      "percentiles": {
+        "1": 0.0,
+        "5": 0.0,
+        "25": 0.0,
+        "50": 0.0,
+        "75": 27.36117935180664,
+        "95": 28.085400581359863,
+        "99": 28.4870970916748
+      },
+      "named_gene_mean_drift": 24.805158615112305,
+      "named_gene_median_pct": 0.8440557984592962
+    },
+    "n_terms_tested": 288,
+    "n_sig_p05": 6,
+    "n_sig_p01": 1,
+    "n_sig_fdr": 0,
+    "top_hit_term": "GO:0000981",
+    "top_hit_or": 3.2988505747126435,
+    "top_hit_p": 0.007808493286603394
+  },
+  "H02_svd_biology": {
+    "layer11_er_from_svd": 1.630598783493042,
+    "layer0_er_from_svd": 19.542911529541016,
+    "cumvar_top5_layer11": 0.968426525592804,
+    "cumvar_top20_layer11": 0.9836066961288452,
+    "sv1_top5_genes": [
+      "HIF3A",
+      "CYBB",
+      "KLF2",
+      "CD79A",
+      "PMAIP1"
+    ],
+    "sv1_n_sig_p05": 3,
+    "sv1_n_sig_fdr": 0,
+    "sv1_top_term": "GO:0005615",
+    "sv1_top_term_or": 6.367741935483871,
+    "sv1_top_term_p": 0.00025746446015579904
+  },
+  "H03_er_curvature": {
+    "er_layer0": 7.891773700714111,
+    "er_layer11": 1.2788589000701904,
+    "er_fold_change": 6.170949508410169,
+    "max_compress_layer": 1,
+    "max_compress_rate": -2.4868545532226562,
+    "inflection_layer": 3,
+    "half_life_layer": 4,
+    "pearson_r_er_twonn": 0.793130662345879,
+    "pearson_p_er_twonn": 0.002083601157226441,
+    "spearman_r_er_twonn": 0.7202797202797203,
+    "spearman_p_er_twonn": 0.008239768712338436
+  }
+}

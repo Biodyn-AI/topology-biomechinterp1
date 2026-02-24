@@ -1,0 +1,26 @@
+{
+  "iteration": "iter_0013",
+  "H01_sv_axis_specificity": {
+    "sv1_mean_z": 0.39,
+    "sv2_mean_z": 10.039,
+    "sv3_mean_z": 7.176,
+    "sv1_sig_layers": 2,
+    "sv2_sig_layers": 12,
+    "sv3_sig_layers": 12
+  },
+  "H02_repression_antipole": {
+    "act_copole_mean_z": 3.176,
+    "rep_copole_mean_z": 1.262,
+    "rep_xpole_mean_z": -1.406,
+    "act_xpole_mean_z": -1.113,
+    "rep_xpole_sig_layers": 0
+  },
+  "H03_hub_degree_control": {
+    "all_mean_z": 9.888,
+    "hub_mean_z": 10.006,
+    "nonhub_mean_z": 1.428,
+    "nonhub_sig_layers": 3,
+    "hub_sig_layers": 12,
+    "median_degree": 7.0
+  }
+}

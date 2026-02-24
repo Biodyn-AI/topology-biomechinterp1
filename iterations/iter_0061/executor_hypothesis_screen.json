@@ -1,0 +1,59 @@
+{
+  "iteration": "iter_0061",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "Layer-to-layer CKA trajectory (L8 boundary test)",
+      "family": "cross_model_alignment",
+      "split_regime": "other",
+      "method": "Linear CKA on 1496 shared nonzero genes across 3 seeds (cycle4_immune). Computed: (a) consecutive-layer CKA [L0→L1, ..., L10→L11] per seed, (b) cross-seed CKA at each layer [main vs seed43, main vs seed44, seed43 vs seed44], (c) each layer vs L0. Used full 512-dim embeddings.",
+      "status": "tested",
+      "primary_metric": "consecutive-layer CKA at L7→L8 vs flanking layers",
+      "result_value": "Consecutive CKA: L6→L7=0.981, L7→L8=0.977, L8→L9=0.979 (no drop). Cross-seed CKA declines monotonically L0=0.979→L11=0.779; steepest drop at L10-L11 (0.870→0.779).",
+      "result_direction": "negative",
+      "artifact_paths": ["h01_cka_trajectory.csv"],
+      "decision": "negative",
+      "next_action": "L8 boundary hypothesis falsified by CKA. Deep layers (L10-L11) show greater cross-seed divergence — possibly more interesting. New: test local dimensionality or PH Betti at L10-L11 vs L0-L9.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0060/H03",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H02",
+      "name": "Dual-role gene (TF intersect target) margin trajectory",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "For each of 12 layers x 3 seeds: SVD of centered nonzero embeddings, project to SV5-7. Fit LR (pure TFs=30 vs pure targets=197). Compute decision-function margins for 38 dual-role genes (appear as both TF and target in TRRUST). Report mean margin per layer and pre/post-L8 t-test.",
+      "status": "tested",
+      "primary_metric": "mean dual-gene margin trajectory and pre/post-L8 t-test",
+      "result_value": "All 38 dual genes classified as target-like (negative margins) across all 12 layers. Mean margin: L0=-1.48, L4-L8=-1.72 to -1.91, L11=-1.73. Pre-L8 mean=-1.685, Post-L8=-1.797, t=1.733 p=0.084 (not significant). No sign reversal.",
+      "result_direction": "negative",
+      "artifact_paths": ["h02_dual_role_margins.csv"],
+      "decision": "neutral",
+      "next_action": "HIF1A flip (iter_0060 H02) is not generalizable to the full dual-role gene set. Dual genes are consistently target-like. This closes the dual-role branch. Next: examine individual outlier genes within dual set that have highest margins.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0060/H02",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H03",
+      "name": "FFL geometry expanded (N=264) with multi-subspace and permutation",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "From positive TRRUST edges (735), enumerate all FFLs A→B, A→C, B→C where A,B are TFs and C is target. N=226-264 valid FFLs found (vs N=22 in iter_0060). For each of 12 layers and 3 subspaces (SV2-4, SV5-7, SV2-7): project to subspace, compute t=interpolation parameter of B between A and C. One-sample t-test vs 0. Permutation test (N=2000, gene position shuffle) at peak layers for SV5-7 and SV2-7.",
+      "status": "tested",
+      "primary_metric": "perm_p for t_mean at peak layer",
+      "result_value": "SV2-7 at L2: real t_mean=0.345, null=0.503±0.129, perm_p=0.887 (NEGATIVE). SV5-7 at L7: real=0.594, null=0.499±0.180, perm_p=0.297 (not significant). Parametric p-values are misleading (null itself has t_mean~0.5 > 0). FFL geometric ordering not significant vs permuted null.",
+      "result_direction": "negative",
+      "artifact_paths": ["h03_ffl_sv_comparison.csv", "h03_perm_tmeans.npy", "h03_perm_summary.csv", "h03_perm_sv57_peak_layers.csv"],
+      "decision": "negative",
+      "next_action": "Retire FFL geometric ordering branch. Null (random triplets) t_mean ~0.50 because random B lies between random A and C ~50% of the time by geometry. FFL-specific signal is absent.",
+      "novelty_type": "refinement",
+      "lineage": "iter_0060/H03",
+      "retired": true,
+      "retirement_reason": "Permutation test shows null t_mean ~0.50 > real t_mean 0.34 (SV2-7) and real 0.59 not significant vs null 0.50 (SV5-7, perm_p=0.30). Two negative permutation outcomes for this branch."
+    }
+  ]
+}

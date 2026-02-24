@@ -1,0 +1,59 @@
+{
+  "iteration": "iter_0050",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "SV2-4 co-expression specificity control",
+      "family": "module_structure",
+      "split_regime": "edge_stratified",
+      "method": "Construct high co-expression proxy pairs (top-300 by mean embedding cosine, mean cos=0.885). Compare SV2-SV4 Euclidean distance: TRRUST-pos vs TRRUST-neg vs coexpr. Mann-Whitney at 12 layers. Replicates TRRUST-vs-neg from iter_0049 and adds coexpr control.",
+      "status": "tested",
+      "primary_metric": "layers where TRRUST < coexpr (p<0.05)",
+      "result_value": "0/12 layers specific (TRRUST closer than coexpr); 8/12 layers TRRUST<neg (replication OK)",
+      "result_direction": "negative",
+      "artifact_paths": ["h01_sv24_string_specificity.csv", "iter50_summary.json"],
+      "decision": "negative",
+      "next_action": "Revise iter_0049 H03 claim: SV2-4 encodes co-expression proximity, not regulatory proximity specifically. Test whether co-expression pairs are TF-biased.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0049_H03",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H02",
+      "name": "SV1 identity: expression correlation across layers",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "Spearman correlation between |SV1 gene loading| (from iter_0049 h01_sv1_vectors.npy) and embedding L2-norm at same layer and at L0, for all 12 layers. n=2039 nonzero genes.",
+      "status": "tested",
+      "primary_metric": "Spearman rho (SV1 vs norm_same layer)",
+      "result_value": "Sign flip L0-L2 (rho ~ -0.33) -> L3-L8 (rho ~ 0) -> L9-L11 (rho ~ +0.22). Matches SV1 geometric rotation at L9-L11.",
+      "result_direction": "positive",
+      "artifact_paths": ["h02_sv1_identity.csv", "iter50_summary.json"],
+      "decision": "promising",
+      "next_action": "Investigate what semantic category is captured by high-SV1 genes at early layers (anti-correlated with expression) vs late layers (pro-correlated). Check housekeeping gene membership.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0049_H01",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H03",
+      "name": "SV5-10 spectral axis biological screen (TF/target enrichment)",
+      "family": "module_structure",
+      "split_regime": "edge_stratified",
+      "method": "At each of 12 layers, compute projection magnitude per gene onto SV groups: SV1, SV2-4, SV5-7, SV8-10 (0-indexed). Mann-Whitney: TF genes (n=73) vs non-TF and target genes (n=263) vs non-target. Report rank-biserial correlation.",
+      "status": "tested",
+      "primary_metric": "mean rbc (TF enrichment) by SV group",
+      "result_value": "SV1: rbc=-0.110 (TF depleted); SV2-4: rbc=+0.229 (10/12 layers p<0.05); SV5-7: rbc=+0.152 (7/12 layers); SV8-10: rbc=+0.123 (5/12 layers)",
+      "result_direction": "positive",
+      "artifact_paths": ["h03_sv510_screen.csv", "iter50_summary.json"],
+      "decision": "promising",
+      "next_action": "Test whether SV5-7 enrichment for TFs is partially independent of SV2-4 (residual TF enrichment after projecting out SV2-4 subspace). Also screen for GO categories in SV5-7 top-loaded genes.",
+      "novelty_type": "new_family",
+      "lineage": "iter_0049_H03",
+      "retired": false,
+      "retirement_reason": ""
+    }
+  ]
+}

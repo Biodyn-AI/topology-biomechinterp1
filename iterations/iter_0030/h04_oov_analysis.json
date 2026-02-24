@@ -1,0 +1,23 @@
+{
+  "n_zero_L0": 14,
+  "zero_genes": [
+    "FOS",
+    "HLA-A",
+    "HLA-DPB1",
+    "JUNB",
+    "KLF6",
+    "LDHA",
+    "LGALS1",
+    "NCAM1",
+    "NCOA3",
+    "NR4A3",
+    "PAX5",
+    "PTGS2",
+    "TBXAS1",
+    "TNF"
+  ],
+  "n_nonzero_L0": 195,
+  "L0_norm_min": 0.0,
+  "L0_norm_max": 21.89702796936035,
+  "L0_norm_mean": 19.68035125732422
+}

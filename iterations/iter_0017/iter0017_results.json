@@ -1,0 +1,28 @@
+{
+  "iter": "iter_0017",
+  "H_A_sv4_confidence_gradient": {
+    "spearman_rho": 0.9,
+    "spearman_p": 0.0374,
+    "quintile_mean_z": [-1.81, -2.952, -1.139, -0.18, 6.073],
+    "Q5_mean_z": 6.073
+  },
+  "H_B_axis_go_composition": {
+    "axis_dominant_pair_counts": {"SV2": 579, "SV3": 531, "SV4": 411, "none": 1571},
+    "axis_gene_set_sizes": {"SV2": 107, "SV3": 107, "SV4": 122},
+    "go_jaccard_top20": {"SV2_SV3": 0.0811, "SV2_SV4": 0.0256, "SV3_SV4": 0.0256},
+    "top_go_per_axis": {
+      "SV2": "GO:0032753",
+      "SV3": "GO:0005887",
+      "SV4": "GO:0005102"
+    },
+    "top_go_names": {
+      "SV2": "positive regulation of interleukin-4 production (innate immunity)",
+      "SV3": "integral component of plasma membrane (membrane/cell surface)",
+      "SV4": "signaling receptor binding (apoptosis/receptor)"
+    }
+  },
+  "H_E_trrust_sv3_sv4_signed": {
+    "SV3": {"n_layers_sig": 0, "mean_act_copole": 0.568, "mean_rep_copole": 0.592, "mean_delta": -0.024},
+    "SV4": {"n_layers_sig": 2, "mean_act_copole": 0.541, "mean_rep_copole": 0.543, "mean_delta": -0.002}
+  }
+}

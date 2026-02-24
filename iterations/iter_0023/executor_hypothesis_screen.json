@@ -1,0 +1,62 @@
+{
+  "iteration": "iter_0023",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "Cell-type marker separation — expanded panel + contamination control",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "Expanded cell-type marker panel (4 types: T_cell/7, B_cell/5, fibroblast/3, epithelial/2 = 17 genes). Within-type (N=35) vs cross-type (N=101) pairwise L2 distances on unit-sphere embeddings at each of 12 layers. Contamination control: random non-marker named gene subsets (same sizes) tested to confirm signal is marker-specific. Layer curve fit: linear regression on logit(AUROC) vs layer index.",
+      "status": "tested",
+      "primary_metric": "AUROC (within vs cross cell-type distance) + specificity delta vs control",
+      "result_value": "AUROC mean=0.851 (range [0.815,0.878]), control AUROC=0.488 (near chance), specificity delta=0.363, 12/12 layers sig MW, 12/12 layers control NOT sig. Layer curve slope=-0.036 (r=-0.765, p=0.004).",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0023/h01_cell_type_expansion_contamination.json"
+      ],
+      "decision": "promising",
+      "next_action": "Cross-model validation in Geneformer word embeddings; test T-cell vs fibroblast distance asymmetry (AUROC<0.5 meaning cross-pairs are closer than random)",
+      "novelty_type": "refinement",
+      "lineage": "iter_0022_H02",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "GO Biological Process proximity — 3rd independent biological anchor",
+      "family": "module_structure",
+      "split_regime": "edge_stratified",
+      "method": "Fetched GO BP annotations for 209 named genes via mygene API (batch queries). Computed GO BP Jaccard for 20,000 gene pairs. Spearman(GO_Jaccard, L2_distance) per layer. AUROC for high-Jaccard (>=0.032, N=4277) vs zero-Jaccard (N=11575) pairs at each of 12 layers.",
+      "status": "tested",
+      "primary_metric": "Spearman rho (GO_Jaccard vs L2 distance) + AUROC high vs zero Jaccard",
+      "result_value": "Spearman rho mean=-0.077 (range [-0.063,-0.090]), 12/12 sig layers (all p<1e-19); AUROC mean=0.557 (12/12 sig). Effect peaks at L7 (rho=-0.090) and L8 (rho=-0.088).",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0023/h02_go_bp_proximity.json"
+      ],
+      "decision": "promising",
+      "next_action": "Compare GO BP vs GO MF vs GO CC; test pathway-level clustering; check if effect shape (peak at L7) matches STRING/TRRUST layer profiles",
+      "novelty_type": "new_method",
+      "lineage": "none",
+      "retired": false
+    },
+    {
+      "id": "H03",
+      "name": "TRRUST Activation vs Repression proximity asymmetry",
+      "family": "manifold_distance",
+      "split_regime": "edge_stratified",
+      "method": "Split 141 TRRUST-exclusive pairs (not in STRING) by regulatory direction: Activation (N=47), Repression (N=26), Unknown (N=68). Tested each group vs non-STRING background (Mann-Whitney) at each of 12 layers. Two-sided MW for Activation vs Repression comparison.",
+      "status": "tested",
+      "primary_metric": "AUROC (activation vs non-STRING) and (repression vs non-STRING); Act vs Rep effect",
+      "result_value": "Activation AUROC=0.640 (12/12 sig, all p<0.002); Repression AUROC=0.459 (0/12 sig, all p>0.58); Act vs Rep effect=-0.151 (dist diff), 8/12 layers sig. Effect grows with depth (L0=-0.094 to L11=-0.215).",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0023/h03_trrust_directional_split.json"
+      ],
+      "decision": "promising",
+      "next_action": "Validate with Dorothea dataset (dorothea_human.tsv, higher N); test in Geneformer embeddings; investigate TF hub centrality for activation TFs",
+      "novelty_type": "new_method",
+      "lineage": "iter_0022_H01",
+      "retired": false
+    }
+  ]
+}

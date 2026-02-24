@@ -1,0 +1,71 @@
+{
+  "n_gf_genes": 207,
+  "n_string_gf_valid": 3091,
+  "gf_string_mean_cosine": 0.02508212464991739,
+  "gf_nonstring_mean_cosine": -0.00962229788355394,
+  "gf_z_score": 0.6655579496544206,
+  "gf_mw_pvalue": 7.841839602545046e-127,
+  "cross_model_mean_spearman_abs": 0.446325553148801,
+  "cross_model_by_layer": [
+    {
+      "layer": 0,
+      "spearman_abs": 0.5637103249070365,
+      "spearman_signed": -0.8418652825921663
+    },
+    {
+      "layer": 1,
+      "spearman_abs": 0.5679770325821638,
+      "spearman_signed": -0.8442720739139862
+    },
+    {
+      "layer": 2,
+      "spearman_abs": 0.5446143714892,
+      "spearman_signed": 0.8359769011242717
+    },
+    {
+      "layer": 3,
+      "spearman_abs": 0.5060055401725819,
+      "spearman_signed": 0.830299689198674
+    },
+    {
+      "layer": 4,
+      "spearman_abs": 0.46580752268508835,
+      "spearman_signed": 0.8118426590113769
+    },
+    {
+      "layer": 5,
+      "spearman_abs": 0.44984662477981363,
+      "spearman_signed": 0.7987812813599483
+    },
+    {
+      "layer": 6,
+      "spearman_abs": 0.42850361084779215,
+      "spearman_signed": 0.7840806324538941
+    },
+    {
+      "layer": 7,
+      "spearman_abs": 0.41045132228323084,
+      "spearman_signed": 0.7865930085468625
+    },
+    {
+      "layer": 8,
+      "spearman_abs": 0.4103538594175553,
+      "spearman_signed": 0.7828718221893357
+    },
+    {
+      "layer": 9,
+      "spearman_abs": 0.3787055010912622,
+      "spearman_signed": 0.772057505052092
+    },
+    {
+      "layer": 10,
+      "spearman_abs": 0.3410753593841356,
+      "spearman_signed": 0.7472369619267323
+    },
+    {
+      "layer": 11,
+      "spearman_abs": 0.288855568145752,
+      "spearman_signed": 0.7020575090824913
+    }
+  ]
+}

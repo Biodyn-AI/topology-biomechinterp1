@@ -1,0 +1,59 @@
+{
+  "iteration": "iter_0041",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "Multi-lineage attractor screen (T-cell + myeloid)",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "cycle4_immune embeddings [12,4941,512]. For T-cell TFs (RUNX3; 1/5 in-vocab), myeloid TFs (SPI1,CEBPB; 2/5), B-cell GC-TFs (BATF,BACH2,PAX5 reference): compute mean rank of TFs among all genes nearest to lineage marker centroid at each layer L0-L11. Spearman correlation rank vs layer = convergence test.",
+      "status": "tested",
+      "primary_metric": "Spearman rho (mean TF rank vs layer)",
+      "result_value": "T-cell rho=-0.543 p=0.068; Myeloid rho=-0.874 p=0.0002; B-cell GC ref rho=-0.993 p<0.000001. Onset (rank<500): T-cell L0, Myeloid L0, B-cell L3",
+      "result_direction": "positive",
+      "artifact_paths": ["iterations/iter_0041/h01_multilineage_attractor.json"],
+      "decision": "promising",
+      "next_action": "Expand T-cell TF vocab coverage (FOXP3, GATA3, TBX21 absent from cycle4); try cycle1 vocab. Confirm B-cell uniqueness: GC onset L3 vs T-cell/myeloid L0 pre-wiring is novel cross-lineage finding.",
+      "novelty_type": "new_family",
+      "lineage": "H01_iter0040",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "BCL6 and PAX5 neighborhood characterization",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "cycle4_immune embeddings. For BCL6 and PAX5: find k=20 nearest neighbors at L0, L3, L6, L11. Count B-cell/T-cell/myeloid/GC-TF content in neighbors. Track rank of BCL6 and PAX5 near B-cell centroid across all 12 layers.",
+      "status": "tested",
+      "primary_metric": "B-cell content in k=20 neighbors; rank near B-cell centroid",
+      "result_value": "BCL6: 0 B-cell/GC-TF neighbors across all layers; rank near centroid 596-1159 (never converges). BCL6 neighbors=metabolic stress (NAMPT, GLUL, PFKFB3). PAX5: 1-2 B-cell neighbors from L0; rank 29-70 near centroid. PAX5 neighbors=B-cell receptors (FCRL1, CD22, VPREB3).",
+      "result_direction": "positive",
+      "artifact_paths": ["iterations/iter_0041/h02_bcl6_pax5_neighborhoods.json"],
+      "decision": "promising",
+      "next_action": "Annotate BCL6 metabolic neighborhood with GO terms. Confirm PAX5 L0 pre-wiring is biological (not random). PAX5 as B-cell master regulator pre-encoded from L0 is a strong paper claim.",
+      "novelty_type": "refinement",
+      "lineage": "H01_iter0040",
+      "retired": false
+    },
+    {
+      "id": "H03",
+      "name": "TwoNN intrinsic dimensionality by layer and lineage",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "TwoNN estimator (Facco et al. 2017) on layer embeddings of gene subsets: B-cell markers (4 genes), T-cell markers (9 genes), myeloid markers (6 genes), immune panel (25 genes). Compute ID at each layer L0-L11. Spearman correlation ID vs layer. Compare lineages.",
+      "status": "tested",
+      "primary_metric": "TwoNN intrinsic dimension; Spearman rho vs layer",
+      "result_value": "B-cell ID: 8.16 (L0) → 5.09 (L11), rho=-0.951 p<0.0001. T-cell: no trend rho=+0.287 p=0.37. Myeloid: slight increase rho=+0.699 p=0.011. Panel: no trend rho=+0.280 p=0.38.",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0041/h03_twonn_intrinsic_dim.json",
+        "iterations/iter_0041/iter0041_h03_summary.json"
+      ],
+      "decision": "promising",
+      "next_action": "Test if B-cell ID reduction tracks with GC-TF convergence (same onset near L3?). Verify with bootstrap subsampling. TwoNN ID monotonic decrease is a novel geometric signature to add to paper.",
+      "novelty_type": "new_method",
+      "lineage": "none",
+      "retired": false
+    }
+  ]
+}

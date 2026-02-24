@@ -1,0 +1,57 @@
+{
+  "iteration": "iter_0028",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "Hub Gene Embedding Centrality",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "For 201 named genes with >=1 STRING edge (score>=0.4), compute mean L2 distance to layer centroid. Spearman rho(STRING_degree, -dist_to_centroid) per layer. Null: 500 permutations of degree labels.",
+      "status": "tested",
+      "primary_metric": "spearman_rho_L10",
+      "result_value": "rho=+0.225 at L10 (p=0.00135, null_p=0.000); monotonic increase L0(+0.009) to L10(+0.225)",
+      "result_direction": "positive",
+      "artifact_paths": ["iterations/iter_0028/h01_hub_centrality.json"],
+      "decision": "promising",
+      "next_action": "Bootstrap CI per layer, biological anchor (TF enrichment in top-central genes), cross-model test if Geneformer embeddings available",
+      "novelty_type": "new_method",
+      "lineage": "H03_iter_0027",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "PC1 T-cell vs APC Cell-type Axis",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "Curated T-cell markers (PRF1, LCK, IFNG, CD8A, JUN, JUNB n=6) and APC markers (HLA-A/B/C/DRA/DRB1, FOS, FOSB n=7). PCA per layer, AUROC and Spearman rho(PC1, +-1 label) for axis genes.",
+      "status": "tested",
+      "primary_metric": "AUROC_L11_PC1_axis",
+      "result_value": "L11 AUROC=0.714 but T-cell and APC markers both cluster at PC1~+2.2 to +2.4 (no separation). Best AUROC=0.762 at L1, p=0.12 (not significant). Brainstormer JUN-top/FOS-bottom pattern not confirmed.",
+      "result_direction": "negative",
+      "artifact_paths": ["iterations/iter_0028/h02_pc1_celltype_axis.json"],
+      "decision": "negative",
+      "next_action": "Retire PC1 T-cell/APC axis hypothesis. The 76.7% variance explained by PC1 at L11 means all genes collapse to PC1 extremum regardless of cell type.",
+      "novelty_type": "refinement",
+      "lineage": "H01_iter_0027",
+      "retired": true,
+      "retirement_reason": "Both T-cell and APC marker genes collapse to same PC1 position at L11; no axis separation found at any layer with significance"
+    },
+    {
+      "id": "H03",
+      "name": "kNN Graph Spectral Gap Across Layers",
+      "family": "graph_topology",
+      "split_regime": "other",
+      "method": "k=10 nearest neighbor graph on 209 named gene embeddings per layer. Normalized graph Laplacian eigenvalue spectrum. Spectral gap = Fiedler value (lambda_2). Trend: Spearman rho(layer, gap). Null: 100 permutations at L11.",
+      "status": "tested",
+      "primary_metric": "spearman_rho_layer_vs_gap",
+      "result_value": "rho=-0.993, p=1.3e-10; gap decreases from 0.1614 (L0) to 0.0361 (L11); entropy rho=-0.986 p=4.1e-9; null_p=0.190 (needs better null)",
+      "result_direction": "positive",
+      "artifact_paths": ["iterations/iter_0028/h03_spectral_gap.json"],
+      "decision": "promising",
+      "next_action": "Add random-Gaussian null to confirm gap trend exceeds baseline. Identify the 2 connected components at L11. Test k-robustness (k=5,10,15,20).",
+      "novelty_type": "new_family",
+      "lineage": "none",
+      "retired": false
+    }
+  ]
+}

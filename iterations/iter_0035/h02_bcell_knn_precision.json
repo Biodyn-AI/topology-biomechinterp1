@@ -1,0 +1,76 @@
+{
+  "hypothesis": "bcell_knn_precision_at_10",
+  "k": 10,
+  "n_bcell_markers": 5,
+  "bcell_markers": [
+    "MS4A1",
+    "CD19",
+    "CD79A",
+    "BLK",
+    "FCER2"
+  ],
+  "n_bootstrap": 500,
+  "results_per_layer": [
+    {
+      "layer": 2,
+      "obs_precision_at_10": 0.13999999999999999,
+      "null_mean": 0.02,
+      "null_std": 0.023082460874005613,
+      "z_score": 5.1987524265778395,
+      "empirical_p": 0.0,
+      "per_gene_precisions": [
+        0.1,
+        0.2,
+        0.2,
+        0.2,
+        0.0
+      ]
+    },
+    {
+      "layer": 5,
+      "obs_precision_at_10": 0.1,
+      "null_mean": 0.02168,
+      "null_std": 0.02466531167449542,
+      "z_score": 3.1753095487317102,
+      "empirical_p": 0.02,
+      "per_gene_precisions": [
+        0.0,
+        0.1,
+        0.2,
+        0.2,
+        0.0
+      ]
+    },
+    {
+      "layer": 8,
+      "obs_precision_at_10": 0.08,
+      "null_mean": 0.019600000000000003,
+      "null_std": 0.02402998127340094,
+      "z_score": 2.513526709049281,
+      "empirical_p": 0.042,
+      "per_gene_precisions": [
+        0.0,
+        0.1,
+        0.2,
+        0.1,
+        0.0
+      ]
+    },
+    {
+      "layer": 11,
+      "obs_precision_at_10": 0.08,
+      "null_mean": 0.02148,
+      "null_std": 0.025988643673727954,
+      "z_score": 2.2517527466807694,
+      "empirical_p": 0.044,
+      "per_gene_precisions": [
+        0.0,
+        0.1,
+        0.1,
+        0.2,
+        0.0
+      ]
+    }
+  ],
+  "interpretation": "Higher precision@k for B-cell markers vs null = geometric clustering"
+}

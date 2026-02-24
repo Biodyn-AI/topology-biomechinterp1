@@ -1,0 +1,56 @@
+{
+  "iteration": "iter_0046",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "Cross-seed ID compression replication + bootstrap CI",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "TwoNN estimator (Facco et al. 2017) on n=2000 subsampled gene vectors at each of 12 layers. Replicated across 3 seeds (seed42/43/44 of cycle4_immune). Bootstrap CI via 50 subsample-without-replacement draws of n=1000.",
+      "status": "tested",
+      "primary_metric": "ID at L0 vs L11, 95% CI non-overlap",
+      "result_value": "seed42: L0=32.57, L11=19.17, delta=-13.4, ratio=0.589; seed43: L0=33.62, L11=19.08, delta=-14.5, ratio=0.567; seed44: L0=34.45, L11=19.22, delta=-15.2, ratio=0.558. Bootstrap CI seed42: L0=[27.0,37.4], L11=[15.6,19.7] (non-overlapping).",
+      "result_direction": "positive",
+      "artifact_paths": ["h01_id_crossseed_bootstrap.json"],
+      "decision": "promising",
+      "next_action": "Report as primary validated finding. Cross-seed replication with non-overlapping bootstrap CIs confirms robust monotone ID compression. Extend to cycle1 and cycle6 for tissue-context generalization.",
+      "novelty_type": "refinement",
+      "lineage": "iter_0045_H02",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "Singular value spectrum concentration across layers",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "SVD of centered gene embedding matrix (n=2000 subsampled genes, 512-dim) at each of 12 layers. Effective rank = exp(entropy of normalized sv^2). Compare to null (L11 feature-shuffled). cycle4_immune_main seed42.",
+      "status": "tested",
+      "primary_metric": "effective rank (SVD entropy) and top-1 variance fraction per layer",
+      "result_value": "Effective rank L0=23.61 -> L11=1.64 (14x collapse). Top-1 var fraction L0=0.537 -> L11=0.934. Top-10 var fraction L0=0.650 -> L11=0.973. Null (feature-shuffled): eff_rank=28.86, top10=0.671. Real L11 eff_rank is 17.6x lower than null.",
+      "result_direction": "positive",
+      "artifact_paths": ["h02_sv_spectrum.json"],
+      "decision": "promising",
+      "next_action": "Investigate biological identity of top singular vector at each layer. Project lineage marker genes onto top SVs to check if dominant direction is biologically structured or an artifact of shared context.",
+      "novelty_type": "new_method",
+      "lineage": "none",
+      "retired": false
+    },
+    {
+      "id": "H03",
+      "name": "Lineage centroid orthogonality vs null",
+      "family": "graph_topology",
+      "split_regime": "other",
+      "method": "Cosine similarity between B-cell (n=7), T-cell (n=3), Myeloid (n=2) centroids in cycle4_immune_main embeddings at L0/3/6/9/11. Null: 200 random gene sets of matching sizes from 361 in-vocab genes.",
+      "status": "tested",
+      "primary_metric": "z-score of real vs null centroid cosine similarity",
+      "result_value": "Real mean centroid cosine: L0=0.831, L11=0.989. Null mean: L0=0.826, L11=0.987. Z-scores: L0=0.08, L11=0.20. Not distinguishable from null at any layer.",
+      "result_direction": "negative",
+      "artifact_paths": ["h03_lineage_subspace_orthogonality.json"],
+      "decision": "negative",
+      "next_action": "Retire lineage centroid orthogonality approach. High cosine similarities reflect the dominant shared direction (SV1 captures 93.4% variance at L11; 2902/4941 embedding rows are zero). This dominant direction inflates all pairwise cosines equally.",
+      "novelty_type": "new_method",
+      "lineage": "none",
+      "retired": false
+    }
+  ]
+}

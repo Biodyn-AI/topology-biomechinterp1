@@ -1,0 +1,21 @@
+{
+  "hypothesis": "expression_confound_test_bcell_pc1",
+  "layer": 11,
+  "pearson_r_pc1_vs_l2norm": -0.3090576231479645,
+  "pearson_p": 1.102062796268378e-05,
+  "bcell_l2_norm_mean": 22.134544372558594,
+  "bg_l2_norm_mean": 22.099018096923828,
+  "bcell_l2_auroc_less": 0.6008547008547008,
+  "bcell_l2_p": 0.8473468065116518,
+  "bcell_pc1_resid_auroc": 0.21385902031063322,
+  "bcell_pc1_resid_p": 0.0019031215823125784,
+  "bcell_resid_mean": -1.7649965121702438,
+  "bg_resid_mean": 0.08540305704049048,
+  "bootstrap_null_mean_auroc": 0.5045848267622461,
+  "bootstrap_null_std_auroc": 0.09848212504217521,
+  "observed_bcell_auroc": 0.2031063321385902,
+  "bootstrap_empirical_p": 0.0,
+  "bootstrap_z_score": -3.06125090715241,
+  "n_bootstrap": 1000,
+  "interpretation": "If bcell_l2_auroc_less is near 0.5 (B-cell L2 norms NOT lower), AND bcell_pc1_resid_auroc is significant, then B-cell PC1 signal is structural (not expression-driven)."
+}

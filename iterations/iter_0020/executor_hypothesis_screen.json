@@ -1,0 +1,65 @@
+{
+  "iteration": "iter_0020",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "Shuffle null for multi-axis composite co-pole enrichment",
+      "family": "null_sensitivity",
+      "split_regime": "other",
+      "method": "Permute gene label ordering 1000x at layer 8. For each permutation compute enrichment of 3-axis co-polarity stratum. Compare to observed enrichment. Within 3-axis stratum (N=3062 pairs at layer 8): split by composite magnitude quintile, compute Spearman(rank, enrichment).",
+      "status": "tested",
+      "primary_metric": "permutation_z_score_count3",
+      "result_value": "z=4.88, p=0.0000 (0/1000 permutations exceed observed). Mean-across-layers enrichment at count=3: 1.45x. Quintile Spearman r=0.900, p=0.037. Layer-8 observed: 1.33x vs perm mean=1.00±0.067.",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0020/h01_shuffle_null_composite.json"
+      ],
+      "decision": "promising",
+      "next_action": "The 2.18x (iter_0019, mean across layers) and 1.45x (mean/layer) are now confirmed by permutation null with z=4.88. Publish-ready claim pending layer-stratified bootstrap. Combine with H03 distance result for a joint geometric claim.",
+      "novelty_type": "refinement",
+      "lineage": "iter_0019_H02",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H02",
+      "name": "Attention-SVD joint ROC predictor for STRING/TRRUST",
+      "family": "graph_topology",
+      "split_regime": "other",
+      "method": "Layer 8. Attention feature=symmetric mean attention for named-gene pair. SVD feature=multi-axis co-polarity count (SV2+SV3+SV4). Magnitude feature=composite magnitude. AUROC for STRING and TRRUST labels. N=10479 pairs with valid attention. Conditions: (a) att only, (b) SVD count only, (c) magnitude only, (d) joint att+SVD, (e) joint att+mag.",
+      "status": "tested",
+      "primary_metric": "trrust_auroc_attention_only",
+      "result_value": "STRING AUROC: att=0.482, svd_cnt=0.548, mag=0.527, joint(att+svd)=0.531, joint(att+mag)=0.508. TRRUST AUROC: att=0.582, svd=0.507, joint=0.547. Joint does NOT dominate either single feature.",
+      "result_direction": "mixed",
+      "artifact_paths": [
+        "iterations/iter_0020/h02_joint_roc.json"
+      ],
+      "decision": "neutral",
+      "next_action": "SVD is the stronger STRING predictor (0.548); attention is the stronger TRRUST predictor (0.582). These tap complementary signals (PPI geometry vs TF regulation). Joint predictor at best achieves additive mid-range — no synergy. Focus future ROC work on better attention normalization or layer-specific features rather than simple addition.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0019_H03",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H03",
+      "name": "Persistent homology H0 and pairwise distance geometry",
+      "family": "persistent_homology",
+      "split_regime": "other",
+      "method": "For 209 named genes at each of 12 scGPT layers: L2-normalize embeddings to unit sphere, compute pairwise Euclidean distances. Run ripser H0+H1 persistent homology. Compare pairwise distances STRING vs non-STRING pairs (Mann-Whitney, alternative='less'). Compare to shuffled-embedding null.",
+      "status": "tested",
+      "primary_metric": "mean_distance_effect_size_all_layers",
+      "result_value": "Mean distance effect (observed): -0.237 (STRING pairs closer). All 12 layers significant (p<1e-72). Perm null effect: +0.020 (not significant 10/12 layers, p>0.05). N_layers_significant(p<0.01) = 12 observed vs 2 perm.",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0020/h03_persistent_homology.json"
+      ],
+      "decision": "promising",
+      "next_action": "First persistent homology result: STRING pairs are geometrically closer in unit-sphere embedding space across ALL 12 layers, with effect d=-0.237 surviving permutation control. H1 lifetime data available in artifact for loop structure analysis. Scale up to full H1 analysis and compare H1 Betti curves across biological gene clusters.",
+      "novelty_type": "new_family",
+      "lineage": "none",
+      "retired": false,
+      "retirement_reason": ""
+    }
+  ]
+}

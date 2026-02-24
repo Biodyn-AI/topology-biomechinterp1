@@ -1,0 +1,56 @@
+{
+  "iteration": "iter_0039",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "Drift target identification — B-cell centroid at L11",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "Load cycle1 embeddings [12,4803,512]. Compute B-cell centroid (MS4A1, CD19, CD79A, BLK, PRDM1; n=5 in-vocab) at L0 and L11. Find top-20 genes nearest to bc_L11 in L11 embedding space (excluding anchor). Report cosine alignment of L0→L11 drift vector with L0→top_gene direction vectors.",
+      "status": "tested",
+      "primary_metric": "rank of GC-TFs among top-20 nearest genes to B-cell centroid at L11",
+      "result_value": "BATF rank=2 (dist=2.360), SPIB rank=5 (dist=2.454) among 195 in-vocab genes",
+      "result_direction": "positive",
+      "artifact_paths": ["h01_drift_target.json"],
+      "decision": "promising",
+      "next_action": "Compute full centroid trajectory for extended GC cluster (BCL6, PAX5) in cycle4 to confirm they also converge toward bc_L11",
+      "novelty_type": "new_method",
+      "lineage": "iter_0038_H02",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "Extended plasma panel + BCL6/PAX5 GC screen (cycle4_immune, clean anchor)",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "cycle4_immune embeddings [12,4941,512], 295 in-vocab genes. B-cell anchor (plasma-exclusive): MS4A1, CD79A, BLK. Extended GC panel: BATF, BACH2, BCL6, PAX5. Plasma panel: JCHAIN, SDC1. Z-score mean distance to anchor centroid at L0,L2,L5,L8,L11 using 200-permutation null (random same-size gene sets). Spearman rho for layer-trend.",
+      "status": "tested",
+      "primary_metric": "Spearman rho of plasma z-score across layers (monotonic divergence test)",
+      "result_value": "Plasma z rho=+1.000 (monotonically increasing); GC z rho=-0.800; plasma z L0=-1.35 -> L11=-0.81; GC z L0=-1.05 -> L11=-1.62; divergence confirmed but plasma never z>0",
+      "result_direction": "mixed",
+      "artifact_paths": ["h02_extended_plasma_trajectory.json"],
+      "decision": "mixed",
+      "next_action": "Accept relative divergence as the reliable finding; retire the 'plasma goes z>0' claim (PRDM1 artifact). Report BCL6/PAX5 confirmed in GC cluster. Check IRF4 availability in cycle4 for plasma-side enrichment.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0038_H01",
+      "retired": false
+    },
+    {
+      "id": "H03",
+      "name": "LOO ablation of B-cell anchor genes on GC-TF proximity precision@10",
+      "family": "null_sensitivity",
+      "split_regime": "other",
+      "method": "cycle1 main embeddings at L2 and L11. Full panel {MS4A1, CD19, CD79A, BLK, PRDM1} precision@10 for GC-TFs {BATF, SPIB, BACH2}. LOO: remove each anchor gene, recompute precision@10 and z-score (200-perm null). Null comparison: 200 random 4-gene panels, record p@10 distribution.",
+      "status": "tested",
+      "primary_metric": "delta precision@10 per removed gene vs full panel",
+      "result_value": "Full p@10=0.200 at L2 (99.5th pctile) and L11 (100th pctile). CD19 removal: p@10=0.100 at BOTH layers (-50%). BLK removal: p@10=0.100 at L11 (-50%). MS4A1/CD79A/PRDM1 removal: no p@10 change.",
+      "result_direction": "positive",
+      "artifact_paths": ["h03_loo_ablation.json"],
+      "decision": "promising",
+      "next_action": "Verify CD19/BLK criticality in cycle4_immune (different cell type composition). Use CD19+BLK as minimal 2-gene anchor for future precision tests.",
+      "novelty_type": "new_method",
+      "lineage": "brainstormer_H-I",
+      "retired": false
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "iteration": "iter_0058",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "TF boundary gene identity and family enrichment at peak layers",
+      "family": "module_structure",
+      "split_regime": "edge_stratified",
+      "method": "At peak layers L2 and L3 (main seed, SVD of centered nonzero embeddings [2039,512]): project to joint 6D SV2-7, compute per-TF margin = dist_to_target_centroid - dist_to_TF_centroid. Rank TFs by margin. Classify TFs into families by name prefix heuristic. Compute family-level mean/median margin at L2.",
+      "status": "tested",
+      "primary_metric": "TF margin (6D distance from target centroid minus TF centroid)",
+      "result_value": "BCL11A top anchor L2 (margin=1.784), consistent L2/L3: BCL11A, NFKB1, RB1, FOXO3, ZEB1. Forkhead family median margin=1.521; STAT=1.299; bZIP=-0.180; C2H2-ZF=-0.472",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0058/h01_tf_boundary_genes.csv",
+        "iterations/iter_0058/h01_tf_family_enrichment.csv",
+        "iterations/iter_0058/iter58_summary.json"
+      ],
+      "decision": "promising",
+      "next_action": "Validate top anchors (BCL11A, NFKB1, FOXO3) cross-seed. Test whether bZIP/C2H2-ZF negative margin correlates with low TRRUST degree or high co-expression with targets.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0055_H01",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H02",
+      "name": "TRRUST graph Laplacian spectral alignment with SV5-7",
+      "family": "module_structure",
+      "split_regime": "edge_stratified",
+      "method": "Build symmetrized undirected TRRUST adjacency [2039x2039] from 589 positive edges (nonzero genes). Compute normalized Laplacian L = I - D^{-1/2} A D^{-1/2}. Extract eigenvectors 1-9 (top Fiedler-type). Compute principal angles (via QR+SVD) between SV5-7 and SV2-4 subspaces vs Laplacian top-3, top-6, top-9. Compare to random 3D subspace baseline (n=100 trials).",
+      "status": "tested",
+      "primary_metric": "Mean principal angle between SV5-7 and Laplacian top-3 eigenvectors (degrees)",
+      "result_value": "SV5-7 best PA = 84.88 deg (L0), random baseline = 88.22 ± 0.43 deg, Z-score = 7.81. SV2-4 similar: best PA = 85.30 deg. Both subspaces are still near-orthogonal to Laplacian eigenvectors (~85-88 deg vs 90 deg maximum).",
+      "result_direction": "mixed",
+      "artifact_paths": [
+        "iterations/iter_0058/h02_laplacian_alignment.csv",
+        "iterations/iter_0058/iter58_summary.json"
+      ],
+      "decision": "neutral",
+      "next_action": "Test alignment restricted to circuit genes only (n~295 TF+target) where TRRUST graph is denser. Also try raw adjacency eigenvectors (not Laplacian). Statistical significance is real but practical alignment is weak.",
+      "novelty_type": "new_family",
+      "lineage": "none",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H03",
+      "name": "Effective rank as cross-seed AUROC predictor",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "edge_stratified",
+      "method": "For each of 3 seeds (main, seed43, seed44) x 12 layers: SVD of centered nonzero embeddings [2039,512]. Compute effective rank = exp(H(p)) where p = s^2/sum(s^2), spectral entropy, and eff_rank_sv27 on SV2-7 subset. Also compute 5-fold stratified LR AUROC on joint 6D SV2-7 (30 perm null). Spearman correlation across 36 (seed,layer) observations.",
+      "status": "tested",
+      "primary_metric": "Spearman(eff_rank_full, AUROC_joint6d)",
+      "result_value": "rho=0.855 (p<0.0001) for full effective rank; rho=0.539 (p=0.0007) for SV2-7 effective rank. Effective rank decreases L0→L11 (237→49); AUROC tracks (0.778→0.715). Confirms iter57 rho=-0.93 energy concentration finding via complementary measure.",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0058/h03_effrank_auroc.csv",
+        "iterations/iter_0058/iter58_summary.json"
+      ],
+      "decision": "promising",
+      "next_action": "Test effective rank vs AUROC within single seed across layers (partial out seed variance). Test whether effective rank predicts cross-model alignment (scGPT vs Geneformer) or only within-model AUROC.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0057_H03",
+      "retired": false,
+      "retirement_reason": ""
+    }
+  ]
+}

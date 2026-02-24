@@ -1,0 +1,65 @@
+{
+  "iteration": "iter_0026",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "Immune gene family clustering AUROC",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "Define 9 immune gene families (AP1, RUNX, KLF, BCL2fam, HLA_I, HLA_II, CCL, TNFSF, IL2_path) from 209-gene vocab. Build within-family vs cross-family pairs (balanced 40 each). Compute AUROC(-d_within, -d_cross) at each of 12 scGPT layers. Per-family breakdown at best layer.",
+      "status": "tested",
+      "primary_metric": "AUROC_within_vs_cross",
+      "result_value": "0.7538 (peak layer 8); HLA-I=1.000, AP1=0.969, RUNX=0.925, IL2_path=0.869, HLA-II=0.824",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0026/h01_immune_family_auroc.json",
+        "iterations/iter_0026/run_iter0026_h01_fix.py"
+      ],
+      "decision": "promising",
+      "next_action": "Test per-family layer curves; check if structural (HLA) vs regulatory (AP1/RUNX) families peak at different layers",
+      "novelty_type": "new_method",
+      "lineage": "none",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "Dorothea confidence-tier proximity gradient",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "Split 1183 Dorothea pairs in vocab by confidence: high (A/B, n=270) vs low (C/D, n=913). Build null from same gene pool. Compute AUROC(-d_high, -d_null) and AUROC(-d_high, -d_low) at each of 12 layers.",
+      "status": "tested",
+      "primary_metric": "AUROC_high_vs_null",
+      "result_value": "0.6575 at layer 7; AUROC_high_vs_low=0.5219 at layer 4",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0026/h02_dorothea_direction_polarity.json",
+        "iterations/iter_0026/run_iter0026_screen.py"
+      ],
+      "decision": "promising",
+      "next_action": "Fetch Dorothea file with MOR column to test activation vs repression direction polarity; alternatively use TRRUST A/R split",
+      "novelty_type": "refinement",
+      "lineage": "H01 iter_0024",
+      "retired": false
+    },
+    {
+      "id": "H03",
+      "name": "Intrinsic dimensionality progression (participation ratio)",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "For 208 named genes at each of 12 scGPT layers: mean-center, compute SVD, derive participation ratio PR=(sum_eig)^2/sum(eig^2) and stable rank. Test Spearman monotonicity with layer index.",
+      "status": "tested",
+      "primary_metric": "spearman_PR_vs_layer",
+      "result_value": "rho=-1.000, p<1e-8; PR layer0=21.07 -> layer11=1.68; StableRank 5.23->1.30",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0026/h03_intrinsic_dimensionality.json",
+        "iterations/iter_0026/run_iter0026_screen.py"
+      ],
+      "decision": "promising",
+      "next_action": "Bootstrap resample to confirm robustness; compare PR across functional gene subsets; interpret as dimensional collapse / low-rank routing",
+      "novelty_type": "new_family",
+      "lineage": "none",
+      "retired": false
+    }
+  ]
+}

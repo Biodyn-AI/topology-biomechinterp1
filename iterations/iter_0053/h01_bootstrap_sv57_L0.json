@@ -1,0 +1,9 @@
+{
+  "n_bootstrap": 100,
+  "mean_rbc_resid": 0.14662547224392924,
+  "std_rbc_resid": 0.030750789225682692,
+  "ci_lower": 0.08423597091345272,
+  "ci_upper": 0.19870778788625343,
+  "frac_positive": 1.0,
+  "frac_significant_threshold_0_05": 0.99
+}

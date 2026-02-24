@@ -1,0 +1,87 @@
+{
+  "n_communities": 2,
+  "modularity": 0.4342365316147976,
+  "null_modularity_mean": -0.001019209800362493,
+  "null_modularity_std": 0.012755024310368264,
+  "z_score": 34.12425781493219,
+  "community_sizes": [
+    107,
+    88
+  ],
+  "bio_family_enrichment": {
+    "AP1": {
+      "best_community": 0,
+      "comm_size": 107,
+      "family_size_inv": 2,
+      "overlap": 1,
+      "fisher_odds": 0.8207547169811321,
+      "fisher_pval": 0.7976209357652657
+    },
+    "HLA_I": {
+      "best_community": 0,
+      "comm_size": 107,
+      "family_size_inv": 2,
+      "overlap": 1,
+      "fisher_odds": 0.8207547169811321,
+      "fisher_pval": 0.7976209357652657
+    },
+    "HLA_II": {
+      "best_community": 0,
+      "comm_size": 107,
+      "family_size_inv": 3,
+      "overlap": 2,
+      "fisher_odds": 1.6571428571428573,
+      "fisher_pval": 0.5732213515878918
+    },
+    "BCL2fam": {
+      "best_community": 0,
+      "comm_size": 107,
+      "family_size_inv": 2,
+      "overlap": 1,
+      "fisher_odds": 0.8207547169811321,
+      "fisher_pval": 0.7976209357652657
+    },
+    "TNFSF": {
+      "best_community": 0,
+      "comm_size": 107,
+      "family_size_inv": 2,
+      "overlap": 1,
+      "fisher_odds": 0.8207547169811321,
+      "fisher_pval": 0.7976209357652657
+    },
+    "IL2_pathway": {
+      "best_community": 0,
+      "comm_size": 107,
+      "family_size_inv": 3,
+      "overlap": 3,
+      "fisher_odds": Infinity,
+      "fisher_pval": 0.16311176671200178
+    },
+    "RUNX": {
+      "best_community": 1,
+      "comm_size": 88,
+      "family_size_inv": 3,
+      "overlap": 2,
+      "fisher_odds": 2.4651162790697674,
+      "fisher_pval": 0.4267786484121082
+    }
+  },
+  "cell_type_marker_enrichment": {
+    "tcell": {
+      "best_community": 0,
+      "comm_size": 107,
+      "markers_in_inv": 5,
+      "overlap": 4,
+      "fisher_odds": 3.378640776699029,
+      "fisher_pval": 0.2511793109118718
+    },
+    "bcell": {
+      "best_community": 1,
+      "comm_size": 88,
+      "markers_in_inv": 3,
+      "overlap": 3,
+      "fisher_odds": Infinity,
+      "fisher_pval": 0.09017927214604742
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "iteration": "iter_0042",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "TwoNN change-point analysis at L3 (B-cell ID inflection)",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "TwoNN intrinsic dimensionality estimator (Facco et al. 2017) applied to B-cell markers (n=4), T-cell markers (n=9), myeloid markers (n=6) across layers L0-L11 from cycle4_immune embeddings [12,4941,512]. Piecewise linear fit with exhaustive breakpoint search (L2-L9). Null: 500 permutations of layer assignments to test slope-change significance.",
+      "status": "tested",
+      "primary_metric": "Best breakpoint layer; pre/post slope change; null p-value",
+      "result_value": "B-cell best breakpoint L3, slope pre=+2.341 post=-2.491, slope_change=-4.832. T-cell best breakpoint L7, slope_change=+4.965. Myeloid breakpoint L7, slope_change=+0.129. Null p=0.386 for B-cell slope_change.",
+      "result_direction": "positive",
+      "artifact_paths": ["iterations/iter_0042/h01_twonn_changepoint.json"],
+      "decision": "promising",
+      "next_action": "B-cell ID inflection at L3 confirmed (slope reversal from increase to decrease), co-occurring with GC-TF attractor onset. T-cell shows OPPOSITE trend (ID increasing after L7). Null p=0.386 is weak — increase bootstrap n or use segment-R2 ratio as test statistic. Cross-lineage difference (compression vs expansion) is the key publishable claim.",
+      "novelty_type": "refinement",
+      "lineage": "H03_iter0041",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "Metabolic isolation generalization — BCL6 specificity test",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "Define BCL6 metabolic cluster as 10 genes (NAMPT, GLUL, PFKFB3, ACSL1, NIBAN1, FNDC3B, VMP1, STAT3, CEBPD, TRIB1). For candidate metabolic TFs (STAT3, MYC, HIF1A, VEGFA, SLC2A1) and B-cell negative controls (MS4A1, CD79A, PAX5, BLK): compute k=20 NN at each layer, count overlap with metabolic cluster. Compare to random-gene baseline (n=100).",
+      "status": "tested",
+      "primary_metric": "k=20 NN overlap with BCL6 metabolic cluster per layer",
+      "result_value": "BCL6: 9-10/20 overlap all layers (4-fold at L11). STAT3 (in cluster): 2/20. SLC2A1: 0-1/20. B-cell markers (MS4A1, CD79A, PAX5, BLK): 0/20 all layers. Random baseline: mean=0.11 std=0.42 p95=1. MYC/HIF1A/VEGFA/LDHA not in vocab.",
+      "result_direction": "positive",
+      "artifact_paths": ["iterations/iter_0042/h02_metabolic_isolation.json"],
+      "decision": "promising",
+      "next_action": "BCL6 is uniquely dense in metabolic cluster (9-10/20 vs baseline 0.11/20 — ~90x enrichment). B-cell master regulators (PAX5, MS4A1) show 0 overlap — clean separation. BCL6 metabolic isolation is BCL6-specific, not a general metabolic TF property. Publishable claim: BCL6 encodes a 'metabolic stress' identity distinct from its B-cell regulatory role. Fetch GO terms for BCL6's metabolic neighbors to annotate biological theme.",
+      "novelty_type": "new_method",
+      "lineage": "H02_iter0041",
+      "retired": false
+    },
+    {
+      "id": "H03",
+      "name": "BATF/BACH2 convergence trajectory toward B-cell context",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "For GC-TFs BATF and BACH2 in cycle4_immune embeddings: (a) rank nearest to B-cell centroid across L0-L11, (b) Euclidean distance to PAX5 across layers, (c) pairwise BATF-BACH2 distance. Spearman correlation rank vs layer. Null: 10 random non-B-cell genes, mean centroid ranks.",
+      "status": "tested",
+      "primary_metric": "Spearman rho (rank near B-cell centroid vs layer); distance to PAX5 at L11",
+      "result_value": "BATF: rank 1510 (L0) -> 189 (L11), rho=-0.972 p<0.0001. BACH2: rank 611 (L0) -> 146 (L11), rho=-0.844 p=0.0006. BATF dist to PAX5: 18.32 (L0) -> 5.13 (L11). BACH2 dist to PAX5: 17.41 (L0) -> 5.15 (L11). BATF-BACH2 pairwise: 18.66 (L0) -> 4.53 (L11). Null mean rank at L3: 1747±581.",
+      "result_direction": "positive",
+      "artifact_paths": ["iterations/iter_0042/h03_gc_tf_convergence.json"],
+      "decision": "promising",
+      "next_action": "Both GC-TFs (BATF, BACH2) strongly converge toward PAX5 and B-cell centroid across layers (rho=-0.97, -0.84). BATF-BACH2 co-localize from 18.66 to 4.53 distance — they co-converge. PAX5 pre-wired at L0 (rank ~66), BATF/BACH2 converge late (L4-L11). Pattern: PAX5 anchors B-cell identity from L0; BATF/BACH2 are dynamically recruited. This 3-gene convergence trajectory is a strong geometric narrative for the paper.",
+      "novelty_type": "new_method",
+      "lineage": "H02_iter0041",
+      "retired": false
+    }
+  ]
+}

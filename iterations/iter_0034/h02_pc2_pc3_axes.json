@@ -1,0 +1,269 @@
+{
+  "hypothesis": "pc2_pc3_cell_type_axes",
+  "layer": 11,
+  "variance_explained": [
+    0.25889164209365845,
+    0.15965209901332855,
+    0.07485297322273254,
+    0.044344380497932434,
+    0.039511218667030334
+  ],
+  "PC1": {
+    "bcell_negative": {
+      "genes": [
+        "CD19",
+        "MS4A1",
+        "CD79A",
+        "PRDM1",
+        "IRF4",
+        "CXCR4",
+        "SELL",
+        "BLK",
+        "SPIB"
+      ],
+      "n": 9,
+      "mean_score": -2.0032567977905273,
+      "bg_mean": 0.0969311073422432,
+      "auroc": 0.2031063321385902,
+      "p": 0.0013382184110555977,
+      "direction": "negative"
+    },
+    "tcell_positive": {
+      "genes": [
+        "CD3G",
+        "CD8A",
+        "CD8B",
+        "PRF1",
+        "LCK",
+        "IFNG",
+        "IL2RA",
+        "FOXP3",
+        "EOMES",
+        "TBX21",
+        "GATA3",
+        "RUNX3",
+        "LEF1",
+        "CCR7"
+      ],
+      "n": 14,
+      "mean_score": 0.4822564721107483,
+      "bg_mean": -0.03730228170752525,
+      "auroc": 0.5832675611681136,
+      "p": 0.1504062247114285,
+      "direction": "positive"
+    },
+    "myeloid_positive": {
+      "genes": [
+        "ITGAX",
+        "TLR2",
+        "IL1B",
+        "IL6",
+        "CCL3",
+        "CXCL8"
+      ],
+      "n": 6,
+      "mean_score": -1.2088980674743652,
+      "bg_mean": 0.038377054035663605,
+      "auroc": 0.29894179894179895,
+      "p": 0.953113197850608,
+      "direction": "positive"
+    }
+  },
+  "PC2": {
+    "bcell_negative": {
+      "genes": [
+        "CD19",
+        "MS4A1",
+        "CD79A",
+        "PRDM1",
+        "IRF4",
+        "CXCR4",
+        "SELL",
+        "BLK",
+        "SPIB"
+      ],
+      "n": 9,
+      "mean_score": -0.09430494904518127,
+      "bg_mean": 0.004563968628644943,
+      "auroc": 0.39366786140979687,
+      "p": 0.14153385592070877,
+      "direction": "negative"
+    },
+    "bcell_positive": {
+      "genes": [
+        "CD19",
+        "MS4A1",
+        "CD79A",
+        "PRDM1",
+        "IRF4",
+        "CXCR4",
+        "SELL",
+        "BLK",
+        "SPIB"
+      ],
+      "n": 9,
+      "mean_score": -0.09430494904518127,
+      "bg_mean": 0.004563968628644943,
+      "auroc": 0.39366786140979687,
+      "p": 0.8598177935873309,
+      "direction": "positive"
+    },
+    "tcell_positive": {
+      "genes": [
+        "CD3G",
+        "CD8A",
+        "CD8B",
+        "PRF1",
+        "LCK",
+        "IFNG",
+        "IL2RA",
+        "FOXP3",
+        "EOMES",
+        "TBX21",
+        "GATA3",
+        "RUNX3",
+        "LEF1",
+        "CCR7"
+      ],
+      "n": 14,
+      "mean_score": -0.41017773747444153,
+      "bg_mean": 0.03172729164361954,
+      "auroc": 0.44159431728492504,
+      "p": 0.7672858363433213,
+      "direction": "positive"
+    },
+    "tcell_negative": {
+      "genes": [
+        "CD3G",
+        "CD8A",
+        "CD8B",
+        "PRF1",
+        "LCK",
+        "IFNG",
+        "IL2RA",
+        "FOXP3",
+        "EOMES",
+        "TBX21",
+        "GATA3",
+        "RUNX3",
+        "LEF1",
+        "CCR7"
+      ],
+      "n": 14,
+      "mean_score": -0.41017773747444153,
+      "bg_mean": 0.03172729164361954,
+      "auroc": 0.44159431728492504,
+      "p": 0.23421920683153263,
+      "direction": "negative"
+    },
+    "myeloid_positive": {
+      "genes": [
+        "ITGAX",
+        "TLR2",
+        "IL1B",
+        "IL6",
+        "CCL3",
+        "CXCL8"
+      ],
+      "n": 6,
+      "mean_score": 0.927203357219696,
+      "bg_mean": -0.029434213414788246,
+      "auroc": 0.6181657848324515,
+      "p": 0.1676502188035722,
+      "direction": "positive"
+    },
+    "myeloid_negative": {
+      "genes": [
+        "ITGAX",
+        "TLR2",
+        "IL1B",
+        "IL6",
+        "CCL3",
+        "CXCL8"
+      ],
+      "n": 6,
+      "mean_score": 0.927203357219696,
+      "bg_mean": -0.029434213414788246,
+      "auroc": 0.6181657848324515,
+      "p": 0.8341825603027178,
+      "direction": "negative"
+    }
+  },
+  "PC3": {
+    "bcell_negative": {
+      "genes": [
+        "CD19",
+        "MS4A1",
+        "CD79A",
+        "PRDM1",
+        "IRF4",
+        "CXCR4",
+        "SELL",
+        "BLK",
+        "SPIB"
+      ],
+      "n": 9,
+      "mean_score": -0.3704175353050232,
+      "bg_mean": 0.017925580963492393,
+      "auroc": 0.4265232974910394,
+      "p": 0.22939702610654655,
+      "direction": "negative"
+    },
+    "tcell_positive": {
+      "genes": [
+        "CD3G",
+        "CD8A",
+        "CD8B",
+        "PRF1",
+        "LCK",
+        "IFNG",
+        "IL2RA",
+        "FOXP3",
+        "EOMES",
+        "TBX21",
+        "GATA3",
+        "RUNX3",
+        "LEF1",
+        "CCR7"
+      ],
+      "n": 14,
+      "mean_score": -0.39490339159965515,
+      "bg_mean": 0.03054722025990486,
+      "auroc": 0.3808208366219416,
+      "p": 0.9314806990361293,
+      "direction": "positive"
+    },
+    "myeloid_positive": {
+      "genes": [
+        "ITGAX",
+        "TLR2",
+        "IL1B",
+        "IL6",
+        "CCL3",
+        "CXCL8"
+      ],
+      "n": 6,
+      "mean_score": -0.23030006885528564,
+      "bg_mean": 0.00731323380023241,
+      "auroc": 0.42857142857142855,
+      "p": 0.7208369396015718,
+      "direction": "positive"
+    },
+    "myeloid_negative": {
+      "genes": [
+        "ITGAX",
+        "TLR2",
+        "IL1B",
+        "IL6",
+        "CCL3",
+        "CXCL8"
+      ],
+      "n": 6,
+      "mean_score": -0.23030006885528564,
+      "bg_mean": 0.00731323380023241,
+      "auroc": 0.42857142857142855,
+      "p": 0.28159556901668253,
+      "direction": "negative"
+    }
+  }
+}

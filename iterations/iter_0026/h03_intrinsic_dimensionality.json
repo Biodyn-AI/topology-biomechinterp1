@@ -1,0 +1,123 @@
+{
+  "hypothesis": "H03_intrinsic_dimensionality_PR",
+  "method": "participation_ratio",
+  "n_genes": 208,
+  "per_layer": [
+    {
+      "layer": 0,
+      "participation_ratio": 21.07240104675293,
+      "stable_rank": 5.2324910163879395,
+      "ev_ratio_top10": 0.43169012665748596,
+      "ev_ratio_top50": 0.7362632155418396,
+      "sv_max": 78.80899047851562,
+      "sv_2nd": 42.93775177001953
+    },
+    {
+      "layer": 1,
+      "participation_ratio": 14.119898796081543,
+      "stable_rank": 4.0521697998046875,
+      "ev_ratio_top10": 0.4765155613422394,
+      "ev_ratio_top50": 0.760277271270752,
+      "sv_max": 80.50300598144531,
+      "sv_2nd": 38.43100357055664
+    },
+    {
+      "layer": 2,
+      "participation_ratio": 11.187822341918945,
+      "stable_rank": 3.544159173965454,
+      "ev_ratio_top10": 0.5117326378822327,
+      "ev_ratio_top50": 0.7810226082801819,
+      "sv_max": 82.36618041992188,
+      "sv_2nd": 37.32583236694336
+    },
+    {
+      "layer": 3,
+      "participation_ratio": 10.109782218933105,
+      "stable_rank": 3.370724678039551,
+      "ev_ratio_top10": 0.5411510467529297,
+      "ev_ratio_top50": 0.7995297312736511,
+      "sv_max": 84.30571746826172,
+      "sv_2nd": 39.688045501708984
+    },
+    {
+      "layer": 4,
+      "participation_ratio": 7.729574680328369,
+      "stable_rank": 2.901766061782837,
+      "ev_ratio_top10": 0.5906552672386169,
+      "ev_ratio_top50": 0.8271343111991882,
+      "sv_max": 87.02535247802734,
+      "sv_2nd": 38.099098205566406
+    },
+    {
+      "layer": 5,
+      "participation_ratio": 6.8770294189453125,
+      "stable_rank": 2.7269985675811768,
+      "ev_ratio_top10": 0.616973340511322,
+      "ev_ratio_top50": 0.8414201140403748,
+      "sv_max": 87.56208801269531,
+      "sv_2nd": 37.84999084472656
+    },
+    {
+      "layer": 6,
+      "participation_ratio": 6.124464988708496,
+      "stable_rank": 2.565211772918701,
+      "ev_ratio_top10": 0.6427414417266846,
+      "ev_ratio_top50": 0.8559063076972961,
+      "sv_max": 89.63944244384766,
+      "sv_2nd": 38.58784484863281
+    },
+    {
+      "layer": 7,
+      "participation_ratio": 5.345754146575928,
+      "stable_rank": 2.3969483375549316,
+      "ev_ratio_top10": 0.679096519947052,
+      "ev_ratio_top50": 0.8753929734230042,
+      "sv_max": 91.94596099853516,
+      "sv_2nd": 41.53857421875
+    },
+    {
+      "layer": 8,
+      "participation_ratio": 4.610408306121826,
+      "stable_rank": 2.226557970046997,
+      "ev_ratio_top10": 0.71901935338974,
+      "ev_ratio_top50": 0.8966537714004517,
+      "sv_max": 95.46356964111328,
+      "sv_2nd": 44.77175521850586
+    },
+    {
+      "layer": 9,
+      "participation_ratio": 3.221724271774292,
+      "stable_rank": 1.829645037651062,
+      "ev_ratio_top10": 0.7812935709953308,
+      "ev_ratio_top50": 0.9234513640403748,
+      "sv_max": 100.38590240478516,
+      "sv_2nd": 39.99643325805664
+    },
+    {
+      "layer": 10,
+      "participation_ratio": 2.062509536743164,
+      "stable_rank": 1.4467532634735107,
+      "ev_ratio_top10": 0.8649613261222839,
+      "ev_ratio_top50": 0.9557909965515137,
+      "sv_max": 106.5419921875,
+      "sv_2nd": 34.087318420410156
+    },
+    {
+      "layer": 11,
+      "participation_ratio": 1.6802568435668945,
+      "stable_rank": 1.3020172119140625,
+      "ev_ratio_top10": 0.9093458652496338,
+      "ev_ratio_top50": 0.9712426662445068,
+      "sv_max": 96.55029296875,
+      "sv_2nd": 27.9122314453125
+    }
+  ],
+  "spearman_pr_vs_layer": {
+    "rho": -1.0,
+    "p": 0.0
+  },
+  "spearman_sr_vs_layer": {
+    "rho": -1.0,
+    "p": 0.0
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "iteration": "iter_0021",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "STRING confidence quintile x pairwise distance gradient",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "Split 3092 STRING pairs (score>=0.4) into 5 quintiles by score [0.40,0.46), [0.46,0.53), [0.53,0.64), [0.64,0.80), [0.80,1.00]. At each of 12 layers: L2-normalize embeddings, compute pairwise Euclidean distances, compute mean distance per quintile, Spearman(quintile_rank, mean_dist). Also Mann-Whitney Q4 vs Q0.",
+      "status": "tested",
+      "primary_metric": "mean_spearman_rho_across_layers",
+      "result_value": "Mean rho=-0.150 (all 12 layers negative). Q4 closer than Q0 in all 12 layers (effect -0.006 to -0.032). No layer p<0.05 (Spearman with 5 points). Direction consistent: higher confidence = geometrically closer.",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0021/h01_string_quintile_distance.json"
+      ],
+      "decision": "inconclusive",
+      "next_action": "Direction is correct (high confidence = closer) but Spearman test is underpowered with 5 quintile points. Upgrade to continuous score AUROC or bin into deciles. Also test STRING score as continuous predictor for AUROC.",
+      "novelty_type": "refinement",
+      "lineage": "iter_0020_H03",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H02",
+      "name": "TRRUST pairs distance — specificity control",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "For 288 TRRUST TF-target pairs among 209 named genes: L2-normalize embeddings at each of 12 layers, compute pairwise distances, Mann-Whitney(TRRUST_pairs, non-TRRUST_pairs, alternative=less). Compare effect to STRING proximity from same layers.",
+      "status": "tested",
+      "primary_metric": "mean_trrust_effect_size_across_layers",
+      "result_value": "Mean TRRUST effect=-0.043 (closer), all 12 layers p≈0. Mean STRING effect=-0.048. TRRUST and STRING show nearly identical proximity effects. Both encode general biological interaction proximity, not just PPI.",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0021/h02_trrust_distance_control.json"
+      ],
+      "decision": "promising",
+      "next_action": "TRRUST proximity is not null — this is a positive finding. Geometry encodes both PPI and regulatory proximity. Next: test overlap-corrected TRRUST (remove STRING-overlapping pairs) to determine if regulation adds independent proximity signal beyond PPI co-membership.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0020_H03",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H03",
+      "name": "H1 persistence trajectory + bootstrap CIs for co-polarity enrichment",
+      "family": "persistent_homology",
+      "split_regime": "other",
+      "method": "Load iter_0020 H03 per-layer H1 mean lifetimes (Ripser output). Spearman(layer, H1_lifetime) for trend test. Bootstrap N=500 CIs for 3-axis co-polarity enrichment at count=3 (layer 8). Layer-stratified enrichment across 12 layers.",
+      "status": "tested",
+      "primary_metric": "h1_lifetime_spearman_rho",
+      "result_value": "H1 Spearman rho=-0.916 p<0.0001 (monotonic decline: 0.0127→0.0047). H0 rho=-1.000 p<0.0001. Bootstrap enrichment 95% CI=[1.229, 1.410], excludes 1.0. Layer-stratified enrichment peaks layers 1-4 (~1.55x), layer 8=1.33x. Enrichment vs layer rho=-0.818 p=0.0011.",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0021/h03_h1_trajectory_bootstrap.json"
+      ],
+      "decision": "promising",
+      "next_action": "H1 topology compacts monotonically with depth — publish-ready with bootstrap CIs confirmed. Co-polarity enrichment is highest in early layers (1-4). Add confidence intervals per layer and test: is early-layer enrichment >1.5x significantly higher than late-layer enrichment?",
+      "novelty_type": "refinement",
+      "lineage": "iter_0020_H03",
+      "retired": false,
+      "retirement_reason": ""
+    }
+  ]
+}

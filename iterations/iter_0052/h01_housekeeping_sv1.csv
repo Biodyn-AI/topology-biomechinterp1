@@ -1,0 +1,4 @@
+layer,n_high,n_low,hk_in_high,hk_in_low,non_hk_high,non_hk_low,odds_ratio,p_val_one_sided
+0,408,408,0,0,408,408,,1.0
+5,408,408,0,0,408,408,,1.0
+11,408,408,0,0,408,408,,1.0

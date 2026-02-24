@@ -1,0 +1,73 @@
+{
+  "iteration": "iter_0007",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "SV1 feature-shuffle and gene-label-shuffle null",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "SVD of layer-11 4803x512 mean-centered embedding. Project 209 named genes onto SV1. Run GO BP enrichment (Fisher exact, top-25% vs bottom-25%, 296 terms). Two null controls: (1) feature-column shuffle (100 reps, permute 512 dimensions) — revealed degenerate null (L2-norm invariant); (2) gene-label shuffle (500 reps, permute gene→embedding row assignment). Primary test: gene-label shuffle. Observed: GO:0005615 (extracellular space) OR=6.37, p=0.000257. Label-shuffle null p5=0.00292, empirical p=0.004.",
+      "status": "tested",
+      "primary_metric": "label_shuffle_empirical_p",
+      "result_value": "obs_p=0.000257, null_p5=0.00292, empirical_p=0.004, PASS=True",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0007/h01_sv1_obs_enrichment.csv",
+        "iterations/iter_0007/h01_sv1_label_shuffle_null_ps.npy",
+        "iterations/iter_0007/label_shuffle_null_summary.json",
+        "iterations/iter_0007/iter0007_results.json"
+      ],
+      "decision": "promising",
+      "next_action": "Extend SV1 label-shuffle null across all 12 layers to confirm extracellular axis specificity throughout the network. Also test SV2/SV3 for additional biological axes.",
+      "novelty_type": "refinement",
+      "lineage": "iter_0006_H02",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H02",
+      "name": "Layer-wise SVD trajectory (12 layers)",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "SVD of full 4803x512 embedding matrix at each of 12 layers. Track SV1/SV2 ratio, SV1 variance explained, effective rank, and GO BP enrichment (Fisher exact) for named-gene SV1 top-25% vs bottom-25% quartile. 296 GO terms tested per layer.",
+      "status": "tested",
+      "primary_metric": "sv1_sv2_ratio_trajectory",
+      "result_value": "SV1/SV2 L0=4.07→L11=7.70; 5x threshold crossed at layer 2; SV1 explains 57.2%→93.2% variance; extracellular space (GO:0005615) top-hit in 8/12 layers; GO_p < 0.006 in all 12 layers",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0007/h02_layerwise_svd_trajectory.csv",
+        "iterations/iter_0007/iter0007_results.json"
+      ],
+      "decision": "promising",
+      "next_action": "Run gene-label shuffle null at each layer to confirm GO enrichment specificity is maintained throughout. Characterize the transient deviations (layer 3: mitochondrion; layers 7-8: ER lumen) as potentially meaningful functional transitions.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0006_H02",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H03",
+      "name": "Drift gene-label-shuffle null + SV1 negative-pole GO enrichment",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "Feature-column shuffle for drift (degenerate: L2 norm permutation-invariant, replaced by gene-label shuffle). Gene-label shuffle (500 reps): permute gene→embedding assignment, recompute drift-based GO enrichment. Also: run GO enrichment for SV1 bottom-quartile vs top-quartile named genes at layer 11.",
+      "status": "tested",
+      "primary_metric": "drift_label_shuffle_empirical_p",
+      "result_value": "drift obs_p=0.00198 (GO:0000981 TF/RNAPolII, OR=2.75, n_sig=15), null_p5=0.00082, empirical_p=0.124, PASS=False. SV1 bottom-pole: GO:0005829 (cytosol), p=0.010, OR=2.96",
+      "result_direction": "mixed",
+      "artifact_paths": [
+        "iterations/iter_0007/h03_drift_obs_enrichment.csv",
+        "iterations/iter_0007/h03_sv1_bottom_pole_enrichment.csv",
+        "iterations/iter_0007/h03_drift_label_shuffle_null_ps.npy",
+        "iterations/iter_0007/label_shuffle_null_summary.json"
+      ],
+      "decision": "neutral",
+      "next_action": "Drift TF enrichment is nominally positive but does not clear the gene-label shuffle null at p5 threshold (empirical p=0.124). Retire drift-GO enrichment as primary evidence; retain as supporting trend only. SV1 negative-pole cytosol finding corroborates the extracellular/cytosol biological axis.",
+      "novelty_type": "refinement",
+      "lineage": "iter_0005_H02",
+      "retired": false,
+      "retirement_reason": ""
+    }
+  ],
+  "null_methodology_note": "Feature-column shuffle is degenerate for L2-norm-based statistics (permutation-invariant). Gene-label shuffle (permute gene→embedding-row assignment) is the appropriate null for testing whether specific gene identities drive GO enrichment results. All prior iterations using feature shuffle for L2 drift should be re-interpreted with this caveat."
+}

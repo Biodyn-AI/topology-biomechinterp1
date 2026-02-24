@@ -1,0 +1,57 @@
+{
+  "iteration": "iter_0035",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "TRRUST co-regulation + GO co-annotation vs embedding proximity",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "Build co-regulated pairs (genes sharing a TF regulator, n=5989) and GO co-annotated pairs (10 immune gene sets, n=32). At L11: Mann-Whitney AUROC testing lower embedding distance vs random pairs (n=5000). Per-layer Spearman rho(layer, AUROC).",
+      "status": "tested",
+      "primary_metric": "AUROC at L11",
+      "result_value": "co-reg AUROC=0.506 p=0.867; GO AUROC=0.473 p=0.302; co-reg rho(layer,AUROC)=-0.993 p<0.0001; GO rho=+0.720 p=0.008",
+      "result_direction": "negative",
+      "artifact_paths": ["h01_trrust_go_jaccard.json"],
+      "decision": "negative",
+      "next_action": "Co-regulation metric does not predict proximity at L11. GO co-annotation also null. Retire functional annotation → proximity hypothesis in this form. The negative GO AUROC at early layers (pairs start closer) is interesting but marginally significant.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0027_H02",
+      "retired": false,
+      "retirement_reason": "2nd negative for annotation→proximity link (STRING in iter_0031, co-reg/GO now)"
+    },
+    {
+      "id": "H02",
+      "name": "B-cell marker kNN precision@10 profile across layers",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "For each B-cell marker (n=5 in-vocab), find k=10 nearest neighbors in 195-gene embedding space. Compute mean precision@10 (fraction of neighbors that are B-cell markers). Bootstrap null: 500 random gene sets of same size. Test at L2, L5, L8, L11.",
+      "status": "tested",
+      "primary_metric": "precision@10 vs bootstrap null z-score",
+      "result_value": "L2: obs=0.140 null=0.020 z=5.20 emp_p=0.000; L5: z=3.18 p=0.020; L8: z=2.51 p=0.042; L11: z=2.25 p=0.044",
+      "result_direction": "positive",
+      "artifact_paths": ["h02_bcell_knn_precision.json"],
+      "decision": "promising",
+      "next_action": "Strong positive: B-cell markers form a geometrically coherent cluster (7x enriched at L2) that persists to L11. Extend to cross-model Geneformer validation and test with expanded B-cell marker set.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0034_H03",
+      "retired": false
+    },
+    {
+      "id": "H03",
+      "name": "B-cell vs non-B-cell centroid separation trajectory (normalized)",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "Per layer (L0-L11): compute B-cell centroid (n=5) vs non-B-cell centroid (n=190). Raw L2 distance and normalized distance (divided by mean pairwise distance from 2000 random pairs). Spearman rho(layer, distance). Bootstrap null: 1000 random size-5 sets.",
+      "status": "tested",
+      "primary_metric": "Spearman rho(layer, normalized_centroid_dist)",
+      "result_value": "norm_rho=+0.972 p=0.0000; raw_rho=-0.902 p=0.0001; bootstrap_null_mean_rho=-0.969 z=0.82 emp_p=0.088",
+      "result_direction": "positive",
+      "artifact_paths": ["h03_bcell_centroid_trajectory.json"],
+      "decision": "promising",
+      "next_action": "Normalized centroid separation increases monotonically (rho=+0.972) showing B-cell geometric amplification relative to overall manifold scale. Raw separation is indistinguishable from null (bootstrap p=0.088). Use normalized metric going forward. Combine with H02 to build full B-cell geometry case.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0030_H02",
+      "retired": false
+    }
+  ]
+}

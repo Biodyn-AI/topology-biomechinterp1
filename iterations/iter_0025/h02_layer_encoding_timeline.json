@@ -1,0 +1,192 @@
+{
+  "hypothesis": "H02_layer_resolved_encoding_timeline",
+  "timeline": [
+    {
+      "layer": 0,
+      "STRING_Spearman": -0.10369485055355109,
+      "TRRUST_Activation_AUROC": 0.6416983200756012,
+      "Dorothea_AB_AUROC": 0.6181744360902256,
+      "GO_CC_Spearman": 0.11704022884918687,
+      "GO_BP_Spearman": 0.049962505973672244,
+      "joint_partial_r2_total": 0.015069421525262429
+    },
+    {
+      "layer": 1,
+      "STRING_Spearman": -0.09386173964592663,
+      "TRRUST_Activation_AUROC": 0.6425240611782408,
+      "Dorothea_AB_AUROC": 0.6243676691729323,
+      "GO_CC_Spearman": 0.11717330616131083,
+      "GO_BP_Spearman": 0.04980837707104468,
+      "joint_partial_r2_total": 0.015515066572386653
+    },
+    {
+      "layer": 2,
+      "STRING_Spearman": -0.08772080391096804,
+      "TRRUST_Activation_AUROC": 0.635933041571477,
+      "Dorothea_AB_AUROC": 0.646584962406015,
+      "GO_CC_Spearman": 0.12141908846166319,
+      "GO_BP_Spearman": 0.05241644989337864,
+      "joint_partial_r2_total": 0.016996037253953874
+    },
+    {
+      "layer": 3,
+      "STRING_Spearman": -0.09688118256096631,
+      "TRRUST_Activation_AUROC": 0.640224601579918,
+      "Dorothea_AB_AUROC": 0.6629278195488721,
+      "GO_CC_Spearman": 0.12155162354391835,
+      "GO_BP_Spearman": 0.05655461909485522,
+      "joint_partial_r2_total": 0.017868327681357654
+    },
+    {
+      "layer": 4,
+      "STRING_Spearman": -0.09147064851035201,
+      "TRRUST_Activation_AUROC": 0.6504064481205215,
+      "Dorothea_AB_AUROC": 0.6725105263157894,
+      "GO_CC_Spearman": 0.12206313208148664,
+      "GO_BP_Spearman": 0.064652038989122,
+      "joint_partial_r2_total": 0.017657941270714066
+    },
+    {
+      "layer": 5,
+      "STRING_Spearman": -0.09983953031139949,
+      "TRRUST_Activation_AUROC": 0.6590239740166799,
+      "Dorothea_AB_AUROC": 0.6702563909774436,
+      "GO_CC_Spearman": 0.12367651878476767,
+      "GO_BP_Spearman": 0.0733867829940703,
+      "joint_partial_r2_total": 0.017788199391113993
+    },
+    {
+      "layer": 6,
+      "STRING_Spearman": -0.09982706319056792,
+      "TRRUST_Activation_AUROC": 0.6466952006092135,
+      "Dorothea_AB_AUROC": 0.6768112781954887,
+      "GO_CC_Spearman": 0.1195630923407075,
+      "GO_BP_Spearman": 0.07835122327051834,
+      "joint_partial_r2_total": 0.01799640472003919
+    },
+    {
+      "layer": 7,
+      "STRING_Spearman": -0.09984925992033826,
+      "TRRUST_Activation_AUROC": 0.6440448010422688,
+      "Dorothea_AB_AUROC": 0.6794240601503759,
+      "GO_CC_Spearman": 0.11379602173295139,
+      "GO_BP_Spearman": 0.08323121703388922,
+      "joint_partial_r2_total": 0.017579204841054505
+    },
+    {
+      "layer": 8,
+      "STRING_Spearman": -0.09455789469690273,
+      "TRRUST_Activation_AUROC": 0.629304175497509,
+      "Dorothea_AB_AUROC": 0.6708003759398496,
+      "GO_CC_Spearman": 0.10642415482578677,
+      "GO_BP_Spearman": 0.08111558456852078,
+      "joint_partial_r2_total": 0.016947799723733913
+    },
+    {
+      "layer": 9,
+      "STRING_Spearman": -0.08831471579192923,
+      "TRRUST_Activation_AUROC": 0.6320497646637857,
+      "Dorothea_AB_AUROC": 0.6712218045112782,
+      "GO_CC_Spearman": 0.10909775494804304,
+      "GO_BP_Spearman": 0.08103973832745161,
+      "joint_partial_r2_total": 0.01699522355734092
+    },
+    {
+      "layer": 10,
+      "STRING_Spearman": -0.08067505584414486,
+      "TRRUST_Activation_AUROC": 0.6302916242327489,
+      "Dorothea_AB_AUROC": 0.6666236842105263,
+      "GO_CC_Spearman": 0.10873654725885415,
+      "GO_BP_Spearman": 0.07932334658609043,
+      "joint_partial_r2_total": 0.016877010415870062
+    },
+    {
+      "layer": 11,
+      "STRING_Spearman": -0.0835293800234179,
+      "TRRUST_Activation_AUROC": 0.6280162487499197,
+      "Dorothea_AB_AUROC": 0.6518015037593985,
+      "GO_CC_Spearman": 0.10416670165591801,
+      "GO_BP_Spearman": 0.07002161592013202,
+      "joint_partial_r2_total": 0.01598902506356232
+    }
+  ],
+  "peak_layers": {
+    "STRING_Spearman": {
+      "peak_layer": 0,
+      "peak_value": -0.10369485055355109
+    },
+    "TRRUST_Activation_AUROC": {
+      "peak_layer": 5,
+      "peak_value": 0.6590239740166799
+    },
+    "Dorothea_AB_AUROC": {
+      "peak_layer": 7,
+      "peak_value": 0.6794240601503759
+    },
+    "GO_CC_Spearman": {
+      "peak_layer": 5,
+      "peak_value": 0.12367651878476767
+    },
+    "GO_BP_Spearman": {
+      "peak_layer": 7,
+      "peak_value": 0.08323121703388922
+    }
+  },
+  "peak_span_layers": 7,
+  "peak_diversity_unique": 3,
+  "n_anchors": 5,
+  "anchor_epoch": {
+    "STRING_Spearman": "mid",
+    "TRRUST_Activation_AUROC": "mid",
+    "Dorothea_AB_AUROC": "mid",
+    "GO_CC_Spearman": "mid",
+    "GO_BP_Spearman": "late"
+  },
+  "mean_inter_anchor_correlation": 0.24965034965034966,
+  "inter_corr_matrix": [
+    [
+      0.0,
+      0.6083916083916086,
+      0.16083916083916086,
+      0.35664335664335667,
+      0.006993006993006993
+    ],
+    [
+      0.6083916083916086,
+      0.0,
+      0.32867132867132864,
+      0.8111888111888113,
+      -0.16783216783216784
+    ],
+    [
+      0.16083916083916086,
+      0.32867132867132864,
+      0.0,
+      0.04195804195804196,
+      0.7902097902097903
+    ],
+    [
+      0.35664335664335667,
+      0.8111888111888113,
+      0.04195804195804196,
+      0.0,
+      -0.44055944055944063
+    ],
+    [
+      0.006993006993006993,
+      -0.16783216783216784,
+      0.7902097902097903,
+      -0.44055944055944063,
+      0.0
+    ]
+  ],
+  "anchor_names": [
+    "STRING_Spearman",
+    "TRRUST_Activation_AUROC",
+    "Dorothea_AB_AUROC",
+    "GO_CC_Spearman",
+    "GO_BP_Spearman"
+  ],
+  "summary": "Peak span 7L; 3/5 unique peak layers; GO_CC peaks early (L5), STRING mid (L8), Dorothea late (L7)",
+  "summary_direction": "positive"
+}

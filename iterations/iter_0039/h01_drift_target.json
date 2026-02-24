@@ -1,0 +1,168 @@
+{
+  "hypothesis": "H01",
+  "description": "B-cell centroid drift target: nearest genes to bc_L11 in cycle1",
+  "bcell_identity_invocab": [
+    "MS4A1",
+    "CD19",
+    "CD79A",
+    "BLK",
+    "PRDM1"
+  ],
+  "drift_magnitude_L0_to_L11": 26.399438858032227,
+  "bc_L0_norm": 19.08213233947754,
+  "bc_L11_norm": 21.88688087463379,
+  "top20_nearest_genes_at_L11": [
+    {
+      "rank": 1,
+      "gene": "FAM162A",
+      "dist_to_bcell_centroid_L11": 2.3375608921051025
+    },
+    {
+      "rank": 2,
+      "gene": "BATF",
+      "dist_to_bcell_centroid_L11": 2.3598382472991943
+    },
+    {
+      "rank": 3,
+      "gene": "EOMES",
+      "dist_to_bcell_centroid_L11": 2.386850118637085
+    },
+    {
+      "rank": 4,
+      "gene": "HDAC9",
+      "dist_to_bcell_centroid_L11": 2.440478563308716
+    },
+    {
+      "rank": 5,
+      "gene": "SPIB",
+      "dist_to_bcell_centroid_L11": 2.4543488025665283
+    },
+    {
+      "rank": 6,
+      "gene": "MSR1",
+      "dist_to_bcell_centroid_L11": 2.470280408859253
+    },
+    {
+      "rank": 7,
+      "gene": "VIM",
+      "dist_to_bcell_centroid_L11": 2.5012991428375244
+    },
+    {
+      "rank": 8,
+      "gene": "ALOX5AP",
+      "dist_to_bcell_centroid_L11": 2.5145468711853027
+    },
+    {
+      "rank": 9,
+      "gene": "TRERF1",
+      "dist_to_bcell_centroid_L11": 2.556997537612915
+    },
+    {
+      "rank": 10,
+      "gene": "LRRFIP1",
+      "dist_to_bcell_centroid_L11": 2.5779666900634766
+    },
+    {
+      "rank": 11,
+      "gene": "AKR1B1",
+      "dist_to_bcell_centroid_L11": 2.658071517944336
+    },
+    {
+      "rank": 12,
+      "gene": "ELF1",
+      "dist_to_bcell_centroid_L11": 2.6592726707458496
+    },
+    {
+      "rank": 13,
+      "gene": "PRF1",
+      "dist_to_bcell_centroid_L11": 2.699772357940674
+    },
+    {
+      "rank": 14,
+      "gene": "IL1B",
+      "dist_to_bcell_centroid_L11": 2.7318601608276367
+    },
+    {
+      "rank": 15,
+      "gene": "CD40LG",
+      "dist_to_bcell_centroid_L11": 2.7623448371887207
+    },
+    {
+      "rank": 16,
+      "gene": "POU2F2",
+      "dist_to_bcell_centroid_L11": 2.7666478157043457
+    },
+    {
+      "rank": 17,
+      "gene": "GSTP1",
+      "dist_to_bcell_centroid_L11": 2.787735939025879
+    },
+    {
+      "rank": 18,
+      "gene": "FOXP3",
+      "dist_to_bcell_centroid_L11": 2.815680980682373
+    },
+    {
+      "rank": 19,
+      "gene": "MMP7",
+      "dist_to_bcell_centroid_L11": 2.8552656173706055
+    },
+    {
+      "rank": 20,
+      "gene": "GADD45A",
+      "dist_to_bcell_centroid_L11": 2.891390323638916
+    }
+  ],
+  "drift_alignment_top10": [
+    {
+      "gene": "FAM162A",
+      "L11_dist": 2.3375608921051025,
+      "cos_align_to_drift": 0.02615279331803322
+    },
+    {
+      "gene": "BATF",
+      "L11_dist": 2.3598382472991943,
+      "cos_align_to_drift": 0.036952633410692215
+    },
+    {
+      "gene": "EOMES",
+      "L11_dist": 2.386850118637085,
+      "cos_align_to_drift": 0.04283173009753227
+    },
+    {
+      "gene": "HDAC9",
+      "L11_dist": 2.440478563308716,
+      "cos_align_to_drift": 0.016556981950998306
+    },
+    {
+      "gene": "SPIB",
+      "L11_dist": 2.4543488025665283,
+      "cos_align_to_drift": 0.04150461032986641
+    },
+    {
+      "gene": "MSR1",
+      "L11_dist": 2.470280408859253,
+      "cos_align_to_drift": 0.008394628763198853
+    },
+    {
+      "gene": "VIM",
+      "L11_dist": 2.5012991428375244,
+      "cos_align_to_drift": 0.04956555366516113
+    },
+    {
+      "gene": "ALOX5AP",
+      "L11_dist": 2.5145468711853027,
+      "cos_align_to_drift": 0.06382541358470917
+    },
+    {
+      "gene": "TRERF1",
+      "L11_dist": 2.556997537612915,
+      "cos_align_to_drift": -0.002493835985660553
+    },
+    {
+      "gene": "LRRFIP1",
+      "L11_dist": 2.5779666900634766,
+      "cos_align_to_drift": 0.04017435759305954
+    }
+  ]
+}

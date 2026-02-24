@@ -1,0 +1,2 @@
+tf_count,n_tf_pairs,tftf_auroc_sv24,tftf_auroc_sv57,tftgt_auroc_sv24,interpretation
+78,250,0.538688,0.5283680000000001,0.48486543045823116,TF-TF clustering in SV2-4 vs TF-target anti-clustering

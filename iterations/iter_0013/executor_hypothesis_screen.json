@@ -1,0 +1,58 @@
+{
+  "iteration": "iter_0013",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "SV axis specificity: STRING PPI co-pole on SV1 vs SV2 vs SV3",
+      "family": "graph_topology",
+      "split_regime": "other",
+      "method": "SVD of 209-gene mean-centered embeddings at each of 12 layers. For SV1, SV2, SV3: classify top-K=52 and bottom-K=52 pole genes. Compute co-pole rate for 1022 STRING PPI pairs (score>=0.7). Compare to N=500 random-pair null. Report z-score per axis per layer.",
+      "status": "tested",
+      "primary_metric": "mean_z_across_layers",
+      "result_value": "SV1 z=0.39 (2/12 sig), SV2 z=10.04 (12/12 sig), SV3 z=7.18 (12/12 sig)",
+      "result_direction": "mixed",
+      "artifact_paths": ["iterations/iter_0013/h01_sv_axis_specificity.json"],
+      "decision": "promising",
+      "next_action": "Annotate SV3 poles with GO enrichment to identify biological meaning. Report SV2+SV3 as joint PPI geometry axes.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0012_H03",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "Repression anti-pole: TRRUST repression pairs occupy opposite SV2 poles",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "SV2 projections at each layer. For TRRUST activation (N=113) and repression (N=62) pairs: compute co-pole rate (both in same pole) and cross-pole rate (genes in opposite poles). Compare to N=500 random-pair null. Test if repression cross-pole > null.",
+      "status": "tested",
+      "primary_metric": "rep_crosspole_mean_z",
+      "result_value": "rep_xpole mean z=-1.41, 0/12 layers significant; act_copole mean z=3.18 (12/12 sig)",
+      "result_direction": "negative",
+      "artifact_paths": ["iterations/iter_0013/h02_repression_antipole.json"],
+      "decision": "negative",
+      "next_action": "Retire. Regulatory sign (activation vs repression) is not encoded as SV2 pole opposition.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0012_H01",
+      "retired": true,
+      "retirement_reason": "Definitive negative: rep_xpole z=-1.41 mean across all 12 layers, 0/12 significant."
+    },
+    {
+      "id": "H03",
+      "name": "Hub-degree control: does PPI co-pole signal survive in low-degree gene pairs?",
+      "family": "null_sensitivity",
+      "split_regime": "other",
+      "method": "Compute STRING degree for each named gene. Split 1022 pairs into hub (degree > median=7) and non-hub edges. Run SV2 co-pole test on each subset. Null: N=300 random pairs per subset.",
+      "status": "tested",
+      "primary_metric": "nonhub_copole_mean_z",
+      "result_value": "hub mean z=10.01 (12/12 sig), non-hub mean z=1.43 (3/12 sig, N=35 pairs only)",
+      "result_direction": "inconclusive",
+      "artifact_paths": ["iterations/iter_0013/h03_hub_degree_control.json"],
+      "decision": "inconclusive",
+      "next_action": "Lower STRING threshold to score>=0.4 to expand non-hub edge set (~5-10x more). Re-test hub vs non-hub with adequate power.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0012_H03",
+      "retired": false,
+      "retirement_reason": ""
+    }
+  ]
+}

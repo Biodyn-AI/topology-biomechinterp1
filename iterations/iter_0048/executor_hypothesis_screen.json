@@ -1,0 +1,66 @@
+{
+  "iteration": "iter_0048",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "Gene annotation via edge dataset + SV1/SV2 identity",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "novelty_type": "new_method",
+      "lineage": "iter_0047_H02",
+      "method": "Mapped 361 gene names from cycle1_edge_dataset.tsv to embedding indices. Classified named genes into zero-norm (n=66) vs nonzero (n=295). SVD of centered nonzero L11 embeddings. Scored immune cell-type markers (B-cell, T-cell, Myeloid, GC_TF, NK) on SV1/SV2.",
+      "status": "tested",
+      "primary_metric": "mean_SV1_score_per_celltype",
+      "result_value": "B-cell=-0.017, T-cell=-0.016, Myeloid=-0.009; zero-norm named genes are tissue-specific (TFAP2B, SNAI2, TYR, PGR, TBX5)",
+      "result_direction": "mixed",
+      "artifact_paths": [
+        "iterations/iter_0048/h01_gene_annotation_sv_identity.json",
+        "iterations/iter_0048/iter48_summary.json"
+      ],
+      "decision": "neutral",
+      "next_action": "Recover full gene vocabulary (all 4941 gene names) to identify top SV1 genes; GO/STRING enrichment for SV1 axis",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "Full spectral decay curve across 12 layers",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "novelty_type": "new_method",
+      "lineage": "iter_0047_H02",
+      "method": "SVD of centered nonzero-only embeddings (n=2039, 512-dim) at each of 12 layers. Computed eff_rank (entropy-weighted), SPR (participation ratio), k90 (dims for 90% variance), Frobenius norm, SV1 singular value trajectory.",
+      "status": "tested",
+      "primary_metric": "eff_rank_compression_ratio",
+      "result_value": "eff_rank: 236.9->48.7 (4.87x), k90: 307->102 (3.0x), SPR: 90.1->15.2 (5.9x), Frob: 558->204 (2.74x). SV1 peaks at L8 (143.9) then drops to L11 (87.8).",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0048/h02_spectral_decay.csv",
+        "iterations/iter_0048/iter48_summary.json"
+      ],
+      "decision": "promising",
+      "next_action": "Compute spectral decay separately for cell-type gene subsets (B-cell vs T-cell vs random) to test biologically differentiated compression",
+      "retired": false
+    },
+    {
+      "id": "H03",
+      "name": "Wasserstein/transport distance between consecutive layers",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "novelty_type": "new_family",
+      "lineage": "none",
+      "method": "Sliced Wasserstein Distance (100 projections), energy distance, centroid displacement, and covariance Frobenius distance between consecutive layer embeddings of n=2039 nonzero genes. Cumulative SWD from L0. Spearman rho(SWD, eff_rank_drop).",
+      "status": "tested",
+      "primary_metric": "spearman_rho_SWD_vs_effrank_drop",
+      "result_value": "rho=-0.46, p=0.15 (not significant). SWD range 0.29-0.55, largest at L0->L1 (0.55), smallest at L10->L11 (0.29). Cumulative SWD from L0 reaches 1.32 at L10.",
+      "result_direction": "inconclusive",
+      "artifact_paths": [
+        "iterations/iter_0048/h03_wasserstein_layer_distances.csv",
+        "iterations/iter_0048/h03_wasserstein_cumulative.csv",
+        "iterations/iter_0048/iter48_summary.json"
+      ],
+      "decision": "inconclusive",
+      "next_action": "Compare SWD to shuffled-embedding null to establish baseline; if real < null, transport is constrained by structure",
+      "retired": false
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+[
+  {
+    "layer": 0,
+    "n_high": 408,
+    "n_low": 408,
+    "hk_in_high": 0,
+    "hk_in_low": 4,
+    "odds_ratio_high_vs_low": 0.0,
+    "p_greater_hk_in_high": 1.0,
+    "p_less_hk_in_high": 0.062040160278903404,
+    "hk_gene_names_in_high": [],
+    "hk_gene_names_in_low": [
+      "DNAJB1",
+      "HSPA1A",
+      "HSPA1B",
+      "UBB"
+    ]
+  },
+  {
+    "layer": 5,
+    "n_high": 408,
+    "n_low": 408,
+    "hk_in_high": 4,
+    "hk_in_low": 0,
+    "odds_ratio_high_vs_low": Infinity,
+    "p_greater_hk_in_high": 0.062040160278903404,
+    "p_less_hk_in_high": 1.0,
+    "hk_gene_names_in_high": [
+      "DNAJB1",
+      "HSPA1A",
+      "HSPA1B",
+      "UBB"
+    ],
+    "hk_gene_names_in_low": []
+  },
+  {
+    "layer": 11,
+    "n_high": 408,
+    "n_low": 408,
+    "hk_in_high": 1,
+    "hk_in_low": 2,
+    "odds_ratio_high_vs_low": 0.4987714987714988,
+    "p_greater_hk_in_high": 0.8754601226993866,
+    "p_less_hk_in_high": 0.5000000000000001,
+    "hk_gene_names_in_high": [
+      "HMBS"
+    ],
+    "hk_gene_names_in_low": [
+      "DNAJB1",
+      "UBB"
+    ]
+  }
+]

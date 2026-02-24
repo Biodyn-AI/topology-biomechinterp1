@@ -1,0 +1,106 @@
+{
+  "hypothesis": "H01_random_gaussian_null",
+  "description": "Random Gaussian embedding [12, 4803, 512]. SV2 co-pole test for STRING pairs (score>=0.4).",
+  "n_string_pairs": 3092,
+  "n_sig_layers": 0,
+  "mean_z_score": -0.08499960870826638,
+  "layer_results": [
+    {
+      "layer": 0,
+      "obs_same_pole": 0.11545924967658473,
+      "null_mean": 0.12313065976714099,
+      "null_std": 0.01666044349161613,
+      "z_score": -0.46045653553080196,
+      "significant": false
+    },
+    {
+      "layer": 1,
+      "obs_same_pole": 0.12483829236739974,
+      "null_mean": 0.11974126778783957,
+      "null_std": 0.01678350444263088,
+      "z_score": 0.3036925093315726,
+      "significant": false
+    },
+    {
+      "layer": 2,
+      "obs_same_pole": 0.12451487710219922,
+      "null_mean": 0.12170008624407072,
+      "null_std": 0.017327781821914807,
+      "z_score": 0.16244380769895034,
+      "significant": false
+    },
+    {
+      "layer": 3,
+      "obs_same_pole": 0.11157826649417853,
+      "null_mean": 0.12201379905131522,
+      "null_std": 0.016196063290158186,
+      "z_score": -0.6443252517713995,
+      "significant": false
+    },
+    {
+      "layer": 4,
+      "obs_same_pole": 0.11028460543337645,
+      "null_mean": 0.12158150064683051,
+      "null_std": 0.016400922756921937,
+      "z_score": -0.6887963184075272,
+      "significant": false
+    },
+    {
+      "layer": 5,
+      "obs_same_pole": 0.14391979301423027,
+      "null_mean": 0.12255605864596807,
+      "null_std": 0.016294225076934392,
+      "z_score": 1.3111230676753114,
+      "significant": false
+    },
+    {
+      "layer": 6,
+      "obs_same_pole": 0.13098318240620957,
+      "null_mean": 0.12069642087106511,
+      "null_std": 0.015408090523840168,
+      "z_score": 0.667620787872986,
+      "significant": false
+    },
+    {
+      "layer": 7,
+      "obs_same_pole": 0.11351875808538163,
+      "null_mean": 0.1228137128072445,
+      "null_std": 0.016208684729487735,
+      "z_score": -0.5734552110173982,
+      "significant": false
+    },
+    {
+      "layer": 8,
+      "obs_same_pole": 0.10963777490297542,
+      "null_mean": 0.121237602414834,
+      "null_std": 0.01567396268770338,
+      "z_score": -0.7400698689272072,
+      "significant": false
+    },
+    {
+      "layer": 9,
+      "obs_same_pole": 0.12322121604139716,
+      "null_mean": 0.12148231996550236,
+      "null_std": 0.016349043511919722,
+      "z_score": 0.10636072224206901,
+      "significant": false
+    },
+    {
+      "layer": 10,
+      "obs_same_pole": 0.11545924967658473,
+      "null_mean": 0.12248382923673996,
+      "null_std": 0.01633805744289195,
+      "z_score": -0.4299519440856998,
+      "significant": false
+    },
+    {
+      "layer": 11,
+      "obs_same_pole": 0.12192755498059508,
+      "null_mean": 0.12247736093143596,
+      "null_std": 0.016085100834929547,
+      "z_score": -0.03418106958005196,
+      "significant": false
+    }
+  ],
+  "conclusion": "negative"
+}

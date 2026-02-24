@@ -1,0 +1,113 @@
+{
+  "centroid_genes": [
+    "CD247",
+    "CD8A",
+    "RUNX3"
+  ],
+  "circuit_genes": [
+    "CD28",
+    "LCK"
+  ],
+  "layers": {
+    "0": {
+      "circuit_ranks": {
+        "CD28": 595,
+        "LCK": 6
+      },
+      "mean_rank": 300.5,
+      "precision_at_20": 0.5
+    },
+    "1": {
+      "circuit_ranks": {
+        "CD28": 511,
+        "LCK": 7
+      },
+      "mean_rank": 259.0,
+      "precision_at_20": 0.5
+    },
+    "2": {
+      "circuit_ranks": {
+        "CD28": 471,
+        "LCK": 7
+      },
+      "mean_rank": 239.0,
+      "precision_at_20": 0.5
+    },
+    "3": {
+      "circuit_ranks": {
+        "CD28": 297,
+        "LCK": 7
+      },
+      "mean_rank": 152.0,
+      "precision_at_20": 0.5
+    },
+    "4": {
+      "circuit_ranks": {
+        "CD28": 188,
+        "LCK": 7
+      },
+      "mean_rank": 97.5,
+      "precision_at_20": 0.5
+    },
+    "5": {
+      "circuit_ranks": {
+        "CD28": 129,
+        "LCK": 6
+      },
+      "mean_rank": 67.5,
+      "precision_at_20": 0.5
+    },
+    "6": {
+      "circuit_ranks": {
+        "CD28": 86,
+        "LCK": 6
+      },
+      "mean_rank": 46.0,
+      "precision_at_20": 0.5
+    },
+    "7": {
+      "circuit_ranks": {
+        "CD28": 108,
+        "LCK": 5
+      },
+      "mean_rank": 56.5,
+      "precision_at_20": 0.5
+    },
+    "8": {
+      "circuit_ranks": {
+        "CD28": 107,
+        "LCK": 5
+      },
+      "mean_rank": 56.0,
+      "precision_at_20": 0.5
+    },
+    "9": {
+      "circuit_ranks": {
+        "CD28": 148,
+        "LCK": 5
+      },
+      "mean_rank": 76.5,
+      "precision_at_20": 0.5
+    },
+    "10": {
+      "circuit_ranks": {
+        "CD28": 154,
+        "LCK": 6
+      },
+      "mean_rank": 80.0,
+      "precision_at_20": 0.5
+    },
+    "11": {
+      "circuit_ranks": {
+        "CD28": 149,
+        "LCK": 8
+      },
+      "mean_rank": 78.5,
+      "precision_at_20": 0.5
+    }
+  },
+  "rank_change": -222.0,
+  "null_mean": -15.6025,
+  "null_std": 507.83717936337626,
+  "null_pval": 0.32
+}

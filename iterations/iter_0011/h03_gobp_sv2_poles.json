@@ -1,0 +1,1392 @@
+[
+  {
+    "layer": 7,
+    "n_terms_tested": 591,
+    "n_sig_005": 0,
+    "n_sig_001": 0,
+    "top_hits": [
+      {
+        "go_id": "GO:0007417",
+        "n_go_genes": 4,
+        "best_or": 3.1,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 3.1,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "APP",
+          "GSTP1"
+        ]
+      },
+      {
+        "go_id": "GO:0035097",
+        "n_go_genes": 3,
+        "best_or": 1.52,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 1.52,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "SPP1"
+        ]
+      },
+      {
+        "go_id": "GO:0048863",
+        "n_go_genes": 3,
+        "best_or": 1.52,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 1.52,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "EPCAM"
+        ]
+      },
+      {
+        "go_id": "GO:0006338",
+        "n_go_genes": 3,
+        "best_or": 6.24,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 6.24,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "FOXP3",
+          "GATA3"
+        ]
+      },
+      {
+        "go_id": "GO:0005739",
+        "n_go_genes": 14,
+        "best_or": 6.363,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 6.363,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "BCL2",
+          "BNIP3",
+          "CAT",
+          "CLU",
+          "FAM162A",
+          "GSTP1",
+          "NCL",
+          "SDHB",
+          "TXN"
+        ]
+      },
+      {
+        "go_id": "GO:0003682",
+        "n_go_genes": 9,
+        "best_or": 1.541,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 1.541,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "EOMES",
+          "FLI1",
+          "NFATC2"
+        ]
+      },
+      {
+        "go_id": "GO:0001889",
+        "n_go_genes": 3,
+        "best_or": 6.24,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 6.24,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "ASS1",
+          "JUN"
+        ]
+      },
+      {
+        "go_id": "GO:0007229",
+        "n_go_genes": 5,
+        "best_or": 2.053,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 2.053,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "CD40LG",
+          "SYK"
+        ]
+      },
+      {
+        "go_id": "GO:0008360",
+        "n_go_genes": 5,
+        "best_or": 2.053,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 2.053,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "RHOB",
+          "RHOC"
+        ]
+      },
+      {
+        "go_id": "GO:0019901",
+        "n_go_genes": 15,
+        "best_or": 2.145,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 2.145,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "ATP1B1",
+          "CCND1",
+          "HIF1A",
+          "RHOB",
+          "RHOC",
+          "ZFP36"
+        ]
+      },
+      {
+        "go_id": "GO:0001540",
+        "n_go_genes": 4,
+        "best_or": 3.1,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 3.1,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "MSR1",
+          "TLR2"
+        ]
+      },
+      {
+        "go_id": "GO:0006954",
+        "n_go_genes": 29,
+        "best_or": 2.072,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 2.072,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "CCR4",
+          "CD40LG",
+          "CIITA",
+          "CXCR3",
+          "CYBB",
+          "IL2RA",
+          "MAFA",
+          "PRKCQ",
+          "PTGS2",
+          "TLR10",
+          "TLR2"
+        ]
+      },
+      {
+        "go_id": "GO:0031623",
+        "n_go_genes": 3,
+        "best_or": 1.52,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 1.52,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "SYK"
+        ]
+      },
+      {
+        "go_id": "GO:0006898",
+        "n_go_genes": 3,
+        "best_or": 1.52,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 1.52,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "MSR1"
+        ]
+      },
+      {
+        "go_id": "GO:0007155",
+        "n_go_genes": 14,
+        "best_or": 1.749,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 1.749,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "APP",
+          "ATP1B1",
+          "ITGB8",
+          "RHOB",
+          "SPP1"
+        ]
+      },
+      {
+        "go_id": "GO:0033627",
+        "n_go_genes": 3,
+        "best_or": 1.52,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 1.52,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "ITGB8"
+        ]
+      },
+      {
+        "go_id": "GO:0005925",
+        "n_go_genes": 9,
+        "best_or": 1.541,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 1.541,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "ITGB8",
+          "RHOB",
+          "VIM"
+        ]
+      },
+      {
+        "go_id": "GO:0032930",
+        "n_go_genes": 3,
+        "best_or": 1.52,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 1.52,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "SYK"
+        ]
+      },
+      {
+        "go_id": "GO:0009897",
+        "n_go_genes": 34,
+        "best_or": 2.945,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 2.945,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "CD19",
+          "CD2",
+          "CD28",
+          "CD40LG",
+          "CD6",
+          "CD86",
+          "CTLA4",
+          "CXCR3",
+          "FASLG",
+          "FCER2",
+          "IL2RA",
+          "IL2RB",
+          "IL5RA",
+          "KLRK1",
+          "MSR1"
+        ]
+      },
+      {
+        "go_id": "GO:0070821",
+        "n_go_genes": 3,
+        "best_or": 1.52,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 1.52,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "CYBB"
+        ]
+      },
+      {
+        "go_id": "GO:0070062",
+        "n_go_genes": 48,
+        "best_or": 6.136,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 6.136,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "ALDH1A1",
+          "APP",
+          "ASAH1",
+          "ASS1",
+          "ATP1B1",
+          "CA2",
+          "CLU",
+          "CTSB",
+          "EPCAM",
+          "FXYD2",
+          "GSTP1",
+          "HLA-A",
+          "HLA-B",
+          "HLA-C",
+          "HLA-DRA",
+          "HLA-DRB1",
+          "ITGB8",
+          "LDHA",
+          "LGALS1",
+          "MIF",
+          "MMP7",
+          "PCBD1",
+          "RHOB",
+          "RHOC",
+          "VIM",
+          "WFDC2"
+        ]
+      },
+      {
+        "go_id": "GO:0016020",
+        "n_go_genes": 24,
+        "best_or": 1.981,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 1.981,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "ATP1B1",
+          "BCL2",
+          "CLU",
+          "HLA-A",
+          "HLA-B",
+          "HLA-C",
+          "HLA-DRB1",
+          "LDHA",
+          "NCL"
+        ]
+      },
+      {
+        "go_id": "GO:0008305",
+        "n_go_genes": 3,
+        "best_or": 1.52,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 1.52,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "ITGB8"
+        ]
+      },
+      {
+        "go_id": "GO:0034113",
+        "n_go_genes": 3,
+        "best_or": 1.52,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 1.52,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "CD2"
+        ]
+      },
+      {
+        "go_id": "GO:0001774",
+        "n_go_genes": 7,
+        "best_or": 2.342,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 2.342,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "APP",
+          "CLU",
+          "JUN"
+        ]
+      },
+      {
+        "go_id": "GO:0005178",
+        "n_go_genes": 9,
+        "best_or": 1.541,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 1.541,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "CD40LG",
+          "FCER2",
+          "SYK"
+        ]
+      },
+      {
+        "go_id": "GO:0101003",
+        "n_go_genes": 3,
+        "best_or": 1.52,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 1.52,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "CR1"
+        ]
+      },
+      {
+        "go_id": "GO:0007159",
+        "n_go_genes": 5,
+        "best_or": 2.053,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 2.053,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "CD40LG",
+          "SYK"
+        ]
+      },
+      {
+        "go_id": "GO:0098609",
+        "n_go_genes": 8,
+        "best_or": 1.861,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 1.861,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "BCL2",
+          "EPCAM",
+          "LGALS1"
+        ]
+      },
+      {
+        "go_id": "GO:0010575",
+        "n_go_genes": 5,
+        "best_or": 2.053,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 2.053,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "HIF1A",
+          "RORA"
+        ]
+      }
+    ]
+  },
+  {
+    "layer": 8,
+    "n_terms_tested": 591,
+    "n_sig_005": 0,
+    "n_sig_001": 0,
+    "top_hits": [
+      {
+        "go_id": "GO:0007417",
+        "n_go_genes": 4,
+        "best_or": 3.1,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 3.1,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "APP",
+          "GSTP1"
+        ]
+      },
+      {
+        "go_id": "GO:0035097",
+        "n_go_genes": 3,
+        "best_or": 1.52,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 1.52,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "SPP1"
+        ]
+      },
+      {
+        "go_id": "GO:0048863",
+        "n_go_genes": 3,
+        "best_or": 1.52,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 1.52,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "EPCAM"
+        ]
+      },
+      {
+        "go_id": "GO:0006338",
+        "n_go_genes": 3,
+        "best_or": 6.24,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 6.24,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "FOXP3",
+          "GATA3"
+        ]
+      },
+      {
+        "go_id": "GO:0005739",
+        "n_go_genes": 14,
+        "best_or": 3.333,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 3.333,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "BCL2",
+          "BNIP3",
+          "CLU",
+          "FAM162A",
+          "GSTP1",
+          "NCL",
+          "TXN"
+        ]
+      },
+      {
+        "go_id": "GO:0003682",
+        "n_go_genes": 9,
+        "best_or": 1.541,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 1.541,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "EOMES",
+          "FLI1",
+          "NFATC2"
+        ]
+      },
+      {
+        "go_id": "GO:0001889",
+        "n_go_genes": 3,
+        "best_or": 6.24,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 6.24,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "ASS1",
+          "JUN"
+        ]
+      },
+      {
+        "go_id": "GO:0007229",
+        "n_go_genes": 5,
+        "best_or": 4.745,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 4.745,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "CD40LG",
+          "ITGAX",
+          "SYK"
+        ]
+      },
+      {
+        "go_id": "GO:0008360",
+        "n_go_genes": 5,
+        "best_or": 2.053,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 2.053,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "RHOB",
+          "RHOC"
+        ]
+      },
+      {
+        "go_id": "GO:0019901",
+        "n_go_genes": 15,
+        "best_or": 2.145,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 2.145,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "ATP1B1",
+          "CCND1",
+          "HIF1A",
+          "RHOB",
+          "RHOC",
+          "ZFP36"
+        ]
+      },
+      {
+        "go_id": "GO:0001540",
+        "n_go_genes": 4,
+        "best_or": 3.1,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 3.1,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "MSR1",
+          "TLR2"
+        ]
+      },
+      {
+        "go_id": "GO:0006954",
+        "n_go_genes": 29,
+        "best_or": 2.072,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 2.072,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "CCR4",
+          "CD40LG",
+          "CIITA",
+          "CXCR3",
+          "CYBB",
+          "IL2RA",
+          "MAFA",
+          "PRKCQ",
+          "PTGS2",
+          "TLR10",
+          "TLR2"
+        ]
+      },
+      {
+        "go_id": "GO:0031623",
+        "n_go_genes": 3,
+        "best_or": 1.52,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 1.52,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "SYK"
+        ]
+      },
+      {
+        "go_id": "GO:0006898",
+        "n_go_genes": 3,
+        "best_or": 1.52,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 1.52,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "MSR1"
+        ]
+      },
+      {
+        "go_id": "GO:0007155",
+        "n_go_genes": 14,
+        "best_or": 2.429,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 2.429,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "APP",
+          "ATP1B1",
+          "ITGB8",
+          "NCAM1",
+          "RHOB",
+          "SPP1"
+        ]
+      },
+      {
+        "go_id": "GO:0033627",
+        "n_go_genes": 3,
+        "best_or": 1.52,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 1.52,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "ITGAX"
+        ]
+      },
+      {
+        "go_id": "GO:0005925",
+        "n_go_genes": 9,
+        "best_or": 1.541,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 1.541,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "ITGB8",
+          "RHOB",
+          "VIM"
+        ]
+      },
+      {
+        "go_id": "GO:0032930",
+        "n_go_genes": 3,
+        "best_or": 1.52,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 1.52,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "SYK"
+        ]
+      },
+      {
+        "go_id": "GO:0009897",
+        "n_go_genes": 34,
+        "best_or": 2.945,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 2.945,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "CD19",
+          "CD28",
+          "CD40LG",
+          "CD6",
+          "CD86",
+          "CTLA4",
+          "CXCR3",
+          "FASLG",
+          "FCER2",
+          "IL2RA",
+          "IL2RB",
+          "IL5RA",
+          "ITGAX",
+          "KLRK1",
+          "MSR1"
+        ]
+      },
+      {
+        "go_id": "GO:1901216",
+        "n_go_genes": 5,
+        "best_or": 2.053,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 2.053,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "CLU",
+          "FOS"
+        ]
+      },
+      {
+        "go_id": "GO:0070821",
+        "n_go_genes": 3,
+        "best_or": 6.24,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 6.24,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "CYBB",
+          "ITGAX"
+        ]
+      },
+      {
+        "go_id": "GO:0070062",
+        "n_go_genes": 48,
+        "best_or": 4.75,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 4.75,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "ALDH1A1",
+          "APP",
+          "ASAH1",
+          "ASS1",
+          "ATP1B1",
+          "CA2",
+          "CLU",
+          "CTSB",
+          "EPCAM",
+          "GSTP1",
+          "HLA-A",
+          "HLA-B",
+          "HLA-C",
+          "HLA-DRA",
+          "HLA-DRB1",
+          "ITGB8",
+          "LDHA",
+          "LGALS1",
+          "MGP",
+          "MIF",
+          "RHOB",
+          "RHOC",
+          "VIM",
+          "WFDC2"
+        ]
+      },
+      {
+        "go_id": "GO:0016020",
+        "n_go_genes": 24,
+        "best_or": 2.972,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 2.972,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "ATP1B1",
+          "BCL2",
+          "CLU",
+          "FOS",
+          "HLA-A",
+          "HLA-B",
+          "HLA-C",
+          "HLA-DRB1",
+          "LDHA",
+          "NCAM1",
+          "NCL"
+        ]
+      },
+      {
+        "go_id": "GO:0008305",
+        "n_go_genes": 3,
+        "best_or": 1.52,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 1.52,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "ITGAX"
+        ]
+      },
+      {
+        "go_id": "GO:0034113",
+        "n_go_genes": 3,
+        "best_or": 1.52,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 1.52,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "ITGAX"
+        ]
+      },
+      {
+        "go_id": "GO:0001774",
+        "n_go_genes": 7,
+        "best_or": 2.342,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 2.342,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "APP",
+          "CLU",
+          "JUN"
+        ]
+      },
+      {
+        "go_id": "GO:0005178",
+        "n_go_genes": 9,
+        "best_or": 2.533,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 2.533,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "CD40LG",
+          "FCER2",
+          "ITGAX",
+          "SYK"
+        ]
+      },
+      {
+        "go_id": "GO:0009986",
+        "n_go_genes": 31,
+        "best_or": 1.542,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 1.542,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "APP",
+          "CLU",
+          "EPCAM",
+          "HLA-A",
+          "HLA-B",
+          "HLA-C",
+          "HLA-DRA",
+          "HLA-DRB1",
+          "ITGB8",
+          "NCAM1"
+        ]
+      },
+      {
+        "go_id": "GO:0101003",
+        "n_go_genes": 3,
+        "best_or": 6.24,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 6.24,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "CR1",
+          "ITGAX"
+        ]
+      },
+      {
+        "go_id": "GO:0007159",
+        "n_go_genes": 5,
+        "best_or": 2.053,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 2.053,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "CD40LG",
+          "SYK"
+        ]
+      }
+    ]
+  },
+  {
+    "layer": 11,
+    "n_terms_tested": 591,
+    "n_sig_005": 0,
+    "n_sig_001": 0,
+    "top_hits": [
+      {
+        "go_id": "GO:0007417",
+        "n_go_genes": 4,
+        "best_or": 3.1,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 3.1,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "APP",
+          "GSTP1"
+        ]
+      },
+      {
+        "go_id": "GO:0035097",
+        "n_go_genes": 3,
+        "best_or": 1.52,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 1.52,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "SPP1"
+        ]
+      },
+      {
+        "go_id": "GO:0048863",
+        "n_go_genes": 3,
+        "best_or": 1.52,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 1.52,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "EPCAM"
+        ]
+      },
+      {
+        "go_id": "GO:0006338",
+        "n_go_genes": 3,
+        "best_or": 6.24,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 6.24,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "FOXP3",
+          "GATA3"
+        ]
+      },
+      {
+        "go_id": "GO:0005739",
+        "n_go_genes": 14,
+        "best_or": 6.363,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 6.363,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "BNIP3",
+          "CAT",
+          "CLU",
+          "FAM162A",
+          "GSTP1",
+          "NCL",
+          "PDHA1",
+          "SDHB",
+          "TXN"
+        ]
+      },
+      {
+        "go_id": "GO:0003682",
+        "n_go_genes": 9,
+        "best_or": 1.541,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 1.541,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "EOMES",
+          "FLI1",
+          "LEF1"
+        ]
+      },
+      {
+        "go_id": "GO:0001889",
+        "n_go_genes": 3,
+        "best_or": 6.24,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 6.24,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "ASS1",
+          "JUN"
+        ]
+      },
+      {
+        "go_id": "GO:0007229",
+        "n_go_genes": 5,
+        "best_or": 2.053,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 2.053,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "CD40LG",
+          "ITGAX"
+        ]
+      },
+      {
+        "go_id": "GO:0008360",
+        "n_go_genes": 5,
+        "best_or": 2.053,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 2.053,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "RHOB",
+          "RHOC"
+        ]
+      },
+      {
+        "go_id": "GO:0019901",
+        "n_go_genes": 15,
+        "best_or": 1.564,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 1.564,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "ATP1B1",
+          "CCND1",
+          "HIF1A",
+          "RHOB",
+          "RHOC"
+        ]
+      },
+      {
+        "go_id": "GO:0006954",
+        "n_go_genes": 29,
+        "best_or": 2.072,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 2.072,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "CCR4",
+          "CCR7",
+          "CD40LG",
+          "CIITA",
+          "CXCR3",
+          "IL2RA",
+          "MAFA",
+          "PRKCQ",
+          "PTGS2",
+          "TLR10",
+          "TLR2"
+        ]
+      },
+      {
+        "go_id": "GO:0007155",
+        "n_go_genes": 14,
+        "best_or": 1.749,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 1.749,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "APP",
+          "ATP1B1",
+          "ITGB8",
+          "RHOB",
+          "SPP1"
+        ]
+      },
+      {
+        "go_id": "GO:0033627",
+        "n_go_genes": 3,
+        "best_or": 1.52,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 1.52,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "ITGAX"
+        ]
+      },
+      {
+        "go_id": "GO:0005925",
+        "n_go_genes": 9,
+        "best_or": 1.541,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 1.541,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "ITGB8",
+          "RHOB",
+          "VIM"
+        ]
+      },
+      {
+        "go_id": "GO:0032930",
+        "n_go_genes": 3,
+        "best_or": 1.52,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 1.52,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "GSTP1"
+        ]
+      },
+      {
+        "go_id": "GO:0009897",
+        "n_go_genes": 34,
+        "best_or": 4.0,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 4.0,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "CCR7",
+          "CD19",
+          "CD2",
+          "CD28",
+          "CD40LG",
+          "CD6",
+          "CD69",
+          "CD79A",
+          "CD86",
+          "CTLA4",
+          "CXCR3",
+          "FASLG",
+          "FCER2",
+          "IL2RA",
+          "IL2RB",
+          "IL5RA",
+          "ITGAX"
+        ]
+      },
+      {
+        "go_id": "GO:0070821",
+        "n_go_genes": 3,
+        "best_or": 1.52,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 1.52,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "ITGAX"
+        ]
+      },
+      {
+        "go_id": "GO:0070062",
+        "n_go_genes": 48,
+        "best_or": 7.992,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 7.992,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "AKR1B1",
+          "ALDH1A1",
+          "APP",
+          "ASAH1",
+          "ASS1",
+          "ATP1B1",
+          "CA2",
+          "CLU",
+          "CTSB",
+          "EPCAM",
+          "FXYD2",
+          "GSTP1",
+          "HLA-A",
+          "HLA-B",
+          "HLA-C",
+          "HLA-DRA",
+          "HPGD",
+          "ITGB8",
+          "LDHA",
+          "LGALS1",
+          "MIF",
+          "MMP7",
+          "PCBD1",
+          "RHOB",
+          "RHOC",
+          "TNFSF10",
+          "VIM",
+          "WFDC2"
+        ]
+      },
+      {
+        "go_id": "GO:0008305",
+        "n_go_genes": 3,
+        "best_or": 1.52,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 1.52,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "ITGAX"
+        ]
+      },
+      {
+        "go_id": "GO:0034113",
+        "n_go_genes": 3,
+        "best_or": 6.24,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 6.24,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "CD2",
+          "ITGAX"
+        ]
+      },
+      {
+        "go_id": "GO:0001774",
+        "n_go_genes": 7,
+        "best_or": 2.342,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 2.342,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "APP",
+          "CLU",
+          "JUN"
+        ]
+      },
+      {
+        "go_id": "GO:0005178",
+        "n_go_genes": 9,
+        "best_or": 1.541,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 1.541,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "CD40LG",
+          "FCER2",
+          "ITGAX"
+        ]
+      },
+      {
+        "go_id": "GO:0101003",
+        "n_go_genes": 3,
+        "best_or": 6.24,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 6.24,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "CR1",
+          "ITGAX"
+        ]
+      },
+      {
+        "go_id": "GO:0007159",
+        "n_go_genes": 5,
+        "best_or": 2.053,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 2.053,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "CD40LG",
+          "SELL"
+        ]
+      },
+      {
+        "go_id": "GO:0019221",
+        "n_go_genes": 8,
+        "best_or": 1.861,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 1.861,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "IL2RB",
+          "IL5RA",
+          "STAT4"
+        ]
+      },
+      {
+        "go_id": "GO:0010575",
+        "n_go_genes": 5,
+        "best_or": 2.053,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 2.053,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "HIF1A",
+          "RORA"
+        ]
+      },
+      {
+        "go_id": "GO:0043407",
+        "n_go_genes": 3,
+        "best_or": 1.52,
+        "best_pole": "bottom",
+        "emp_p": 1.0,
+        "null_mean_or": 1.52,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "GSTP1"
+        ]
+      },
+      {
+        "go_id": "GO:0071260",
+        "n_go_genes": 6,
+        "best_or": 1.53,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 1.53,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "PTGS2",
+          "TNFSF14"
+        ]
+      },
+      {
+        "go_id": "GO:0060559",
+        "n_go_genes": 3,
+        "best_or": 1.52,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 1.52,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "IFNG"
+        ]
+      },
+      {
+        "go_id": "GO:0050729",
+        "n_go_genes": 12,
+        "best_or": 1.552,
+        "best_pole": "top",
+        "emp_p": 1.0,
+        "null_mean_or": 1.552,
+        "null_std_or": 0.0,
+        "genes_in_pole": [
+          "IFNG",
+          "IL2",
+          "TLR10",
+          "TLR2"
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,38 @@
+{
+  "H01": {
+    "n_reg_sig": 8,
+    "n_specific": 0,
+    "best_p_specificity": 0.9999118803264915,
+    "best_rbc_specificity": -0.15368421052631587
+  },
+  "H02": {
+    "n_sig_norm": 7,
+    "mean_rho_norm": -0.007282428065340814
+  },
+  "H03": {
+    "SV1": {
+      "n_sig_tf": 7,
+      "mean_rbc_tf": -0.1099560101636496,
+      "n_sig_tgt": 2,
+      "mean_rbc_tgt": 0.028789542869866087
+    },
+    "SV2-4": {
+      "n_sig_tf": 10,
+      "mean_rbc_tf": 0.2292708928496774,
+      "n_sig_tgt": 8,
+      "mean_rbc_tgt": 0.1244144572328983
+    },
+    "SV5-7": {
+      "n_sig_tf": 7,
+      "mean_rbc_tf": 0.15219229179150584,
+      "n_sig_tgt": 9,
+      "mean_rbc_tgt": 0.03914376591420318
+    },
+    "SV8-10": {
+      "n_sig_tf": 5,
+      "mean_rbc_tf": 0.12277205646678464,
+      "n_sig_tgt": 7,
+      "mean_rbc_tgt": -0.07239874142203039
+    }
+  }
+}

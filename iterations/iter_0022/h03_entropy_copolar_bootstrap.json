@@ -1,0 +1,183 @@
+{
+  "hypothesis": "H03_persistence_entropy_copolar_bootstrap_per_layer",
+  "entropy_analysis": {
+    "per_layer": [
+      {
+        "layer": 0,
+        "h1_n_features": 133,
+        "h1_mean_lifetime": 0.012694529124668666,
+        "h1_proxy_entropy": -1.2758169837412747
+      },
+      {
+        "layer": 1,
+        "h1_n_features": 133,
+        "h1_mean_lifetime": 0.011706070568328513,
+        "h1_proxy_entropy": -1.4754613537572687
+      },
+      {
+        "layer": 2,
+        "h1_n_features": 115,
+        "h1_mean_lifetime": 0.012571963538294253,
+        "h1_proxy_entropy": -1.3091019049899009
+      },
+      {
+        "layer": 3,
+        "h1_n_features": 123,
+        "h1_mean_lifetime": 0.011402271385115336,
+        "h1_proxy_entropy": -1.422784226463111
+      },
+      {
+        "layer": 4,
+        "h1_n_features": 117,
+        "h1_mean_lifetime": 0.010936761513734475,
+        "h1_proxy_entropy": -1.2674169804285766
+      },
+      {
+        "layer": 5,
+        "h1_n_features": 128,
+        "h1_mean_lifetime": 0.010798618430271745,
+        "h1_proxy_entropy": -1.3483071470068506
+      },
+      {
+        "layer": 6,
+        "h1_n_features": 118,
+        "h1_mean_lifetime": 0.011905019818726232,
+        "h1_proxy_entropy": -1.4260161605390764
+      },
+      {
+        "layer": 7,
+        "h1_n_features": 125,
+        "h1_mean_lifetime": 0.010368829965591431,
+        "h1_proxy_entropy": -1.281256380957113
+      },
+      {
+        "layer": 8,
+        "h1_n_features": 126,
+        "h1_mean_lifetime": 0.010040848501144893,
+        "h1_proxy_entropy": -1.313739939761818
+      },
+      {
+        "layer": 9,
+        "h1_n_features": 113,
+        "h1_mean_lifetime": 0.00884594880374132,
+        "h1_proxy_entropy": -1.3099701815756766
+      },
+      {
+        "layer": 10,
+        "h1_n_features": 110,
+        "h1_mean_lifetime": 0.006051034412600778,
+        "h1_proxy_entropy": -1.4782515186991603
+      },
+      {
+        "layer": 11,
+        "h1_n_features": 103,
+        "h1_mean_lifetime": 0.004725105120140372,
+        "h1_proxy_entropy": -1.5869975869952588
+      }
+    ],
+    "spearman_entropy_vs_layer": {
+      "rho": -0.43356643356643365,
+      "p": 0.1591057694121953
+    },
+    "spearman_h1mean_vs_layer": {
+      "rho": -0.9160839160839163,
+      "p": 2.8428045348547155e-05
+    }
+  },
+  "copolar_bootstrap": {
+    "n_bootstrap": 500,
+    "n_svs": 3,
+    "per_layer": [
+      {
+        "layer": 0,
+        "observed_ratio": 1.5068211219569565,
+        "bootstrap_ci_low": 1.4098577952879374,
+        "bootstrap_ci_high": 1.6159125210709946,
+        "bootstrap_ci_excludes_null": true
+      },
+      {
+        "layer": 1,
+        "observed_ratio": 1.5132938155277944,
+        "bootstrap_ci_low": 1.404684211542546,
+        "bootstrap_ci_high": 1.6207569848043095,
+        "bootstrap_ci_excludes_null": true
+      },
+      {
+        "layer": 2,
+        "observed_ratio": 1.5033578783230805,
+        "bootstrap_ci_low": 1.4089147075252502,
+        "bootstrap_ci_high": 1.6058181996823162,
+        "bootstrap_ci_excludes_null": true
+      },
+      {
+        "layer": 3,
+        "observed_ratio": 1.5451063087117904,
+        "bootstrap_ci_low": 1.4551437870982948,
+        "bootstrap_ci_high": 1.6463141455269732,
+        "bootstrap_ci_excludes_null": true
+      },
+      {
+        "layer": 4,
+        "observed_ratio": 1.5414727575141547,
+        "bootstrap_ci_low": 1.4458657448631576,
+        "bootstrap_ci_high": 1.644482619579644,
+        "bootstrap_ci_excludes_null": true
+      },
+      {
+        "layer": 5,
+        "observed_ratio": 1.5351990436733423,
+        "bootstrap_ci_low": 1.4251764455434195,
+        "bootstrap_ci_high": 1.6530255702752712,
+        "bootstrap_ci_excludes_null": true
+      },
+      {
+        "layer": 6,
+        "observed_ratio": 1.6836455058037232,
+        "bootstrap_ci_low": 1.5712406719936804,
+        "bootstrap_ci_high": 1.7975065404219155,
+        "bootstrap_ci_excludes_null": true
+      },
+      {
+        "layer": 7,
+        "observed_ratio": 1.6890055859730486,
+        "bootstrap_ci_low": 1.561131346025562,
+        "bootstrap_ci_high": 1.8102863104232425,
+        "bootstrap_ci_excludes_null": true
+      },
+      {
+        "layer": 8,
+        "observed_ratio": 1.525543703776026,
+        "bootstrap_ci_low": 1.3951790599988019,
+        "bootstrap_ci_high": 1.6379485375860683,
+        "bootstrap_ci_excludes_null": true
+      },
+      {
+        "layer": 9,
+        "observed_ratio": 1.4964808033854453,
+        "bootstrap_ci_low": 1.375885280768303,
+        "bootstrap_ci_high": 1.6061130966737562,
+        "bootstrap_ci_excludes_null": true
+      },
+      {
+        "layer": 10,
+        "observed_ratio": 1.3397891995886821,
+        "bootstrap_ci_low": 1.2257645868577307,
+        "bootstrap_ci_high": 1.440856469963844,
+        "bootstrap_ci_excludes_null": true
+      },
+      {
+        "layer": 11,
+        "observed_ratio": 1.6253127079686447,
+        "bootstrap_ci_low": 1.5045124391331373,
+        "bootstrap_ci_high": 1.7296402128720374,
+        "bootstrap_ci_excludes_null": true
+      }
+    ],
+    "n_layers_ci_excludes_null": 12,
+    "spearman_ratio_vs_layer": {
+      "rho": 0.08391608391608392,
+      "p": 0.7954145018538977
+    },
+    "mean_ratio": 1.5420857026835577
+  }
+}

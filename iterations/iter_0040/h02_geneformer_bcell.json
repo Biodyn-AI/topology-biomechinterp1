@@ -1,0 +1,55 @@
+{
+  "status": "tested",
+  "gf_emb_shape": [
+    20275,
+    1152
+  ],
+  "n_valid_genes": 2047,
+  "bcell_in_gf": [
+    "MS4A1",
+    "CD79A",
+    "BLK",
+    "PRDM1"
+  ],
+  "gc_tfs_in_gf": [
+    "BATF",
+    "BACH2",
+    "BCL6",
+    "PAX5"
+  ],
+  "bcell_minimal_in_gf": [
+    "BLK"
+  ],
+  "precision_at_10_full": 0.0,
+  "precision_at_10_minimal": 0.0,
+  "null_full_mean": 0.0,
+  "null_full_std": 0.0,
+  "null_min_mean": 0.0,
+  "null_min_std": 0.0,
+  "z_full": 0.0,
+  "z_minimal": 0.0,
+  "pctile_full": 0.0,
+  "pctile_minimal": 0.0,
+  "top_20_nearest_to_bcell_centroid": [
+    "BLK",
+    "GPHB5",
+    "OR5AK2",
+    "KRTAP5-7",
+    "OR2T29",
+    "OR4K13",
+    "NLRP2B",
+    "ZNF735",
+    "WNT8A",
+    "TLE7",
+    "OR13D1",
+    "ACCSL",
+    "POTEB3",
+    "MAGEB18",
+    "DSG4",
+    "OR4K2",
+    "OR12D3",
+    "GPR61",
+    "PRAMEF20",
+    "OR7G2"
+  ]
+}

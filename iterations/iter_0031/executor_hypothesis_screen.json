@@ -1,0 +1,57 @@
+{
+  "iteration": "iter_0031",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "kNN Spectral Gap Monotonic Decrease (195 in-vocab genes)",
+      "family": "graph_topology",
+      "split_regime": "other",
+      "method": "k=10 kNN graph per layer on 195 in-vocab named genes. Normalized Laplacian spectral gap ratio = lambda2/lambda_max via scipy.sparse.linalg.eigsh. Spearman rho(layer, ratio). Compare real vs Gaussian null.",
+      "status": "tested",
+      "primary_metric": "Spearman rho(layer, spectral_gap_ratio)",
+      "result_value": "rho=-1.000, p=0.0; real_mean=0.067 vs null_mean=0.373",
+      "result_direction": "positive",
+      "artifact_paths": ["iterations/iter_0031/h01_spectral_gap_195.json"],
+      "decision": "promising",
+      "next_action": "Test community detection (Louvain/greedy modularity) on kNN graph per layer; compare communities to GO/STRING annotations. Also test if spectral gap correlates with cell-type marker clusters.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0028_H03",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "STRING Score → Embedding Distance (195 in-vocab genes, corrected)",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "STRING PPI pairs (score>=0.4) filtered to 195 in-vocab named genes (n=2592 pairs). L2 embedding distance per pair per layer. Spearman rho(STRING_score, L2_dist) and AUROC (high>=0.7 vs low<0.5 score pairs).",
+      "status": "tested",
+      "primary_metric": "mean Spearman rho(STRING_score, L2_dist) across layers",
+      "result_value": "mean_rho=-0.015, mean_AUROC=0.494 (null)",
+      "result_direction": "negative",
+      "artifact_paths": ["iterations/iter_0031/h02_string_dist_195.json"],
+      "decision": "negative",
+      "next_action": "Retire STRING→embedding distance direction. Try GO Jaccard similarity → embedding distance instead (iter_0024 showed GO Jaccard promising; now apply to 195 in-vocab genes).",
+      "novelty_type": "refinement",
+      "lineage": "iter_0028_H01",
+      "retired": false,
+      "retirement_reason": "STRING score does not predict embedding distance at any layer; AUROC~0.49 across all layers on corrected gene set"
+    },
+    {
+      "id": "H03",
+      "name": "Participation Ratio (Intrinsic Dim) Collapse Across Layers (195 in-vocab genes)",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "For 195 in-vocab genes per layer: mean-center, SVD, participation ratio PR=(sum s^2)^2/(sum s^4). L2 norm CV per layer. Spearman rho(layer, PR) and rho(layer, norm_CV).",
+      "status": "tested",
+      "primary_metric": "Spearman rho(layer, participation_ratio)",
+      "result_value": "rho=-1.000, p=0.0; PR collapse 58.09→9.53 (6.1x), var_PC1 rises 8%→26%",
+      "result_direction": "positive",
+      "artifact_paths": ["iterations/iter_0031/h03_intdim_norm_195.json"],
+      "decision": "promising",
+      "next_action": "Test if PC1 at L11 separates known biological groups (cell-type markers, TF targets). Also compute two-factor model: PR × spectral_gap predicts layer depth with both metrics jointly.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0026_H03",
+      "retired": false
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "iteration": "iter_0058",
+  "H01": {
+    "description": "TF boundary gene identity + TF family enrichment at peak layers",
+    "peak_layers": [
+      2,
+      3
+    ],
+    "top_anchors_L2": [
+      {
+        "tf_gene": "BCL11A",
+        "margin": 1.7835822105407715,
+        "dist_to_tgt_centroid": 4.109054088592529
+      },
+      {
+        "tf_gene": "NFKB1",
+        "margin": 1.542736530303955,
+        "dist_to_tgt_centroid": 4.446573257446289
+      },
+      {
+        "tf_gene": "RB1",
+        "margin": 1.528233528137207,
+        "dist_to_tgt_centroid": 5.8488240242004395
+      },
+      {
+        "tf_gene": "FOXO3",
+        "margin": 1.5207023620605469,
+        "dist_to_tgt_centroid": 5.278942108154297
+      },
+      {
+        "tf_gene": "ZEB1",
+        "margin": 1.4989418983459473,
+        "dist_to_tgt_centroid": 5.508800506591797
+      },
+      {
+        "tf_gene": "SETBP1",
+        "margin": 1.4831976890563965,
+        "dist_to_tgt_centroid": 5.7314677238464355
+      },
+      {
+        "tf_gene": "TRPS1",
+        "margin": 1.3708381652832031,
+        "dist_to_tgt_centroid": 4.448484897613525
+      },
+      {
+        "tf_gene": "NFIX",
+        "margin": 1.3638510704040527,
+        "dist_to_tgt_centroid": 4.6777472496032715
+      },
+      {
+        "tf_gene": "STAT3",
+        "margin": 1.322265863418579,
+        "dist_to_tgt_centroid": 3.5195634365081787
+      },
+      {
+        "tf_gene": "RBPJ",
+        "margin": 1.308293342590332,
+        "dist_to_tgt_centroid": 5.757915496826172
+      }
+    ],
+    "family_stats_L2": {
+      "mean": {
+        "Forkhead": 1.5207023620605469,
+        "STAT": 1.2993656396865845,
+        "bHLH": 1.024660587310791,
+        "ETS": 0.7901859283447266,
+        "RUNX": 0.8427002429962158,
+        "Other": 0.5949035286903381,
+        "Rel": 0.6624831557273865,
+        "Nuclear receptor": 0.23991075158119202,
+        "GATA": 0.026693344116210938,
+        "bZIP": -0.15602099895477295,
+        "C2H2-ZF": -0.4000473618507385
+      },
+      "median": {
+        "Forkhead": 1.5207023620605469,
+        "STAT": 1.2993656396865845,
+        "bHLH": 1.024660587310791,
+        "ETS": 0.9297120571136475,
+        "RUNX": 0.8427002429962158,
+        "Other": 0.6682305335998535,
+        "Rel": 0.5824670791625977,
+        "Nuclear receptor": 0.2069096565246582,
+        "GATA": 0.026693344116210938,
+        "bZIP": -0.18016135692596436,
+        "C2H2-ZF": -0.47192835807800293
+      },
+      "count": {
+        "Forkhead": 1,
+        "STAT": 2,
+        "bHLH": 1,
+        "ETS": 3,
+        "RUNX": 2,
+        "Other": 43,
+        "Rel": 5,
+        "Nuclear receptor": 5,
+        "GATA": 2,
+        "bZIP": 4,
+        "C2H2-ZF": 5
+      }
+    }
+  },
+  "H02": {
+    "description": "TRRUST graph Laplacian spectral alignment with SV5-7",
+    "n_nodes": 2039,
+    "n_edges": 589,
+    "sv57_best_pa_deg": 84.87864150952265,
+    "random_baseline_pa_mean": 88.21512230604056,
+    "random_baseline_pa_std": 0.42711108968723654,
+    "z_score": 7.81174002988574
+  },
+  "H03": {
+    "description": "Effective rank as cross-seed AUROC predictor",
+    "spearman_eff_rank_full": 0.8545688545688548,
+    "p_eff_rank_full": 3.328237669335048e-11,
+    "spearman_eff_rank_sv27": 0.5392535392535392,
+    "p_eff_rank_sv27": 0.0006895818223201715,
+    "spearman_spec_entropy": 0.8545688545688548,
+    "p_spec_entropy": 3.328237669335048e-11
+  }
+}

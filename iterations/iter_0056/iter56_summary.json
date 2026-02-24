@@ -1,0 +1,24 @@
+{
+  "iteration": "iter_0056",
+  "H01": {
+    "n_layers_joint_ge_072": 9,
+    "n_layers_joint_beats_both": 11,
+    "mean_joint_auroc": 0.7437025012025011,
+    "max_joint_auroc": 0.7894805194805194
+  },
+  "H02": {
+    "crossover_layers_by_seed": {
+      "main": [
+        9
+      ],
+      "seed43": [],
+      "seed44": [
+        9
+      ]
+    }
+  },
+  "H03": {
+    "spearman_rho": -0.27272727272727276,
+    "spearman_p": 0.41714143714253127
+  }
+}

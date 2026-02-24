@@ -1,0 +1,97 @@
+{
+  "hypothesis": "held_out_bcell_marker_generalization",
+  "reference_panel": [
+    "MS4A1",
+    "CD19",
+    "CD79A",
+    "BLK",
+    "PRDM1"
+  ],
+  "held_out_genes": [
+    "SPIB",
+    "BACH2",
+    "BATF",
+    "IRF4",
+    "FCER2",
+    "MEF2C",
+    "IRF8"
+  ],
+  "n_held_out_in_vocab": 7,
+  "primary_layer": 2,
+  "null_mean_dist": 10.064937591552734,
+  "null_std_dist": 1.936407446861267,
+  "ref_mean_dist": 6.117609977722168,
+  "ref_std_dist": 1.4672414064407349,
+  "gene_results_L2": [
+    {
+      "gene": "BATF",
+      "dist_to_bcell_centroid": 6.234925746917725,
+      "z_vs_null": -1.9778956389809936,
+      "pctile_closeness": 0.958974358974359
+    },
+    {
+      "gene": "SPIB",
+      "dist_to_bcell_centroid": 6.84132719039917,
+      "z_vs_null": -1.6647376595314471,
+      "pctile_closeness": 0.9384615384615385
+    },
+    {
+      "gene": "BACH2",
+      "dist_to_bcell_centroid": 7.771769046783447,
+      "z_vs_null": -1.1842386520294952,
+      "pctile_closeness": 0.8615384615384616
+    },
+    {
+      "gene": "MEF2C",
+      "dist_to_bcell_centroid": 9.961502075195312,
+      "z_vs_null": -0.05341619426208024,
+      "pctile_closeness": 0.5641025641025641
+    },
+    {
+      "gene": "FCER2",
+      "dist_to_bcell_centroid": 10.165712356567383,
+      "z_vs_null": 0.052042128413000356,
+      "pctile_closeness": 0.5333333333333333
+    },
+    {
+      "gene": "IRF8",
+      "dist_to_bcell_centroid": 10.629755020141602,
+      "z_vs_null": 0.29168315246629234,
+      "pctile_closeness": 0.4358974358974359
+    },
+    {
+      "gene": "IRF4",
+      "dist_to_bcell_centroid": 11.64698314666748,
+      "z_vs_null": 0.8170003464908131,
+      "pctile_closeness": 0.19487179487179487
+    }
+  ],
+  "n_held_out_top_quartile_L2": 3,
+  "layer_summary": {
+    "L0": {
+      "mean_z_held_out": -0.5141696333885193,
+      "mean_pctile_closeness": 0.6402930402930403,
+      "frac_top_quartile": 0.42857142857142855
+    },
+    "L2": {
+      "mean_z_held_out": -0.5313660502433777,
+      "mean_pctile_closeness": 0.6410256410256411,
+      "frac_top_quartile": 0.42857142857142855
+    },
+    "L5": {
+      "mean_z_held_out": -0.5034741759300232,
+      "mean_pctile_closeness": 0.6278388278388279,
+      "frac_top_quartile": 0.42857142857142855
+    },
+    "L8": {
+      "mean_z_held_out": -0.30842047929763794,
+      "mean_pctile_closeness": 0.5831501831501831,
+      "frac_top_quartile": 0.42857142857142855
+    },
+    "L11": {
+      "mean_z_held_out": -0.2474266141653061,
+      "mean_pctile_closeness": 0.5926739926739926,
+      "frac_top_quartile": 0.42857142857142855
+    }
+  }
+}

@@ -1,0 +1,351 @@
+{
+  "hypothesis": "multi_celltype_knn_precision_panel",
+  "k": 10,
+  "n_bootstrap": 500,
+  "layers_tested": [
+    2,
+    5,
+    8,
+    11
+  ],
+  "results_by_celltype": {
+    "B-cell": [
+      {
+        "layer": 2,
+        "n_markers": 7,
+        "markers": [
+          "MS4A1",
+          "CD19",
+          "CD79A",
+          "BLK",
+          "FCER2",
+          "IRF4",
+          "PRDM1"
+        ],
+        "obs_precision_at_10": 0.14285714285714285,
+        "null_mean": 0.031114285714285716,
+        "null_std": 0.024537834177499225,
+        "z_score": 4.553900555328284,
+        "empirical_p": 0.002,
+        "per_gene_precisions": [
+          0.1,
+          0.2,
+          0.2,
+          0.2,
+          0.0,
+          0.1,
+          0.2
+        ]
+      },
+      {
+        "layer": 5,
+        "n_markers": 7,
+        "markers": [
+          "MS4A1",
+          "CD19",
+          "CD79A",
+          "BLK",
+          "FCER2",
+          "IRF4",
+          "PRDM1"
+        ],
+        "obs_precision_at_10": 0.1142857142857143,
+        "null_mean": 0.03217142857142858,
+        "null_std": 0.027643857493896494,
+        "z_score": 2.970435129589721,
+        "empirical_p": 0.018,
+        "per_gene_precisions": [
+          0.1,
+          0.1,
+          0.2,
+          0.2,
+          0.0,
+          0.1,
+          0.1
+        ]
+      },
+      {
+        "layer": 8,
+        "n_markers": 7,
+        "markers": [
+          "MS4A1",
+          "CD19",
+          "CD79A",
+          "BLK",
+          "FCER2",
+          "IRF4",
+          "PRDM1"
+        ],
+        "obs_precision_at_10": 0.08571428571428572,
+        "null_mean": 0.03031428571428572,
+        "null_std": 0.025262362098099816,
+        "z_score": 2.1929857376586526,
+        "empirical_p": 0.04,
+        "per_gene_precisions": [
+          0.1,
+          0.1,
+          0.2,
+          0.1,
+          0.0,
+          0.1,
+          0.0
+        ]
+      },
+      {
+        "layer": 11,
+        "n_markers": 7,
+        "markers": [
+          "MS4A1",
+          "CD19",
+          "CD79A",
+          "BLK",
+          "FCER2",
+          "IRF4",
+          "PRDM1"
+        ],
+        "obs_precision_at_10": 0.07142857142857142,
+        "null_mean": 0.03054285714285715,
+        "null_std": 0.024854499038382962,
+        "z_score": 1.6450025429228707,
+        "empirical_p": 0.094,
+        "per_gene_precisions": [
+          0.0,
+          0.1,
+          0.1,
+          0.2,
+          0.0,
+          0.1,
+          0.0
+        ]
+      }
+    ],
+    "T-cell": [
+      {
+        "layer": 2,
+        "n_markers": 12,
+        "markers": [
+          "CD3G",
+          "CD8A",
+          "CD8B",
+          "LCK",
+          "GATA3",
+          "TBX21",
+          "FOXP3",
+          "CD28",
+          "CD69",
+          "IL2RA",
+          "CCR7",
+          "SELL"
+        ],
+        "obs_precision_at_10": 0.06666666666666667,
+        "null_mean": 0.05838333333333334,
+        "null_std": 0.028836180013617926,
+        "z_score": 0.28725487566994035,
+        "empirical_p": 0.416,
+        "per_gene_precisions": [
+          0.0,
+          0.2,
+          0.2,
+          0.0,
+          0.1,
+          0.1,
+          0.0,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.0
+        ]
+      },
+      {
+        "layer": 5,
+        "n_markers": 12,
+        "markers": [
+          "CD3G",
+          "CD8A",
+          "CD8B",
+          "LCK",
+          "GATA3",
+          "TBX21",
+          "FOXP3",
+          "CD28",
+          "CD69",
+          "IL2RA",
+          "CCR7",
+          "SELL"
+        ],
+        "obs_precision_at_10": 0.10000000000000002,
+        "null_mean": 0.0587,
+        "null_std": 0.026974864843652756,
+        "z_score": 1.5310549315546431,
+        "empirical_p": 0.082,
+        "per_gene_precisions": [
+          0.1,
+          0.3,
+          0.2,
+          0.0,
+          0.1,
+          0.1,
+          0.0,
+          0.0,
+          0.3,
+          0.0,
+          0.1,
+          0.0
+        ]
+      },
+      {
+        "layer": 8,
+        "n_markers": 12,
+        "markers": [
+          "CD3G",
+          "CD8A",
+          "CD8B",
+          "LCK",
+          "GATA3",
+          "TBX21",
+          "FOXP3",
+          "CD28",
+          "CD69",
+          "IL2RA",
+          "CCR7",
+          "SELL"
+        ],
+        "obs_precision_at_10": 0.10000000000000002,
+        "null_mean": 0.05878333333333334,
+        "null_std": 0.027171119267012583,
+        "z_score": 1.5169292847281903,
+        "empirical_p": 0.098,
+        "per_gene_precisions": [
+          0.2,
+          0.2,
+          0.2,
+          0.0,
+          0.2,
+          0.0,
+          0.0,
+          0.0,
+          0.2,
+          0.1,
+          0.1,
+          0.0
+        ]
+      },
+      {
+        "layer": 11,
+        "n_markers": 12,
+        "markers": [
+          "CD3G",
+          "CD8A",
+          "CD8B",
+          "LCK",
+          "GATA3",
+          "TBX21",
+          "FOXP3",
+          "CD28",
+          "CD69",
+          "IL2RA",
+          "CCR7",
+          "SELL"
+        ],
+        "obs_precision_at_10": 0.09166666666666667,
+        "null_mean": 0.05775,
+        "null_std": 0.026542811330628364,
+        "z_score": 1.2778098791573165,
+        "empirical_p": 0.13,
+        "per_gene_precisions": [
+          0.1,
+          0.2,
+          0.2,
+          0.0,
+          0.2,
+          0.1,
+          0.0,
+          0.0,
+          0.1,
+          0.1,
+          0.1,
+          0.0
+        ]
+      }
+    ],
+    "Myeloid": [
+      {
+        "layer": 2,
+        "n_markers": 3,
+        "markers": [
+          "IRF8",
+          "VCAN",
+          "MSR1"
+        ],
+        "obs_precision_at_10": 0.03333333333333333,
+        "null_mean": 0.009866666666666668,
+        "null_std": 0.020121409272491605,
+        "z_score": 1.1662536272806232,
+        "empirical_p": 0.226,
+        "per_gene_precisions": [
+          0.1,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "layer": 5,
+        "n_markers": 3,
+        "markers": [
+          "IRF8",
+          "VCAN",
+          "MSR1"
+        ],
+        "obs_precision_at_10": 0.0,
+        "null_mean": 0.009600000000000001,
+        "null_std": 0.02079145123468885,
+        "z_score": -0.4617282288506324,
+        "empirical_p": 1.0,
+        "per_gene_precisions": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "layer": 8,
+        "n_markers": 3,
+        "markers": [
+          "IRF8",
+          "VCAN",
+          "MSR1"
+        ],
+        "obs_precision_at_10": 0.0,
+        "null_mean": 0.010933333333333333,
+        "null_std": 0.023007631584131192,
+        "z_score": -0.47520464007054947,
+        "empirical_p": 1.0,
+        "per_gene_precisions": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "layer": 11,
+        "n_markers": 3,
+        "markers": [
+          "IRF8",
+          "VCAN",
+          "MSR1"
+        ],
+        "obs_precision_at_10": 0.0,
+        "null_mean": 0.011933333333333334,
+        "null_std": 0.02294524884250429,
+        "z_score": -0.5200786168516028,
+        "empirical_p": 1.0,
+        "per_gene_precisions": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  }
+}

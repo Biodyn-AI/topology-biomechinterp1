@@ -1,0 +1,71 @@
+{
+  "iteration": "iter_0006",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "Full-vocabulary residual drift + GO enrichment",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "Compute L2(layer_11 - layer_0) for all 4803 scGPT gene positions. Map 209 named genes to their embedding indices. Compute named-gene drift percentile in full-vocab context (named genes at 84th pct). Run GO BP enrichment (Fisher exact, top-50 vs bottom-50 named genes by drift). 288 terms tested.",
+      "status": "tested",
+      "primary_metric": "top_go_term_p_value",
+      "result_value": "GO:0000981 (TF activity RNA Pol II) OR=3.30, p=0.0078; 6/288 terms p<0.05; 0 FDR<0.05",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0006/h01_fullvocab_drift.csv",
+        "iterations/iter_0006/h01_go_enrichment_fullvocab_drift.csv",
+        "iterations/iter_0006/iter0006_results.json"
+      ],
+      "decision": "promising",
+      "next_action": "Add feature-shuffle null control to confirm drift-enrichment is not an artifact of the named-gene selection bias. Increase power by expanding to full vocab gene names.",
+      "novelty_type": "refinement",
+      "lineage": "iter_0005_H02",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H02",
+      "name": "SVD biology of near-rank-1 layer-11 subspace",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "SVD of full 4803x512 mean-centered layer-11 embedding matrix. Project 209 named genes onto top singular vectors. GO BP enrichment (Fisher exact) for top-25% vs bottom-25% named genes by signed SV1 loading. 284 terms tested. Also: compute SVD for layer-0 to quantify compression ratio.",
+      "status": "tested",
+      "primary_metric": "sv1_go_enrichment_top_p",
+      "result_value": "GO:0005615 (extracellular space) OR=6.37, p=0.0003; 3/284 terms p<0.05; 0 FDR<0.05. Layer-11 top-5 SVs explain 96.8% var (vs 65.6% at layer-0). SV1/SV2 ratio = 7.7x.",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0006/h02_svd_gene_projections.csv",
+        "iterations/iter_0006/h02_svd_sv1_go_enrichment.csv",
+        "iterations/iter_0006/h02_svd_layer_comparison.csv",
+        "iterations/iter_0006/iter0006_results.json"
+      ],
+      "decision": "promising",
+      "next_action": "Run feature-shuffle null on SV1 enrichment (decisive biological specificity test). Extend SVD across all 12 layers to track when extracellular axis emerges. Test bottom-quartile SV1 for nuclear/TF enrichment as complementary pole.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0005_H03",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H03",
+      "name": "Effective rank curvature and compression breakpoint",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "First and second finite differences of ER across 12 layers from iter_0005 data. Compute max compression rate layer, inflection point, and ER half-life layer. Cross-correlate ER with TwoNN (Pearson + Spearman).",
+      "status": "tested",
+      "primary_metric": "max_compression_layer",
+      "result_value": "Max rate at layer 1 (−2.49 ER/layer), inflection at layer 3, half-life at layer 4. ER 6.17x fold change (7.89→1.28). Pearson r(ER,TwoNN)=0.793 p=0.0021.",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0006/h03_er_curvature.csv",
+        "iterations/iter_0006/iter0006_results.json"
+      ],
+      "decision": "promising",
+      "next_action": "Extend ER curvature analysis to layer-wise SVD across all 12 layers to track when SV1 dominance emerges. Characterize whether breakpoint (layers 1-4) corresponds to specific attention head patterns.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0005_H03",
+      "retired": false,
+      "retirement_reason": ""
+    }
+  ]
+}

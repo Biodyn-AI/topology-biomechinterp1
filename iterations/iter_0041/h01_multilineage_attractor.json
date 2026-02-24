@@ -1,0 +1,261 @@
+{
+  "layers": [
+    {
+      "layer": 0,
+      "tcell_tf_ranks": {
+        "RUNX3": 170
+      },
+      "tcell_mean_rank": 170.0,
+      "myeloid_tf_ranks": {
+        "SPI1": 27,
+        "CEBPB": 146
+      },
+      "myeloid_mean_rank": 86.5,
+      "bcell_gc_ranks": {
+        "BATF": 1511,
+        "BACH2": 612,
+        "PAX5": 66
+      },
+      "bcell_gc_mean_rank": 729.6666666666666
+    },
+    {
+      "layer": 1,
+      "tcell_tf_ranks": {
+        "RUNX3": 189
+      },
+      "tcell_mean_rank": 189.0,
+      "myeloid_tf_ranks": {
+        "SPI1": 24,
+        "CEBPB": 133
+      },
+      "myeloid_mean_rank": 78.5,
+      "bcell_gc_ranks": {
+        "BATF": 1367,
+        "BACH2": 558,
+        "PAX5": 62
+      },
+      "bcell_gc_mean_rank": 662.3333333333334
+    },
+    {
+      "layer": 2,
+      "tcell_tf_ranks": {
+        "RUNX3": 127
+      },
+      "tcell_mean_rank": 127.0,
+      "myeloid_tf_ranks": {
+        "SPI1": 28,
+        "CEBPB": 183
+      },
+      "myeloid_mean_rank": 105.5,
+      "bcell_gc_ranks": {
+        "BATF": 1259,
+        "BACH2": 308,
+        "PAX5": 70
+      },
+      "bcell_gc_mean_rank": 545.6666666666666
+    },
+    {
+      "layer": 3,
+      "tcell_tf_ranks": {
+        "RUNX3": 97
+      },
+      "tcell_mean_rank": 97.0,
+      "myeloid_tf_ranks": {
+        "SPI1": 26,
+        "CEBPB": 145
+      },
+      "myeloid_mean_rank": 85.5,
+      "bcell_gc_ranks": {
+        "BATF": 1063,
+        "BACH2": 261,
+        "PAX5": 40
+      },
+      "bcell_gc_mean_rank": 454.6666666666667
+    },
+    {
+      "layer": 4,
+      "tcell_tf_ranks": {
+        "RUNX3": 50
+      },
+      "tcell_mean_rank": 50.0,
+      "myeloid_tf_ranks": {
+        "SPI1": 23,
+        "CEBPB": 138
+      },
+      "myeloid_mean_rank": 80.5,
+      "bcell_gc_ranks": {
+        "BATF": 558,
+        "BACH2": 465,
+        "PAX5": 37
+      },
+      "bcell_gc_mean_rank": 353.3333333333333
+    },
+    {
+      "layer": 5,
+      "tcell_tf_ranks": {
+        "RUNX3": 37
+      },
+      "tcell_mean_rank": 37.0,
+      "myeloid_tf_ranks": {
+        "SPI1": 26,
+        "CEBPB": 122
+      },
+      "myeloid_mean_rank": 74.0,
+      "bcell_gc_ranks": {
+        "BATF": 359,
+        "BACH2": 421,
+        "PAX5": 42
+      },
+      "bcell_gc_mean_rank": 274.0
+    },
+    {
+      "layer": 6,
+      "tcell_tf_ranks": {
+        "RUNX3": 51
+      },
+      "tcell_mean_rank": 51.0,
+      "myeloid_tf_ranks": {
+        "SPI1": 20,
+        "CEBPB": 111
+      },
+      "myeloid_mean_rank": 65.5,
+      "bcell_gc_ranks": {
+        "BATF": 336,
+        "BACH2": 325,
+        "PAX5": 31
+      },
+      "bcell_gc_mean_rank": 230.66666666666666
+    },
+    {
+      "layer": 7,
+      "tcell_tf_ranks": {
+        "RUNX3": 49
+      },
+      "tcell_mean_rank": 49.0,
+      "myeloid_tf_ranks": {
+        "SPI1": 27,
+        "CEBPB": 111
+      },
+      "myeloid_mean_rank": 69.0,
+      "bcell_gc_ranks": {
+        "BATF": 247,
+        "BACH2": 308,
+        "PAX5": 29
+      },
+      "bcell_gc_mean_rank": 194.66666666666666
+    },
+    {
+      "layer": 8,
+      "tcell_tf_ranks": {
+        "RUNX3": 52
+      },
+      "tcell_mean_rank": 52.0,
+      "myeloid_tf_ranks": {
+        "SPI1": 27,
+        "CEBPB": 114
+      },
+      "myeloid_mean_rank": 70.5,
+      "bcell_gc_ranks": {
+        "BATF": 268,
+        "BACH2": 224,
+        "PAX5": 36
+      },
+      "bcell_gc_mean_rank": 176.0
+    },
+    {
+      "layer": 9,
+      "tcell_tf_ranks": {
+        "RUNX3": 55
+      },
+      "tcell_mean_rank": 55.0,
+      "myeloid_tf_ranks": {
+        "SPI1": 27,
+        "CEBPB": 118
+      },
+      "myeloid_mean_rank": 72.5,
+      "bcell_gc_ranks": {
+        "BATF": 285,
+        "BACH2": 148,
+        "PAX5": 59
+      },
+      "bcell_gc_mean_rank": 164.0
+    },
+    {
+      "layer": 10,
+      "tcell_tf_ranks": {
+        "RUNX3": 59
+      },
+      "tcell_mean_rank": 59.0,
+      "myeloid_tf_ranks": {
+        "SPI1": 23,
+        "CEBPB": 95
+      },
+      "myeloid_mean_rank": 59.0,
+      "bcell_gc_ranks": {
+        "BATF": 238,
+        "BACH2": 185,
+        "PAX5": 73
+      },
+      "bcell_gc_mean_rank": 165.33333333333334
+    },
+    {
+      "layer": 11,
+      "tcell_tf_ranks": {
+        "RUNX3": 50
+      },
+      "tcell_mean_rank": 50.0,
+      "myeloid_tf_ranks": {
+        "SPI1": 24,
+        "CEBPB": 79
+      },
+      "myeloid_mean_rank": 51.5,
+      "bcell_gc_ranks": {
+        "BATF": 190,
+        "BACH2": 147,
+        "PAX5": 70
+      },
+      "bcell_gc_mean_rank": 135.66666666666666
+    }
+  ],
+  "spearman_tcell": {
+    "rho": -0.5429080129622185,
+    "p": 0.0681500850864122
+  },
+  "spearman_myeloid": {
+    "rho": -0.8741258741258742,
+    "p": 0.0002007130733242317
+  },
+  "spearman_bcell_ref": {
+    "rho": -0.9930069930069931,
+    "p": 1.3016730560634403e-10
+  },
+  "attractor_onset_tcell": 0,
+  "attractor_onset_myeloid": 0,
+  "attractor_onset_bcell_ref": 3,
+  "tcell_tfs_in_vocab": [
+    "RUNX3"
+  ],
+  "tcell_markers_in_vocab": [
+    "CD3D",
+    "CD3E",
+    "TRAC",
+    "CD8A",
+    "CD8B",
+    "IL7R",
+    "CCR7",
+    "SELL",
+    "CD28"
+  ],
+  "myeloid_tfs_in_vocab": [
+    "SPI1",
+    "CEBPB"
+  ],
+  "myeloid_markers_in_vocab": [
+    "CD14",
+    "LYZ",
+    "ITGAM",
+    "FCGR3A",
+    "S100A8",
+    "S100A9"
+  ]
+}

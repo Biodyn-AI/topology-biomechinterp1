@@ -1,0 +1,18 @@
+{
+  "iteration": "iter_0001",
+  "domain": "lung_scgpt",
+  "n_seeds": 3,
+  "n_genes_sampled": 300,
+  "k_nn": 10,
+  "n_null_reps": 15,
+  "pca_dims": 20,
+  "n_layer_tests": 36,
+  "mean_cc_delta": 0.254638,
+  "mean_tr_delta": -0.288289,
+  "n_cc_significant_p05": 0,
+  "n_tr_significant_p05": 0,
+  "frac_cc_sig": 0.0,
+  "frac_tr_sig": 0.0,
+  "verdict_cc": "negative",
+  "verdict_tr": "negative"
+}

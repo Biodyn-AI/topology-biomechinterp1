@@ -1,0 +1,503 @@
+{
+  "hypothesis": "tcell_perm_null_plus_string_tf_scoring",
+  "part_A": {
+    "tcell_markers_in_vocab": [
+      "CD3G",
+      "CD8A",
+      "CD8B",
+      "LCK",
+      "SELL",
+      "CCR7",
+      "PRF1",
+      "CD44",
+      "FOXP3",
+      "IL2RA"
+    ],
+    "n_tcell": 10,
+    "real_tcell_precision_L2": 0.01,
+    "z_tcell_vs_bootstrap_null": -1.3440694902106218,
+    "n_permutations": 200,
+    "perm_null_mean": 0.047000000000000014,
+    "perm_null_std": 0.0295296461204668,
+    "z_tcell_vs_perm_null": -1.2529780994922843,
+    "empirical_p_tcell_vs_perm_null": 0.96,
+    "perm_z_mean": 0.03218369115654138,
+    "perm_z_std": 1.0992782165997181,
+    "interpretation": "If z_vs_perm_null NOT significant: T-cell has no robust clustering, confirming B-cell specificity"
+  },
+  "part_B": {
+    "k_neighbors": 50,
+    "bcell_markers_used": [
+      "MS4A1",
+      "CD19",
+      "CD79A",
+      "BLK",
+      "PRDM1"
+    ],
+    "n_top_neighbors_analyzed": 50,
+    "top_neighbors": [
+      "ALOX5AP",
+      "MKI67",
+      "FAM162A",
+      "CR1",
+      "BATF",
+      "LRRFIP1",
+      "EOMES",
+      "GSTP1",
+      "POU2F2",
+      "IGFBP3",
+      "PRF1",
+      "NR4A2",
+      "AKR1B1",
+      "CD44",
+      "LCK",
+      "CD40LG",
+      "MSR1",
+      "VIM",
+      "ASS1",
+      "PMAIP1",
+      "TRERF1",
+      "SPIB",
+      "HDAC9",
+      "IL1B",
+      "ELF1",
+      "CYBB",
+      "HDGF",
+      "SP100",
+      "NEAT1",
+      "CD86",
+      "IL2",
+      "BACH2",
+      "FOXP3",
+      "GCSAM",
+      "GADD45A",
+      "PDHA1",
+      "TSC22D3",
+      "RUNX3",
+      "TSHB",
+      "CLU",
+      "HPGD",
+      "BNIP3",
+      "IL6",
+      "MYBL1",
+      "TNFAIP3",
+      "CCR6",
+      "RUNX2",
+      "RHOB",
+      "CSF3R",
+      "HIPK2"
+    ],
+    "n_with_bcell_connection": 2,
+    "n_known_bcell_tf": 3,
+    "random_baseline_mean": 0.73,
+    "random_baseline_std": 0.73287106642301,
+    "z_vs_random": 1.7329105459508896,
+    "neighbor_scores": [
+      {
+        "gene": "ALOX5AP",
+        "freq_as_neighbor": 5,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "MKI67",
+        "freq_as_neighbor": 5,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "FAM162A",
+        "freq_as_neighbor": 5,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "CR1",
+        "freq_as_neighbor": 5,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "BATF",
+        "freq_as_neighbor": 5,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": true
+      },
+      {
+        "gene": "LRRFIP1",
+        "freq_as_neighbor": 5,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "EOMES",
+        "freq_as_neighbor": 5,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "GSTP1",
+        "freq_as_neighbor": 5,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "POU2F2",
+        "freq_as_neighbor": 5,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "IGFBP3",
+        "freq_as_neighbor": 5,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "PRF1",
+        "freq_as_neighbor": 5,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "NR4A2",
+        "freq_as_neighbor": 5,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "AKR1B1",
+        "freq_as_neighbor": 5,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "CD44",
+        "freq_as_neighbor": 5,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "LCK",
+        "freq_as_neighbor": 5,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "CD40LG",
+        "freq_as_neighbor": 5,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "MSR1",
+        "freq_as_neighbor": 5,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "VIM",
+        "freq_as_neighbor": 5,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "ASS1",
+        "freq_as_neighbor": 4,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "PMAIP1",
+        "freq_as_neighbor": 4,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "TRERF1",
+        "freq_as_neighbor": 4,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "SPIB",
+        "freq_as_neighbor": 4,
+        "n_bcell_markers_connected": 1,
+        "connected_bcell_markers": [
+          "CD79A"
+        ],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": true
+      },
+      {
+        "gene": "HDAC9",
+        "freq_as_neighbor": 4,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "IL1B",
+        "freq_as_neighbor": 4,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "ELF1",
+        "freq_as_neighbor": 4,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "CYBB",
+        "freq_as_neighbor": 4,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "HDGF",
+        "freq_as_neighbor": 4,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "SP100",
+        "freq_as_neighbor": 4,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "NEAT1",
+        "freq_as_neighbor": 4,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "CD86",
+        "freq_as_neighbor": 4,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "IL2",
+        "freq_as_neighbor": 4,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "BACH2",
+        "freq_as_neighbor": 4,
+        "n_bcell_markers_connected": 1,
+        "connected_bcell_markers": [
+          "PRDM1"
+        ],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": true
+      },
+      {
+        "gene": "FOXP3",
+        "freq_as_neighbor": 4,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "GCSAM",
+        "freq_as_neighbor": 4,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "GADD45A",
+        "freq_as_neighbor": 4,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "PDHA1",
+        "freq_as_neighbor": 3,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "TSC22D3",
+        "freq_as_neighbor": 3,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "RUNX3",
+        "freq_as_neighbor": 3,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "TSHB",
+        "freq_as_neighbor": 3,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "CLU",
+        "freq_as_neighbor": 3,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "HPGD",
+        "freq_as_neighbor": 3,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "BNIP3",
+        "freq_as_neighbor": 3,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "IL6",
+        "freq_as_neighbor": 3,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "MYBL1",
+        "freq_as_neighbor": 3,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "TNFAIP3",
+        "freq_as_neighbor": 3,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "CCR6",
+        "freq_as_neighbor": 3,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "RUNX2",
+        "freq_as_neighbor": 2,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "RHOB",
+        "freq_as_neighbor": 2,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "CSF3R",
+        "freq_as_neighbor": 2,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      },
+      {
+        "gene": "HIPK2",
+        "freq_as_neighbor": 2,
+        "n_bcell_markers_connected": 0,
+        "connected_bcell_markers": [],
+        "connection_type": "known_TF_target",
+        "is_known_bcell_tf": false
+      }
+    ],
+    "connection_type_used": "known_TF_target"
+  }
+}

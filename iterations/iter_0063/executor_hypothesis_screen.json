@@ -1,0 +1,65 @@
+{
+  "iteration": "iter_0063",
+  "hypotheses": [
+    {
+      "id": "H63-A",
+      "name": "SV2-4 repulsion mechanistic probe: TF class separation",
+      "family": "module_structure",
+      "split_regime": "edge_stratified",
+      "novelty_type": "new_method",
+      "lineage": "iter_0062-M1",
+      "method": "At L0: SVD of centered nonzero embeddings [2039,512]. Project to SV2-4 (Vt[1:4]) and SV5-7 (Vt[4:7]). Extract 78 TF positions in nz space. Sample 500 TF-TF pairs, compare cosine AUROC vs random pairs. Also compare to TF-target edge AUROC (n=589). TF-TF AUROC > 0.50 => TFs cluster in that subspace; TF-target AUROC < 0.50 => edges are anti-clustered.",
+      "status": "tested",
+      "primary_metric": "TF-TF AUROC vs TF-target AUROC in SV2-4",
+      "result_value": "TF-TF SV2-4=0.5387, TF-target SV2-4=0.4849, TF-TF SV5-7=0.5284, TF-target SV5-7=0.5989",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0063/ha_sv24_repulsion_probe.csv",
+        "iterations/iter_0063/iter63_summary.json"
+      ],
+      "decision": "promising",
+      "next_action": "Replicate across layers; test non-TF/random-TF pairs as additional control",
+      "retired": false
+    },
+    {
+      "id": "H63-G",
+      "name": "Signed regulation AUROC split: Activation vs Repression in SV5-7 and SV2-4",
+      "family": "module_structure",
+      "split_regime": "edge_stratified",
+      "novelty_type": "new_method",
+      "lineage": "iter_0062-M1",
+      "method": "Match cycle4_immune positive edges to TRRUST regulation type (Activation n=270, Repression n=141 after nonzero filter). Compute cosine-similarity AUROC in SV5-7 and SV2-4 for each group vs random gene pairs. Compare AUROC between regulation types.",
+      "status": "tested",
+      "primary_metric": "Repression vs Activation AUROC difference in SV5-7",
+      "result_value": "Repression SV5-7=0.6202, Activation SV5-7=0.5989 (delta=+0.021); Repression SV2-4=0.5497, Activation SV2-4=0.4657 (delta=+0.084)",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0063/hg_signed_regulation_auroc.csv",
+        "iterations/iter_0063/iter63_summary.json"
+      ],
+      "decision": "promising",
+      "next_action": "Permutation test on regulation-label shuffle to confirm the activation/repression AUROC gap is not by chance; cross-seed replication",
+      "retired": false
+    },
+    {
+      "id": "H63-B",
+      "name": "Systematic subspace scan SV(k,k+2) for k=0..9 at L0 with Bonferroni",
+      "family": "manifold_distance",
+      "split_regime": "edge_stratified",
+      "novelty_type": "new_method",
+      "lineage": "iter_0062-M1",
+      "method": "For k=0..9: project centered nonzero embeddings [2039,512] to SV(k, k+1, k+2) using rows k:k+3 of Vt. Compute cosine-similarity AUROC for 589 TF-target positive edges vs random pairs. Permutation test N=100. Bonferroni correction (10 windows).",
+      "status": "tested",
+      "primary_metric": "Best AUROC after Bonferroni correction",
+      "result_value": "Best raw AUROC: SV8-10=0.619 (perm_p=0.67); SV5-7=0.611 (perm_p=0.28); no window survives Bonferroni (all perm_p_bonf>=0.2)",
+      "result_direction": "inconclusive",
+      "artifact_paths": [
+        "iterations/iter_0063/hb_subspace_scan_l0.csv",
+        "iterations/iter_0063/iter63_summary.json"
+      ],
+      "decision": "inconclusive",
+      "next_action": "Redo with N=500 permutations to gain power for Bonferroni correction (minimum detectable p=0.002)",
+      "retired": false
+    }
+  ]
+}

@@ -1,0 +1,1247 @@
+{
+  "layer_7": {
+    "layer": 7,
+    "sv": "SV4",
+    "top_K_genes": [
+      "AKR1B1",
+      "ASAH1",
+      "ATM",
+      "BLK",
+      "CAT",
+      "CD2",
+      "CD28",
+      "CD3G",
+      "CD6",
+      "CD86",
+      "CD8B",
+      "CSF3R",
+      "CYBB",
+      "FAM162A",
+      "FLI1",
+      "GCSAM",
+      "HLA-A",
+      "HLA-B",
+      "HLA-C",
+      "HOPX",
+      "ITGB2",
+      "JARID2",
+      "LCK",
+      "LEF1",
+      "MGAT5",
+      "MKI67",
+      "NCF2",
+      "NCL",
+      "NCOA3",
+      "NEAT1",
+      "NFATC2",
+      "PBK",
+      "PCBD1",
+      "PDHA1",
+      "POU2AF1",
+      "POU2F2",
+      "PRKCQ",
+      "RFX3",
+      "RUNX3",
+      "S100A4",
+      "SDHB",
+      "SELL",
+      "SLA2",
+      "SP100",
+      "STAT4",
+      "STIM1",
+      "SYK",
+      "TBXAS1",
+      "TGFBR2",
+      "TLR10",
+      "TNFRSF1B",
+      "TRERF1"
+    ],
+    "bottom_K_genes": [
+      "APP",
+      "BCL2",
+      "BCL2A1",
+      "BIRC3",
+      "CA2",
+      "CCL20",
+      "CCL3",
+      "CEBPD",
+      "CLU",
+      "CTLA4",
+      "EGR1",
+      "EGR3",
+      "FASLG",
+      "FLT1",
+      "FOSB",
+      "FOXP3",
+      "GADD45A",
+      "HIF3A",
+      "HIPK2",
+      "HPGD",
+      "ID2",
+      "IFNG",
+      "IL10",
+      "IL1B",
+      "IL2",
+      "IL24",
+      "IL2RA",
+      "IL2RB",
+      "IL5RA",
+      "IRF4",
+      "ITGB8",
+      "JUN",
+      "KDR",
+      "KLF6",
+      "MAFA",
+      "MGP",
+      "MSR1",
+      "NFIB",
+      "NR4A3",
+      "OPRM1",
+      "PLAT",
+      "PRDM1",
+      "PTGS2",
+      "RHOB",
+      "RHOC",
+      "TBX21",
+      "TEK",
+      "TNF",
+      "TNFAIP3",
+      "TNFSF14",
+      "VCAN",
+      "ZFP36"
+    ],
+    "top_go_enrichments": [
+      {
+        "go_term": "GO:0005768",
+        "pole": "bottom",
+        "n_go": 5,
+        "overlap": 5,
+        "pval": 0.0008206912318698542,
+        "fold_enrichment": 4.019,
+        "genes": [
+          "APP",
+          "FLT1",
+          "IL2RB",
+          "KDR",
+          "OPRM1"
+        ]
+      },
+      {
+        "go_term": "GO:0009055",
+        "pole": "top",
+        "n_go": 4,
+        "overlap": 4,
+        "pval": 0.003505035469444168,
+        "fold_enrichment": 4.019,
+        "genes": [
+          "AKR1B1",
+          "CYBB",
+          "NCF2",
+          "SDHB"
+        ]
+      },
+      {
+        "go_term": "GO:0048143",
+        "pole": "bottom",
+        "n_go": 4,
+        "overlap": 4,
+        "pval": 0.003505035469444168,
+        "fold_enrichment": 4.019,
+        "genes": [
+          "APP",
+          "IFNG",
+          "IL1B",
+          "TNF"
+        ]
+      },
+      {
+        "go_term": "GO:0097192",
+        "pole": "bottom",
+        "n_go": 4,
+        "overlap": 4,
+        "pval": 0.003505035469444168,
+        "fold_enrichment": 4.019,
+        "genes": [
+          "BCL2",
+          "BCL2A1",
+          "IL1B",
+          "IL2"
+        ]
+      },
+      {
+        "go_term": "GO:0050766",
+        "pole": "bottom",
+        "n_go": 4,
+        "overlap": 4,
+        "pval": 0.003505035469444168,
+        "fold_enrichment": 4.019,
+        "genes": [
+          "IFNG",
+          "IL1B",
+          "IL2RB",
+          "TNF"
+        ]
+      },
+      {
+        "go_term": "GO:0045087",
+        "pole": "top",
+        "n_go": 18,
+        "overlap": 10,
+        "pval": 0.0035201013649653924,
+        "fold_enrichment": 2.233,
+        "genes": [
+          "BLK",
+          "CD6",
+          "CYBB",
+          "HLA-A",
+          "HLA-B",
+          "HLA-C",
+          "LCK",
+          "NCF2",
+          "SYK",
+          "TLR10"
+        ]
+      },
+      {
+        "go_term": "GO:0046330",
+        "pole": "bottom",
+        "n_go": 6,
+        "overlap": 5,
+        "pval": 0.00397874327607493,
+        "fold_enrichment": 3.349,
+        "genes": [
+          "APP",
+          "GADD45A",
+          "HIPK2",
+          "IL1B",
+          "TNF"
+        ]
+      },
+      {
+        "go_term": "GO:0051091",
+        "pole": "bottom",
+        "n_go": 6,
+        "overlap": 5,
+        "pval": 0.00397874327607493,
+        "fold_enrichment": 3.349,
+        "genes": [
+          "APP",
+          "HIPK2",
+          "IL10",
+          "IL1B",
+          "TNF"
+        ]
+      },
+      {
+        "go_term": "GO:0032731",
+        "pole": "bottom",
+        "n_go": 6,
+        "overlap": 5,
+        "pval": 0.00397874327607493,
+        "fold_enrichment": 3.349,
+        "genes": [
+          "APP",
+          "CCL3",
+          "EGR1",
+          "IFNG",
+          "TNF"
+        ]
+      },
+      {
+        "go_term": "GO:0001938",
+        "pole": "bottom",
+        "n_go": 6,
+        "overlap": 5,
+        "pval": 0.00397874327607493,
+        "fold_enrichment": 3.349,
+        "genes": [
+          "EGR3",
+          "IL10",
+          "JUN",
+          "KDR",
+          "TEK"
+        ]
+      },
+      {
+        "go_term": "GO:1904707",
+        "pole": "bottom",
+        "n_go": 6,
+        "overlap": 5,
+        "pval": 0.00397874327607493,
+        "fold_enrichment": 3.349,
+        "genes": [
+          "HPGD",
+          "IL10",
+          "JUN",
+          "NR4A3",
+          "TNF"
+        ]
+      },
+      {
+        "go_term": "GO:0070374",
+        "pole": "bottom",
+        "n_go": 13,
+        "overlap": 8,
+        "pval": 0.004151608698935972,
+        "fold_enrichment": 2.473,
+        "genes": [
+          "APP",
+          "CCL20",
+          "CCL3",
+          "JUN",
+          "KDR",
+          "OPRM1",
+          "TEK",
+          "TNF"
+        ]
+      },
+      {
+        "go_term": "GO:0010629",
+        "pole": "bottom",
+        "n_go": 17,
+        "overlap": 9,
+        "pval": 0.008984126952876965,
+        "fold_enrichment": 2.128,
+        "genes": [
+          "APP",
+          "CCL3",
+          "ID2",
+          "IFNG",
+          "ITGB8",
+          "KDR",
+          "MSR1",
+          "PRDM1",
+          "TNF"
+        ]
+      },
+      {
+        "go_term": "GO:0001774",
+        "pole": "bottom",
+        "n_go": 7,
+        "overlap": 5,
+        "pval": 0.011259375575030473,
+        "fold_enrichment": 2.871,
+        "genes": [
+          "APP",
+          "CLU",
+          "IFNG",
+          "JUN",
+          "TNF"
+        ]
+      },
+      {
+        "go_term": "GO:0008360",
+        "pole": "bottom",
+        "n_go": 5,
+        "overlap": 4,
+        "pval": 0.014242412419741423,
+        "fold_enrichment": 3.215,
+        "genes": [
+          "CCL3",
+          "KDR",
+          "RHOB",
+          "RHOC"
+        ]
+      },
+      {
+        "go_term": "GO:0031334",
+        "pole": "bottom",
+        "n_go": 5,
+        "overlap": 4,
+        "pval": 0.014242412419741423,
+        "fold_enrichment": 3.215,
+        "genes": [
+          "CLU",
+          "IFNG",
+          "RHOC",
+          "TNF"
+        ]
+      },
+      {
+        "go_term": "GO:0051384",
+        "pole": "bottom",
+        "n_go": 5,
+        "overlap": 4,
+        "pval": 0.014242412419741423,
+        "fold_enrichment": 3.215,
+        "genes": [
+          "BCL2",
+          "IL10",
+          "PTGS2",
+          "TNF"
+        ]
+      },
+      {
+        "go_term": "GO:0031901",
+        "pole": "top",
+        "n_go": 5,
+        "overlap": 4,
+        "pval": 0.014242412419741423,
+        "fold_enrichment": 3.215,
+        "genes": [
+          "CD8B",
+          "HLA-A",
+          "HLA-B",
+          "HLA-C"
+        ]
+      },
+      {
+        "go_term": "GO:0006952",
+        "pole": "top",
+        "n_go": 5,
+        "overlap": 4,
+        "pval": 0.014242412419741423,
+        "fold_enrichment": 3.215,
+        "genes": [
+          "CSF3R",
+          "CYBB",
+          "HLA-B",
+          "STAT4"
+        ]
+      },
+      {
+        "go_term": "GO:0035579",
+        "pole": "top",
+        "n_go": 5,
+        "overlap": 4,
+        "pval": 0.014242412419741423,
+        "fold_enrichment": 3.215,
+        "genes": [
+          "CYBB",
+          "ITGB2",
+          "NCL",
+          "TNFRSF1B"
+        ]
+      }
+    ]
+  },
+  "layer_8": {
+    "layer": 8,
+    "sv": "SV4",
+    "top_K_genes": [
+      "APP",
+      "BCL2",
+      "BCL2A1",
+      "BIRC3",
+      "CA2",
+      "CCL3",
+      "CCL5",
+      "CEBPD",
+      "CLU",
+      "CTLA4",
+      "EGR1",
+      "EGR3",
+      "EOMES",
+      "ETS1",
+      "FASLG",
+      "FCER2",
+      "FOXP3",
+      "GADD45A",
+      "HDAC9",
+      "HIF3A",
+      "HIPK2",
+      "HLA-DRB1",
+      "HPGD",
+      "IFNG",
+      "IL10",
+      "IL2",
+      "IL24",
+      "IL2RA",
+      "IL2RB",
+      "IL5RA",
+      "ITGB8",
+      "JUN",
+      "KDR",
+      "KLRK1",
+      "LTB",
+      "MSR1",
+      "NCAM1",
+      "NFIB",
+      "NR4A3",
+      "OPRM1",
+      "PAX5",
+      "PMAIP1",
+      "PRDM1",
+      "RHOC",
+      "RORA",
+      "SPIB",
+      "TBX21",
+      "TNF",
+      "TNFAIP3",
+      "TNFSF14",
+      "VCAN",
+      "ZFP36"
+    ],
+    "bottom_K_genes": [
+      "AKR1B1",
+      "ASAH1",
+      "ATM",
+      "BIRC5",
+      "BLK",
+      "BNIP3",
+      "CAT",
+      "CD28",
+      "CD34",
+      "CD3G",
+      "CD6",
+      "CD86",
+      "CIITA",
+      "ELF1",
+      "EPCAM",
+      "FAM162A",
+      "FLI1",
+      "GATA3",
+      "GCSAM",
+      "HDGF",
+      "HIF1A",
+      "HLA-B",
+      "HLA-C",
+      "ITGB2",
+      "JARID2",
+      "LCK",
+      "LDHA",
+      "MIF",
+      "MKI67",
+      "MMP7",
+      "NCF2",
+      "NCL",
+      "NCOA3",
+      "NFATC2",
+      "PBK",
+      "PCBD1",
+      "PDHA1",
+      "PLAUR",
+      "POU2AF1",
+      "PRKCQ",
+      "PTTG1",
+      "RFX3",
+      "RUNX3",
+      "SDHB",
+      "SLA2",
+      "SP100",
+      "STIM1",
+      "SYK",
+      "TBXAS1",
+      "TGFBR2",
+      "TNFSF10",
+      "TRERF1"
+    ],
+    "top_go_enrichments": [
+      {
+        "go_term": "GO:0009615",
+        "pole": "top",
+        "n_go": 10,
+        "overlap": 7,
+        "pval": 0.002682175549713405,
+        "fold_enrichment": 2.813,
+        "genes": [
+          "CCL5",
+          "CLU",
+          "FOXP3",
+          "IFNG",
+          "ITGB8",
+          "TBX21",
+          "TNF"
+        ]
+      },
+      {
+        "go_term": "GO:0004674",
+        "pole": "bottom",
+        "n_go": 8,
+        "overlap": 6,
+        "pval": 0.003438102263776252,
+        "fold_enrichment": 3.014,
+        "genes": [
+          "ATM",
+          "CIITA",
+          "PBK",
+          "PRKCQ",
+          "SYK",
+          "TGFBR2"
+        ]
+      },
+      {
+        "go_term": "GO:0043029",
+        "pole": "top",
+        "n_go": 4,
+        "overlap": 4,
+        "pval": 0.003505035469444168,
+        "fold_enrichment": 4.019,
+        "genes": [
+          "BCL2",
+          "FOXP3",
+          "PMAIP1",
+          "TNFSF14"
+        ]
+      },
+      {
+        "go_term": "GO:0005524",
+        "pole": "bottom",
+        "n_go": 18,
+        "overlap": 10,
+        "pval": 0.0035201013649653924,
+        "fold_enrichment": 2.233,
+        "genes": [
+          "ATM",
+          "BLK",
+          "CIITA",
+          "LCK",
+          "MKI67",
+          "PBK",
+          "PRKCQ",
+          "RUNX3",
+          "SYK",
+          "TGFBR2"
+        ]
+      },
+      {
+        "go_term": "GO:0032731",
+        "pole": "top",
+        "n_go": 6,
+        "overlap": 5,
+        "pval": 0.00397874327607493,
+        "fold_enrichment": 3.349,
+        "genes": [
+          "APP",
+          "CCL3",
+          "EGR1",
+          "IFNG",
+          "TNF"
+        ]
+      },
+      {
+        "go_term": "GO:1904707",
+        "pole": "top",
+        "n_go": 6,
+        "overlap": 5,
+        "pval": 0.00397874327607493,
+        "fold_enrichment": 3.349,
+        "genes": [
+          "HPGD",
+          "IL10",
+          "JUN",
+          "NR4A3",
+          "TNF"
+        ]
+      },
+      {
+        "go_term": "GO:0070374",
+        "pole": "top",
+        "n_go": 13,
+        "overlap": 8,
+        "pval": 0.004151608698935972,
+        "fold_enrichment": 2.473,
+        "genes": [
+          "APP",
+          "CCL3",
+          "CCL5",
+          "HLA-DRB1",
+          "JUN",
+          "KDR",
+          "OPRM1",
+          "TNF"
+        ]
+      },
+      {
+        "go_term": "GO:0001774",
+        "pole": "top",
+        "n_go": 7,
+        "overlap": 5,
+        "pval": 0.011259375575030473,
+        "fold_enrichment": 2.871,
+        "genes": [
+          "APP",
+          "CLU",
+          "IFNG",
+          "JUN",
+          "TNF"
+        ]
+      },
+      {
+        "go_term": "GO:0042130",
+        "pole": "top",
+        "n_go": 7,
+        "overlap": 5,
+        "pval": 0.011259375575030473,
+        "fold_enrichment": 2.871,
+        "genes": [
+          "CTLA4",
+          "FOXP3",
+          "HLA-DRB1",
+          "IL10",
+          "IL2RA"
+        ]
+      },
+      {
+        "go_term": "GO:0003713",
+        "pole": "bottom",
+        "n_go": 7,
+        "overlap": 5,
+        "pval": 0.011259375575030473,
+        "fold_enrichment": 2.871,
+        "genes": [
+          "CIITA",
+          "NCOA3",
+          "PCBD1",
+          "POU2AF1",
+          "TRERF1"
+        ]
+      },
+      {
+        "go_term": "GO:0006468",
+        "pole": "bottom",
+        "n_go": 15,
+        "overlap": 8,
+        "pval": 0.0134317492596578,
+        "fold_enrichment": 2.144,
+        "genes": [
+          "ATM",
+          "BIRC5",
+          "CIITA",
+          "LCK",
+          "PRKCQ",
+          "RUNX3",
+          "SYK",
+          "TGFBR2"
+        ]
+      },
+      {
+        "go_term": "GO:0005768",
+        "pole": "top",
+        "n_go": 5,
+        "overlap": 4,
+        "pval": 0.014242412419741423,
+        "fold_enrichment": 3.215,
+        "genes": [
+          "APP",
+          "IL2RB",
+          "KDR",
+          "OPRM1"
+        ]
+      },
+      {
+        "go_term": "GO:0031334",
+        "pole": "top",
+        "n_go": 5,
+        "overlap": 4,
+        "pval": 0.014242412419741423,
+        "fold_enrichment": 3.215,
+        "genes": [
+          "CLU",
+          "IFNG",
+          "RHOC",
+          "TNF"
+        ]
+      },
+      {
+        "go_term": "GO:0016604",
+        "pole": "bottom",
+        "n_go": 5,
+        "overlap": 4,
+        "pval": 0.014242412419741423,
+        "fold_enrichment": 3.215,
+        "genes": [
+          "FLI1",
+          "HIF1A",
+          "MKI67",
+          "SP100"
+        ]
+      },
+      {
+        "go_term": "GO:0071407",
+        "pole": "top",
+        "n_go": 5,
+        "overlap": 4,
+        "pval": 0.014242412419741423,
+        "fold_enrichment": 3.215,
+        "genes": [
+          "CCL3",
+          "CCL5",
+          "MSR1",
+          "TNF"
+        ]
+      },
+      {
+        "go_term": "GO:0043491",
+        "pole": "top",
+        "n_go": 5,
+        "overlap": 4,
+        "pval": 0.014242412419741423,
+        "fold_enrichment": 3.215,
+        "genes": [
+          "CCL3",
+          "CCL5",
+          "KDR",
+          "TNF"
+        ]
+      },
+      {
+        "go_term": "GO:0032715",
+        "pole": "top",
+        "n_go": 5,
+        "overlap": 4,
+        "pval": 0.014242412419741423,
+        "fold_enrichment": 3.215,
+        "genes": [
+          "FOXP3",
+          "IL10",
+          "TNF",
+          "TNFAIP3"
+        ]
+      },
+      {
+        "go_term": "GO:0045087",
+        "pole": "bottom",
+        "n_go": 18,
+        "overlap": 9,
+        "pval": 0.014448152540788543,
+        "fold_enrichment": 2.01,
+        "genes": [
+          "BLK",
+          "CD6",
+          "GATA3",
+          "HLA-B",
+          "HLA-C",
+          "LCK",
+          "MIF",
+          "NCF2",
+          "SYK"
+        ]
+      },
+      {
+        "go_term": "GO:0008625",
+        "pole": "top",
+        "n_go": 3,
+        "overlap": 3,
+        "pval": 0.014735455238887729,
+        "fold_enrichment": 4.019,
+        "genes": [
+          "BCL2",
+          "FASLG",
+          "TNF"
+        ]
+      },
+      {
+        "go_term": "GO:0001836",
+        "pole": "top",
+        "n_go": 3,
+        "overlap": 3,
+        "pval": 0.014735455238887729,
+        "fold_enrichment": 4.019,
+        "genes": [
+          "BCL2",
+          "CLU",
+          "PMAIP1"
+        ]
+      }
+    ]
+  },
+  "layer_11": {
+    "layer": 11,
+    "sv": "SV4",
+    "top_K_genes": [
+      "ALDH1A1",
+      "APP",
+      "ATP1B1",
+      "BCL2",
+      "BCL2A1",
+      "BIRC3",
+      "CA2",
+      "CCL3",
+      "CCL5",
+      "CD19",
+      "CLU",
+      "DUSP1",
+      "EGR1",
+      "EGR3",
+      "EOMES",
+      "FCER2",
+      "FOS",
+      "GADD45A",
+      "HDAC9",
+      "HLA-DOB",
+      "HLA-DRB1",
+      "HOPX",
+      "HPGD",
+      "ID2",
+      "IL10",
+      "IL1B",
+      "IL2",
+      "IL24",
+      "IL5RA",
+      "ITGB8",
+      "JUN",
+      "JUNB",
+      "KLF2",
+      "LGALS1",
+      "LTB",
+      "MEF2C",
+      "NCAM1",
+      "NFIB",
+      "NR3C2",
+      "NR4A3",
+      "PAX5",
+      "PMAIP1",
+      "PTGS2",
+      "RORA",
+      "S100A4",
+      "TCF4",
+      "TNFAIP3",
+      "TXNIP",
+      "VCAN",
+      "ZEB1",
+      "ZEB2",
+      "ZFP36"
+    ],
+    "bottom_K_genes": [
+      "AKR1B1",
+      "ASAH1",
+      "ATM",
+      "BIRC5",
+      "BNIP3",
+      "CAT",
+      "CCR4",
+      "CD2",
+      "CD28",
+      "CD34",
+      "CD3G",
+      "CD6",
+      "CD86",
+      "CD8B",
+      "CIITA",
+      "CR1",
+      "CXCR3",
+      "DAPK2",
+      "ELF1",
+      "EPCAM",
+      "FAM162A",
+      "FLI1",
+      "FLT1",
+      "FXYD2",
+      "GATA3",
+      "GCSAM",
+      "HDGF",
+      "HIF1A",
+      "ITGB2",
+      "LCK",
+      "LDHA",
+      "MECOM",
+      "MIF",
+      "MKI67",
+      "MMP7",
+      "NCL",
+      "NCOA3",
+      "NFATC2",
+      "PBK",
+      "PCBD1",
+      "PDHA1",
+      "PLAUR",
+      "POU2AF1",
+      "PRKCQ",
+      "PTTG1",
+      "SDHB",
+      "SLA2",
+      "SP100",
+      "STIM1",
+      "TBXAS1",
+      "TNFSF10",
+      "TNFSF14"
+    ],
+    "top_go_enrichments": [
+      {
+        "go_term": "GO:0045202",
+        "pole": "top",
+        "n_go": 4,
+        "overlap": 4,
+        "pval": 0.003505035469444168,
+        "fold_enrichment": 4.019,
+        "genes": [
+          "ALDH1A1",
+          "APP",
+          "CLU",
+          "EGR3"
+        ]
+      },
+      {
+        "go_term": "GO:0097192",
+        "pole": "top",
+        "n_go": 4,
+        "overlap": 4,
+        "pval": 0.003505035469444168,
+        "fold_enrichment": 4.019,
+        "genes": [
+          "BCL2",
+          "BCL2A1",
+          "IL1B",
+          "IL2"
+        ]
+      },
+      {
+        "go_term": "GO:0035914",
+        "pole": "top",
+        "n_go": 4,
+        "overlap": 4,
+        "pval": 0.003505035469444168,
+        "fold_enrichment": 4.019,
+        "genes": [
+          "EGR1",
+          "EOMES",
+          "FOS",
+          "PAX5"
+        ]
+      },
+      {
+        "go_term": "GO:0106310",
+        "pole": "bottom",
+        "n_go": 6,
+        "overlap": 5,
+        "pval": 0.00397874327607493,
+        "fold_enrichment": 3.349,
+        "genes": [
+          "ATM",
+          "CIITA",
+          "DAPK2",
+          "PBK",
+          "PRKCQ"
+        ]
+      },
+      {
+        "go_term": "GO:0000165",
+        "pole": "top",
+        "n_go": 7,
+        "overlap": 5,
+        "pval": 0.011259375575030473,
+        "fold_enrichment": 2.871,
+        "genes": [
+          "CCL3",
+          "CCL5",
+          "IL1B",
+          "MEF2C",
+          "ZFP36"
+        ]
+      },
+      {
+        "go_term": "GO:0008270",
+        "pole": "top",
+        "n_go": 15,
+        "overlap": 8,
+        "pval": 0.0134317492596578,
+        "fold_enrichment": 2.144,
+        "genes": [
+          "CA2",
+          "DUSP1",
+          "EGR1",
+          "NR3C2",
+          "NR4A3",
+          "RORA",
+          "TNFAIP3",
+          "ZEB1"
+        ]
+      },
+      {
+        "go_term": "GO:0016604",
+        "pole": "bottom",
+        "n_go": 5,
+        "overlap": 4,
+        "pval": 0.014242412419741423,
+        "fold_enrichment": 3.215,
+        "genes": [
+          "FLI1",
+          "HIF1A",
+          "MKI67",
+          "SP100"
+        ]
+      },
+      {
+        "go_term": "GO:0007399",
+        "pole": "top",
+        "n_go": 5,
+        "overlap": 4,
+        "pval": 0.014242412419741423,
+        "fold_enrichment": 3.215,
+        "genes": [
+          "FOS",
+          "MEF2C",
+          "TCF4",
+          "ZEB2"
+        ]
+      },
+      {
+        "go_term": "GO:0001836",
+        "pole": "top",
+        "n_go": 3,
+        "overlap": 3,
+        "pval": 0.014735455238887729,
+        "fold_enrichment": 4.019,
+        "genes": [
+          "BCL2",
+          "CLU",
+          "PMAIP1"
+        ]
+      },
+      {
+        "go_term": "GO:0031966",
+        "pole": "bottom",
+        "n_go": 3,
+        "overlap": 3,
+        "pval": 0.014735455238887729,
+        "fold_enrichment": 4.019,
+        "genes": [
+          "BNIP3",
+          "FAM162A",
+          "SDHB"
+        ]
+      },
+      {
+        "go_term": "GO:0032922",
+        "pole": "top",
+        "n_go": 3,
+        "overlap": 3,
+        "pval": 0.014735455238887729,
+        "fold_enrichment": 4.019,
+        "genes": [
+          "EGR1",
+          "ID2",
+          "RORA"
+        ]
+      },
+      {
+        "go_term": "GO:0007010",
+        "pole": "top",
+        "n_go": 3,
+        "overlap": 3,
+        "pval": 0.014735455238887729,
+        "fold_enrichment": 4.019,
+        "genes": [
+          "CCL3",
+          "HLA-DRB1",
+          "TNFAIP3"
+        ]
+      },
+      {
+        "go_term": "GO:0043922",
+        "pole": "top",
+        "n_go": 3,
+        "overlap": 3,
+        "pval": 0.014735455238887729,
+        "fold_enrichment": 4.019,
+        "genes": [
+          "CCL3",
+          "CCL5",
+          "JUN"
+        ]
+      },
+      {
+        "go_term": "GO:0001829",
+        "pole": "top",
+        "n_go": 3,
+        "overlap": 3,
+        "pval": 0.014735455238887729,
+        "fold_enrichment": 4.019,
+        "genes": [
+          "EOMES",
+          "HOPX",
+          "JUNB"
+        ]
+      },
+      {
+        "go_term": "GO:0045666",
+        "pole": "top",
+        "n_go": 3,
+        "overlap": 3,
+        "pval": 0.014735455238887729,
+        "fold_enrichment": 4.019,
+        "genes": [
+          "MEF2C",
+          "TCF4",
+          "ZEB1"
+        ]
+      },
+      {
+        "go_term": "GO:0071498",
+        "pole": "top",
+        "n_go": 3,
+        "overlap": 3,
+        "pval": 0.014735455238887729,
+        "fold_enrichment": 4.019,
+        "genes": [
+          "KLF2",
+          "MEF2C",
+          "PTGS2"
+        ]
+      },
+      {
+        "go_term": "GO:0048856",
+        "pole": "top",
+        "n_go": 3,
+        "overlap": 3,
+        "pval": 0.014735455238887729,
+        "fold_enrichment": 4.019,
+        "genes": [
+          "PAX5",
+          "ZEB1",
+          "ZEB2"
+        ]
+      },
+      {
+        "go_term": "GO:0042110",
+        "pole": "bottom",
+        "n_go": 10,
+        "overlap": 6,
+        "pval": 0.016764358690722878,
+        "fold_enrichment": 2.412,
+        "genes": [
+          "CD2",
+          "CD28",
+          "CD3G",
+          "CD8B",
+          "SLA2",
+          "TNFSF14"
+        ]
+      },
+      {
+        "go_term": "GO:0042802",
+        "pole": "bottom",
+        "n_go": 48,
+        "overlap": 18,
+        "pval": 0.01927554019726499,
+        "fold_enrichment": 1.507,
+        "genes": [
+          "ATM",
+          "BIRC5",
+          "BNIP3",
+          "CAT",
+          "CD2",
+          "CD28",
+          "CD3G",
+          "CD6",
+          "DAPK2",
+          "GATA3",
+          "LCK",
+          "LDHA",
+          "MIF",
+          "NCL",
+          "PCBD1",
+          "SP100",
+          "STIM1",
+          "TNFSF10"
+        ]
+      },
+      {
+        "go_term": "GO:0004674",
+        "pole": "bottom",
+        "n_go": 8,
+        "overlap": 5,
+        "pval": 0.02429483109378751,
+        "fold_enrichment": 2.512,
+        "genes": [
+          "ATM",
+          "CIITA",
+          "DAPK2",
+          "PBK",
+          "PRKCQ"
+        ]
+      }
+    ]
+  }
+}

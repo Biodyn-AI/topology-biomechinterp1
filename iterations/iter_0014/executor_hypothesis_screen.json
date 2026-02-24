@@ -1,0 +1,56 @@
+{
+  "iteration": "iter_0014",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "GO enrichment of SV3 poles across 12 layers",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "SVD of 209-gene mean-centered embeddings at each of 12 layers. For SV3 top-K=52 and bottom-K=52 pole genes: Fisher exact test against 594 GO BP+CC terms (size 3-60). Gene-label shuffle null N=300. Report best GO term per pole per layer and empirical p.",
+      "status": "tested",
+      "primary_metric": "n_layers_sig_both_poles",
+      "result_value": "12/12 layers significant for both top and bottom SV3 poles (all emp_p<=0.017). TOP axis: stress response/kinase (L0-5) -> cell surface (L6) -> DNA binding/chromatin (L9-11). BOT axis: ISR signaling (L0-3) -> inflammatory (L4-5) -> MHC-II/immune (L7-11).",
+      "result_direction": "positive",
+      "artifact_paths": ["iterations/iter_0014/h01_sv3_go_enrichment.json"],
+      "decision": "promising",
+      "next_action": "SV3 encodes a biologically coherent kinase/signaling vs immune axis that transitions with depth. Map top SV3 genes per pole to known cancer/immune pathways. Test if SV3 poles predict drug sensitivity or perturbation response.",
+      "novelty_type": "new_family",
+      "lineage": "iter_0013_H01",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "Layer-depth Spearman trend on SV2/SV3 PPI z-scores",
+      "family": "topology_stability",
+      "split_regime": "other",
+      "method": "Load iter_0013 H01 JSON (SV1/SV2/SV3 co-pole z-scores for 1022 STRING pairs at each of 12 layers). Compute Spearman rho between layer index [0-11] and z-score for each axis. Peak layer identification.",
+      "status": "tested",
+      "primary_metric": "sv2_spearman_rho",
+      "result_value": "SV2: rho=-0.559 p=0.059 (peak layer=1, moderate decline with depth). SV3: rho=-0.259 p=0.417 (peak layer=3, non-monotonic bell shape). SV1: rho=0.168 p=0.602 (no trend).",
+      "result_direction": "mixed",
+      "artifact_paths": ["iterations/iter_0014/h02_layer_depth_trend.json"],
+      "decision": "neutral",
+      "next_action": "SV2 geometry peaks in early layers (L1) and moderately weakens toward output. SV3 is non-monotonic (bell peak at L3). Neither is definitively monotonic. Not a strong mechanistic finding. Consider testing if early-layer geometry predicts late-layer geometry.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0013_H01",
+      "retired": false
+    },
+    {
+      "id": "H03",
+      "name": "Expanded hub-degree control: non-hub SV2 co-pole enrichment (STRING score>=0.4)",
+      "family": "null_sensitivity",
+      "split_regime": "other",
+      "method": "Load STRING JSON (score>=0.4 threshold). N_total=3364 edges, N_hub=2347, N_nonhub=138. For each of 12 layers: SVD, SV2 co-pole test (K=52) on hub vs non-hub edges. Gene-label shuffle null N=300 each.",
+      "status": "tested",
+      "primary_metric": "nonhub_mean_z",
+      "result_value": "Non-hub mean z=3.107 (12/12 sig). Hub mean z=2.595 (9/12 sig). Non-hub signal exceeds hub signal. PPI co-pole enrichment is NOT driven by hubs.",
+      "result_direction": "positive",
+      "artifact_paths": ["iterations/iter_0014/h03_hub_degree_control_04.json"],
+      "decision": "promising",
+      "next_action": "Key finding: PPI geometry in SV2 survives low-degree (non-hub) gene pairs with STRONGER z-scores than hub pairs. This rules out hub-degree confound and strengthens the PPI geometry claim. Add to main paper as null control evidence.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0013_H03",
+      "retired": false
+    }
+  ]
+}

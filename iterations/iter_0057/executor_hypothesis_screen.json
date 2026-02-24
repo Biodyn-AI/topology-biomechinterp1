@@ -1,0 +1,66 @@
+{
+  "iteration": "iter_0057",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "Joint 6D (SV2-7) TF/target classifier cross-seed validation",
+      "family": "module_structure",
+      "split_regime": "edge_stratified",
+      "method": "For each of 3 seeds (main, seed43, seed44): SVD of centered nonzero embeddings at 12 layers. Project genes to SV2-4 and SV5-7, concatenate to 6D. 5-fold stratified LR, mean AUROC. 50-perm label-shuffle null. TF (n~70-73) vs target-only (n~211-222).",
+      "status": "tested",
+      "primary_metric": "mean_joint_auroc_across_seeds",
+      "result_value": "0.751 (main=0.744, seed43=0.753, seed44=0.757); all seeds p_perm=0.000 at all 12 layers",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0057/h01_cross_seed_joint6d.csv",
+        "iterations/iter_0057/iter57_summary.json"
+      ],
+      "decision": "promising",
+      "next_action": "Compute cross-seed TF/target boundary consistency (do same TF genes rank highest across seeds?); test generalization to held-out gene sets",
+      "novelty_type": "refinement",
+      "lineage": "iter_0056_H01",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "Seed43 SV basis alignment via principal angles",
+      "family": "topology_stability",
+      "split_regime": "other",
+      "method": "For each layer/subspace (SV2-4, SV5-7): compute principal angles between right singular vectors (512-dim feature space) of main vs seed43 and seed44. Also test main SV2-4 vs seed43 SV5-7 for basis permutation hypothesis.",
+      "status": "tested",
+      "primary_metric": "mean_principal_angle_sv57_main_s43",
+      "result_value": "mean PA(sv57, main vs s43)=29.0°, PA(main vs s44)=19.6°; cross-subspace PA=74.8° (near-orthogonal, rules out permutation)",
+      "result_direction": "negative",
+      "artifact_paths": [
+        "iterations/iter_0057/h02_principal_angles_seeds.csv",
+        "iterations/iter_0057/iter57_summary.json"
+      ],
+      "decision": "negative",
+      "next_action": "Retire basis-permutation hypothesis. Focus on combined-subspace (6D span) stability rather than individual SV alignment.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0056_H02",
+      "retired": false,
+      "retirement_reason": "Basis permutation ruled out; SV subspace instability is real but does not explain cross-seed AUROC patterns"
+    },
+    {
+      "id": "H03",
+      "name": "SV energy fraction as AUROC proxy",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "For main seed, compute variance fraction of SV groups (SV1, SV2-4, SV5-7, SV2-7) at each of 12 layers. Spearman correlation between SV energy fractions and joint/subspace AUROC across layers.",
+      "status": "tested",
+      "primary_metric": "spearman_rho_sv_joint_frac_vs_auroc",
+      "result_value": "rho=-0.930, p=0.00001; early layers have lower joint SV fraction but higher AUROC",
+      "result_direction": "mixed",
+      "artifact_paths": [
+        "iterations/iter_0057/h03_sv_energy_auroc.csv",
+        "iterations/iter_0057/iter57_summary.json"
+      ],
+      "decision": "neutral",
+      "next_action": "Interpret as geometry descriptor: TF/target discrimination is highest when variance is spread across many SVs (richer geometry). Report as structural property. Test in cross-seed.",
+      "novelty_type": "new_method",
+      "lineage": "none",
+      "retired": false
+    }
+  ]
+}

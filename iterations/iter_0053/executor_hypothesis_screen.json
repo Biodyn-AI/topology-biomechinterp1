@@ -1,0 +1,67 @@
+{
+  "iteration": "iter_0053",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "Bootstrap + spectral decay scan of SV regulatory subspaces",
+      "family": "module_structure",
+      "split_regime": "edge_stratified",
+      "method": "At L0/L1/L2/L8: SVD of centered nonzero embeddings [2039,512]. Compute residualized rbc (TRRUST pos vs neg pairwise distances, OLS co-expression residualization) for SV ranges SV2-4, SV5-7, SV8-10, SV11-14, SV15-20, SV21-30. Bootstrap validation: 100 rounds resample pos/neg edges with replacement for SV5-7 at L0.",
+      "novelty_type": "new_method",
+      "lineage": "iter_0052_H03",
+      "status": "tested",
+      "primary_metric": "bootstrap_mean_rbc_resid_sv57_L0",
+      "result_value": "mean=0.1466, 95%CI=[0.0842, 0.1987], frac_positive=1.000/1.000. Spectral decay: SV5-7 dominant at L0-L2; SV2-4 dominant at L8; SV8-14 weak at L8 only.",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0053/h01_bootstrap_sv57_L0.json",
+        "iterations/iter_0053/h01_spectral_decay.csv"
+      ],
+      "decision": "promising",
+      "next_action": "Use spectral decay map to characterize the full SV landscape. Test SV5-7 vs SV2-4 orthogonality: do they encode different aspects of regulatory structure?",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H02",
+      "name": "TF→Target directional asymmetry in SV5-7",
+      "family": "manifold_distance",
+      "split_regime": "edge_stratified",
+      "method": "At each of 12 layers: SVD of centered nonzero embeddings, project to SV5-7 (3D). For each positive TRRUST edge (TF→target), compute signed displacement vector (target_coord - TF_coord). One-sample t-test per SV axis (H0: mean=0). Also SVD of displacement matrix for dominant-direction combined test.",
+      "novelty_type": "new_family",
+      "lineage": "none",
+      "status": "tested",
+      "primary_metric": "per_sv_ttest_p_L0",
+      "result_value": "L0: SV5 p=0.0036 d=0.120, SV6 p=0.0008 d=-0.139, SV7 p=0.0102 d=0.106. L8: p_combined<0.001. All 3 SV5-7 axes show consistent directional asymmetry at L0.",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0053/h02_tf_target_asymmetry_sv57.csv"
+      ],
+      "decision": "promising",
+      "next_action": "Test whether TF-role vs target-role is predictable from SV5-7 coordinates (logistic regression, AUROC). Check if the directionality aligns with known regulatory hierarchy depth.",
+      "retired": false,
+      "retirement_reason": ""
+    },
+    {
+      "id": "H03",
+      "name": "SV1 loading vs TRRUST network degree",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "edge_stratified",
+      "method": "Compute TRRUST in/out/total degree for 2039 nonzero genes from cycle1_edge_dataset.tsv. Spearman correlation of |SV1 loading| (from iter_0049 h01_sv1_vectors.npy) vs total degree at each of 12 layers. Mann-Whitney test: circuit (degree>0, n=295) vs non-circuit (n=1744).",
+      "novelty_type": "new_method",
+      "lineage": "iter_0051_H02",
+      "status": "tested",
+      "primary_metric": "rbc_circuit_vs_noncircuit_L0",
+      "result_value": "L0: rho=-0.086 (p<0.001), rbc_circuit=0.143 (p<0.001). L1: rho=-0.060 (p=0.007), rbc_circuit=0.102. L2+: not significant. Binary circuit membership > continuous degree as predictor.",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0053/h03_sv1_degree_corr.csv",
+        "iterations/iter_0053/h03_gene_degrees.csv"
+      ],
+      "decision": "neutral",
+      "next_action": "Integrate SV1, SV5-7 and directionality into unified gene embedding characterization. Test if SV1+SV5-7 jointly classify TF identity vs target identity.",
+      "retired": false,
+      "retirement_reason": ""
+    }
+  ]
+}

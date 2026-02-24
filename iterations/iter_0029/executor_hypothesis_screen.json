@@ -1,0 +1,56 @@
+{
+  "iteration": "iter_0029",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "kNN Connected Components Biological Enrichment at L11",
+      "family": "graph_topology",
+      "split_regime": "other",
+      "method": "k=10 kNN graph on 209 named gene embeddings at L8–L11. scipy.sparse.csgraph.connected_components identifies 2 components. Fisher exact test for immune gene family enrichment in Component 1 (n=14) vs Component 0 (n=195). Mann-Whitney for STRING degree difference.",
+      "status": "tested",
+      "primary_metric": "Fisher_p_AP1",
+      "result_value": "AP1 enrichment in comp1 (n=14): OR=0.06, p=0.023. Comp1 genes: FOS, JUNB, TNF, PTGS2, HLA-A, HLA-DPB1, KLF6, LDHA, LGALS1, NCAM1, NCOA3, NR4A3, PAX5, TBXAS1. Stable at L8–L11.",
+      "result_direction": "positive",
+      "artifact_paths": ["iterations/iter_0029/h01_component_enrichment.json"],
+      "decision": "promising",
+      "next_action": "GO enrichment for 14 diverging genes; test cross-model consistency with Geneformer; bootstrap cluster stability",
+      "novelty_type": "refinement",
+      "lineage": "H03_iter_0028",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "Gene Trajectory Clustering by Distance-to-Centroid Profile",
+      "family": "manifold_distance",
+      "split_regime": "other",
+      "method": "Compute 209-gene x 12-layer distance-to-centroid matrix. Z-score normalize per gene. k-means (k=2..6), silhouette selection. k=2 yields silhouette=0.905. Two clusters: converging (n=195, slope=-0.507) and diverging (n=14, slope=+0.459).",
+      "status": "tested",
+      "primary_metric": "silhouette_k2",
+      "result_value": "silhouette=0.905 at k=2; converging cluster: dist L0=11.4→L11=4.1; diverging cluster: dist L0=16.6→L11=20.3; Kruskal-Wallis (degree) p=0.352 (not significant); 2-cluster solution matches kNN components exactly",
+      "result_direction": "positive",
+      "artifact_paths": ["iterations/iter_0029/h02_trajectory_clusters.json"],
+      "decision": "promising",
+      "next_action": "GO enrichment for diverging 14 genes; bootstrap CI; characterize L11 converging manifold dimensionality",
+      "novelty_type": "new_method",
+      "lineage": "none",
+      "retired": false
+    },
+    {
+      "id": "H03",
+      "name": "Spectral Gap k-Robustness Sweep (k=5–30)",
+      "family": "topology_stability",
+      "split_regime": "other",
+      "method": "For k in {5,10,15,20,25,30}: build kNN graph on 209 named genes per layer. Normalized Laplacian Fiedler value (spectral gap) per layer. Spearman rho(layer, gap). Null: 50 random Gaussian runs per k (same n=209, d=512).",
+      "status": "tested",
+      "primary_metric": "spearman_rho_mean_across_k",
+      "result_value": "rho mean=-0.988 [range -1.000 to -0.951], all k negative, all null_p=0.000. Full table: k5 rho=-0.993, k10 rho=-1.000, k15 rho=-0.951, k20 rho=-0.986, k25 rho=-1.000, k30 rho=-1.000.",
+      "result_direction": "positive",
+      "artifact_paths": ["iterations/iter_0029/h03_spectral_gap_krobustness.json"],
+      "decision": "promising",
+      "next_action": "Spectral gap finding is now fully confirmed. Proceed to interpret in context of manifold collapse / near-1D structure at deep layers.",
+      "novelty_type": "new_method",
+      "lineage": "H03_iter_0028",
+      "retired": false
+    }
+  ]
+}

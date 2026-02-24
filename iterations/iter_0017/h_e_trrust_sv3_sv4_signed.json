@@ -1,0 +1,20 @@
+{
+  "SV3": {
+    "sv_idx": 2,
+    "n_act": 116,
+    "n_rep": 64,
+    "n_layers_significant": 0,
+    "mean_act_copole": 0.568,
+    "mean_rep_copole": 0.592,
+    "mean_delta": -0.024
+  },
+  "SV4": {
+    "sv_idx": 3,
+    "n_act": 116,
+    "n_rep": 64,
+    "n_layers_significant": 2,
+    "mean_act_copole": 0.541,
+    "mean_rep_copole": 0.543,
+    "mean_delta": -0.002
+  }
+}

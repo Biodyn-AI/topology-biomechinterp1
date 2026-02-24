@@ -1,0 +1,63 @@
+{
+  "iteration": "iter_0049",
+  "hypotheses": [
+    {
+      "id": "H01",
+      "name": "SV1 gene loading direction stability across layers",
+      "family": "intrinsic_dimensionality",
+      "split_regime": "other",
+      "method": "SVD of centered nonzero-only embeddings (n=2039, 512-dim) at each of 12 layers. Extract left singular vector U[:,0] (gene loading on SV1). Compute absolute cosine similarity between consecutive layers and vs. L0. Bootstrap null: permute gene order in SV1 vector (200 rounds).",
+      "status": "tested",
+      "primary_metric": "mean_consecutive_cosine_similarity",
+      "result_value": "0.9442 (null=0.0179, z=68.1, p~0); L0 to L11 drift: 0.359",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0049/h01_sv1_direction_stability.json",
+        "iterations/iter_0049/h01_sv1_vectors.npy"
+      ],
+      "decision": "promising",
+      "next_action": "Characterize what genes rotate most in SV1 between L0 and L11 (top movers); correlate with layer-specific SV1 enrichment functions",
+      "novelty_type": "new_method",
+      "lineage": "iter_0048_H02",
+      "retired": false
+    },
+    {
+      "id": "H02",
+      "name": "SWD vs feature-shuffle null comparison",
+      "family": "null_sensitivity",
+      "split_regime": "other",
+      "method": "Sliced Wasserstein distance (50 random projections) between consecutive nonzero-gene layers (n=2039). Feature-shuffle null: independently permute each of 512 dimensions per layer. Paired t-test between real and null SWD.",
+      "status": "tested",
+      "primary_metric": "paired_t_test_p_value",
+      "result_value": "real=0.327, null=0.279, t=3.48, p=0.006",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0049/h02_swd_null_comparison.csv"
+      ],
+      "decision": "promising",
+      "next_action": "Test additional nulls (random rotation null, Gaussian null) to confirm specificity; identify which layer transitions exceed null most consistently",
+      "novelty_type": "new_method",
+      "lineage": "iter_0048_H03",
+      "retired": false
+    },
+    {
+      "id": "H03",
+      "name": "SV2-SV4 subspace encodes TRRUST TF-target regulatory proximity",
+      "family": "module_structure",
+      "split_regime": "other",
+      "method": "At each layer, compute SVD of centered nonzero embeddings. Project genes to SV2-SV4 3D subspace using gene loading coordinates (left singular vectors). Compute Euclidean distances between TRRUST TF-target positive pairs (n=295 named genes, matched to 361-gene edge dataset) vs. negative pairs (n=880). Mann-Whitney U test (alternative=less). Also tested SV1 alone and SV1-SV4 combined.",
+      "status": "tested",
+      "primary_metric": "mann_whitney_p_SV2_4_best_layer",
+      "result_value": "Best: L8 p<0.0001 effect=0.268; significant (p<0.05) at 8/12 layers (L3,4,5,6,7,8,9,11)",
+      "result_direction": "positive",
+      "artifact_paths": [
+        "iterations/iter_0049/h03_sv_ppi_proximity.csv"
+      ],
+      "decision": "promising",
+      "next_action": "Replicate with full gene vocabulary (requires recovering adata var_names); test SV5-SV10 range; validate at seed replicates; compute FDR-corrected p-values across layers",
+      "novelty_type": "new_family",
+      "lineage": "none",
+      "retired": false
+    }
+  ]
+}
