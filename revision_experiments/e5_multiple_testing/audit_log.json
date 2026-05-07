@@ -1,0 +1,12 @@
+{
+  "n_iterations_scanned": 63,
+  "n_total": 183,
+  "n_extractable": 112,
+  "bonferroni_paper_threshold": 0.000273224043715847,
+  "bonferroni_strict_threshold": 0.00044642857142857147,
+  "bh_q": 0.05,
+  "n_bh_pass": 70,
+  "n_bonferroni_paper_pass": 43,
+  "n_bonferroni_strict_pass": 45,
+  "extraction_errors": []
+}

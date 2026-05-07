@@ -1,0 +1,5 @@
+method,n_targets,mean_p_at_5,mean_p_at_10,mean_p_at_25,median_n_interactors
+coexpression,8,0.025,0.037500000000000006,0.035,12.0
+ppi_sv2-4,8,0.0,0.0125,0.015,12.0
+random,8,0.0,0.0,0.0,12.0
+scgpt_full512,8,0.025,0.025,0.025,12.0

@@ -1,0 +1,14 @@
+{
+  "embedding": "word2vec_256_skipgram",
+  "n_sentences": 6000,
+  "n_in_vocab": 2123,
+  "or_GO0005615": 2.2294192742139654,
+  "p_GO0005615": 5.553357414362463e-08,
+  "ppi_obs_rate": 0.18801652892561985,
+  "ppi_null_rate": 0.13891528925619834,
+  "ppi_z": 1.4045911211548683,
+  "ppi_n_pairs": 968,
+  "tf_target_auroc": 0.5989373130861473,
+  "n_tf": 101,
+  "n_target": 341
+}

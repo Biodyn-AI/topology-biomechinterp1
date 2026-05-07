@@ -1,0 +1,62 @@
+{
+  "n_held_out_positives": 57,
+  "n_held_out_negatives": 124,
+  "results": [
+    {
+      "method": "scGPT_SV5-7_L0_cosine",
+      "auroc": 0.601867572156197,
+      "auprc": 0.3606022780106166
+    },
+    {
+      "method": "scGPT_SV5-7_L11_cosine",
+      "auroc": 0.6328522920203735,
+      "auprc": 0.4615750465422619
+    },
+    {
+      "method": "scGPT_full512_L0_cosine",
+      "auroc": 0.8596491228070176,
+      "auprc": 0.6957811273054528
+    },
+    {
+      "method": "coexpression_pearson_signed",
+      "auroc": 0.637521222410866,
+      "auprc": 0.5667386008207904
+    },
+    {
+      "method": "coexpression_pearson_abs",
+      "auroc": 0.7931522354272779,
+      "auprc": 0.6461633719472469
+    },
+    {
+      "method": "random",
+      "auroc": 0.4949066213921901,
+      "auprc": 0.3176209939939771
+    }
+  ],
+  "bootstrap": [
+    {
+      "method": "scGPT_SV5-7_L0_cosine",
+      "auroc_p5": 0.5308886332130858,
+      "auroc_p50": 0.6009260000400216,
+      "auroc_p95": 0.6625706214689264
+    },
+    {
+      "method": "scGPT_SV5-7_L11_cosine",
+      "auroc_p5": 0.5541760740928888,
+      "auroc_p50": 0.6384813786722184,
+      "auroc_p95": 0.7085244604599166
+    },
+    {
+      "method": "coexpression_pearson_signed",
+      "auroc_p5": 0.558364002555611,
+      "auroc_p50": 0.6439062014122547,
+      "auroc_p95": 0.7279445489506222
+    },
+    {
+      "method": "coexpression_pearson_abs",
+      "auroc_p5": 0.7299146520778399,
+      "auroc_p50": 0.792013825552952,
+      "auroc_p95": 0.8513867330175954
+    }
+  ]
+}

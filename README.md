@@ -1,23 +1,35 @@
-# Multi-Dimensional Spectral Geometry of Biological Knowledge in Single-Cell Transformer Representations
+# Multi-dimensional spectral geometry of biological knowledge in single-cell transformer representations
 
 This repository contains the complete experimental codebase, results, and agent transcripts for the autonomous hypothesis-screening loop described in:
 
-> Kendiukhov, I. (2026). Multi-Dimensional Spectral Geometry of Biological Knowledge in Single-Cell Transformer Representations.
+> [Author redacted for double-blind review] (2026). Multi-dimensional spectral geometry of biological knowledge in single-cell transformer representations.
 
 ## Overview
 
-We systematically decode the geometric structure of scGPT's internal representations using an automated two-agent loop (executor + brainstormer) that iteratively proposes, tests, and retires geometric hypotheses. Over **63 iterations**, the loop tested **183 hypotheses** across **13 families**, discovering that scGPT organizes genes into a structured biological coordinate system:
+This codebase systematically decodes the geometric structure of scGPT's internal representations using an automated two-agent loop (executor + brainstormer) that iteratively proposes, tests, and retires geometric hypotheses. Over **63 iterations**, the loop tested **183 hypotheses** across **13 families**.
 
-- **SV1**: Subcellular localization along the secretory pathway (mitochondria -> ER -> extracellular)
-- **SV2-SV4**: Protein-protein interaction networks with quantitative fidelity to STRING confidence
-- **SV5-SV7**: Transcriptional regulatory relationships, with co-expression-independent signal at early layers
+The compiled manuscript (with all post-revision analyses) is at `paper/research_paper_plos.pdf`. The LaTeX source is at `paper/research_paper_plos.tex`. The reviewer-response letter is at `paper/response_letter.md`.
 
-Key findings include:
-- 14.4-fold effective rank collapse across 12 transformer layers
-- Perfect monotonic correlation between STRING confidence quintiles and geometric proximity
-- TF-vs-target classification AUROC = 0.744 in a 6D spectral subspace
-- B-cell GC master regulators converge toward PAX5 across transformer depth
-- Attention and residual-stream geometry encode complementary biological relationships
+### Headline findings (post-revision, after multiple-testing correction)
+
+Three orthogonal spectral directions carry distinct biological information:
+
+- **SV1** correlates with subcellular localization along the secretory pathway (mitochondria → ER → extracellular).
+- **SV2–SV4** correlate with protein–protein interaction networks; pair-level cosine similarity in SV2–SV7 has a small but significant partial correlation with STRING combined score (r ≈ 0.10 at L0 after multi-feature confound control).
+- **SV5–SV7** correlate with transcriptional regulatory relationships at early layers; the residual signal after stricter confound control is small (r_rb ≈ 0.06, borderline at p = 0.080).
+
+Eight of eleven audited headline claims survive Bonferroni correction at α = 0.05/183.
+
+### Cross-model and cross-tissue replication
+
+- **TF-vs-target distinction is convergent across foundation models**: AUROC = 0.651 (scGPT-L11), 0.748 (Geneformer V1), 0.754 (Geneformer V2) on the 1,672-gene shared subset; 0.889 (ESM2-3B, on a 1,877-gene scGPT∩ESM2 subset).
+- **SV1 subcellular and SV2 PPI structures scale with model size**: full strength in scGPT, partial in Geneformer V2, absent in Geneformer V1.
+- **Cross-tissue (kidney) replication**: SV1 (OR = 2.39) and SV2 PPI (z = 11.49) replicate; TF-vs-target AUROC drops to chance, indicating the regulatory distinction is immune-specific given the immune-curated TRRUST set.
+
+### Functional utility
+
+- **GRN-edge inference benchmark**: scGPT's full residual-stream cosine at L0 achieves AUROC = 0.860 on a held-out 20% TRRUST split, beating |co-expression Pearson| (0.793). The spectral SV5–SV7 projection alone underperforms co-expression (AUROC = 0.602).
+- **Drug-target ranking**: spectral PPI subspace ranking does not outperform co-expression at the small (n=8) drug-target benchmark; the spectral structure is interpretable but not a competitive standalone ranker.
 
 ## Repository Structure
 
@@ -58,13 +70,37 @@ Key findings include:
 │   ├── make_claude_visualizations.py  # Figure generation script
 │   └── figures/                  # Report-level visualizations
 │
-└── figures/                      # Publication-quality figures
-    ├── fig1_joint_vs_single_auroc.png
-    ├── fig2_cross_seed_robustness.png
-    ├── fig3_edge_auroc_depth_decay.png
-    ├── fig4_signed_regulation_split.png
-    ├── fig5_spectral_and_trrust.png
-    └── fig6_subspace_seed_angles.png
+├── figures/                      # Publication-quality figures
+│   ├── fig1_joint_vs_single_auroc.png
+│   ├── fig2_cross_seed_robustness.png
+│   ├── fig3_edge_auroc_depth_decay.png
+│   ├── fig4_signed_regulation_split.png
+│   ├── fig5_spectral_and_trrust.png
+│   ├── fig6_subspace_seed_angles.png
+│   ├── fig7_cross_tissue.png            # Revision: cross-tissue (immune vs kidney) bar chart
+│   ├── fig8_cross_model.png             # Revision: scGPT vs Geneformer V1/V2 vs ESM2
+│   └── fig9_grn_benchmark.png           # Revision: GRN AUROC benchmark with bootstrap CIs
+│
+├── paper/                        # Manuscript and revision deliverables
+│   ├── research_paper_plos.tex   # LaTeX source (anonymized)
+│   ├── research_paper_plos.pdf   # Compiled PDF (anonymized)
+│   ├── response_letter.md        # Response to peer reviewers
+│   └── figures_medium/           # Manuscript-embedded figures
+│
+└── revision_experiments/         # Post-review additional analyses
+    ├── e1_cross_tissue/          # Kidney replication
+    ├── e2_cross_model/           # Geneformer V1/V2 cross-model comparison
+    ├── e3_full_vocab/            # Broader-vocabulary replication
+    ├── e4_string_continuous/     # Continuous PPI regression (replaces n=5 quintile)
+    ├── e5_multiple_testing/      # BH-FDR + Bonferroni audit across 183 hypotheses
+    ├── e6_loop_audit/            # Two-agent loop selection-bias audit
+    ├── e7_confounds/             # Multi-feature confound residualisation
+    ├── e8_dynamics/              # Pseudotime dynamics test
+    ├── e9_vocab_audit/           # 4,803 / 209 / 195 vocabulary derivation
+    ├── e10_plm_validation/       # ESM2 protein-LM cross-validation
+    ├── e11_baselines/            # Word2Vec and other simpler baselines
+    ├── e12_grn_benchmark/        # Held-out TRRUST-edge AUROC benchmark
+    └── e13_drug_targets/         # Drug-target ranking case study
 ```
 
 ## Quick Start
@@ -147,10 +183,10 @@ See `reports/autoloop_master_log.md` for the complete narrative of all iteration
 If you use this code or data in your research, please cite:
 
 ```bibtex
-@article{kendiukhov2026spectral,
+@article{spectral2026anonymous,
   title={Multi-Dimensional Spectral Geometry of Biological Knowledge
          in Single-Cell Transformer Representations},
-  author={Kendiukhov, Ihor},
+  author={[Author redacted for double-blind review]},
   year={2026}
 }
 ```
@@ -159,7 +195,7 @@ If you use this code or data in your research, please cite:
 
 This project builds directly on:
 
-> Kendiukhov, I. (2026). Systematic evaluation of single-cell foundation model interpretability reveals attention captures co-expression rather than unique regulatory signal. arXiv:2602.17532.
+> [Author redacted for double-blind review] (2026). Systematic evaluation of single-cell foundation model interpretability reveals attention captures co-expression rather than unique regulatory signal. arXiv:2602.17532.
 
 ## License
 

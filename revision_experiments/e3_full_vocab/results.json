@@ -1,0 +1,82 @@
+{
+  "subsets": [
+    {
+      "subset": "curated_209",
+      "n_genes": 209,
+      "or_extracellular": 3.286445012787724,
+      "p_extracellular": 0.0007305255093808465,
+      "ppi_copole_rate": 0.26239669421487605,
+      "ppi_n_pairs": 968,
+      "tf_target_auroc": 0.6384057971014493,
+      "n_tf": 69,
+      "n_target": 140
+    },
+    {
+      "subset": "trrust_in_vocab",
+      "n_genes": 442,
+      "or_extracellular": 2.361115668580804,
+      "p_extracellular": 0.0006752071745813629,
+      "ppi_copole_rate": 0.34710743801652894,
+      "ppi_n_pairs": 968,
+      "tf_target_auroc": 0.6630469498562759,
+      "n_tf": 101,
+      "n_target": 341
+    },
+    {
+      "subset": "annotated_in_vocab",
+      "n_genes": 1671,
+      "or_extracellular": 1.9201628035765173,
+      "p_extracellular": 3.698436501421218e-05,
+      "ppi_copole_rate": 0.4194214876033058,
+      "ppi_n_pairs": 968,
+      "tf_target_auroc": 0.6602058823529412,
+      "n_tf": 100,
+      "n_target": 340
+    },
+    {
+      "subset": "union_broader",
+      "n_genes": 1673,
+      "or_extracellular": 1.9236683495437952,
+      "p_extracellular": 3.631408980634425e-05,
+      "ppi_copole_rate": 0.4194214876033058,
+      "ppi_n_pairs": 968,
+      "tf_target_auroc": 0.6630469498562759,
+      "n_tf": 101,
+      "n_target": 341
+    },
+    {
+      "subset": "full_vocab",
+      "n_genes": 4803,
+      "or_extracellular": 1.8071604982783798,
+      "p_extracellular": 7.901348886645822e-05,
+      "ppi_copole_rate": 0.6456611570247934,
+      "ppi_n_pairs": 968,
+      "tf_target_auroc": 0.6630469498562759,
+      "n_tf": 101,
+      "n_target": 341
+    }
+  ],
+  "bootstrap": {
+    "boot_or_p5_p50_p95": [
+      0.9784651676463915,
+      2.0481973434535106,
+      3.939591785377252
+    ],
+    "boot_copole_p5_p50_p95": [
+      0.0,
+      0.35714285714285715,
+      0.8467032967032965
+    ],
+    "boot_auroc_p5_p50_p95": [
+      0.5832735247208931,
+      0.7270290604721151,
+      0.8350442967884828
+    ],
+    "curated_or_extracellular": 3.286445012787724,
+    "curated_copole": 0.26239669421487605,
+    "curated_auroc": 0.6384057971014493,
+    "curated_or_percentile_in_boot": 0.86,
+    "curated_copole_percentile_in_boot": 0.335,
+    "curated_auroc_percentile_in_boot": 0.14
+  }
+}

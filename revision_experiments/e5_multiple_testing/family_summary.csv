@@ -1,0 +1,8 @@
+family,n_hypotheses,n_extractable_p,n_bh_pass_within,n_bonferroni_pass_within,n_bh_pass_global,n_bonferroni_pass_paperdenom
+module_structure,33,33,21,13,21,12
+manifold_distance,29,29,19,15,19,10
+intrinsic_dimensionality,24,24,16,14,16,10
+graph_topology,9,9,3,3,4,3
+null_sensitivity,7,7,5,5,5,3
+topology_stability,6,6,2,2,2,2
+persistent_homology,4,4,3,3,3,3

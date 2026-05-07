@@ -1,0 +1,9 @@
+family,n,positive,negative,mixed,inconclusive,positive_rate,binomial_p_50null,p_pos_half_or_higher
+module_structure,52,33,10,7,2,0.635,0.0704,True
+manifold_distance,42,31,4,3,4,0.738,0.0029,True
+intrinsic_dimensionality,41,28,8,4,1,0.683,0.0275,True
+graph_topology,16,8,4,4,0,0.5,1.0,True
+null_sensitivity,15,8,5,0,2,0.533,1.0,True
+topology_stability,8,5,2,1,0,0.625,0.7266,True
+cross_model_alignment,5,2,3,0,0,0.4,1.0,False
+persistent_homology,4,2,1,1,0,0.5,1.0,True

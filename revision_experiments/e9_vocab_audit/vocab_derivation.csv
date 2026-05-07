@@ -1,0 +1,12 @@
+step,count
+Tabula Sapiens preprocessed h5ad (HVG),4803
+scGPT whole-human vocab tokens,60697
+h5ad ∩ scGPT vocab,4803
+TRRUST unique genes (TFs + targets),2862
+TRRUST ∩ h5ad,442
+STRING named-genes file (immune subset),9905
+STRING-named ∩ h5ad,0
+cycle1_edge_dataset gene set (paper '209 named'),209
+cycle1 ∩ h5ad,209
+h5ad genes with zero embedding norm at every layer (OOV in cell forward pass),2831
+cycle1 ∩ h5ad ∩ embedded (paper's 195 in-vocab),187

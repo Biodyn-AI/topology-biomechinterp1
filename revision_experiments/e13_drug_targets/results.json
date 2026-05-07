@@ -1,0 +1,37 @@
+{
+  "n_drug_targets": 8,
+  "per_method": [
+    {
+      "method": "coexpression",
+      "n_targets": 8,
+      "mean_p_at_5": 0.025,
+      "mean_p_at_10": 0.037500000000000006,
+      "mean_p_at_25": 0.035,
+      "median_n_interactors": 12.0
+    },
+    {
+      "method": "ppi_sv2-4",
+      "n_targets": 8,
+      "mean_p_at_5": 0.0,
+      "mean_p_at_10": 0.0125,
+      "mean_p_at_25": 0.015,
+      "median_n_interactors": 12.0
+    },
+    {
+      "method": "random",
+      "n_targets": 8,
+      "mean_p_at_5": 0.0,
+      "mean_p_at_10": 0.0,
+      "mean_p_at_25": 0.0,
+      "median_n_interactors": 12.0
+    },
+    {
+      "method": "scgpt_full512",
+      "n_targets": 8,
+      "mean_p_at_5": 0.025,
+      "mean_p_at_10": 0.025,
+      "mean_p_at_25": 0.025,
+      "median_n_interactors": 12.0
+    }
+  ]
+}
