@@ -1,0 +1,138 @@
+E8 - Word2Vec co-occurrence-only instrument on H1/H2/H3 (sensitivity; CONVENTION3 §5 "E8 Word2Vec"; no pass/fail)
+CONVENTION3 sha256 3e3249d1d0a8ce1bc3cf64639fe233b016535456f82432a8bbfcacdd64a05c01 (matches FROZEN.txt; results.json hash_match = true)
+Answers R2.1 (the word-embedding model from the Introduction is now used) and feeds the instrument comparison.
+
+QUESTION
+Does an instrument that sees only which genes share a cell (the scGPT token sets, order shuffled, no
+expression values, no attention) already recover the three signals the scGPT residual stream carries?
+If it does, those signals in scGPT need no transformer to explain them. If it does not, the transformer
+(or its 33M-cell pretraining) adds something.
+
+DESIGN (what was run)
+- Corpora (e8_corpus.py): every cell of each context's extraction h5ad (lung 15,000; lung_external 9,000;
+  kidney_B 8,000; immune 20,000; kidney_A 11,376 cells), tokenised with A2's rule (non-zero genes, top 512
+  by expression). Check: per-gene token counts over the A2-reproduced extraction cells equal
+  layer_gene_embedding_count.npy exactly in all 5 contexts (corpus/<ctx>_meta.json).
+- gensim 4.4.0 Word2Vec, sg=1, vector_size=256, min_count=1, negative=10, workers=2, 10 epochs, 5 seeds;
+  token order and cell order re-shuffled on every pass. "full" = every cell; "extr" = the 192/256
+  extraction cells only (lower bound). Every V gene is in every model's vocabulary (0 missing).
+- Evaluation (e8_eval.py), on V (n = 1,972-5,648 genes), every representation mean-centred over V:
+  H1a assortativity of SV1-10 (STRING-physical >= 700 edges within V), Maslov-Sneppen null N = 1,000, max-T
+  over 10 SVs (over 120 SV x layer tests for scGPT); H1b basis-free pair-cosine AUROC vs one MS-rewired
+  non-pair set, vertex subsampling m = n/2, B = 2,000; H2 detection-stratified LOO TF AUROC (Lambert),
+  within-decile permutation N = 2,000; H3 within-TF stratified AUROC on h3_pairs, two-way cluster
+  bootstrap B = 2,000. Paired deltas vs scGPT layers 0-11 on the same genes, pairs and resampling draws.
+- Every vertex-subsampling interval (H1b) is given both ways: the pre-registered sqrt(m/n) interval (ci_lo/ci_hi)
+  and the delete-d interval (*_deleted, half-widths x sqrt 2; CONVENTION3_ERRATA item 3). Below, H1b intervals are delete-d.
+- H2 note: the LOO estimator is not centred at 0.5 under the null (Word2Vec null means 0.27-0.50, scGPT ~0.49),
+  so raw AUROC < 0.5 does not mean anti-signal. W2V-vs-scGPT H2 deltas are quoted null-centred
+  (delta_nullcentred*); raw deltas are in the CSV too.
+
+DEVIATIONS / REDUCTIONS (stated exactly)
+1. Window. The spec says window = 512. Measured cost: 1,912 s for 10 epochs on 256 lung cells, i.e. ~31 h per
+   seed on the full lung corpus (x 5 seeds x 5 contexts). Not feasible on this machine. Production models use
+   window = 5 (gensim default) with per-cell, per-pass shuffling, so each pass sees a random subset of each
+   token's within-cell partners. The spec's alternative ("token order shuffled per cell per epoch") is met. The
+   spec's window is met only in a calibration (extraction cells, seed 0, lung and immune):
+   w512 x 10 epochs vs w5 x 10 epochs vs w5 with the pair-update count matched to w512 (571 / 365 epochs).
+2. Training budget. Full-corpus w5 x 10-epoch models get about as many pair updates as the w512 calibration
+   gets on 256 cells (lung 4.5e8 vs 4.5e8). That is ~1/58 of what the specified w512 full-corpus model would
+   get. Saturation check added (e8_train_sat.py): seed 0, 40 epochs, lung and immune (saturation.csv).
+3. Not reduced: N_MS = 1,000 and N_perm = 2,000 as the E8 spec says (the primary H1/H2 use more).
+   assert_resolution passes for every significance claim (floor 1/1001 < 0.05/10; 1/2001 < 0.05).
+4. gensim workers = 2 is not bit-reproducible; the seeds fix initialisation and the corpus stream only.
+   gensim/Cython 3 prints "Exception ignored in our_dot_float" when a float dot product is exactly -1.0
+   (the sentinel BLAS sdot uses for errors); that one dot product then counts as 0. About 50-85 occurrences per
+   training log, against roughly 1e9 dot products per model. Benign.
+5. Fixes to the previous agent's code: e8_merge.py read the macOS "._*.json" AppleDouble files on the exFAT
+   drive and crashed (now excluded). It also lacked the delete-d H1b columns and the saturation table (both added).
+   No other code changed. Adding the e40 models and re-running eval for lung and immune reproduced every earlier
+   row exactly (max abs diff 0.0; reproduction_check.csv; earlier outputs kept in eval_v1/).
+
+DIRECT EVIDENCE (5-seed means of the full-corpus models unless stated; seed SD <= 0.008 for every H1b/H2/H3 statistic; <= 0.016 for the extraction-only models)
+H1b STRING pair-cosine AUROC (paired_vs_scgpt.csv, w2v_results.csv)
+  W2V: lung 0.605 [0.589, 0.621], lung_external 0.597 [0.581, 0.614], kidney_B 0.605 [0.586, 0.622],
+       immune 0.704 [0.656, 0.751], kidney_A 0.739 [0.690, 0.794].
+  scGPT layer range: 0.619-0.680, 0.630-0.677, 0.621-0.675, 0.668-0.743, 0.749-0.814 (best at L1/L2).
+  Delta W2V - scGPT(best layer): -0.075 [-0.090, -0.059], -0.080 [-0.097, -0.062], -0.071 [-0.089, -0.052],
+       immune -0.040 [-0.083, +0.005], kidney_A -0.074 [-0.107, -0.042].
+  scGPT is higher at 12/12 layers in lung, lung_external and kidney_B, at 8/12 in kidney_A, and at 0/12 in
+  immune (4/12 with the pre-registered narrower intervals). The gap shrinks with depth. Delta at L11:
+  lung -0.014 [-0.027, -0.000], lung_external -0.032 [-0.049, -0.015], kidney_B -0.016 [-0.029, -0.002],
+  kidney_A -0.015 [-0.037, +0.008], immune +0.036 [-0.005, +0.078]. In immune, W2V > scGPT at L10-L11 only under
+  the pre-registered sqrt(m/n) intervals, not under delete-d.
+H2 detection-stratified TF AUROC
+  W2V: lung 0.632, lung_external 0.602, kidney_B 0.601 (each permutation p = 0.0005, the floor; null mean ~0.49).
+       immune 0.512 (p = 0.22) and kidney_A 0.469 (p = 0.28; null mean 0.444): no detectable TF signal.
+  scGPT range: lung 0.625-0.665, lung_external 0.627-0.662, kidney_B 0.615-0.654, immune 0.566-0.720,
+       kidney_A 0.678-0.783.
+  Null-centred delta vs best layer: lung -0.033 [-0.060, -0.007], lung_external -0.061 [-0.082, -0.039],
+       kidney_B -0.051 [-0.075, -0.026], immune -0.204 [-0.281, -0.120], kidney_A -0.284 [-0.354, -0.208].
+  scGPT is higher at 7, 12, 8, 10 and 12 of 12 layers. W2V is never higher at 10 epochs.
+H3 within-TF stratified AUROC
+  W2V: lung 0.512 [0.481, 0.549], lung_external 0.534 [0.498, 0.570], kidney_B 0.528 [0.476, 0.582],
+       immune 0.603 [0.533, 0.696], kidney_A 0.577 [0.470, 0.695].
+  scGPT range: 0.516-0.542, 0.518-0.538, 0.524-0.555, 0.577-0.638, 0.601-0.652.
+  The paired-delta CI covers 0 at all 60 context x layer comparisons (best-layer deltas -0.005 to -0.076).
+H1a assortativity of SV1-10
+  W2V full: in lung, lung_external, kidney_B and immune, all 10 SVs have max-T p < 0.05 in every seed; in
+  kidney_A, 9/10. Max mean r: 0.274, 0.295, 0.265, 0.620, 0.693. scGPT: 120/120 SV x layer tests at max-T
+  p < 0.05 in four contexts, 118/120 in immune; max r 0.435, 0.407, 0.404, 0.566, 0.702 (h1_assortativity_scgpt.csv).
+  The two instruments' SV indices do not correspond, so the H1a comparison is descriptive only.
+Extraction-cells-only lower bound (5 seeds, w5 x 10 epochs): lower on every task in every context
+  (e.g. H1b lung 0.549; H2 lung 0.487, p = 0.66). But the calibration shows these models are under-trained.
+  CKA with the w512 model is 0.26 (lung) and 0.40 (immune); for the matched-update w5 model it is 0.80 and 0.83.
+  Matched-update / w512 extraction-only models: lung H1b 0.571 / 0.571, H2 0.611 / 0.594 (p = 0.0005 both),
+  H3 0.516 / 0.520; immune H1b 0.689 / 0.656, H2 0.526 / 0.492 (n.s.), H3 0.592 / 0.569 (calibration.csv).
+Saturation (full corpus, seed 0, 10 -> 40 epochs; saturation.csv; CKA e10 vs e40 = 0.944 lung, 0.945 immune)
+  lung: H1b 0.606 -> 0.612, H2 0.630 -> 0.664, H3 0.512 -> 0.511. immune: H1b 0.705 -> 0.702, H2 0.521 -> 0.515,
+  H3 0.608 -> 0.614. At 40 epochs, lung H2 is indistinguishable from scGPT at most layers: the null-centred delta CI covers 0 at L0-L10, and W2V is
+  higher at L11 (+0.039 [+0.014, +0.063]).
+Representation similarity (cka.csv): W2V-full vs scGPT linear CKA is 0.17-0.58 (context means 0.22-0.42). Seed pairs >= 0.965.
+
+INFERENCE
+- The H1-type signals (STRING neighbours lie close; SVs are assortative on STRING) do not need a transformer.
+  A model that sees only within-cell co-occurrence of the same tokens yields STRING pair AUROCs of 0.60-0.74 and
+  assortative SVs. scGPT is better by ~0.07-0.08 AUROC at its best (early) layers in 4/5 contexts. Its last
+  layer is within 0.014-0.032 of co-occurrence; that small gap still excludes 0 in lung (borderline),
+  lung_external and kidney_B. In immune, the two cannot be told apart at any layer.
+- H2 (TF identity) splits by context. In the three larger-HVG contexts (lung, lung_external, kidney_B), co-occurrence
+  alone gives a clear TF signal (0.60-0.66), and in lung, with 4x the training (seed 0, 40 epochs), it equals scGPT. In immune and
+  kidney_A, scGPT's strong TF signal (up to 0.72 / 0.78) has no co-occurrence counterpart (W2V at null).
+  That part of H2 is what co-occurrence over these cells cannot explain.
+- H3 (edge relation): both instruments are weak (<= 0.66), and they cannot be told apart anywhere. This experiment
+  gives no evidence that scGPT encodes TF-target relations beyond what co-occurrence gives. Equivalence is not
+  claimed: the CIs are +/- 0.05-0.10.
+
+HYPOTHESIS (not tested here)
+- The immune / kidney_A H2 gap might reflect that those vocabularies are small (~2,000 genes) and that few
+  detected genes are lost to truncation (A2: 99.6% / 96.5% of detected entries tokenised), so co-occurrence there is
+  dominated by cell-type programmes rather than TF expression patterns.
+  Or scGPT's TF signal there might come from pretraining across 33M cells, not from these cells.
+  Neither is tested.
+- The late-layer convergence of scGPT to co-occurrence-level H1b might mean that late layers keep mostly
+  context-co-occurrence information. This is untested. CKA (0.2-0.6) shows the geometries are far from identical anyway.
+
+WHAT THIS DOES NOT SHOW / LIMITATIONS
+- It is not the specified window-512 full-corpus model. The full-corpus models are window 5 and get ~1/58 of the
+  specified pair updates (lung). The saturation check covers 2 of 5 contexts and 1 seed. H1b, H3 and immune H2 had
+  plateaued, but lung H2 was still rising (+0.034 from 10 to 40 epochs). So the 10-epoch H2 deltas in lung,
+  lung_external and kidney_B may overstate scGPT's advantage. Only lung was checked.
+- The comparison is not data-matched. W2V-full sees 8,000-20,000 cells of the context. scGPT's embeddings come from
+  192/256 cells, but its weights come from ~33M pretraining cells. The extraction-cells-only W2V is the other
+  bound, and it depends strongly on training budget (calibration).
+- Single-seed calibration and saturation. Seed SD is small (<= 0.008 for full-corpus models, <= 0.016 for extraction-only).
+- All intervals condition on the representation; seed variation is reported separately (sd_seeds), not
+  propagated into the paired CIs.
+- H1a uses N = 1,000 MS draws, so the max-T p floor is 0.001. The SV comparison is not index-matched.
+- kidney_A and kidney_B share one donor's cells (errata item 2). They are not independent replications.
+- Surprises: (i) the extraction-only w5 x 10-epoch models are badly under-trained, so the "lower bound" must be read
+  from the matched-update models; (ii) in immune, co-occurrence H1b cannot be distinguished from scGPT at any layer (delete-d);
+  (iii) the size of the LOO-null shift for Word2Vec in kidney_A (null mean 0.27 for the extraction models).
+
+FILES
+w2v_results.csv (per seed and seed-mean, every task); paired_vs_scgpt.csv (per layer deltas, both H1b scalings,
+null-centred H2); h1_assortativity_scgpt.csv; calibration.csv; saturation.csv; cka.csv; reproduction_check.csv;
+results.json (hash, spec, deviations, per-model metadata, headline, null summaries via eval/<ctx>.json);
+eval/<ctx>.json (null summaries for every representation); corpus/*_meta.json; models/*.json.
+Scripts: e8_corpus.py, e8_train.py, e8_train_sat.py, e8_eval.py, e8_merge.py, e8_driver.sh.

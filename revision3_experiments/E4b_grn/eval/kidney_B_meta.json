@@ -1,0 +1,27 @@
+{
+ "context": "kidney_B",
+ "n_regulators": 590,
+ "n_targets_fitted": 1406,
+ "n_h3_targets": 1340,
+ "n_direction_pairs": 669,
+ "cells": {
+  "T1": 192,
+  "T2": 3000
+ },
+ "grn_runs_used": [
+  "genie3_T1_0",
+  "genie3_T1_1",
+  "genie3_T1_2",
+  "genie3_T1_3",
+  "genie3_T1_4",
+  "genie3_T2_0",
+  "genie3_T2_1",
+  "grnboost2_T1_0",
+  "grnboost2_T1_1",
+  "grnboost2_T1_2",
+  "grnboost2_T1_3",
+  "grnboost2_T1_4",
+  "grnboost2_T2_0",
+  "grnboost2_T2_1"
+ ]
+}

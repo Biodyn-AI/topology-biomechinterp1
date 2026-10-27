@@ -1,0 +1,117 @@
+{
+ "lung": {
+  "n_cells_checked": 556,
+  "n_extraction": 256,
+  "token_set_mismatches": 0,
+  "ties_at_512": 480,
+  "extraction_counts_equal_saved": true,
+  "emb_shape_equal": true,
+  "emb_V_layers_0_11_sha_equal": true,
+  "downsampling": {
+   "full": {
+    "n_tokens": 7598698,
+    "n_V_keep_lt_1": 0,
+    "min_keep": 1.0,
+    "frac_V_tokens_dropped": 0.0
+   },
+   "extr": {
+    "n_tokens": 130629,
+    "n_V_keep_lt_1": 0,
+    "min_keep": 1.0,
+    "frac_V_tokens_dropped": 0.0
+   }
+  }
+ },
+ "lung_external": {
+  "n_cells_checked": 556,
+  "n_extraction": 256,
+  "token_set_mismatches": 0,
+  "ties_at_512": 273,
+  "extraction_counts_equal_saved": true,
+  "emb_shape_equal": true,
+  "emb_V_layers_0_11_sha_equal": true,
+  "downsampling": {
+   "full": {
+    "n_tokens": 4485213,
+    "n_V_keep_lt_1": 0,
+    "min_keep": 1.0,
+    "frac_V_tokens_dropped": 0.0
+   },
+   "extr": {
+    "n_tokens": 128239,
+    "n_V_keep_lt_1": 0,
+    "min_keep": 1.0,
+    "frac_V_tokens_dropped": 0.0
+   }
+  }
+ },
+ "kidney_B": {
+  "n_cells_checked": 492,
+  "n_extraction": 192,
+  "token_set_mismatches": 0,
+  "ties_at_512": 475,
+  "extraction_counts_equal_saved": true,
+  "emb_shape_equal": true,
+  "emb_V_layers_0_11_sha_equal": true,
+  "downsampling": {
+   "full": {
+    "n_tokens": 4083614,
+    "n_V_keep_lt_1": 0,
+    "min_keep": 1.0,
+    "frac_V_tokens_dropped": 0.0
+   },
+   "extr": {
+    "n_tokens": 98018,
+    "n_V_keep_lt_1": 0,
+    "min_keep": 1.0,
+    "frac_V_tokens_dropped": 0.0
+   }
+  }
+ },
+ "immune": {
+  "n_cells_checked": 556,
+  "n_extraction": 256,
+  "token_set_mismatches": 0,
+  "ties_at_512": 3,
+  "extraction_counts_equal_saved": true,
+  "emb_shape_equal": true,
+  "emb_V_layers_0_11_sha_equal": true,
+  "downsampling": {
+   "full": {
+    "n_tokens": 4861310,
+    "n_V_keep_lt_1": 20,
+    "min_keep": 0.8802759499550498,
+    "frac_V_tokens_dropped": 0.003143155267029213
+   },
+   "extr": {
+    "n_tokens": 60719,
+    "n_V_keep_lt_1": 22,
+    "min_keep": 0.8755039066977356,
+    "frac_V_tokens_dropped": 0.003514372539999122
+   }
+  }
+ },
+ "kidney_A": {
+  "n_cells_checked": 556,
+  "n_extraction": 256,
+  "token_set_mismatches": 0,
+  "ties_at_512": 150,
+  "extraction_counts_equal_saved": true,
+  "emb_shape_equal": true,
+  "emb_V_layers_0_11_sha_equal": true,
+  "downsampling": {
+   "full": {
+    "n_tokens": 4850023,
+    "n_V_keep_lt_1": 0,
+    "min_keep": 1.0,
+    "frac_V_tokens_dropped": 0.0
+   },
+   "extr": {
+    "n_tokens": 109548,
+    "n_V_keep_lt_1": 0,
+    "min_keep": 1.0,
+    "frac_V_tokens_dropped": 0.0
+   }
+  }
+ }
+}

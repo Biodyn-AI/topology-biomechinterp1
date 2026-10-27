@@ -1,0 +1,17 @@
+context,seed,max_cells,n_cells,extraction_h5ad,subset,G,axis_same,count_exact,n_genes_differ,n_observed,edge_index_mismatch,edge_gene_index_pairs,ties_at_cutoff,cells_trunc,nobs_eq_cache
+immune,42,256,256,tabula_sapiens_immune_subset_hpn_processed.h5ad,,4941,True,True,0,2039,0,5880,2,2,True
+immune_seed43,43,256,256,tabula_sapiens_immune_subset_hpn_processed.h5ad,,4941,True,True,0,2080,0,5880,2,2,True
+immune_seed44,44,256,256,tabula_sapiens_immune_subset_hpn_processed.h5ad,,4941,True,True,0,1972,0,5880,2,2,True
+immune_TSP14,42,256,256,TSP14.h5ad,donor_id==TSP14,4941,True,True,0,1964,0,5880,2,2,True
+immune_TSP21,42,256,256,TSP21.h5ad,donor_id==TSP21,4941,True,True,0,1765,0,5880,1,1,True
+immune_TSP25,42,256,256,TSP25.h5ad,donor_id==TSP25,4941,True,True,0,1791,0,5880,5,5,True
+immune_Bcell,42,256,256,b_cell.h5ad,cell_type==B cell,4941,True,True,0,1398,0,5880,0,0,True
+immune_CD4T,42,256,256,cd4_positive_alpha_beta_t_cell.h5ad,"cell_type==CD4-positive, alpha-beta T cell",4941,True,True,0,1465,0,5880,0,0,True
+immune_CD8T,42,256,256,cd8_positive_alpha_beta_t_cell.h5ad,"cell_type==CD8-positive, alpha-beta T cell",4941,True,True,0,1595,0,5880,0,0,True
+kidney_A,42,256,256,tabula_sapiens_processed.h5ad,,4803,True,True,0,1972,0,2304,64,65,True
+kidney_B,67,192,192,processed.h5ad,,8143,True,True,0,4780,0,59896,188,191,True
+kidney_ckpt_whole_human,87,192,192,processed.h5ad,,8143,True,True,0,4923,0,59896,182,188,True
+kidney_ckpt_kidney,87,192,192,processed.h5ad,,8143,True,True,0,4923,0,59896,182,188,True
+kidney_ckpt_brain,87,192,192,processed.h5ad,,8143,True,True,0,4923,0,59896,182,188,True
+lung,42,256,256,processed.h5ad,,8181,True,True,0,5648,0,65560,223,249,True
+lung_external,42,256,256,processed.h5ad,,8229,True,True,0,5616,0,60032,122,220,True

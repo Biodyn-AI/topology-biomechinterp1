@@ -1,0 +1,606 @@
+{
+ "_note": "Fixed from geometry alone (no outcome data read). For each legacy band, the contiguous observed-basis band of the same width (ending at or before SV12) with maximal mean cos^2 of principal angles, averaged over the 12 layers; per-layer winners also given. Observed basis = stats3.svd_observed (CONVENTION3).",
+ "created_unix": 1793021813.0400121,
+ "meta": {
+  "kidney_A": {
+   "G": 4803,
+   "n_observed": 1972,
+   "n_209": 209,
+   "n_209_zero_rows": 22,
+   "misaligned_rows": "0..208",
+   "n_misaligned_nonzero": 195,
+   "sum_matrix_observed_rows_equal": true
+  },
+  "immune": {
+   "G": 4941,
+   "n_observed": 2039
+  }
+ },
+ "bands": [
+  {
+   "legacy_band": "SV2-4",
+   "context": "kidney_A",
+   "legacy_convention": "screen_209_true",
+   "where_used": "iters 13-19: SV2, SV3, SV4 PPI co-pole axes on the 209-gene subset",
+   "mapped_observed_band": "SV1-3",
+   "mean_cos2_layer_avg": 0.4889943459542605,
+   "runner_up": "SV2-4",
+   "runner_up_mean_cos2": 0.4517905882867803,
+   "identity_band_mean_cos2": 0.4517905882867803,
+   "per_layer_winner": {
+    "0": {
+     "observed_band": "SV1-3",
+     "mean_cos2": 0.37257713608580717
+    },
+    "1": {
+     "observed_band": "SV5-7",
+     "mean_cos2": 0.39508768849627357
+    },
+    "2": {
+     "observed_band": "SV1-3",
+     "mean_cos2": 0.366530691720194
+    },
+    "3": {
+     "observed_band": "SV1-3",
+     "mean_cos2": 0.39903042883209977
+    },
+    "4": {
+     "observed_band": "SV1-3",
+     "mean_cos2": 0.40146993081082605
+    },
+    "5": {
+     "observed_band": "SV2-4",
+     "mean_cos2": 0.45990279810554086
+    },
+    "6": {
+     "observed_band": "SV1-3",
+     "mean_cos2": 0.5506871840464521
+    },
+    "7": {
+     "observed_band": "SV1-3",
+     "mean_cos2": 0.5738065157520252
+    },
+    "8": {
+     "observed_band": "SV2-4",
+     "mean_cos2": 0.6010037928381775
+    },
+    "9": {
+     "observed_band": "SV2-4",
+     "mean_cos2": 0.604638967311478
+    },
+    "10": {
+     "observed_band": "SV1-3",
+     "mean_cos2": 0.5873305282868375
+    },
+    "11": {
+     "observed_band": "SV1-3",
+     "mean_cos2": 0.6400658323510473
+    }
+   },
+   "n_layers_won": {
+    "SV1-3": 8,
+    "SV2-4": 3,
+    "SV5-7": 1
+   }
+  },
+  {
+   "legacy_band": "SV2-4",
+   "context": "immune",
+   "legacy_convention": "screen_nonzero",
+   "where_used": "iter_0049 onwards: SV2-SV4 TRRUST proximity / TF-target tests",
+   "mapped_observed_band": "SV2-4",
+   "mean_cos2_layer_avg": 0.9999999999999988,
+   "runner_up": "SV1-3",
+   "runner_up_mean_cos2": 0.6666666666666662,
+   "identity_band_mean_cos2": 0.9999999999999988,
+   "per_layer_winner": {
+    "0": {
+     "observed_band": "SV2-4",
+     "mean_cos2": 0.9999999999999974
+    },
+    "1": {
+     "observed_band": "SV2-4",
+     "mean_cos2": 0.9999999999999982
+    },
+    "2": {
+     "observed_band": "SV2-4",
+     "mean_cos2": 0.9999999999999982
+    },
+    "3": {
+     "observed_band": "SV2-4",
+     "mean_cos2": 1.0
+    },
+    "4": {
+     "observed_band": "SV2-4",
+     "mean_cos2": 0.9999999999999986
+    },
+    "5": {
+     "observed_band": "SV2-4",
+     "mean_cos2": 0.9999999999999999
+    },
+    "6": {
+     "observed_band": "SV2-4",
+     "mean_cos2": 0.9999999999999988
+    },
+    "7": {
+     "observed_band": "SV2-4",
+     "mean_cos2": 0.9999999999999988
+    },
+    "8": {
+     "observed_band": "SV2-4",
+     "mean_cos2": 0.9999999999999986
+    },
+    "9": {
+     "observed_band": "SV2-4",
+     "mean_cos2": 1.0
+    },
+    "10": {
+     "observed_band": "SV2-4",
+     "mean_cos2": 0.9999999999999979
+    },
+    "11": {
+     "observed_band": "SV2-4",
+     "mean_cos2": 0.9999999999999997
+    }
+   },
+   "n_layers_won": {
+    "SV2-4": 12
+   }
+  },
+  {
+   "legacy_band": "SV5-7",
+   "context": "immune",
+   "legacy_convention": "screen_nonzero",
+   "where_used": "iter_0050 onwards",
+   "mapped_observed_band": "SV5-7",
+   "mean_cos2_layer_avg": 0.9999999999999992,
+   "runner_up": "SV4-6",
+   "runner_up_mean_cos2": 0.6666666666666661,
+   "identity_band_mean_cos2": 0.9999999999999992,
+   "per_layer_winner": {
+    "0": {
+     "observed_band": "SV5-7",
+     "mean_cos2": 1.0
+    },
+    "1": {
+     "observed_band": "SV5-7",
+     "mean_cos2": 0.9999999999999981
+    },
+    "2": {
+     "observed_band": "SV5-7",
+     "mean_cos2": 0.9999999999999994
+    },
+    "3": {
+     "observed_band": "SV5-7",
+     "mean_cos2": 0.9999999999999997
+    },
+    "4": {
+     "observed_band": "SV5-7",
+     "mean_cos2": 0.9999999999999986
+    },
+    "5": {
+     "observed_band": "SV5-7",
+     "mean_cos2": 0.9999999999999994
+    },
+    "6": {
+     "observed_band": "SV5-7",
+     "mean_cos2": 0.9999999999999987
+    },
+    "7": {
+     "observed_band": "SV5-7",
+     "mean_cos2": 0.9999999999999999
+    },
+    "8": {
+     "observed_band": "SV5-7",
+     "mean_cos2": 0.9999999999999994
+    },
+    "9": {
+     "observed_band": "SV5-7",
+     "mean_cos2": 0.9999999999999996
+    },
+    "10": {
+     "observed_band": "SV5-7",
+     "mean_cos2": 0.9999999999999988
+    },
+    "11": {
+     "observed_band": "SV5-7",
+     "mean_cos2": 0.9999999999999988
+    }
+   },
+   "n_layers_won": {
+    "SV5-7": 12
+   }
+  },
+  {
+   "legacy_band": "SV2-7",
+   "context": "immune",
+   "legacy_convention": "screen_nonzero",
+   "where_used": "iter_0056 onwards (joint 6-D classifier)",
+   "mapped_observed_band": "SV2-7",
+   "mean_cos2_layer_avg": 0.9999999999999991,
+   "runner_up": "SV1-6",
+   "runner_up_mean_cos2": 0.8333333333333326,
+   "identity_band_mean_cos2": 0.9999999999999991,
+   "per_layer_winner": {
+    "0": {
+     "observed_band": "SV2-7",
+     "mean_cos2": 0.9999999999999992
+    },
+    "1": {
+     "observed_band": "SV2-7",
+     "mean_cos2": 0.9999999999999982
+    },
+    "2": {
+     "observed_band": "SV2-7",
+     "mean_cos2": 0.999999999999999
+    },
+    "3": {
+     "observed_band": "SV2-7",
+     "mean_cos2": 1.0
+    },
+    "4": {
+     "observed_band": "SV2-7",
+     "mean_cos2": 0.9999999999999988
+    },
+    "5": {
+     "observed_band": "SV2-7",
+     "mean_cos2": 0.9999999999999992
+    },
+    "6": {
+     "observed_band": "SV2-7",
+     "mean_cos2": 0.9999999999999992
+    },
+    "7": {
+     "observed_band": "SV2-7",
+     "mean_cos2": 0.9999999999999992
+    },
+    "8": {
+     "observed_band": "SV2-7",
+     "mean_cos2": 0.9999999999999988
+    },
+    "9": {
+     "observed_band": "SV2-7",
+     "mean_cos2": 0.9999999999999997
+    },
+    "10": {
+     "observed_band": "SV2-7",
+     "mean_cos2": 0.9999999999999983
+    },
+    "11": {
+     "observed_band": "SV2-7",
+     "mean_cos2": 0.9999999999999994
+    }
+   },
+   "n_layers_won": {
+    "SV2-7": 12
+   }
+  },
+  {
+   "legacy_band": "SV5-7",
+   "context": "kidney_A",
+   "legacy_convention": "screen_nonzero_sum",
+   "where_used": "iters 0059-0060 (layer_gene_embedding_sum.npy, observed rows)",
+   "mapped_observed_band": "SV3-5",
+   "mean_cos2_layer_avg": 0.2119246554785288,
+   "runner_up": "SV4-6",
+   "runner_up_mean_cos2": 0.20978324325852185,
+   "identity_band_mean_cos2": 0.1980466595064144,
+   "per_layer_winner": {
+    "0": {
+     "observed_band": "SV6-8",
+     "mean_cos2": 0.24024980239404936
+    },
+    "1": {
+     "observed_band": "SV5-7",
+     "mean_cos2": 0.270188687826405
+    },
+    "2": {
+     "observed_band": "SV8-10",
+     "mean_cos2": 0.21643075388185787
+    },
+    "3": {
+     "observed_band": "SV10-12",
+     "mean_cos2": 0.2534011742015393
+    },
+    "4": {
+     "observed_band": "SV4-6",
+     "mean_cos2": 0.2427962954171707
+    },
+    "5": {
+     "observed_band": "SV4-6",
+     "mean_cos2": 0.27279641953762784
+    },
+    "6": {
+     "observed_band": "SV3-5",
+     "mean_cos2": 0.3188672713835476
+    },
+    "7": {
+     "observed_band": "SV3-5",
+     "mean_cos2": 0.31232403245605006
+    },
+    "8": {
+     "observed_band": "SV6-8",
+     "mean_cos2": 0.3538608109891526
+    },
+    "9": {
+     "observed_band": "SV7-9",
+     "mean_cos2": 0.31942686515617497
+    },
+    "10": {
+     "observed_band": "SV9-11",
+     "mean_cos2": 0.302361072345987
+    },
+    "11": {
+     "observed_band": "SV9-11",
+     "mean_cos2": 0.3087018844412986
+    }
+   },
+   "n_layers_won": {
+    "SV6-8": 2,
+    "SV4-6": 2,
+    "SV3-5": 2,
+    "SV9-11": 2,
+    "SV5-7": 1,
+    "SV8-10": 1,
+    "SV10-12": 1,
+    "SV7-9": 1
+   }
+  },
+  {
+   "legacy_band": "SV5-7",
+   "context": "kidney_A",
+   "legacy_convention": "screen_nonzero",
+   "where_used": "phase-2 iterations that load cycle1_main as 'kidney' (mean embeddings, nonzero rows)",
+   "mapped_observed_band": "SV5-7",
+   "mean_cos2_layer_avg": 0.9999999999999991,
+   "runner_up": "SV4-6",
+   "runner_up_mean_cos2": 0.6666666666666662,
+   "identity_band_mean_cos2": 0.9999999999999991,
+   "per_layer_winner": {
+    "0": {
+     "observed_band": "SV5-7",
+     "mean_cos2": 0.9999999999999996
+    },
+    "1": {
+     "observed_band": "SV5-7",
+     "mean_cos2": 0.9999999999999994
+    },
+    "2": {
+     "observed_band": "SV5-7",
+     "mean_cos2": 0.9999999999999994
+    },
+    "3": {
+     "observed_band": "SV5-7",
+     "mean_cos2": 0.9999999999999986
+    },
+    "4": {
+     "observed_band": "SV5-7",
+     "mean_cos2": 0.9999999999999997
+    },
+    "5": {
+     "observed_band": "SV5-7",
+     "mean_cos2": 0.9999999999999994
+    },
+    "6": {
+     "observed_band": "SV5-7",
+     "mean_cos2": 0.9999999999999988
+    },
+    "7": {
+     "observed_band": "SV5-7",
+     "mean_cos2": 0.9999999999999997
+    },
+    "8": {
+     "observed_band": "SV5-7",
+     "mean_cos2": 0.9999999999999992
+    },
+    "9": {
+     "observed_band": "SV5-7",
+     "mean_cos2": 0.9999999999999983
+    },
+    "10": {
+     "observed_band": "SV5-7",
+     "mean_cos2": 0.9999999999999982
+    },
+    "11": {
+     "observed_band": "SV5-7",
+     "mean_cos2": 0.9999999999999986
+    }
+   },
+   "n_layers_won": {
+    "SV5-7": 12
+   }
+  },
+  {
+   "legacy_band": "SV2-4",
+   "context": "kidney_A",
+   "legacy_convention": "legacy_full_zero",
+   "where_used": "submitted manuscript (D2 convention)",
+   "mapped_observed_band": "SV1-3",
+   "mean_cos2_layer_avg": 0.990050762477979,
+   "runner_up": "SV2-4",
+   "runner_up_mean_cos2": 0.6594275775207042,
+   "identity_band_mean_cos2": 0.6594275775207042,
+   "per_layer_winner": {
+    "0": {
+     "observed_band": "SV1-3",
+     "mean_cos2": 0.966191986404518
+    },
+    "1": {
+     "observed_band": "SV1-3",
+     "mean_cos2": 0.9884206080114595
+    },
+    "2": {
+     "observed_band": "SV1-3",
+     "mean_cos2": 0.992509963728879
+    },
+    "3": {
+     "observed_band": "SV1-3",
+     "mean_cos2": 0.9943490312632107
+    },
+    "4": {
+     "observed_band": "SV1-3",
+     "mean_cos2": 0.9983640594975562
+    },
+    "5": {
+     "observed_band": "SV1-3",
+     "mean_cos2": 0.9989085788599783
+    },
+    "6": {
+     "observed_band": "SV1-3",
+     "mean_cos2": 0.9976439988812386
+    },
+    "7": {
+     "observed_band": "SV1-3",
+     "mean_cos2": 0.9921210695625416
+    },
+    "8": {
+     "observed_band": "SV1-3",
+     "mean_cos2": 0.9877427121713706
+    },
+    "9": {
+     "observed_band": "SV1-3",
+     "mean_cos2": 0.9842878646410456
+    },
+    "10": {
+     "observed_band": "SV1-3",
+     "mean_cos2": 0.9886263690370876
+    },
+    "11": {
+     "observed_band": "SV1-3",
+     "mean_cos2": 0.9914429076768617
+    }
+   },
+   "n_layers_won": {
+    "SV1-3": 12
+   }
+  },
+  {
+   "legacy_band": "SV5-7",
+   "context": "kidney_A",
+   "legacy_convention": "legacy_full_zero",
+   "where_used": "submitted manuscript (D2 convention)",
+   "mapped_observed_band": "SV4-6",
+   "mean_cos2_layer_avg": 0.9375513557514933,
+   "runner_up": "SV3-5",
+   "runner_up_mean_cos2": 0.6500892634162249,
+   "identity_band_mean_cos2": 0.6493467523984939,
+   "per_layer_winner": {
+    "0": {
+     "observed_band": "SV4-6",
+     "mean_cos2": 0.9708819287069724
+    },
+    "1": {
+     "observed_band": "SV4-6",
+     "mean_cos2": 0.9904471539005848
+    },
+    "2": {
+     "observed_band": "SV4-6",
+     "mean_cos2": 0.9899050515554144
+    },
+    "3": {
+     "observed_band": "SV4-6",
+     "mean_cos2": 0.9857349494980543
+    },
+    "4": {
+     "observed_band": "SV4-6",
+     "mean_cos2": 0.9661634864970458
+    },
+    "5": {
+     "observed_band": "SV4-6",
+     "mean_cos2": 0.9138400124735933
+    },
+    "6": {
+     "observed_band": "SV4-6",
+     "mean_cos2": 0.6974595701885097
+    },
+    "7": {
+     "observed_band": "SV4-6",
+     "mean_cos2": 0.8714235007949824
+    },
+    "8": {
+     "observed_band": "SV4-6",
+     "mean_cos2": 0.9254831930481241
+    },
+    "9": {
+     "observed_band": "SV4-6",
+     "mean_cos2": 0.967043917537484
+    },
+    "10": {
+     "observed_band": "SV4-6",
+     "mean_cos2": 0.9796557569393229
+    },
+    "11": {
+     "observed_band": "SV4-6",
+     "mean_cos2": 0.9925777478778312
+    }
+   },
+   "n_layers_won": {
+    "SV4-6": 12
+   }
+  },
+  {
+   "legacy_band": "SV2-7",
+   "context": "kidney_A",
+   "legacy_convention": "legacy_full_zero",
+   "where_used": "submitted manuscript (D2 convention)",
+   "mapped_observed_band": "SV1-6",
+   "mean_cos2_layer_avg": 0.965799474173911,
+   "runner_up": "SV2-7",
+   "runner_up_mean_cos2": 0.8204961852807697,
+   "identity_band_mean_cos2": 0.8204961852807697,
+   "per_layer_winner": {
+    "0": {
+     "observed_band": "SV1-6",
+     "mean_cos2": 0.9810458218143424
+    },
+    "1": {
+     "observed_band": "SV1-6",
+     "mean_cos2": 0.9907284097619461
+    },
+    "2": {
+     "observed_band": "SV1-6",
+     "mean_cos2": 0.9916731687175392
+    },
+    "3": {
+     "observed_band": "SV1-6",
+     "mean_cos2": 0.9905407587431377
+    },
+    "4": {
+     "observed_band": "SV1-6",
+     "mean_cos2": 0.9825300309171622
+    },
+    "5": {
+     "observed_band": "SV1-6",
+     "mean_cos2": 0.9564461994705491
+    },
+    "6": {
+     "observed_band": "SV1-6",
+     "mean_cos2": 0.8478982959489189
+    },
+    "7": {
+     "observed_band": "SV1-6",
+     "mean_cos2": 0.9337463704130409
+    },
+    "8": {
+     "observed_band": "SV1-6",
+     "mean_cos2": 0.9594942900334509
+    },
+    "9": {
+     "observed_band": "SV1-6",
+     "mean_cos2": 0.9782585287784721
+    },
+    "10": {
+     "observed_band": "SV1-6",
+     "mean_cos2": 0.9850069355698222
+    },
+    "11": {
+     "observed_band": "SV1-6",
+     "mean_cos2": 0.9922248799185512
+    }
+   },
+   "n_layers_won": {
+    "SV1-6": 12
+   }
+  }
+ ]
+}

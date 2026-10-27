@@ -1,0 +1,13 @@
+item,implementer_text,corrected_text,source
+1,"immune H1b best-layer delta delete-d CI [-0.083, +0.005]","[-0.082, +0.005] (-0.08250, +0.00526)","paired_vs_scgpt.csv: context=immune, w2v=full_w5_e10, task=H1b, layer=2, delta_ci_lo_deleted/hi_deleted"
+2,"kidney_B H2 null-centred best-layer delta [-0.075, -0.026]","[-0.075, -0.025] (-0.07543, -0.02548)","paired_vs_scgpt.csv: kidney_B, H2, layer=1, delta_nullcentred_ci_lo/hi"
+3,"saturation immune H2 0.521 -> 0.515","0.520 -> 0.515 (0.52046 -> 0.51483)","saturation.csv"
+4,"Seed pairs >= 0.965 (CKA)","full-corpus seed pairs >= 0.968; extraction-only seed pairs >= 0.963","cka.csv kind=seed_pair_full / seed_pair_extr (min)"
+5,"scGPT H2 null mean ~0.49","scGPT H2 null means 0.475-0.496 across contexts and layers","paired_vs_scgpt.csv scgpt_null_mean"
+6,"lung L11 H1b delta delete-d CI [-0.027, -0.000] excludes 0 (borderline)","upper bound -0.00003: touches 0; treat as not resolved","paired_vs_scgpt.csv lung H1b layer=11 delta_ci_hi_deleted = -0.000031"
+7,"at 40 epochs lung H2 equals scGPT","not distinguishable from scGPT at L0-L10 (null-centred CI covers 0) and higher than L11; single seed","paired_vs_scgpt.csv w2v=full_w5_e40 H2"
+8,"extraction-only lower bound: lower on every task (H2 lung 0.487 p=0.66)","still lower on every task in every context, but its H2 permutation p is < 0.05 in lung_external (0.539, p=0.0005) and kidney_A (0.361, p=0.026; null mean 0.274) -- the latter is AUROC below 0.5 yet above its own null","w2v_results.csv corpus=extr_w5_e10 seed=mean H2"
+9,"~50-85 'our_dot_float' messages per training log","23-84 per training-process log; each log covers 1-30 models","grep -c our_dot_float e8_train_p*.log e8_train_sat_*.log"
+10,"immune/kidney_A vocabularies are small (~2,000 genes)","observed universes V are small (2,039 / 1,972 genes, drawn from 4,941 / 4,803-gene HVG axes)","eval/<ctx>.json n_genes; corpus/<ctx>_meta.json G"
+11,"H3: both instruments weak (<= 0.66)","<= 0.65 (max scGPT 0.652 kidney_A L1; max W2V seed-mean 0.603 immune)","paired_vs_scgpt.csv H3"
+12,"co-occurrence over these cells cannot explain (immune/kidney_A H2)","this co-occurrence instrument (window 5, 10-40 epochs; also window 512 / matched-update on extraction cells) does not reproduce it","w2v_results.csv, saturation.csv, calibration.csv"

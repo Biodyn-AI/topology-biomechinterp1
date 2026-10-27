@@ -1,0 +1,49 @@
+{
+ "grn_scores_files_match_partial": {
+  "lung_T1_0": true,
+  "lung_T1_1": true,
+  "lung_T1_2": true,
+  "lung_T1_3": true,
+  "lung_T1_4": true,
+  "lung_T2_0": true,
+  "lung_T2_1": true,
+  "lung_external_T1_0": true,
+  "lung_external_T1_1": true,
+  "lung_external_T1_2": true,
+  "lung_external_T1_3": true,
+  "lung_external_T1_4": true,
+  "lung_external_T2_0": true,
+  "lung_external_T2_1": true,
+  "kidney_B_T1_0": true,
+  "kidney_B_T1_1": true,
+  "kidney_B_T1_2": true,
+  "kidney_B_T1_3": true,
+  "kidney_B_T1_4": true,
+  "kidney_B_T2_0": true,
+  "kidney_B_T2_1": true,
+  "immune_T1_0": true,
+  "immune_T1_1": true,
+  "immune_T1_2": true,
+  "immune_T1_3": true,
+  "immune_T1_4": true,
+  "immune_T2_0": true,
+  "immune_T2_1": true,
+  "kidney_A_T1_0": true,
+  "kidney_A_T1_1": true,
+  "kidney_A_T1_2": true,
+  "kidney_A_T1_3": true,
+  "kidney_A_T1_4": true,
+  "kidney_A_T2_0": true,
+  "kidney_A_T2_1": true
+ },
+ "all_match": true,
+ "n_onesided_only": 9,
+ "early_stop_T1_frac_range": [
+  0.19540229885057472,
+  0.3126050420168067
+ ],
+ "early_stop_T2_frac_range": [
+  0.05263157894736842,
+  0.15708812260536398
+ ]
+}

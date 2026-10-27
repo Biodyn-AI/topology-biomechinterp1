@@ -1,0 +1,8 @@
+{
+ "max_abs_diff_C_resid": 9.71445146547012e-17,
+ "max_abs_diff_C_raw": 9.71445146547012e-17,
+ "max_abs_diff_C_full512_vs_residual_auroc": 0.0,
+ "n_A_B_rows_matched": 72,
+ "max_abs_diff_main_vs_hashseed0": 0.0,
+ "n_hashseed_files": 21
+}

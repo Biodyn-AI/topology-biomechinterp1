@@ -1,0 +1,125 @@
+\setcounter{table}{0}
+\begingroup
+\footnotesize
+\setlength{\tabcolsep}{2.6pt}
+\renewcommand{\arraystretch}{0.97}
+\setlength{\LTleft}{0pt}\setlength{\LTright}{0pt}
+\begin{longtable}{@{\extracolsep{\fill}}>{\scriptsize}l>{\scriptsize}l*{6}{>{\scriptsize}r}@{}}
+\caption[Spectral concentration with depth]{\textbf{Spectral concentration with depth, in every extraction.} Singular values $S_1 \geq S_2 \geq \dots$ of the centred observed-gene matrix ($|V| \times 512$) at each layer. ER, effective rank $\exp(-\sum_k p_k \log p_k)$ with $p_k = S_k/\sum_j S_j$ (Roy and Vetterli, 2007); $\mathrm{ER}_{\mathrm{var}}$, exponential of the Shannon entropy of the variance shares $q_k = S_k^2/\sum_j S_j^2$; PR, participation ratio $(\sum_k S_k^2)^2/\sum_k S_k^4$; $\SV{1}$, share of variance $q_1$ on the first direction (\%); $\SV{1\text{--}10}$, cumulative share of the first ten (\%). \textbf{A}, the five main extractions at five layers ($|V|$ = 5{,}648, 5{,}616, 4{,}780, 2{,}039 and 1{,}972 genes for lung, lung (ext.), kidney~B, immune and kidney~A). Fold, $L_0$ value over $L_{11}$ value for ER, $\mathrm{ER}_{\mathrm{var}}$ and PR, $L_{11}$ over $L_0$ for the variance shares. Intervals for $\SV{1}$: 95\% gene-bootstrap percentile intervals ($B = 200$; genes resampled with replacement). No bootstrap interval is given for ER: resampling genes with replacement duplicates rows and biases it downwards, so its sampling variability is taken from the without-replacement subsamples of panel~D. \textbf{B}, all sixteen extractions. Cell draw, an independent draw of 256 immune cells; donor, 256 cells of one donor; B/CD4~T/CD8~T cells, 256 cells of one type; ckpt, one draw of 192 kidney cells (the 8{,}143-gene axis of kidney~B) passed through the whole-human checkpoint used for every other extraction, the kidney-fine-tuned and the brain scGPT checkpoint. Rises, number of the eleven consecutive layer steps at which ER / $\mathrm{ER}_{\mathrm{var}}$ / PR increased (0, strictly decreasing). \textbf{C}, identifiability and controls. Near-degenerate pairs: number of layers (of 12) at which the 95\% basic bootstrap interval of the gap ratio $S_k/S_{k+1}$ ($B = 200$ gene resamples) reaches 1; last column, count and percentage over all 192 extraction-layers of the sixteen extractions (all 2{,}112 pairs in the last of these rows). The nine such pairs among $\SV{1}$--$\SV{4}$ ($k \leq 3$) of the five main extractions are flagged again at $B = 1{,}000$. Feature shuffle: ER after each of the 512 features is permuted independently across genes (mean of 20 draws; SD $\leq 0.12$), divided by the observed ER, and the shuffled ER itself at $L_{11}$; last column, range over the sixteen extractions. Null direction: singular values below $10^{-3} S_1$ per layer, and the absolute cosine between the last right singular vector and the uniform vector $\mathbf{1}/\sqrt{512}$ at $L_0$ / $L_{11}$, with the relative size of the last singular value. \textbf{D}, detection controls. Matched: 1{,}300 genes subsampled without replacement within common deciles of $\log n_{\mathrm{obs}}$ pooled over the five extractions, mean $\pm$ SD over 200 draws; $n_{\mathrm{obs}} \geq 3$: the spectrum at $L_{11}$ after excluding genes contributed by fewer than three sampled cells (thresholds 5 and 10 in the CSV). Last column, range over the five extractions. Full values: \texttt{Table\_S1\_compression.csv}.}\label{tab:S1}\\
+\toprule
+\endfirsthead
+\multicolumn{8}{@{}l}{\scriptsize\itshape Table~\thetable\ (continued)}\\
+\toprule
+\endhead
+\midrule
+\multicolumn{8}{r@{}}{\scriptsize\itshape continued on next page}\\
+\endfoot
+\bottomrule
+\endlastfoot
+\multicolumn{8}{@{}l}{\scriptsize\textbf{A\quad Spectral summaries at five layers, five main extractions}}\\
+\midrule
+Extraction & Measure & $L_0$ & $L_3$ & $L_6$ & $L_9$ & $L_{11}$ & Fold \\
+\midrule
+lung & ER & 457.4 & 435.1 & 402.4 & 354.2 & 324.1 & 1.41$\times$ \\*
+ & $\mathrm{ER}_{\mathrm{var}}$ & 257.2 & 199.9 & 128.4 & 69.6 & 47.3 & 5.43$\times$ \\*
+ & PR & 86.4 & 65.3 & 36.0 & 18.4 & 12.3 & 7.04$\times$ \\*
+ & $\SV{1}$ (\%) & 7.3 & 7.3 & 11.2 & 16.9 & 24.0 & 3.27$\times$ \\*
+ & \quad 95\% CI & 7.2--7.5 & 7.2--7.6 & 10.7--11.8 & 16.0--18.2 & 22.5--25.4 & \\*
+ & $\SV{1\text{--}10}$ (\%) & 24.1 & 30.1 & 40.8 & 54.0 & 61.3 & 2.54$\times$ \\
+\addlinespace[2pt]
+lung (ext.) & ER & 459.4 & 439.0 & 409.8 & 363.3 & 340.8 & 1.35$\times$ \\*
+ & $\mathrm{ER}_{\mathrm{var}}$ & 263.1 & 206.3 & 140.5 & 77.1 & 65.2 & 4.03$\times$ \\*
+ & PR & 87.8 & 63.7 & 37.2 & 18.2 & 17.8 & 4.94$\times$ \\*
+ & $\SV{1}$ (\%) & 7.3 & 7.7 & 11.4 & 18.7 & 17.9 & 2.45$\times$ \\*
+ & \quad 95\% CI & 7.1--7.5 & 7.5--8.0 & 11.1--11.8 & 18.3--19.2 & 17.5--18.4 & \\*
+ & $\SV{1\text{--}10}$ (\%) & 23.7 & 29.4 & 38.4 & 50.6 & 54.6 & 2.31$\times$ \\
+\addlinespace[2pt]
+kidney~B & ER & 456.2 & 434.0 & 401.0 & 352.8 & 324.1 & 1.41$\times$ \\*
+ & $\mathrm{ER}_{\mathrm{var}}$ & 257.3 & 196.7 & 127.5 & 70.5 & 50.6 & 5.09$\times$ \\*
+ & PR & 88.5 & 63.3 & 36.1 & 19.1 & 14.8 & 5.96$\times$ \\*
+ & $\SV{1}$ (\%) & 7.0 & 7.1 & 10.9 & 16.5 & 17.6 & 2.50$\times$ \\*
+ & \quad 95\% CI & 6.9--7.2 & 7.0--7.3 & 10.6--11.2 & 16.1--17.0 & 17.1--18.1 & \\*
+ & $\SV{1\text{--}10}$ (\%) & 24.0 & 30.8 & 41.2 & 53.8 & 60.8 & 2.53$\times$ \\
+\addlinespace[2pt]
+immune & ER & 442.4 & 420.5 & 388.5 & 342.8 & 309.6 & 1.43$\times$ \\*
+ & $\mathrm{ER}_{\mathrm{var}}$ & 236.9 & 186.5 & 125.5 & 74.7 & 48.7 & 4.86$\times$ \\*
+ & PR & 90.1 & 68.1 & 40.2 & 22.8 & 15.2 & 5.93$\times$ \\*
+ & $\SV{1}$ (\%) & 5.6 & 6.5 & 10.3 & 14.3 & 18.6 & 3.32$\times$ \\*
+ & \quad 95\% CI & 5.4--6.0 & 6.2--7.0 & 9.8--11.0 & 13.7--15.0 & 16.7--20.9 & \\*
+ & $\SV{1\text{--}10}$ (\%) & 25.4 & 31.2 & 40.7 & 52.2 & 61.3 & 2.42$\times$ \\
+\addlinespace[2pt]
+kidney~A & ER & 437.4 & 415.2 & 381.0 & 329.2 & 297.1 & 1.47$\times$ \\*
+ & $\mathrm{ER}_{\mathrm{var}}$ & 209.5 & 158.0 & 98.1 & 52.0 & 34.8 & 6.01$\times$ \\*
+ & PR & 64.8 & 46.3 & 25.5 & 14.3 & 10.7 & 6.08$\times$ \\*
+ & $\SV{1}$ (\%) & 8.1 & 9.8 & 14.7 & 20.6 & 23.1 & 2.85$\times$ \\*
+ & \quad 95\% CI & 7.6--8.6 & 9.4--10.3 & 14.2--15.5 & 19.7--21.6 & 22.3--24.1 & \\*
+ & $\SV{1\text{--}10}$ (\%) & 28.7 & 35.8 & 46.9 & 60.6 & 68.4 & 2.38$\times$ \\
+\midrule
+\multicolumn{8}{@{}l}{\scriptsize\textbf{B\quad From the first to the last layer, all sixteen extractions}}\\
+\midrule
+ & & & \multicolumn{3}{c}{\scriptsize Fold $L_0/L_{11}$} & $\SV{1}$ (\%) & Rises \\
+\cmidrule(lr){4-6}
+Extraction & Design & $|V|$ & ER & $\mathrm{ER}_{\mathrm{var}}$ & PR & $L_0 \to L_{11}$ & ER/$\mathrm{ER}_{\mathrm{var}}$/PR \\
+\midrule
+lung & primary & 5{,}648 & 1.41 & 5.43 & 7.04 & 7.3 $\to$ 24.0 & 0/0/0 \\
+lung (ext.) & replication & 5{,}616 & 1.35 & 4.03 & 4.94 & 7.3 $\to$ 17.9 & 0/0/1 \\
+kidney~B & second tissue & 4{,}780 & 1.41 & 5.09 & 5.96 & 7.0 $\to$ 17.6 & 0/0/0 \\
+immune & continuity & 2{,}039 & 1.43 & 4.86 & 5.93 & 5.6 $\to$ 18.6 & 0/0/1 \\
+kidney~A & continuity & 1{,}972 & 1.47 & 6.01 & 6.08 & 8.1 $\to$ 23.1 & 0/0/1 \\
+\addlinespace[2pt]
+immune & cell draw, seed 43 & 2{,}080 & 1.43 & 5.17 & 6.68 & 6.0 $\to$ 21.9 & 0/0/0 \\
+ & cell draw, seed 44 & 1{,}972 & 1.41 & 4.60 & 5.59 & 5.7 $\to$ 17.5 & 0/0/0 \\
+ & donor TSP14 & 1{,}964 & 1.47 & 6.35 & 8.14 & 7.4 $\to$ 30.0 & 0/0/0 \\
+ & donor TSP21 & 1{,}765 & 1.37 & 3.96 & 5.08 & 5.6 $\to$ 16.3 & 0/0/1 \\
+ & donor TSP25 & 1{,}791 & 1.38 & 4.04 & 5.03 & 6.0 $\to$ 16.6 & 0/0/1 \\
+ & B cells & 1{,}398 & 1.47 & 8.37 & 13.35 & 6.4 $\to$ 38.2 & 0/0/0 \\
+ & CD4 T cells & 1{,}465 & 1.40 & 4.64 & 6.27 & 5.9 $\to$ 18.7 & 0/0/0 \\
+ & CD8 T cells & 1{,}595 & 1.44 & 6.37 & 9.77 & 6.1 $\to$ 30.1 & 0/0/0 \\
+\addlinespace[2pt]
+kidney (192 cells) & whole-human ckpt & 4{,}923 & 1.40 & 5.08 & 5.94 & 7.1 $\to$ 16.8 & 0/0/0 \\
+ & kidney ckpt & 4{,}923 & 2.49 & 23.88 & 13.04 & 8.8 $\to$ 34.0 & 0/0/0 \\
+ & brain ckpt & 4{,}923 & 1.64 & 9.73 & 10.56 & 7.0 $\to$ 28.9 & 0/0/2 \\
+\midrule
+\multicolumn{8}{@{}l}{\scriptsize\textbf{C\quad Near-degenerate adjacent singular values, feature shuffle and the null direction}}\\
+\midrule
+\multicolumn{2}{@{}l}{\scriptsize } & lung & lung (ext.) & kidney~B & immune & kidney~A & All 16 \\
+\midrule
+\multicolumn{2}{@{}l}{\scriptsize \itshape Near-degenerate pairs, $S_k/S_{k+1}$} & & & & & & \\
+\multicolumn{2}{@{}l}{\scriptsize \quad $k = 1$ ($\SV{1}/\SV{2}$)} & 0 & 0 & 0 & 4 & 0 & 8/192 (4.2\%) \\
+\multicolumn{2}{@{}l}{\scriptsize \quad $k = 2$ ($\SV{2}/\SV{3}$)} & 0 & 0 & 1 & 0 & 1 & 6/192 (3.1\%) \\
+\multicolumn{2}{@{}l}{\scriptsize \quad $k = 3$ ($\SV{3}/\SV{4}$)} & 1 & 1 & 0 & 1 & 0 & 24/192 (12.5\%) \\
+\multicolumn{2}{@{}l}{\scriptsize \quad $k = 4$ ($\SV{4}/\SV{5}$)} & 0 & 0 & 1 & 1 & 3 & 25/192 (13.0\%) \\
+\multicolumn{2}{@{}l}{\scriptsize \quad $k = 5$ ($\SV{5}/\SV{6}$)} & 0 & 0 & 2 & 5 & 1 & 42/192 (21.9\%) \\
+\multicolumn{2}{@{}l}{\scriptsize \quad $k = 6$ ($\SV{6}/\SV{7}$)} & 3 & 0 & 0 & 2 & 2 & 34/192 (17.7\%) \\
+\multicolumn{2}{@{}l}{\scriptsize \quad $k = 7$ ($\SV{7}/\SV{8}$)} & 0 & 2 & 2 & 2 & 4 & 31/192 (16.1\%) \\
+\multicolumn{2}{@{}l}{\scriptsize \quad $k = 8$ ($\SV{8}/\SV{9}$)} & 2 & 2 & 2 & 9 & 4 & 67/192 (34.9\%) \\
+\multicolumn{2}{@{}l}{\scriptsize \quad $k = 9$ ($\SV{9}/\SV{10}$)} & 5 & 3 & 6 & 3 & 3 & 60/192 (31.2\%) \\
+\multicolumn{2}{@{}l}{\scriptsize \quad $k = 10$ ($\SV{10}/\SV{11}$)} & 4 & 3 & 1 & 3 & 6 & 74/192 (38.5\%) \\
+\multicolumn{2}{@{}l}{\scriptsize \quad $k = 11$ ($\SV{11}/\SV{12}$)} & 5 & 1 & 5 & 2 & 3 & 58/192 (30.2\%) \\
+\multicolumn{2}{@{}l}{\scriptsize \quad all pairs, $k = 1$--$11$} & 20/132 & 12/132 & 20/132 & 32/132 & 27/132 & 429/2{,}112 (20.3\%) \\
+\addlinespace[2pt]
+\multicolumn{2}{@{}l}{\scriptsize \itshape Feature shuffle} & & & & & & \\
+\multicolumn{2}{@{}l}{\scriptsize \quad shuffled/observed ER, $L_{0}$} & 1.09$\times$ & 1.09$\times$ & 1.10$\times$ & 1.11$\times$ & 1.12$\times$ & 1.06--1.12 \\
+\multicolumn{2}{@{}l}{\scriptsize \quad shuffled/observed ER, $L_{11}$} & 1.48$\times$ & 1.40$\times$ & 1.48$\times$ & 1.52$\times$ & 1.57$\times$ & 1.40--2.51 \\
+\multicolumn{2}{@{}l}{\scriptsize \quad shuffled ER, $L_{11}$} & 479.6 & 478.7 & 479.8 & 470.8 & 467.5 & 454.1--479.9 \\
+\addlinespace[2pt]
+\multicolumn{2}{@{}l}{\scriptsize \itshape Null direction} & & & & & & \\
+\multicolumn{2}{@{}l}{\scriptsize \quad singular values $< 10^{-3} S_1$} & 1 & 1 & 1 & 1 & 1 & 1 at all 192 \\
+\multicolumn{2}{@{}l}{\scriptsize \quad $|\cos|$ with uniform, $L_0$/$L_{11}$} & \multicolumn{5}{c}{\scriptsize 0.9993 / 0.9991 in each of the five} & \\
+\multicolumn{2}{@{}l}{\scriptsize \quad $S_{512}/S_1$ ($L_0$, $L_{11}$)} & \multicolumn{5}{c}{\scriptsize $3.3$--$7.0 \times 10^{-8}$} & \\
+\midrule
+\multicolumn{8}{@{}l}{\scriptsize\textbf{D\quad Detection controls, five main extractions}}\\
+\midrule
+\multicolumn{2}{@{}l}{\scriptsize } & lung & lung (ext.) & kidney~B & immune & kidney~A & Range \\
+\midrule
+\multicolumn{2}{@{}l}{\scriptsize ER, all $V$, $L_{11}$ (panel A)} & 324.1 & 340.8 & 324.1 & 309.6 & 297.1 & 297.1--340.8 \\
+\multicolumn{2}{@{}l}{\scriptsize ER, matched 1{,}300 genes, $L_{0}$} & 432.0 $\pm$ 0.4 & 435.7 $\pm$ 0.3 & 433.1 $\pm$ 0.4 & 431.4 $\pm$ 0.3 & 427.4 $\pm$ 0.3 & 427.4--435.7 \\
+\multicolumn{2}{@{}l}{\scriptsize ER, matched 1{,}300 genes, $L_{11}$} & 296.3 $\pm$ 1.1 & 318.3 $\pm$ 0.5 & 302.8 $\pm$ 0.8 & 299.5 $\pm$ 0.8 & 290.0 $\pm$ 0.6 & 290.0--318.3 \\
+\multicolumn{2}{@{}l}{\scriptsize ER, matched, fold $L_0/L_{11}$} & 1.46$\times$ & 1.37$\times$ & 1.43$\times$ & 1.44$\times$ & 1.47$\times$ & 1.37--1.47 \\
+\addlinespace[2pt]
+\multicolumn{2}{@{}l}{\scriptsize genes with $n_{\mathrm{obs}} \geq 3$} & 4{,}221 & 4{,}529 & 3{,}528 & 1{,}341 & 1{,}346 & 1{,}341--4{,}529 \\
+\multicolumn{2}{@{}l}{\scriptsize $n_{\mathrm{obs}} \geq 3$: ER, $L_{11}$} & 335.1 & 340.0 & 325.2 & 318.1 & 301.2 & 301.2--340.0 \\
+\multicolumn{2}{@{}l}{\scriptsize $n_{\mathrm{obs}} \geq 3$: PR, $L_{11}$} & 20.5 & 17.6 & 13.4 & 20.6 & 9.3 & 9.3--20.6 \\
+\multicolumn{2}{@{}l}{\scriptsize $n_{\mathrm{obs}} \geq 3$: $\SV{1}$ (\%), $L_{11}$} & 13.7 & 17.7 & 18.8 & 15.5 & 27.0 & 13.7--27.0 \\
+\end{longtable}
+\endgroup

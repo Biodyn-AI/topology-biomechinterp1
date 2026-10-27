@@ -1,0 +1,228 @@
+\setcounter{table}{11}
+\begingroup
+\footnotesize
+\setlength{\tabcolsep}{2.4pt}
+\setlength{\LTpre}{6pt}\setlength{\LTpost}{6pt}
+\begin{longtable}{@{}>{\scriptsize\raggedleft\arraybackslash}p{0.42cm}>{\scriptsize\raggedright\arraybackslash}p{1.3cm}>{\scriptsize\raggedright\arraybackslash}p{4.25cm}>{\scriptsize\raggedright\arraybackslash}p{0.7cm}>{\scriptsize\raggedright\arraybackslash}p{1.55cm}>{\scriptsize\raggedright\arraybackslash}p{1.95cm}>{\scriptsize\raggedleft\arraybackslash}p{1.45cm}>{\scriptsize\raggedleft\arraybackslash}p{1.45cm}>{\scriptsize\raggedright\arraybackslash}p{0.8cm}>{\scriptsize\raggedright\arraybackslash}p{1.5cm}@{}}
+\caption{\textbf{The 183 hypothesis records of the automated screen (iterations 1--63).} Each record is one hypothesis of the two-agent screen as archived in the iteration's JSON file, parsed together with the iteration's code. The first 63 iterations produced these 183 records, whose headline findings Kendiukhov (2026b) (arXiv:2602.22247) reported. \emph{Panel A}, per JSON family (the 8 families the records use; Kendiukhov (2026b) regroups them into 13): $n$, records; spec., records involving a spectral decomposition; extr., records whose result string yields a primary $p$-value; $=0$, of these, $p$ stored as exactly 0 (permutation tests with $N = 50$--1,000 draws); Bonf.\ rec., records passing Bonferroni at $0.05/183$ with the recorded $p$ ($p \leq 0.05/183$, zeros kept); Bonf.\ fl., passing with the floored $p$ ($p < 0.05/183$), where a zero is replaced by its resolution floor $1/(N+1)$, with $N$ from the record's method text where stated and 1,000 otherwise; BH, passing Benjamini--Hochberg at $q = 0.05$ over the 112 extractable floored $p$-values; kid.~A, records using the kidney~A matrix (a Tabula Sapiens kidney extraction, 4,803 genes, described as immune in Kendiukhov (2026b)), with the number whose gene labels were misaligned in parentheses (mis.; iterations 27 and 29--39, where blank lines of the gene list were dropped so that all 209 labels sat on rows 0--208); imm., records using the immune extraction (one record uses both); other, neither (one Gaussian null matrix, one Geneformer token-embedding matrix); directions and bands, the five most frequent spectral directions or bands named in the family's spectral records (SV24 and SV57 are the records' own labels for $\SV{2}$--$\SV{4}$ and $\SV{5}$--$\SV{7}$; PC, principal component). The last two rows repeat the audit over all 409 records of the loop (137 JSON files; 3 records belong to an aborted duplicate run), with the Bonferroni denominator equal to the number of extractable $p$-values; this is a sensitivity analysis. \emph{Panel B}, every record in iteration order: It., iteration; ID, hypothesis identifier within the iteration ($^{\star}$, record keyed to one of the 11 headline findings in the multiplicity audit); Fam., JSON family code (Panel A); Matrix, embedding matrix loaded (3 draws, the main extraction and two further 256-cell draws; lung attention, scGPT attention scores from a lung extraction; $^{\mathrm{m}}$, misaligned gene labels); Directions recorded, spectral directions or bands named in the record (---, none); $p$ recorded, primary $p$ as extracted from the result string (---, none extractable); $p$ floored, after replacing zeros by $1/(N+1)$; Passes: R, Bonferroni at $0.05/183$ with the recorded $p$; F, Bonferroni at $0.05/183$ with the floored $p$; H, Benjamini--Hochberg at $q = 0.05$ with the floored $p$; Decision, the screen's own decision for the record. Of the 11 starred records, 8 carry R and 3 carry F; the headline-level count after flooring (5 of the 11) scores 5 of the headline findings by a $p$-value recomputed for the claim itself instead of the record's primary $p$ shown here (for the transcription-factor classifier, a Stouffer combination of its 12 per-layer $p$-values, which is invalid because the layers share genes), and 2 of these pass; replacing the $t$-approximation $p = 1.4\times10^{-24}$ of the STRING confidence gradient by its exact value, 0.0167, and setting aside the Stouffer combination leaves 3 (Table~S13, C23 and C28). Titles are truncated to about 55 characters. No intervals are reported: $p$-values are as computed by the screen and are displayed to three significant digits. Because each iteration's hypotheses were chosen after seeing earlier results, no correction over the recorded family bounds the error rate of the screen as a whole. The file also gives, for every record, its gene set and gene-row mapping, decomposition convention, reference sets, script provenance and the claims of Table~S13 it supports, and the same fields for the 226 later records. Full values: \texttt{Table\_S12\_screen\_records.csv}.}\label{tab:S12}\\
+\multicolumn{10}{@{}l}{\footnotesize\textbf{A.} Records per JSON family and multiple-testing passes}\\[2pt]
+\multicolumn{10}{@{}l@{}}{\scriptsize\setlength{\tabcolsep}{2.4pt}\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.3cm}rrrrrrrrrr>{\raggedright\arraybackslash}p{4.3cm}@{}}
+\toprule
+ & & & \multicolumn{2}{c}{$p$-values} & \multicolumn{3}{c}{passes} & \multicolumn{3}{c}{matrix used} & \\
+\cmidrule(lr){4-5}\cmidrule(lr){6-8}\cmidrule(lr){9-11}
+JSON family (code) & $n$ & spec. & extr. & $=0$ & Bonf.\ rec. & Bonf.\ fl. & BH & kid.~A (mis.) & imm. & other & directions and bands involved (records) \\
+\midrule
+\texttt{module\_structure} (MOD) & 52 & 37 & 33 & 5 & 12 & 7 & 21 & 35 (7) & 17 & 0 & $\SV{2}$--$\SV{4}$ (16), $\SV{5}$--$\SV{7}$ (16), $\SV{2}$ (7), $\SV{1}$ (6), $\SV{2}$--$\SV{7}$ (4), \ldots{} \\
+\texttt{manifold\_distance} (MAN) & 42 & 11 & 29 & 4 & 10 & 6 & 19 & 22 (10) & 20 & 0 & $\SV{5}$--$\SV{7}$ (9), $\SV{2}$--$\SV{4}$ (3), $\SV{5}$ (2), $\SV{7}$ (2), $\SV{2}$ (1), \ldots{} \\
+\texttt{intrinsic\_dimensionality} (IDM) & 41 & 32 & 24 & 4 & 10 & 6 & 16 & 20 (6) & 21 & 0 & $\SV{1}$ (13), $\SV{2}$ (6), $\SV{1}$/$\SV{2}$ (5), PC1 (4), $\SV{2}$/$\SV{3}$ (2), \ldots{} \\
+\texttt{graph\_topology} (GRT) & 16 & 11 & 9 & 1 & 3 & 2 & 4 & 14 (3) & 2 & 0 & $\SV{2}$ (3), $\SV{3}$ (2), $\SV{2}$+$\SV{3}$+$\SV{4}$ (2), $\SV{1}$ (1), $\SV{4}$ (1) \\
+\texttt{null\_sensitivity} (NUL) & 15 & 6 & 7 & 2 & 3 & 1 & 5 & 13 (7) & 1 & 1 & $\SV{2}$ (3), $\SV{3}$/$\SV{4}$ (1), $\SV{3}$ (1), $\SV{4}$ (1), PC1 (1) \\
+\texttt{topology\_stability} (TST) & 8 & 6 & 6 & 2 & 2 & 0 & 2 & 6 (3) & 2 & 0 & $\SV{1}$ (2), $\SV{5}$--$\SV{7}$ (2), SV57 (2), $\SV{2}$--$\SV{4}$ (2), $\SV{2}$/$\SV{3}$ (1), \ldots{} \\
+\texttt{cross\_model\_alignment} (CMA) & 5 & 3 & 0 & 0 & 0 & 0 & 0 & 3 (0) & 2 & 1 & $\SV{5}$--$\SV{7}$ (1) \\
+\texttt{persistent\_homology} (PHO) & 4 & 2 & 4 & 0 & 3 & 3 & 3 & 2 (0) & 2 & 0 & $\SV{2}$--$\SV{4}$ (2) \\
+\midrule
+All 183 records (iterations 1--63) & 183 & 108 & 112 & 18 & 43 & 25 & 70 & 115 (36) & 67 & 2 & Bonferroni threshold $0.05/183 = 2.73{\times}10^{-4}$ \\
+All 409 records (iterations 1--138) & 409 & --- & 130 & 18 & --- & 28 & 79 & --- & --- & --- & Bonferroni at $0.05/130$ \\
+\quad excl.\ aborted duplicate run & 406 & --- & 127 & 18 & --- & 27 & 76 & --- & --- & --- & Bonferroni at $0.05/127$ \\
+\bottomrule
+\end{tabular}}\\[4pt]
+\multicolumn{10}{@{}l}{\footnotesize\textbf{B.} The 183 records}\\
+\toprule
+It. & ID & Hypothesis (short title) & Fam. & Matrix & Directions recorded & $p$ recorded & $p$ floored & Passes & Decision \\
+\midrule
+\endfirsthead
+\multicolumn{10}{@{}l}{\footnotesize\textit{Table~\thetable{} (continued)}}\\
+\toprule
+It. & ID & Hypothesis (short title) & Fam. & Matrix & Directions recorded & $p$ recorded & $p$ floored & Passes & Decision \\
+\midrule
+\endhead
+\midrule
+\multicolumn{10}{@{}r@{}}{\scriptsize\textit{continued on next page}}\\
+\endfoot
+\bottomrule
+\endlastfoot
+2 & H01\_\allowbreak{}graph\_\allowbreak{}topology\_\allowbreak{}cc & kNN Clustering Coefficient vs Feature-Shuffle Null & GRT & kidney~A (3 draws) & --- & --- & --- &  & promising \\
+2 & H02\_\allowbreak{}graph\_\allowbreak{}topology\_\allowbreak{}tr & kNN Transitivity vs Feature-Shuffle Null & GRT & kidney~A (3 draws) & --- & --- & --- &  & negative \\
+4 & H01 & TwoNN intrinsic dimensionality per layer & IDM & kidney~A & --- & --- & --- &  & promising \\
+4 & H02 & TRRUST co-target distance clustering (random-group\ldots{} & MOD & kidney~A & --- & --- & --- &  & inconclusive \\
+4 & H03 & Cross-layer linear CKA alignment & CMA & kidney~A & --- & --- & --- &  & promising \\
+5 & H01 & GO term embedding clustering across layers & MOD & kidney~A & --- & --- & --- &  & inconclusive \\
+5 & H02 & Per-gene residual drift + GO enrichment & MOD & kidney~A & --- & 0.0044 & 0.0044 & H & promising \\
+5 & H03 & Effective rank per layer (spectral cross-check vs\ldots{} & IDM & kidney~A & --- & 0.002 & 0.002 & H & promising \\
+6 & H01 & Full-vocabulary residual drift + GO enrichment & MOD & kidney~A & --- & 0.0078 & 0.0078 & H & promising \\
+6 & H02$^{\star}$ & SVD biology of near-rank-1 layer-11 subspace & IDM & kidney~A & $\SV{1}$, $\SV{1}$/$\SV{2}$ & $3{\times}10^{-4}$ & $3{\times}10^{-4}$ & H & promising \\
+6 & H03 & Effective rank curvature and compression breakpoint & IDM & kidney~A & --- & 0.0021 & 0.0021 & H & promising \\
+7 & H01 & $\SV{1}$ feature-shuffle and gene-label-shuffle null & IDM & kidney~A & $\SV{1}$ & 0.004 & 0.004 & H & promising \\
+7 & H02 & Layer-wise SVD trajectory (12 layers) & IDM & kidney~A & $\SV{1}$/$\SV{2}$, $\SV{1}$ & --- & --- &  & promising \\
+7 & H03 & Drift gene-label-shuffle null + $\SV{1}$ negative-pole GO\ldots{} & MOD & kidney~A & $\SV{1}$ & 0.124 & 0.124 &  & neutral \\
+8 & H01 & $\SV{2}$/$\SV{3}$ axes GO enrichment + gene-label null at\ldots{} & IDM & kidney~A & $\SV{2}$/$\SV{3}$, $\SV{2}$, $\SV{3}$ & 0 & $9.99{\times}10^{-4}$ & R H & promising \\
+8 & H02$^{\star}$ & Layer-specific compartment transients: mitochondrion\ldots{} & IDM & kidney~A & $\SV{1}$ & 0 & $9.99{\times}10^{-4}$ & R H & promising \\
+8 & H03 & Signal peptide proxy vs $\SV{1}$ top-pole (layer-11) & MOD & kidney~A & $\SV{1}$ & 0.002 & 0.002 & H & promising \\
+9 & H01 & $\SV{2}$ bottom-pole extracellular vesicle null (N=1000) & IDM & kidney~A & $\SV{2}$ & 0 & $9.99{\times}10^{-4}$ & R H & promising \\
+9 & H02 & 12-layer x 8-compartment systematic $\SV{1}$ scan & MOD & kidney~A & $\SV{1}$ & --- & --- &  & promising \\
+9 & H03 & Cross-layer $\SV{1}$ rank stability (Spearman) & TST & kidney~A & $\SV{1}$ & 0 & $9.99{\times}10^{-4}$ & R H & promising \\
+10 & H01 & $\SV{2}$/$\SV{3}$ 12-layer $\times$ 9-compartment scan & IDM & kidney~A & $\SV{2}$/$\SV{3}$, $\SV{2}$, $\SV{3}$ & 0.05 & 0.05 &  & promising \\
+10 & H02$^{\star}$ & TRRUST TF-target co-pole test in SVD geometry & MOD & kidney~A & $\SV{1}$, $\SV{2}$ & 0 & $9.99{\times}10^{-4}$ & R H & promising \\
+10 & H03 & $\SV{1}$/$\SV{2}$/$\SV{3}$ spectral ratio profile + annotation\ldots{} & IDM & kidney~A & $\SV{1}$/$\SV{2}$/$\SV{3}$, $\SV{1}$/$\SV{2}$, $\SV{1}$, $\SV{2}$ & --- & --- &  & promising \\
+11 & H01$^{\star}$ & TRRUST co-pole x 12 layers + Activation/Repression\ldots{} & MOD & kidney~A & $\SV{2}$ & 0 & $9.99{\times}10^{-4}$ & R H & promising \\
+11 & H02 & $\SV{2}$ mito pole-flip gene tracking at $L_{3}$-to-$L_{4}$ transition & IDM & kidney~A & $\SV{2}$ & --- & --- &  & neutral \\
+11 & H03 & GO Biological Process enrichment in $\SV{2}$ poles (broad\ldots{} & MOD & kidney~A & $\SV{2}$ & 1 & 1 &  & negative \\
+12 & H01 & Bootstrap CI on activation vs repression co-pole\ldots{} & MOD & kidney~A & --- & 0.05 & 0.05 &  & negative \\
+12 & H02 & Mean pairwise $\SV{2}$ distance --- spatial concentration\ldots{} & MAN & kidney~A & $\SV{2}$ & 0.05 & 0.05 &  & promising \\
+12 & H03 & STRING PPI co-pole enrichment across 12 layers & MOD & kidney~A & $\SV{2}$ & 0.05 & 0.05 &  & promising \\
+13 & H01 & SV axis specificity: STRING PPI co-pole on $\SV{1}$ vs $\SV{2}$\ldots{} & GRT & kidney~A & $\SV{1}$, $\SV{2}$, $\SV{3}$ & --- & --- &  & promising \\
+13 & H02 & Repression anti-pole: TRRUST repression pairs occupy\ldots{} & MOD & kidney~A & $\SV{2}$ & --- & --- &  & negative \\
+13 & H03 & Hub-degree control: does PPI co-pole signal survive in\ldots{} & NUL & kidney~A & $\SV{2}$ & --- & --- &  & inconclusive \\
+14 & H01 & GO enrichment of $\SV{3}$ poles across 12 layers & MOD & kidney~A & $\SV{3}$ & --- & --- &  & promising \\
+14 & H02 & Layer-depth Spearman trend on $\SV{2}$/$\SV{3}$ PPI z-scores & TST & kidney~A & $\SV{2}$/$\SV{3}$, $\SV{1}$/$\SV{2}$/$\SV{3}$, $\SV{2}$, $\SV{3}$, $\SV{1}$ & 0.059 & 0.059 &  & neutral \\
+14 & H03 & Expanded hub-degree control: non-hub $\SV{2}$ co-pole\ldots{} & NUL & kidney~A & $\SV{2}$ & --- & --- &  & promising \\
+15 & H01 & $\SV{4}$/$\SV{5}$ PPI co-pole test & MOD & kidney~A & $\SV{4}$/$\SV{5}$, $\SV{4}$, $\SV{5}$ & --- & --- &  & promising \\
+15 & H02$^{\star}$ & STRING confidence gradient: co-pole z vs score quintile & GRT & kidney~A & $\SV{2}$ & $1.4{\times}10^{-24}$ & $1.4{\times}10^{-24}$ & R F H & promising \\
+15 & H03 & GO co-annotation vs PPI as driver of $\SV{2}$ geometry & MOD & kidney~A & $\SV{2}$ & --- & --- &  & promising \\
+16 & H01 & $\SV{3}$ STRING confidence gradient & GRT & kidney~A & $\SV{3}$ & 0.037 & 0.037 &  & promising \\
+16 & H02 & $\SV{2}$/$\SV{3}$/$\SV{4}$ axis independence test & MOD & kidney~A & $\SV{2}$/$\SV{3}$/$\SV{4}$, $\SV{2}$, $\SV{3}$, $\SV{4}$, $\SV{2}$--$\SV{3}$, $\SV{2}$--$\SV{4}$, $\SV{3}$--$\SV{4}$ & --- & --- &  & promising \\
+16 & H03 & $\SV{4}$ GO biology profile & MOD & kidney~A & $\SV{4}$ & $8.2{\times}10^{-4}$ & $8.2{\times}10^{-4}$ & H & promising \\
+17 & H01 & $\SV{4}$ confidence quintile gradient & GRT & kidney~A & $\SV{4}$ & 0.0374 & 0.0374 &  & promising \\
+17 & H02 & Axis-dominant pair GO composition (biological\ldots{} & MOD & kidney~A & $\SV{2}$/$\SV{3}$/$\SV{4}$, $\SV{2}$--$\SV{3}$, $\SV{2}$--$\SV{4}$, $\SV{3}$--$\SV{4}$ & --- & --- &  & promising \\
+17 & H03 & TRRUST signed regulation in $\SV{3}$/$\SV{4}$ & NUL & kidney~A & $\SV{3}$/$\SV{4}$, $\SV{3}$, $\SV{4}$ & --- & --- &  & negative \\
+18 & H01 & Random Gaussian embedding null control for $\SV{2}$ co-pole & NUL & Gaussian null & $\SV{2}$ & --- & --- &  & negative \\
+18 & H02 & Out-of-sample PPI precision@k prediction benchmark & GRT & kidney~A & $\SV{2}$ & --- & --- &  & neutral \\
+18 & H03 & scGPT attention co-occurrence geometry for\ldots{} & GRT & kidney~A + lung attention & --- & 0.87 & 0.87 &  & promising \\
+19 & H01 & Geneformer static token embedding cross-model alignment & CMA & kidney~A + Geneformer & --- & --- & --- &  & promising \\
+19 & H02 & Multi-axis composite co-pole P@k enrichment & GRT & kidney~A & $\SV{2}$+$\SV{3}$+$\SV{4}$ & --- & --- &  & promising \\
+19 & H03 & TRRUST repression vs activation in scGPT attention & NUL & kidney~A + lung attention & --- & $9.4{\times}10^{-9}$ & $9.4{\times}10^{-9}$ & R F H & promising \\
+20 & H01 & Shuffle null for multi-axis composite co-pole\ldots{} & NUL & kidney~A & --- & 0 & $9.99{\times}10^{-4}$ & R H & promising \\
+20 & H02 & Attention-SVD joint ROC predictor for STRING/TRRUST & GRT & kidney~A + lung attention & $\SV{2}$+$\SV{3}$+$\SV{4}$ & --- & --- &  & neutral \\
+20 & H03 & Persistent homology H0 and pairwise distance geometry & PHO & kidney~A & --- & $1{\times}10^{-72}$ & $1{\times}10^{-72}$ & R F H & promising \\
+21 & H01 & STRING confidence quintile x pairwise distance gradient & MAN & kidney~A & --- & 0.05 & 0.05 &  & inconclusive \\
+21 & H02 & TRRUST pairs distance --- specificity control & MAN & kidney~A & --- & --- & --- &  & promising \\
+21 & H03 & H1 persistence trajectory + bootstrap CIs for\ldots{} & PHO & kidney~A & --- & $1{\times}10^{-4}$ & $1{\times}10^{-4}$ & R F H & promising \\
+22 & H01 & STRING continuous AUROC + TRRUST-exclusive proximity\ldots{} & MAN & kidney~A & --- & $1{\times}10^{-5}$ & $1{\times}10^{-5}$ & R F H & promising \\
+22 & H02$^{\star}$ & Cell-type marker gene cluster separation & MOD & kidney~A & --- & $1{\times}10^{-6}$ & $1{\times}10^{-6}$ & R F H & promising \\
+22 & H03 & Per-layer bootstrap CIs for co-polarity enrichment +\ldots{} & TST & kidney~A & $\SV{2}$+$\SV{3}$+$\SV{4}$ & 0.16 & 0.16 &  & promising \\
+23 & H01$^{\star}$ & Cell-type marker separation --- expanded panel +\ldots{} & MOD & kidney~A & --- & 0.004 & 0.004 & H & promising \\
+23 & H02 & GO Biological Process proximity --- 3rd independent\ldots{} & MOD & kidney~A & --- & $1{\times}10^{-19}$ & $1{\times}10^{-19}$ & R F H & promising \\
+23 & H03 & TRRUST Activation vs Repression proximity asymmetry & MAN & kidney~A & --- & 0.002 & 0.002 & H & promising \\
+24 & H01 & Dorothea confidence stratification & MAN & kidney~A & --- & 0 & $9.99{\times}10^{-4}$ & R H & promising \\
+24 & H02 & TF activation hub centrality & MOD & kidney~A & --- & 0.41 & 0.41 &  & negative \\
+24 & H03 & GO ontology comparison BP vs MF vs CC & MOD & kidney~A & --- & $9{\times}10^{-56}$ & $9{\times}10^{-56}$ & R F H & promising \\
+25 & H01 & Multi-predictor joint model (STRING + Dorothea + GO CC\ldots{} & MAN & kidney~A & --- & --- & --- &  & promising \\
+25 & H02 & Layer-resolved encoding timeline across 5 biological\ldots{} & MAN & kidney~A & --- & --- & --- &  & promising \\
+25 & H03 & Chromosomal proximity negative control & NUL & kidney~A & --- & 0.096 & 0.096 &  & negative \\
+26 & H01 & Immune gene family clustering AUROC & MOD & kidney~A & --- & --- & --- &  & promising \\
+26 & H02 & Dorothea confidence-tier proximity gradient & MAN & kidney~A & --- & --- & --- &  & promising \\
+26 & H03 & Intrinsic dimensionality progression (participation\ldots{} & IDM & kidney~A & --- & $1{\times}10^{-8}$ & $1{\times}10^{-8}$ & R F H & promising \\
+27 & H01 & PC1 Biological Identity at $L_{11}$ & IDM & kidney~A$^{\mathrm{m}}$ & PC1 & 0.42 & 0.42 &  & negative \\
+27 & H02 & TRRUST Activator/Repressor Geometric Polarity & MOD & kidney~A$^{\mathrm{m}}$ & PC1 & 0.178 & 0.178 &  & negative \\
+27 & H03 & Dorothea Threshold Sensitivity + PR Elbow Alignment & NUL & kidney~A$^{\mathrm{m}}$ & --- & --- & --- &  & negative \\
+28 & H01 & Hub Gene Embedding Centrality & MAN & kidney~A & --- & 0.00135 & 0.00135 & H & promising \\
+28 & H02 & PC1 T-cell vs APC Cell-type Axis & IDM & kidney~A & PC1 & 0.12 & 0.12 &  & negative \\
+28 & H03 & kNN Graph Spectral Gap Across Layers & GRT & kidney~A & --- & $1.3{\times}10^{-10}$ & $1.3{\times}10^{-10}$ & R F H & promising \\
+29 & H01 & kNN Connected Components Biological Enrichment at $L_{11}$ & GRT & kidney~A$^{\mathrm{m}}$ & --- & 0.023 & 0.023 & H & promising \\
+29 & H02 & Gene Trajectory Clustering by Distance-to-Centroid\ldots{} & MAN & kidney~A$^{\mathrm{m}}$ & --- & 0.352 & 0.352 &  & promising \\
+29 & H03 & Spectral Gap k-Robustness Sweep (k=5--30) & TST & kidney~A$^{\mathrm{m}}$ & --- & --- & --- &  & promising \\
+30 & H01 & GO and TRRUST enrichment of 14 diverging genes & MOD & kidney~A$^{\mathrm{m}}$ & --- & $2.34{\times}10^{-11}$ & $2.34{\times}10^{-11}$ & R F H & positive \\
+30 & H02 & Layer-of-bifurcation anatomy (inter/intra ratio) & TST & kidney~A$^{\mathrm{m}}$ & --- & 0 & $9.99{\times}10^{-4}$ & R H & negative \\
+30 & H03 & Trajectory slope vs STRING degree (continuous) & GRT & kidney~A$^{\mathrm{m}}$ & --- & 0.683 & 0.683 &  & negative \\
+30 & H04 & OOV gene discovery in scGPT named gene set & NUL & kidney~A$^{\mathrm{m}}$ & --- & --- & --- &  & promising \\
+31 & H01 & kNN Spectral Gap Monotonic Decrease (195 in-vocab\ldots{} & GRT & kidney~A$^{\mathrm{m}}$ & --- & 0 & $9.99{\times}10^{-4}$ & R H & promising \\
+31 & H02 & STRING Score $\to$ Embedding Distance (195 in-vocab genes\ldots{} & MAN & kidney~A$^{\mathrm{m}}$ & --- & --- & --- &  & negative \\
+31 & H03 & Participation Ratio (Intrinsic Dim) Collapse Across\ldots{} & IDM & kidney~A$^{\mathrm{m}}$ & --- & 0 & $9.99{\times}10^{-4}$ & R H & promising \\
+32 & H01 & Community Detection at $L_{11}$ $\to$ Biological Annotation & MOD & kidney~A$^{\mathrm{m}}$ & --- & 0.09 & 0.09 &  & promising \\
+32 & H02 & Dorothea Regulatory Pairs $\to$ Embedding Distance Decay\ldots{} & MAN & kidney~A$^{\mathrm{m}}$ & --- & $4{\times}10^{-4}$ & $4{\times}10^{-4}$ & H & promising \\
+32 & H03 & PC1 at $L_{11}$ Separates TFs from B-cell Markers\ldots{} & IDM & kidney~A$^{\mathrm{m}}$ & PC1 & 0.041 & 0.041 &  & inconclusive \\
+33 & H01 & $L_{11}$ Community Differential Analysis (B-cell vs\ldots{} & MOD & kidney~A$^{\mathrm{m}}$ & PC1 & $1{\times}10^{-9}$ & $1{\times}10^{-9}$ & R F H & promising \\
+33 & H02 & Community Partition Stability: k-sweep and Layer Sweep & TST & kidney~A$^{\mathrm{m}}$ & --- & 0.167 & 0.167 &  & promising \\
+33 & H03 & PC1 Polarity Expanded Gene Sets --- B-cell Stable Across\ldots{} & IDM & kidney~A$^{\mathrm{m}}$ & PC1 & 0.001 & 0.001 & H & promising \\
+34 & H01 & Layer-wise B-cell community purity emergence & MOD & kidney~A$^{\mathrm{m}}$ & PC1 & 0.804 & 0.804 &  & inconclusive \\
+34 & H02 & PC2/PC3 cell-type axes at $L_{11}$ & IDM & kidney~A$^{\mathrm{m}}$ & PC2/PC3, PC2, PC3 & 0.168 & 0.168 &  & negative \\
+34 & H03 & Expression-level confound test for B-cell PC1 signal & NUL & kidney~A$^{\mathrm{m}}$ & PC1 & 0 & $9.99{\times}10^{-4}$ & R H & promising \\
+35 & H01 & TRRUST co-regulation + GO co-annotation vs embedding\ldots{} & MOD & kidney~A$^{\mathrm{m}}$ & --- & $1{\times}10^{-4}$ & $1{\times}10^{-4}$ & R F H & negative \\
+35 & H02 & B-cell marker kNN precision@10 profile across layers & MAN & kidney~A$^{\mathrm{m}}$ & --- & 0 & $9.99{\times}10^{-4}$ & R H & promising \\
+35 & H03 & B-cell vs non-B-cell centroid separation trajectory\ldots{} & IDM & kidney~A$^{\mathrm{m}}$ & --- & 0.088 & 0.088 &  & promising \\
+36 & H01 & Multi-cell-type kNN precision@10 specificity panel & MAN & kidney~A$^{\mathrm{m}}$ & --- & --- & --- &  & promising \\
+36 & H02 & Gene-name permutation null for B-cell kNN precision & NUL & kidney~A$^{\mathrm{m}}$ & --- & 0.005 & 0.005 & H & promising \\
+36 & H03 & B-cell neighborhood functional characterization & MOD & kidney~A$^{\mathrm{m}}$ & --- & --- & --- &  & promising \\
+37 & H01 & Extended cell-type panel kNN precision@10 + centroid\ldots{} & MAN & kidney~A$^{\mathrm{m}}$ & --- & 0 & $9.99{\times}10^{-4}$ & R H & promising \\
+37 & H02 & Held-out B-cell marker generalization (germinal center\ldots{} & MAN & kidney~A$^{\mathrm{m}}$ & --- & --- & --- &  & promising \\
+37 & H03 & T-cell permutation null + B-cell neighborhood TF\ldots{} & NUL & kidney~A$^{\mathrm{m}}$ & --- & 0.96 & 0.96 &  & promising \\
+38 & H01 & GC-TF vs Plasma-TF centroid proximity divergence\ldots{} & MAN & kidney~A$^{\mathrm{m}}$ & --- & 0.024 & 0.024 & H & promising \\
+38 & H02 & B-cell centroid directional drift alignment with\ldots{} & MAN & kidney~A$^{\mathrm{m}}$ & --- & $1{\times}10^{-4}$ & $1{\times}10^{-4}$ & R F H & inconclusive \\
+38 & H03 & Master B-cell TF proximity + NK/myeloid specificity\ldots{} & NUL & kidney~A$^{\mathrm{m}}$ & --- & --- & --- &  & inconclusive \\
+39 & H01 & Drift target identification --- B-cell centroid at $L_{11}$ & MAN & kidney~A$^{\mathrm{m}}$ & --- & --- & --- &  & promising \\
+39 & H02 & Extended plasma panel + BCL6/PAX5 GC screen\ldots{} & MAN & immune & --- & --- & --- &  & mixed \\
+39 & H03 & LOO ablation of B-cell anchor genes on GC-TF proximity\ldots{} & NUL & kidney~A$^{\mathrm{m}}$ & --- & --- & --- &  & promising \\
+40 & H01 & Full 12-layer GC attractor onset scan + IRF4\ldots{} & MAN & immune & --- & $2{\times}10^{-6}$ & $2{\times}10^{-6}$ & R F H & promising \\
+40 & H02 & Geneformer cross-model B-cell precision@10 (input\ldots{} & CMA & Geneformer & --- & --- & --- &  & negative \\
+40 & H03 & GC-plasma subspace principal angle + CD19+BLK minimal\ldots{} & MAN & immune & --- & $1{\times}10^{-4}$ & $1{\times}10^{-4}$ & R F H & promising \\
+41 & H01 & Multi-lineage attractor screen (T-cell + myeloid) & MAN & immune & --- & $1{\times}10^{-6}$ & $1{\times}10^{-6}$ & R F H & promising \\
+41 & H02 & BCL6 and PAX5 neighborhood characterization & MAN & immune & --- & --- & --- &  & promising \\
+41 & H03 & TwoNN intrinsic dimensionality by layer and lineage & IDM & immune & --- & $1{\times}10^{-4}$ & $1{\times}10^{-4}$ & R F H & promising \\
+42 & H01 & TwoNN change-point analysis at $L_{3}$ (B-cell ID\ldots{} & IDM & immune & --- & 0.386 & 0.386 &  & promising \\
+42 & H02 & Metabolic isolation generalization --- BCL6 specificity\ldots{} & MAN & immune & --- & --- & --- &  & promising \\
+42 & H03$^{\star}$ & BATF/BACH2 convergence trajectory toward B-cell context & MAN & immune & --- & $1{\times}10^{-4}$ & $1{\times}10^{-4}$ & R F H & promising \\
+43 & H01 & GC repression circuit PRDM1/IRF4 anti-convergence test & MAN & immune & --- & --- & --- &  & negative \\
+43 & H02 & BCL6 divergence from B-cell centroid & MAN & immune & --- & 0 & $9.99{\times}10^{-4}$ & R H & negative \\
+43 & H03 & T-cell subtype ID stratification at $L_{7}$ breakpoint & IDM & immune & --- & --- & --- &  & promising \\
+44 & H01 & Cross-lineage ID compression law & IDM & immune & --- & --- & --- &  & negative \\
+44 & H02 & TCR activation circuit attractor test & MAN & immune & --- & 0.275 & 0.275 &  & inconclusive \\
+44 & H03 & BCL6 rank B-cell vs metabolic co-movement & MAN & immune & --- & 0.095 & 0.095 &  & negative \\
+45 & H01 & kNN lineage community purity at $L_{2}$ vs $L_{11}$ & GRT & immune & --- & 0.958 & 0.958 &  & negative \\
+45 & H02 & Full-manifold TwoNN intrinsic dimensionality across 12\ldots{} & IDM & immune & --- & --- & --- &  & promising \\
+45 & H03 & TCR signaling circuit convergence to T-cell identity\ldots{} & MAN & immune & --- & 0.32 & 0.32 &  & inconclusive \\
+46 & H01 & Cross-seed ID compression replication + bootstrap CI & IDM & immune (3 draws) & --- & --- & --- &  & promising \\
+46 & H02 & Singular value spectrum concentration across layers & IDM & immune & --- & --- & --- &  & promising \\
+46 & H03 & Lineage centroid orthogonality vs null & GRT & immune & --- & --- & --- &  & negative \\
+47 & H01 & Zero-norm validity check: TwoNN and SVD on\ldots{} & IDM & immune & --- & --- & --- &  & promising \\
+47 & H02 & $\SV{1}$ identity: what does the dominant direction encode? & IDM & immune & $\SV{1}$, $\SV{1}$/$\SV{2}$, $\SV{2}$ & --- & --- &  & negative \\
+47 & H03 & ID compression breakpoint detection across layers & IDM & immune & --- & --- & --- &  & negative \\
+48 & H01 & Gene annotation via edge dataset + $\SV{1}$/$\SV{2}$ identity & IDM & immune & $\SV{1}$/$\SV{2}$ & --- & --- &  & neutral \\
+48 & H02 & Full spectral decay curve across 12 layers & IDM & immune & $\SV{1}$ & --- & --- &  & promising \\
+48 & H03 & Wasserstein/transport distance between consecutive\ldots{} & MAN & immune & --- & 0.15 & 0.15 &  & inconclusive \\
+49 & H01 & $\SV{1}$ gene loading direction stability across layers & IDM & immune & $\SV{1}$ & --- & --- &  & promising \\
+49 & H02 & SWD vs feature-shuffle null comparison & NUL & immune & --- & 0.006 & 0.006 & H & promising \\
+49 & H03 & $\SV{2}$--$\SV{4}$ subspace encodes TRRUST TF-target regulatory\ldots{} & MOD & immune & $\SV{2}$--$\SV{4}$, $\SV{1}$, $\SV{1}$--$\SV{4}$ & $1{\times}10^{-4}$ & $1{\times}10^{-4}$ & R F H & promising \\
+50 & H01 & $\SV{2}$--$\SV{4}$ co-expression specificity control & MOD & immune & $\SV{2}$--$\SV{4}$ & --- & --- &  & negative \\
+50 & H02 & $\SV{1}$ identity: expression correlation across layers & IDM & immune & $\SV{1}$ & --- & --- &  & promising \\
+50 & H03 & $\SV{5}$--$\SV{10}$ spectral axis biological screen (TF/target\ldots{} & MOD & immune & $\SV{5}$--$\SV{10}$, $\SV{1}$, $\SV{2}$--$\SV{4}$, $\SV{5}$--$\SV{7}$, $\SV{8}$--$\SV{10}$ & 0.05 & 0.05 &  & promising \\
+51 & H01 & Residual TF signal after co-expression regression in\ldots{} & MOD & immune & $\SV{2}$--$\SV{4}$ & 0.0016 & 0.0016 & H & negative \\
+51 & H02 & $\SV{1}$-high genes are depleted of TFs at both $L_{0}$ and $L_{11}$ & IDM & immune & $\SV{1}$ & $1{\times}10^{-4}$ & $1{\times}10^{-4}$ & R F H & promising \\
+51 & H03 & 0-dim PH cluster topology for circuit genes in $\SV{2}$--$\SV{4}$\ldots{} & PHO & immune & $\SV{2}$--$\SV{4}$ & $1{\times}10^{-6}$ & $1{\times}10^{-6}$ & R F H & inconclusive \\
+52 & H01 & Housekeeping gene enrichment in $\SV{1}$-high & IDM & immune & $\SV{1}$ & --- & --- &  & inconclusive \\
+52 & H02 & H1 Betti loops on circuit genes at $L_{8}$ & PHO & immune & $\SV{2}$--$\SV{4}$ & 0.953 & 0.953 &  & negative \\
+52 & H03 & $\SV{5}$--$\SV{7}$ regulatory signal after co-expression\ldots{} & MOD & immune & $\SV{5}$--$\SV{7}$, $\SV{2}$--$\SV{4}$ & 0.002 & 0.002 & H & promising \\
+53 & H01 & Bootstrap + spectral decay scan of SV regulatory\ldots{} & MOD & immune & $\SV{2}$--$\SV{4}$, $\SV{5}$--$\SV{7}$, $\SV{8}$--$\SV{10}$, $\SV{11}$--$\SV{14}$, $\SV{15}$--$\SV{20}$, $\SV{21}$--$\SV{30}$, $\SV{8}$--$\SV{14}$ & --- & --- &  & promising \\
+53 & H02 & TF$\to$Target directional asymmetry in $\SV{5}$--$\SV{7}$ & MAN & immune & $\SV{5}$--$\SV{7}$, $\SV{5}$, $\SV{6}$, $\SV{7}$ & $8{\times}10^{-4}$ & $8{\times}10^{-4}$ & H & promising \\
+53 & H03 & $\SV{1}$ loading vs TRRUST network degree & IDM & immune & $\SV{1}$ & 0.001 & 0.001 & H & neutral \\
+54 & H01 & LR classifier: TF vs target-only from $\SV{5}$--$\SV{7}$ $L_{0}$ coords & MOD & immune & $\SV{5}$--$\SV{7}$, $\SV{2}$--$\SV{4}$ & 0 & 0.0099 & R H & promising \\
+54 & H02 & BFS hierarchy depth vs $\SV{5}$--$\SV{7}$ dominant axis ($L_{0}$) & MAN & immune & $\SV{5}$--$\SV{7}$, $\SV{5}$, $\SV{7}$ & 0.0044 & 0.0044 & H & neutral \\
+54 & H03 & Layer-resolved TF$\to$target directionality trajectory\ldots{} & MAN & immune & $\SV{5}$--$\SV{7}$ & 0.05 & 0.05 &  & promising \\
+55 & H01 & Cross-seed replication: TF vs target-only AUROC\ldots{} & MOD & immune (3 draws) & $\SV{5}$--$\SV{7}$ & 0.0099 & 0.0099 & H & promising \\
+55 & H02 & Layer-resolved AUROC: $\SV{5}$--$\SV{7}$ vs $\SV{2}$--$\SV{4}$ across all 12\ldots{} & MOD & immune & $\SV{5}$--$\SV{7}$, $\SV{2}$--$\SV{4}$ & --- & --- &  & promising \\
+55 & H03 & Directionality trajectory $\SV{2}$--$\SV{4}$ vs $\SV{5}$--$\SV{7}$ (opposite\ldots{} & MAN & immune & $\SV{2}$--$\SV{4}$, $\SV{5}$--$\SV{7}$ & 0.001 & 0.001 & H & promising \\
+56 & H01$^{\star}$ & Joint $\SV{2}$--$\SV{7}$ (6D) Layer-Stable TF/Target Classifier & MOD & immune & $\SV{2}$--$\SV{7}$, $\SV{2}$--$\SV{4}$, $\SV{5}$--$\SV{7}$, SV24, SV57 & 0 & 0.0099 & R H & promising \\
+56 & H02 & $L_{9}$ Directionality Crossover Cross-Seed Replication +\ldots{} & MAN & immune (3 draws) & $\SV{2}$--$\SV{4}$, $\SV{5}$--$\SV{7}$, SV57, SV24 & --- & --- &  & inconclusive \\
+56 & H03 & $\SV{5}$--$\SV{7}$ Subspace Principal Angle vs AUROC Trajectory & TST & immune & $\SV{5}$--$\SV{7}$, SV57, $\SV{2}$--$\SV{4}$ & 0.417 & 0.417 &  & negative \\
+57 & H01$^{\star}$ & Joint 6D ($\SV{2}$--$\SV{7}$) TF/target classifier cross-seed\ldots{} & MOD & immune (3 draws) & $\SV{2}$--$\SV{7}$, $\SV{2}$--$\SV{4}$, $\SV{5}$--$\SV{7}$ & 0 & 0.0196 & R H & promising \\
+57 & H02 & Seed43 SV basis alignment via principal angles & TST & immune (3 draws) & $\SV{2}$--$\SV{4}$, $\SV{5}$--$\SV{7}$, SV57 & --- & --- &  & negative \\
+57 & H03 & SV energy fraction as AUROC proxy & IDM & immune & $\SV{1}$, $\SV{2}$--$\SV{4}$, $\SV{5}$--$\SV{7}$, $\SV{2}$--$\SV{7}$ & $1{\times}10^{-5}$ & $1{\times}10^{-5}$ & R F H & neutral \\
+58 & H01 & TF boundary gene identity and family enrichment at\ldots{} & MOD & immune (3 draws) & $\SV{2}$--$\SV{7}$ & --- & --- &  & promising \\
+58 & H02 & TRRUST graph Laplacian spectral alignment with $\SV{5}$--$\SV{7}$ & MOD & immune & $\SV{5}$--$\SV{7}$, $\SV{2}$--$\SV{4}$ & --- & --- &  & neutral \\
+58 & H03 & Effective rank as cross-seed AUROC predictor & IDM & immune (3 draws) & $\SV{2}$--$\SV{7}$ & $1{\times}10^{-4}$ & $1{\times}10^{-4}$ & R F H & promising \\
+59 & H01 & Cross-seed TF boundary anchor stability + out-degree\ldots{} & MOD & kidney~A (3 draws) & $\SV{5}$--$\SV{7}$ & 0.9 & 0.9 &  & neutral \\
+59 & H02 & Pairwise TF-target 6D distance as edge probability\ldots{} & MAN & kidney~A & $\SV{5}$--$\SV{7}$ & 0.002 & 0.002 & H & negative \\
+59 & H03 & Partial Spearman: effective rank vs AUROC controlling\ldots{} & IDM & immune (3 draws) & $\SV{5}$--$\SV{7}$ & 0.795 & 0.795 &  & negative \\
+60 & H01 & Signed displacement projection AUROC (directional\ldots{} & MAN & kidney~A & $\SV{5}$--$\SV{7}$ & 0.001 & 0.001 & H & negative \\
+60 & H02 & TF family-stratified margin trajectory across 12 layers & MOD & kidney~A & $\SV{5}$--$\SV{7}$ & --- & --- &  & neutral \\
+60 & H03 & Feed-forward loop triangle geometry in $\SV{5}$--$\SV{7}$ & MOD & kidney~A & $\SV{5}$--$\SV{7}$ & 0.002 & 0.002 & H & inconclusive \\
+61 & H01 & Layer-to-layer CKA trajectory ($L_{8}$ boundary test) & CMA & immune (3 draws) & --- & --- & --- &  & negative \\
+61 & H02 & Dual-role gene (TF intersect target) margin trajectory & MOD & immune (3 draws) & $\SV{5}$--$\SV{7}$ & 0.084 & 0.084 &  & neutral \\
+61 & H03 & FFL geometry expanded (N=264) with multi-subspace and\ldots{} & MOD & immune (3 draws) & $\SV{2}$--$\SV{4}$, $\SV{5}$--$\SV{7}$, $\SV{2}$--$\SV{7}$ & 0.297 & 0.297 &  & negative \\
+62 & H01$^{\star}$ & cycle4\_immune edge-level AUROC (735 pairs\ldots{} & MAN & immune (3 draws) & $\SV{5}$--$\SV{7}$/$\SV{2}$--$\SV{4}$, $\SV{5}$--$\SV{7}$, $\SV{2}$--$\SV{4}$ & 0.045 & 0.045 &  & promising \\
+62 & H02 & AUROC mechanism diagnostic: sparsity vs depth as\ldots{} & IDM & immune & --- & $9.5{\times}10^{-7}$ & $9.5{\times}10^{-7}$ & R F H & promising \\
+62 & H03 & Cross-cycle Procrustes alignment transfer (cycle1 to\ldots{} & CMA & kidney~A + immune & $\SV{5}$--$\SV{7}$ & --- & --- &  & negative \\
+63 & H63-A & $\SV{2}$--$\SV{4}$ repulsion mechanistic probe: TF class separation & MOD & immune & $\SV{2}$--$\SV{4}$, $\SV{5}$--$\SV{7}$ & --- & --- &  & promising \\
+63 & H63-G & Signed regulation AUROC split: Activation vs\ldots{} & MOD & immune & $\SV{5}$--$\SV{7}$, $\SV{2}$--$\SV{4}$ & --- & --- &  & promising \\
+63 & H63-B & Systematic subspace scan SV(k,k+2) for k=0..9 at $L_{0}$\ldots{} & MAN & immune & $\SV{k}$--$\SV{k+2}$, $\SV{8}$--$\SV{10}$, $\SV{5}$--$\SV{7}$ & 0.28 & 0.28 &  & inconclusive \\
+\end{longtable}
+\endgroup

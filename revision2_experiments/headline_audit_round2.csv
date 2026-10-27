@@ -1,0 +1,12 @@
+headline,p_round1,p_round2,bonferroni_round1,bonferroni_round2,remeasured
+SV1_extracellular_enrichment,0.0003,0.1290955354917564,False,False,True
+SV1_secretory_pathway_layered,0.0,0.0310468785295483,True,False,True
+SV2_PPI_copole_string07,0.0,0.0001399986000139,True,True,True
+SV2_TRRUST_copole,0.0,0.0120698793012069,True,False,True
+TF_vs_target_AUROC_joint,0.0,1.7505298494516298e-18,True,True,True
+celltype_marker_AUROC_851,0.004,0.004,False,False,False
+edge_AUROC_decay,0.045,0.045,False,False,False
+string_confidence_gradient,1.3999999999999999e-24,1.3999999999999999e-24,True,True,False
+bcell_attractor_convergence,0.0001,0.0001,True,True,False
+celltype_marker_AUROC_853_initial,1e-06,1e-06,True,True,False
+TF_target_AUROC_cross_seed,0.0,0.000999000999000999,True,False,False

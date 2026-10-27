@@ -1,0 +1,32 @@
+quantity,stored,recomputed,how,abs_diff
+Tier A size,17693.0,17693.0,own vocabulary intersection of raw npz (all-zero rows dropped),0.0
+3 submitted models vocab intersection,18907.0,18907.0,same,0.0
+legacy set size,186.0,186.0,209 named genes -> observed in kidney_A -> 3 vocabularies; identical gene list,0.0
+Tier A Lambert AUROC ESM2-15B,0.8894201701378024,0.8894201701378025,own LOO cosine + sklearn AUROC,1.1102230246251565e-16
+Tier A Lambert AUROC scGPT static,0.7044388346861776,0.7044388346861775,same,1.1102230246251565e-16
+Tier A Lambert detstrat ESM2-15B,0.9023020982622284,0.9023020982622286,"own stratified AUROC, cache deciles",2.220446049250313e-16
+Tier A Lambert detstrat scGPT static,0.7470416406796283,0.7470416406796282,same,1.1102230246251565e-16
+Tier A Lambert detstrat ESM2-15B (own rank deciles),0.9023020982622284,0.9018810253466615,own decile convention,0.0004210729155669224
+Tier B lung contextual L1 detstrat,0.6680549577884456,0.6680549577884456,"own, from local lung.npy",0.0
+Tier B lung contextual L11 detstrat,0.6384274126800199,0.6384274126800198,same,1.1102230246251565e-16
+Tier B lung ESM2-15B detstrat,0.8798543287535177,0.8798543287535177,same,0.0
+legacy est(i) TRRUST scGPT L11,0.6837858606557377,0.6837858606557377,own,0.0
+legacy est(i) TRRUST GF V2-104M,0.874359631147541,0.874359631147541,own,0.0
+legacy est(i) TRRUST ESM2-15B,0.9538934426229508,0.9538934426229508,own,0.0
+legacy subset-SVD SV2-SV7 scGPT L11 (submitted 0.650),0.649718237704918,0.649718237704918,own SVD,0.0
+legacy subset-SVD SV2-SV7 GF V1-10M (submitted 0.713),0.7128586065573771,0.7128586065573771,own SVD,0.0
+legacy subset-SVD SV2-SV7 GF V2-104M (submitted 0.837),0.8368340163934426,0.8368340163934426,own SVD,0.0
+legacy subset-SVD SV2-SV7 ESM2-15B (submitted 0.924),0.924436475409836,0.924436475409836,own SVD,0.0
+Tier A STRING-physical pairs,73430.0,73430.0,own parse of STRING v12 files; identical pair set,0.0
+Tier A PPI AUROC ESM2-15B (E6 non-pairs),0.6467884698815848,0.6467884698815848,own cosines + sklearn,0.0
+Tier A PPI AUROC ESM2-15B (own independent rewiring),0.6467884698815848,0.6496659813182412,"own double-edge swap, 10m accepted swaps",0.002877511436656377
+Tier A PPI AUROC scGPT static (E6 non-pairs),0.6691998547070991,0.6691998547070991,own,0.0
+Tier A PPI AUROC scGPT static (own independent rewiring),0.6691998547070991,0.6718474333616056,own rewiring,0.0026475786545064883
+Tier A PPI delete-d half-width scGPT static (upper side),0.009555643087610033,0.010373160151663143,"own B=200 subsampling, 1.96*SD*sqrt(m/(n-m))",0.0008175170640531103
+Tier A edge within-TF AUROC ESM2-15B,0.4907286252309897,0.4907286252309897,own per-TF sklearn AUROC on stored pairs,0.0
+Tier A edge within-TF AUROC scGPT static,0.5746178228453619,0.5746178228453619,same,0.0
+selection legacy186 scGPT static legacy value,0.8333760245901639,0.8333760245901639,own,0.0
+selection legacy186 scGPT static null mean,0.7387287013319672,0.7369649077868853,"own matched draws, N=2,000, different seed",0.0017637935450819375
+selection legacy186 scGPT static percentile,0.99505,0.995,same,4.999999999999449e-05
+selection legacy186 ESM2-15B null mean,0.8617845927254096,0.8615723616803279,same,0.0002122310450817233
+selection legacy186 ESM2-15B percentile,1.0,1.0,same,0.0

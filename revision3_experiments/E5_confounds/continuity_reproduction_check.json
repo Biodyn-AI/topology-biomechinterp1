@@ -1,0 +1,18 @@
+{
+ "SV5_SV7": {
+  "max_abs_r_rb_diff": 0.0337609329446063,
+  "mean_abs_r_rb_diff": 0.01705469943079261,
+  "max_abs_p_diff": 0.46185381461853803,
+  "n_layers_p_lt_005_submitted": 0,
+  "n_layers_p_lt_005_rerun": 1
+ },
+ "SV2_SV7": {
+  "max_abs_r_rb_diff": 0.039758433985839094,
+  "mean_abs_r_rb_diff": 0.03259544634180203,
+  "max_abs_p_diff": 0.160983901609839,
+  "n_layers_p_lt_005_submitted": 8,
+  "n_layers_p_lt_005_rerun": 12
+ },
+ "pythonhashseed": "0",
+ "note": "round-2 negatives are drawn from a list built by iterating a Python set of TF symbols, whose order depends on the per-process string-hash seed; the submitted values are therefore reproducible only under the (unrecorded) hash seed of the original run. See continuity_hashseed_spread.csv."
+}

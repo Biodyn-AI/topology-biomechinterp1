@@ -1,0 +1,48 @@
+INTERPRETATION (question -> result -> interpretation -> implication; direct evidence vs inference vs hypothesis marked)
+Q (R2.6): does truncating scGPT gene embeddings to the top-k observed-gene SVD directions improve biological
+recovery over the full 512-d representation?
+Direct evidence (pre-registered H4). k* was fixed on immune_seed43 before any evaluation context was computed
+(kstar.json: PPI 64, NODE 512, EDGE 128). In the four evaluation contexts the layer-mean Delta never has a CI above
+zero: PPI -0.0011 [-0.0020,-0.0001] lung, -0.0006 [-0.0015,+0.0003] lung_external, -0.0013 [-0.0022,-0.0004]
+kidney_B, +0.0022 [-0.0006,+0.0052] immune; EDGE +0.0004, +0.0003, -0.0002, -0.0004 with CIs spanning about +/-0.002
+(lung) to +/-0.007 (immune); NODE Delta = 0 by construction because the selection context chose the full
+representation. Every |Delta| is <= 0.0022 AUROC, an order of magnitude below the between-task and between-context
+differences (full PPI 0.649-0.700, NODE 0.634-0.655, EDGE 0.530-0.610). The descriptive joint 'any k beats full' test
+(any_k_test.csv) finds no k whose layer-mean gap exceeds label-permutation noise in any context or task (p >= 0.445).
+Inference. Top-k curves rise monotonically and saturate by k ~ 64-128 (posthoc_best_k.csv: e.g. lung NODE k=10 0.612,
+k=64 0.654, full 0.654; lung PPI k=10 0.641, full 0.655); low-rank summaries (k <= 10, the regime of the screen's
+bands) lose 0.01-0.04 AUROC. The information the three tasks use is therefore spread over many directions, not
+concentrated in a few leading ones: rank reduction is at best neutral (k >= 64) and harmful at small k.
+Sensitivity (not pre-registered; sens_R_N_ci.csv). Removing the LEADING directions changes the picture by task:
+dropping SV1..SV5 raises the H2 TF-identity statistic by +0.099 [+0.080,+0.111] lung, +0.107 [+0.087,+0.122]
+lung_external, +0.108 [+0.084,+0.122] kidney_B, +0.092 [+0.035,+0.122] immune (not in kidney_A: -0.007
+[-0.090,+0.044]), while it lowers PPI recovery in lung/lung_external/kidney_B (-0.017 to -0.036) and leaves EDGE
+within noise (+0.02 to +0.04, all CIs include 0). Hypothesis (not tested here): the high-variance leading axes
+dominate cosine similarity with a gene-wide factor (e.g. residual expression level / detection within decile, or a
+cell-composition axis) that carries partner co-location but masks TF identity; TF identity sits in lower-variance
+directions. This is post hoc and was chosen among 5 j values x 3 tasks; it should be reported as an effect size, not
+as a confirmed finding, and the 'remove leading axes' operation is not what R2.6 asked about.
+Screen bands (family N, bands_vs_topk.csv / sens_R_N_ci.csv). Against same-width top-k, the screen's bands are not
+uniformly better: in the lung/kidney_B contexts they are worse for PPI (e.g. SV5-7 vs top-3 -0.036 [-0.048,-0.024]
+lung) and better for NODE (SV5-7 +0.045 [+0.012,+0.083] lung), mirroring family R (bands exclude SV1). On immune,
+where the bands were found, they beat same-width top-k for PPI (+0.031 to +0.037). Under the kidney_A
+submitted-convention mapping, SV2-4 and SV2-7 become SV1-3 / SV1-6, i.e. exactly top-3 / top-6.
+Static models (static_curves.csv, descriptive, lung Tier B 5,226 genes): the same shape holds; full vs best top-k
+differs by <= 0.022 AUROC for every model and task (largest: AIDO.Cell NODE best k=64 +0.022, Geneformer V2-104M PPI
+best k=7 +0.017), with no consistent k across models.
+Implication for the manuscript: answer R2.6 with the three frozen sentences above; state that truncation to the
+leading directions neither improves PPI, TF-identity nor edge recovery, that the full representation is the right
+default, and that the earlier spectral-band results should not be read as evidence that a low-rank subspace is
+privileged for biological recovery.
+Limitations / failure modes: (1) one selection context (immune_seed43) shares its tissue and gene axis with immune,
+so immune is not independent of selection (immune's PPI Delta is the only positive one); (2) Delta CIs are tiny because
+k* = 64/128 representations are nearly the full space; the analysis is informative about 'no gain', not about small-k
+losses (those are descriptive); (3) the PPI non-pair set is one rewiring; (4) NODE CIs exclude detection-decile
+re-stratification within resamples (strata are fixed per gene); (5) static-model SVDs are fitted on the evaluated gene
+set, so 'full' there is the set-centred embedding; (6) the any-k p-values are against a label-noise null, not a test of
+H0 metric(k) <= metric(512).
+Files: kstar.json, delta.csv, any_k_test.csv, curves_<ctx>.csv (immune_seed43, lung, lung_external, kidney_B, immune,
+kidney_A), posthoc_best_k.csv, remove_top_j.csv, bands_vs_topk.csv, sens_R_N_ci.csv, static_curves.csv,
+static_summary.csv, results.json; code e7lib.py, e7_run.py, e7_sens.py, e7_static.py, e7_assemble.py; logs e7_*.log.
+Verification: every vectorised resampling path equals the stats3 function on live data (results.json 'verification':
+all absolute differences 0.0).

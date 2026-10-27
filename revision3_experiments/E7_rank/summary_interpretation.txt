@@ -1,0 +1,83 @@
+INTERPRETATION (question -> result -> interpretation -> implication; direct evidence vs inference vs hypothesis marked)
+[revised by the independent E7 verifier, 2026-10-26: PPI intervals now delete-d scaled (CONVENTION3_ERRATA item 3);
+k = 1 values corrected (exact +-1 cosines); small-k loss range corrected. See AUDIT below.]
+Q (R2.6): does truncating scGPT gene embeddings to the top-k observed-gene SVD directions improve biological
+recovery over the full 512-d representation?
+Direct evidence (pre-registered H4). k* was fixed on immune_seed43 before any evaluation context was computed
+(kstar.json: PPI 64, NODE 512, EDGE 128). In the four evaluation contexts the layer-mean Delta never has a CI above
+zero: PPI -0.0011 [-0.0024,+0.0003] lung, -0.0006 [-0.0019,+0.0007] lung_external, -0.0013 [-0.0026,-0.0000]
+kidney_B, +0.0022 [-0.0018,+0.0064] immune (delete-d scaling; pre-registered sqrt(m/n) intervals in delta.csv ci_lo/ci_hi:
+[-0.0020,-0.0001], [-0.0015,+0.0003], [-0.0022,-0.0004], [-0.0006,+0.0052]); EDGE +0.0004, +0.0003, -0.0002, -0.0004 with
+CIs spanning about +/-0.0025 (lung) to +/-0.0065 (immune); NODE Delta = 0 by construction because the selection context
+chose the full representation. Every |Delta| is <= 0.0022 AUROC, an order of magnitude below the between-task and
+between-context differences (full PPI 0.649-0.700, NODE 0.634-0.655, EDGE 0.530-0.610). The descriptive joint 'any k
+beats full' test (any_k_test.csv) finds no k whose layer-mean gap exceeds label-permutation noise in any context or task
+(layer-mean p >= 0.445; any-layer p >= 0.629).
+Inference. Top-k curves rise and saturate by k ~ 64-128 (posthoc_best_k.csv: e.g. lung NODE k=10 0.612, k=64 0.654,
+full 0.654; lung PPI k=10 0.641, full 0.655). Low-rank summaries lose clearly: at k = 10 the layer-mean loss vs full is
+0.011-0.084 AUROC across the 12 evaluation context x task cells (largest immune NODE -0.084, immune EDGE -0.044, lung NODE
+-0.042); at k = 3 (the width of the screen's bands) it is 0.032-0.142 (curves_<ctx>.csv, diff_vs_full). The information
+the three tasks use is spread over many directions, not concentrated in a few leading ones: rank reduction is at best
+neutral (k >= 64) and harmful at small k.
+Sensitivity (not pre-registered; sens_R_N_ci.csv, PPI CIs delete-d). Removing the LEADING directions changes the picture
+by task: dropping SV1..SV5 raises the H2 TF-identity statistic by +0.099 [+0.080,+0.111] lung, +0.107 [+0.087,+0.122]
+lung_external, +0.108 [+0.084,+0.122] kidney_B, +0.092 [+0.035,+0.122] immune (not in kidney_A: -0.007
+[-0.090,+0.044]), while it lowers PPI recovery in lung/lung_external/kidney_B (-0.027 [-0.042,-0.013], -0.036
+[-0.051,-0.021], -0.017 [-0.033,-0.002]) and leaves EDGE within noise (+0.023 to +0.041, all CIs include 0).
+Hypothesis (not tested here): the high-variance leading axes dominate cosine similarity with a gene-wide factor (e.g.
+residual expression level / detection within decile, or a cell-composition axis) that carries partner co-location but
+masks TF identity; TF identity sits in lower-variance directions. This is post hoc and was chosen among 5 j values x 3
+tasks; it should be reported as an effect size, not as a confirmed finding, and the 'remove leading axes' operation is
+not what R2.6 asked about.
+Screen bands (family N, bands_vs_topk.csv / sens_R_N_ci.csv). Against same-width top-k, the screen's bands are not
+uniformly better: in lung/lung_external/kidney_B they are worse for PPI (e.g. SV5-7 vs top-3 -0.036 [-0.053,-0.019]
+lung) and better for NODE (SV5-7 +0.045 [+0.012,+0.083] lung), mirroring family R (bands exclude SV1). On immune, where
+the bands were found, they beat same-width top-k for PPI by +0.031 to +0.037 (SV2-4 +0.036 [+0.009,+0.063], SV2-7 +0.031
+[+0.010,+0.051]; SV5-7 +0.037 [-0.002,+0.075] includes 0 under delete-d scaling). Under the kidney_A submitted-convention
+mapping, SV2-4 and SV2-7 become SV1-3 / SV1-6, i.e. exactly top-3 / top-6.
+Static models (static_curves.csv, descriptive, lung Tier B 5,226 genes): the same shape holds; full vs best top-k
+differs by <= 0.022 AUROC for every model and task (largest: AIDO.Cell NODE best k=64 +0.022, Geneformer V2-104M PPI
+best k=7 +0.017), with no consistent k across models (the ESM2 EDGE 'best k = 1' rows are at AUROC ~0.50-0.51).
+Implication for the manuscript: answer R2.6 with the three frozen sentences above; state that truncation to the
+leading directions neither improves PPI, TF-identity nor edge recovery, that the full representation is the right
+default, and that the earlier spectral-band results should not be read as evidence that a low-rank subspace is
+privileged for biological recovery.
+Limitations / failure modes: (1) the selection context (immune_seed43) shares its tissue and gene axis with immune,
+so immune is not independent of selection (immune's PPI Delta is the only positive one); (2) Delta CIs are tiny because
+k* = 64/128 representations are nearly the full space; the analysis is informative about 'no gain', not about small-k
+losses (those are descriptive); (3) the PPI non-pair set is one rewiring; (4) NODE CIs keep detection strata fixed per
+gene; all CIs condition on the fitted SVD (the basis is not re-estimated within resamples); (5) static-model SVDs are
+fitted on the evaluated gene set, so 'full' there is the set-centred embedding; (6) the any-k p-values are against a
+label-noise null, not a test of H0 metric(k) <= metric(512).
+Files: kstar.json, delta.csv, any_k_test.csv, curves_<ctx>.csv (immune_seed43, lung, lung_external, kidney_B, immune,
+kidney_A), posthoc_best_k.csv, remove_top_j.csv, bands_vs_topk.csv, sens_R_N_ci.csv, static_curves.csv,
+static_summary.csv, results.json; code e7lib.py, e7_run.py, e7_sens.py, e7_static.py, e7_assemble.py; logs e7_*.log;
+verifier: verify/e7_verify.py, verify/verify_*.json, verify/rerun*.log, verify/pre_audit_backup/ (pre-audit outputs).
+
+AUDIT (independent adversarial verifier; details in results.json 'adversarial_verification' and verify/audit.json)
+Checked and confirmed: primary matches CONVENTION3 §4 (statistic, universe, paired-bootstrap units, B = 2,000, 3 tasks x
+4 contexts with CIs and no test, frozen-form sentence); k* chosen on immune_seed43 only, kstar.json (14:05:16) written
+before any evaluation-context curve (first: kidney_B 14:07:56); observed-gene SVD (cache obs_idx == non-zero rows of the
+canonical embedding at L0 and L11), V-centring, U_k S_k with SV1 = column 0, R_j = columns j..511, bands = columns a-1..z-1;
+gene alignment (obs_genes == h5ad var[obs_idx]); joint permutations shared across all k and layers, within detection
+strata (NODE) / within TF (EDGE); LOO excludes self under permuted labels; full-dimension NODE and EDGE values equal E3
+h2_primary and E4a h3_primary bit-for-bit in all 5 contexts used; STRING edge counts equal E2 prep_meta.
+Fixed (2 items): (A) PPI vertex-subsampling intervals: E7 reported only the pre-registered sqrt(m/n) scaling;
+CONVENTION3_ERRATA item 3 requires delete-d scaling in the manuscript. Added ci_lo_deleted/ci_hi_deleted and
+ci_lo_ms/ci_hi_ms to delta.csv and sens_R_N_ci.csv (pre-registered columns kept). Consequence: layer-mean PPI CI below 0
+in 1 of 4 contexts (kidney_B) instead of 2 of 4; per-layer CIs below 0: lung 6/12 (was 9), lung_external 0/12 (was 2),
+kidney_B 7/12 (was 10); the decision 'does not improve in 0 of 4' is unchanged. (B) k = 1 cosines: stats3.l2norm_rows
+divides by norm + 1e-12, so 1-D cosines (exactly +-1, should tie) were ordered by |SV1|; e7lib.unit_rep now normalises
+exactly. Only k = 1 values changed (all other curve values bit-identical; k* unchanged when re-derived from the new
+immune_seed43 curves; delta npz untouched and equal to the new curves): k = 1 layer-mean PPI changed by -0.010 to -0.024,
+EDGE by -0.012 to +0.003, NODE 0; any-k lung EDGE any-layer max changed from +0.0072 (k=1, L10, p = 0.457) to +0.0021
+(k=128, L1, p = 0.934); static ESM2-UCE EDGE best-k (k=1) gap +0.0072 -> +0.0095, ESM2-650M +0.0094 -> +0.0066.
+kstar.json is the untouched selection record; its k = 1 curve entries are the pre-fix values (PPI 0.5147, EDGE 0.5321;
+corrected 0.5052 / 0.5202), which cannot affect the argmax.
+Also corrected in this text: the 'small k loses 0.01-0.04' statement (actual k = 10 loss 0.011-0.084).
+Independently reproduced from raw embeddings with own code (verify/e7_verify.py, sklearn AUROCs, own SVD/LOO/
+resampling, different seeds): k* = 64/512/128 (all T curves k >= 2 equal to 1e-15); lung layer-mean Delta PPI -0.001051
+and EDGE +0.000354; lung NODE R5 - full +0.0991; lung PPI Delta CI (own vertex subsets) pre-registered
+[-0.00202,-0.00006], delete-d [-0.00242,+0.00034] vs E7 [-0.00199,-0.00008] / [-0.00237,+0.00032]; lung EDGE Delta CI
+(own two-way bootstrap) [-0.0022,+0.0025] vs [-0.0022,+0.0026]; lung_external NODE any-k gap +0.00199 (k=64), own-seed
+p = 0.409 vs 0.445 (MC SE ~0.022); static Geneformer V2-104M PPI k=7 0.66785 and full 0.65119 (E7 0.6679 / 0.6512).

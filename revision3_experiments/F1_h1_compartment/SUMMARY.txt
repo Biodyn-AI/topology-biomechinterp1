@@ -1,0 +1,213 @@
+F1 - H1 robustness to compartment co-membership and to the detection threshold
+(sensitivity analysis, CONVENTION3 s5 and the s2 V-restriction; no pass/fail. Follow-up to E2.)
+CONVENTION3 sha256 3e3249d1d0a8ce1bc3cf64639fe233b016535456f82432a8bbfcacdd64a05c01 (checked against FROZEN.txt;
+recorded in results.json). Contexts: lung (primary), lung_external (replication), kidney_B (second tissue).
+
+ANSWER
+Yes: physical-partner co-location survives conditioning on compartment in all three contexts, at 116-120 of the 120
+cells (every significant cell has positive r). How much survives depends on how strongly you condition:
+ - compartment-aware nulls (permutation within the 8 classes; MS rewiring that keeps each edge's class pair): the
+   8-class partition accounts for r = 0.056-0.083 at the E2 top cell of each context (0.048-0.094 over the E2 top-3
+   cells), so 81-86% of the excess over plain MS remains at the top cell (77-87% over the top-3 cells; median over
+   120 cells 96-97%);
+ - linear residualisation on the 8-level class factor (7 dummies + intercept) + log n_obs: 59-63% of top-cell r
+   remains (median over cells 85-87%);
+ - linear residualisation on the 30 most frequent GO-CC terms + log n_obs (the pre-specified design): 40-47% of
+   top-cell r remains (median 68-72%). This is the most aggressive design and it probably over-removes (inference,
+   from a post hoc control: 30 GO-BP terms, shared by only 39-41% of edges, remove as much at the median cell).
+In lung, L3 SV1 (also the compartment axis) has the largest stratified-permutation null mean (0.075) and the lowest
+30-CC residual ratio (0.404) of the 13 cells with r > 0.3; under the class-pair MS null several strong cells lose
+slightly more (L10 SV3, L11 SV3, L9 SV3: 75-76% of the MS excess retained vs 81% for L3 SV1). A cell with little
+compartment content (lung L7 SV6, picked post hoc: r 0.311, stratified null mean 0.005) keeps 95-98% of its MS
+excess under both class-aware nulls and 94% under class residualisation, but 30-CC residualisation still removes
+23% (ratio 0.769; design R^2 0.08).
+
+WHAT WAS RUN
+Observed-gene SVD (stats3.svd_observed via E2's e2_common.coords), SV1-SV10 x 12 layers = 120 cells. Assortativity
+(stats3.assortativity, vectorised as in E2) over cache/<ctx>/edges_string.npy (STRING physical >= 700 within V).
+The raw r matches E2's h1_primary_<ctx>.csv exactly (asserted). Max-T is two-sided (stats3.max_t_adjust), as in E2.
+stats3.assert_resolution was called for every family (N = 2,000: floor 1/2001 = 5.0e-4; N = 1,000: 1/1001).
+Classes from direct annotations in gene2go_all.pkl, by priority: extracellular GO:0005615 > plasma membrane
+GO:0005886 > ER/ER lumen/Golgi > mitochondrion > nucleus > cytosol > other-annotated (any direct GO annotation) >
+unannotated. Intervals: stats3.vertex_subsample_ci, B = 500, m = n/2. Each is given with the pre-registered sqrt(m/n)
+scaling AND the delete-d sqrt(m/(n-m)) scaling from the same draws (ERRATA item 3; intervals.csv). Below, [..] is
+the delete-d interval unless marked otherwise.
+
+DIRECT EVIDENCE
+(a) Classes (classes.csv). lung: extracellular 591, plasma membrane 1,392, ER/Golgi 368, mitochondrion 284, nucleus
+1,362, cytosol 509, other-annotated 837, unannotated 305. lung_external: 554/1,370/359/283/1,378/516/779/377.
+kidney_B: 354/1,137/326/312/1,253/493/669/236. Share of STRING edges whose two ends share a class: lung 0.455 vs
+0.231 under MS (sd 0.0031; stub-matching expectation 0.231; z 72.7); lung_external 0.451 vs 0.232 (z 69.4);
+kidney_B 0.448 vs 0.234 (z 63.8). The concern behind F1 is real: partners share a class about twice as often as
+degree-preserving rewiring predicts. Unannotated genes hold 0.02-0.16% of edge endpoints (lung: 0 within-class
+edges). This is consistent with a shared study bias of GO and STRING, but many unannotated entries are
+non-coding RNAs, pseudogenes or Ig/TCR segments (e.g. H19, SNORD12C, Y_RNA, IGKC, TRBV23-1) that have no STRING
+protein node at all, so it does not show one.
+(b) Compartment-stratified permutation (one within-class permutation applied to all 120 cells, N = 2,000;
+strat_null.csv). The family minimum p_adj is at the floor (5.0e-4) in all three contexts. Cells significant:
+lung 119/120 (fails: L7 SV4, r 0.034, p_adj 0.12), lung_external 120/120, kidney_B 120/120.
+  lung L3 SV1: r 0.435, null mean 0.075, null sd 0.0139, z 25.9; excess 0.360 = 82% of the MS excess.
+  lung_external L8 SV2: r 0.406, null mean 0.064, z 25.6; 84%.
+  kidney_B L9 SV3: r 0.404, null mean 0.056, z 25.6; 86%.
+  Median share of the MS excess remaining, over 120 cells: 0.970 / 0.958 / 0.972 (minimum 0.755 / 0.837 / 0.860).
+  E2 comparison (MS, N = 10,000 lung and lung_external, 2,000 kidney_B): z 53.1 / 49.2 / 45.9; F1's own MS replica
+  (N = 2,000) z 52.1 / 48.0 / 46.4; null means agree with E2 within 0.0014.
+Combined null: class-pair-preserving MS. It is feasible. A double-edge swap (u,v),(x,y) -> (u,y),(x,v) is accepted
+only if cls[v] = cls[y] or cls[u] = cls[x]. This keeps every degree and the multiset of edge class pairs exactly
+(checked on every draw), with no self-loops or multi-edges. Acceptance is 0.36; burn-in 10m and thinning m
+accepted swaps completed on every draw; lag-1 autocorrelation of the top-cell null is 0.18-0.23 (plain MS
+0.11-0.15; chain_diagnostics.csv). Results: 120/120 cells significant in all three contexts, minimum p_adj at the floor.
+  lung L3 SV1: null mean 0.083, z 46.0; excess 0.352 = 81% of the MS excess.
+  lung_external L8 SV2: null mean 0.078, z 41.5; 81%.
+  kidney_B L9 SV3: null mean 0.075, z 39.3; 81%.
+  Median over cells: 0.957 / 0.956 / 0.963. Largest null mean over cells: 0.094 / 0.081 / 0.075.
+(c) Residualised coordinates (OLS on 30 most frequent direct GO-CC terms among V + log n_obs; MS N = 2,000, the same
+chain evaluated on raw and residual coordinates; residual_assort.csv). Residual-r null means are -0.002 to 0.000.
+  lung L3 SV1: residual r 0.176. Ratio to raw r 0.404 [0.327, 0.477]; pre-registered scaling [0.350, 0.456].
+    The design explains 25% of the coordinate's variance; z 21.4.
+  lung_external L8 SV2: residual r 0.167; ratio 0.412 [0.337, 0.498].
+  kidney_B L9 SV3: residual r 0.191; ratio 0.471 [0.395, 0.552].
+  Median ratio over 120 cells: 0.702 / 0.684 / 0.723. Cells significant: lung 116/120 (fails: L7 SV4, L8 SV4,
+  L9 SV1, L10 SV1, all with raw r <= 0.10); lung_external 120/120; kidney_B 120/120.
+  Largest-|z| residual cells: lung L0 SV4 0.231 (the largest residual r in lung is L7 SV6, 0.239);
+  lung_external L5 SV5 0.245; kidney_B L7 SV6 0.237 (largest |z| and largest r coincide there).
+  Extra design, 8-level class factor (7 dummies + intercept) + log n_obs: top-cell ratio 0.591 [0.535, 0.649], 0.602 [0.527, 0.677] and
+  0.629 [0.569, 0.688]; median 0.873 / 0.848 / 0.848; cells significant 119 / 120 / 120.
+  Post hoc controls (descriptive, no test; resid_controls_summary.csv):
+    log n_obs alone: median ratio 0.98-1.00, so detection plays no part in the drop;
+    30 CC terms without log n_obs: 0.71 / 0.71 / 0.75;
+    30 random gene sets of the same sizes: 0.97-1.00 (5 seeds; lung 0.992-0.998);
+    30 GO-BP terms + log n_obs: median 0.70 / 0.71 / 0.69, top cell 0.58 / 0.54 / 0.61;
+    30 GO-MF terms: median 0.79 / 0.78 / 0.79, top cell 0.71 (the most frequent MF term is 'protein binding',
+    GO:0005515, on 4,118 / 4,057 / 3,594 genes of V; it is largely interaction-derived, so this design is
+    partly circular with STRING);
+    the 8 class-defining terms, multi-label: median 0.85 / 0.83 / 0.82, top cell 0.59 / 0.61 / 0.66.
+  89-90% of STRING edges share at least one of the 30 CC terms (random pairs 41-45%); for the 30 BP terms the
+  figures are 39-41% and 6%.
+(d) Within- vs between-class edges (each edge set with its own MS chain, N = 1,000; within_between.csv; E2 top cell).
+  lung, 6,582 within-class edges:
+    raw r 0.497 [0.432, 0.567]; class-centred 0.309 [0.241, 0.372].
+  lung, 7,892 between-class edges:
+    raw r 0.377 [0.315, 0.438]; class-centred 0.204 [0.159, 0.258].
+  lung_external, within: raw 0.477; class-centred 0.295 [0.227, 0.363].
+  lung_external, between: raw 0.340; class-centred 0.198 [0.145, 0.250].
+  kidney_B, within: raw 0.481; class-centred 0.312 [0.248, 0.381].
+  kidney_B, between: raw 0.331; class-centred 0.204 [0.147, 0.256].
+  Medians over cells, in the order within raw / within class-centred / between raw / between class-centred:
+    lung 0.197 / 0.175 / 0.155 / 0.145; lung_external 0.186 / 0.166 / 0.145 / 0.134;
+    kidney_B 0.225 / 0.199 / 0.181 / 0.166.
+  Cells significant in each of the four families: 115-120 / 120; minimum p_adj at the N = 1,000 floor everywhere.
+(e) V restricted to n_obs >= 3 / 5 / 10 (SVD recomputed on the restricted V, edges within it, MS N = 2,000, max-T;
+nobs_threshold.csv, nobs_threshold_cells.csv). The family minimum p_adj is at the floor in all 9 runs.
+Each row: n_V / edges; cells significant; top cell r [delete-d] [pre-registered].
+  lung >= 3: 4,221 / 10,685; 120/120; L4 SV1 0.418 [0.365, 0.470] [0.380, 0.454].
+  lung >= 5: 3,558 / 8,244; 120/120; L4 SV1 0.397 [0.339, 0.457] [0.356, 0.439].
+  lung >= 10: 2,580 / 5,228; 119/120; L5 SV3 0.401 [0.330, 0.477] [0.351, 0.455].
+  lung_external >= 3: 4,529 / 11,604; 120/120; L3 SV1 0.401 [0.344, 0.458] [0.361, 0.441].
+  lung_external >= 5: 3,976 / 9,981; 118/120; L3 SV1 0.396 [0.338, 0.455] [0.355, 0.438].
+  lung_external >= 10: 3,060 / 7,341; 117/120; L10 SV2 0.398 [0.336, 0.463] [0.354, 0.444].
+  kidney_B >= 3: 3,528 / 8,812; 120/120; L5 SV4 0.369 [0.294, 0.445] [0.316, 0.423].
+  kidney_B >= 5: 2,914 / 6,676; 120/120; L5 SV4 0.397 [0.319, 0.488] [0.342, 0.461].
+  kidney_B >= 10: 2,023 / 4,134; 120/120; L5 SV3 0.452 [0.373, 0.532] [0.396, 0.509].
+  The E2 top direction, matched on the same layer by |corr| of coordinates on the kept genes:
+    lung L3 SV1: 0.406 / 0.393 / 0.366 (|corr| >= 0.987);
+    lung_external L8 SV2: 0.389 / 0.381 / 0.379 (|corr| >= 0.962);
+    kidney_B L9 SV3: 0.350 / 0.334 / 0.304 (|corr| 0.99 / 0.98 / 0.79).
+  Raw full-V lung L3 SV1 for reference: 0.435 [0.384, 0.486]; pre-registered [0.399, 0.471].
+
+INFERENCE
+- Compartment co-membership is a real source of partner similarity: the 8-class partition accounts for about
+  0.05-0.09 of r on the axes most aligned with compartment, and close to nothing on the median cell. Most of H1's
+  effect is not a by-product of this coarse compartment partition (finer compartment structure is conditioned
+  only by the residualisation). Both class-aware nulls agree (81-86% of the excess remains at the top cells), and
+  they agree with the within-class analysis: class-centred coordinates on edges whose two ends share a class still
+  give r of about 0.30.
+- Residualisation gives smaller retained fractions than the nulls. The two answer different questions. The null
+  asks how much r class membership alone would create. The residual r is the correlation of what remains after
+  removing everything the annotations linearly predict, so it also removes functional similarity encoded in the
+  annotations. Partners share at least one of the 30 CC terms 89% of the time, and BP terms remove as much at the
+  median cell. The 30-term figure (40-47% retained at the top cells) is therefore a conservative figure for
+  compartment-independent co-location, not an estimate of it. It is not a strict lower bound: residualisation can
+  also under-remove (incomplete and unpropagated annotation, non-linear compartment effects), and the BP terms
+  are themselves partly compartment-correlated, so the over-removal is inferred, not shown.
+- The detection threshold does not drive H1. Family significance, top-cell r of about 0.37-0.45 and the
+  replication criterion (same sign in lung_external, interval excluding 0) all hold at n_obs >= 3, 5 and 10. The
+  matched E2 top-direction r falls slightly with stricter thresholds in lung (0.435 -> 0.366 for L3 SV1) as edges
+  are lost; its intervals overlap the full-V interval at every threshold (descriptive: nested gene sets, no test).
+
+HYPOTHESIS (untested)
+The remaining co-location reflects shared expression programmes or pathways that go beyond compartment, for
+example signalling ligand-receptor pairs or nuclear complexes. Within-class class-centred r of about 0.3 is
+consistent with this, but F1 does not identify what the programmes are.
+
+NOT SHOWN / LIMITATIONS
+- F1 does not show that the model encodes binding, or that the residual signal is free of other shared
+  annotations (complexes, pathways). GO annotations partly derive from interaction evidence and from the same
+  literature as STRING (unannotated genes have almost no edges, partly because many are not protein-coding), so
+  conditioning on GO can over-remove.
+- The classes are coarse, single-label and depend on the chosen priority order. Only direct annotations are used;
+  terms are not propagated. Two of the 30 CC terms (GO:0005615, also the top class term, and GO:0062023) are
+  obsolete in the current go-basic.obo, and two (GO:0016021, GO:0005887; formerly 'integral component of (plasma)
+  membrane') are alt_ids that the obo merges into GO:0016020 / GO:0005886, which is why results.json labels them
+  'membrane' / 'plasma membrane'. They enter the design as separate direct-annotation columns, which is correct;
+  only their labels mislead.
+- Residualisation is linear OLS. The stratified permutation preserves class but not degree (null sd 0.014 vs MS
+  0.008). The class-pair chain has lower acceptance and higher autocorrelation, and like MS it starts from the
+  observed graph; its ergodicity is not proven. In (d) each edge set's own MS chain does not keep edges within (or
+  between) classes, so the raw within-class z-scores are against a class-blind null; the class-centred r is the
+  informative within-class statistic.
+- Every p-value is at its permutation floor, so read the z-scores and intervals. The intervals are conditional on
+  fixed coordinates and residuals (SVD and regression not refitted per subsample) and assume exchangeable vertices.
+- The retained-fraction CIs are from vertex subsampling of the ratio; the null-based fractions have no interval.
+- kidney_B at n_obs >= 10: the E2 top direction drifts (|corr| 0.79), so the matched r there is approximate.
+- The post hoc controls (BP, MF, random, multi-label compartment) were not pre-specified and carry no test.
+- immune and kidney_A were not run (out of scope).
+
+SURPRISES
+- Raw r on within-class edges (0.48-0.50) is higher than on all edges: same-class partners also share the class
+  mean. Class-centring brings it to about 0.30.
+- Between-class partners remain strongly assortative (raw 0.33-0.38; class-centred about 0.20), likely because the classes split
+  the extracellular/secretory side of the axis into several classes (hypothesis, untested).
+- The 30-CC design explains only 20-26% of the top coordinate's variance but removes 53-60% of its r: the
+  annotation-explained component is disproportionately the component that partners share (inference).
+
+FILES (all in this directory)
+Scripts: f1_common.py, f1_run.py, f1_analyze.py, f1_controls.py, f1_diag.py, f1_finalize.py, test_f1_chain.py.
+Logs: f1_run_<ctx>.log, f1_analyze.log, f1_controls.log.
+Tables: classes.csv, strat_null.csv, residual_assort.csv, within_between.csv, nobs_threshold.csv,
+nobs_threshold_cells.csv, intervals.csv, resid_controls.csv, resid_controls_summary.csv, chain_diagnostics.csv.
+results.json holds the hash, settings, the per-analysis summaries, the headline numbers and the file hashes.
+Null distributions are kept in _ckpt/*.npz.
+tracking/prompt.md was not updated (outside this experiment directory, which the task forbids).
+
+VERIFIER AUDIT (independent adversarial verification, 2026-10-26; files in verify/)
+Scripts read: f1_common.py, f1_run.py, f1_analyze.py, f1_controls.py, f1_diag.py, f1_finalize.py, test_f1_chain.py,
+and the reused E2 helpers (e2_common.py, e2_nulls.py). No bug that changes a result was found; nothing was re-run.
+- Spec/convention: F1 is a sensitivity analysis (no H1-H4 primary decision). MS chain = stats3.maslov_sneppen_chain,
+  burn 10m, thin m; family SV1-SV10 x 12 layers, Westfall-Young max-T (two-sided, as E2; all significant cells
+  have positive r); assert_resolution called for every family (floors 5.0e-4 / 1.0e-3 < 0.05). N = 2,000 in
+  lung/lung_external for (e) is below the section-4 primary N (10,000) but is what the F1 spec requires.
+- V and SVD: obs_idx equals the non-zero embedding rows (asserted); SVD on V only, centred over V; restricted-V
+  SVDs recomputed on the restricted rows. ncells/obs_genes/edges index the same observed-gene order.
+- Nulls: within-class permutation preserves class membership; the class-pair chain preserves degrees and the
+  class-pair multiset (the acceptance rule is exhaustive for (u,v),(x,y) -> (u,y),(x,v)) and is checked on every draw.
+- Intervals: delete-d half-widths are exactly sqrt(2) x the pre-registered ones (ratio 1.4139-1.4142 over all 110
+  rows of intervals.csv; 0 NaN draws).
+- Independent recomputation (verify_f1.py: own SVD, own assortativity, own class assignment, own obo parser, own
+  OLS, own permutation and subsampling code; 91/91 checks pass, verify_f1_compare.csv):
+  raw r of all 360 cells (max |diff| 1.4e-14); class sizes (exact); same-class edge fraction and stub expectation
+  (exact); stratified-permutation null mean/sd at the top cells (own N = 1,000: lung 0.0738 / 0.0135 vs 0.0752 /
+  0.0139; excess share 0.828 vs 0.825; lung_external 0.0645 vs 0.0643; kidney_B 0.0550 vs 0.0558); residual r for
+  all 360 cells under both designs and their medians (max |diff| 1.3e-14; lung top-cell ratio 0.4039, median
+  0.7017); BP-30 median ratio (0.7035 / 0.7128 / 0.6881); share of edges sharing a CC-30 term (exact); within/between
+  raw and class-centred r at the top cells (exact); n_V, m and all 120 r at n_obs >= 3/5/10 (exact); lung top-cell
+  interval from own B = 300 draws (delete-d [0.386, 0.486] vs [0.384, 0.486]).
+- Independent class-pair chain (verify_cpms.py, pure Python, no numba; N = 300): top-cell null mean 0.0837 / 0.0782 /
+  0.0750 vs 0.0829 / 0.0782 / 0.0755; sd 0.0079 / 0.0078 / 0.0090 vs 0.0077 / 0.0079 / 0.0084; acceptance 0.360-0.363
+  (implementer 0.360-0.363). Plain MS reference: null mean -0.0016 / -0.0014 / 0.0004.
+- Wording corrections applied above (numbers in verify/wording_numbers.json): top-cell vs top-3 ranges of the
+  class-aware null means and retained shares; "8 class dummies" -> 8-level factor (7 dummies + intercept);
+  "over-removes" and "lower bound" softened to inference / conservative figure; study-bias claim for unannotated
+  genes downgraded (many are non-coding); "loses the most" qualified by null; L7 SV6 example qualified;
+  "top residual cells" = largest |z|; random-set range 0.97-1.00; MF 'protein binding' circularity noted; obsolete
+  and alt_id GO labels; class-blind null in (d); "between-class" explanation marked as hypothesis.

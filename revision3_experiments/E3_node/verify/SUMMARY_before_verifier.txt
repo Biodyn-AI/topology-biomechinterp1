@@ -1,0 +1,143 @@
+E3_node: H2 node identity (pre-registered primary), with band scan, baselines and sensitivity analyses
+CONVENTION3 sha256 3e3249d1d0a8ce1bc3cf64639fe233b016535456f82432a8bbfcacdd64a05c01 (matches FROZEN.txt; recorded in results.json)
+
+WHAT WAS RUN
+Primary H2 exactly as in CONVENTION3 §4, in all 16 contexts. The universe is V, the observed genes. Lambert TF is compared with every other
+gene in V. The score is the leave-one-out mean cosine to the TF set (stats3.tf_scores_loo) of the V-centred 512-d embedding, computed per layer.
+The statistic is the detection-stratified AUROC (stats3.stratified_auroc, strata = node_labels det_decile). The null is N = 10,000
+within-stratum label permutations (stats3.permute_within_strata). Each permutation is applied jointly to all 12 layers, and the LOO scores
+are recomputed for every permuted TF set in batched matrix form. Max-T is taken over the 12 layers (stats3.max_t_adjust). Intervals are a
+gene bootstrap with B = 1,000. Scripts: e3_lib.py, e3_primary.py, e3_bandscan.py, e3_crossfit.py, e3_ledger.py, prep_static.py,
+e3_extra.py, e3_finalize.py, e3_report.py. Job list: jobs.txt, run via run_job.sh, logs in logs/.
+The vectorised kernels are checked against the stats3 scalar functions on the observed labels in every run (|diff| < 1e-9).
+I independently recomputed lung L2 stratified AUROC 0.66319 and ESM2-15B lung 0.88110 with stats3 directly; both match bit for bit.
+
+DIRECT EVIDENCE: PRIMARY DECISION (h2_primary_lung.csv, h2_primary_lung_external.csv, h2_summary.csv, results.json)
+H2 IS SUPPORTED under the frozen rule.
+- lung: stratified AUROC 0.625-0.665 across layers; best L5 0.665 [0.641, 0.688].
+- lung_external: 0.627-0.662; best L1 0.662 [0.637, 0.686].
+- Every layer in both contexts has max-T p = 1/10001 (the floor), z 8.8-11.6, and a 95% CI lower bound >= 0.600.
+- Null means 0.49-0.50.
+- The replication criterion (§1) holds at all 12 layers: same sign, and the CI excludes 0.5.
+- Effect sizes are modest, with AUROC about 0.66.
+- Profile over depth: in lung and lung_external the AUROC is flat over L0-L5 and declines towards L11 (0.625 / 0.627).
+Other contexts (descriptive; the decision uses only lung and lung_external):
+- All 16 contexts have min max-T p at the floor.
+- Number of layers with max-T p < 0.05 is 12/12 everywhere except immune_seed43 (10/12) and immune_TSP25 (9/12).
+  In both, the non-significant layers are L9-L11 and the per-layer AUROC there is 0.55-0.57.
+- Discovery contexts are higher: immune 0.566-0.720, kidney_A 0.678-0.783.
+- Checkpoints, on the same kidney cells: whole_human 0.612-0.652, kidney 0.565-0.595, brain 0.562-0.607. No paired test was run.
+
+BASELINE ROWS (baselines.csv, baselines_paired.csv; listed first in every table)
+These are stratified AUROCs (unstratified in parentheses) for lung / lung_external.
+- log n_obs: 0.503 (0.458) / 0.531 (0.454). Within detection deciles it is near 0.5 by construction. Unstratified, TFs are less detected than other genes.
+- log mean expression, extraction cells: 0.588 [0.565, 0.611] / 0.595 [0.571, 0.620]. Population: 0.579 / 0.576.
+  Within a detection decile, TFs have higher mean expression, so this is a real partial confounder that the primary stratification does not remove.
+- scGPT static gene-token embedding, V-centred, LOO cosine on the same genes: 0.760 [0.740, 0.781] / 0.744 [0.722, 0.765]; uncentred 0.668 / 0.638.
+- ESM2-15B (UCE per-protein; 5,120-d), V-centred: 0.881 [0.865, 0.897] (5,413 matched genes) / 0.883 [0.868, 0.898] (5,306 genes); uncentred 0.761 / 0.761.
+- Paired difference (static minus scGPT residual layer, same genes and labels, gene bootstrap):
+  - ESM2-15B minus layer: +0.209 to +0.263 in lung and lung_external, and +0.195 to +0.402 across all 16 contexts. No CI includes 0.
+  - Static scGPT token minus layer: +0.095 to +0.135 in lung and +0.082 to +0.118 in lung_external, with lower bounds >= 0.063.
+    Across contexts it is -0.013 to +0.184, and 19 of 192 CIs include 0 (all in immune or kidney_A family contexts at early or middle layers).
+- Logistic regression (logistic_adjustment.csv), per layer: TF ~ z(score) + z(log n_obs) + z(log mean expr).
+  - lung: standardised beta 0.37-0.56 per SD; smallest lower 95% bound 0.27; LR test p <= 6e-13 at every layer.
+  - lung_external: beta 0.45-0.57; lower bound >= 0.36; p <= 2e-23.
+  - Using population expression gives the same result: lung p <= 3e-13, lung_external p <= 1e-26.
+  - The score term is significant in every context and layer (max LR p 0.0077 with extraction expression, 0.0084 with population expression).
+
+SENSITIVITY (effect sizes; no pass/fail)
+(1) Band scan: 78 contiguous bands of SV1-12 x 12 layers = 936 cells per context. Observed-gene SVD; N = 2,000 joint within-stratum
+    permutations; max-T over the 936 cells. Files: bandscan_<ctx>.csv, bandscan_<ctx>_trrust.csv, bandscan_maxT.csv,
+    partial/heatmap_{cos,lda}_<ctx>.csv, bandscan_heatmaps.png.
+    - lung: the best cos-variant cell by AUROC is SV3-12 at L2, 0.676. The largest-z cell is the single direction SV8 at L0, 0.631, z 15.2.
+      633/936 cells have max-T p < 0.05. The null max-AUROC 97.5% quantile is 0.548.
+    - lung_external: best SV3-12 at L2, 0.711; 690/936 cells significant.
+    - The width-invariant centroid/LDA variant (fitted in-sample, refitted in each null draw) reaches 0.700 (lung) and 0.734 (lung_external)
+      for SV1-12 at L2. This number is optimistic because the fit is in-sample.
+    - No narrow band dominates. The best cells are wide bands that drop SV1-2. SV1 and SV2 carry detection: median |Spearman| with log n_obs
+      in lung is 0.42 and 0.49, against <= 0.19 for SV3-12 (singular_structure.csv).
+(2) Cross-fit (crossfit.csv): 200 random gene halves; select on half A, evaluate on half B. Selection-unbiased held-out stratified AUROC,
+    median [2.5-97.5%]:
+    - lung 0.669 [0.644, 0.692] vs full 512 0.660 [0.643, 0.685]; band minus full +0.007 [-0.014, 0.029].
+    - lung_external 0.702 [0.678, 0.725] vs full 0.659; band minus full +0.042 [0.019, 0.065].
+    - kidney_B 0.648 vs full 0.651, difference -0.004 [-0.032, 0.024].
+    - kidney_A (discovery) 0.695 vs full 0.761, difference -0.058 [-0.232, -0.012].
+    - Optimism (in-sample minus held-out) is 0.005-0.02 in the large contexts and 0.04-0.10 in the immune subsets.
+    - The chosen cells are mostly SV3/4-12 at L1-L3.
+    - Reading: band selection beats the full representation only in lung_external, by about 0.04. It does not in lung or kidney_B, and it is
+      worse in kidney_A.
+(3) Screen bands (legacy_bands.csv). Each has its own permutation p (raw, and max-T over that band's 12 layers) and its p within the 936-cell
+    max-T. All are labelled screen-derived; immune and kidney_A are also labelled discovery-contaminated.
+    - SV2-4: lung 0.522-0.590, lung_external 0.530-0.588.
+    - SV5-7: lung 0.497-0.597, lung_external 0.550-0.654.
+    - SV2-7: lung 0.574-0.611, lung_external 0.580-0.653.
+    - Almost all of these layers are significant on their own band-level max-T, but every one has a lower AUROC than the full 512-d primary in
+      the same context (0.625-0.665).
+    - Discovery context immune: SV2-4 0.503-0.593 and SV2-7 0.515-0.622, with no cell surviving the 936-cell max-T (min p 0.20-0.40).
+      SV5-7 at L11 is far BELOW chance, 0.256: TFs are anti-clustered in that 3-D band.
+    - kidney_A, mapped bands (legacy_band_mapping.json): SV1-3 0.595-0.638 and SV1-6 0.628-0.715, each significant at all 12 layers.
+(4) Singular structure (singular_structure.csv, gaps from E1_compression/gaps.csv): near-degenerate adjacent pairs, where the gap-ratio CI
+    contains 1, number 12 (lung_external) to 40 (immune_CD8T) of 132 per context. Cells whose band boundary cuts a near-degenerate pair
+    are flagged in bandscan_*.csv (boundary_cuts_degenerate_pair).
+(5) Legacy task, TRRUST TF vs TRRUST target-only (trrust_task.csv). Machinery as primary: N = 10,000, max-T over 12 layers.
+    - lung: n = 1,956, 555 TFs; full 512 0.646-0.713, all max-T p = 1e-4.
+    - lung_external: n = 1,971, 579 TFs; 0.643-0.710, all max-T p = 1e-4.
+    - Here mean expression alone is close: stratified log mean expression 0.628 (lung) and 0.609 (lung_external).
+    - TRRUST band scan: bandscan_*_trrust.csv. TRRUST cross-fit: band is worse than full 512 in lung (-0.047 [-0.095, -0.032]) and in
+      lung_external (-0.029 [-0.073, -0.011]).
+(6) Ledger 0.744 (ledger_0744.json). Immune, label set as recorded: 361 named genes, of which 295 are observed, giving 73 TFs vs 222 target-only.
+    - The screen's procedure (SV2-7 coordinates, standardise, logistic C = 1, 5-fold stratified CV with seed 42, fold-mean AUROC averaged over
+      layers) gives 0.747. This reproduces the preprint 0.744 and the E9 recompute 0.747.
+    - Across CV seeds 0-49 it ranges 0.727-0.759 (95%). Permutation p is 1/1001 (N = 1,000).
+    - The same out-of-fold predictions scored with detection stratification give 0.683.
+    - LOO cosine in the 6-D band: 0.644 unstratified, 0.553 stratified. The stratified layer-mean p is 0.042; per layer it peaks at
+      L2 0.666 and falls to 0.398 at L9.
+    - Full 512-d LOO cosine: 0.702 unstratified, 0.629 stratified.
+    - About 0.10 of the 0.744 comes from the supervised 6-D fit relative to an unsupervised centroid score, and about another 0.09 comes from
+      detection.
+(7) V restricted by detection (restricted_V.csv; baseline rows first; N = 2,000):
+    - lung: n_obs >= 3 gives 0.646-0.658; >= 5 gives 0.649-0.670; >= 10 gives 0.668-0.694.
+    - lung_external: 0.627-0.662, 0.635-0.663 and 0.666-0.682 respectively.
+    - Every layer in every case has max-T p = 1/2001.
+    - The effect does not come from rarely detected genes; it grows slightly when they are removed.
+
+INFERENCE
+TF identity is linearly recoverable from scGPT's contextual gene embeddings beyond detection frequency. This holds after logistic adjustment
+for both detection and mean expression, and it replicates in an independent lung atlas. The recoverable signal is modest (AUROC about 0.66)
+and is spread over many directions rather than living in a specific narrow band. The static gene-token embedding of the same model carries
+more TF-identity information than the residual stream in the main contexts (+0.08 to +0.14 in lung and lung_external). A protein language
+model that has never seen expression (ESM2-15B per-protein) carries far more (AUROC 0.88, +0.21 to +0.26 over any layer). The contextual
+representation is therefore not where this "knowledge" is best represented.
+
+HYPOTHESIS (not tested here)
+TF identity in the residual stream may largely be inherited from the input gene-token embedding, which is diluted through depth (the AUROC
+declines L5 -> L11). ESM2's advantage plausibly reflects DNA-binding-domain sequence families, which define the Lambert census.
+
+WHAT THIS DOES NOT SHOW
+- That the model uses TF identity causally, or that it represents regulatory relations. That is H3, in E4.
+- That any specific screen band is special: screen bands are weaker than the full representation in lung and lung_external.
+- That the residual stream adds TF information beyond the static token embedding. That was not tested by conditioning.
+- That the checkpoint differences are significant: no paired test was run.
+
+LIMITATIONS
+- Bootstrap CIs resample genes with the LOO scores held fixed; the TF centroid is not re-estimated per resample.
+- The width-1 band scores use raw coordinates with a sign-free AUROC, so the l2norm k = 1 pitfall does not arise.
+- The LDA variant is in-sample.
+- Contexts are not independent: lung and immune share donors, kidney_A and kidney_B share a donor, and the checkpoint contexts share cells.
+- Mean expression is a residual confounder within detection strata; it is handled only by the logistic adjustment.
+- The ESM2 comparison uses 94-96% of V in lung and lung_external, and paired differences use exactly those genes.
+- Errata item 3 (delete-d rescaling of vertex-subsampling intervals) does not apply: E3 has no vertex-subsampling interval, only gene bootstraps.
+
+SURPRISES
+- The static token embedding and ESM2-15B beat every residual layer.
+- Immune SV5-7 at L11 is anti-informative (0.256).
+- Cross-fitted band selection helps only in lung_external.
+
+RESUMPTION NOTE
+This session resumed a run that had been cut off. At the start, 54 of 81 queued jobs had finished and 3 were running. The surviving xargs queue
+finished all of them with rc = 0, so nothing was relaunched or duplicated. Added in this session:
+- e3_extra.py: baseline rows for restricted V.
+- e3_report.py: headline block in results.json.
+- e3_finalize.py patches: the ESM2 label corrected to "ESM2-15B (UCE per-protein)" (the old docstring said ESM2-3B), baseline rows first
+  in legacy_bands.csv and restricted_V.csv, and model_label columns.
+No reduction from the specification was needed.

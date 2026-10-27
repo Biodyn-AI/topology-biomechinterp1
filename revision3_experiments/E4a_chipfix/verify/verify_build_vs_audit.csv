@@ -1,0 +1,17 @@
+context,own_pos_match,anyreg_match,new_anyreg_zero,common_match,share_match,nneg_match
+immune,True,True,True,True,True,True
+immune_seed43,True,True,True,True,True,True
+immune_seed44,True,True,True,True,True,True
+immune_TSP14,True,True,True,True,True,True
+immune_TSP21,True,True,True,True,True,True
+immune_TSP25,True,True,True,True,True,True
+immune_Bcell,True,True,True,True,True,True
+immune_CD4T,True,True,True,True,True,True
+immune_CD8T,True,True,True,True,True,True
+kidney_A,True,True,True,True,True,True
+kidney_B,True,True,True,True,True,True
+kidney_ckpt_whole_human,True,True,True,True,True,True
+kidney_ckpt_kidney,True,True,True,True,True,True
+kidney_ckpt_brain,True,True,True,True,True,True
+lung,True,True,True,True,True,True
+lung_external,True,True,True,True,True,True

@@ -1,0 +1,202 @@
+{
+ "A_lung_cx_ext_tiecorrected": 0.5081497633970494,
+ "A_lung_cx_ext_round10": 0.5081497633970494,
+ "A_immune_Bcell_cx_ext_tiecorrected": 0.5312156796485596,
+ "A_immune_Bcell_cx_ext_round10": 0.5312156796485596,
+ "A_kidney_ckpt_kidney_cx_ext_tiecorrected": 0.5102469863098011,
+ "A_kidney_ckpt_kidney_cx_ext_round10": 0.5102469863098011,
+ "A_immune_CD4T_cx_ext_tiecorrected": 0.5079807038559911,
+ "A_immune_CD4T_cx_ext_round10": 0.5079807038559911,
+ "B_lung_chip_n": {
+  "pos": 57017,
+  "neg": 557447,
+  "tf": 225
+ },
+ "B_lung_chip_L0": 0.5253206899407651,
+ "B_lung_chip_L1": 0.5272779766776824,
+ "B_lung_chip_cx_ext": 0.5363687762872401,
+ "C_lung_othertf_indeg_auroc": 0.6260136302876248,
+ "C_lung_L0_strata_TFxindeg": 0.5303575145525147,
+ "D_lung_macro_L0": 0.5796492921253971,
+ "D_lung_frac_tf_above_half_L0": 0.7275641025641025,
+ "F_lung_maxUB": 0.5830723616765798,
+ "F_lung_maxUB_corrected": {
+  "0.05": 0.5874445912385051,
+  "0.1": 0.5923026240850887,
+  "0.2": 0.6038404520957248
+ },
+ "E_immune_Bcell_pax5_cd79a": [
+  {
+   "layer": 0,
+   "rank": 5,
+   "n": 94,
+   "frac_neg_below": 0.9761904761904762
+  },
+  {
+   "layer": 1,
+   "rank": 5,
+   "n": 94,
+   "frac_neg_below": 0.9761904761904762
+  },
+  {
+   "layer": 2,
+   "rank": 5,
+   "n": 94,
+   "frac_neg_below": 0.9761904761904762
+  },
+  {
+   "layer": 3,
+   "rank": 6,
+   "n": 94,
+   "frac_neg_below": 0.9642857142857143
+  },
+  {
+   "layer": 4,
+   "rank": 6,
+   "n": 94,
+   "frac_neg_below": 0.9642857142857143
+  },
+  {
+   "layer": 5,
+   "rank": 6,
+   "n": 94,
+   "frac_neg_below": 0.9642857142857143
+  },
+  {
+   "layer": 6,
+   "rank": 6,
+   "n": 94,
+   "frac_neg_below": 0.9642857142857143
+  },
+  {
+   "layer": 7,
+   "rank": 6,
+   "n": 94,
+   "frac_neg_below": 0.9642857142857143
+  },
+  {
+   "layer": 8,
+   "rank": 6,
+   "n": 94,
+   "frac_neg_below": 0.9642857142857143
+  },
+  {
+   "layer": 9,
+   "rank": 7,
+   "n": 94,
+   "frac_neg_below": 0.9523809523809523
+  },
+  {
+   "layer": 10,
+   "rank": 7,
+   "n": 94,
+   "frac_neg_below": 0.9523809523809523
+  },
+  {
+   "layer": 11,
+   "rank": 6,
+   "n": 94,
+   "frac_neg_below": 0.9642857142857143
+  }
+ ],
+ "E_lung_pax5_cd79a": [
+  {
+   "layer": 0,
+   "rank": 2,
+   "n": 176,
+   "frac_neg_below": 1.0
+  },
+  {
+   "layer": 1,
+   "rank": 3,
+   "n": 176,
+   "frac_neg_below": 0.99375
+  },
+  {
+   "layer": 2,
+   "rank": 2,
+   "n": 176,
+   "frac_neg_below": 1.0
+  },
+  {
+   "layer": 3,
+   "rank": 3,
+   "n": 176,
+   "frac_neg_below": 0.99375
+  },
+  {
+   "layer": 4,
+   "rank": 3,
+   "n": 176,
+   "frac_neg_below": 0.99375
+  },
+  {
+   "layer": 5,
+   "rank": 8,
+   "n": 176,
+   "frac_neg_below": 0.9625
+  },
+  {
+   "layer": 6,
+   "rank": 11,
+   "n": 176,
+   "frac_neg_below": 0.94375
+  },
+  {
+   "layer": 7,
+   "rank": 13,
+   "n": 176,
+   "frac_neg_below": 0.9375
+  },
+  {
+   "layer": 8,
+   "rank": 18,
+   "n": 176,
+   "frac_neg_below": 0.9125
+  },
+  {
+   "layer": 9,
+   "rank": 22,
+   "n": 176,
+   "frac_neg_below": 0.89375
+  },
+  {
+   "layer": 10,
+   "rank": 25,
+   "n": 176,
+   "frac_neg_below": 0.875
+  },
+  {
+   "layer": 11,
+   "rank": 28,
+   "n": 176,
+   "frac_neg_below": 0.85625
+  }
+ ],
+ "G_lung": {
+  "tau": 0.2503436845483958,
+  "rho_t": 0.0463488164523373,
+  "nsim": 300,
+  "sampling_sd_at_null": 0.01899501017884605,
+  "mean_sd_perm": 0.005713771941238412,
+  "reject_two_sided_1p96_sdperm": 0.5866666666666667,
+  "reject_one_sided_1p645_sdperm": 0.3433333333333333,
+  "own_between_tf_sd_of_auroc_L1": 0.0784366091497822,
+  "implied_by_tau": 0.07062064956458514,
+  "impl_size_permutation": 0.65,
+  "impl_sampling_sd_at_null": 0.021074478448556873
+ },
+ "G_kidney_B": {
+  "tau": 0.31542118863139473,
+  "rho_t": 0.027055464443474314,
+  "nsim": 300,
+  "sampling_sd_at_null": 0.023736741559217806,
+  "mean_sd_perm": 0.006902789352647941,
+  "reject_two_sided_1p96_sdperm": 0.5766666666666667,
+  "reject_one_sided_1p645_sdperm": 0.3433333333333333,
+  "own_between_tf_sd_of_auroc_L1": 0.08043898718161638,
+  "implied_by_tau": 0.08897867452804245,
+  "impl_size_permutation": 0.67,
+  "impl_sampling_sd_at_null": 0.025753720545719727
+ }
+}

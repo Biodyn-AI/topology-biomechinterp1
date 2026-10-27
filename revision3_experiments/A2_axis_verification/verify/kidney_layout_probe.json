@@ -1,0 +1,10 @@
+{
+ "n_rows_B_equal_A_position": 8000,
+ "first_B_row_not_equal": 8000,
+ "mapB_head_after_break": [],
+ "A_smartseq_rows_min_max": [
+  0,
+  351
+ ],
+ "expected_positional_coincidences": 4.320675105485232
+}

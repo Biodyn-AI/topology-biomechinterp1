@@ -1,0 +1,185 @@
+{
+ "convention_sha256": "3e3249d1d0a8ce1bc3cf64639fe233b016535456f82432a8bbfcacdd64a05c01",
+ "iii": {
+  "mean_frac_zero": 0.5825617283950617,
+  "min": 0.31666666666666665,
+  "max": 0.8222222222222222
+ },
+ "i_own": {
+  "n_named": 209,
+  "n_terms_3_50": 591,
+  "n_terms_3_50_BP_only": 410,
+  "by_layer": {
+   "7": {
+    "n_terms": 591,
+    "min_p": 4.2441067431481375e-07,
+    "n_p_lt_0p05": 69,
+    "n_bh_lt_0p05": 2,
+    "min_q": 0.0002508267085200549,
+    "shuffle_null_degenerate": true,
+    "top_term": "GO:0070062"
+   },
+   "8": {
+    "n_terms": 591,
+    "min_p": 9.54487888771635e-06,
+    "n_p_lt_0p05": 59,
+    "n_bh_lt_0p05": 2,
+    "min_q": 0.003721006810841053,
+    "shuffle_null_degenerate": true,
+    "top_term": "GO:0032753"
+   },
+   "11": {
+    "n_terms": 591,
+    "min_p": 8.693956855936197e-09,
+    "n_p_lt_0p05": 50,
+    "n_bh_lt_0p05": 1,
+    "min_q": 5.1381285018582925e-06,
+    "shuffle_null_degenerate": true,
+    "top_term": "GO:0070062"
+   }
+  },
+  "screen_record": "iter_0011/h03_gobp_sv2_poles.json: emp_p = 1.0 and null_std_or = 0.0 for every reported hit at L7, L8, L11"
+ },
+ "i_paper": {
+  "lung": {
+   "n_terms": 1387,
+   "n_V": 5648,
+   "K": 1524,
+   "n_cells_bh_ctx_lt_0p05": 1488
+  },
+  "immune": {
+   "n_terms": 297,
+   "n_V": 2039,
+   "K": 550,
+   "n_cells_bh_ctx_lt_0p05": 457
+  },
+  "kidney_A": {
+   "n_terms": 249,
+   "n_V": 1972,
+   "K": 532,
+   "n_cells_bh_ctx_lt_0p05": 1031
+  }
+ },
+ "iv": {
+  "lung|eff_rank|h2_strat_auroc_full": {
+   "rho_raw": 0.8601398601398602,
+   "rho_layer_er": -1.0,
+   "rho_layer_auroc": -0.8601398601398602,
+   "partial_rho": NaN,
+   "partial_p": NaN,
+   "n": 12,
+   "partial_estimable": false
+  },
+  "lung|eff_rank|legacy_auroc_sv2_7": {
+   "rho_raw": -0.44755244755244755,
+   "rho_layer_er": -1.0,
+   "rho_layer_auroc": 0.44755244755244755,
+   "partial_rho": NaN,
+   "partial_p": NaN,
+   "n": 12,
+   "partial_estimable": false
+  },
+  "lung|eff_rank_s2|h2_strat_auroc_full": {
+   "rho_raw": 0.8601398601398602,
+   "rho_layer_er": -1.0,
+   "rho_layer_auroc": -0.8601398601398602,
+   "partial_rho": NaN,
+   "partial_p": NaN,
+   "n": 12,
+   "partial_estimable": false
+  },
+  "lung|eff_rank_s2|legacy_auroc_sv2_7": {
+   "rho_raw": -0.44755244755244755,
+   "rho_layer_er": -1.0,
+   "rho_layer_auroc": 0.44755244755244755,
+   "partial_rho": NaN,
+   "partial_p": NaN,
+   "n": 12,
+   "partial_estimable": false
+  },
+  "immune|eff_rank|h2_strat_auroc_full": {
+   "rho_raw": 0.9440559440559443,
+   "rho_layer_er": -1.0,
+   "rho_layer_auroc": -0.9440559440559443,
+   "partial_rho": NaN,
+   "partial_p": NaN,
+   "n": 12,
+   "partial_estimable": false
+  },
+  "immune|eff_rank|legacy_auroc_sv2_7": {
+   "rho_raw": 0.1958041958041958,
+   "rho_layer_er": -1.0,
+   "rho_layer_auroc": -0.1958041958041958,
+   "partial_rho": NaN,
+   "partial_p": NaN,
+   "n": 12,
+   "partial_estimable": false
+  },
+  "immune|eff_rank_s2|h2_strat_auroc_full": {
+   "rho_raw": 0.9440559440559443,
+   "rho_layer_er": -1.0,
+   "rho_layer_auroc": -0.9440559440559443,
+   "partial_rho": NaN,
+   "partial_p": NaN,
+   "n": 12,
+   "partial_estimable": false
+  },
+  "immune|eff_rank_s2|legacy_auroc_sv2_7": {
+   "rho_raw": 0.1958041958041958,
+   "rho_layer_er": -1.0,
+   "rho_layer_auroc": -0.1958041958041958,
+   "partial_rho": NaN,
+   "partial_p": NaN,
+   "n": 12,
+   "partial_estimable": false
+  },
+  "immune_triplet|eff_rank|h2_strat_auroc_full": {
+   "rho_raw": 0.7850707850707851,
+   "partial_rho": 0.12074460798706116,
+   "partial_p": 0.4830079278332434,
+   "n": 36,
+   "partial_estimable": true,
+   "within_layer_rho": 0.1142857142857143,
+   "within_layer_p_perm": 0.536046395360464,
+   "within_b": 5360,
+   "within_N": 10000,
+   "within_null_sd": 0.2024993140981934
+  },
+  "immune_triplet|eff_rank|legacy_auroc_sv2_7": {
+   "rho_raw": 0.37065637065637064,
+   "partial_rho": -0.20240033424830003,
+   "partial_p": 0.23647452767660065,
+   "n": 36,
+   "partial_estimable": true,
+   "within_layer_rho": -0.42419562419562423,
+   "within_layer_p_perm": 0.024997500249975,
+   "within_b": 249,
+   "within_N": 10000,
+   "within_null_sd": 0.19223302736254666
+  },
+  "immune_triplet|eff_rank_s2|h2_strat_auroc_full": {
+   "rho_raw": 0.8077220077220078,
+   "partial_rho": 0.5827239776766853,
+   "partial_p": 0.00019213198294911501,
+   "n": 36,
+   "partial_estimable": true,
+   "within_layer_rho": 0.5317889317889318,
+   "within_layer_p_perm": 0.005499450054994501,
+   "within_b": 54,
+   "within_N": 10000,
+   "within_null_sd": 0.19666649763557972
+  },
+  "immune_triplet|eff_rank_s2|legacy_auroc_sv2_7": {
+   "rho_raw": 0.3500643500643501,
+   "partial_rho": -0.4864709788073187,
+   "partial_p": 0.002626213168427803,
+   "n": 36,
+   "partial_estimable": true,
+   "within_layer_rho": -0.8442728442728443,
+   "within_layer_p_perm": 9.999000099990002e-05,
+   "within_b": 0,
+   "within_N": 10000,
+   "within_null_sd": 0.19360216698599558
+  }
+ }
+}

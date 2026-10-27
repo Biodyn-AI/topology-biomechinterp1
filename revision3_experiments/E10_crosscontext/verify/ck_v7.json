@@ -1,0 +1,17 @@
+{
+ "kidney_B": {
+  "transfer_mean": 0.6523022880500741,
+  "incontext_mean": 0.7881228878764106,
+  "n_layers_transfer_below": 12,
+  "e10_transfer": 0.6523077359879039,
+  "e10_incontext": 0.783736093091009
+ },
+ "lung": {
+  "transfer_mean": 0.6725915974577831,
+  "incontext_mean": 0.7857097466010661,
+  "n_layers_transfer_below": 12,
+  "e10_transfer": 0.6739772247335664,
+  "e10_incontext": 0.7864646386289392
+ },
+ "_seconds": 62.1
+}

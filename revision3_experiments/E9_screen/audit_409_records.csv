@@ -1,0 +1,410 @@
+iteration,iter_num,aborted_duplicate_run,record_index,hypothesis_id,name,family,decision,result_direction,primary_p_raw,p_source,n_p_in_string,n_perm_method,n_perm_used,resolution_limited,p_floored,bh_q,bh_pass,bonferroni_alpha,bonferroni_pass
+iter_0002,2,False,0,H01_graph_topology_cc,kNN Clustering Coefficient vs Feature-Shuffle Null,graph_topology,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0002,2,False,1,H02_graph_topology_tr,kNN Transitivity vs Feature-Shuffle Null,graph_topology,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0004,4,False,0,H01,TwoNN intrinsic dimensionality per layer,intrinsic_dimensionality,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0004,4,False,1,H02,TRRUST co-target distance clustering (random-group null),module_structure,inconclusive,inconclusive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0004,4,False,2,H03,Cross-layer linear CKA alignment,cross_model_alignment,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0005,5,False,0,H01,GO term embedding clustering across layers,module_structure,inconclusive,inconclusive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0005,5,False,1,H02,Per-gene residual drift + GO enrichment,module_structure,promising,positive,0.0044,fallback_min_p,2,,1000,False,0.0044,0.008666666666666668,True,0.0003846153846153846,False
+iter_0005,5,False,2,H03,Effective rank per layer (spectral cross-check vs TwoNN ID),intrinsic_dimensionality,promising,positive,0.002,fallback_min_p,2,,1000,False,0.002,0.0042622950819672135,True,0.0003846153846153846,False
+iter_0006,6,False,0,H01,Full-vocabulary residual drift + GO enrichment,module_structure,promising,positive,0.0078,fallback_min_p,2,,1000,False,0.0078,0.014485714285714286,True,0.0003846153846153846,False
+iter_0006,6,False,1,H02,SVD biology of near-rank-1 layer-11 subspace,intrinsic_dimensionality,promising,positive,0.0003,fallback_min_p,2,,1000,False,0.0003,0.001392857142857143,True,0.0003846153846153846,True
+iter_0006,6,False,2,H03,Effective rank curvature and compression breakpoint,intrinsic_dimensionality,promising,positive,0.0021,fallback_min_p,1,,1000,False,0.0021,0.004403225806451612,True,0.0003846153846153846,False
+iter_0007,7,False,0,H01,SV1 feature-shuffle and gene-label-shuffle null,intrinsic_dimensionality,promising,positive,0.004,emp_p_eq,1,,1000,False,0.004,0.008125,True,0.0003846153846153846,False
+iter_0007,7,False,1,H02,Layer-wise SVD trajectory (12 layers),intrinsic_dimensionality,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0007,7,False,2,H03,Drift gene-label-shuffle null + SV1 negative-pole GO enrichment,module_structure,neutral,mixed,0.124,emp_p_eq,1,,1000,False,0.124,0.155,False,0.0003846153846153846,False
+iter_0008,8,False,0,H01,SV2/SV3 axes GO enrichment + gene-label null at layer-11,intrinsic_dimensionality,promising,mixed,0.0,emp_p_eq,2,,1000,True,0.000999000999000999,0.0025490196078431374,True,0.0003846153846153846,False
+iter_0008,8,False,1,H02,"Layer-specific compartment transients: mitochondrion (L3), ER lumen (L7/L8)",intrinsic_dimensionality,promising,positive,0.0,emp_p_eq,3,,1000,True,0.000999000999000999,0.0025490196078431374,True,0.0003846153846153846,False
+iter_0008,8,False,2,H03,Signal peptide proxy vs SV1 top-pole (layer-11),module_structure,promising,positive,0.002,emp_p_eq,1,,1000,False,0.002,0.0042622950819672135,True,0.0003846153846153846,False
+iter_0009,9,False,0,H01,SV2 bottom-pole extracellular vesicle null (N=1000),intrinsic_dimensionality,promising,positive,0.0,emp_p_eq,1,,1000,True,0.000999000999000999,0.0025490196078431374,True,0.0003846153846153846,False
+iter_0009,9,False,1,H02,12-layer x 8-compartment systematic SV1 scan,module_structure,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0009,9,False,2,H03,Cross-layer SV1 rank stability (Spearman),topology_stability,promising,positive,0.0,emp_p_eq,1,,1000,True,0.000999000999000999,0.0025490196078431374,True,0.0003846153846153846,False
+iter_0010,10,False,0,H01,SV2/SV3 12-layer × 9-compartment scan,intrinsic_dimensionality,promising,positive,0.05,emp_p_lt,1,,1000,False,0.05,0.06989247311827956,False,0.0003846153846153846,False
+iter_0010,10,False,1,H02,TRRUST TF-target co-pole test in SVD geometry,module_structure,promising,positive,0.0,emp_p_eq,2,,1000,True,0.000999000999000999,0.0025490196078431374,True,0.0003846153846153846,False
+iter_0010,10,False,2,H03,SV1/SV2/SV3 spectral ratio profile + annotation density confounder check,intrinsic_dimensionality,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0011,11,False,0,H01,TRRUST co-pole x 12 layers + Activation/Repression stratification,module_structure,promising,positive,0.0,emp_p_eq,1,,1000,True,0.000999000999000999,0.0025490196078431374,True,0.0003846153846153846,False
+iter_0011,11,False,1,H02,SV2 mito pole-flip gene tracking at L3-to-L4 transition,intrinsic_dimensionality,neutral,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0011,11,False,2,H03,GO Biological Process enrichment in SV2 poles (broad functional screen),module_structure,negative,negative,1.0,emp_p_eq,1,,1000,False,1.0,1.0,False,0.0003846153846153846,False
+iter_0012,12,False,0,H01,Bootstrap CI on activation vs repression co-pole differential,module_structure,negative,negative,0.05,fallback_min_p,1,,1000,False,0.05,0.06989247311827956,False,0.0003846153846153846,False
+iter_0012,12,False,1,H02,Mean pairwise SV2 distance — spatial concentration test (activation vs repression),manifold_distance,promising,positive,0.05,fallback_min_p,2,,1000,False,0.05,0.06989247311827956,False,0.0003846153846153846,False
+iter_0012,12,False,2,H03,STRING PPI co-pole enrichment across 12 layers,module_structure,promising,positive,0.05,emp_p_lt,1,,1000,False,0.05,0.06989247311827956,False,0.0003846153846153846,False
+iter_0013,13,False,0,H01,SV axis specificity: STRING PPI co-pole on SV1 vs SV2 vs SV3,graph_topology,promising,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0013,13,False,1,H02,Repression anti-pole: TRRUST repression pairs occupy opposite SV2 poles,module_structure,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0013,13,False,2,H03,Hub-degree control: does PPI co-pole signal survive in low-degree gene pairs?,null_sensitivity,inconclusive,inconclusive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0014,14,False,0,H01,GO enrichment of SV3 poles across 12 layers,module_structure,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0014,14,False,1,H02,Layer-depth Spearman trend on SV2/SV3 PPI z-scores,topology_stability,neutral,mixed,0.059,fallback_min_p,3,,1000,False,0.059,0.07989583333333333,False,0.0003846153846153846,False
+iter_0014,14,False,2,H03,Expanded hub-degree control: non-hub SV2 co-pole enrichment (STRING score>=0.4),null_sensitivity,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0015,15,False,0,H01,SV4/SV5 PPI co-pole test,module_structure,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0015,15,False,1,H02,STRING confidence gradient: co-pole z vs score quintile,graph_topology,promising,positive,1.4e-24,fallback_min_p,1,,1000,False,1.4e-24,6.066666666666666e-23,True,0.0003846153846153846,True
+iter_0015,15,False,2,H03,GO co-annotation vs PPI as driver of SV2 geometry,module_structure,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0016,16,False,0,H01,SV3 STRING confidence gradient,graph_topology,promising,positive,0.037,fallback_min_p,1,,1000,False,0.037,0.05929268292682927,False,0.0003846153846153846,False
+iter_0016,16,False,1,H02,SV2/SV3/SV4 axis independence test,module_structure,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0016,16,False,2,H03,SV4 GO biology profile,module_structure,promising,positive,0.00082,fallback_min_p,3,,1000,False,0.00082,0.0025490196078431374,True,0.0003846153846153846,False
+iter_0017,17,False,0,H01,SV4 confidence quintile gradient,graph_topology,promising,positive,0.0374,fallback_min_p,1,,1000,False,0.0374,0.05929268292682927,False,0.0003846153846153846,False
+iter_0017,17,False,1,H02,Axis-dominant pair GO composition (biological orthogonality),module_structure,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0017,17,False,2,H03,TRRUST signed regulation in SV3/SV4,null_sensitivity,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0018,18,False,0,H01,Random Gaussian embedding null control for SV2 co-pole,null_sensitivity,negative,negative,,,0,300.0,300,False,,,False,0.0003846153846153846,False
+iter_0018,18,False,1,H02,Out-of-sample PPI precision@k prediction benchmark,graph_topology,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0018,18,False,2,H03,scGPT attention co-occurrence geometry for STRING/TRRUST pairs,graph_topology,promising,mixed,0.87,fallback_min_p,1,,1000,False,0.87,0.9047999999999999,False,0.0003846153846153846,False
+iter_0019,19,False,0,H01,Geneformer static token embedding cross-model alignment,cross_model_alignment,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0019,19,False,1,H02,Multi-axis composite co-pole P@k enrichment,graph_topology,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0019,19,False,2,H03,TRRUST repression vs activation in scGPT attention,null_sensitivity,promising,positive,9.4e-09,fallback_min_p,5,,1000,False,9.4e-09,1.4444444444444445e-07,True,0.0003846153846153846,True
+iter_0020,20,False,0,H01,Shuffle null for multi-axis composite co-pole enrichment,null_sensitivity,promising,positive,0.0,fallback_min_p,2,,1000,True,0.000999000999000999,0.0025490196078431374,True,0.0003846153846153846,False
+iter_0020,20,False,1,H02,Attention-SVD joint ROC predictor for STRING/TRRUST,graph_topology,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0020,20,False,2,H03,Persistent homology H0 and pairwise distance geometry,persistent_homology,promising,positive,1e-72,fallback_min_p,2,,1000,False,1e-72,1.3e-70,True,0.0003846153846153846,True
+iter_0021,21,False,0,H01,STRING confidence quintile x pairwise distance gradient,manifold_distance,inconclusive,positive,0.05,fallback_min_p,1,,1000,False,0.05,0.06989247311827956,False,0.0003846153846153846,False
+iter_0021,21,False,1,H02,TRRUST pairs distance — specificity control,manifold_distance,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0021,21,False,2,H03,H1 persistence trajectory + bootstrap CIs for co-polarity enrichment,persistent_homology,promising,positive,0.0001,fallback_min_p,3,,1000,False,0.0001,0.00048148148148148155,True,0.0003846153846153846,True
+iter_0022,22,False,0,H01,STRING continuous AUROC + TRRUST-exclusive proximity (overlap-corrected),manifold_distance,promising,positive,1e-05,fallback_min_p,2,,1000,False,1e-05,7.222222222222223e-05,True,0.0003846153846153846,True
+iter_0022,22,False,1,H02,Cell-type marker gene cluster separation,module_structure,promising,positive,1e-06,fallback_min_p,1,500.0,500,False,1e-06,9.999999999999999e-06,True,0.0003846153846153846,True
+iter_0022,22,False,2,H03,Per-layer bootstrap CIs for co-polarity enrichment + persistence entropy proxy,topology_stability,promising,positive,0.16,fallback_min_p,1,,1000,False,0.16,0.19622641509433963,False,0.0003846153846153846,False
+iter_0023,23,False,0,H01,Cell-type marker separation — expanded panel + contamination control,module_structure,promising,positive,0.004,fallback_min_p,1,,1000,False,0.004,0.008125,True,0.0003846153846153846,False
+iter_0023,23,False,1,H02,GO Biological Process proximity — 3rd independent biological anchor,module_structure,promising,positive,1e-19,fallback_min_p,1,,1000,False,1e-19,3.25e-18,True,0.0003846153846153846,True
+iter_0023,23,False,2,H03,TRRUST Activation vs Repression proximity asymmetry,manifold_distance,promising,positive,0.002,fallback_min_p,1,,1000,False,0.002,0.0042622950819672135,True,0.0003846153846153846,False
+iter_0024,24,False,0,H01,Dorothea confidence stratification,manifold_distance,promising,positive,0.0,perm_p_eq,1,,1000,True,0.000999000999000999,0.0025490196078431374,True,0.0003846153846153846,False
+iter_0024,24,False,1,H02,TF activation hub centrality,module_structure,negative,negative,0.41,fallback_min_p,2,,1000,False,0.41,0.45948275862068966,False,0.0003846153846153846,False
+iter_0024,24,False,2,H03,GO ontology comparison BP vs MF vs CC,module_structure,promising,positive,9e-56,fallback_min_p,3,,1000,False,9e-56,5.85e-54,True,0.0003846153846153846,True
+iter_0025,25,False,0,H01,Multi-predictor joint model (STRING + Dorothea + GO CC + GO BP),manifold_distance,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0025,25,False,1,H02,Layer-resolved encoding timeline across 5 biological anchors,manifold_distance,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0025,25,False,2,H03,Chromosomal proximity negative control,null_sensitivity,negative,negative,0.096,fallback_min_p,1,,1000,False,0.096,0.1223529411764706,False,0.0003846153846153846,False
+iter_0026,26,False,0,H01,Immune gene family clustering AUROC,module_structure,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0026,26,False,1,H02,Dorothea confidence-tier proximity gradient,manifold_distance,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0026,26,False,2,H03,Intrinsic dimensionality progression (participation ratio),intrinsic_dimensionality,promising,positive,1e-08,fallback_min_p,1,,1000,False,1e-08,1.4444444444444445e-07,True,0.0003846153846153846,True
+iter_0027,27,False,0,H01,PC1 Biological Identity at L11,intrinsic_dimensionality,negative,negative,0.42,fallback_min_p,4,,1000,False,0.42,0.4627118644067797,False,0.0003846153846153846,False
+iter_0027,27,False,1,H02,TRRUST Activator/Repressor Geometric Polarity,module_structure,negative,negative,0.178,fallback_min_p,2,,1000,False,0.178,0.21229357798165138,False,0.0003846153846153846,False
+iter_0027,27,False,2,H03,Dorothea Threshold Sensitivity + PR Elbow Alignment,null_sensitivity,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0028,28,False,0,H01,Hub Gene Embedding Centrality,manifold_distance,promising,positive,0.00135,fallback_min_p,1,500.0,500,False,0.00135,0.0033750000000000004,True,0.0003846153846153846,False
+iter_0028,28,False,1,H02,PC1 T-cell vs APC Cell-type Axis,intrinsic_dimensionality,negative,negative,0.12,fallback_min_p,1,,1000,False,0.12,0.15145631067961166,False,0.0003846153846153846,False
+iter_0028,28,False,2,H03,kNN Graph Spectral Gap Across Layers,graph_topology,promising,positive,1.3e-10,fallback_min_p,2,100.0,100,False,1.3e-10,2.8166666666666667e-09,True,0.0003846153846153846,True
+iter_0029,29,False,0,H01,kNN Connected Components Biological Enrichment at L11,graph_topology,promising,positive,0.023,fallback_min_p,1,,1000,False,0.023,0.039342105263157894,True,0.0003846153846153846,False
+iter_0029,29,False,1,H02,Gene Trajectory Clustering by Distance-to-Centroid Profile,manifold_distance,promising,positive,0.352,fallback_min_p,1,,1000,False,0.352,0.4014035087719298,False,0.0003846153846153846,False
+iter_0029,29,False,2,H03,Spectral Gap k-Robustness Sweep (k=5–30),topology_stability,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0030,30,False,0,H01,GO and TRRUST enrichment of 14 diverging genes,module_structure,positive,positive,2.34e-11,fallback_min_p,1,,1000,False,2.34e-11,6.084e-10,True,0.0003846153846153846,True
+iter_0030,30,False,1,H02,Layer-of-bifurcation anatomy (inter/intra ratio),topology_stability,negative,positive,0.0,fallback_min_p,1,,1000,True,0.000999000999000999,0.0025490196078431374,True,0.0003846153846153846,False
+iter_0030,30,False,2,H03,Trajectory slope vs STRING degree (continuous),graph_topology,negative,negative,0.683,fallback_min_p,2,,1000,False,0.683,0.733801652892562,False,0.0003846153846153846,False
+iter_0030,30,False,3,H04,OOV gene discovery in scGPT named gene set,null_sensitivity,promising,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0031,31,False,0,H01,kNN Spectral Gap Monotonic Decrease (195 in-vocab genes),graph_topology,promising,positive,0.0,fallback_min_p,1,,1000,True,0.000999000999000999,0.0025490196078431374,True,0.0003846153846153846,False
+iter_0031,31,False,1,H02,"STRING Score → Embedding Distance (195 in-vocab genes, corrected)",manifold_distance,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0031,31,False,2,H03,Participation Ratio (Intrinsic Dim) Collapse Across Layers (195 in-vocab genes),intrinsic_dimensionality,promising,positive,0.0,fallback_min_p,1,,1000,True,0.000999000999000999,0.0025490196078431374,True,0.0003846153846153846,False
+iter_0032,32,False,0,H01,Community Detection at L11 → Biological Annotation,module_structure,promising,mixed,0.09,fallback_min_p,3,,1000,False,0.09,0.11699999999999999,False,0.0003846153846153846,False
+iter_0032,32,False,1,H02,Dorothea Regulatory Pairs → Embedding Distance Decay Across Layers (195 in-vocab),manifold_distance,promising,positive,0.0004,fallback_min_p,2,,1000,False,0.0004,0.0017333333333333335,True,0.0003846153846153846,False
+iter_0032,32,False,2,H03,PC1 at L11 Separates TFs from B-cell Markers (Biological PC1 Polarity),intrinsic_dimensionality,inconclusive,mixed,0.041,fallback_min_p,6,,1000,False,0.041,0.06345238095238095,False,0.0003846153846153846,False
+iter_0033,33,False,0,H01,L11 Community Differential Analysis (B-cell vs non-B-cell),module_structure,promising,positive,1e-09,fallback_min_p,2,,1000,False,1e-09,1.8571428571428572e-08,True,0.0003846153846153846,True
+iter_0033,33,False,1,H02,Community Partition Stability: k-sweep and Layer Sweep,topology_stability,promising,positive,0.167,fallback_min_p,1,,1000,False,0.167,0.20222222222222222,False,0.0003846153846153846,False
+iter_0033,33,False,2,H03,PC1 Polarity Expanded Gene Sets — B-cell Stable Across All Layers,intrinsic_dimensionality,promising,positive,0.001,fallback_min_p,3,,1000,False,0.001,0.0025490196078431374,True,0.0003846153846153846,False
+iter_0034,34,False,0,H01,Layer-wise B-cell community purity emergence,module_structure,inconclusive,mixed,0.804,fallback_min_p,1,,1000,False,0.804,0.8429032258064517,False,0.0003846153846153846,False
+iter_0034,34,False,1,H02,PC2/PC3 cell-type axes at L11,intrinsic_dimensionality,negative,negative,0.168,fallback_min_p,2,,1000,False,0.168,0.20222222222222222,False,0.0003846153846153846,False
+iter_0034,34,False,2,H03,Expression-level confound test for B-cell PC1 signal,null_sensitivity,promising,positive,0.0,emp_p_eq,1,,1000,True,0.000999000999000999,0.0025490196078431374,True,0.0003846153846153846,False
+iter_0035,35,False,0,H01,TRRUST co-regulation + GO co-annotation vs embedding proximity,module_structure,negative,negative,0.0001,fallback_min_p,4,,1000,False,0.0001,0.00048148148148148155,True,0.0003846153846153846,True
+iter_0035,35,False,1,H02,B-cell marker kNN precision@10 profile across layers,manifold_distance,promising,positive,0.0,emp_p_eq,1,,1000,True,0.000999000999000999,0.0025490196078431374,True,0.0003846153846153846,False
+iter_0035,35,False,2,H03,B-cell vs non-B-cell centroid separation trajectory (normalized),intrinsic_dimensionality,promising,positive,0.088,emp_p_eq,1,,1000,False,0.088,0.11555555555555555,False,0.0003846153846153846,False
+iter_0036,36,False,0,H01,Multi-cell-type kNN precision@10 specificity panel,manifold_distance,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0036,36,False,1,H02,Gene-name permutation null for B-cell kNN precision,null_sensitivity,promising,positive,0.005,emp_p_eq,1,200.0,200,False,0.005,0.009558823529411765,True,0.0003846153846153846,False
+iter_0036,36,False,2,H03,B-cell neighborhood functional characterization,module_structure,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0037,37,False,0,H01,Extended cell-type panel kNN precision@10 + centroid distance matrix,manifold_distance,promising,positive,0.0,fallback_min_p,3,,1000,True,0.000999000999000999,0.0025490196078431374,True,0.0003846153846153846,False
+iter_0037,37,False,1,H02,Held-out B-cell marker generalization (germinal center vs plasma TFs),manifold_distance,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0037,37,False,2,H03,T-cell permutation null + B-cell neighborhood TF scoring,null_sensitivity,promising,positive,0.96,emp_p_eq,1,200.0,200,False,0.96,0.9674418604651163,False,0.0003846153846153846,False
+iter_0038,38,False,0,H01,GC-TF vs Plasma-TF centroid proximity divergence across layers,manifold_distance,promising,positive,0.024,fallback_min_p,1,,1000,False,0.024,0.04051948051948052,True,0.0003846153846153846,False
+iter_0038,38,False,1,H02,B-cell centroid directional drift alignment with differentiation axis,manifold_distance,inconclusive,mixed,0.0001,fallback_min_p,2,,1000,False,0.0001,0.00048148148148148155,True,0.0003846153846153846,True
+iter_0038,38,False,2,H03,Master B-cell TF proximity + NK/myeloid specificity screen,null_sensitivity,inconclusive,inconclusive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0039,39,False,0,H01,Drift target identification — B-cell centroid at L11,manifold_distance,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0039,39,False,1,H02,"Extended plasma panel + BCL6/PAX5 GC screen (cycle4_immune, clean anchor)",manifold_distance,mixed,mixed,,,0,200.0,200,False,,,False,0.0003846153846153846,False
+iter_0039,39,False,2,H03,LOO ablation of B-cell anchor genes on GC-TF proximity precision@10,null_sensitivity,promising,positive,,,0,200.0,200,False,,,False,0.0003846153846153846,False
+iter_0040,40,False,0,H01,Full 12-layer GC attractor onset scan + IRF4 plasma-bridge (cycle4_immune),manifold_distance,promising,positive,2e-06,fallback_min_p,1,,1000,False,2e-06,1.6575e-05,True,0.0003846153846153846,True
+iter_0040,40,False,1,H02,Geneformer cross-model B-cell precision@10 (input token embeddings),cross_model_alignment,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0040,40,False,2,H03,GC-plasma subspace principal angle + CD19+BLK minimal anchor precision@10 all layers,manifold_distance,promising,positive,0.0001,fallback_min_p,2,,1000,False,0.0001,0.00048148148148148155,True,0.0003846153846153846,True
+iter_0041,41,False,0,H01,Multi-lineage attractor screen (T-cell + myeloid),manifold_distance,promising,positive,1e-06,fallback_min_p,3,,1000,False,1e-06,9.999999999999999e-06,True,0.0003846153846153846,True
+iter_0041,41,False,1,H02,BCL6 and PAX5 neighborhood characterization,manifold_distance,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0041,41,False,2,H03,TwoNN intrinsic dimensionality by layer and lineage,intrinsic_dimensionality,promising,positive,0.0001,fallback_min_p,4,,1000,False,0.0001,0.00048148148148148155,True,0.0003846153846153846,True
+iter_0042,42,False,0,H01,TwoNN change-point analysis at L3 (B-cell ID inflection),intrinsic_dimensionality,promising,positive,0.386,fallback_min_p,1,500.0,500,False,0.386,0.4363478260869565,False,0.0003846153846153846,False
+iter_0042,42,False,1,H02,Metabolic isolation generalization — BCL6 specificity test,manifold_distance,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0042,42,False,2,H03,BATF/BACH2 convergence trajectory toward B-cell context,manifold_distance,promising,positive,0.0001,fallback_min_p,2,,1000,False,0.0001,0.00048148148148148155,True,0.0003846153846153846,True
+iter_0043,43,False,0,H01,GC repression circuit PRDM1/IRF4 anti-convergence test,manifold_distance,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0043,43,False,1,H02,BCL6 divergence from B-cell centroid,manifold_distance,negative,negative,0.0,fallback_min_p,1,,1000,True,0.000999000999000999,0.0025490196078431374,True,0.0003846153846153846,False
+iter_0043,43,False,2,H03,T-cell subtype ID stratification at L7 breakpoint,intrinsic_dimensionality,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0044,44,False,0,H01,Cross-lineage ID compression law,intrinsic_dimensionality,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0044,44,False,1,H02,TCR activation circuit attractor test,manifold_distance,inconclusive,inconclusive,0.275,fallback_min_p,1,,1000,False,0.275,0.325,False,0.0003846153846153846,False
+iter_0044,44,False,2,H03,BCL6 rank B-cell vs metabolic co-movement,manifold_distance,negative,negative,0.095,fallback_min_p,1,,1000,False,0.095,0.12227722772277227,False,0.0003846153846153846,False
+iter_0045,45,False,0,H01,kNN lineage community purity at L2 vs L11,graph_topology,negative,negative,0.958,fallback_min_p,1,,1000,False,0.958,0.9674418604651163,False,0.0003846153846153846,False
+iter_0045,45,False,1,H02,Full-manifold TwoNN intrinsic dimensionality across 12 layers,intrinsic_dimensionality,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0045,45,False,2,H03,TCR signaling circuit convergence to T-cell identity centroid (CD247 confound removed),manifold_distance,inconclusive,inconclusive,0.32,fallback_min_p,1,,1000,False,0.32,0.368141592920354,False,0.0003846153846153846,False
+iter_0046,46,False,0,H01,Cross-seed ID compression replication + bootstrap CI,intrinsic_dimensionality,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0046,46,False,1,H02,Singular value spectrum concentration across layers,intrinsic_dimensionality,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0046,46,False,2,H03,Lineage centroid orthogonality vs null,graph_topology,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0047,47,False,0,H01,Zero-norm validity check: TwoNN and SVD on nonzero-only genes,intrinsic_dimensionality,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0047,47,False,1,H02,SV1 identity: what does the dominant direction encode?,intrinsic_dimensionality,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0047,47,False,2,H03,ID compression breakpoint detection across layers,intrinsic_dimensionality,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0048,48,False,0,H01,Gene annotation via edge dataset + SV1/SV2 identity,intrinsic_dimensionality,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0048,48,False,1,H02,Full spectral decay curve across 12 layers,intrinsic_dimensionality,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0048,48,False,2,H03,Wasserstein/transport distance between consecutive layers,manifold_distance,inconclusive,inconclusive,0.15,fallback_min_p,1,,1000,False,0.15,0.18571428571428572,False,0.0003846153846153846,False
+iter_0049,49,False,0,H01,SV1 gene loading direction stability across layers,intrinsic_dimensionality,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0049,49,False,1,H02,SWD vs feature-shuffle null comparison,null_sensitivity,promising,positive,0.006,fallback_min_p,1,,1000,False,0.006,0.011304347826086957,True,0.0003846153846153846,False
+iter_0049,49,False,2,H03,SV2-SV4 subspace encodes TRRUST TF-target regulatory proximity,module_structure,promising,positive,0.0001,fallback_min_p,2,,1000,False,0.0001,0.00048148148148148155,True,0.0003846153846153846,True
+iter_0050,50,False,0,H01,SV2-4 co-expression specificity control,module_structure,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0050,50,False,1,H02,SV1 identity: expression correlation across layers,intrinsic_dimensionality,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0050,50,False,2,H03,SV5-10 spectral axis biological screen (TF/target enrichment),module_structure,promising,positive,0.05,fallback_min_p,1,,1000,False,0.05,0.06989247311827956,False,0.0003846153846153846,False
+iter_0051,51,False,0,H01,Residual TF signal after co-expression regression in SV2-4,module_structure,negative,negative,0.0016,fallback_min_p,1,,1000,False,0.0016,0.0039245283018867925,True,0.0003846153846153846,False
+iter_0051,51,False,1,H02,SV1-high genes are depleted of TFs at both L0 and L11,intrinsic_dimensionality,promising,positive,0.0001,fallback_min_p,2,,1000,False,0.0001,0.00048148148148148155,True,0.0003846153846153846,True
+iter_0051,51,False,2,H03,0-dim PH cluster topology for circuit genes in SV2-4 at L8,persistent_homology,inconclusive,mixed,1e-06,fallback_min_p,3,,1000,False,1e-06,9.999999999999999e-06,True,0.0003846153846153846,True
+iter_0052,52,False,0,H01,Housekeeping gene enrichment in SV1-high,intrinsic_dimensionality,inconclusive,inconclusive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0052,52,False,1,H02,H1 Betti loops on circuit genes at L8,persistent_homology,negative,negative,0.953,fallback_min_p,1,,1000,False,0.953,0.9674418604651163,False,0.0003846153846153846,False
+iter_0052,52,False,2,H03,SV5-7 regulatory signal after co-expression residualization,module_structure,promising,positive,0.002,fallback_min_p,1,,1000,False,0.002,0.0042622950819672135,True,0.0003846153846153846,False
+iter_0053,53,False,0,H01,Bootstrap + spectral decay scan of SV regulatory subspaces,module_structure,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0053,53,False,1,H02,TF→Target directional asymmetry in SV5-7,manifold_distance,promising,positive,0.0008,fallback_min_p,3,,1000,False,0.0008,0.0025490196078431374,True,0.0003846153846153846,False
+iter_0053,53,False,2,H03,SV1 loading vs TRRUST network degree,intrinsic_dimensionality,neutral,positive,0.001,fallback_min_p,3,,1000,False,0.001,0.0025490196078431374,True,0.0003846153846153846,False
+iter_0054,54,False,0,H01,LR classifier: TF vs target-only from SV5-7 L0 coords,module_structure,promising,positive,0.0,fallback_min_p,1,100.0,100,True,0.009900990099009901,0.017631900176319003,True,0.0003846153846153846,False
+iter_0054,54,False,1,H02,BFS hierarchy depth vs SV5-7 dominant axis (L0),manifold_distance,neutral,positive,0.0044,fallback_min_p,2,,1000,False,0.0044,0.008666666666666668,True,0.0003846153846153846,False
+iter_0054,54,False,2,H03,"Layer-resolved TF->target directionality trajectory (all 12 layers, SV5-7)",manifold_distance,promising,positive,0.05,fallback_min_p,1,,1000,False,0.05,0.06989247311827956,False,0.0003846153846153846,False
+iter_0055,55,False,0,H01,"Cross-seed replication: TF vs target-only AUROC (SV5-7, L0)",module_structure,promising,positive,0.0099,fallback_min_p,3,100.0,100,False,0.0099,0.017631900176319003,True,0.0003846153846153846,False
+iter_0055,55,False,1,H02,Layer-resolved AUROC: SV5-7 vs SV2-4 across all 12 layers,module_structure,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0055,55,False,2,H03,Directionality trajectory SV2-4 vs SV5-7 (opposite dynamics control),manifold_distance,promising,positive,0.001,fallback_min_p,1,,1000,False,0.001,0.0025490196078431374,True,0.0003846153846153846,False
+iter_0056,56,False,0,H01,Joint SV2-7 (6D) Layer-Stable TF/Target Classifier,module_structure,promising,positive,0.0,p_perm_eq,1,100.0,100,True,0.009900990099009901,0.017631900176319003,True,0.0003846153846153846,False
+iter_0056,56,False,1,H02,L9 Directionality Crossover Cross-Seed Replication + Label-Shuffle Null,manifold_distance,inconclusive,mixed,,,0,500.0,500,False,,,False,0.0003846153846153846,False
+iter_0056,56,False,2,H03,SV5-7 Subspace Principal Angle vs AUROC Trajectory,topology_stability,negative,negative,0.417,fallback_min_p,1,,1000,False,0.417,0.4627118644067797,False,0.0003846153846153846,False
+iter_0057,57,False,0,H01,Joint 6D (SV2-7) TF/target classifier cross-seed validation,module_structure,promising,positive,0.0,p_perm_eq,1,50.0,50,True,0.0196078431372549,0.03398692810457516,True,0.0003846153846153846,False
+iter_0057,57,False,1,H02,Seed43 SV basis alignment via principal angles,topology_stability,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0057,57,False,2,H03,SV energy fraction as AUROC proxy,intrinsic_dimensionality,neutral,mixed,1e-05,fallback_min_p,1,,1000,False,1e-05,7.222222222222223e-05,True,0.0003846153846153846,True
+iter_0058,58,False,0,H01,TF boundary gene identity and family enrichment at peak layers,module_structure,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0058,58,False,1,H02,TRRUST graph Laplacian spectral alignment with SV5-7,module_structure,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0058,58,False,2,H03,Effective rank as cross-seed AUROC predictor,intrinsic_dimensionality,promising,positive,0.0001,fallback_min_p,2,30.0,30,False,0.0001,0.00048148148148148155,True,0.0003846153846153846,True
+iter_0059,59,False,0,H01,Cross-seed TF boundary anchor stability + out-degree mechanistic test,module_structure,neutral,mixed,0.9,fallback_min_p,1,,1000,False,0.9,0.9285714285714286,False,0.0003846153846153846,False
+iter_0059,59,False,1,H02,Pairwise TF-target 6D distance as edge probability predictor,manifold_distance,negative,positive,0.002,perm_p_eq,1,1000.0,1000,False,0.002,0.0042622950819672135,True,0.0003846153846153846,False
+iter_0059,59,False,2,H03,Partial Spearman: effective rank vs AUROC controlling for layer depth,intrinsic_dimensionality,negative,negative,0.795,fallback_min_p,1,,1000,False,0.795,0.8402439024390245,False,0.0003846153846153846,False
+iter_0060,60,False,0,H01,Signed displacement projection AUROC (directional geometry),manifold_distance,negative,positive,0.001,perm_p_eq,1,2000.0,2000,False,0.001,0.0025490196078431374,True,0.0003846153846153846,False
+iter_0060,60,False,1,H02,TF family-stratified margin trajectory across 12 layers,module_structure,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0060,60,False,2,H03,Feed-forward loop triangle geometry in SV5-7,module_structure,inconclusive,mixed,0.002,fallback_min_p,2,2000.0,2000,False,0.002,0.0042622950819672135,True,0.0003846153846153846,False
+iter_0061,61,False,0,H01,Layer-to-layer CKA trajectory (L8 boundary test),cross_model_alignment,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0061,61,False,1,H02,Dual-role gene (TF intersect target) margin trajectory,module_structure,neutral,negative,0.084,fallback_min_p,1,,1000,False,0.084,0.11142857142857143,False,0.0003846153846153846,False
+iter_0061,61,False,2,H03,FFL geometry expanded (N=264) with multi-subspace and permutation,module_structure,negative,negative,0.297,perm_p_eq,2,,1000,False,0.297,0.3447321428571429,False,0.0003846153846153846,False
+iter_0062,62,False,0,H01,"cycle4_immune edge-level AUROC (735 pairs, SV5-7/SV2-4, all layers)",manifold_distance,promising,positive,0.045,perm_p_le,1,,1000,False,0.045,0.0688235294117647,False,0.0003846153846153846,False
+iter_0062,62,False,1,H02,AUROC mechanism diagnostic: sparsity vs depth as confound,intrinsic_dimensionality,promising,positive,9.5e-07,fallback_min_p,1,,1000,False,9.5e-07,9.999999999999999e-06,True,0.0003846153846153846,True
+iter_0062,62,False,2,H03,Cross-cycle Procrustes alignment transfer (cycle1 to cycle4),cross_model_alignment,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0063,63,False,0,H63-A,SV2-4 repulsion mechanistic probe: TF class separation,module_structure,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0063,63,False,1,H63-G,Signed regulation AUROC split: Activation vs Repression in SV5-7 and SV2-4,module_structure,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0063,63,False,2,H63-B,"Systematic subspace scan SV(k,k+2) for k=0..9 at L0 with Bonferroni",manifold_distance,inconclusive,inconclusive,0.28,perm_p_eq,2,,1000,False,0.28,0.32792792792792796,False,0.0003846153846153846,False
+iter_0064,64,False,0,H64-A,Cross-tissue SV5-7 regulatory geometry extension,cross_tissue,promising,positive,2.04e-06,fallback_min_p,7,,1000,False,2.04e-06,1.6575e-05,True,0.0003846153846153846,True
+iter_0064,64,False,1,H64-B,SV5-7 geodesic distance topology rescue,depth_mechanism,negative,negative,0.4378,fallback_min_p,1,,1000,False,0.4378,0.4782689075630252,False,0.0003846153846153846,False
+iter_0064,64,False,2,H64-C,Cross-model edge geometry consistency on matched edges,cross_model,neutral,mixed,0.002,fallback_min_p,6,,1000,False,0.002,0.0042622950819672135,True,0.0003846153846153846,False
+iter_0064_incomplete_20260225_153100,64,True,0,H64-A,SV5-7 regulatory edge geometry generalizes across tissue and cell-type contexts,cross_tissue,promising,positive,2.04e-06,fallback_min_p,9,,1000,False,2.04e-06,1.6575e-05,True,0.0003846153846153846,True
+iter_0064_incomplete_20260225_153100,64,True,1,H64-B,SV5-7 geodesic manifold distance rescue against Euclidean baseline,depth_mechanism,negative,negative,0.005,fallback_min_p,4,,1000,False,0.005,0.009558823529411765,True,0.0003846153846153846,False
+iter_0064_incomplete_20260225_153100,64,True,2,H64-C,Cross-model regulatory edge geometry consistency on matched edges (scGPT vs Geneformer),cross_model,neutral,mixed,0.002,fallback_min_p,6,,1000,False,0.002,0.0042622950819672135,True,0.0003846153846153846,False
+iter_0065,65,False,0,H65-A,Layerwise cross-model SV5-7 replication,cross_model,promising,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0065,65,False,1,H65-B,Depth-decay mechanism via local linearity and local participation ratio,depth_mechanism,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0065,65,False,2,H65-C,TF-source topology enrichment in spectral neighborhoods,cross_tissue,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0066,66,False,0,H66-A,Contextual Geneformer layerwise cross-model replication,cross_model,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0066,66,False,1,H66-B,Held-out GRN edge ranking benchmark for spectral scores,functional_application,promising,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0066,66,False,2,H66-C,Degree-preserving rewiring topology stress test,depth_mechanism,promising,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0067,67,False,0,H67-A,Kidney SV5-7 depth-profile extension,cross_tissue,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0067,67,False,1,H67-B,Kidney cross-model complementarity,cross_model,promising,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0067,67,False,2,H67-C,Kidney depth-decay mechanism via compression and topology,depth_mechanism,promising,mixed,0.0244,fallback_min_p,1,,1000,False,0.0244,0.04066666666666667,True,0.0003846153846153846,False
+iter_0068,68,False,0,H68-A,Cross-tissue SV5-7 topology robustness under rewiring and H1 nulls,cross_tissue,promising,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0068,68,False,1,H68-B,Kidney cross-model fusion against coexpression baseline,cross_model,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0068,68,False,2,H68-C,Kidney depth-decay linkage to local manifold surrogates,depth_mechanism,inconclusive,inconclusive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0069,69,False,0,H69-A,Contextual cross-model SV5-7 replication in kidney,cross_model,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0069,69,False,1,H69-B,Kidney GRN benchmark with classical baselines,functional_application,promising,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0069,69,False,2,H69-C,Cross-model topology transfer under rewiring null,cross_tissue,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0070,70,False,0,H70-A,Cell-type contextual cross-model SV5-7 replication,cross_model,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0070,70,False,1,H70-B,Cell-type positive-node topology enrichment under random-node null,cross_tissue,promising,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0070,70,False,2,H70-C,Cell-type manifold-depth coupling of edge AUROC,depth_mechanism,inconclusive,inconclusive,0.012,fallback_min_p,2,,1000,False,0.012,0.02108108108108108,True,0.0003846153846153846,False
+iter_0071,71,False,0,H71-A,"Strict cell-type contextual cross-model SV5-7 replication (CD4 T, lung macrophage)",cross_model,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0071,71,False,1,H71-B,Persistent-homology H1 enrichment of positive-edge node subsets,cross_tissue,negative,negative,0.0385,fallback_min_p,2,,1000,False,0.0385,0.06030120481927711,False,0.0003846153846153846,False
+iter_0071,71,False,2,H71-C,Coverage-matched CD4 GRN benchmark with split-aware macro metrics,functional_application,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0072,72,False,0,H72-A,Cross-context contextual SV5-7 replication (kidney + external_lung),cross_model,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0072,72,False,1,H72-B,Graph-topology surrogate transfer in new contexts,cross_tissue,promising,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0072,72,False,2,H72-C,Benchmark-v2 with full motif-pruned SCENIC,functional_application,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0073,73,False,0,H73-A,Cross-model axis-semantic replication in new strict contexts,cross_model,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0073,73,False,1,H73-B,Decision-level GRN operating-point benchmark,functional_application,promising,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0073,73,False,2,H73-C,Manifold-topology stress test in new strict contexts,cross_tissue,inconclusive,inconclusive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0074,74,False,0,H74-A,Cross-model axis semantics in donor blood contexts,cross_model,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0074,74,False,1,H74-B,Donor-level GRN operating-point benchmark,functional_application,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0074,74,False,2,H74-C,Geodesic edge topology as a regulatory signal,regulatory_edges,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0075,75,False,0,H75-A,Cross-model axis semantics in TSP21 and external lung,cross_model,promising,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0075,75,False,1,H75-B,Cross-model kNN neighborhood consistency in spectral subspaces,cross_model,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0075,75,False,2,H75-C,Degree-bin-matched topology control for geodesic regulatory signal,regulatory_edges,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0076,76,False,0,H76-A,Three-tissue cross-model spectral geometry transfer,cross_tissue,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0076,76,False,1,H76-B,Transfer-aware GRN method policy across tissues,functional_application,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0076,76,False,2,H76-C,Stage-resolved SV5-7 decay attribution in Geneformer,depth_mechanism,inconclusive,inconclusive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0077,77,False,0,H77-A,Cross-model axis semantics and kNN transfer in blood/lung/kidney,cross_tissue,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0077,77,False,1,H77-B,Cross-model geodesic manifold-consistency,cross_model,promising,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0077,77,False,2,H77-C,Coverage-matched GRN benchmark with classical baseline checks,functional_application,inconclusive,inconclusive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0078,78,False,0,H78-A,"Cross-model manifold consistency in TSP14, lung, and external_lung",cross_model,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0078,78,False,1,H78-B,Positive-node topology enrichment under degree-matched nulls,cross_model,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0078,78,False,2,H78-C,Layerwise local manifold effects with coexpression control,depth_mechanism,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0079,79,False,0,H79-A,Cross-model Procrustes manifold alignment in TSP21/lung/external_lung,cross_model,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0079,79,False,1,H79-B,Multiscale topology persistence surrogate under strict degree nulls,depth_mechanism,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0079,79,False,2,H79-C,Layerwise local intrinsic dimensionality (LID) as depth-decay mechanism,depth_mechanism,inconclusive,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0080,80,False,0,H80-A,Cross-model SV5-7 manifold transfer in blood_tsp25/lung/kidney,cross_tissue,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0080,80,False,1,H80-B,Coverage-matched GRN benchmark with baseline parity attempt,functional_application,inconclusive,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0080,80,False,2,H80-C,Stagewise SV5-7 decay decomposition in kidney Geneformer,depth_mechanism,inconclusive,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0081,81,False,0,H81-A,Cross-model SV5-7 manifold transfer in new lung cell-type contexts,cross_tissue,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0081,81,False,1,H81-B,Persistent-homology H1 enrichment in SV5-7 with coordinate-shuffle null,depth_mechanism,negative,negative,0.0248,fallback_min_p,1,,1000,False,0.0248,0.04081012658227848,True,0.0003846153846153846,False
+iter_0081,81,False,2,H81-C,scGPT seed/checkpoint stress against Geneformer contextual manifold,cross_model,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0082,82,False,0,H82-A,Immune-context cross-model SV5-7 manifold transfer,cross_tissue,promising,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0082,82,False,1,H82-B,Parity-complete GRN benchmark with working tree baselines,functional_application,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0082,82,False,2,H82-C,Stage intervention and signed TF-family mechanism probe,depth_mechanism,inconclusive,inconclusive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0083,83,False,0,H83-A,Donor-level cross-model SV5-7 manifold consistency,cross_tissue,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0083,83,False,1,H83-B,Donor topology stress test with degree-bin nulls,cross_model,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0083,83,False,2,H83-C,L3 coexpression-controlled donor benchmark,regulatory_edges,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0084,84,False,0,H84-A,Celltype/external-lung cross-model SV5-7 manifold extension,cross_tissue,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0084,84,False,1,H84-B,Topology geodesic-gain retirement gate in new contexts,cross_model,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0084,84,False,2,H84-C,SV5-7 local manifold linearity/PR enrichment test,depth_mechanism,inconclusive,inconclusive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0085,85,False,0,H85-A,Kidney plus held-out celltype cross-model SV5-7 manifold extension,cross_tissue,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0085,85,False,1,H85-B,Holdout-transfer GRN benchmark with spectral and classical baselines,functional_application,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0085,85,False,2,H85-C,SV5-7 degree-bin topology enrichment under stricter null,cross_model,inconclusive,inconclusive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0086,86,False,0,H86-A,Non-lung cross-tissue cross-model manifold transfer,cross_tissue,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0086,86,False,1,H86-B,Coverage-normalized holdout GRN transfer benchmark,functional_application,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0086,86,False,2,H86-C,Signed repression-vs-activation transfer in blood contexts,signed_regulation,inconclusive,inconclusive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0087,87,False,0,H87-A,Checkpoint-conditioned kidney transfer-boundary test,cross_tissue,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0087,87,False,1,H87-B,Cross-model geometry transfer plus coverage-gated utility check in immune_cd8_t and lung_alv_type2,cross_model,promising,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0087,87,False,2,H87-C,Stagewise SV5-7 decay mechanism and signed-regulation stress test,depth_mechanism,inconclusive,inconclusive,0.073,fallback_min_p,2,,1000,False,0.073,0.09783505154639176,False,0.0003846153846153846,False
+iter_0088,88,False,0,H88-A,SV5-7 cross-model transfer in donor blood and external_lung,cross_tissue,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0088,88,False,1,H88-B,Local manifold compactness of positive-edge nodes in SV5-7,depth_mechanism,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0088,88,False,2,H88-C,Degree-bin topology stress test in the same extension contexts,cross_model,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0089,89,False,0,H89-A,SV5-7 depth-manifold transfer in immune/lung/external_lung,cross_tissue,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0089,89,False,1,H89-B,SV5-7 Betti-0 local-edge topology under label and degree-bin nulls,depth_mechanism,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0089,89,False,2,H89-C,Cross-model SV1 vs SV5-7 pair-distance alignment,cross_model,promising,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0090,90,False,0,H90-A,Kidney SV5-7 New-Tissue Extension,cross_tissue,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0090,90,False,1,H90-B,Cross-Model Triangle Topology in SV5-7,cross_model,promising,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0090,90,False,2,H90-C,Layer-3 Fused Benchmark vs Coexpression,functional_application,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0091,91,False,0,H91-A,Cross-Model SV5-7 Edge-Locality Transfer,cross_model,promising,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0091,91,False,1,H91-B,SV5-7 Cycle-Rank Topology Under Dual Nulls,depth_mechanism,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0091,91,False,2,H91-C,TF-Family Holdout Utility Benchmark at L3,regulatory_edges,neutral,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0092,92,False,0,H92-A,Donor-context SV5-7 regulatory replication,cross_tissue,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0092,92,False,1,H92-B,Donor-context SV5-7 geodesic gain,depth_mechanism,inconclusive,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0092,92,False,2,H92-C,Cross-model geodesic consistency in immune,cross_model,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0093,93,False,0,H93-A,Kidney cross-model SV5-7 transfer with coexpression control,cross_model,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0093,93,False,1,H93-B,SV5-7 local intrinsic-dimension manifold test,depth_mechanism,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0093,93,False,2,H93-C,SV5-7 topological-overlap edge topology surrogate,depth_mechanism,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0094,94,False,0,H94-A,SV2-4 PPI transfer across scGPT and Geneformer in immune/lung/kidney,cross_model,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0094,94,False,1,H94-B,Full-parity GRN benchmark with spectral and tree baselines,functional_application,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0094,94,False,2,H94-C,Kidney stagewise SV5-7 mechanism attribution with topology-side control,depth_mechanism,inconclusive,inconclusive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0095,95,False,0,H95-A,External-lung cross-model replication of SV1/SV5-7 geometry,cross_model,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0095,95,False,1,H95-B,Four-domain held-out GRN policy stability with full coverage,functional_application,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0095,95,False,2,H95-C,SV5-7 manifold coupling mechanism stress test,depth_mechanism,negative,negative,0.0348,fallback_min_p,2,,1000,False,0.0348,0.05655,False,0.0003846153846153846,False
+iter_0096,96,False,0,H96-A,Non-lung donor-context cross-model extension of SV1/SV5-7,cross_model,promising,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0096,96,False,1,H96-B,Calibrated held-out GRN benchmark across non-lung donor contexts,functional_application,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0096,96,False,2,H96-C,Stage/component mechanism test for SV5-7 decay and SV1 collapse,depth_mechanism,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0097,97,False,0,H97-A,Cross-context SV1/SV5-7 extension with topology controls,cross_tissue,promising,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0097,97,False,1,H97-B,Perturbation-response benchmark of spectral proximity,functional_application,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0097,97,False,2,H97-C,Stagewise mechanism transfer in tissue contexts,depth_mechanism,inconclusive,inconclusive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0098,98,False,0,H98-A,Donor-context cross-model SV1/SV5-7 extension,cross_model,promising,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0098,98,False,1,H98-B,Cross-model geodesic topology gain stress test,depth_mechanism,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0099,99,False,0,H99-A,Kidney-inclusive cross-model SV1/SV5-7 and topology extension,cross_tissue,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0099,99,False,1,H99-B,GRN benchmark parity with transfer-aware holdout policy,functional_application,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0099,99,False,2,H99-C,Stagewise mechanism and signed-family regulation test,depth_mechanism,inconclusive,inconclusive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0100,100,False,0,H100-A,External-lung and immune-donor cross-model SV1/SV5-7 extension,cross_tissue,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0100,100,False,1,H100-B,Cross-model Betti-surrogate and clustering topology with null controls,cross_model,promising,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0100,100,False,2,H100-C,Intrinsic dimensionality collapse and local-linearity stress test,depth_mechanism,neutral,mixed,,,0,11.0,11,False,,,False,0.0003846153846153846,False
+iter_0101,101,False,0,H101-A,True tissue decomposition cross-model SV1/SV5-7 extension with topology controls,cross_tissue,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0101,101,False,1,H101-B,Transfer-constrained GRN benchmark with baseline parity and TF-family leaveout,functional_application,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0101,101,False,2,H101-C,Stage-plus-block mechanism attribution for SV5-7 decay and SV1 concentration,depth_mechanism,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0102,102,False,0,H102-A,Kidney scGPT-variant strict cross-model axis extension,cross_model,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0102,102,False,1,H102-B,Variant-context topology surrogates under permutation nulls,cross_model,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0102,102,False,2,H102-C,scGPT variant depth-compression and local-linearity check,depth_mechanism,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0103,103,False,0,H103-A,Non-kidney strict cross-model SV1/SV5-7 extension,cross_tissue,promising,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0103,103,False,1,H103-B,Three-domain GRN parity benchmark with transfer policy,functional_application,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0103,103,False,2,H103-C,Stage/block mechanism attribution in non-kidney contexts,depth_mechanism,inconclusive,inconclusive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0104,104,False,0,H104-A,Strict SV1/SV5-7 cross-model extension on available tissues,cross_tissue,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0104,104,False,1,H104-B,SV5-7 topology/manifold surrogate robustness across models,cross_model,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0104,104,False,2,H104-C,Coverage-stratified GRN transfer benchmark,functional_application,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0105,105,False,0,H105-A,Seed-variant strict SV1/SV5-7 cross-model extension,cross_model,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0105,105,False,1,H105-B,SV5-7 topology/manifold surrogate transfer across seed variants,cross_model,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0105,105,False,2,H105-C,Signed repression asymmetry transfer with label-permutation control,signed_regulation,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0106,106,False,0,H106-A,Donor-level SV5-7 manifold extension with donor-filtered Geneformer context,cross_tissue,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0106,106,False,1,H106-B,Cross-model geodesic/topology surrogate transfer in donor contexts,cross_model,promising,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0106,106,False,2,H106-C,Signed repression asymmetry in donor-decomposition geometry,signed_regulation,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0107,107,False,0,H107-A,Non-immune cross-model manifold extension with Geneformer-native axes,cross_tissue,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0107,107,False,1,H107-B,Parity-complete GRN benchmark with tree baselines and transfer thresholds,functional_application,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0107,107,False,2,H107-C,Attention-vs-MLP stage/component attribution for depth effects,depth_mechanism,inconclusive,inconclusive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0108,108,False,0,H108-A,External-lung checkpoint-panel cross-model extension,cross_model,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0108,108,False,1,H108-B,Domain-conditioned GRN transfer policy against global policy,functional_application,inconclusive,inconclusive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0108,108,False,2,H108-C,Direct forward-hook causal ablation of attention vs MLP blocks,depth_mechanism,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0109,109,False,0,H109-A,Canonical-tissue cross-model replication of SV axes,cross_tissue,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0109,109,False,1,H109-B,SV5-7 topological persistence surrogate across tissues,cross_model,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0109,109,False,2,H109-C,Cross-model depth compression universality check,depth_mechanism,negative,negative,,,0,11.0,11,False,,,False,0.0003846153846153846,False
+iter_0110,110,False,0,H110-A,Overlap-controlled cross-model SV5-7 manifold transfer,cross_model,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0110,110,False,1,H110-B,SV5-7 persistence surrogate under overlap controls,cross_model,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0110,110,False,2,H110-C,Coverage-repaired parity GRN benchmark scaffold,functional_application,inconclusive,inconclusive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0111,111,False,0,H111-A,Full-depth overlap-controlled SV5-7 cross-model transfer,cross_model,promising,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0111,111,False,1,H111-B,Manifold and topology controls under stronger nulls,depth_mechanism,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0111,111,False,2,H111-C,Coverage-gated parity GRN benchmark with decision layer enabled,functional_application,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0112,112,False,0,H112-A,Domain-shift full-depth SV5-7 transfer with overlap controls,cross_tissue,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0112,112,False,1,H112-B,Topology/manifold null-control stress test in domain-shift panel,depth_mechanism,neutral,mixed,,,0,11.0,11,False,,,False,0.0003846153846153846,False
+iter_0112,112,False,2,H112-C,Coverage-gated GRN benchmark at early layer L0,functional_application,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0113,113,False,0,H113-A,Checkpoint-family SV5-7 transfer under overlap controls,cross_model,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0113,113,False,1,H113-B,Coverage-first GRN benchmark with prevalence-aware lift,functional_application,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0113,113,False,2,H113-C,Stage-resolved SV5-7 mechanism attribution vs scGPT depth trend,depth_mechanism,inconclusive,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0114,114,False,0,H114-A,SV5-7 cross-model transfer in external-lung seed context,cross_model,promising,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0114,114,False,1,H114-B,Null-controlled topology and local-linearity in cross-context packet,depth_mechanism,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0114,114,False,2,H114-C,Coverage-aware GRN extension beyond immune,functional_application,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0115,115,False,0,H115-A,Seed44 cross-model SV5-7 transfer,cross_model,negative,negative,0.0588,fallback_min_p,1,,1000,False,0.0588,0.07989583333333333,False,0.0003846153846153846,False
+iter_0115,115,False,1,H115-B,Seed44 topology and local-linearity controls,depth_mechanism,promising,positive,,,0,11.0,11,False,,,False,0.0003846153846153846,False
+iter_0115,115,False,2,H115-C,Strict-coverage GRN benchmark under seed44 context,functional_application,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0116,116,False,0,H116-A,Powered seed44 non-kidney SV5-7 cross-model extension,cross_model,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0116,116,False,1,H116-B,Overlap-regime sensitivity of SV5-7 transfer,cross_tissue,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0116,116,False,2,H116-C,Powered topology and intrinsic-dimension controls in seed44 contexts,depth_mechanism,neutral,mixed,,,0,11.0,11,False,,,False,0.0003846153846153846,False
+iter_0117,117,False,0,H117-A,Main-split non-kidney SV5-7 cross-model extension,cross_model,promising,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0117,117,False,1,H117-B,Split-regime stability of SV5-7 transfer (seed44 vs main),cross_tissue,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0117,117,False,2,H117-C,Main-split topology/manifold null-control reassessment,depth_mechanism,neutral,mixed,,,0,11.0,11,False,,,False,0.0003846153846153846,False
+iter_0118,118,False,0,H118-A,Kidney main-split SV5-7 cross-model extension,cross_model,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0118,118,False,1,H118-B,Kidney topology and stage-depth mechanism stress test,depth_mechanism,neutral,mixed,0.78,fallback_min_p,1,,1000,False,0.78,0.8311475409836067,False,0.0003846153846153846,False
+iter_0118,118,False,2,H118-C,Strict-coverage GRN utility under kidney fallback,functional_application,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0119,119,False,0,H119-A,Geneformer-first per-tissue axis transfer with SV1 collapse proxy,cross_model,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0119,119,False,1,H119-B,Spectral perturbation benchmark against coexpression baseline,perturbation_validation,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0119,119,False,2,H119-C,Powered attention-vs-MLP stage mechanism attribution,depth_mechanism,inconclusive,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0120,120,False,0,H120-A,Full-shared SV5-7 transfer with direct SV1 collapse check across immune/lung/external-lung,cross_model,promising,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0120,120,False,1,H120-B,Kidney cross-tissue transfer rescue under adaptive-k,cross_tissue,inconclusive,inconclusive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0120,120,False,2,H120-C,Full-shared topology/manifold null-control stress test,depth_mechanism,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0121,121,False,0,H121-A,Full-shared SV5-7 cross-model transfer in immune/lung with powered nulls,cross_model,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0121,121,False,1,H121-B,Kidney overlap-rescued per-tissue extension and topology boundary test,cross_tissue,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0121,121,False,2,H121-C,Coverage-gated decision-layer GRN benchmark with baseline parity,functional_application,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0122,122,False,0,H122-A,Cross-model SV5-7 transfer in external-lung extension context,cross_model,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0122,122,False,1,H122-B,Cross-domain fixed-universe GRN benchmark,functional_application,inconclusive,inconclusive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0122,122,False,2,H122-C,Powered stage mechanism consistency (attention vs MLP),depth_mechanism,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0123,123,False,0,H123-A,Kidney checkpoint extension of SV5-7 cross-model transfer,cross_model,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0123,123,False,1,H123-B,Kidney checkpoint persistence topology under shuffled-coordinate null,depth_mechanism,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0123,123,False,2,H123-C,Local-linearity manifold effect in kidney checkpoint context,depth_mechanism,inconclusive,inconclusive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0124,124,False,0,H124-A,Coverage-qualified control-vs-kidney SV5-7 transfer boundary,cross_model,promising,positive,0.05,fallback_min_p,1,,1000,False,0.05,0.06989247311827956,False,0.0003846153846153846,False
+iter_0124,124,False,1,H124-B,Coverage+balance-qualified geometry utility against GRN baselines,functional_application,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0124,124,False,2,H124-C,Topology control-vs-kidney differential by model,depth_mechanism,inconclusive,inconclusive,0.0571,fallback_min_p,2,,1000,False,0.0571,0.07896808510638298,False,0.0003846153846153846,False
+iter_0125,125,False,0,H125-A,External-lung seed-context SV5-7 transfer with SV1 asymmetry,cross_model,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0125,125,False,1,H125-B,External-lung topology persistence and local-linearity null stress,depth_mechanism,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0125,125,False,2,H125-C,Held-out GRN utility under explicit coverage gates,functional_application,inconclusive,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0126,126,False,0,H126-A,SV5-7 cross-model transfer in non-seed checkpoint context with shared-gene gate,cross_model,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0126,126,False,1,H126-B,Topology/manifold persistence and local-linearity stress in checkpoint packet,depth_mechanism,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0127,127,False,0,H127-A,SV5-7 and SV1 seed-context cross-model extension,cross_model,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0127,127,False,1,H127-B,Coverage-qualified GRN utility in seed contexts,functional_application,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0127,127,False,2,H127-C,Late attention-vs-MLP causal contributions,depth_mechanism,inconclusive,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0128,128,False,0,H128-A,Seed44 SV5-7 cross-model transfer with SV1 asymmetry,cross_model,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0128,128,False,1,H128-B,Topology/manifold null stress in seed44 contexts,depth_mechanism,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0128,128,False,2,H128-C,Coverage-qualified GRN utility in seed44 packet,functional_application,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0129,129,False,0,H129-A,Model-setting SV1 asymmetry extension with split full-depth packets,cross_model,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0129,129,False,1,H129-B,Topology persistence and local-linearity stress test under split full-depth null controls,depth_mechanism,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0129,129,False,2,H129-C,True new-tissue generalization gate (liver/heart),cross_tissue,inconclusive,inconclusive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0130,130,False,0,H130-A,Seed-context SV5-7 transfer with scaled full-shared gate,cross_model,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0130,130,False,1,H130-B,Coverage-qualified GRN benchmark in seed contexts,regulatory_edges,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0130,130,False,2,H130-C,Topology/manifold go-no-go under shuffled/permutation nulls,depth_mechanism,inconclusive,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0131,131,False,0,H131-A,SV5-7 scaled transfer in fresh seed/tissue splits,cross_model,promising,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0131,131,False,1,H131-B,SV1 architecture asymmetry in fresh split contexts,cross_tissue,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0131,131,False,2,H131-C,Topology/manifold go-no-go in fresh split packet,depth_mechanism,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0132,132,False,0,H132-A,Overlap-gated SV5-7 transfer across packet contexts,cross_model,promising,positive,0.0004,perm_p_eq,1,,1000,False,0.0004,0.0017333333333333335,True,0.0003846153846153846,False
+iter_0132,132,False,1,H132-B,SV1 asymmetry tissue universality under the same meta panel,cross_tissue,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0132,132,False,2,H132-C,Topology support remains sparse after overlap stratification,depth_mechanism,negative,negative,0.58,perm_p_eq,1,,1000,False,0.58,0.6283333333333333,False,0.0003846153846153846,False
+iter_0133,133,False,0,H133-A,Fresh-context overlap-gated SV5-7 transfer in mixed domains,cross_model,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0133,133,False,1,H133-B,SV1 asymmetry remains robust in checkpoint-size kidney plus immune/lung,cross_tissue,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0133,133,False,2,H133-C,Topology/manifold support remains below promotion thresholds in fresh packet,depth_mechanism,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0134,134,False,0,H134-A,Cross-model SV5-7 transfer vs SV1 asymmetry in decision-enabled fast packet,cross_model,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0134,134,False,1,H134-B,Coverage-qualified decision-layer GRN utility under leave-one-domain-out policy,regulatory_edges,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0134,134,False,2,H134-C,Stage-depth and topology null-control status in the same executed packet,depth_mechanism,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0135,135,False,0,H135-A,Powered SV5-7 cross-model transfer recovers in overlap-qualified tissues,cross_model,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0135,135,False,1,H135-B,SV1 architecture asymmetry is tissue-consistent and co-occurs with transfer-positive contexts,cross_tissue,promising,positive,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0135,135,False,2,H135-C,Topology persistence remains non-promotable under powered null controls,depth_mechanism,negative,negative,,,0,11.0,11,False,,,False,0.0003846153846153846,False
+iter_0136,136,False,0,H136-A,Seed-shift cross-model SV5-7 transfer with SV1 asymmetry,cross_model,promising,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0136,136,False,1,H136-B,Strict-coverage GRN benchmark gate,regulatory_edges,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0136,136,False,2,H136-C,Component intervention and signed-family mechanism shift,depth_mechanism,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0137,137,False,0,H137-A,New-context cross-model SV5-7 transfer with SV1 asymmetry,cross_model,promising,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0137,137,False,1,H137-B,Strict-coverage GRN policy gate,regulatory_edges,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0137,137,False,2,H137-C,Preregistered late mechanism contrast with signed-family replication,depth_mechanism,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0138,138,False,0,H138-A,Kidney-extended cross-model SV5-7 transfer with SV1 asymmetry,cross_model,neutral,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0138,138,False,1,H138-B,Cross-model topology null-gap direction agreement,cross_tissue,negative,negative,,,0,,1000,False,,,False,0.0003846153846153846,False
+iter_0138,138,False,2,H138-C,Intrinsic-rank shuffle and kNN-geodesic boundary consistency,cross_tissue,inconclusive,mixed,,,0,,1000,False,,,False,0.0003846153846153846,False

@@ -1,0 +1,126 @@
+E5_confounds - confound adjustment of the edge-level (H3) signal. Sensitivity analysis; answers R1.6, R1.3.
+CONVENTION3 sha256 3e3249d1d0a8ce1bc3cf64639fe233b016535456f82432a8bbfcacdd64a05c01 (matches FROZEN.txt; in results.json).
+Every number below comes from clogit_<ctx>.csv, residual_auroc.csv, continuity_kidneyA.csv, continuity_hashseed_spread.csv,
+inference_scale.csv, stratum_weights.csv or results.json in this directory.
+
+QUESTION
+Does the within-TF scGPT edge signal (signed cosine of V-centred full-dimensional embeddings; H3 pairs = TRRUST positives plus
+matched TRRUST-negative candidate pairs) survive adjustment for pair- and node-level nuisance covariates: log|co-expression|,
+log mean expression, log n_obs, genome-wide STRING-physical (>=700) degree and GO annotation count of TF and target?
+
+METHOD (as specified; deviations listed under LIMITATIONS)
+- Conditional logistic regression, stratum = TF, per context x layer: y ~ z(score) + 5 target/pair covariates (z-scored).
+  The 4 TF-level covariates are constant within a stratum, so they cancel from the conditional likelihood: the stratification
+  adjusts for them and they cannot be estimated. TRRUST target in-degree not used (label leakage; non-edges are matched on it).
+- statsmodels ConditionalLogit overflows / exceeds the recursion depth in the large strata (lung, lung_external, kidney_B have
+  TFs with up to 367 positives among ~1,600 candidates). The same exact conditional likelihood is evaluated with a
+  binomially normalised recursion with exact gradient/Hessian (e5_lib.py). Validated against statsmodels on 14 fits
+  (validation_statsmodels.csv): identical log-likelihood at the same beta (max diff 2.3e-12); statsmodels' own score is 5e-14
+  at the engine's beta; the engine's maximum is >= statsmodels' in every fit.
+- Two-way (TF x target) pigeonhole cluster bootstrap, B = 500, refit each time, the same draws for every layer; LRT of the
+  score term (chi2, 1 df); unadjusted conditional OR for comparison; joint within-TF label permutation, N = 500, one
+  permutation for all 12 layers, statistic = mean over layers of the adjusted score coefficient (assert_resolution passed,
+  floor 1/501 = 0.002, also at alpha/5).
+- AUROC scale: score residualised on the covariates by OLS after within-TF centring, within-TF stratified AUROC of the
+  residual with the same two-way bootstrap draws; r_rb = 2*AUROC - 1.
+- Sensitivity: degree and GO count as log1p (point estimate + LRT).
+- Continuity (kidney_A): round-2 run_confounds_sv57.py re-run verbatim (variant A, zero-row SVD), then with only the SVD
+  changed to the observed-gene convention (B identity bands; B mapped bands via E9_screen/legacy_band_mapping.json), then the
+  paper benchmark end to end (C: H3 pairs, E5 covariates, within-TF residual AUROC, two-way bootstrap).
+
+DIRECT EVIDENCE
+1. Adjusted OR per SD of the score, two-way bootstrap 95% CI, layer range (largest at L0-L2, smallest at L10-L11, in every context):
+   lung          1.12 [1.06,1.20] (L11) to 1.24 [1.15,1.36] (L1); unadjusted 1.13-1.25
+   lung_external 1.13 [1.05,1.23] (L10) to 1.22 [1.12,1.34] (L1); unadjusted 1.14-1.23
+   kidney_B      1.15 [1.07,1.25] (L11) to 1.26 [1.16,1.40] (L0); unadjusted 1.15-1.28
+   immune        1.37 [1.08,1.74] (L10) to 1.65 [1.32,2.12] (L2); unadjusted 1.39-1.68
+   kidney_A      1.37 [1.00,2.01] (L11) to 1.78 [1.41,2.62] (L1); unadjusted 1.43-1.86
+   The bootstrap CI excludes 1 at all 60 context x layer cells (lowest lower bound 1.005, kidney_A L11; fraction of bootstrap
+   draws with beta <= 0 at most 0.024). Attenuation of the log-OR by the covariates: 2.7-6.7% lung, 4.0-5.0% lung_external,
+   2.2-5.3% kidney_B, 3.0-5.8% immune, 6.6-11.2% kidney_A. log1p coding of degree/GO changes the OR by < 0.01.
+2. Mean over layers (joint): adjusted OR [bootstrap CI] vs unadjusted
+   lung 1.189 [1.114,1.281] vs 1.198; lung_external 1.184 [1.098,1.294] vs 1.193; kidney_B 1.212 [1.121,1.332] vs 1.223;
+   immune 1.539 [1.230,1.978] vs 1.569; kidney_A 1.602 [1.259,2.354] vs 1.667.
+   Joint within-TF permutation: p = 0.002 (= floor, 0 of 500 null draws >= observed) in all five contexts; observed
+   statistic 6.0 (kidney_A) to 12.3 (lung) null SDs above the null mean. LRT p <= 1.6e-4 in every cell.
+3. Residualised within-TF AUROC (r_rb = 2*AUROC - 1), layer range:
+   lung 0.512-0.537 (r_rb 0.024-0.075); lung_external 0.515-0.533 (0.030-0.066); kidney_B 0.521-0.548 (0.042-0.096);
+   immune 0.561-0.628 (0.123-0.255); kidney_A 0.579-0.634 (0.159-0.268).
+   Residualisation lowers the AUROC by 0.002-0.007 in the large contexts and by 0.006-0.022 in immune/kidney_A.
+   One-sided 95% bootstrap upper bound of the residual AUROC < 0.60 at every layer in lung (max 0.577), lung_external (0.579)
+   and kidney_B (0.591); not in immune (max 0.695) or kidney_A (0.716). The two-sided residual CI excludes 0.5 at 0/12 layers
+   in lung and lung_external, 2/12 kidney_B, 10/12 immune, 8/12 kidney_A.
+4. Covariate effects (reduced model, per SD): target GO count is the largest and most consistent (+0.26 lung, +0.29
+   lung_external, +0.32 kidney_B, +0.20 immune, +0.35 kidney_A); STRING degree of target +0.10 to +0.17 except kidney_A
+   (-0.07); log|co-expression| +0.04 to +0.30. Score-covariate correlations are small (|r| <= 0.17 in the large contexts at any layer,
+   <= 0.35 in immune, <= 0.25 in kidney_A), which is why adjustment barely moves the score coefficient.
+5. Continuity, kidney_A (continuity_kidneyA.csv):
+   A submitted zero-row convention, re-run: SV2-SV7 r_rb 0.094-0.163, 12/12 layers p < 0.05 (submitted CSV: 0.054-0.130,
+   8/12); SV5-SV7 -0.083 to 0.066, 1/12 (submitted 0/12). Joint permutation (replacing Stouffer): SV2-SV7 mean r_rb 0.125,
+   p = 0.0016; SV5-SV7 -0.015, p = 0.64.
+   B observed-gene SVD, same band indices: SV2-SV7 0.007-0.188 (9/12, joint p = 0.0023); SV5-SV7 0.006-0.106 (2/12,
+   joint p = 0.066). B mapped bands: SV1-SV6 0.092-0.158 (12/12, joint p = 0.0015); SV4-SV6 -0.075 to 0.043 (0/12, p = 0.70).
+   C paper convention (within-TF, H3 pairs, two-way bootstrap): full-512 residual r_rb 0.159-0.268 with CI excluding 0 at
+   8/12 layers (L0-L7); every SV band (SV1-SV6, SV2-SV7, SV4-SV6, SV5-SV7) has CI including 0 at all 12 layers.
+   Reproducibility: the round-2 script draws its negatives from a list built by iterating a Python set, so results depend on
+   PYTHONHASHSEED. Over hash seeds 0-20 the layer-mean SV2-SV7 r_rb spans 0.077-0.150 and SV5-SV7 -0.039 to 0.016; the
+   submitted per-layer values lie inside the 21-seed range at every layer, but no seed 0-20 reproduces them exactly
+   (closest: max |diff| 0.024).
+
+INFERENCE
+- The covariates named by the reviewers (co-expression, expression level, detection, PPI degree, annotation depth) do not
+  explain the within-TF scGPT edge signal: adjustment removes 2-11% of the log-OR and <= 0.022 of AUROC. The edge signal in
+  the three large contexts is small (residual AUROC 0.51-0.55) but not a by-product of these covariates.
+- In lung / lung_external / kidney_B the residual AUROC's upper bound stays below the 0.60 smallest effect of interest at every
+  layer, so adjustment does not change the "small" reading of H3 there (descriptive; B = 500 here, the pre-registered
+  decision uses B = 2,000 in E4a). immune and kidney_A are too small (29-36 TFs) to bound the effect below 0.60.
+- Continuity: what changes between the submitted analysis and the paper convention is mainly the evaluation design, not the
+  covariates. Pooled random negatives with pair-level permutation make the SV2-SV7 band look significant in most layers; under
+  within-TF stratification with two-way cluster intervals no SV band is distinguishable from 0 in kidney_A, while the full
+  representation is (8/12 layers). The submitted SV5-SV7 null stays null under every convention.
+
+SURPRISES
+- Inference scale (inference_scale.csv): the two-way bootstrap SD of the adjusted coefficient is 1.8-3.1x the model-based SE
+  and 1.8-3.0x the SD of the within-TF permutation null. Pair-level SEs and the within-TF label permutation treat candidate
+  pairs as exchangeable within a TF and ignore that targets recur across TFs; their p-values (LRT p ~ 1e-14, permutation
+  z 6-12) overstate precision. On the bootstrap scale the per-layer z = beta/SD is 3.5-5.4 (lung), 3.4-4.4 (lung_external),
+  3.4-4.6 (kidney_B), 2.5-4.0 (immune), 1.8-3.7 (kidney_A). The bootstrap CIs are the intervals to report. Hypothesis (not
+  tested here): the pre-registered within-TF permutation null for the H3 AUROC has the same problem (E4a lung: null SD 0.0058
+  vs bootstrap SD 0.024).
+- OR versus AUROC precision: in lung the OR CI excludes 1 at every layer while the raw AUROC CI includes 0.5 at 11/12 layers
+  (bootstrap z of the AUROC 0.8-1.8). Bootstrap draws of the two statistics are correlated at 0.69-0.82, so they measure the
+  same signal; the difference is weighting (stratum_weights.csv). The pooled within-TF AUROC weights a TF by n_pos x n_neg:
+  the top 5 TFs carry 51% of the weight in lung (effective number of TFs 15). The conditional logit weights roughly by
+  k(n-k)/n: top 5 carry 19% (effective number 76). The pooled AUROC is therefore dominated by a few heavily documented TFs,
+  where the signal is weaker (E4a's macro AUROC 0.58 is above its pooled 0.54 in lung).
+
+WHAT THIS DOES NOT SHOW
+- It does not show that the score encodes regulation. Only the listed covariates are adjusted for. Not adjusted: shared
+  annotation between TF and target (e.g. GO-term or pathway overlap, as opposed to counts), genomic proximity, literature
+  co-mention, and any confounder not in the specification.
+- TF-level confounding is removed by design (stratification); the TF-level covariate effects are not estimated.
+- No direction claim: cosine and |co-expression| are symmetric.
+- The joint permutation p = 0.002 sits at the resolution floor and is anti-conservative under target clustering (above); it
+  is not evidence of a large effect.
+- immune and kidney_A are small (36 / 29 TFs, 547 / 213 positives) and kidney_B shares cells with kidney_A (errata item 2),
+  so the five contexts are not five independent replications.
+
+LIMITATIONS AND IMPLEMENTATION NOTES
+- Model engine: own implementation of the exact conditional likelihood (statsmodels cannot fit the large strata); validated
+  as above. Bootstrap/permutation refits used full Newton for immune, kidney_A, lung L0-L1, lung_external L0-L1, kidney_B
+  L0-L3. All other layers used chord Newton (fixed Hessian), which reaches the same maximiser (|beta diff| <= 2.5e-8,
+  check_fast.json). Point estimates and SEs are always full Newton. All 60 x (1,000 bootstrap + 500 permutation) refits
+  converged.
+- Co-expression = Pearson r on the extraction cells (expr_extraction.npy) entered as log(|r| + 1e-3); the floor is arbitrary.
+- The bootstrap target multiplicity is implemented by replicating rows; the percentile pigeonhole bootstrap tends to
+  overestimate variance, so the CIs may be somewhat conservative.
+- The residualisation removes covariate-explained variance from the score only, not from the label (a semi-partial
+  measure); the conditional-logit OR is the fully adjusted estimate.
+- B = 500 / N = 500 as the E5 specification states (lower than the CONVENTION3 confirmatory B = 2,000 / N = 10,000); nothing
+  was reduced relative to the E5 specification. Errata item 3 (delete-d scaling) does not apply: E5 uses no vertex
+  subsampling.
+- Variant A could not be reproduced exactly (unrecorded PYTHONHASHSEED in round 2); the 21-seed spread is reported instead.
+- Resumption: the first agent's background jobs had finished all 60 context x layer checkpoints and the continuity runs
+  before this session; nothing was recomputed. This session re-ran e5_merge.py and added e5_summarize.py (diagnostics only,
+  no new fits). No errors were found in the earlier code. One earlier crash, in the reproduction-check sort of
+  e5_continuity.py, had already been fixed and re-run in check mode.

@@ -1,0 +1,62 @@
+{
+ "lung": {
+  "0": {
+   "rel_last_sv": 3.4497445712439565e-08,
+   "abs_cos_last_dir_uniform": 0.9993402356692724,
+   "rel_second_last_sv": 0.035028930699005846
+  },
+  "11": {
+   "rel_last_sv": 5.3211198154901305e-08,
+   "abs_cos_last_dir_uniform": 0.99906082013229,
+   "rel_second_last_sv": 0.007743452619570022
+  }
+ },
+ "lung_external": {
+  "0": {
+   "rel_last_sv": 3.3295870558723e-08,
+   "abs_cos_last_dir_uniform": 0.9993402354762111,
+   "rel_second_last_sv": 0.03185379848096282
+  },
+  "11": {
+   "rel_last_sv": 7.019511263155828e-08,
+   "abs_cos_last_dir_uniform": 0.9990608246313246,
+   "rel_second_last_sv": 0.008536574658371985
+  }
+ },
+ "kidney_B": {
+  "0": {
+   "rel_last_sv": 3.5568675396712385e-08,
+   "abs_cos_last_dir_uniform": 0.9993402354807862,
+   "rel_second_last_sv": 0.031974135036388386
+  },
+  "11": {
+   "rel_last_sv": 6.314966357547412e-08,
+   "abs_cos_last_dir_uniform": 0.999060821225508,
+   "rel_second_last_sv": 0.008533796945171491
+  }
+ },
+ "immune": {
+  "0": {
+   "rel_last_sv": 3.9312375524298775e-08,
+   "abs_cos_last_dir_uniform": 0.999340235244064,
+   "rel_second_last_sv": 0.03701280676861511
+  },
+  "11": {
+   "rel_last_sv": 5.580029362882476e-08,
+   "abs_cos_last_dir_uniform": 0.9990608219890528,
+   "rel_second_last_sv": 0.007895801086510626
+  }
+ },
+ "kidney_A": {
+  "0": {
+   "rel_last_sv": 3.764703348786002e-08,
+   "abs_cos_last_dir_uniform": 0.9993402359496959,
+   "rel_second_last_sv": 0.02728215909344784
+  },
+  "11": {
+   "rel_last_sv": 5.81825925764847e-08,
+   "abs_cos_last_dir_uniform": 0.999060815298896,
+   "rel_second_last_sv": 0.006203288931482187
+  }
+ }
+}

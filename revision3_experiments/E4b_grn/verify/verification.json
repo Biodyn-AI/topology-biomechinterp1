@@ -1,0 +1,276 @@
+{
+ "convention3_sha256": "3e3249d1d0a8ce1bc3cf64639fe233b016535456f82432a8bbfcacdd64a05c01",
+ "convention3_sha256_verified": true,
+ "v1_inputs": {
+  "lung": {
+   "obs_genes_eq_varnames_obs_idx": true,
+   "V_equals_nonzero_rows_L0": true,
+   "expr_extraction_max_abs_diff_vs_h5ad_by_name": 0.0,
+   "T1_T2_gene_mean_pearson": 0.9962675247119555,
+   "T1_T2_gene_mean_pearson_shuffled_axis": -0.012135785102397798,
+   "T1_cells": 256,
+   "T2_cells": 3000,
+   "n_regulators_mine": 676,
+   "n_direction_pairs_mine": 855,
+   "n_targets_mine": 1781,
+   "n_h3_targets_mine": 1700,
+   "regs_equal_E4b": true,
+   "targets_equal_E4b": true,
+   "dir_pairs_equal_E4b": true,
+   "h3_self_pairs": 0,
+   "h3_pos_all_in_trrust": true,
+   "h3_neg_in_any_reg_either_dir": 0,
+   "h3_n_pairs": 52426,
+   "h3_n_pos": 5266,
+   "h3_n_tf": 312
+  },
+  "lung_external": {
+   "obs_genes_eq_varnames_obs_idx": true,
+   "V_equals_nonzero_rows_L0": true,
+   "expr_extraction_max_abs_diff_vs_h5ad_by_name": 0.0,
+   "T1_T2_gene_mean_pearson": 0.9922548259741186,
+   "T1_T2_gene_mean_pearson_shuffled_axis": 0.020308455353404933,
+   "T1_cells": 256,
+   "T2_cells": 3000,
+   "n_regulators_mine": 716,
+   "n_direction_pairs_mine": 886,
+   "n_targets_mine": 1785,
+   "n_h3_targets_mine": 1701,
+   "regs_equal_E4b": true,
+   "targets_equal_E4b": true,
+   "dir_pairs_equal_E4b": true,
+   "h3_self_pairs": 0,
+   "h3_pos_all_in_trrust": true,
+   "h3_neg_in_any_reg_either_dir": 0,
+   "h3_n_pairs": 50947,
+   "h3_n_pos": 5093,
+   "h3_n_tf": 315
+  },
+  "kidney_B": {
+   "obs_genes_eq_varnames_obs_idx": true,
+   "V_equals_nonzero_rows_L0": true,
+   "expr_extraction_max_abs_diff_vs_h5ad_by_name": 0.0,
+   "T1_T2_gene_mean_pearson": 0.9959663974475244,
+   "T1_T2_gene_mean_pearson_shuffled_axis": -0.013614469172013227,
+   "T1_cells": 192,
+   "T2_cells": 3000,
+   "n_regulators_mine": 590,
+   "n_direction_pairs_mine": 669,
+   "n_targets_mine": 1406,
+   "n_h3_targets_mine": 1340,
+   "regs_equal_E4b": true,
+   "targets_equal_E4b": true,
+   "dir_pairs_equal_E4b": true,
+   "h3_self_pairs": 0,
+   "h3_pos_all_in_trrust": true,
+   "h3_neg_in_any_reg_either_dir": 0,
+   "h3_n_pairs": 36380,
+   "h3_n_pos": 3668,
+   "h3_n_tf": 254
+  },
+  "immune": {
+   "obs_genes_eq_varnames_obs_idx": true,
+   "V_equals_nonzero_rows_L0": true,
+   "expr_extraction_max_abs_diff_vs_h5ad_by_name": 0.0,
+   "T1_T2_gene_mean_pearson": 0.9950184893212827,
+   "T1_T2_gene_mean_pearson_shuffled_axis": -0.004367157271311316,
+   "T1_cells": 256,
+   "T2_cells": 3000,
+   "n_regulators_mine": 118,
+   "n_direction_pairs_mine": 62,
+   "n_targets_mine": 261,
+   "n_h3_targets_mine": 250,
+   "regs_equal_E4b": true,
+   "targets_equal_E4b": true,
+   "dir_pairs_equal_E4b": true,
+   "h3_self_pairs": 0,
+   "h3_pos_all_in_trrust": true,
+   "h3_neg_in_any_reg_either_dir": 0,
+   "h3_n_pairs": 3691,
+   "h3_n_pos": 547,
+   "h3_n_tf": 36
+  },
+  "kidney_A": {
+   "obs_genes_eq_varnames_obs_idx": true,
+   "V_equals_nonzero_rows_L0": true,
+   "expr_extraction_max_abs_diff_vs_h5ad_by_name": 0.0,
+   "T1_T2_gene_mean_pearson": 0.9984653785582482,
+   "T1_T2_gene_mean_pearson_shuffled_axis": 0.0020220380453034184,
+   "T1_cells": 256,
+   "T2_cells": 3000,
+   "n_regulators_mine": 94,
+   "n_direction_pairs_mine": 21,
+   "n_targets_mine": 152,
+   "n_h3_targets_mine": 145,
+   "regs_equal_E4b": true,
+   "targets_equal_E4b": true,
+   "dir_pairs_equal_E4b": true,
+   "h3_self_pairs": 0,
+   "h3_pos_all_in_trrust": true,
+   "h3_neg_in_any_reg_either_dir": 0,
+   "h3_n_pairs": 1659,
+   "h3_n_pos": 213,
+   "h3_n_tf": 29
+  }
+ },
+ "v2_refit": {
+  "kidney_A_T1_genie3_s0": {
+   "n_targets_checked": 152,
+   "max_abs_diff": 1.3497481965440983e-08,
+   "rows_identical_tol1e6": 152,
+   "n_unfitted_in_check": 0,
+   "unfitted_rows_all_zero": true
+  },
+  "kidney_A_T1_grnboost2_s0": {
+   "n_targets_checked": 152,
+   "max_abs_diff": NaN,
+   "rows_identical_tol1e6": 150,
+   "n_unfitted_in_check": 0,
+   "unfitted_rows_all_zero": true
+  },
+  "lung_T2_grnboost2_s1": {
+   "n_targets_checked": 34,
+   "max_abs_diff": 6.525311624372421e-09,
+   "rows_identical_tol1e6": 34,
+   "n_unfitted_in_check": 4,
+   "unfitted_rows_all_zero": true
+  },
+  "immune_T2_genie3_s1": {
+   "n_targets_checked": 30,
+   "max_abs_diff": 3.657425640124501e-09,
+   "rows_identical_tol1e6": 30,
+   "n_unfitted_in_check": 0,
+   "unfitted_rows_all_zero": true
+  }
+ },
+ "v3_headlines": {
+  "lung_genie3_T1_ens": {
+   "auroc": 0.5163408214267142,
+   "ci": [
+    0.4882083389853837,
+    0.5459099855155286
+   ],
+   "upper95": 0.5426868378242213,
+   "frac_zero": 0.03170182733758059
+  },
+  "lung_grnboost2_T1_per_seed": {
+   "aurocs": [
+    0.5110962119057014,
+    0.5239141805768401,
+    0.5231064499157284,
+    0.5203624598142047,
+    0.5130557951663868
+   ],
+   "sd": 0.00587942866497744
+  },
+  "lung_external_abscoexpr_T2": {
+   "auroc": 0.5512588912724399,
+   "ci": [
+    0.5166433798605804,
+    0.5923536287477942
+   ]
+  },
+  "lung_external_grnboost2_T2_ens_frac_zero": 0.32920485995249965,
+  "kidney_B_scgpt_L0": 0.5544593396038372,
+  "kidney_B_scgpt_L11": 0.523979259445554,
+  "immune_genie3_T2_minus_abscoexpr_T2": {
+   "a": 0.6096435368698215,
+   "b": 0.5616548131824101,
+   "delta": 0.04798872368741147,
+   "ci": [
+    -0.022803558743068175,
+    0.12038835560535155
+   ]
+  },
+  "immune_abscoexpr_T1": {
+   "auroc": 0.5589788354488344,
+   "perm_p": 0.0004997501249375312,
+   "null_sd": 0.01504628964367046,
+   "ci": [
+    0.4807389426091024,
+    0.6673219308166616
+   ],
+   "boot_sd": 0.047780149828441955
+  },
+  "direction_kidney_B_genie3_T2": {
+   "n_pairs": 669,
+   "n_untied": 668,
+   "k": 368,
+   "frac": 0.5508982035928144,
+   "p": 0.009482122717486205,
+   "cp": [
+    0.5122753604406678,
+    0.58906947777303
+   ]
+  },
+  "direction_lung_grnboost2_T1": {
+   "n_pairs": 855,
+   "n_untied": 762,
+   "k": 402,
+   "frac": 0.5275590551181102,
+   "p": 0.13741959074659663,
+   "cp": [
+    0.491407475416246,
+    0.5634965964560463
+   ]
+  }
+ },
+ "v5_extra": {
+  "grn_scores_files_match_partial": {
+   "lung_T1_0": true,
+   "lung_T1_1": true,
+   "lung_T1_2": true,
+   "lung_T1_3": true,
+   "lung_T1_4": true,
+   "lung_T2_0": true,
+   "lung_T2_1": true,
+   "lung_external_T1_0": true,
+   "lung_external_T1_1": true,
+   "lung_external_T1_2": true,
+   "lung_external_T1_3": true,
+   "lung_external_T1_4": true,
+   "lung_external_T2_0": true,
+   "lung_external_T2_1": true,
+   "kidney_B_T1_0": true,
+   "kidney_B_T1_1": true,
+   "kidney_B_T1_2": true,
+   "kidney_B_T1_3": true,
+   "kidney_B_T1_4": true,
+   "kidney_B_T2_0": true,
+   "kidney_B_T2_1": true,
+   "immune_T1_0": true,
+   "immune_T1_1": true,
+   "immune_T1_2": true,
+   "immune_T1_3": true,
+   "immune_T1_4": true,
+   "immune_T2_0": true,
+   "immune_T2_1": true,
+   "kidney_A_T1_0": true,
+   "kidney_A_T1_1": true,
+   "kidney_A_T1_2": true,
+   "kidney_A_T1_3": true,
+   "kidney_A_T1_4": true,
+   "kidney_A_T2_0": true,
+   "kidney_A_T2_1": true
+  },
+  "all_match": true,
+  "n_onesided_only": 9,
+  "early_stop_T1_frac_range": [
+   0.19540229885057472,
+   0.3126050420168067
+  ],
+  "early_stop_T2_frac_range": [
+   0.05263157894736842,
+   0.15708812260536398
+  ]
+ },
+ "v4_fitted_zero_importance_rows": {
+  "total": 70,
+  "genie3": 0,
+  "grnboost2": 70,
+  "max_per_fit": 9,
+  "max_frac_h3_pairs_in_zero_rows": 0.0180831826401446
+ },
+ "bug_changing_results": false,
+ "note": "No re-run of E4b outputs was needed; corrections are to SUMMARY wording/rounding and added caveats."
+}

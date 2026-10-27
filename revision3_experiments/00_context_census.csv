@@ -1,0 +1,17 @@
+context,tissue,group,G,nonzero,curated209,TRRUST_edges,TFs,targets,DoRothEA_chip_noTRRUST,DoRothEA_ABC_noTRRUST,STRING700,mk_kidney,mk_immune,mk_lung
+immune,immune,primary,4941,2039,95,589,68,207,836,1103,1251,0,57,3
+immune_seed43,immune,resample,4941,2080,96,553,63,200,819,1082,1293,0,60,2
+immune_seed44,immune,resample,4941,1972,96,577,66,202,867,1173,1263,1,59,1
+immune_TSP14,immune,donor,4941,1964,95,521,60,185,798,1046,1030,0,58,6
+immune_TSP21,immune,donor,4941,1765,95,534,61,187,747,996,1050,0,63,1
+immune_TSP25,immune,donor,4941,1791,94,499,60,177,884,1175,1064,0,56,4
+immune_Bcell,immune,celltype,4941,1398,81,361,50,119,567,750,615,0,69,0
+immune_CD4T,immune,celltype,4941,1465,87,412,51,138,549,741,749,0,65,1
+immune_CD8T,immune,celltype,4941,1595,88,474,58,166,613,816,896,0,77,0
+kidney_A,kidney,tissue,4803,1972,187,245,55,121,904,1118,1390,75,15,103
+kidney_B,kidney,tissue,8143,4780,171,3968,480,1075,10580,13482,12434,24,11,9
+kidney_ckpt_whole_human,kidney,checkpoint,8143,4923,172,4431,509,1126,11911,15218,12689,23,11,10
+kidney_ckpt_kidney,kidney,checkpoint,8143,4923,172,4431,509,1126,11911,15218,12689,23,11,10
+kidney_ckpt_brain,kidney,checkpoint,8143,4923,172,4431,509,1126,11911,15218,12689,23,11,10
+lung,lung,tissue,8181,5648,182,5607,555,1387,14916,19113,14474,2,27,51
+lung_external,lung,tissue,8229,5616,174,5442,579,1380,14184,18200,14132,1,20,53

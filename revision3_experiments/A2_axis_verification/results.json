@@ -1,0 +1,2459 @@
+{
+ "numpy": "2.4.2",
+ "max_genes": 512,
+ "contexts": {
+  "immune": {
+   "emb": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_38_geometric_residual_stream_interpretability/implementation/outputs/cycle4_immune_main/layer_gene_embeddings.npy",
+   "h5ad_context": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/tabula_sapiens_immune_subset_hpn_processed.h5ad",
+   "h5ad_extraction": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/tabula_sapiens_immune_subset_hpn_processed.h5ad",
+   "provenance": "subproject_38/implementation/README.md (Reproduction commands): 'Cross-domain (immune) main run' --seed 42 --max-cells 256",
+   "seed": 42,
+   "max_cells": 256,
+   "max_genes": 512,
+   "n_obs_extraction_h5ad": 20000,
+   "n_cells": 256,
+   "subsetting": null,
+   "G": 4941,
+   "emb_G": 4941,
+   "extraction_axis_equals_context_axis": true,
+   "count_layers_identical": true,
+   "count_exact_match": true,
+   "n_genes_differ": 0,
+   "count_sum_reproduced": 60719,
+   "count_sum_saved": 60719,
+   "n_observed": 2039,
+   "observed_mask_equals_count_gt0": true,
+   "nobs_reproduced_equals_cache_ncells": true,
+   "cells_with_nnz_gt_max_genes": 2,
+   "cells_with_tie_at_cutoff": 2,
+   "nnz_median": 220.0,
+   "nnz_max": 606,
+   "detected_ge_tokenised_all": true,
+   "n_genes_detected_gt_tokenised": 95,
+   "edge_axis_check": {
+    "edge_file": true,
+    "n_edge_rows": 2940,
+    "n_gene_index_pairs": 5880,
+    "n_distinct_genes": 361,
+    "n_index_mismatch": 0
+   },
+   "obs_tables": {
+    "tissue": {
+     "lymph node": 41,
+     "blood": 39,
+     "spleen": 26,
+     "thymus": 15,
+     "inguinal lymph node": 13,
+     "lung": 13,
+     "brown adipose tissue": 10,
+     "bladder organ": 10,
+     "liver": 9,
+     "adipose tissue": 8,
+     "bone marrow": 8,
+     "subcutaneous adipose tissue": 7,
+     "mesenteric lymph node": 5,
+     "coronary artery": 4,
+     "skin of body": 4,
+     "vasculature": 3,
+     "stomach smooth muscle": 3,
+     "small intestine": 3,
+     "ascending colon": 3,
+     "mucosa of stomach": 3,
+     "trachea": 3,
+     "prostate gland": 3,
+     "mammary gland": 2,
+     "eye": 2,
+     "stomach": 2,
+     "sublingual gland": 2,
+     "parotid gland": 2,
+     "heart": 2,
+     "posterior part of tongue": 2,
+     "aorta": 2,
+     "thoracic aorta": 1,
+     "muscle of pelvic diaphragm": 1,
+     "large intestine": 1,
+     "myometrium": 1,
+     "skin of abdomen": 1,
+     "endometrium": 1,
+     "eyelid": 1
+    },
+    "tissue_in_publication": {
+     "Lymph_Node": 59,
+     "Blood": 39,
+     "Spleen": 26,
+     "Fat": 25,
+     "Thymus": 15,
+     "Lung": 13,
+     "Vasculature": 10,
+     "Bladder": 10,
+     "Liver": 9,
+     "Bone_Marrow": 8,
+     "Stomach": 8,
+     "Skin": 5,
+     "Salivary_Gland": 4,
+     "Large_Intestine": 4,
+     "Small_Intestine": 3,
+     "Eye": 3,
+     "Prostate": 3,
+     "Trachea": 3,
+     "Mammary": 2,
+     "Uterus": 2,
+     "Tongue": 2,
+     "Heart": 2,
+     "Muscle": 1
+    },
+    "compartment": {
+     "Immune": 256
+    },
+    "broad_cell_class": {
+     "t cell": 88,
+     "lymphocyte of b lineage": 61,
+     "myeloid leukocyte": 53,
+     "granulocyte": 42,
+     "erythroid lineage cell": 5,
+     "innate lymphoid cell": 4,
+     "stem cell": 2,
+     "dendritic cell": 1
+    },
+    "donor_id": {
+     "TSP14": 66,
+     "TSP25": 44,
+     "TSP21": 39,
+     "TSP2": 27,
+     "TSP27": 21,
+     "TSP7": 15,
+     "TSP1": 13,
+     "TSP10": 6,
+     "TSP6": 5,
+     "TSP8": 5,
+     "TSP19": 5,
+     "TSP20": 2,
+     "TSP4": 2,
+     "TSP5": 2,
+     "TSP11": 2,
+     "TSP26": 1,
+     "TSP17": 1
+    },
+    "cell_type": {
+     "B cell": 50,
+     "CD4-positive, alpha-beta T cell": 42,
+     "CD8-positive, alpha-beta T cell": 35,
+     "macrophage": 35,
+     "neutrophil": 35,
+     "plasma cell": 11,
+     "monocyte": 9,
+     "mast cell": 6,
+     "erythrocyte": 5,
+     "classical monocyte": 5,
+     "CD4-positive, alpha-beta thymocyte": 4,
+     "intermediate monocyte": 3,
+     "T cell": 3,
+     "erythroid progenitor cell": 2,
+     "innate lymphoid cell": 2,
+     "natural killer cell": 2,
+     "mature NK T cell": 2,
+     "regulatory T cell": 1,
+     "naive thymus-derived CD4-positive, alpha-beta T cell": 1,
+     "myeloid dendritic cell": 1,
+     "basophil": 1,
+     "mononuclear phagocyte": 1
+    }
+   }
+  },
+  "immune_seed43": {
+   "emb": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_38_geometric_residual_stream_interpretability/implementation/outputs/cycle4_immune_seed43/layer_gene_embeddings.npy",
+   "h5ad_context": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/tabula_sapiens_immune_subset_hpn_processed.h5ad",
+   "h5ad_extraction": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/tabula_sapiens_immune_subset_hpn_processed.h5ad",
+   "provenance": "research_log.md Cycle 4 'Replicates: cycle4_immune_seed43' (seed from dir name; no command recorded)",
+   "seed": 43,
+   "max_cells": 256,
+   "max_genes": 512,
+   "n_obs_extraction_h5ad": 20000,
+   "n_cells": 256,
+   "subsetting": null,
+   "G": 4941,
+   "emb_G": 4941,
+   "extraction_axis_equals_context_axis": true,
+   "count_layers_identical": true,
+   "count_exact_match": true,
+   "n_genes_differ": 0,
+   "count_sum_reproduced": 61019,
+   "count_sum_saved": 61019,
+   "n_observed": 2080,
+   "observed_mask_equals_count_gt0": true,
+   "nobs_reproduced_equals_cache_ncells": true,
+   "cells_with_nnz_gt_max_genes": 2,
+   "cells_with_tie_at_cutoff": 2,
+   "nnz_median": 221.0,
+   "nnz_max": 752,
+   "detected_ge_tokenised_all": true,
+   "n_genes_detected_gt_tokenised": 246,
+   "edge_axis_check": {
+    "edge_file": true,
+    "n_edge_rows": 2940,
+    "n_gene_index_pairs": 5880,
+    "n_distinct_genes": 361,
+    "n_index_mismatch": 0
+   },
+   "obs_tables": {
+    "tissue": {
+     "blood": 44,
+     "lymph node": 42,
+     "spleen": 33,
+     "brown adipose tissue": 13,
+     "thymus": 12,
+     "inguinal lymph node": 11,
+     "lung": 10,
+     "bone marrow": 9,
+     "subcutaneous adipose tissue": 6,
+     "adipose tissue": 6,
+     "bladder organ": 6,
+     "stomach smooth muscle": 6,
+     "posterior part of tongue": 5,
+     "liver": 5,
+     "sublingual gland": 4,
+     "small intestine": 4,
+     "large intestine": 4,
+     "sigmoid colon": 3,
+     "parotid gland": 3,
+     "aorta": 3,
+     "ascending colon": 3,
+     "skin of body": 3,
+     "exocrine pancreas": 2,
+     "lacrimal gland": 2,
+     "mesenteric lymph node": 2,
+     "prostate gland": 2,
+     "eyelid": 2,
+     "stomach": 2,
+     "coronary artery": 2,
+     "cortex of kidney": 1,
+     "trachea": 1,
+     "heart": 1,
+     "right ovary": 1,
+     "mucosa of stomach": 1,
+     "endometrium": 1,
+     "muscle of pelvic diaphragm": 1
+    },
+    "tissue_in_publication": {
+     "Lymph_Node": 55,
+     "Blood": 44,
+     "Spleen": 33,
+     "Fat": 25,
+     "Thymus": 12,
+     "Large_Intestine": 10,
+     "Lung": 10,
+     "Bone_Marrow": 9,
+     "Stomach": 9,
+     "Salivary_Gland": 7,
+     "Bladder": 6,
+     "Tongue": 5,
+     "Liver": 5,
+     "Vasculature": 5,
+     "Eye": 4,
+     "Small_Intestine": 4,
+     "Skin": 3,
+     "Pancreas": 2,
+     "Prostate": 2,
+     "Heart": 1,
+     "Muscle": 1,
+     "Ovary": 1,
+     "Trachea": 1,
+     "Kidney": 1,
+     "Uterus": 1
+    },
+    "compartment": {
+     "Immune": 256
+    },
+    "broad_cell_class": {
+     "t cell": 91,
+     "lymphocyte of b lineage": 66,
+     "myeloid leukocyte": 45,
+     "granulocyte": 34,
+     "innate lymphoid cell": 11,
+     "erythroid lineage cell": 7,
+     "stem cell": 1,
+     "hematopoietic cell": 1
+    },
+    "donor_id": {
+     "TSP14": 64,
+     "TSP21": 40,
+     "TSP25": 37,
+     "TSP27": 28,
+     "TSP2": 28,
+     "TSP7": 26,
+     "TSP1": 10,
+     "TSP20": 5,
+     "TSP6": 4,
+     "TSP10": 4,
+     "TSP8": 2,
+     "TSP9": 2,
+     "TSP26": 2,
+     "TSP30": 1,
+     "TSP19": 1,
+     "TSP4": 1,
+     "TSP11": 1
+    },
+    "cell_type": {
+     "B cell": 50,
+     "CD4-positive, alpha-beta T cell": 43,
+     "CD8-positive, alpha-beta T cell": 38,
+     "neutrophil": 31,
+     "macrophage": 22,
+     "plasma cell": 16,
+     "monocyte": 12,
+     "natural killer cell": 9,
+     "erythrocyte": 7,
+     "classical monocyte": 7,
+     "CD4-positive, alpha-beta thymocyte": 4,
+     "mast cell": 3,
+     "naive thymus-derived CD4-positive, alpha-beta T cell": 3,
+     "innate lymphoid cell": 2,
+     "intermediate monocyte": 2,
+     "mature NK T cell": 1,
+     "erythroid progenitor cell": 1,
+     "T cell": 1,
+     "tissue-resident macrophage": 1,
+     "hematopoietic precursor cell": 1,
+     "mononuclear phagocyte": 1,
+     "regulatory T cell": 1
+    }
+   }
+  },
+  "immune_seed44": {
+   "emb": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_38_geometric_residual_stream_interpretability/implementation/outputs/cycle4_immune_seed44/layer_gene_embeddings.npy",
+   "h5ad_context": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/tabula_sapiens_immune_subset_hpn_processed.h5ad",
+   "h5ad_extraction": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/tabula_sapiens_immune_subset_hpn_processed.h5ad",
+   "provenance": "research_log.md Cycle 4 'Replicates: cycle4_immune_seed44' (seed from dir name; no command recorded)",
+   "seed": 44,
+   "max_cells": 256,
+   "max_genes": 512,
+   "n_obs_extraction_h5ad": 20000,
+   "n_cells": 256,
+   "subsetting": null,
+   "G": 4941,
+   "emb_G": 4941,
+   "extraction_axis_equals_context_axis": true,
+   "count_layers_identical": true,
+   "count_exact_match": true,
+   "n_genes_differ": 0,
+   "count_sum_reproduced": 63552,
+   "count_sum_saved": 63552,
+   "n_observed": 1972,
+   "observed_mask_equals_count_gt0": true,
+   "nobs_reproduced_equals_cache_ncells": true,
+   "cells_with_nnz_gt_max_genes": 2,
+   "cells_with_tie_at_cutoff": 2,
+   "nnz_median": 238.0,
+   "nnz_max": 602,
+   "detected_ge_tokenised_all": true,
+   "n_genes_detected_gt_tokenised": 151,
+   "edge_axis_check": {
+    "edge_file": true,
+    "n_edge_rows": 2940,
+    "n_gene_index_pairs": 5880,
+    "n_distinct_genes": 361,
+    "n_index_mismatch": 0
+   },
+   "obs_tables": {
+    "tissue": {
+     "lymph node": 43,
+     "blood": 37,
+     "spleen": 31,
+     "lung": 16,
+     "brown adipose tissue": 13,
+     "thymus": 13,
+     "bone marrow": 12,
+     "bladder organ": 12,
+     "liver": 11,
+     "trachea": 6,
+     "inguinal lymph node": 6,
+     "adipose tissue": 5,
+     "small intestine": 5,
+     "stomach smooth muscle": 5,
+     "mesenteric lymph node": 4,
+     "large intestine": 4,
+     "ascending colon": 3,
+     "skin of body": 3,
+     "prostate gland": 3,
+     "coronary artery": 3,
+     "muscle of abdomen": 2,
+     "subcutaneous adipose tissue": 2,
+     "lacrimal gland": 2,
+     "posterior part of tongue": 2,
+     "duodenum": 2,
+     "muscle of pelvic diaphragm": 2,
+     "eye": 1,
+     "endometrium": 1,
+     "parotid gland": 1,
+     "skin of abdomen": 1,
+     "thoracic aorta": 1,
+     "stomach": 1,
+     "aorta": 1,
+     "sclera": 1,
+     "eyelid": 1
+    },
+    "tissue_in_publication": {
+     "Lymph_Node": 53,
+     "Blood": 37,
+     "Spleen": 31,
+     "Fat": 20,
+     "Lung": 16,
+     "Thymus": 13,
+     "Bone_Marrow": 12,
+     "Bladder": 12,
+     "Liver": 11,
+     "Small_Intestine": 7,
+     "Large_Intestine": 7,
+     "Trachea": 6,
+     "Stomach": 6,
+     "Eye": 5,
+     "Vasculature": 5,
+     "Muscle": 4,
+     "Skin": 4,
+     "Prostate": 3,
+     "Tongue": 2,
+     "Salivary_Gland": 1,
+     "Uterus": 1
+    },
+    "compartment": {
+     "Immune": 256
+    },
+    "broad_cell_class": {
+     "t cell": 91,
+     "myeloid leukocyte": 63,
+     "lymphocyte of b lineage": 56,
+     "granulocyte": 33,
+     "erythroid lineage cell": 6,
+     "innate lymphoid cell": 6,
+     "hematopoietic cell": 1
+    },
+    "donor_id": {
+     "TSP14": 53,
+     "TSP25": 41,
+     "TSP21": 39,
+     "TSP2": 31,
+     "TSP27": 24,
+     "TSP7": 20,
+     "TSP1": 17,
+     "TSP19": 8,
+     "TSP6": 5,
+     "TSP20": 5,
+     "TSP10": 4,
+     "TSP8": 2,
+     "TSP11": 2,
+     "TSP15": 1,
+     "TSP17": 1,
+     "TSP5": 1,
+     "TSP4": 1,
+     "TSP26": 1
+    },
+    "cell_type": {
+     "B cell": 43,
+     "CD4-positive, alpha-beta T cell": 41,
+     "CD8-positive, alpha-beta T cell": 34,
+     "neutrophil": 31,
+     "macrophage": 30,
+     "monocyte": 16,
+     "plasma cell": 13,
+     "classical monocyte": 7,
+     "natural killer cell": 6,
+     "erythrocyte": 6,
+     "mature NK T cell": 6,
+     "naive thymus-derived CD4-positive, alpha-beta T cell": 4,
+     "intermediate monocyte": 4,
+     "microglial cell": 3,
+     "CD4-positive, alpha-beta thymocyte": 3,
+     "T cell": 2,
+     "mononuclear phagocyte": 1,
+     "non-classical monocyte": 1,
+     "granulocyte": 1,
+     "hematopoietic precursor cell": 1,
+     "myeloid leukocyte": 1,
+     "mast cell": 1,
+     "gamma-delta T cell": 1
+    }
+   }
+  },
+  "immune_TSP14": {
+   "emb": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_38_geometric_residual_stream_interpretability/implementation/outputs/cycle10_immune_donor_TSP14_seed42/layer_gene_embeddings.npy",
+   "h5ad_context": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/tabula_sapiens_immune_subset_hpn_processed.h5ad",
+   "h5ad_extraction": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_38_geometric_residual_stream_interpretability/implementation/data/immune_donor_subsets/TSP14.h5ad",
+   "provenance": "research_log.md Cycle 10 donor-specific h5ad subsets; seed 42 from dir name",
+   "seed": 42,
+   "max_cells": 256,
+   "max_genes": 512,
+   "n_obs_extraction_h5ad": 4513,
+   "n_cells": 256,
+   "subsetting": {
+    "subset_file": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_38_geometric_residual_stream_interpretability/implementation/data/immune_donor_subsets/TSP14.h5ad",
+    "obs_column": "donor_id",
+    "value": "TSP14",
+    "subset_n_obs": 4513,
+    "parent_n_with_value": 4513,
+    "subset_equals_parent_mask_in_order": true,
+    "subset_unique_values": [
+     "TSP14"
+    ],
+    "drawn_rows_X_identical_to_parent": true
+   },
+   "G": 4941,
+   "emb_G": 4941,
+   "extraction_axis_equals_context_axis": true,
+   "count_layers_identical": true,
+   "count_exact_match": true,
+   "n_genes_differ": 0,
+   "count_sum_reproduced": 65865,
+   "count_sum_saved": 65865,
+   "n_observed": 1964,
+   "observed_mask_equals_count_gt0": true,
+   "nobs_reproduced_equals_cache_ncells": true,
+   "cells_with_nnz_gt_max_genes": 2,
+   "cells_with_tie_at_cutoff": 2,
+   "nnz_median": 254.5,
+   "nnz_max": 523,
+   "detected_ge_tokenised_all": true,
+   "n_genes_detected_gt_tokenised": 18,
+   "edge_axis_check": {
+    "edge_file": true,
+    "n_edge_rows": 2940,
+    "n_gene_index_pairs": 5880,
+    "n_distinct_genes": 361,
+    "n_index_mismatch": 0
+   },
+   "obs_tables": {
+    "tissue": {
+     "blood": 49,
+     "lymph node": 47,
+     "spleen": 46,
+     "thymus": 25,
+     "small intestine": 22,
+     "bone marrow": 14,
+     "large intestine": 13,
+     "parotid gland": 9,
+     "lung": 7,
+     "adipose tissue": 5,
+     "sublingual gland": 3,
+     "liver": 3,
+     "skin of chest": 2,
+     "prostate gland": 2,
+     "vasculature": 2,
+     "subcutaneous adipose tissue": 1,
+     "coronary artery": 1,
+     "muscle of abdomen": 1,
+     "posterior part of tongue": 1,
+     "mesenteric lymph node": 1,
+     "bladder organ": 1,
+     "skin of abdomen": 1
+    },
+    "tissue_in_publication": {
+     "Blood": 49,
+     "Lymph_Node": 48,
+     "Spleen": 46,
+     "Thymus": 25,
+     "Small_Intestine": 22,
+     "Bone_Marrow": 14,
+     "Large_Intestine": 13,
+     "Salivary_Gland": 12,
+     "Lung": 7,
+     "Fat": 6,
+     "Skin": 3,
+     "Liver": 3,
+     "Vasculature": 3,
+     "Prostate": 2,
+     "Muscle": 1,
+     "Tongue": 1,
+     "Bladder": 1
+    },
+    "compartment": {
+     "Immune": 256
+    },
+    "broad_cell_class": {
+     "t cell": 111,
+     "granulocyte": 63,
+     "lymphocyte of b lineage": 45,
+     "myeloid leukocyte": 26,
+     "innate lymphoid cell": 5,
+     "erythroid lineage cell": 5,
+     "stem cell": 1
+    },
+    "donor_id": {
+     "TSP14": 256
+    },
+    "cell_type": {
+     "neutrophil": 62,
+     "CD4-positive, alpha-beta T cell": 53,
+     "CD8-positive, alpha-beta T cell": 42,
+     "B cell": 26,
+     "plasma cell": 19,
+     "macrophage": 12,
+     "classical monocyte": 6,
+     "erythrocyte": 5,
+     "naive thymus-derived CD4-positive, alpha-beta T cell": 5,
+     "monocyte": 5,
+     "natural killer cell": 4,
+     "CD4-positive, alpha-beta thymocyte": 3,
+     "intermediate monocyte": 3,
+     "regulatory T cell": 2,
+     "gamma-delta T cell": 2,
+     "hematopoietic stem cell": 1,
+     "innate lymphoid cell": 1,
+     "thymocyte": 1,
+     "mast cell": 1,
+     "activated CD4-positive, alpha-beta T cell": 1,
+     "T cell": 1,
+     "mature NK T cell": 1
+    }
+   }
+  },
+  "immune_TSP21": {
+   "emb": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_38_geometric_residual_stream_interpretability/implementation/outputs/cycle10_immune_donor_TSP21_seed42/layer_gene_embeddings.npy",
+   "h5ad_context": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/tabula_sapiens_immune_subset_hpn_processed.h5ad",
+   "h5ad_extraction": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_38_geometric_residual_stream_interpretability/implementation/data/immune_donor_subsets/TSP21.h5ad",
+   "provenance": "research_log.md Cycle 10 donor-specific h5ad subsets; seed 42 from dir name",
+   "seed": 42,
+   "max_cells": 256,
+   "max_genes": 512,
+   "n_obs_extraction_h5ad": 3223,
+   "n_cells": 256,
+   "subsetting": {
+    "subset_file": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_38_geometric_residual_stream_interpretability/implementation/data/immune_donor_subsets/TSP21.h5ad",
+    "obs_column": "donor_id",
+    "value": "TSP21",
+    "subset_n_obs": 3223,
+    "parent_n_with_value": 3223,
+    "subset_equals_parent_mask_in_order": true,
+    "subset_unique_values": [
+     "TSP21"
+    ],
+    "drawn_rows_X_identical_to_parent": true
+   },
+   "G": 4941,
+   "emb_G": 4941,
+   "extraction_axis_equals_context_axis": true,
+   "count_layers_identical": true,
+   "count_exact_match": true,
+   "n_genes_differ": 0,
+   "count_sum_reproduced": 60262,
+   "count_sum_saved": 60262,
+   "n_observed": 1765,
+   "observed_mask_equals_count_gt0": true,
+   "nobs_reproduced_equals_cache_ncells": true,
+   "cells_with_nnz_gt_max_genes": 1,
+   "cells_with_tie_at_cutoff": 1,
+   "nnz_median": 216.0,
+   "nnz_max": 515,
+   "detected_ge_tokenised_all": true,
+   "n_genes_detected_gt_tokenised": 3,
+   "edge_axis_check": {
+    "edge_file": true,
+    "n_edge_rows": 2940,
+    "n_gene_index_pairs": 5880,
+    "n_distinct_genes": 361,
+    "n_index_mismatch": 0
+   },
+   "obs_tables": {
+    "tissue": {
+     "lymph node": 48,
+     "adipose tissue": 42,
+     "blood": 38,
+     "spleen": 33,
+     "inguinal lymph node": 28,
+     "bone marrow": 12,
+     "eyelid": 9,
+     "lacrimal gland": 9,
+     "subcutaneous adipose tissue": 8,
+     "thymus": 7,
+     "skin of body": 5,
+     "endometrium": 4,
+     "aorta": 4,
+     "bladder organ": 3,
+     "trachea": 2,
+     "submandibular gland": 2,
+     "eye": 2
+    },
+    "tissue_in_publication": {
+     "Lymph_Node": 76,
+     "Fat": 50,
+     "Blood": 38,
+     "Spleen": 33,
+     "Eye": 20,
+     "Bone_Marrow": 12,
+     "Thymus": 7,
+     "Skin": 5,
+     "Vasculature": 4,
+     "Uterus": 4,
+     "Bladder": 3,
+     "Trachea": 2,
+     "Salivary_Gland": 2
+    },
+    "compartment": {
+     "Immune": 256
+    },
+    "broad_cell_class": {
+     "t cell": 83,
+     "lymphocyte of b lineage": 80,
+     "myeloid leukocyte": 53,
+     "granulocyte": 32,
+     "innate lymphoid cell": 6,
+     "hematopoietic cell": 1,
+     "erythroid lineage cell": 1
+    },
+    "donor_id": {
+     "TSP21": 256
+    },
+    "cell_type": {
+     "B cell": 75,
+     "CD4-positive, alpha-beta T cell": 54,
+     "neutrophil": 30,
+     "macrophage": 27,
+     "CD8-positive, alpha-beta T cell": 21,
+     "classical monocyte": 18,
+     "natural killer cell": 6,
+     "intermediate monocyte": 5,
+     "plasma cell": 5,
+     "monocyte": 3,
+     "naive thymus-derived CD4-positive, alpha-beta T cell": 2,
+     "mature NK T cell": 2,
+     "CD8-positive, alpha-beta thymocyte": 2,
+     "hematopoietic precursor cell": 1,
+     "CD4-positive, alpha-beta thymocyte": 1,
+     "erythrocyte": 1,
+     "basophil": 1,
+     "T cell": 1,
+     "mast cell": 1
+    }
+   }
+  },
+  "immune_TSP25": {
+   "emb": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_38_geometric_residual_stream_interpretability/implementation/outputs/cycle10_immune_donor_TSP25_seed42/layer_gene_embeddings.npy",
+   "h5ad_context": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/tabula_sapiens_immune_subset_hpn_processed.h5ad",
+   "h5ad_extraction": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_38_geometric_residual_stream_interpretability/implementation/data/immune_donor_subsets/TSP25.h5ad",
+   "provenance": "research_log.md Cycle 10 donor-specific h5ad subsets; seed 42 from dir name",
+   "seed": 42,
+   "max_cells": 256,
+   "max_genes": 512,
+   "n_obs_extraction_h5ad": 3261,
+   "n_cells": 256,
+   "subsetting": {
+    "subset_file": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_38_geometric_residual_stream_interpretability/implementation/data/immune_donor_subsets/TSP25.h5ad",
+    "obs_column": "donor_id",
+    "value": "TSP25",
+    "subset_n_obs": 3261,
+    "parent_n_with_value": 3261,
+    "subset_equals_parent_mask_in_order": true,
+    "subset_unique_values": [
+     "TSP25"
+    ],
+    "drawn_rows_X_identical_to_parent": true
+   },
+   "G": 4941,
+   "emb_G": 4941,
+   "extraction_axis_equals_context_axis": true,
+   "count_layers_identical": true,
+   "count_exact_match": true,
+   "n_genes_differ": 0,
+   "count_sum_reproduced": 57818,
+   "count_sum_saved": 57818,
+   "n_observed": 1791,
+   "observed_mask_equals_count_gt0": true,
+   "nobs_reproduced_equals_cache_ncells": true,
+   "cells_with_nnz_gt_max_genes": 5,
+   "cells_with_tie_at_cutoff": 5,
+   "nnz_median": 199.0,
+   "nnz_max": 673,
+   "detected_ge_tokenised_all": true,
+   "n_genes_detected_gt_tokenised": 207,
+   "edge_axis_check": {
+    "edge_file": true,
+    "n_edge_rows": 2940,
+    "n_gene_index_pairs": 5880,
+    "n_distinct_genes": 361,
+    "n_index_mismatch": 0
+   },
+   "obs_tables": {
+    "tissue": {
+     "brown adipose tissue": 55,
+     "lymph node": 48,
+     "mesenteric lymph node": 31,
+     "trachea": 16,
+     "lung": 11,
+     "posterior part of tongue": 11,
+     "sublingual gland": 10,
+     "spleen": 10,
+     "subcutaneous adipose tissue": 10,
+     "stomach": 8,
+     "bone marrow": 8,
+     "adipose tissue": 8,
+     "blood": 7,
+     "coronary artery": 6,
+     "aorta": 5,
+     "thoracic aorta": 5,
+     "ileum": 2,
+     "bladder organ": 2,
+     "crista ampullaris": 1,
+     "testis": 1,
+     "prostate gland": 1
+    },
+    "tissue_in_publication": {
+     "Lymph_Node": 79,
+     "Fat": 73,
+     "Vasculature": 16,
+     "Trachea": 16,
+     "Lung": 11,
+     "Tongue": 11,
+     "Spleen": 10,
+     "Salivary_Gland": 10,
+     "Stomach": 8,
+     "Bone_Marrow": 8,
+     "Blood": 7,
+     "Small_Intestine": 2,
+     "Bladder": 2,
+     "Testis": 1,
+     "Ear": 1,
+     "Prostate": 1
+    },
+    "compartment": {
+     "Immune": 256
+    },
+    "broad_cell_class": {
+     "lymphocyte of b lineage": 93,
+     "t cell": 82,
+     "myeloid leukocyte": 43,
+     "granulocyte": 31,
+     "innate lymphoid cell": 4,
+     "erythroid lineage cell": 2,
+     "hematopoietic cell": 1
+    },
+    "donor_id": {
+     "TSP25": 256
+    },
+    "cell_type": {
+     "B cell": 86,
+     "CD4-positive, alpha-beta T cell": 44,
+     "macrophage": 30,
+     "CD8-positive, alpha-beta T cell": 29,
+     "neutrophil": 26,
+     "plasma cell": 7,
+     "mononuclear phagocyte": 5,
+     "monocyte": 5,
+     "mature NK T cell": 4,
+     "natural killer cell": 4,
+     "basophil": 2,
+     "erythrocyte": 2,
+     "T cell": 2,
+     "intermediate monocyte": 2,
+     "naive thymus-derived CD4-positive, alpha-beta T cell": 2,
+     "mast cell": 2,
+     "tissue-resident macrophage": 1,
+     "gamma-delta T cell": 1,
+     "hematopoietic precursor cell": 1,
+     "granulocyte": 1
+    }
+   }
+  },
+  "immune_Bcell": {
+   "emb": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_38_geometric_residual_stream_interpretability/implementation/outputs/cycle11_immune_celltype_b_cell/layer_gene_embeddings.npy",
+   "h5ad_context": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/tabula_sapiens_immune_subset_hpn_processed.h5ad",
+   "h5ad_extraction": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_38_geometric_residual_stream_interpretability/implementation/data/immune_celltype_subsets/b_cell.h5ad",
+   "provenance": "research_log.md Cycle 11 make_obs_subsets.py; seed = script default 42 (no command recorded)",
+   "seed": 42,
+   "max_cells": 256,
+   "max_genes": 512,
+   "n_obs_extraction_h5ad": 3762,
+   "n_cells": 256,
+   "subsetting": {
+    "subset_file": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_38_geometric_residual_stream_interpretability/implementation/data/immune_celltype_subsets/b_cell.h5ad",
+    "obs_column": "cell_type",
+    "value": "B cell",
+    "subset_n_obs": 3762,
+    "parent_n_with_value": 3762,
+    "subset_equals_parent_mask_in_order": true,
+    "subset_unique_values": [
+     "B cell"
+    ],
+    "drawn_rows_X_identical_to_parent": true
+   },
+   "G": 4941,
+   "emb_G": 4941,
+   "extraction_axis_equals_context_axis": true,
+   "count_layers_identical": true,
+   "count_exact_match": true,
+   "n_genes_differ": 0,
+   "count_sum_reproduced": 51069,
+   "count_sum_saved": 51069,
+   "n_observed": 1398,
+   "observed_mask_equals_count_gt0": true,
+   "nobs_reproduced_equals_cache_ncells": true,
+   "cells_with_nnz_gt_max_genes": 0,
+   "cells_with_tie_at_cutoff": 0,
+   "nnz_median": 197.0,
+   "nnz_max": 345,
+   "detected_ge_tokenised_all": true,
+   "n_genes_detected_gt_tokenised": 0,
+   "edge_axis_check": {
+    "edge_file": true,
+    "n_edge_rows": 2940,
+    "n_gene_index_pairs": 5880,
+    "n_distinct_genes": 361,
+    "n_index_mismatch": 0
+   },
+   "obs_tables": {
+    "tissue": {
+     "lymph node": 85,
+     "inguinal lymph node": 37,
+     "spleen": 36,
+     "brown adipose tissue": 24,
+     "adipose tissue": 16,
+     "mesenteric lymph node": 12,
+     "parotid gland": 8,
+     "blood": 8,
+     "thymus": 5,
+     "bone marrow": 5,
+     "eyelid": 4,
+     "lacrimal gland": 4,
+     "stomach smooth muscle": 2,
+     "posterior part of tongue": 1,
+     "ascending colon": 1,
+     "sublingual gland": 1,
+     "prostate gland": 1,
+     "lung": 1,
+     "small intestine": 1,
+     "mucosa of stomach": 1,
+     "large intestine": 1,
+     "trachea": 1,
+     "sigmoid colon": 1
+    },
+    "tissue_in_publication": {
+     "Lymph_Node": 134,
+     "Fat": 40,
+     "Spleen": 36,
+     "Salivary_Gland": 9,
+     "Blood": 8,
+     "Eye": 8,
+     "Thymus": 5,
+     "Bone_Marrow": 5,
+     "Large_Intestine": 3,
+     "Stomach": 3,
+     "Prostate": 1,
+     "Trachea": 1,
+     "Small_Intestine": 1,
+     "Lung": 1,
+     "Tongue": 1
+    },
+    "compartment": {
+     "Immune": 256
+    },
+    "broad_cell_class": {
+     "lymphocyte of b lineage": 256
+    },
+    "donor_id": {
+     "TSP21": 70,
+     "TSP25": 69,
+     "TSP7": 39,
+     "TSP27": 27,
+     "TSP14": 21,
+     "TSP2": 21,
+     "TSP10": 3,
+     "TSP1": 2,
+     "TSP20": 2,
+     "TSP8": 1,
+     "TSP6": 1
+    },
+    "cell_type": {
+     "B cell": 256
+    }
+   }
+  },
+  "immune_CD4T": {
+   "emb": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_38_geometric_residual_stream_interpretability/implementation/outputs/cycle11_immune_celltype_cd4_t/layer_gene_embeddings.npy",
+   "h5ad_context": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/tabula_sapiens_immune_subset_hpn_processed.h5ad",
+   "h5ad_extraction": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_38_geometric_residual_stream_interpretability/implementation/data/immune_celltype_subsets/cd4_positive_alpha_beta_t_cell.h5ad",
+   "provenance": "research_log.md Cycle 11 make_obs_subsets.py; seed = script default 42 (no command recorded)",
+   "seed": 42,
+   "max_cells": 256,
+   "max_genes": 512,
+   "n_obs_extraction_h5ad": 3373,
+   "n_cells": 256,
+   "subsetting": {
+    "subset_file": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_38_geometric_residual_stream_interpretability/implementation/data/immune_celltype_subsets/cd4_positive_alpha_beta_t_cell.h5ad",
+    "obs_column": "cell_type",
+    "value": "CD4-positive, alpha-beta T cell",
+    "subset_n_obs": 3373,
+    "parent_n_with_value": 3373,
+    "subset_equals_parent_mask_in_order": true,
+    "subset_unique_values": [
+     "CD4-positive, alpha-beta T cell"
+    ],
+    "drawn_rows_X_identical_to_parent": true
+   },
+   "G": 4941,
+   "emb_G": 4941,
+   "extraction_axis_equals_context_axis": true,
+   "count_layers_identical": true,
+   "count_exact_match": true,
+   "n_genes_differ": 0,
+   "count_sum_reproduced": 49233,
+   "count_sum_saved": 49233,
+   "n_observed": 1465,
+   "observed_mask_equals_count_gt0": true,
+   "nobs_reproduced_equals_cache_ncells": true,
+   "cells_with_nnz_gt_max_genes": 0,
+   "cells_with_tie_at_cutoff": 0,
+   "nnz_median": 185.0,
+   "nnz_max": 422,
+   "detected_ge_tokenised_all": true,
+   "n_genes_detected_gt_tokenised": 0,
+   "edge_axis_check": {
+    "edge_file": true,
+    "n_edge_rows": 2940,
+    "n_gene_index_pairs": 5880,
+    "n_distinct_genes": 361,
+    "n_index_mismatch": 0
+   },
+   "obs_tables": {
+    "tissue": {
+     "lymph node": 90,
+     "small intestine": 19,
+     "brown adipose tissue": 19,
+     "adipose tissue": 18,
+     "blood": 13,
+     "thymus": 13,
+     "inguinal lymph node": 12,
+     "stomach smooth muscle": 10,
+     "lung": 8,
+     "spleen": 7,
+     "subcutaneous adipose tissue": 7,
+     "mesenteric lymph node": 5,
+     "mammary gland": 5,
+     "large intestine": 4,
+     "bladder organ": 4,
+     "lacrimal gland": 4,
+     "muscle of pelvic diaphragm": 3,
+     "posterior part of tongue": 2,
+     "ileum": 2,
+     "heart right ventricle": 1,
+     "stomach": 1,
+     "anterior part of tongue": 1,
+     "parotid gland": 1,
+     "coronary artery": 1,
+     "bone marrow": 1,
+     "sublingual gland": 1,
+     "ascending colon": 1,
+     "muscle of abdomen": 1,
+     "kidney": 1,
+     "eyelid": 1
+    },
+    "tissue_in_publication": {
+     "Lymph_Node": 107,
+     "Fat": 44,
+     "Small_Intestine": 21,
+     "Blood": 13,
+     "Thymus": 13,
+     "Stomach": 11,
+     "Lung": 8,
+     "Spleen": 7,
+     "Eye": 5,
+     "Mammary": 5,
+     "Large_Intestine": 5,
+     "Muscle": 4,
+     "Bladder": 4,
+     "Tongue": 3,
+     "Salivary_Gland": 2,
+     "Heart": 1,
+     "Vasculature": 1,
+     "Bone_Marrow": 1,
+     "Kidney": 1
+    },
+    "compartment": {
+     "Immune": 256
+    },
+    "broad_cell_class": {
+     "t cell": 256
+    },
+    "donor_id": {
+     "TSP14": 58,
+     "TSP21": 57,
+     "TSP25": 45,
+     "TSP27": 35,
+     "TSP2": 24,
+     "TSP1": 10,
+     "TSP20": 10,
+     "TSP7": 6,
+     "TSP4": 5,
+     "TSP10": 4,
+     "TSP26": 2
+    },
+    "cell_type": {
+     "CD4-positive, alpha-beta T cell": 256
+    }
+   }
+  },
+  "immune_CD8T": {
+   "emb": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_38_geometric_residual_stream_interpretability/implementation/outputs/cycle11_immune_celltype_cd8_t/layer_gene_embeddings.npy",
+   "h5ad_context": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/tabula_sapiens_immune_subset_hpn_processed.h5ad",
+   "h5ad_extraction": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_38_geometric_residual_stream_interpretability/implementation/data/immune_celltype_subsets/cd8_positive_alpha_beta_t_cell.h5ad",
+   "provenance": "research_log.md Cycle 11 make_obs_subsets.py; seed = script default 42 (no command recorded)",
+   "seed": 42,
+   "max_cells": 256,
+   "max_genes": 512,
+   "n_obs_extraction_h5ad": 2547,
+   "n_cells": 256,
+   "subsetting": {
+    "subset_file": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_38_geometric_residual_stream_interpretability/implementation/data/immune_celltype_subsets/cd8_positive_alpha_beta_t_cell.h5ad",
+    "obs_column": "cell_type",
+    "value": "CD8-positive, alpha-beta T cell",
+    "subset_n_obs": 2547,
+    "parent_n_with_value": 2547,
+    "subset_equals_parent_mask_in_order": true,
+    "subset_unique_values": [
+     "CD8-positive, alpha-beta T cell"
+    ],
+    "drawn_rows_X_identical_to_parent": true
+   },
+   "G": 4941,
+   "emb_G": 4941,
+   "extraction_axis_equals_context_axis": true,
+   "count_layers_identical": true,
+   "count_exact_match": true,
+   "n_genes_differ": 0,
+   "count_sum_reproduced": 53430,
+   "count_sum_saved": 53430,
+   "n_observed": 1595,
+   "observed_mask_equals_count_gt0": true,
+   "nobs_reproduced_equals_cache_ncells": true,
+   "cells_with_nnz_gt_max_genes": 0,
+   "cells_with_tie_at_cutoff": 0,
+   "nnz_median": 201.0,
+   "nnz_max": 448,
+   "detected_ge_tokenised_all": true,
+   "n_genes_detected_gt_tokenised": 0,
+   "edge_axis_check": {
+    "edge_file": true,
+    "n_edge_rows": 2940,
+    "n_gene_index_pairs": 5880,
+    "n_distinct_genes": 361,
+    "n_index_mismatch": 0
+   },
+   "obs_tables": {
+    "tissue": {
+     "lymph node": 42,
+     "spleen": 36,
+     "thymus": 16,
+     "blood": 15,
+     "bladder organ": 15,
+     "mammary gland": 11,
+     "adipose tissue": 10,
+     "lung": 10,
+     "brown adipose tissue": 9,
+     "small intestine": 9,
+     "prostate gland": 8,
+     "endometrium": 7,
+     "large intestine": 6,
+     "bone marrow": 6,
+     "parotid gland": 6,
+     "skin of body": 6,
+     "inguinal lymph node": 5,
+     "posterior part of tongue": 5,
+     "liver": 5,
+     "stomach smooth muscle": 4,
+     "kidney": 3,
+     "trachea": 3,
+     "coronary artery": 3,
+     "subcutaneous adipose tissue": 3,
+     "exocrine pancreas": 2,
+     "heart": 2,
+     "muscle of abdomen": 2,
+     "stomach": 1,
+     "sigmoid colon": 1,
+     "anterior segment of eyeball": 1,
+     "eye": 1,
+     "duodenum": 1,
+     "uterus": 1,
+     "sublingual gland": 1
+    },
+    "tissue_in_publication": {
+     "Lymph_Node": 47,
+     "Spleen": 36,
+     "Fat": 22,
+     "Thymus": 16,
+     "Blood": 15,
+     "Bladder": 15,
+     "Mammary": 11,
+     "Small_Intestine": 10,
+     "Lung": 10,
+     "Uterus": 8,
+     "Prostate": 8,
+     "Salivary_Gland": 7,
+     "Large_Intestine": 7,
+     "Bone_Marrow": 6,
+     "Skin": 6,
+     "Stomach": 5,
+     "Tongue": 5,
+     "Liver": 5,
+     "Vasculature": 3,
+     "Trachea": 3,
+     "Kidney": 3,
+     "Eye": 2,
+     "Muscle": 2,
+     "Pancreas": 2,
+     "Heart": 2
+    },
+    "compartment": {
+     "Immune": 256
+    },
+    "broad_cell_class": {
+     "t cell": 256
+    },
+    "donor_id": {
+     "TSP14": 75,
+     "TSP21": 42,
+     "TSP25": 36,
+     "TSP27": 22,
+     "TSP2": 20,
+     "TSP7": 19,
+     "TSP4": 14,
+     "TSP10": 9,
+     "TSP1": 5,
+     "TSP19": 5,
+     "TSP8": 3,
+     "TSP9": 2,
+     "TSP20": 1,
+     "TSP26": 1,
+     "TSP5": 1,
+     "TSP11": 1
+    },
+    "cell_type": {
+     "CD8-positive, alpha-beta T cell": 256
+    }
+   }
+  },
+  "kidney_A": {
+   "emb": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_38_geometric_residual_stream_interpretability/implementation/outputs/cycle1_main/layer_gene_embeddings.npy",
+   "h5ad_context": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/tabula_sapiens_processed.h5ad",
+   "h5ad_extraction": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/tabula_sapiens_processed.h5ad",
+   "provenance": "subproject_38/implementation/README.md (Reproduction commands): 'Cycle 1 (seed 42, max_genes=512)', default --processed-h5ad tabula_sapiens_processed.h5ad",
+   "seed": 42,
+   "max_cells": 256,
+   "max_genes": 512,
+   "n_obs_extraction_h5ad": 11376,
+   "n_cells": 256,
+   "subsetting": null,
+   "G": 4803,
+   "emb_G": 4803,
+   "extraction_axis_equals_context_axis": true,
+   "count_layers_identical": true,
+   "count_exact_match": true,
+   "n_genes_differ": 0,
+   "count_sum_reproduced": 109548,
+   "count_sum_saved": 109548,
+   "n_observed": 1972,
+   "observed_mask_equals_count_gt0": true,
+   "nobs_reproduced_equals_cache_ncells": true,
+   "cells_with_nnz_gt_max_genes": 65,
+   "cells_with_tie_at_cutoff": 64,
+   "nnz_median": 436.5,
+   "nnz_max": 806,
+   "detected_ge_tokenised_all": true,
+   "n_genes_detected_gt_tokenised": 1084,
+   "edge_axis_check": {
+    "edge_file": true,
+    "n_edge_rows": 1152,
+    "n_gene_index_pairs": 2304,
+    "n_distinct_genes": 209,
+    "n_index_mismatch": 0
+   },
+   "obs_tables": {
+    "tissue": {
+     "kidney": 255,
+     "cortex of kidney": 1
+    },
+    "tissue_in_publication": {
+     "Kidney": 256
+    },
+    "compartment": {
+     "Epithelium": 213,
+     "Immune": 41,
+     "Endothelium": 2
+    },
+    "broad_cell_class": {
+     "kidney epithelial cell": 213,
+     "t cell": 23,
+     "lymphocyte of b lineage": 8,
+     "myeloid leukocyte": 7,
+     "endothelial cell": 2,
+     "innate lymphoid cell": 2,
+     "granulocyte": 1
+    },
+    "donor_id": {
+     "TSP2": 256
+    },
+    "cell_type": {
+     "kidney epithelial cell": 213,
+     "CD8-positive, alpha-beta T cell": 16,
+     "B cell": 8,
+     "CD4-positive, alpha-beta T cell": 7,
+     "macrophage": 4,
+     "monocyte": 2,
+     "endothelial cell": 2,
+     "natural killer cell": 2,
+     "non-classical monocyte": 1,
+     "neutrophil": 1
+    }
+   }
+  },
+  "kidney_B": {
+   "emb": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_41_claude_topology_hypothesis_screening_autoloop/iterations/iter_0067/kidney_scgpt_run/layer_gene_embeddings.npy",
+   "h5ad_context": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/invariant_causal_edges/kidney/processed.h5ad",
+   "h5ad_extraction": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/invariant_causal_edges/kidney/processed.h5ad",
+   "provenance": "iter_0067/executor_iteration_report.md Command Trace: --max-cells 192 --seed 67; log 'cells=192'",
+   "seed": 67,
+   "max_cells": 192,
+   "max_genes": 512,
+   "n_obs_extraction_h5ad": 8000,
+   "n_cells": 192,
+   "subsetting": null,
+   "G": 8143,
+   "emb_G": 8143,
+   "extraction_axis_equals_context_axis": true,
+   "count_layers_identical": true,
+   "count_exact_match": true,
+   "n_genes_differ": 0,
+   "count_sum_reproduced": 98018,
+   "count_sum_saved": 98018,
+   "n_observed": 4780,
+   "observed_mask_equals_count_gt0": true,
+   "nobs_reproduced_equals_cache_ncells": true,
+   "cells_with_nnz_gt_max_genes": 191,
+   "cells_with_tie_at_cutoff": 188,
+   "nnz_median": 1054.5,
+   "nnz_max": 2914,
+   "detected_ge_tokenised_all": true,
+   "n_genes_detected_gt_tokenised": 4536,
+   "edge_axis_check": {
+    "edge_file": true,
+    "n_edge_rows": 29948,
+    "n_gene_index_pairs": 59896,
+    "n_distinct_genes": 2571,
+    "n_index_mismatch": 0
+   },
+   "obs_tables": {
+    "tissue": {
+     "kidney": 186,
+     "cortex of kidney": 6
+    },
+    "tissue_in_publication": {
+     "Kidney": 192
+    },
+    "compartment": {
+     "Epithelium": 152,
+     "Immune": 39,
+     "Endothelium": 1
+    },
+    "broad_cell_class": {
+     "kidney epithelial cell": 152,
+     "lymphocyte of b lineage": 15,
+     "t cell": 13,
+     "myeloid leukocyte": 7,
+     "innate lymphoid cell": 4,
+     "endothelial cell": 1
+    },
+    "donor_id": {
+     "TSP2": 192
+    },
+    "cell_type": {
+     "kidney epithelial cell": 152,
+     "B cell": 15,
+     "CD8-positive, alpha-beta T cell": 9,
+     "macrophage": 6,
+     "natural killer cell": 4,
+     "CD4-positive, alpha-beta T cell": 4,
+     "endothelial cell": 1,
+     "non-classical monocyte": 1
+    }
+   }
+  },
+  "kidney_ckpt_whole_human": {
+   "emb": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_41_claude_topology_hypothesis_screening_autoloop/iterations/iter_0087/kidney_scgpt_whole_human_run/layer_gene_embeddings.npy",
+   "h5ad_context": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/invariant_causal_edges/kidney/processed.h5ad",
+   "h5ad_extraction": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/invariant_causal_edges/kidney/processed.h5ad",
+   "provenance": "iter_0087 report command omits --seed/--max-cells; log says cells=192; seed 87 found by search (see results.json)",
+   "seed": 87,
+   "max_cells": 192,
+   "max_genes": 512,
+   "n_obs_extraction_h5ad": 8000,
+   "n_cells": 192,
+   "subsetting": null,
+   "G": 8143,
+   "emb_G": 8143,
+   "extraction_axis_equals_context_axis": true,
+   "count_layers_identical": true,
+   "count_exact_match": true,
+   "n_genes_differ": 0,
+   "count_sum_reproduced": 97904,
+   "count_sum_saved": 97904,
+   "n_observed": 4923,
+   "observed_mask_equals_count_gt0": true,
+   "nobs_reproduced_equals_cache_ncells": true,
+   "cells_with_nnz_gt_max_genes": 188,
+   "cells_with_tie_at_cutoff": 182,
+   "nnz_median": 998.0,
+   "nnz_max": 2997,
+   "detected_ge_tokenised_all": true,
+   "n_genes_detected_gt_tokenised": 4638,
+   "edge_axis_check": {
+    "edge_file": true,
+    "n_edge_rows": 29948,
+    "n_gene_index_pairs": 59896,
+    "n_distinct_genes": 2571,
+    "n_index_mismatch": 0
+   },
+   "obs_tables": {
+    "tissue": {
+     "kidney": 185,
+     "cortex of kidney": 7
+    },
+    "tissue_in_publication": {
+     "Kidney": 192
+    },
+    "compartment": {
+     "Epithelium": 154,
+     "Immune": 36,
+     "Endothelium": 2
+    },
+    "broad_cell_class": {
+     "kidney epithelial cell": 154,
+     "t cell": 15,
+     "lymphocyte of b lineage": 15,
+     "myeloid leukocyte": 4,
+     "innate lymphoid cell": 2,
+     "endothelial cell": 2
+    },
+    "donor_id": {
+     "TSP2": 192
+    },
+    "cell_type": {
+     "kidney epithelial cell": 154,
+     "B cell": 15,
+     "CD4-positive, alpha-beta T cell": 8,
+     "CD8-positive, alpha-beta T cell": 6,
+     "macrophage": 4,
+     "natural killer cell": 2,
+     "endothelial cell": 2,
+     "T cell": 1
+    }
+   }
+  },
+  "kidney_ckpt_kidney": {
+   "emb": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_41_claude_topology_hypothesis_screening_autoloop/iterations/iter_0087/kidney_scgpt_kidney_run/layer_gene_embeddings.npy",
+   "h5ad_context": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/invariant_causal_edges/kidney/processed.h5ad",
+   "h5ad_extraction": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/invariant_causal_edges/kidney/processed.h5ad",
+   "provenance": "as kidney_ckpt_whole_human",
+   "seed": 87,
+   "max_cells": 192,
+   "max_genes": 512,
+   "n_obs_extraction_h5ad": 8000,
+   "n_cells": 192,
+   "subsetting": null,
+   "G": 8143,
+   "emb_G": 8143,
+   "extraction_axis_equals_context_axis": true,
+   "count_layers_identical": true,
+   "count_exact_match": true,
+   "n_genes_differ": 0,
+   "count_sum_reproduced": 97904,
+   "count_sum_saved": 97904,
+   "n_observed": 4923,
+   "observed_mask_equals_count_gt0": true,
+   "nobs_reproduced_equals_cache_ncells": true,
+   "cells_with_nnz_gt_max_genes": 188,
+   "cells_with_tie_at_cutoff": 182,
+   "nnz_median": 998.0,
+   "nnz_max": 2997,
+   "detected_ge_tokenised_all": true,
+   "n_genes_detected_gt_tokenised": 4638,
+   "edge_axis_check": {
+    "edge_file": true,
+    "n_edge_rows": 29948,
+    "n_gene_index_pairs": 59896,
+    "n_distinct_genes": 2571,
+    "n_index_mismatch": 0
+   },
+   "obs_tables": {
+    "tissue": {
+     "kidney": 185,
+     "cortex of kidney": 7
+    },
+    "tissue_in_publication": {
+     "Kidney": 192
+    },
+    "compartment": {
+     "Epithelium": 154,
+     "Immune": 36,
+     "Endothelium": 2
+    },
+    "broad_cell_class": {
+     "kidney epithelial cell": 154,
+     "t cell": 15,
+     "lymphocyte of b lineage": 15,
+     "myeloid leukocyte": 4,
+     "innate lymphoid cell": 2,
+     "endothelial cell": 2
+    },
+    "donor_id": {
+     "TSP2": 192
+    },
+    "cell_type": {
+     "kidney epithelial cell": 154,
+     "B cell": 15,
+     "CD4-positive, alpha-beta T cell": 8,
+     "CD8-positive, alpha-beta T cell": 6,
+     "macrophage": 4,
+     "natural killer cell": 2,
+     "endothelial cell": 2,
+     "T cell": 1
+    }
+   }
+  },
+  "kidney_ckpt_brain": {
+   "emb": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_41_claude_topology_hypothesis_screening_autoloop/iterations/iter_0087/kidney_scgpt_brain_run/layer_gene_embeddings.npy",
+   "h5ad_context": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/invariant_causal_edges/kidney/processed.h5ad",
+   "h5ad_extraction": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/invariant_causal_edges/kidney/processed.h5ad",
+   "provenance": "as kidney_ckpt_whole_human",
+   "seed": 87,
+   "max_cells": 192,
+   "max_genes": 512,
+   "n_obs_extraction_h5ad": 8000,
+   "n_cells": 192,
+   "subsetting": null,
+   "G": 8143,
+   "emb_G": 8143,
+   "extraction_axis_equals_context_axis": true,
+   "count_layers_identical": true,
+   "count_exact_match": true,
+   "n_genes_differ": 0,
+   "count_sum_reproduced": 97904,
+   "count_sum_saved": 97904,
+   "n_observed": 4923,
+   "observed_mask_equals_count_gt0": true,
+   "nobs_reproduced_equals_cache_ncells": true,
+   "cells_with_nnz_gt_max_genes": 188,
+   "cells_with_tie_at_cutoff": 182,
+   "nnz_median": 998.0,
+   "nnz_max": 2997,
+   "detected_ge_tokenised_all": true,
+   "n_genes_detected_gt_tokenised": 4638,
+   "edge_axis_check": {
+    "edge_file": true,
+    "n_edge_rows": 29948,
+    "n_gene_index_pairs": 59896,
+    "n_distinct_genes": 2571,
+    "n_index_mismatch": 0
+   },
+   "obs_tables": {
+    "tissue": {
+     "kidney": 185,
+     "cortex of kidney": 7
+    },
+    "tissue_in_publication": {
+     "Kidney": 192
+    },
+    "compartment": {
+     "Epithelium": 154,
+     "Immune": 36,
+     "Endothelium": 2
+    },
+    "broad_cell_class": {
+     "kidney epithelial cell": 154,
+     "t cell": 15,
+     "lymphocyte of b lineage": 15,
+     "myeloid leukocyte": 4,
+     "innate lymphoid cell": 2,
+     "endothelial cell": 2
+    },
+    "donor_id": {
+     "TSP2": 192
+    },
+    "cell_type": {
+     "kidney epithelial cell": 154,
+     "B cell": 15,
+     "CD4-positive, alpha-beta T cell": 8,
+     "CD8-positive, alpha-beta T cell": 6,
+     "macrophage": 4,
+     "natural killer cell": 2,
+     "endothelial cell": 2,
+     "T cell": 1
+    }
+   }
+  },
+  "lung": {
+   "emb": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_38_geometric_residual_stream_interpretability/implementation/outputs/cycle6_lung_main/layer_gene_embeddings.npy",
+   "h5ad_context": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/invariant_causal_edges/lung/processed.h5ad",
+   "h5ad_extraction": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/invariant_causal_edges/lung/processed.h5ad",
+   "provenance": "subproject_38/implementation/README.md (Reproduction commands): 'Cross-domain (lung) main run' --seed 42 --max-cells 256",
+   "seed": 42,
+   "max_cells": 256,
+   "max_genes": 512,
+   "n_obs_extraction_h5ad": 15000,
+   "n_cells": 256,
+   "subsetting": null,
+   "G": 8181,
+   "emb_G": 8181,
+   "extraction_axis_equals_context_axis": true,
+   "count_layers_identical": true,
+   "count_exact_match": true,
+   "n_genes_differ": 0,
+   "count_sum_reproduced": 130629,
+   "count_sum_saved": 130629,
+   "n_observed": 5648,
+   "observed_mask_equals_count_gt0": true,
+   "nobs_reproduced_equals_cache_ncells": true,
+   "cells_with_nnz_gt_max_genes": 249,
+   "cells_with_tie_at_cutoff": 223,
+   "nnz_median": 1668.0,
+   "nnz_max": 3203,
+   "detected_ge_tokenised_all": true,
+   "n_genes_detected_gt_tokenised": 5338,
+   "edge_axis_check": {
+    "edge_file": true,
+    "n_edge_rows": 32780,
+    "n_gene_index_pairs": 65560,
+    "n_distinct_genes": 2774,
+    "n_index_mismatch": 0
+   },
+   "obs_tables": {
+    "tissue": {
+     "lung": 256
+    },
+    "tissue_in_publication": {
+     "Lung": 256
+    },
+    "compartment": {
+     "Epithelium": 117,
+     "Immune": 108,
+     "Stromal": 20,
+     "Endothelium": 11
+    },
+    "broad_cell_class": {
+     "myeloid leukocyte": 87,
+     "epithelial cell of lung": 84,
+     "epithelial cell": 22,
+     "adventitial cell": 13,
+     "endothelial cell": 11,
+     "t cell": 11,
+     "ciliated epithelial cell": 7,
+     "granulocyte": 7,
+     "fibroblast": 6,
+     "glandular epithelial cell": 2,
+     "lymphocyte of b lineage": 2,
+     "dendritic cell": 1,
+     "contractile cell": 1,
+     "meso-epithelial cell": 1,
+     "endo-epithelial cell": 1
+    },
+    "donor_id": {
+     "TSP1": 107,
+     "TSP14": 68,
+     "TSP25": 67,
+     "TSP2": 14
+    },
+    "cell_type": {
+     "macrophage": 76,
+     "pulmonary alveolar type 2 cell": 52,
+     "pulmonary alveolar type 1 cell": 32,
+     "basal cell": 22,
+     "adventitial cell": 13,
+     "lung multiciliated epithelial cell": 7,
+     "capillary endothelial cell": 6,
+     "CD4-positive, alpha-beta T cell": 6,
+     "alveolar adventitial fibroblast": 6,
+     "basophil": 6,
+     "CD8-positive, alpha-beta T cell": 5,
+     "classical monocyte": 5,
+     "intermediate monocyte": 4,
+     "vein endothelial cell": 3,
+     "respiratory tract goblet cell": 2,
+     "B cell": 2,
+     "non-classical monocyte": 2,
+     "myeloid dendritic cell": 1,
+     "neutrophil": 1,
+     "endothelial cell of artery": 1,
+     "bronchial smooth muscle cell": 1,
+     "endothelial cell of lymphatic vessel": 1,
+     "mesothelial cell": 1,
+     "club cell": 1
+    }
+   }
+  },
+  "lung_external": {
+   "emb": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_38_geometric_residual_stream_interpretability/implementation/outputs/cycle7_external_lung_main/layer_gene_embeddings.npy",
+   "h5ad_context": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/invariant_causal_edges/external_lung/processed.h5ad",
+   "h5ad_extraction": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/invariant_causal_edges/external_lung/processed.h5ad",
+   "provenance": "research_log.md Cycle 7 cycle7_external_lung_main (seed42 per Cycle 11 'seed42/43/44' naming; no command recorded)",
+   "seed": 42,
+   "max_cells": 256,
+   "max_genes": 512,
+   "n_obs_extraction_h5ad": 9000,
+   "n_cells": 256,
+   "subsetting": null,
+   "G": 8229,
+   "emb_G": 8229,
+   "extraction_axis_equals_context_axis": true,
+   "count_layers_identical": true,
+   "count_exact_match": true,
+   "n_genes_differ": 0,
+   "count_sum_reproduced": 128239,
+   "count_sum_saved": 128239,
+   "n_observed": 5616,
+   "observed_mask_equals_count_gt0": true,
+   "nobs_reproduced_equals_cache_ncells": true,
+   "cells_with_nnz_gt_max_genes": 220,
+   "cells_with_tie_at_cutoff": 122,
+   "nnz_median": 935.0,
+   "nnz_max": 2187,
+   "detected_ge_tokenised_all": true,
+   "n_genes_detected_gt_tokenised": 5186,
+   "edge_axis_check": {
+    "edge_file": true,
+    "n_edge_rows": 30016,
+    "n_gene_index_pairs": 60032,
+    "n_distinct_genes": 2573,
+    "n_index_mismatch": 0
+   },
+   "obs_tables": {
+    "tissue": {
+     "lung": 230,
+     "blood": 26
+    },
+    "tissue_in_publication": null,
+    "compartment": {
+     "epithelial": 103,
+     "immune": 71,
+     "endothelial": 44,
+     "stromal": 38
+    },
+    "broad_cell_class": null,
+    "donor_id": {
+     "1": 131,
+     "2": 88,
+     "3": 37
+    },
+    "cell_type": {
+     "natural killer cell": 26,
+     "pulmonary alveolar type 2 cell": 24,
+     "endothelial cell": 23,
+     "club cell": 23,
+     "lung multiciliated epithelial cell": 20,
+     "capillary endothelial cell": 19,
+     "pericyte": 15,
+     "naive thymus-derived CD8-positive, alpha-beta T cell": 14,
+     "bronchial smooth muscle cell": 13,
+     "lung goblet cell": 10,
+     "fibroblast": 9,
+     "epithelial cell": 9,
+     "pulmonary alveolar type 1 cell": 7,
+     "classical monocyte": 6,
+     "B cell": 6,
+     "respiratory basal cell": 6,
+     "neutrophil": 6,
+     "effector memory CD8-positive, alpha-beta T cell": 5,
+     "effector memory CD4-positive, alpha-beta T cell": 4,
+     "pulmonary neuroendocrine cell": 4,
+     "vein endothelial cell": 2,
+     "naive thymus-derived CD4-positive, alpha-beta T cell": 1,
+     "vascular associated smooth muscle cell": 1,
+     "intermediate monocyte": 1,
+     "lymphocyte": 1,
+     "alveolar macrophage": 1
+    }
+   }
+  }
+ },
+ "overlaps": [
+  {
+   "a": "immune",
+   "b": "immune_seed43",
+   "how": "obs_names (immune h5ad)",
+   "same_h5ad": true,
+   "n_a": 256,
+   "n_b": 256,
+   "n_shared": 4,
+   "jaccard": 0.0078740157480314,
+   "n_a_in_b_population": 256,
+   "expected_shared_if_independent": 3.2768,
+   "p_hypergeom_ge_observed": 0.4153018700338028
+  },
+  {
+   "a": "immune",
+   "b": "immune_seed44",
+   "how": "obs_names (immune h5ad)",
+   "same_h5ad": true,
+   "n_a": 256,
+   "n_b": 256,
+   "n_shared": 8,
+   "jaccard": 0.0158730158730158,
+   "n_a_in_b_population": 256,
+   "expected_shared_if_independent": 3.2768,
+   "p_hypergeom_ge_observed": 0.017635439988126198
+  },
+  {
+   "a": "immune",
+   "b": "immune_TSP14",
+   "how": "obs_names (immune h5ad)",
+   "same_h5ad": true,
+   "n_a": 256,
+   "n_b": 256,
+   "n_shared": 5,
+   "jaccard": 0.009861932938856,
+   "n_a_in_b_population": 66,
+   "expected_shared_if_independent": 3.743851096831376,
+   "p_hypergeom_ge_observed": 0.3192684839756726
+  },
+  {
+   "a": "immune",
+   "b": "immune_TSP21",
+   "how": "obs_names (immune h5ad)",
+   "same_h5ad": true,
+   "n_a": 256,
+   "n_b": 256,
+   "n_shared": 3,
+   "jaccard": 0.005893909626719,
+   "n_a_in_b_population": 39,
+   "expected_shared_if_independent": 3.097735029475644,
+   "p_hypergeom_ge_observed": 0.6096057847552523
+  },
+  {
+   "a": "immune",
+   "b": "immune_TSP25",
+   "how": "obs_names (immune h5ad)",
+   "same_h5ad": true,
+   "n_a": 256,
+   "n_b": 256,
+   "n_shared": 2,
+   "jaccard": 0.0039215686274509,
+   "n_a_in_b_population": 44,
+   "expected_shared_if_independent": 3.454155167126648,
+   "p_hypergeom_ge_observed": 0.871652911245645
+  },
+  {
+   "a": "immune",
+   "b": "immune_Bcell",
+   "how": "obs_names (immune h5ad)",
+   "same_h5ad": true,
+   "n_a": 256,
+   "n_b": 256,
+   "n_shared": 0,
+   "jaccard": 0.0,
+   "n_a_in_b_population": 50,
+   "expected_shared_if_independent": 3.4024455077086655,
+   "p_hypergeom_ge_observed": 1.0
+  },
+  {
+   "a": "immune",
+   "b": "immune_CD4T",
+   "how": "obs_names (immune h5ad)",
+   "same_h5ad": true,
+   "n_a": 256,
+   "n_b": 256,
+   "n_shared": 3,
+   "jaccard": 0.005893909626719,
+   "n_a_in_b_population": 42,
+   "expected_shared_if_independent": 3.187666765490661,
+   "p_hypergeom_ge_observed": 0.6288747307788713
+  },
+  {
+   "a": "immune",
+   "b": "immune_CD8T",
+   "how": "obs_names (immune h5ad)",
+   "same_h5ad": true,
+   "n_a": 256,
+   "n_b": 256,
+   "n_shared": 7,
+   "jaccard": 0.0138613861386138,
+   "n_a_in_b_population": 35,
+   "expected_shared_if_independent": 3.5178641539065567,
+   "p_hypergeom_ge_observed": 0.05517591790429343
+  },
+  {
+   "a": "immune_seed43",
+   "b": "immune_seed44",
+   "how": "obs_names (immune h5ad)",
+   "same_h5ad": true,
+   "n_a": 256,
+   "n_b": 256,
+   "n_shared": 0,
+   "jaccard": 0.0,
+   "n_a_in_b_population": 256,
+   "expected_shared_if_independent": 3.2768,
+   "p_hypergeom_ge_observed": 1.0
+  },
+  {
+   "a": "kidney_A",
+   "b": "kidney_B",
+   "how": "obs_names (different h5ads)",
+   "same_h5ad": false,
+   "n_a": 256,
+   "n_b": 192,
+   "n_shared": 12,
+   "jaccard": 0.0275229357798165,
+   "n_a_in_b_population": 183,
+   "expected_shared_if_independent": 4.392,
+   "p_hypergeom_ge_observed": 0.0014676946447209586
+  },
+  {
+   "a": "kidney_A",
+   "b": "kidney_ckpt_whole_human",
+   "how": "obs_names (different h5ads)",
+   "same_h5ad": false,
+   "n_a": 256,
+   "n_b": 192,
+   "n_shared": 2,
+   "jaccard": 0.0044843049327354,
+   "n_a_in_b_population": 183,
+   "expected_shared_if_independent": 4.392,
+   "p_hypergeom_ge_observed": 0.9375547932218361
+  },
+  {
+   "a": "kidney_B",
+   "b": "kidney_ckpt_whole_human",
+   "how": "obs_names (kidney_B h5ad)",
+   "same_h5ad": true,
+   "n_a": 192,
+   "n_b": 192,
+   "n_shared": 2,
+   "jaccard": 0.0052356020942408,
+   "n_a_in_b_population": 192,
+   "expected_shared_if_independent": 4.608,
+   "p_hypergeom_ge_observed": 0.9480152797204207
+  },
+  {
+   "a": "lung",
+   "b": "lung_external",
+   "how": "obs_names (different h5ads)",
+   "same_h5ad": false,
+   "n_a": 256,
+   "n_b": 256,
+   "n_shared": 0,
+   "jaccard": 0.0,
+   "n_a_in_b_population": 0,
+   "expected_shared_if_independent": 0.0,
+   "p_hypergeom_ge_observed": NaN
+  }
+ ],
+ "seed_search": {
+  "kidney_ckpt": {
+   "max_cells": 192,
+   "seeds_tested": "0..2000",
+   "seeds_matching": [
+    87
+   ],
+   "max_cells_256_seeds_42_67_87_matching": []
+  }
+ },
+ "kidney_h5ad_file_overlap": {
+  "n_kidney_A_file": 11376,
+  "n_kidney_B_file": 8000,
+  "n_shared_obs_names": 8000,
+  "n_shared_observation_joinid": 8000,
+  "kidney_A_B_var_shared": 2766
+ },
+ "kidney_A_vs_B_drawn_observation_joinid_shared": 12,
+ "kidney_A_vs_B_X_shared_genes_maxabsdiff_32cells": 0.0008616447448730469,
+ "kidney_A_gene_list_txt": {
+  "n_lines": 4318,
+  "n_nonempty": 209,
+  "n_nonempty_in_kidney_A_var": 209,
+  "n_nonempty_line_index_equals_var_position": 209
+ },
+ "all_exact": true,
+ "kidney_A_vs_B_X_on_kidney_B_drawn_cells": {
+  "n_cells": 192,
+  "n_shared_genes": 2766,
+  "frac_entries_exactly_equal": 0.9760766901663052,
+  "max_abs_diff": 0.0008616447448730469,
+  "median_abs_diff_nonzero": 0.0,
+  "same_nonzero_pattern": true,
+  "pearson": 0.9999999985216678,
+  "max_A": 4.155886173248291,
+  "max_B": 4.155886173248291
+ },
+ "whole_file_obs": {
+  "immune": {
+   "path": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/tabula_sapiens_immune_subset_hpn_processed.h5ad",
+   "tissue_in_publication": {
+    "Lymph_Node": 4342,
+    "Blood": 2982,
+    "Spleen": 2408,
+    "Fat": 1785,
+    "Lung": 950,
+    "Thymus": 905,
+    "Bone_Marrow": 898,
+    "Stomach": 774,
+    "Bladder": 623,
+    "Salivary_Gland": 495,
+    "Large_Intestine": 486,
+    "Vasculature": 455,
+    "Small_Intestine": 434,
+    "Liver": 414,
+    "Skin": 359,
+    "Eye": 321,
+    "Trachea": 296,
+    "Tongue": 179,
+    "Mammary": 178,
+    "Muscle": 175,
+    "Prostate": 160,
+    "Uterus": 116,
+    "Pancreas": 100,
+    "Kidney": 67,
+    "Heart": 59,
+    "Ovary": 25,
+    "Ear": 11,
+    "Testis": 3
+   },
+   "donor_id": {
+    "TSP14": 4513,
+    "TSP25": 3261,
+    "TSP21": 3223,
+    "TSP2": 2398,
+    "TSP27": 1934,
+    "TSP7": 1805,
+    "TSP1": 775,
+    "TSP10": 413,
+    "TSP20": 297,
+    "TSP8": 253,
+    "TSP6": 248,
+    "TSP4": 225,
+    "TSP19": 207,
+    "TSP26": 121,
+    "TSP11": 97,
+    "TSP9": 95,
+    "TSP17": 61,
+    "TSP15": 22,
+    "TSP30": 20,
+    "TSP5": 12,
+    "TSP13": 11,
+    "TSP3": 4,
+    "TSP12": 3,
+    "TSP28": 2
+   },
+   "compartment": {
+    "Immune": 20000
+   },
+   "assay": {
+    "10x 3' v3": 17113,
+    "10x 5' v2": 2165,
+    "Smart-seq2": 721,
+    "Smart-seq3": 1
+   }
+  },
+  "kidney_A": {
+   "path": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/tabula_sapiens_processed.h5ad",
+   "tissue_in_publication": {
+    "Kidney": 11376
+   },
+   "donor_id": {
+    "TSP2": 11376
+   },
+   "compartment": {
+    "Epithelium": 9278,
+    "Immune": 1997,
+    "Endothelium": 101
+   },
+   "assay": {
+    "10x 3' v3": 11024,
+    "Smart-seq2": 352
+   }
+  },
+  "kidney_B": {
+   "path": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/invariant_causal_edges/kidney/processed.h5ad",
+   "tissue_in_publication": {
+    "Kidney": 8000
+   },
+   "donor_id": {
+    "TSP2": 8000
+   },
+   "compartment": {
+    "Epithelium": 6402,
+    "Immune": 1529,
+    "Endothelium": 69
+   },
+   "assay": {
+    "10x 3' v3": 7648,
+    "Smart-seq2": 352
+   }
+  },
+  "lung": {
+   "path": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/invariant_causal_edges/lung/processed.h5ad",
+   "tissue_in_publication": {
+    "Lung": 15000
+   },
+   "donor_id": {
+    "TSP1": 5757,
+    "TSP14": 4351,
+    "TSP25": 3985,
+    "TSP2": 907
+   },
+   "compartment": {
+    "Epithelium": 7184,
+    "Immune": 5798,
+    "Stromal": 1026,
+    "Endothelium": 992
+   },
+   "assay": {
+    "10x 3' v3": 12107,
+    "Smart-seq2": 2893
+   }
+  },
+  "lung_external": {
+   "path": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/invariant_causal_edges/external_lung/processed.h5ad",
+   "tissue_in_publication": null,
+   "donor_id": {
+    "1": 3987,
+    "2": 3273,
+    "3": 1740
+   },
+   "compartment": {
+    "epithelial": 3380,
+    "immune": 2109,
+    "endothelial": 1866,
+    "stromal": 1645
+   },
+   "assay": {
+    "Smart-seq2": 9000
+   }
+  }
+ },
+ "token_mask_summary": {
+  "immune": {
+   "tokens": 60719,
+   "detected_entries": 60814,
+   "n_genes_detected_in_any_extraction_cell": 2043,
+   "n_observed": 2039,
+   "n_genes_detected_but_never_tokenised": 4,
+   "frac_detected_entries_tokenised": 0.9984378597033577
+  },
+  "immune_seed43": {
+   "tokens": 61019,
+   "detected_entries": 61271,
+   "n_genes_detected_in_any_extraction_cell": 2085,
+   "n_observed": 2080,
+   "n_genes_detected_but_never_tokenised": 5,
+   "frac_detected_entries_tokenised": 0.9958871244144865
+  },
+  "immune_seed44": {
+   "tokens": 63552,
+   "detected_entries": 63706,
+   "n_genes_detected_in_any_extraction_cell": 1982,
+   "n_observed": 1972,
+   "n_genes_detected_but_never_tokenised": 10,
+   "frac_detected_entries_tokenised": 0.99758264527674
+  },
+  "immune_TSP14": {
+   "tokens": 65865,
+   "detected_entries": 65883,
+   "n_genes_detected_in_any_extraction_cell": 1964,
+   "n_observed": 1964,
+   "n_genes_detected_but_never_tokenised": 0,
+   "frac_detected_entries_tokenised": 0.999726788397614
+  },
+  "immune_TSP21": {
+   "tokens": 60262,
+   "detected_entries": 60265,
+   "n_genes_detected_in_any_extraction_cell": 1765,
+   "n_observed": 1765,
+   "n_genes_detected_but_never_tokenised": 0,
+   "frac_detected_entries_tokenised": 0.999950219862275
+  },
+  "immune_TSP25": {
+   "tokens": 57818,
+   "detected_entries": 58045,
+   "n_genes_detected_in_any_extraction_cell": 1808,
+   "n_observed": 1791,
+   "n_genes_detected_but_never_tokenised": 17,
+   "frac_detected_entries_tokenised": 0.9960892411060385
+  },
+  "immune_Bcell": {
+   "tokens": 51069,
+   "detected_entries": 51069,
+   "n_genes_detected_in_any_extraction_cell": 1398,
+   "n_observed": 1398,
+   "n_genes_detected_but_never_tokenised": 0,
+   "frac_detected_entries_tokenised": 1.0
+  },
+  "immune_CD4T": {
+   "tokens": 49233,
+   "detected_entries": 49233,
+   "n_genes_detected_in_any_extraction_cell": 1465,
+   "n_observed": 1465,
+   "n_genes_detected_but_never_tokenised": 0,
+   "frac_detected_entries_tokenised": 1.0
+  },
+  "immune_CD8T": {
+   "tokens": 53430,
+   "detected_entries": 53430,
+   "n_genes_detected_in_any_extraction_cell": 1595,
+   "n_observed": 1595,
+   "n_genes_detected_but_never_tokenised": 0,
+   "frac_detected_entries_tokenised": 1.0
+  },
+  "kidney_A": {
+   "tokens": 109548,
+   "detected_entries": 113491,
+   "n_genes_detected_in_any_extraction_cell": 2009,
+   "n_observed": 1972,
+   "n_genes_detected_but_never_tokenised": 37,
+   "frac_detected_entries_tokenised": 0.9652571569551771
+  },
+  "kidney_B": {
+   "tokens": 98018,
+   "detected_entries": 209673,
+   "n_genes_detected_in_any_extraction_cell": 5873,
+   "n_observed": 4780,
+   "n_genes_detected_but_never_tokenised": 1093,
+   "frac_detected_entries_tokenised": 0.46748031458509204
+  },
+  "kidney_ckpt_whole_human": {
+   "tokens": 97904,
+   "detected_entries": 202946,
+   "n_genes_detected_in_any_extraction_cell": 5976,
+   "n_observed": 4923,
+   "n_genes_detected_but_never_tokenised": 1053,
+   "frac_detected_entries_tokenised": 0.48241404117351416
+  },
+  "kidney_ckpt_kidney": {
+   "tokens": 97904,
+   "detected_entries": 202946,
+   "n_genes_detected_in_any_extraction_cell": 5976,
+   "n_observed": 4923,
+   "n_genes_detected_but_never_tokenised": 1053,
+   "frac_detected_entries_tokenised": 0.48241404117351416
+  },
+  "kidney_ckpt_brain": {
+   "tokens": 97904,
+   "detected_entries": 202946,
+   "n_genes_detected_in_any_extraction_cell": 5976,
+   "n_observed": 4923,
+   "n_genes_detected_but_never_tokenised": 1053,
+   "frac_detected_entries_tokenised": 0.48241404117351416
+  },
+  "lung": {
+   "tokens": 130629,
+   "detected_entries": 403780,
+   "n_genes_detected_in_any_extraction_cell": 6762,
+   "n_observed": 5648,
+   "n_genes_detected_but_never_tokenised": 1114,
+   "frac_detected_entries_tokenised": 0.3235152805983456
+  },
+  "lung_external": {
+   "tokens": 128239,
+   "detected_entries": 248857,
+   "n_genes_detected_in_any_extraction_cell": 6297,
+   "n_observed": 5616,
+   "n_genes_detected_but_never_tokenised": 681,
+   "frac_detected_entries_tokenised": 0.5153120064936891
+  }
+ },
+ "vocab_check": {
+  "immune": {
+   "checkpoint": "whole-human",
+   "vocab_found": true,
+   "vocab_size": 60697,
+   "G": 4941,
+   "n_missing": 0
+  },
+  "immune_seed43": {
+   "checkpoint": "whole-human",
+   "vocab_found": true,
+   "vocab_size": 60697,
+   "G": 4941,
+   "n_missing": 0
+  },
+  "immune_seed44": {
+   "checkpoint": "whole-human",
+   "vocab_found": true,
+   "vocab_size": 60697,
+   "G": 4941,
+   "n_missing": 0
+  },
+  "immune_TSP14": {
+   "checkpoint": "whole-human",
+   "vocab_found": true,
+   "vocab_size": 60697,
+   "G": 4941,
+   "n_missing": 0
+  },
+  "immune_TSP21": {
+   "checkpoint": "whole-human",
+   "vocab_found": true,
+   "vocab_size": 60697,
+   "G": 4941,
+   "n_missing": 0
+  },
+  "immune_TSP25": {
+   "checkpoint": "whole-human",
+   "vocab_found": true,
+   "vocab_size": 60697,
+   "G": 4941,
+   "n_missing": 0
+  },
+  "immune_Bcell": {
+   "checkpoint": "whole-human",
+   "vocab_found": true,
+   "vocab_size": 60697,
+   "G": 4941,
+   "n_missing": 0
+  },
+  "immune_CD4T": {
+   "checkpoint": "whole-human",
+   "vocab_found": true,
+   "vocab_size": 60697,
+   "G": 4941,
+   "n_missing": 0
+  },
+  "immune_CD8T": {
+   "checkpoint": "whole-human",
+   "vocab_found": true,
+   "vocab_size": 60697,
+   "G": 4941,
+   "n_missing": 0
+  },
+  "kidney_A": {
+   "checkpoint": "whole-human",
+   "vocab_found": true,
+   "vocab_size": 60697,
+   "G": 4803,
+   "n_missing": 0
+  },
+  "kidney_B": {
+   "checkpoint": "whole-human",
+   "vocab_found": true,
+   "vocab_size": 60697,
+   "G": 8143,
+   "n_missing": 0
+  },
+  "kidney_ckpt_whole_human": {
+   "checkpoint": "whole-human",
+   "vocab_found": true,
+   "vocab_size": 60697,
+   "G": 8143,
+   "n_missing": 0
+  },
+  "kidney_ckpt_kidney": {
+   "checkpoint": "kidney",
+   "vocab_found": true,
+   "vocab_size": 60697,
+   "G": 8143,
+   "n_missing": 0
+  },
+  "kidney_ckpt_brain": {
+   "checkpoint": "brain",
+   "vocab_found": true,
+   "vocab_size": 60697,
+   "G": 8143,
+   "n_missing": 0
+  },
+  "lung": {
+   "checkpoint": "whole-human",
+   "vocab_found": true,
+   "vocab_size": 60697,
+   "G": 8181,
+   "n_missing": 0
+  },
+  "lung_external": {
+   "checkpoint": "whole-human",
+   "vocab_found": true,
+   "vocab_size": 60697,
+   "G": 8229,
+   "n_missing": 0
+  }
+ },
+ "run_order": [
+  "a2_axis_verification.py",
+  "a2_supplement.py",
+  "a2_token_masks.py",
+  "a2_vocab_check.py",
+  "a2_merge.py",
+  "a2_cross_file_overlap.py"
+ ],
+ "cross_file_overlap": [
+  {
+   "a": "immune",
+   "b": "kidney_A",
+   "file_shared_obs_names": 67,
+   "file_shared_joinid": 67,
+   "drawn_shared_obs_names": 0,
+   "drawn_shared_joinid": 0
+  },
+  {
+   "a": "immune",
+   "b": "kidney_B",
+   "file_shared_obs_names": 50,
+   "file_shared_joinid": 50,
+   "drawn_shared_obs_names": 0,
+   "drawn_shared_joinid": 0
+  },
+  {
+   "a": "immune",
+   "b": "lung",
+   "file_shared_obs_names": 171,
+   "file_shared_joinid": 171,
+   "drawn_shared_obs_names": 0,
+   "drawn_shared_joinid": 0
+  },
+  {
+   "a": "immune",
+   "b": "lung_external",
+   "file_shared_obs_names": 0,
+   "file_shared_joinid": 0,
+   "drawn_shared_obs_names": 0,
+   "drawn_shared_joinid": 0
+  },
+  {
+   "a": "kidney_A",
+   "b": "kidney_B",
+   "file_shared_obs_names": 8000,
+   "file_shared_joinid": 8000,
+   "drawn_shared_obs_names": 12,
+   "drawn_shared_joinid": 12
+  },
+  {
+   "a": "kidney_A",
+   "b": "lung",
+   "file_shared_obs_names": 0,
+   "file_shared_joinid": 0,
+   "drawn_shared_obs_names": 0,
+   "drawn_shared_joinid": 0
+  },
+  {
+   "a": "kidney_A",
+   "b": "lung_external",
+   "file_shared_obs_names": 0,
+   "file_shared_joinid": 0,
+   "drawn_shared_obs_names": 0,
+   "drawn_shared_joinid": 0
+  },
+  {
+   "a": "kidney_B",
+   "b": "lung",
+   "file_shared_obs_names": 0,
+   "file_shared_joinid": 0,
+   "drawn_shared_obs_names": 0,
+   "drawn_shared_joinid": 0
+  },
+  {
+   "a": "kidney_B",
+   "b": "lung_external",
+   "file_shared_obs_names": 0,
+   "file_shared_joinid": 0,
+   "drawn_shared_obs_names": 0,
+   "drawn_shared_joinid": 0
+  },
+  {
+   "a": "lung",
+   "b": "lung_external",
+   "file_shared_obs_names": 0,
+   "file_shared_joinid": 0,
+   "drawn_shared_obs_names": 0,
+   "drawn_shared_joinid": 0
+  }
+ ]
+}

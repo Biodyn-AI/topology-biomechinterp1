@@ -1,0 +1,242 @@
+"""E9 / A6 step 5 -- claims ledger for the preprint (arXiv:2602.22247, research_paper_v2.tex).
+
+One row per numeric headline claim (abstract, Results, tables). Provenance columns are a reading of the
+source iteration's files (see S2_hypotheses.csv); recomputed values are read from claims_recompute.json
+(04_claims_recompute.py) and S2 / audit files -- nothing is typed in by hand except the preprint's own value.
+"""
+from __future__ import annotations
+import json
+from pathlib import Path
+import numpy as np, pandas as pd
+
+HERE = Path(__file__).resolve().parent
+R = json.loads((HERE / "claims_recompute.json").read_text())
+A = json.loads((HERE / "audit_409.json").read_text())
+S2 = pd.read_csv(HERE / "S2_hypotheses.csv")
+
+def f(x, d=3):
+    return "n/a" if x is None else (f"{x:.{d}f}" if isinstance(x, float) else str(x))
+def pe(x):
+    return f"{x:.2e}"
+
+def mult(src):
+    """round-2 multiplicity status of the source record(s) 'iter_0056/H01;...'"""
+    out = []
+    for s in src.split(";"):
+        if "/" not in s: continue
+        it, hid = s.split("/")
+        r = S2[(S2.iteration == it) & (S2.hypothesis_id == hid)]
+        if r.empty: out.append(f"{s}: not a screen record"); continue
+        r = r.iloc[0]
+        if r.in_183:
+            out.append(f"{s}: p_r2={r.primary_p_round2} BH={r.bh_pass_round2} Bonf={r.bonferroni_pass_round2}")
+        else:
+            out.append(f"{s}: not in 183")
+    return " | ".join(out) if out else "n/a"
+
+K = R["gene_counts_kidney_A"]; PC = R["pair_counts_209"]; CP = R["copole_kidney_A_209"]; FK = R["full_spectra_kidney_A"]
+GO = R["sv1_go_kidney_A_L11"]; SS = R["subset_spectra_kidney_A"]; CT = R["celltype_kidney_A"]; BK = R["bcell_kidney_A"]
+SI = R["spectra_immune_iter46"]; TW = R["twonn_immune_iter45"]; LI = R["labels_immune"]; TF = R["tf_target_immune_iter56"]
+CS = R["tf_target_cross_seed_iter57"]; ED = R["edge_immune_iter62"]; RS = R["residualised_immune_iter51_52"]["by_coord"]
+GC = R["gc_immune_iter42"]; SZ = R["screen_size"]; SP = R["spearman_n5_exact"]
+REB = pd.read_csv(HERE.parents[1] / "revision2_experiments/headline_rebuilt.csv")
+def reb_layers(prefix):
+    r = REB[REB.claim.str.match(prefix + r"_L\d+$")]
+    return int((r.p < 0.05).sum()), len(r), float(r.p.min())
+TRL = reb_layers("SV2_TRRUST_copole"); STL = reb_layers("SV2_STRING_copole")
+H2 = pd.read_csv(HERE.parents[1] / "revision2_experiments/headline_audit_round2.csv")
+h2_surv = H2[H2.bonferroni_round2].headline.tolist()
+h2_exact = [h for h in h2_surv if h != "string_confidence_gradient"]
+h2_exact_nostouffer = [h for h in h2_exact if h != "TF_vs_target_AUROC_joint"]
+t209, m195, o187 = SS["per_layer"]["true209"], SS["per_layer"]["mis195"], SS["per_layer"]["true187_observed"]
+edl = pd.DataFrame(ED["per_layer"]); tfl = pd.DataFrame(TF["per_layer"])
+ctl = CT["own_convention_true_mapping"]; ct64 = CT["same_in_float64"]; ctobs = CT["observed_variant_drop_zero_rows"]
+
+KID = "kidney_A = cycle1_main (TS KIDNEY; preprint says immune)"
+IMM = "immune = cycle4_immune_main (TS immune)"
+SUB209 = "subset-fitted SVD of the 209 edge-dataset genes at true rows (22 all-zero rows included)"
+MIS = "subset-fitted SVD of rows 0-208 (misaligned labels; 14 zero rows dropped -> '195')"
+OBS = "observed non-zero rows only (2,039), mean-centred (= stats3.svd_observed)"
+FULLZ = "full matrix incl. all-zero rows, mean-centred"
+
+rows = []
+def add(cid, claim, pre, where, src, matrix, svd, genes, nperm, recomputed, status, observed="", notes=""):
+    rows.append(dict(claim_id=cid, claim=claim, preprint_value=pre, preprint_location=where, source_iterations=src,
+                     matrix_and_true_tissue=matrix, svd_convention=svd, gene_label_set=genes, n_perm=nperm,
+                     recomputed_own_convention=recomputed, reproduces=status, observed_convention_contrast=observed,
+                     notes=notes, multiplicity_round2=mult(src)))
+
+add("C01", "Size of the screen", "63 iterations; 183 hypotheses; 13 families", "Abstract; Intro; Methods; Table S6",
+    "iterations/iter_0001-0063", "n/a", "n/a", "n/a", "n/a",
+    f"{SZ['records_iter_1_63']} records in {SZ['iterations_with_json_1_63']} JSON files ({SZ['iteration_dirs_1_63']} iteration dirs; iter_0001 and iter_0003 have no JSON); "
+    f"{len(SZ['json_families_1_63'])} JSON families", "yes (183/63); no (families: 8 in the JSON, 13 is the preprint's own regrouping)",
+    notes="Across ALL iterations: 409 JSON records in 137 files (136 of the 139 iteration folders iter_0001-0139 -- iter_0001, 0003 and 0139 have none -- plus the aborted duplicate run iter_0064_incomplete_20260225_153100, 3 records), 15 JSON families; see S2/S1.")
+add("C02", "Effective-rank collapse", "23.6 (L0) -> 1.6 (L11), 14.4-fold, 'computed on the full 4,803-gene vocabulary'", "Results 2.1; Discussion; Table S6",
+    "iter_0046/H02", f"{IMM} -- NOT the 4,803-gene matrix", "random 2,000-row subsample of the 4,941 rows (zero rows included; ~59% of sampled rows all-zero), p_i = s_i^2/sum s^2", "2,000 random genes", "n/a",
+    f"50 random subsamples: L0 {f(SI['subsample50']['L0']['er_mean'],2)} [{f(SI['subsample50']['L0']['er_min'],2)}-{f(SI['subsample50']['L0']['er_max'],2)}], "
+    f"L11 {f(SI['subsample50']['L11']['er_mean'],2)}; fold {f(SI['fold_er_subsample_mean'],1)}; full 4,941 rows: {f(SI['full4941_zero_rows']['L0']['er_sq'],2)}->{f(SI['full4941_zero_rows']['L11']['er_sq'],2)} ({f(SI['fold_er_full4941'],1)}-fold); "
+    f"kidney_A full 4,803 rows (what the text says): {f(FK['legacy_full_zero'][0]['er_sq'],2)}->{f(FK['legacy_full_zero'][1]['er_sq'],2)} ({f(FK['fold_er_sq_legacy'],1)}-fold)",
+    "yes on immune subsample (approx.; seed unknown); no on the matrix the text names",
+    observed=f"immune observed 2,039 rows: {f(SI['observed_variant']['L0']['er_sq'],1)}->{f(SI['observed_variant']['L11']['er_sq'],1)} ({f(SI['fold_er_sq_observed'],2)}-fold)",
+    notes="iter_0047 H01 itself wrote: 'SVD eff_rank: L0=236.3 -> L11=48.4 (4.9x collapse, corrects prior 14x claim)'. The preprint kept 14.4x.")
+add("C03", "SV1 variance fraction", "93.4% at L11 (53.7% at L0), 'full vocabulary'", "Results 2.1", "iter_0046/H02;iter_0007/H02",
+    f"{IMM} (93.4/53.7 numbers); {KID} gives 93.2/57.2 (iter_0007)", "zero rows included (2,000-row subsample / full matrix)", "2,000 random genes", "n/a",
+    f"immune subsample mean L0 {f(100*SI['subsample50']['L0']['sv1_mean'],1)}%, L11 {f(100*SI['subsample50']['L11']['sv1_mean'],1)}%; kidney_A full 4,803: L0 {f(100*FK['legacy_full_zero'][0]['sv1_frac'],1)}%, L11 {f(100*FK['legacy_full_zero'][1]['sv1_frac'],1)}%",
+    "yes (approx.)", observed=f"immune observed: {f(100*SI['observed_variant']['L0']['sv1_frac'],1)}% -> {f(100*SI['observed_variant']['L11']['sv1_frac'],1)}%; kidney_A observed: {f(100*FK['observed_variant'][0]['sv1_frac'],1)}% -> {f(100*FK['observed_variant'][1]['sv1_frac'],1)}%",
+    notes=f"Full-matrix SV1 is the observed/unobserved axis (kidney_A L11: r = {f(GO['sv1_full_matrix_corr_with_observed_indicator'],4)} with the observed indicator). iter_0047 H02: 'Prior claim of 93.4% for SV1 was dominated by zero vectors.'")
+add("C04", "SV1 variance on the named-gene submatrix", "19% (L0) -> 77% (L11), '195-gene submatrix'", "Results 2.1; Fig. 5a", "iter_0009/H03;iter_0010/H03",
+    KID, SUB209, "209 genes (not 195: the 14 'OOV' exclusion came later, at iter_0030)", "n/a",
+    f"{f(100*t209[0]['sv1_frac'],2)}% -> {f(100*t209[11]['sv1_frac'],2)}%", "yes (on 209 rows incl. 22 zero rows)",
+    observed=f"187 observed named genes: {f(100*o187[0]['sv1_frac'],1)}% -> {f(100*o187[11]['sv1_frac'],1)}%; misaligned '195': {f(100*m195[0]['sv1_frac'],1)}% -> {f(100*m195[11]['sv1_frac'],1)}%",
+    notes="The rise to 77% is driven by the 22 all-zero rows inside the 209 subset.")
+add("C05", "TwoNN intrinsic dimension", "32.6 -> 18.1 (44.6% decrease), 2,000 random genes, three seeds", "Results 2.1; Table S6", "iter_0045/H02;iter_0046/H01",
+    IMM, "not spectral (TwoNN on 2,000 random rows of 4,941, zero rows included)", "2,000 random genes", "n/a (Gaussian / feature-shuffle reference only)",
+    "iter_0042 estimator, seeds 42/0/1: L0 " + "/".join(f(TW['by_seed'][s]['L0'], 1) for s in ('42', '0', '1')) + ", L11 " + "/".join(f(TW['by_seed'][s]['L11'], 1) for s in ('42', '0', '1')),
+    "no (not exactly; seed and estimator of iter_0045 unknown, value depends on the sample: L0 range 27.8-34.4 across 3 seeds)",
+    notes="'Three random seeds' in the preprint = three 256-cell extractions (cycle4 main/seed43/seed44, iter_0046 H01), not three gene samples.")
+add("C06", "Participation ratio", "58 -> 9.5 (6.1-fold), '195-gene submatrix'", "Results 2.1", "iter_0031/H03",
+    KID, MIS, "'195 in-vocab' = rows 0-208 minus 14 zero rows: labels are NOT on their genes' rows", "n/a",
+    f"{f(m195[0]['pr'],2)} -> {f(m195[11]['pr'],2)} (misaligned rows, as executed)", "yes (exactly, on the misaligned rows)",
+    observed=f"true 187 observed named genes: {f(o187[0]['pr'],2)} -> {f(o187[11]['pr'],2)}", notes="Defect D3 (gene-row misalignment) applies; the number is a property of 195 arbitrary kidney rows.")
+add("C07", "Feature-shuffle control for effective rank", "ER 28.9 at L11 (17.6x above observed)", "Results 2.1", "iter_0046/H02", IMM,
+    "2,000-row subsample incl. zero rows, columns independently permuted", "2,000 random genes", "1 shuffle (iter); 10 here",
+    f"mean of 10 shuffles: {f(SI['feature_shuffle_L11_er_mean'],1)}", "yes (approx.)")
+add("C08", "SV1 extracellular pole", "GO:0005615 OR = 6.37, p = 2.6e-4 (SV1, L11)", "Results 2.2", "iter_0006/H02", KID,
+    f"{FULLZ} (4,803 rows, 2,831 all-zero)", "209 edge-dataset genes, true rows; top vs bottom 52 by signed U[:,0]; GO terms of size 5-200 (gene2go_all.pkl)", "n/a (Fisher)",
+    f"OR = {f(GO['GO0005615_top']['OR'],4)}, p = {pe(GO['GO0005615_top']['p'])} ({GO['GO0005615_top']['a']} vs {GO['GO0005615_top']['c']} genes)", "yes (exactly)",
+    observed=f"observed-gene SVD, 187 genes, quartiles: OR = {f(GO['observed_variant']['GO0005615_pos_pole']['OR'],2)}, p = {f(GO['observed_variant']['GO0005615_pos_pole']['p'],2)}",
+    notes=f"All {GO['n_zero_row_genes_in_top52']} never-observed named genes (IL6, CXCL8, MMP9, COL1A1, DCN, INS, ...) sit in the top-52 'extracellular' pole: the enrichment is 'secreted genes are not expressed in the 256 sampled kidney cells' (D2).")
+add("C09", "SV1 cytosolic pole", "GO:0005829 OR = 2.96, p = 0.010", "Results 2.2", "iter_0007/H03", KID, FULLZ, "as C08 (bottom 52)", "n/a (Fisher)",
+    f"OR = {f(GO['GO0005829_bottom']['OR'],3)}, p = {f(GO['GO0005829_bottom']['p'],4)}", "yes (exactly)", notes="Same D2 artefact as C08.")
+add("C10", "SV1 gene-label-shuffle null", "N = 500, empirical p = 0.004", "Results 2.2", "iter_0007/H01", KID, FULLZ, "209 genes", "500",
+    "not recomputed", "not recomputed (null = permuting named genes over rows of a matrix whose SV1 is the zero-row axis; the statistic is the min Fisher p over 296 terms)",
+    notes="Round-2 audit: p=0.004 (record) fails Bonferroni 0.05/183.")
+add("C11", "Compartment transients on SV1", "mito OR 23.3 at L3; ER lumen OR 4.7 -> 18.5 (L1-L11)", "Results 2.2", "iter_0008/H02;iter_0009/H02", KID, SUB209,
+    "209 genes; top/bottom 52", "200-500", "not recomputed", "not recomputed", notes="Same 209-row SVD with 22 zero rows as C04; SV1 there is dominated by the zero-row block.")
+add("C12", "SV2 / compartment enrichments", "SV2 IL-4 emp p<0.001; EV OR 7.99; cytoskeleton OR 20.4", "Results 2.2", "iter_0008/H01;iter_0009/H01;iter_0010/H01", KID, SUB209,
+    "209 genes; K = 52", "200-1,000", "not recomputed", "not recomputed")
+add("C13", "TRRUST co-pole on SV2", "observed 0.206 vs null 0.122; p < 0.001 at all 12 layers", "Results 2.2; Fig. 5b", "iter_0010/H02;iter_0011/H01", KID, SUB209,
+    "326 TRRUST rows (one per PMID) = 288 distinct pairs among 209 genes; K = 52; null = random named-gene pairs", "1,000 (iter_0010); 500/layer (iter_0011)",
+    f"L11 SV2 co-pole = {f(CP['trrust_iter10_L11_sv2'],4)} over {CP['n_trrust_rows']} rows (SV1: {f(CP['trrust_iter10_L11_sv1'],4)})", "yes (0.206)",
+    notes=f"Round-2 re-measurement (revision2_experiments/headline_rebuilt.csv, N = 100,000 label shuffles): p < 0.05 at {TRL[0]}/{TRL[1]} layers (min p = {TRL[2]:.3f}). The '12/12' is iter_0011 (333 rows, random-pair null, N = 500).")
+add("C14", "Sign specificity of TRRUST co-pole", "activation 12/12 layers; repression 1/12", "Results 2.2", "iter_0011/H01", KID, SUB209, "116 activation / 64 repression rows", "500/layer",
+    "not recomputed", "not recomputed", notes="iter_0012 H01 (bootstrap CI on the difference): '0/12 layers 95% CI excludes zero' -- the asymmetry itself was never significant.")
+add("C15", "SV3 signalling axis", "all layers p <= 0.017", "Results 2.2", "iter_0014/H01", KID, SUB209, "209 genes; 594 GO terms", "300", "not recomputed", "not recomputed",
+    notes="Best of 594 terms per pole per layer, with a 300-shuffle null: selection over terms.")
+add("C16", "SV1 stability and annotation-density check", "mean adjacent-layer Spearman r = 0.929; zero annotation-density confounders", "Results 2.2", "iter_0009/H03;iter_0010/H03",
+    KID, SUB209, "209 genes", "200", f"mean adjacent-layer Spearman (raw signs) = {f(SS['sv1_adjacent_mean_raw'],4)}", "yes", notes="On the 209-row SVD whose SV1 is driven by the 22 zero rows.")
+add("C17", "SV1 depleted of TFs", "top-quartile SV1: ~9x fewer TFs, OR = 0.108, p < 1e-4", "Results 2.2", "iter_0051/H02", f"{IMM} (the preprint places it beside kidney_A results)", OBS,
+    "top/bottom 20% of 2,039 by SV1 loading; TF = TRRUST TF among 295 named", "n/a (Fisher)", "not recomputed", "not recomputed",
+    notes="Matrix differs from the SV1 'secretory' claims (C08-C09), which are kidney_A full-matrix SV1: the two 'SV1' objects are different directions of different matrices.")
+add("C18", "Cell-type marker clustering", "AUROC = 0.851 (12/12 layers p < 1e-8); random-partition control 0.488", "Abstract; Results 2.2; Table S6", "iter_0023/H01", KID,
+    "not spectral (unit-sphere L2 distance, full 512-d)", "17 markers present among the 209: T 7, B 5, fibroblast 3, epithelial 2 (preprint says B, T, fibroblast, macrophage)", "control = 1 random partition per layer",
+    f"mean AUROC = {f(ctl['auroc_mean'],4)} (float32, as executed; float64 gives {f(ct64['auroc_mean'],4)})", "yes (exactly in float32)",
+    observed=f"dropping the 3 never-observed markers ({', '.join(ctl['zero_row_markers'])}): mean AUROC {f(ctobs['auroc_mean'],3)} (T and B only)",
+    notes="3 of 17 markers are all-zero rows; DCN-COL1A1 is a within-type pair at distance 0. Round 2: p=0.004 fails Bonferroni.")
+add("C19", "Marker AUROC trend with depth", "slope = +0.036 per layer, r = 0.765, p = 0.004 ('increases with depth')", "Results 2.2", "iter_0023/H01", KID,
+    "not spectral", "as C18", "n/a", f"slope of logit(AUROC) on layer = {f(ctl['slope_logit'],4)}, r = {f(ctl['r'],3)}, p = {f(ctl['p'],4)}",
+    "no -- SIGN REVERSED in the preprint: AUROC DEcreases with depth", notes="The JSON record itself says 'slope=-0.036 (r=-0.765, p=0.004)'.")
+add("C20", "Gene-family clustering", "HLA-I 1.000; AP1 0.969; RUNX 0.925; IL-2 0.869", "Results 2.2; Table S6", "iter_0026/H01", KID, "not spectral", "9 families among the 209; balanced 40/40 pairs; best layer (L8)", "n/a",
+    "not recomputed", "not recomputed", notes="Values are per-family AUROCs at the best of 12 layers.")
+add("C21", "STRING PPI co-pole by axis (Table 1, Table S4)", "1,022 pairs (>= 0.7); SV2 mean 0.226 vs null 0.124 (12/12); SV3 0.198 (12/12); SV1 0.119 (2/12)", "Results 2.3; Tables 1, S4", "iter_0012/H03;iter_0013/H01",
+    KID, SUB209, "209 genes; STRING API network (iter_0012 cache), score >= 0.7, deduplicated; K = 52", "500/layer",
+    f"pairs = {PC['string07_api_cache_dedup']}; mean co-pole SV2 {f(CP['mean_over_layers']['SV2'],3)}, SV3 {f(CP['mean_over_layers']['SV3'],3)}, SV1 {f(CP['mean_over_layers']['SV1'],3)}; SV2 per-layer = Table S4 exactly",
+    "yes for SV2/SV3 and N pairs; no for SV1 (0.128 vs 0.119)",
+    notes=f"{PC['string07_api_both_observed_true']} of the 1,022 pairs have both genes observed. Round-3 local STRING file gives {PC['string07_local_v12_genomewide']} pairs >= 700 on the same 209 genes (see SUMMARY: that file has {R['string_local_file']['n_links']:,} links). Round-2 re-measurement (N = 100,000): SV2 p < 0.05 at {STL[0]}/{STL[1]} layers (min p = {STL[2]:.1e}).")
+add("C22", "SV4 / SV5 PPI co-pole", "SV4 0.158 (7/12); SV5 0.149 (6/12) on 3,092 pairs (>= 0.4)", "Table 1", "iter_0015/H01", KID, SUB209, "3,092 STRING >= 0.4 pairs (iter_0015 cache)", "300/layer",
+    f"pair count = {PC['string04_iter15_cache']}; rates not recomputed", "partly (pair count)", notes="SV5 met the brainstormer's success criterion but was dropped (band_provenance.md).")
+add("C23", "STRING confidence gradient", "quintile z 1.00/1.48/2.09/3.18/5.02; Spearman rho = 1.000, n = 5, p = 0.017", "Abstract; Results 2.3; Table S5", "iter_0015/H02", KID, SUB209, "3,092 pairs in quintiles", "200/quintile/layer",
+    f"exact two-sided p for rho = 1 with n = 5: {f(SP['p_two_sided_exact'],4)}; the record's p = 1.4e-24 is scipy's t-approximation ({pe(SP['scipy_p'])}) at rho = 1", "yes (p = 0.017 is right; the screen's 1.4e-24 is an artefact)",
+    notes=f"Round-2 audit used the record's p = 1.4e-24 and counts this among its {len(h2_surv)} Bonferroni survivors ({', '.join(h2_surv)}); with the exact p = 0.0167 it fails 0.05/183, leaving {len(h2_exact)}; dropping also the Stouffer-combined TF/target p leaves {len(h2_exact_nostouffer)} ({', '.join(h2_exact_nostouffer)}).")
+add("C24", "PPI-only vs GO-only pairs", "PPI-only N = 670, z = 2.66 (12/12); GO-only z = 1.89 (7/12)", "Results 2.3", "iter_0015/H03", KID, SUB209, "median splits of 3,092 pairs", "300", "not recomputed", "not recomputed")
+add("C25", "Hub control", "low-degree z = 3.1 vs hub z = 2.6", "Results 2.3", "iter_0014/H03", KID, SUB209, "138 non-hub vs 2,347 hub edges (STRING >= 0.4)", "300", "not recomputed", "not recomputed",
+    notes="iter_0013 H03 with STRING >= 0.7 found the opposite (hub z = 10.01, non-hub z = 1.43, N = 35 pairs).")
+add("C26", "Orthogonality of SV2-SV4 PPI axes", "pairwise Pearson r < 0.25", "Results 2.3", "iter_0016/H02", KID, SUB209, "per-pair co-pole indicators", "n/a", "not recomputed", "not recomputed")
+add("C27", "TRRUST pairs absent from STRING", "N = 141, AUROC = 0.573, 12/12 layers p < 0.007", "Results 2.3", "iter_0022/H01", KID, "not spectral (unit-sphere L2 distance)", "141 TRRUST-exclusive vs 9,276 non-STRING named pairs", "n/a (MW)", "not recomputed", "not recomputed")
+add("C28", "TF vs target classifier, joint 6-D SV2-7", "AUROC = 0.744 (mean over layers), max 0.789 at L3, all 12 layers p < 0.01 (100 perms); n = 51 TFs vs 144 targets, cosine-to-TF score, 195-gene set", "Abstract; Results 2.4; Table S1", "iter_0056/H01",
+    IMM, OBS + "; features = (U*S)[:,1:7]", f"{LI['n_tf']} TFs vs {LI['n_target_only']} target-only genes (the 295 observed of 361 immune edge-dataset genes), 5-fold stratified logistic regression -- NOT 51/144, NOT cosine-to-TF, NOT the 195 kidney genes", "100",
+    f"mean {f(TF['joint_foldmean_mean'],3)}, max {f(TF['joint_foldmean_max'],3)} (L{TF['joint_foldmean_argmax']}); pooled-OOF mean {f(TF['joint_oof_mean'],3)}; L3 100-perm p = {f(TF['L3_perm_p'],4)} (= floor 1/101)",
+    "yes (approx.; +-0.01, CV split seed unknown)",
+    notes="Permutation floor 1/101 = 0.0099 > 0.05/183, so it cannot pass Bonferroni; round 2 replaced it by a Stouffer combination over layers (invalid: layers are dependent).")
+add("C29", "Joint beats single subspaces; cross-seed", "joint > both in 11/12 layers; cross-seed means 0.744/0.753/0.757 (SD ~0.016)", "Results 2.4; Table S3; Fig. 2", "iter_0056/H01;iter_0057/H01",
+    "immune; immune_seed43; immune_seed44 (independent 256-cell draws)", OBS, "per seed: own observed set and labels", "50-100",
+    f"joint > both in {TF['joint_beats_both_layers']}/12; seed43 mean {f(CS['immune_seed43']['joint_mean'],3)}, seed44 {f(CS['immune_seed44']['joint_mean'],3)}", "yes (approx.)")
+add("C30", "Depth division of labour", "SV5-7 dominates L0-L3 (~0.71); SV2-4 L4-L8 (~0.72)", "Results 2.4; Fig. 1", "iter_0055/H02;iter_0056/H01", IMM, OBS, "as C28", "100",
+    f"SV5-7 L0-3 mean {f(TF['sv57_L0_3_mean'],3)}; SV2-4 L4-8 mean {f(TF['sv24_L4_8_mean'],3)}", "yes (approx.)")
+add("C31", "SV2-4 signal explained by co-expression", "residual non-significant at 0/12 layers", "Results 2.4", "iter_0051/H01", IMM, OBS + "; distances on left-singular-vector coordinates",
+    "589 TRRUST pos vs 1,523 neg pairs (both observed); covariate = cosine of the FULL 512-d EMBEDDINGS (not expression correlation across cells as the preprint states)", "n/a (MW)",
+    f"layers with p < 0.05: {RS['U']['sv24_n_layers_p05']}/12 (L8 rbc = {f(RS['U']['sv24'][8][0],3)}, p = {f(RS['U']['sv24'][8][1],4)})", "no -- 1/12, not 0/12 (the JSON record says 1/12)",
+    notes="The 'co-expression' residualised everywhere in the screen is embedding cosine similarity.")
+add("C32", "SV5-7 regulatory proximity after co-expression residualisation", "r_rb = 0.148, p < 0.001 at L0; 100/100 bootstrap positive", "Results 2.4; Discussion", "iter_0052/H03;iter_0053/H01",
+    IMM, OBS, "as C31", "bootstrap 100 (pairs, not genes)",
+    f"L0 rbc = {f(RS['U']['sv57'][0][0],3)}, L1 {f(RS['U']['sv57'][1][0],3)}, L2 {f(RS['U']['sv57'][2][0],3)}; significant layers {RS['U']['sv57_n_layers_p05']}/12; L5-L11 rbc < 0",
+    "yes (exactly)", notes="Covariate is embedding cosine (see C31); bootstrap resampled edges, not genes.")
+add("C33", "Edge-level TF-target AUROC", "0.602 at L0 (SV5-7); 589 positives vs 2,351 negatives", "Abstract; Results 2.5; Table S2", "iter_0062/H01",
+    IMM, OBS + "; cosine on left-singular-vector (U) coordinates", f"{LI['n_pos_both_observed']} TRRUST pos vs {LI['n_neg_both_observed']} TRRUST-negative candidate pairs (both genes observed) -- NOT 2,351 ({LI['n_rows_other_than_valid_pos']} = all edge rows minus the 589)", "200 (gene-position shuffle)",
+    f"L0 {f(edl.sv57_U_neg1523[0],4)}, L1 {f(edl.sv57_U_neg1523[1],4)} (U coords, 1,523 neg); with U*S: {f(edl.sv57_US_neg1523[0],4)}", "yes (exactly, with 1,523 negatives)",
+    notes="Audit p = 0.045 (regex on 'perm_p<=0.045', the weakest significant layer) fails BH; the report's table gives perm_p = 0.000 at L0-L7 with N = 200 (floor 1/201 = 0.005).")
+add("C34", "Edge AUROC decays with depth", "Spearman rho = -0.958, p = 9.5e-7; L0-L8 significant, L9-L11 not", "Results 2.5; Table S2; Fig. 3", "iter_0062/H01;iter_0062/H02", IMM, OBS, "as C33", "200",
+    f"rho = {f(ED['rho_layer_sv57_U_neg1523'][0],3)}, p = {pe(ED['rho_layer_sv57_U_neg1523'][1])}", "yes (exactly)", notes="A 12-point layer trend; layers are not independent replicates.")
+add("C35", "SV2-4 edge AUROC", "mean 0.492 (near/below chance)", "Results 2.5", "iter_0062/H01", IMM, OBS, "as C33", "200", f"mean {f(ED['sv24_U_neg1523_mean'],3)}", "yes")
+add("C36", "Non-zero embeddings", "constant at 2,039 of the 4,803 vocabulary genes", "Results 2.5", "iter_0062/H02", f"{IMM}: 2,039 of 4,941", "n/a", "n/a", "n/a",
+    f"immune: {R['gene_counts_immune']['n_observed']} of {R['gene_counts_immune']['G']}; kidney_A: {K['n_observed']} of {K['G']}", "no -- 2,039 is the immune count; the 4,803-gene matrix has 1,972",
+    notes="The sentence fuses the two matrices.")
+add("C37", "Repression more separable than activation", "Delta = +0.021 (SV5-7), +0.084 (SV2-4)", "Abstract; Results 2.5; Fig. 4", "iter_0063/H63-G", IMM, OBS, "270 'activation' / 141 'repression' pairs vs random gene pairs", "none",
+    "not recomputed", "not recomputed", notes="No permutation test or interval; 'pending replication' in the preprint's own table.")
+add("C38", "Mechanistic probe", "TF-TF 0.539 / TF-target 0.485 (SV2-4); 0.528 / 0.599 (SV5-7)", "Results 2.5", "iter_0063/H63-A", IMM, OBS, "500 sampled TF-TF pairs; 589 edges", "none", "not recomputed", "not recomputed")
+add("C39", "B-cell kNN clustering", "precision@10 z = 7.55 (p < 0.001); T-cell z = -1.37; DC z = -0.87", "Results 2.6", "iter_0037/H01", KID, "not spectral (Euclidean kNN)", "'195 in-vocab' misaligned rows", "500 bootstrap draws",
+    f"misaligned (as executed): L2 z = {f(BK['precision_own_convention_misaligned']['layers']['L2']['z'],2)}", "yes (exactly, on misaligned rows)",
+    observed="true rows (187 observed): z = " + ", ".join(f"{k} {f(v['z'],2)}" for k, v in BK['precision_true_mapping']['layers'].items()),
+    notes="D3: computed on the wrong rows. With labels on their true rows the B-cell markers still cluster (z 6.3-8.3).")
+add("C40", "B-cell signal not driven by norm", "survives L2-norm regression (residual p = 0.002)", "Results 2.6", "iter_0034/H03", KID, MIS + " (PC1)", "misaligned rows", "1,000 bootstrap", "not recomputed", "not recomputed", notes="D3 applies.")
+add("C41", "BATF/BACH2 convergence to the B-cell centroid", "BATF rank 1,510 -> 189, dist to PAX5 18.3 -> 5.1, rho = -0.972; BACH2 611 -> 146, 17.4 -> 5.2, rho = -0.844", "Abstract; Results 2.6", "iter_0042/H03",
+    IMM, "not spectral (Euclidean distance to marker centroid over all 4,941 rows)", "centroid of MS4A1, CD79A, BLK, PRDM1 (CD19 absent from the axis)", "10 random genes (null)",
+    f"BATF ranks {GC['BATF']['rank_all_rows'][0]} -> {GC['BATF']['rank_all_rows'][11]}, dist {f(GC['BATF']['dist_to_PAX5'][0],2)} -> {f(GC['BATF']['dist_to_PAX5'][11],2)}, rho {f(GC['BATF']['rho_rank_layer'][0],3)}; "
+    f"BACH2 {GC['BACH2']['rank_all_rows'][0]} -> {GC['BACH2']['rank_all_rows'][11]}, {f(GC['BACH2']['dist_to_PAX5'][0],2)} -> {f(GC['BACH2']['dist_to_PAX5'][11],2)}, rho {f(GC['BACH2']['rho_rank_layer'][0],3)}",
+    "yes (exactly)", notes="Ranks are unchanged if the 2,902 zero rows are removed. Preprint lists 7 markers incl. CD19 and PAX5; the executed centroid used 4.")
+add("C42", "PAX5 as stable anchor", "rank ~66 from L0; convergence onset L3", "Results 2.6", "iter_0040/H01;iter_0041/H02", IMM, "not spectral", "as C41", "n/a",
+    f"PAX5 rank (genes closer) L0 = {GC['PAX5_rank_all_rows'][0]}, range {min(GC['PAX5_rank_all_rows'])}-{max(GC['PAX5_rank_all_rows'])}", "yes (65 = 66 - 1)")
+add("C43", "Whole GC circuit converges", "PRDM1 rho = -1.000; BACH2-PRDM1 tightest pair (3.94) at L11", "Results 2.6", "iter_0043/H01", IMM, "not spectral", "PRDM1 is itself one of the centroid markers", "20 random genes",
+    "not recomputed", "not recomputed", notes="The record's decision is 'negative' (prediction was divergence).")
+add("C44", "GC vs plasma programmes diverge", "angle 77 deg (L0) -> 94 deg (L11)", "Abstract; Results 2.6", "iter_0038/H02", KID, "not spectral (centroid geometry)", "'195 in-vocab' misaligned rows",
+    "n/a", "misaligned (as executed): " + f"{f(BK['angle_own_convention_misaligned']['angle_deg'][0],1)} -> {f(BK['angle_own_convention_misaligned']['angle_deg'][11],1)} deg",
+    "yes (exactly, on misaligned rows)", observed="true rows: " + f"{f(BK['angle_true_mapping']['angle_deg'][0],1)} -> {f(BK['angle_true_mapping']['angle_deg'][11],1)} deg (the trend reverses)",
+    notes="D3: the 'divergence toward orthogonality' is a property of arbitrary rows; on the genes' real rows the angle narrows.")
+add("C45", "BCL6 metabolic neighbourhood", "10 of 20 nearest neighbours metabolic at every layer", "Results 2.6", "iter_0041/H02;iter_0042/H02", IMM, "not spectral", "BCL6 kNN over 4,941 rows", "100 random genes", "not recomputed", "not recomputed",
+    notes="The metabolic reference set was defined from BCL6's own neighbourhood (circular).")
+add("C46", "B-cell manifold compression", "TwoNN 8.2 -> 5.1, rho = -0.951; T-cell rho = +0.287 (p = 0.37); myeloid +0.699 (p = 0.011)", "Results 2.6", "iter_0041/H03", IMM, "not spectral (TwoNN on 4 / 9 / 6 genes)", "B-cell n = 4", "n/a",
+    "not recomputed", "not recomputed", notes="TwoNN on 4 points is not a meaningful estimator; the preprint says n = 7.")
+add("C47", "Lineage-specific delay", "T-cell / myeloid TFs start at ranks 170 / 86; GC rho = -0.993 (p < 1e-6)", "Results 2.6", "iter_0041/H01", IMM, "not spectral", "RUNX3 (1 T-cell TF), SPI1/CEBPB", "n/a", "not recomputed", "not recomputed")
+add("C48", "Persistent homology collapses under rewiring", "11/12 layers p < 0.05 (feature shuffle); 0/24 under degree-preserving rewiring", "Results 2.7; Table S6", "historical loop iter_0003-0008 (folders overwritten)",
+    "historical: 'scGPT lung / immune / external-lung' embeddings (reports/autoloop_master_log.md)", "n/a", "unknown", "unknown", "not recomputable", "not recomputable (records not in iterations/)",
+    notes="Not among the 183 records: comes from an earlier loop's iterations whose folders were overwritten.")
+add("C49", "Cross-model alignment partial", "cosine 0.825; permutation p > 0.3", "Results 2.7", "historical loop iter_0003", "historical (scGPT vs Geneformer feature-effect vectors)", "n/a", "unknown", "exact permutation",
+    "not recomputable", "not recomputable (records not in iterations/)", notes="Not among the 183 records.")
+add("C50", "Geneformer static embeddings encode STRING", "p = 7.8e-127", "Results 2.7", "iter_0019/H01", "Geneformer token embeddings (+ kidney_A SV2 for the cross-model correlation)", "n/a", "207 named genes", "n/a (MW)", "not recomputed", "not recomputed")
+add("C51", "Geneformer B-cell structure absent", "precision@10 = 0.000", "Results 2.7", "iter_0040/H02", "Geneformer input embeddings", "n/a", "B-cell centroid without CD19", "200", "not recomputed", "not recomputed")
+add("C52", "ER-AUROC correlation confounded by layer", "rho = 0.855; partial rho = -0.045", "Results 2.7", "iter_0058/H03;iter_0059/H03", "immune; immune_seed43; immune_seed44", OBS, "36 (seed, layer) points", "30", "not recomputed", "not recomputed")
+add("C53", "GO BP not encoded in SV2 poles", "591 terms, zero significant", "Results 2.7", "iter_0011/H03", KID, SUB209, "209 genes; 3 layers", "200", "not recomputed", "not recomputed")
+add("C54", "Feed-forward-loop geometry rejected", "264 FFLs, no significant result after permutation correction", "Results 2.7", "iter_0061/H03", IMM, OBS, "735 positive edges INCLUDING pairs with a never-observed gene", "2,000", "not recomputed", "not recomputed")
+add("C55", "Cross-seed CKA", "0.979 (L0) -> 0.779 (L11)", "Discussion", "iter_0061/H01", "immune; immune_seed43; immune_seed44", "not spectral (linear CKA, 512-d)", "1,496 genes non-zero in all seeds", "n/a", "not recomputed", "not recomputed")
+add("C56", "Attention vs residual geometry", "attention TRRUST 2x (p = 9.9e-9); STRING p = 0.091", "Discussion", "iter_0018/H03",
+    "scGPT ATTENTION matrix from the TS LUNG dataset (8,181 genes) with kidney_A's 209 gene labels", "n/a", "208 named genes mapped into the lung attention matrix", "n/a (MW)", "not recomputed", "not recomputed",
+    notes="Three tissues are involved in the 'same forward passes' comparison: lung attention, kidney residual stream, labels called immune.")
+add("C57", "Graph topology", "clustering coefficient z > 9 at all 36 tests", "Table S6", "iter_0002/H01_graph_topology_cc", "kidney_A; kidney_A_seed43; kidney_A_seed44 (iter_0001 script calls them 'scGPT lung')", "not spectral (PCA-20 kNN)", "300 random genes per seed", "15 feature-shuffle replicates",
+    "not recomputed", "not recomputed", notes="Record result_value = '27.64' (no p). iterations/iter_0001/graph_topology_knn_summary.json (same script, executed for iter_0001) reports n_cc_significant_p05 = 0 of 36 layer tests, verdict 'negative'.")
+add("C58", "TRRUST signed subsets on the edge benchmark", "589 pairs: 270 activation-only, 141 repression-only, 178 mixed/ambiguous", "Methods", "iter_0063/H63-G", IMM, "n/a", "589 TRRUST pairs with both genes observed", "n/a",
+    f"any-Activation {LI['trrust_mode_any']['any_activation']}, any-Repression {LI['trrust_mode_any']['any_repression']} (overlap {LI['trrust_mode_split_alt'].get('both', 0)}); activation-only {LI['trrust_mode_split_alt'].get('activation_no_repression')}, repression-only {LI['trrust_mode_split_alt'].get('repression_no_activation')}, unknown-only {LI['trrust_mode_split_alt'].get('unknown_only')}",
+    "partly: 589 yes; 270/141 are 'any' counts that overlap by 31, so they are not 'only' sets and 178 = 589-270-141 is not a count of anything")
+add("C59", "Named genes", "209 named; 14 OOV (zero norm); 195 in-vocabulary genes used for all biological analyses", "Methods; Limitations", "iter_0030/H04", KID, "n/a", "209 edge-dataset genes", "n/a",
+    f"true rows: {K['n_named_zero_true_mapping']} zero, {K['n_named_observed_true_mapping']} observed; misaligned mapping: {K['n_named_zero_misaligned_mapping']} zero ({', '.join(K['named_zero_misaligned_mapping'])}) -> {K['n_named_nonzero_misaligned_mapping']}",
+    "no -- 195 / 14 OOV are artefacts of the misaligned mapping; truth is 187 observed / 22 never-observed",
+    notes=f"gene_list.txt has {K['gene_list_txt_lines']} lines of which {K['gene_list_txt_nonblank']} are non-blank; line i = h5ad var index i. Dropping blank lines puts label k on row k (0-208); {K['n_labels_on_correct_row_under_misaligned_mapping']} of 209 labels land on their own row. FOS, TNF, PAX5 and HLA-A have non-zero embeddings at their true rows.")
+add("C60", "TRRUST pairs in the named set", "326 TF-target pairs (screen record; the preprint uses the resulting co-pole rate)", "Results 2.2 (via iter_0010)", "iter_0010/H02", KID, "n/a", "209 genes", "n/a",
+    f"{PC['trrust_rows_209_iter10_style']} TRRUST rows = {PC['trrust_distinct_pairs_209']} distinct pairs; {PC['trrust_distinct_pairs_both_observed_true']} with both genes observed", "yes as a row count; 288 distinct pairs",
+    notes="TRRUST lists one row per PMID; 38 pairs are counted more than once.")
+add("C61", "Front-loaded compression", "effective rank below half its initial value by layer 4", "Results 2.1", "iter_0006/H03", KID, SUB209, "209 genes (ER 7.89 -> 1.28 in iter_0005)", "n/a", "not recomputed", "not recomputed",
+    notes="iter_0005/0006 ER is on the 209-row subset, a different matrix from C02's number.")
+
+L = pd.DataFrame(rows)
+L.to_csv(HERE / "E9_claims_ledger.csv", index=False)
+print(L.reproduces.value_counts().to_string())
+print(len(L), "rows")

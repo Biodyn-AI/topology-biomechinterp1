@@ -1,0 +1,17 @@
+{
+ "context": "kidney_A",
+ "tissue": "kidney",
+ "group": "tissue",
+ "note": "4,803-gene HVG axis; the matrix analysed in the submitted version",
+ "emb": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_38_geometric_residual_stream_interpretability/implementation/outputs/cycle1_main/layer_gene_embeddings.npy",
+ "h5ad": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/tabula_sapiens_processed.h5ad",
+ "expr_population": "whole h5ad",
+ "population_size": 11376,
+ "G": 4803,
+ "n_observed": 1972,
+ "n_expr_cells": 3000,
+ "n_trrust": 245,
+ "n_string700": 1390,
+ "n_dorothea_chip_new": 904,
+ "n_any_regulatory": 6726
+}

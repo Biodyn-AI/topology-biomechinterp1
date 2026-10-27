@@ -1,0 +1,17 @@
+{
+ "context": "immune_seed44",
+ "tissue": "immune",
+ "group": "resample",
+ "note": "independent 256-cell draw",
+ "emb": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_38_geometric_residual_stream_interpretability/implementation/outputs/cycle4_immune_seed44/layer_gene_embeddings.npy",
+ "h5ad": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/tabula_sapiens_immune_subset_hpn_processed.h5ad",
+ "expr_population": "whole h5ad",
+ "population_size": 20000,
+ "G": 4941,
+ "n_observed": 1972,
+ "n_expr_cells": 3000,
+ "n_trrust": 577,
+ "n_string700": 1263,
+ "n_dorothea_chip_new": 867,
+ "n_any_regulatory": 8014
+}

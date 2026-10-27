@@ -1,0 +1,7 @@
+file,rows_before,rows_after,old_rows_unmatched,max_abs_diff_old_rows
+lung_w2v.csv,208,234,0,0.0
+lung_paired.csv,204,252,0,0.0
+lung_h1_scgpt.csv,120,120,0,0.0
+immune_w2v.csv,208,234,0,0.0
+immune_paired.csv,204,252,0,0.0
+immune_h1_scgpt.csv,120,120,0,0.0

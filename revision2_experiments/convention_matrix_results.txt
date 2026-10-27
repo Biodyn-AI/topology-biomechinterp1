@@ -1,0 +1,20 @@
+matrix                 nzfilt  svd     dedup  |   nG   nTR   nST  nTF |    OR1  copole  AUROC
+--------------------------------------------------------------------------------------------------------
+cycle1_main(4803)      False   subset  True   |  209   288   968   69 |   3.39   0.212  0.583
+cycle1_main(4803)      False   full    True   |  209   288   968   69 |   3.39   0.201  0.640
+cycle1_main(4803)      False   subset  False  |  209   326   968   69 |   3.39   0.206  0.583
+cycle1_main(4803)      False   full    False  |  209   326   968   69 |   3.39   0.199  0.640
+cycle1_main(4803)      True    subset  True   |  187   245   809   65 |   1.64   0.167  0.688
+cycle1_main(4803)      True    full    True   |  187   245   809   65 |   1.64   0.237  0.659
+cycle1_main(4803)      True    subset  False  |  187   274   809   65 |   1.64   0.172  0.688
+cycle1_main(4803)      True    full    False  |  187   274   809   65 |   1.64   0.237  0.659
+cycle4_immune(4941)    False   subset  True   |  361   735   268   94 |   1.17   0.090  0.608
+cycle4_immune(4941)    False   full    True   |  361   735   268   94 |   0.86   0.057  0.593
+cycle4_immune(4941)    False   subset  False  |  361   914   268   94 |   1.17   0.093  0.608
+cycle4_immune(4941)    False   full    False  |  361   914   268   94 |   0.86   0.054  0.593
+cycle4_immune(4941)    True    subset  True   |  295   589   268   78 |   1.06   0.039  0.717
+cycle4_immune(4941)    True    full    True   |  295   589   268   78 |   2.56   0.071  0.620
+cycle4_immune(4941)    True    subset  False  |  295   747   268   78 |   1.06   0.033  0.717
+cycle4_immune(4941)    True    full    False  |  295   747   268   78 |   2.56   0.066  0.620
+--------------------------------------------------------------------------------------------------------
+MANUSCRIPT TARGET                             |  195   326  1022   51 |   6.37   0.206  0.744   (AUROC is the 12-layer mean)

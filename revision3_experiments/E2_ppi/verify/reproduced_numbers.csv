@@ -1,0 +1,52 @@
+item,verifier,implementer,abs_diff,implementer_source,method
+lung edges STRING-phys>=700 within V,14474.0,14474.0,0.0,cache/edges_string.npy,own parse of raw STRING files + h5ad var index
+lung top r (L3 SV1),0.43531140189490747,0.4353114018949046,2.886579864025407e-15,h1_summary.csv top_r,own eigh-based coordinates + corrcoef
+lung max |r diff| over 120 cells,1.0602629885170245e-14,0.0,1.0602629885170245e-14,h1_primary_lung.csv r,own
+lung family min p_adj (stored MS draws),9.999000099990002e-05,9.999000099990002e-05,0.0,h1_summary.csv,own max-T on stored null
+lung n cells p_adj<0.05 (stored MS draws),120.0,120.0,0.0,h1_summary.csv,own max-T on stored null
+lung_external edges STRING-phys>=700 within V,14132.0,14132.0,0.0,cache/edges_string.npy,own parse of raw STRING files + h5ad var index
+lung_external top r (L8 SV2),0.40557211335257254,0.4055721133525689,3.6637359812630166e-15,h1_summary.csv top_r,own eigh-based coordinates + corrcoef
+lung_external max |r diff| over 120 cells,1.021405182655144e-14,0.0,1.021405182655144e-14,h1_primary_lung_external.csv r,own
+lung_external family min p_adj (stored MS draws),9.999000099990002e-05,9.999000099990002e-05,0.0,h1_summary.csv,own max-T on stored null
+lung_external n cells p_adj<0.05 (stored MS draws),120.0,120.0,0.0,h1_summary.csv,own max-T on stored null
+kidney_B edges STRING-phys>=700 within V,12434.0,12434.0,0.0,cache/edges_string.npy,own parse of raw STRING files + h5ad var index
+kidney_B top r (L9 SV3),0.404374504751468,0.4043745047514586,9.43689570931383e-15,h1_summary.csv top_r,own eigh-based coordinates + corrcoef
+kidney_B max |r diff| over 120 cells,9.43689570931383e-15,0.0,9.43689570931383e-15,h1_primary_kidney_B.csv r,own
+kidney_B family min p_adj (stored MS draws),0.0004997501249375312,0.0004997501249375,3.122502256758253e-17,h1_summary.csv,own max-T on stored null
+kidney_B n cells p_adj<0.05 (stored MS draws),120.0,120.0,0.0,h1_summary.csv,own max-T on stored null
+immune edges STRING-phys>=700 within V,1251.0,1251.0,0.0,cache/edges_string.npy,own parse of raw STRING files + h5ad var index
+immune top r (L4 SV6),0.5659088297175815,0.5659088297175799,1.5543122344752192e-15,h1_summary.csv top_r,own eigh-based coordinates + corrcoef
+immune max |r diff| over 120 cells,3.941291737419306e-15,0.0,3.941291737419306e-15,h1_primary_immune.csv r,own
+immune family min p_adj (stored MS draws),0.0004997501249375312,0.0004997501249375,3.122502256758253e-17,h1_summary.csv,own max-T on stored null
+immune n cells p_adj<0.05 (stored MS draws),118.0,118.0,0.0,h1_summary.csv,own max-T on stored null
+kidney_A edges STRING-phys>=700 within V,1390.0,1390.0,0.0,cache/edges_string.npy,own parse of raw STRING files + h5ad var index
+kidney_A top r (L5 SV2),0.7019819914362401,0.7019819914362372,2.886579864025407e-15,h1_summary.csv top_r,own eigh-based coordinates + corrcoef
+kidney_A max |r diff| over 120 cells,1.2351231148954867e-14,0.0,1.2351231148954867e-14,h1_primary_kidney_A.csv r,own
+kidney_A family min p_adj (stored MS draws),0.0004997501249375312,0.0004997501249375,3.122502256758253e-17,h1_summary.csv,own max-T on stored null
+kidney_A n cells p_adj<0.05 (stored MS draws),120.0,120.0,0.0,h1_summary.csv,own max-T on stored null
+lung MS null mean top cell (own chain N=1000),-0.001128521902383596,-0.0010516547023073,7.686720007629602e-05,h1_summary.csv top_null_mean,own pure-Python double-edge swap chain
+lung MS null sd top cell (own chain N=1000),0.008044989624898266,0.008214060159659,0.0001690705347607343,h1_summary.csv top_null_sd,own chain
+lung MS z top cell (own chain N=1000),54.24990511442867,53.12391778432295,1.1259873301057226,h1_summary.csv top_z,own chain
+lung n cells max-T p_adj<0.05 (own chain N=1000),120.0,120.0,0.0,h1_summary.csv,own chain
+lung MS acceptance (own chain),0.9592498048435404,0.9591673456008584,8.245924268202032e-05,h1_summary.csv ms_acc_mean,own chain
+lung decile-stratified AUROC cosine top layer (extraction cells),0.7247366064978926,0.7249134691913303,0.0001768626934376405,sens_coexpr_matched.csv,"own pool, own matching, sklearn per stratum"
+lung decile-stratified AUROC -|dx| top cell (extraction cells),0.6308255468476824,0.6314243665832577,0.0005988197355752956,sens_coexpr_matched.csv,"own pool, own matching, sklearn per stratum"
+lung decile-stratified AUROC |coexpr| (extraction cells),0.5609786579173829,0.5598829000113652,0.0010957579060176803,sens_coexpr_matched.csv,"own pool, own matching, sklearn per stratum"
+lung_external MS null mean top cell (own chain N=1000),-0.0010670584914755361,-0.0011069833688142,3.992487733866395e-05,h1_summary.csv top_null_mean,own pure-Python double-edge swap chain
+lung_external MS null sd top cell (own chain N=1000),0.008237034623606716,0.0082681436184224,3.110899481568487e-05,h1_summary.csv top_null_sd,own chain
+lung_external MS z top cell (own chain N=1000),49.36718011099076,49.18626423170155,0.18091587928920916,h1_summary.csv top_z,own chain
+lung_external n cells max-T p_adj<0.05 (own chain N=1000),120.0,120.0,0.0,h1_summary.csv,own chain
+lung_external MS acceptance (own chain),0.9572576115496294,0.9571429326075962,0.00011467894203320839,h1_summary.csv ms_acc_mean,own chain
+lung_external decile-stratified AUROC cosine top layer (extraction cells),0.680318607216312,0.6793566608034166,0.0009619464128953759,sens_coexpr_matched.csv,"own pool, own matching, sklearn per stratum"
+lung_external decile-stratified AUROC -|dx| top cell (extraction cells),0.6182108986402721,0.6169913715848198,0.001219527055452363,sens_coexpr_matched.csv,"own pool, own matching, sklearn per stratum"
+lung_external decile-stratified AUROC |coexpr| (extraction cells),0.536420211390084,0.5343365115723892,0.0020836998176948507,sens_coexpr_matched.csv,"own pool, own matching, sklearn per stratum"
+lung vertex CI lo (sqrt(m/n)),0.4018207675021225,0.3998557620249244,0.0019650054771980785,h1_summary.csv top_r_ci_lo,"own subsampling, B=500"
+lung vertex CI hi (sqrt(m/n)),0.4717274096824745,0.4708277182086234,0.0008996914738511053,h1_summary.csv top_r_ci_hi,"own subsampling, B=500"
+lung_external vertex CI lo (sqrt(m/n)),0.36162451586761946,0.3647794801601917,0.0031549642925722265,h1_summary.csv top_r_ci_lo,"own subsampling, B=500"
+lung_external vertex CI hi (sqrt(m/n)),0.4457714392594534,0.4430955330961534,0.0026759061632999903,h1_summary.csv top_r_ci_hi,"own subsampling, B=500"
+kidney_B vertex CI lo (sqrt(m/n)),0.36696405589796727,0.368548553300128,0.0015844974021607117,h1_summary.csv top_r_ci_lo,"own subsampling, B=500"
+kidney_B vertex CI hi (sqrt(m/n)),0.4396272900250936,0.4407552224939888,0.0011279324688951986,h1_summary.csv top_r_ci_hi,"own subsampling, B=500"
+immune vertex CI lo (sqrt(m/n)),0.494421389302048,0.487122326405447,0.007299062896600983,h1_summary.csv top_r_ci_lo,"own subsampling, B=500"
+immune vertex CI hi (sqrt(m/n)),0.6522266735564604,0.6546161164264901,0.0023894428700297343,h1_summary.csv top_r_ci_hi,"own subsampling, B=500"
+kidney_A vertex CI lo (sqrt(m/n)),0.6313063180971384,0.6353983030288108,0.004091984931672399,h1_summary.csv top_r_ci_lo,"own subsampling, B=500"
+kidney_A vertex CI hi (sqrt(m/n)),0.7778632870793065,0.7861202675988671,0.008256980519560586,h1_summary.csv top_r_ci_hi,"own subsampling, B=500"

@@ -1,0 +1,114 @@
+{
+ "immune": {
+  "checkpoint": "whole-human",
+  "vocab_found": true,
+  "vocab_size": 60697,
+  "G": 4941,
+  "n_missing": 0
+ },
+ "immune_seed43": {
+  "checkpoint": "whole-human",
+  "vocab_found": true,
+  "vocab_size": 60697,
+  "G": 4941,
+  "n_missing": 0
+ },
+ "immune_seed44": {
+  "checkpoint": "whole-human",
+  "vocab_found": true,
+  "vocab_size": 60697,
+  "G": 4941,
+  "n_missing": 0
+ },
+ "immune_TSP14": {
+  "checkpoint": "whole-human",
+  "vocab_found": true,
+  "vocab_size": 60697,
+  "G": 4941,
+  "n_missing": 0
+ },
+ "immune_TSP21": {
+  "checkpoint": "whole-human",
+  "vocab_found": true,
+  "vocab_size": 60697,
+  "G": 4941,
+  "n_missing": 0
+ },
+ "immune_TSP25": {
+  "checkpoint": "whole-human",
+  "vocab_found": true,
+  "vocab_size": 60697,
+  "G": 4941,
+  "n_missing": 0
+ },
+ "immune_Bcell": {
+  "checkpoint": "whole-human",
+  "vocab_found": true,
+  "vocab_size": 60697,
+  "G": 4941,
+  "n_missing": 0
+ },
+ "immune_CD4T": {
+  "checkpoint": "whole-human",
+  "vocab_found": true,
+  "vocab_size": 60697,
+  "G": 4941,
+  "n_missing": 0
+ },
+ "immune_CD8T": {
+  "checkpoint": "whole-human",
+  "vocab_found": true,
+  "vocab_size": 60697,
+  "G": 4941,
+  "n_missing": 0
+ },
+ "kidney_A": {
+  "checkpoint": "whole-human",
+  "vocab_found": true,
+  "vocab_size": 60697,
+  "G": 4803,
+  "n_missing": 0
+ },
+ "kidney_B": {
+  "checkpoint": "whole-human",
+  "vocab_found": true,
+  "vocab_size": 60697,
+  "G": 8143,
+  "n_missing": 0
+ },
+ "kidney_ckpt_whole_human": {
+  "checkpoint": "whole-human",
+  "vocab_found": true,
+  "vocab_size": 60697,
+  "G": 8143,
+  "n_missing": 0
+ },
+ "kidney_ckpt_kidney": {
+  "checkpoint": "kidney",
+  "vocab_found": true,
+  "vocab_size": 60697,
+  "G": 8143,
+  "n_missing": 0
+ },
+ "kidney_ckpt_brain": {
+  "checkpoint": "brain",
+  "vocab_found": true,
+  "vocab_size": 60697,
+  "G": 8143,
+  "n_missing": 0
+ },
+ "lung": {
+  "checkpoint": "whole-human",
+  "vocab_found": true,
+  "vocab_size": 60697,
+  "G": 8181,
+  "n_missing": 0
+ },
+ "lung_external": {
+  "checkpoint": "whole-human",
+  "vocab_found": true,
+  "vocab_size": 60697,
+  "G": 8229,
+  "n_missing": 0
+ }
+}

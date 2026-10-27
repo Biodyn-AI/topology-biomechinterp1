@@ -1,0 +1,214 @@
+E6_crossmodel: cross-model comparison (sensitivity analysis; no pass/fail). Answers R2.4 ("why only 186 genes / selection bias"), R1.7, R2.8, and supports R1.2.
+CONVENTION3 sha256 3e3249d1d0a8ce1bc3cf64639fe233b016535456f82432a8bbfcacdd64a05c01 (matches FROZEN.txt; recorded in results.json).
+
+PROVENANCE AND STATUS
+Three agents did this work. Agent 1 wrote e6lib.py, e6_build.py, e6_run.py, e6_selection.py, e6_legacy.py, legacy_submitted_repro.py and e6_assemble.py.
+Agent 2 (the resume agent) added three corrections:
+  (a) e6_patch1d.py: estimator (iii) had scored its twelve one-dimensional bands through stats3.l2norm_rows (|x|+1e-12). That step breaks exact
+      sign ties by magnitude. The bands were re-scored with exact sign normalisation on the same null draws, and max-T was recomputed.
+  (b) e6_tierb_static_maxt.py: completed estimator (iii) for the static models in Tier B, which agent 1 had skipped. Estimators (i)/(ii) were
+      recomputed bit-identically (660 rows checked, 0 differences; tbmaxt_check.log).
+  (c) ESM2 relabelled and delete-d intervals added in e6_assemble.py.
+Agent 2 was cut off by the 22:47 reboot. Agent 3 (this one, after the reboot) found no E6 process running. It checked that every one of the 171
+band-bearing work/*.npz files has a newer .p1d.npz holding every band key, and re-ran e6_fixreport.py, e6_assemble.py and the tbmaxt check.
+All outputs therefore reflect the patches.
+Agent 3 also added e6_supp.py (logs supp_worker1/2.log), which fills two gaps:
+  - The detection-stratified Lambert AUROC had been stored as a point estimate only. It now has a gene-bootstrap CI (B=1,000) and a
+    within-decile permutation p (N=2,000): node_detstrat_results.csv.
+  - Paired deltas against scGPT existed only for the node tasks. pairwise_deltas_vs_scgpt.csv now covers all tasks (node_lambert,
+    node_lambert_detstrat, node_trrust, ppi, edge).
+  e6_supp.py regenerates the PPI and edge resampling draws with e6_run's own seeds and rng streams. It reproduces every stored value and CI
+  to 1e-9 and reproduces the stored node bootstrap draws, and it aborts if any of these fails. The draws are therefore paired across embeddings.
+Every number below comes from: attrition.csv, tierA_results.csv, tierB_results.csv, node_detstrat_results.csv, pairwise_deltas.csv,
+pairwise_deltas_vs_scgpt.csv, legacy_reproduction.csv, selection_bias.csv, projection_control.csv, p1d_fix_effect.csv and results.json.
+PPI intervals are given twice: the pre-registered sqrt(m/n) interval (ci_lo/ci_hi) and the delete-d sqrt(m/(n-m)) interval
+(ci_*_deleted; CONVENTION3_ERRATA item 3). The delete-d interval is the one for the manuscript.
+
+MODELS (static gene vectors; file provenance in results.json "models")
+- scGPT static token embedding (512-d).
+- Geneformer V2-316M (1152-d; identified from subproject_54 PLAN/phase0 as the root model.safetensors of HF snapshot 05fcbeb8, 18 layers).
+- Geneformer V1-10M (256-d).
+- Geneformer V2-104M (768-d).
+- AIDO.Cell-100M (640-d) and scFoundation (512-d). Neither is a token table: each is the output of one forward pass on an HPA mean-expression
+  "neutral" cell.
+- tGPT (1024-d).
+- ESM2-15B (UCE per-protein; 5,120-d). The submitted manuscript called it "ESM2-3B", but 5,120 is the ESM2-15B width.
+- ESM2-650M (1280-d, own mean-pooled embedding).
+- 32 hand-built sequence descriptors.
+- HPA co-expression (PCA-128).
+- scGPT contextual residual stream, L0-L11, in lung, lung_external, kidney_B, immune and kidney_A.
+Estimator (i), the primary one, uses the full dimension and is mean-centred over the gene set. The vocabulary-centred value is in
+value_vocab_centred.
+
+1. WHY THE SUBMITTED COMPARISON HAD 186 GENES (attrition.csv) -- direct evidence
+- Vocabularies are large: 19,264-60,694 genes.
+- Intersection of the three submitted models (Geneformer V1-10M, V2-104M, ESM2-15B): 18,907 genes.
+- Intersection of all 11 static vocabularies (Tier A): 17,693 genes.
+- The vocabulary intersection was therefore never the bottleneck. The 186 came from the gene list:
+  - The submitted code started from the 209 genes named in the round-1 kidney_A edge dataset (cycle1_edge_dataset.tsv). That is 1,152 TRRUST
+    edge and non-edge rows, so the list includes genes that appear only in sampled non-edges.
+  - Of these, 187 have a non-zero kidney_A embedding at L0 (22 were never observed).
+  - Intersecting with the three vocabularies removes only NEAT1, a lncRNA with no protein, leaving 186.
+  - Intersecting with all 11 vocabularies also removes 8 HLA genes absent from tGPT, leaving 178 ("legacy178").
+- So the restriction came from the curated kidney_A edge set, not from the vocabularies. kidney_A is also the smallest context: only 1,972 of
+  its 4,803 genes are observed, and only 180 genes in that observed set take part in TRRUST edges.
+- The same tasks fit on much larger sets, with these gene counts:
+  - Tier A: 17,693 genes. 1,587 Lambert TFs; 775 TRRUST TFs vs 1,978 target-only genes; 73,430 STRING-physical>=700 pairs; 7,593 TRRUST edges
+    vs 70,882 matched candidate non-edges.
+  - Tier B (each context's observed genes intersected with Tier A): lung 5,226; lung_external 5,154; kidney_B 4,441; immune 1,338;
+    kidney_A 1,298.
+
+2. IS THE SMALL SET SELECTION-BIASED? (selection_bias.csv; random-subset null, 10,000 subsets) -- direct evidence
+- Null: random 186-gene subsets of the 2,753 TRRUST-labelled Tier A genes, matched on size, TF:target-only ratio (64:122) and lung
+  mean-expression decile. The statistic is the TRRUST TF/target-only AUROC, estimator (i).
+- For all 11 static models, the legacy-set value lies at the 98.8th-100th percentile of the matched null.
+  - legacy186: percentile >= 0.995; two-sided p 0.0002-0.010.
+  - legacy178: percentile >= 0.987.
+  - The legacy value exceeds the subset-null mean by +0.07 to +0.25.
+  - Examples (legacy vs null mean): scGPT static 0.833 vs 0.739; Geneformer V2-104M 0.874 vs 0.745; ESM2-15B 0.954 vs 0.862.
+- The bias survives a further match on TRRUST degree quartiles (legacy186_degmatched: percentile 0.979-1.000). The legacy genes are
+  better-studied than average (mean TRRUST degree: TFs 16.6 vs 10.8 in the pool; targets 7.0 vs 3.2), but degree matching alone does not
+  remove the excess.
+- The model ORDERING is largely preserved.
+  - Kendall tau, legacy vs Tier A: 0.867 [bootstrap 0.689, 0.956] over 10 models (legacy186); 0.855 [0.673, 0.964] over 11 models (legacy178).
+  - Kendall tau, legacy vs subset-null mean: 0.91.
+- Interpretation (inference): the submitted 186-gene set is an "easy" set. It inflates every model's absolute AUROC by roughly 0.1 but changes
+  the ranking only slightly. Absolute legacy AUROCs should not be quoted as model properties. Statements about ordering are approximately safe.
+- Surprise: scFoundation's subset-null mean is 0.30, far below 0.5, while its Tier A value is 0.487. Centring over a small subset interacts with
+  this forward-pass embedding in a way not investigated here.
+
+3. REPRODUCTION OF THE SUBMITTED TABLE 1 (legacy_reproduction.csv; legacy_submitted_repro.log) -- direct evidence
+- The submitted code (revision2_experiments/crossmodel.py: SVD fitted on the 186-gene subset, SV2-SV7 band; scGPT rows from the kidney_A matrix
+  with zero rows) reproduces the submitted values exactly (|diff| < 1e-12):
+  - TF/target AUROC 0.650 / 0.713 / 0.837 / 0.924 for scGPT L11 / Geneformer V1-10M / Geneformer V2-104M / ESM2-15B (the submitted "ESM2-3B").
+  - Co-pole z +2.01 / -0.39 / +4.94 / +1.91, on 809 STRING functional pairs.
+- On the same 186 genes, two other estimators give:
+
+  model             | subset-SVD (submitted) | SVD over full vocab, SV2-SV7 | estimator (i) [95% CI]
+  scGPT L11         | 0.650                  | 0.611                        | 0.684 [0.587, 0.769]
+  Geneformer V1-10M | 0.713                  | 0.592                        | 0.802 [0.676, 0.909]
+  Geneformer V2-104M| 0.837                  | 0.460                        | 0.874 [0.781, 0.946]
+  ESM2-15B          | 0.924                  | 0.942                        | 0.954 [0.911, 0.987]
+
+  The submitted Geneformer band values therefore depended on fitting the SVD to the 186-gene subset.
+- Estimator (i), other tasks, on legacy186. CIs include 0.5 or are wide on these 186 genes:
+  - Lambert AUROC 0.698 / 0.816 / 0.855 / 0.968.
+  - STRING-physical PPI AUROC (163 pairs), delete-d CI:
+    - scGPT L11: 0.624 [0.496, 0.754]
+    - Geneformer V1-10M: 0.644 [0.538, 0.766]
+    - Geneformer V2-104M: 0.688 [0.582, 0.803]
+    - ESM2-15B: 0.772 [0.690, 0.870]
+  - Within-TF edge AUROC (213 edges, 29 TFs):
+    - scGPT L11: 0.599 [0.496, 0.720]
+    - Geneformer V1-10M: 0.567 [0.464, 0.694]
+    - Geneformer V2-104M: 0.618 [0.511, 0.740]
+    - ESM2-15B: 0.552 [0.446, 0.657]
+- The submitted table compared scGPT at L11, its weakest layer. On legacy186 layers L0-L7 reach 0.79-0.82 (L2 0.817).
+
+4. BROAD UNIVERSE, TIER A (17,693 genes; tierA_results.csv, node_detstrat_results.csv, pairwise_deltas_vs_scgpt.csv) -- direct evidence
+Estimator (i): value [95% CI]. Delta = model minus scGPT static on the same genes (paired bootstrap).
+  Lambert TF, detection-stratified (H2 statistic): ESM2-15B 0.902 [0.893,0.911]; 32 seq descriptors 0.916 [0.908,0.924]; ESM2-650M 0.861;
+    Geneformer V2-104M 0.864; Geneformer V2-316M 0.855; Geneformer V1-10M 0.776; scGPT static 0.747 [0.734,0.760]; tGPT 0.690; AIDO 0.623;
+    HPA co-expression 0.617; scFoundation 0.554. Every within-decile permutation p = 1/2001.
+    Deltas vs scGPT static: ESM2-15B +0.155 [+0.141,+0.168]; seq descriptors +0.169 [+0.155,+0.182]; Geneformer V2-104M +0.117 [+0.104,+0.130];
+    Geneformer V1-10M +0.029 [+0.015,+0.042]; scFoundation -0.193 [-0.214,-0.175].
+  Lambert unstratified: same order (ESM2-15B 0.889 [0.882,0.897]; scGPT static 0.704 [0.694,0.713]).
+  TRRUST TF vs target-only: ESM2-15B 0.870 [0.856,0.884]; seq descriptors 0.869; ESM2-650M 0.826; Geneformer V2-104M 0.774; Geneformer V2-316M
+    0.743; Geneformer V1-10M 0.688; scGPT static 0.684 [0.660,0.708]; HPA 0.615; AIDO 0.579; tGPT 0.520; scFoundation 0.487 (p 0.62).
+    Delta: ESM2-15B minus scGPT static +0.186 [+0.159,+0.212].
+  PPI pair-cosine AUROC, delete-d CI: seq descriptors 0.671 [0.660,0.680]; scGPT static 0.669 [0.658,0.679]; Geneformer V2-104M 0.662;
+    Geneformer V2-316M 0.659; ESM2-15B 0.647 [0.638,0.657]; ESM2-650M 0.610; AIDO 0.603; HPA 0.598; Geneformer V1-10M 0.588; tGPT 0.571;
+    scFoundation 0.559.
+    Delta: ESM2-15B minus scGPT static -0.022 [delete-d -0.032,-0.011]; seq descriptors +0.002 [-0.009,+0.012].
+  Within-TF edge AUROC (two-way bootstrap CI): Geneformer V2-104M 0.580 [0.549,0.610]; Geneformer V2-316M 0.578; scGPT static 0.575 [0.534,0.610];
+    AIDO 0.552 [0.499,0.591]; tGPT 0.544; Geneformer V1-10M 0.529; HPA 0.518; scFoundation 0.500; seq descriptors 0.497; ESM2-650M 0.492;
+    ESM2-15B 0.491 [0.466,0.523] (p 0.97).
+    Delta: ESM2-15B minus scGPT static -0.084 [-0.124,-0.042].
+  Caveat on detection stratification in Tier A: detection deciles come from lung, and 12,467 of 17,693 genes are not in lung's observed set.
+  Those genes are all placed in the median decile, so the stratification is largely nominal here. Tier B is the detection-controlled comparison.
+
+5. BROAD UNIVERSE, TIER B (scGPT contextual vs static; tierB_results.csv, node_detstrat_results.csv, pairwise_deltas_vs_scgpt.csv) -- direct evidence
+scGPT contextual, detection-stratified Lambert AUROC across L0-L11 (best layer):
+  - lung 0.638-0.668 (L1 0.668 [0.652,0.687])
+  - lung_external 0.631-0.675 (L1)
+  - kidney_B 0.616-0.657 (L1)
+  - immune 0.616-0.746 (L2 0.746 [0.677,0.819])
+  - kidney_A 0.637-0.763 (L3)
+  In each context the AUROC declines towards L11.
+Node identity:
+  - ESM2-15B minus scGPT contextual, same genes, detection-stratified: lung +0.212..+0.241; lung_external +0.206..+0.250; kidney_B +0.204..+0.245;
+    immune +0.187..+0.317; kidney_A +0.151..+0.277. The CI excludes 0 at 12/12 layers in all five contexts. TRRUST TF/target-only: +0.11..+0.30,
+    12/12 layers everywhere.
+  - The 32 sequence descriptors behave the same way (+0.14..+0.30, 12/12 layers everywhere).
+  - scGPT's own static token embedding beats its residual stream on node identity: +0.083..+0.113 (lung), +0.056..+0.100 (lung_external),
+    +0.080..+0.120 (kidney_B), +0.065..+0.195 (immune), each 12/12 layers; +0.016..+0.142 in kidney_A (9/12 layers).
+  - Geneformer V2-104M also beats it: +0.157..+0.202 in lung/lung_external/kidney_B (12/12); +0.07..+0.20 in immune (11/12);
+    +0.04..+0.17 in kidney_A (7/12).
+PPI:
+  - Contextual best-layer AUROC (delete-d CI): lung 0.674 [0.658,0.690]; lung_external 0.678; kidney_B 0.671; immune 0.742; kidney_A 0.786.
+  - Differences from static models are small and mixed in sign. ESM2-15B minus contextual is -0.055..+0.022. Under delete-d intervals its CI is
+    below 0 at 5/12 (lung), 6/12 (lung_external), 6/12 (kidney_B), 0/12 (immune) and 2/12 (kidney_A) layers, and never above 0 except at 1 lung layer.
+  - HPA co-expression and scFoundation are below contextual scGPT at nearly every layer.
+Edge:
+  - Contextual within-TF AUROC: lung 0.515-0.542; lung_external 0.520-0.539; kidney_B 0.522-0.553; immune 0.576-0.632; kidney_A 0.618-0.664.
+  - ESM2-15B is at chance in every Tier B set: 0.483-0.529.
+  - ESM2-15B minus contextual is negative at every layer (-0.017..-0.149). The CI excludes 0 at 3/12 (lung), 3/12, 3/12, 8/12 (immune) and
+    2/12 (kidney_A) layers.
+  - scGPT static and Geneformer V2-104M are slightly above contextual on edges in the lung and kidney_B sets (+0.02..+0.05; CI > 0 at 3-4/12 layers).
+Cross-layer max-T over 936 (layer, band) cells for scGPT contextual (tierB_results.csv, estimator bestband_alllayers): adjusted p <= 0.002 for every
+task and context. This is a selection-adjusted detection, not an effect size.
+
+6. ESM2 PROJECTION CONTROL (Tier A; projection_control.csv) -- direct evidence
+- ESM2-15B 5,120 -> 1,024 random Gaussian projection, 5 seeds, mean (sd) vs full:
+  - Lambert 0.887 (0.007) vs 0.889
+  - TRRUST 0.870 (0.007) vs 0.870
+  - PPI 0.648 vs 0.647
+  - edge 0.490 vs 0.491
+- scGPT static 512 -> 102 (same 5:1 ratio): Lambert 0.678 vs 0.704 (-0.027); TRRUST 0.635 vs 0.684 (-0.049); PPI 0.634 vs 0.669 (-0.036);
+  edge 0.556 vs 0.575 (-0.019).
+- Interpretation (inference): ESM2's advantage on node identity is not a matter of its larger dimension. At 1,024-d it still exceeds full
+  512-d scGPT static by about +0.18. The 32-d hand-built sequence descriptors (0.90) show directly that a very low-dimensional protein-sequence
+  representation suffices.
+
+7. ESTIMATORS (ii) AND (iii) (Tier A; tierA_results.csv) -- direct evidence
+- The fixed bands SV2-SV7 / SV1-SV6, taken from an SVD over each model's whole vocabulary, often recover much less than the full dimension.
+  - Geneformer V2-104M: TRRUST 0.448 / 0.549 vs full 0.774.
+  - Geneformer V2-316M: Lambert 0.530 / 0.492 vs 0.817.
+  - scGPT static: TRRUST 0.513 / 0.493 vs 0.684.
+- The best contiguous band (iii; max-T over 78 bands, N=1,000) reaches roughly the full-dimension value. Examples: ESM2-15B Lambert SV6-SV12 0.913,
+  adjusted p 0.001; Geneformer V2-104M Lambert SV2-SV12 0.630.
+- Static Tier B rows with max-T p < 0.05: 49/55 (Lambert), 51/55 (TRRUST), 55/55 (PPI), 40/55 (edge). The non-significant rows are mostly
+  Geneformer V1-10M, scFoundation, ESM2 and the sequence descriptors on edges.
+- Effect of the exact-sign 1-D fix (p1d_fix_effect.csv, 684 rows): 9 rows changed significance at 0.05 for their best band. Examples:
+  legacy178 Geneformer V1-10M PPI 0.001 -> 0.45; legacy186 Geneformer V1-10M edge 0.036 -> 0.64; tierB_kidney_A Geneformer V1-10M edge
+  0.001 -> 0.20; tierB_immune ESM2-650M edge 0.47 -> 0.008. All reported outputs use the fixed values. The pre-fix values are kept in the
+  *_pre1dfix columns.
+
+WHAT THIS MEANS (inference, clearly separated)
+- The submitted cross-model claim about ordering (protein LM > Geneformer > scGPT on TF identity) survives on 17,693 genes and in every
+  context's detection-controlled Tier B set. The absolute numbers in the submitted Table 1 are inflated by an easy, curated gene set.
+  Two of the four model values there also depended on a subset-fitted SVD band.
+- TF identity is encoded most strongly by protein-sequence representations, including 32 hand-built descriptors. This suggests that "is a TF"
+  is largely a protein-family / sequence property (DNA-binding domains, composition). Recovering it from an scFM residual stream therefore
+  says little about learned regulatory biology. This last statement is a hypothesis; E6 does not test mechanism.
+- The task ranking reverses for regulatory edges. Protein LMs and sequence descriptors are at chance once TF identity is controlled within TF,
+  whereas expression-trained models (scGPT contextual and static, Geneformer V2, AIDO) are modestly above chance (0.52-0.66). Edge-level
+  signal, where present, is therefore expression-derived, not sequence-derived.
+- PPI neighbourhood is recovered at similar levels (0.60-0.79) by most models. Here no model family dominates.
+
+WHAT THIS DOES NOT SHOW / LIMITATIONS
+- E6 is a sensitivity analysis. Its p-values are not part of the pre-registered H1-H4 families and carry no confirmatory weight.
+- Edge permutation p-values (within-TF label permutation) ignore target-level dependence: 49 of the 104 full-estimator edge rows with p < 0.05
+  have a two-way bootstrap CI that includes 0.5. The two-way bootstrap interval is the trustworthy statement.
+- Detection stratification in Tier A is mostly nominal (70% of genes imputed to the median lung decile). Static models' detection deciles are a
+  documented proxy: lung n_obs where available, else the median.
+- AIDO.Cell and scFoundation vectors are forward-pass outputs on one neutral cell, not learned token tables, so they are not like-for-like with
+  the other static models.
+- The scGPT contextual embeddings come from one extraction per context (192-256 cells). Deltas against contextual layers are conditional on that
+  extraction.
+- Tier B differences between layers and the "best layer" are selected post hoc. Ranges over all 12 layers are reported for this reason.
+- The selection-bias null matches on size, TF ratio and lung expression decile (plus degree in one variant). It cannot rule out other
+  properties of the curated set, such as annotation depth. It shows that the set is unrepresentative, not why.
+- Identity labels (Lambert, TRRUST) and STRING carry known study bias. Better-studied genes may be easier for every model.
+- pairwise_deltas.csv contains node-task deltas for all static model pairs and vs every contextual layer; pairwise_deltas_vs_scgpt.csv contains
+  all tasks vs scGPT (static; contextual each layer; kidney_A L11 for the legacy sets). Contextual-vs-contextual layer deltas were not computed.

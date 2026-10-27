@@ -1,0 +1,103 @@
+E4b_grn -- GENIE3 / GRNBoost2 baselines on the H3 benchmark, plus a direction test
+(sensitivity analysis; answers R1.1, R1.3, R1.2-direction). CONVENTION3 sha256 3e3249d1d0a8ce1bc3cf64639fe233b016535456f82432a8bbfcacdd64a05c01
+(re-verified against CONVENTION3.md in results.json). No pass/fail rule attaches to this experiment.
+
+STATUS: complete, full design. Every one of the 70 planned fits is done (grn_runs.csv, done=True for all):
+T1 = the exact extraction cells (256 cells; 192 in kidney_B), seeds 0-4; T2 = cache expr.npy (3,000 cells), seeds 0-1,
+for 2 methods x 5 contexts. The task's fallback (T2 with 1 seed in lung/lung_external/kidney_B) was NOT needed in the end:
+the optional seed-1 jobs (queue E, then queue F restarted from per-batch checkpoints after the 22:47 reboot) finished at 23:15.
+
+WHAT WAS DONE
+- Regulators = TFs in cache/<ctx>/h3_pairs.npz U Lambert TFs in V (input features); targets = all h3 targets U direction-test
+  endpoints. Sizes (regulators / targets fitted / h3 targets / direction pairs): lung 676/1781/1700/855; lung_external
+  716/1785/1701/886; kidney_B 590/1406/1340/669; immune 118/261/250/62; kidney_A 94/152/145/21.
+- GENIE3 = ExtraTreesRegressor(300 trees, max_features='sqrt'); GRNBoost2 = GradientBoostingRegressor(lr 0.01, 1000 trees,
+  depth 3, subsample 0.9, max_features 0.1, early stopping 25/0.1); both sklearn (arboreto/dask not used); importances
+  normalised per target; a regulator is never its own feature. 20 target fits (4 lung T2 targets x 4 runs; 1 lung_external
+  T2 target x 4 runs) had zero-variance expression and get importance 0.
+- Headline score per (method, tier) = seed-ensemble (mean of per-seed normalised importances); per-seed AUROCs give the
+  run-to-run SD. Pair score = importance(TF -> target); exact zeros kept, ties count 1/2 (mid-rank) in the stratified AUROC.
+- Metric = H3 statistic (within-TF stratified AUROC, stats3), two-way TF x target pigeonhole cluster bootstrap B=2,000
+  (95% CI + one-sided 95% upper bound), TF-only bootstrap as a check, within-TF permutation p (N=2,000; floor 1/2001 = 5e-4).
+  Paired deltas use identical bootstrap weight draws for every score in a context. Comparators on identical pairs:
+  |Pearson co-expression| on the same cells as the GRN tier, and the scGPT primary scorer (signed cosine of V-centred
+  embeddings, all 12 layers; point AUROCs match E4a's primary H3 table exactly, max |diff| = 0 in all 5 contexts).
+- Errata item 3 (delete-d rescaling) does not apply: E4b has no vertex-subsampling interval.
+
+DIRECT EVIDENCE (grn_summary.csv, grn_deltas.csv, direction_test.csv, results.json)
+1) Within-TF AUROC, seed-ensemble [two-way 95% CI] (seed mean, SD over seeds):
+   context        GENIE3 T1             GENIE3 T2             GRNBoost2 T1          GRNBoost2 T2          |coexpr| T1 / T2   scGPT cos L0 (range L0-L11)
+   lung           .516 [.488,.550] sd.003  .513 [.479,.550] sd.003  .518 [.494,.546] sd.006  .512 [.483,.544] sd.002  .508 / .515   .541 (.516-.542)
+   lung_external  .535 [.508,.565] sd.003  .538 [.501,.585] sd.0003 .522 [.493,.551] sd.007  .535 [.504,.570] sd.001  .524 / .551   .538 (.518-.538)
+   kidney_B       .529 [.496,.565] sd.002  .528 [.497,.563] sd.0003 .520 [.492,.548] sd.003  .528 [.501,.557] sd.0003 .515 / .522   .555 (.524-.555)
+   immune         .578 [.508,.664] sd.005  .610 [.532,.693] sd.002  .574 [.502,.667] sd.007  .605 [.529,.685] sd.009  .559 / .562   .638 (.577-.638)
+   kidney_A       .557 [.460,.677] sd.004  .596 [.503,.701] sd.003  .554 [.449,.670] sd.013  .595 [.502,.700] sd.011  .559 / .577   .647 (.601-.652)
+   (T1: 5 seeds; T2: 2 seeds. One-sided 95% upper bounds are in results.json; all GRN upper bounds are <= .683.)
+   Run-to-run SD of the AUROC is 0.0003-0.013, at least ~3x smaller than the bootstrap half-widths (0.026-0.12): seed noise
+   is not what limits these estimates; pair/TF/target sampling is.
+2) Ties: GENIE3 scores exactly 0 for 0.06-4.6% of pairs; GRNBoost2 (max_features 0.1 + early stopping) for 4.5-33% of
+   pairs (lung_external T2 33%, lung T2 25%, kidney_B 26-27%), handled by mid-rank (frac_zero / frac_tied_pos_neg columns).
+3) Paired delta vs |co-expression| on the same cells: point deltas -0.017 to +0.048; every 95% CI includes 0
+   (largest: immune GENIE3 T2 +0.048 [-0.032, +0.122]). Tree ensembles do not measurably beat a marginal correlation.
+4) Paired delta vs scGPT signed cosine: point deltas mostly negative at early layers (e.g. vs L0: lung -0.023 to -0.029,
+   kidney_B -0.026 to -0.035, immune -0.028 to -0.064, kidney_A -0.051 to -0.094) and near 0 or slightly positive vs late
+   layers (max +0.032, immune GENIE3 T2 vs L10). No CI excludes 0 for any context x method x tier x layer (0 of 240).
+5) T2 minus T1 (same method): lung -0.003/-0.006, lung_external +0.003/+0.013, kidney_B -0.001/+0.008 (GENIE3/GRNBoost2),
+   all CIs include 0; immune +0.032/+0.031 and kidney_A +0.040/+0.041, CIs also include 0. 12x more cells does not move
+   GRN AUROC detectably in the three large contexts.
+6) scGPT cosine minus |co-expression| (by-product, same draws): point deltas positive at L0 in 9/10 context x tier cells
+   (+0.014 to +0.089), shrinking with depth, negative throughout in lung_external T2 (-0.013 to -0.034); no CI excludes 0.
+7) Direction test (TRRUST i->j, both in R, j->i in no regulatory set; seed-ensemble): fraction importance(i->j) >
+   importance(j->i) among untied pairs:
+   lung           GENIE3 .511/.509, GRNBoost2 .528/.523 (T1/T2; n = 834/845/762/723), all sign-test p >= .13
+   lung_external  GENIE3 .525/.505, GRNBoost2 .501/.487, all p >= .15
+   kidney_B       GENIE3 .523 (p .24) / .551 (p .0095, CP95 [.512, .589], source-regulator cluster CI [.492, .609]);
+                  GRNBoost2 .502/.505, p >= .84
+   immune (n~60)  .467-.544, p >= .59;  kidney_A (n=21) .429-.619, p >= .38
+   Per-seed fractions span .38-.62 (small contexts) and .46-.55 (large). |co-expression| and cosine are symmetric:
+   n_untied = 0 for every pair by construction, so they cannot carry direction.
+
+INFERENCE
+- On this benchmark the standard expression-based GRN baselines are as weak as every other scorer: within-TF AUROC
+  0.51-0.54 in the three large contexts and 0.55-0.61 in the small ones, with no detectable gain over |co-expression|
+  and no detectable difference from scGPT cosine. scGPT's H3 result therefore is not "below what an expression GRN method
+  recovers"; equally, the data give no evidence that scGPT encodes more edge information than co-expression or GRN methods.
+- The direction test is null: 19 of 20 ensemble tests have p > .13; the one exception (kidney_B GENIE3 T2, p = .0095) does
+  not survive any multiplicity correction over 20 tests (Bonferroni .0025), its source-regulator cluster CI includes .5,
+  the same method on T1 (5 seeds) gives .523 (p .24), and kidney_B shares cells with kidney_A
+  (errata item 2). Tree-importance asymmetry does not recover TRRUST direction here.
+- The within-TF permutation p-values are small (often at the 5e-4 floor) even where the two-way bootstrap CI includes 0.5
+  (e.g. immune |coexpr| T1 .559 [.479,.652], p = 5e-4). The permutation null holds targets fixed and so ignores
+  target-level dependence; the two-way bootstrap is the appropriate uncertainty statement and the paper should not quote
+  these p-values as evidence of edge signal.
+
+HYPOTHESES (not tested here)
+- The ceiling may be set by the labels: TRRUST positives versus candidate non-edges matched on target in-degree contain
+  many context-inactive or indirect edges, which no expression-derived scorer can separate in 256-3,000 cells.
+- The higher AUROCs in immune / kidney_A for every scorer may reflect fewer, better-studied TFs rather than easier biology.
+
+WHAT THIS DOES NOT SHOW / LIMITATIONS
+- Not a test of arboreto's exact GENIE3/GRNBoost2 code (sklearn re-implementations with the specified hyperparameters).
+- Only 2 T2 seeds: the T2 seed SD is an n=2 estimate. Seed variance is in any case small relative to sampling variance.
+- immune (36 TFs, 547 positives) and kidney_A (29 TFs, 213 positives) have wide CIs; the direction test there has 62 and
+  21 pairs and is uninformative. kidney_A and kidney_B are overlapping cells of one donor, not independent replicates.
+- The direction test uses only TF-TF pairs documented in one direction; absence of a reverse edge in TRRUST/DoRothEA is
+  not evidence that the reverse edge is absent.
+- No conclusion about causal/mechanistic encoding in scGPT follows; all scorers are compared on one label set.
+- 20 target fits on T2 had constant expression (importance 0; listed in grn_runs.csv).
+
+SURPRISES
+- 12x more cells (T2) did not help GRN methods in lung/lung_external/kidney_B; |co-expression| gained most in
+  lung_external (T1 .524 -> T2 .551), where it is the highest-scoring method point-wise.
+- GRNBoost2 leaves up to a third of pairs at exactly 0; GENIE3 nearly none.
+
+CORRECTIONS MADE ON THIS RESUME
+- e4b_eval.py: the paired-delta rows did not record the scGPT layer of the scGPT-minus-|coexpr| comparison (layer was
+  identifiable only by row order); a 'layer' column was added (backup e4b_eval.py.bak_pre_layerfix). No number changed.
+- make_results.py: stale compute-plan text (claimed kidney_B T2 was not run) replaced by the actual final design and a
+  computed seed_design_final field. Re-evaluation of immune/kidney_A with the current script reproduced the earlier
+  summaries exactly (max |diff| = 0).
+- grn_runs.csv wall_seconds_this_process is the wall time of the process that assembled each fit, not total CPU time.
+
+FILES: grn_runs.csv, grn_summary.csv, grn_deltas.csv, direction_test.csv, results.json, grn_scores_<ctx>_<tier>_<seed>.npz
+(35 files), eval/<ctx>_{summary,deltas,direction}.csv and _meta.json, partial/ (fits and batch checkpoints), logs eval_final_*.log.

@@ -1,0 +1,68 @@
+\setcounter{table}{10}
+\begingroup
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.05}
+\begin{longtable}{@{}>{\scriptsize\raggedright\arraybackslash}p{3.1cm}*{6}{>{\scriptsize\raggedright\arraybackslash}p{2.1cm}}@{}}
+\caption{\textbf{A co-occurrence-only instrument: Word2Vec trained on the token sets scGPT receives, compared with scGPT's residual stream on H1--H3.} Word2Vec: skip-gram, 256 dimensions, 10 negative samples, trained on every cell of each extraction's population (lung 15{,}000, lung (ext.) 9{,}000, kidney~B 8{,}000, immune 20{,}000, kidney~A 11{,}376 cells), each tokenised as scGPT tokenises it (non-zero genes, the 512 most expressed), with token and cell order reshuffled on every pass. Every representation is mean-centred over the observed genes $V$ and scored on identical genes, pairs, labels and resampling draws; scGPT is the whole-human checkpoint. H1b, AUROC of the cosine of STRING physical pairs (combined score $\geq 700$) against one degree-preserving rewired non-pair set, with vertex-subsampling intervals ($m = n/2$, $B = 2{,}000$) under delete-$d$ scaling; H2, detection-stratified AUROC of the LOO-cosine TF score (Lambert TFs against all other observed genes), within-stratum permutation null ($N = 2{,}000$; floor $5.0\times10^{-4}$) and gene-bootstrap intervals ($B = 2{,}000$, scores held fixed); H3, within-TF stratified AUROC of the TF--target cosine with two-way TF $\times$ target bootstrap intervals ($B = 2{,}000$); H1a, assortativity of $\SV{1}$--$\SV{10}$ of the observed-gene SVD on the STRING network with a Maslov--Sneppen null ($N = 1{,}000$; max-$T$ over 10 directions for Word2Vec and over the 120 direction--layer tests for scGPT). These $p$-values are not those of the primary H1/H2 tests. Differences are paired (Word2Vec minus scGPT on the same draws); the best layer is the scGPT layer with the highest value. Under the within-stratum null the LOO score is not centred at 0.5 (null means 0.27--0.50 for Word2Vec), so H2 is judged against its own null, and the null-centred difference subtracts each instrument's null mean (a descriptive adjustment). Seed variation is reported separately and is not propagated into the intervals. \textbf{B}: one seed; $^{a}$the 10-epoch paired differences are in Panel A (mean of 5 seeds). \textbf{C}: the five-token window used for cost against a window spanning the whole cell (512), and the five-token window with its number of pair updates matched to the 512-token window (571 epochs for lung, 365 for immune). Pair updates, the number of (centre, context) updates in training. Per-seed values, every layer, the extraction-cells-only models for all extractions and all CKA values are in the CSV. For H1b, the vertex-subsampling intervals with the pre-registered scaling factor $\sqrt{m/n}$, which omits the finite-population term and so gives half-widths smaller by a factor $\sqrt{2}$, are also in the CSV (columns without the suffix \texttt{\_deleted}, beside the reported \texttt{\_deleted} columns). Full values: \texttt{Table\_S11\_cooccurrence.csv}.}\label{tab:S11}\\
+\toprule
+\endfirsthead
+\multicolumn{7}{@{}l}{\footnotesize Table~\thetable\ (continued)}\\
+\toprule
+\endhead
+\midrule
+\multicolumn{7}{r@{}}{\footnotesize continued on next page}\\
+\endfoot
+\bottomrule
+\endlastfoot
+\multicolumn{7}{@{}p{16.4cm}@{}}{\footnotesize\textbf{A. Word2Vec trained on the full population corpus (five-token window, 10 epochs, mean of 5 seeds) against scGPT's residual stream, per extraction}}\\
+\multicolumn{2}{@{}>{\scriptsize\raggedright\arraybackslash}p{5.41cm}}{Task and quantity} & lung & lung (ext.) & kidney~B & immune & kidney~A\\
+\cmidrule(lr){1-7}
+\multicolumn{7}{@{}l}{\scriptsize\textit{H1b: STRING pair-cosine AUROC against rewired non-pairs (delete-$d$ vertex-subsampling intervals)}}\\
+\multicolumn{2}{@{}>{\scriptsize\raggedright\arraybackslash}p{5.41cm}}{Word2Vec [95\% CI]} & 0.605\newline [0.589, 0.621] & 0.597\newline [0.581, 0.613] & 0.605\newline [0.586, 0.622] & 0.704\newline [0.656, 0.751] & 0.739\newline [0.690, 0.794]\\
+\multicolumn{2}{@{}>{\scriptsize\raggedright\arraybackslash}p{5.41cm}}{scGPT, 12 layers (best layer)} & 0.619--0.680 ($L_{1}$) & 0.630--0.677 ($L_{1}$) & 0.621--0.675 ($L_{1}$) & 0.668--0.743 ($L_{2}$) & 0.749--0.814 ($L_{1}$)\\
+\multicolumn{2}{@{}>{\scriptsize\raggedright\arraybackslash}p{5.41cm}}{Word2Vec minus scGPT at its best layer} & $-$0.075\newline [$-$0.090, $-$0.059] & $-$0.080\newline [$-$0.097, $-$0.062] & $-$0.071\newline [$-$0.089, $-$0.052] & $-$0.040\newline [$-$0.082, 0.005] & $-$0.074\newline [$-$0.107, $-$0.042]\\
+\multicolumn{2}{@{}>{\scriptsize\raggedright\arraybackslash}p{5.41cm}}{Word2Vec minus scGPT at $L_{11}$} & $-$0.014\newline [$-$0.027, $-$0.000] & $-$0.032\newline [$-$0.049, $-$0.015] & $-$0.016\newline [$-$0.029, $-$0.002] & $+$0.036\newline [$-$0.005, 0.078] & $-$0.015\newline [$-$0.037, 0.008]\\
+\multicolumn{2}{@{}>{\scriptsize\raggedright\arraybackslash}p{5.41cm}}{Layers with the difference's CI $<0$ (scGPT higher) / $>0$} & 12 / 0 & 12 / 0 & 12 / 0 & 0 / 0 & 8 / 0\\
+\multicolumn{7}{@{}l}{\scriptsize\textit{H2: detection-stratified TF AUROC (LOO cosine; gene-bootstrap intervals)}}\\
+\multicolumn{2}{@{}>{\scriptsize\raggedright\arraybackslash}p{5.41cm}}{Word2Vec [95\% CI]} & 0.632\newline [0.607, 0.656] & 0.602\newline [0.577, 0.628] & 0.601\newline [0.573, 0.629] & 0.511\newline [0.454, 0.569] & 0.469\newline [0.411, 0.529]\\
+\multicolumn{2}{@{}>{\scriptsize\raggedright\arraybackslash}p{5.41cm}}{Word2Vec permutation $p$ (null mean)} & $5.0\times10^{-4}$\newline (0.494) & $5.0\times10^{-4}$\newline (0.497) & $5.0\times10^{-4}$\newline (0.494) & 0.22\newline (0.485) & 0.28\newline (0.444)\\
+\multicolumn{2}{@{}>{\scriptsize\raggedright\arraybackslash}p{5.41cm}}{scGPT, 12 layers (best layer)} & 0.625--0.665 ($L_{5}$) & 0.627--0.662 ($L_{1}$) & 0.615--0.654 ($L_{1}$) & 0.566--0.720 ($L_{2}$) & 0.678--0.783 ($L_{3}$)\\
+\multicolumn{2}{@{}>{\scriptsize\raggedright\arraybackslash}p{5.41cm}}{Word2Vec minus scGPT at its best layer, raw} & $-$0.033\newline [$-$0.060, $-$0.007] & $-$0.060\newline [$-$0.081, $-$0.038] & $-$0.053\newline [$-$0.078, $-$0.028] & $-$0.208\newline [$-$0.285, $-$0.124] & $-$0.314\newline [$-$0.384, $-$0.238]\\
+\multicolumn{2}{@{}>{\scriptsize\raggedright\arraybackslash}p{5.41cm}}{Same, null-centred (each instrument's permutation-null mean subtracted)} & $-$0.033\newline [$-$0.060, $-$0.007] & $-$0.061\newline [$-$0.082, $-$0.039] & $-$0.051\newline [$-$0.075, $-$0.025] & $-$0.204\newline [$-$0.281, $-$0.120] & $-$0.284\newline [$-$0.354, $-$0.208]\\
+\multicolumn{2}{@{}>{\scriptsize\raggedright\arraybackslash}p{5.41cm}}{Layers with the null-centred CI $<0$ (scGPT higher) / $>0$} & 7 / 0 & 12 / 0 & 8 / 0 & 10 / 0 & 12 / 0\\
+\multicolumn{7}{@{}l}{\scriptsize\textit{H3: within-TF stratified edge AUROC (two-way TF $\times$ target bootstrap intervals)}}\\
+\multicolumn{2}{@{}>{\scriptsize\raggedright\arraybackslash}p{5.41cm}}{Word2Vec [95\% CI]} & 0.512\newline [0.481, 0.549] & 0.534\newline [0.498, 0.570] & 0.528\newline [0.476, 0.582] & 0.603\newline [0.533, 0.696] & 0.577\newline [0.470, 0.695]\\
+\multicolumn{2}{@{}>{\scriptsize\raggedright\arraybackslash}p{5.41cm}}{scGPT, 12 layers (best layer)} & 0.516--0.542 ($L_{1}$) & 0.518--0.538 ($L_{1}$) & 0.524--0.554 ($L_{0}$) & 0.577--0.638 ($L_{0}$) & 0.601--0.652 ($L_{1}$)\\
+\multicolumn{2}{@{}>{\scriptsize\raggedright\arraybackslash}p{5.41cm}}{Word2Vec minus scGPT at its best layer} & $-$0.030\newline [$-$0.074, 0.011] & $-$0.005\newline [$-$0.051, 0.036] & $-$0.026\newline [$-$0.101, 0.029] & $-$0.035\newline [$-$0.100, 0.033] & $-$0.076\newline [$-$0.174, 0.021]\\
+\multicolumn{2}{@{}>{\scriptsize\raggedright\arraybackslash}p{5.41cm}}{Layers with the difference's CI $<0$ / $>0$} & 0 / 0 & 0 / 0 & 0 / 0 & 0 / 0 & 0 / 0\\
+\multicolumn{7}{@{}l}{\scriptsize\textit{H1a: assortativity of $\SV{1}$--$\SV{10}$ on the STRING network (descriptive; directions not index-matched)}}\\
+\multicolumn{2}{@{}>{\scriptsize\raggedright\arraybackslash}p{5.41cm}}{Word2Vec: directions with max-$T$ $p<0.05$ in all 5 seeds (largest mean $r$)} & 10/10 (0.274) & 10/10 (0.295) & 10/10 (0.265) & 10/10 (0.620) & 9/10 (0.693)\\
+\multicolumn{2}{@{}>{\scriptsize\raggedright\arraybackslash}p{5.41cm}}{scGPT: direction--layer tests with max-$T$ $p<0.05$ (largest $r$)} & 120/120 (0.435) & 120/120 (0.407) & 120/120 (0.404) & 118/120 (0.566) & 120/120 (0.702)\\
+\multicolumn{2}{@{}>{\scriptsize\raggedright\arraybackslash}p{5.41cm}}{Largest seed SD of Word2Vec (H1b, H2, H3)} & 0.003 & 0.003 & 0.004 & 0.008 & 0.006\\
+\midrule
+\multicolumn{7}{@{}p{16.4cm}@{}}{\footnotesize\textbf{B. Saturation: full-corpus Word2Vec, seed 0, after 10 and 40 epochs}}\\
+\multicolumn{3}{@{}>{\scriptsize\raggedright\arraybackslash}p{7.72cm}}{Quantity} & lung, 10 epochs & lung, 40 epochs & immune, 10 epochs & immune, 40 epochs\\
+\cmidrule(lr){1-7}
+\multicolumn{3}{@{}>{\scriptsize\raggedright\arraybackslash}p{7.72cm}}{Pair updates} & $4.5\times10^{8}$ & $1.8\times10^{9}$ & $2.9\times10^{8}$ & $1.2\times10^{9}$\\
+\multicolumn{3}{@{}>{\scriptsize\raggedright\arraybackslash}p{7.72cm}}{H1b [95\% CI, delete-$d$]} & 0.606\newline [0.589, 0.622] & 0.612\newline [0.596, 0.628] & 0.705\newline [0.657, 0.752] & 0.702\newline [0.656, 0.748]\\
+\multicolumn{3}{@{}>{\scriptsize\raggedright\arraybackslash}p{7.72cm}}{H2 [95\% CI]} & 0.630\newline [0.605, 0.654] & 0.664\newline [0.639, 0.687] & 0.520\newline [0.461, 0.580] & 0.515\newline [0.454, 0.577]\\
+\multicolumn{3}{@{}>{\scriptsize\raggedright\arraybackslash}p{7.72cm}}{H2 permutation $p$ (null mean)} & $5.0\times10^{-4}$ (0.494) & $5.0\times10^{-4}$ (0.493) & 0.16 (0.485) & 0.19 (0.486)\\
+\multicolumn{3}{@{}>{\scriptsize\raggedright\arraybackslash}p{7.72cm}}{H3 [95\% CI]} & 0.512\newline [0.481, 0.547] & 0.511\newline [0.476, 0.551] & 0.608\newline [0.537, 0.699] & 0.614\newline [0.546, 0.707]\\
+\multicolumn{3}{@{}>{\scriptsize\raggedright\arraybackslash}p{7.72cm}}{H1a: largest $r$ (directions with max-$T$ $p<0.05$)} & 0.277 (10/10) & 0.282 (10/10) & 0.620 (10/10) & 0.616 (10/10)\\
+\multicolumn{3}{@{}>{\scriptsize\raggedright\arraybackslash}p{7.72cm}}{Linear CKA between the 10- and 40-epoch models} & \multicolumn{2}{>{\scriptsize}c}{0.944} & \multicolumn{2}{>{\scriptsize}c@{}}{0.945}\\
+\multicolumn{3}{@{}>{\scriptsize\raggedright\arraybackslash}p{7.72cm}}{H2, Word2Vec minus scGPT at its best layer, null-centred} & $^{a}$ & $+$0.000 ($L_{5}$)\newline [$-$0.024, 0.022] & $^{a}$ & $-$0.202 ($L_{2}$)\newline [$-$0.283, $-$0.116]\\
+\multicolumn{3}{@{}>{\scriptsize\raggedright\arraybackslash}p{7.72cm}}{H2, Word2Vec minus scGPT at $L_{11}$, null-centred} & $^{a}$ & $+$0.039\newline [0.014, 0.063] & $^{a}$ & $-$0.049\newline [$-$0.119, 0.024]\\
+\multicolumn{3}{@{}>{\scriptsize\raggedright\arraybackslash}p{7.72cm}}{H2, layers whose null-centred CI includes 0} & $^{a}$ & 11/12 & $^{a}$ & 3/12\\
+\midrule
+\multicolumn{7}{@{}p{16.4cm}@{}}{\footnotesize\textbf{C. Window calibration: Word2Vec trained on the extraction cells only (256 cells), seed 0}}\\
+Quantity & lung: window 5, 10 epochs & lung: window 5, matched updates & lung: window 512, 10 epochs & immune: window 5, 10 epochs & immune: window 5, matched updates & immune: window 512, 10 epochs\\
+\cmidrule(lr){1-7}
+Epochs; pair updates & 10; $7.8\times10^{6}$ & 571; $4.5\times10^{8}$ & 10; $4.5\times10^{8}$ & 10; $3.6\times10^{6}$ & 365; $1.3\times10^{8}$ & 10; $1.3\times10^{8}$\\
+H1b [95\% CI, delete-$d$] & 0.551\newline [0.535, 0.567] & 0.571\newline [0.555, 0.586] & 0.571\newline [0.555, 0.588] & 0.616\newline [0.569, 0.663] & 0.689\newline [0.640, 0.735] & 0.656\newline [0.605, 0.707]\\
+H2 (permutation $p$) & 0.487\newline (0.64) & 0.611\newline ($5.0\times10^{-4}$) & 0.594\newline ($5.0\times10^{-4}$) & 0.443\newline (0.29) & 0.526\newline (0.12) & 0.492\newline (0.43)\\
+H3 [95\% CI] & 0.502\newline [0.476, 0.528] & 0.516\newline [0.490, 0.545] & 0.520\newline [0.495, 0.549] & 0.512\newline [0.445, 0.598] & 0.592\newline [0.523, 0.673] & 0.569\newline [0.498, 0.661]\\
+H1a: largest $r$ (directions with max-$T$ $p<0.05$) & 0.217 (7/10) & 0.193 (9/10) & 0.159 (10/10) & 0.439 (7/10) & 0.555 (9/10) & 0.464 (10/10)\\
+Linear CKA with the window-512 model & 0.262 & 0.795 & -- & 0.401 & 0.830 & --\\
+\end{longtable}
+\endgroup

@@ -1,0 +1,98 @@
+{
+ "string_physical_pairs_any_score": 738805,
+ "string_physical_pairs_ge700": 86519,
+ "complexportal_complexes_ge2_mapped": 2236,
+ "humap2_complexes_ge2": 6957,
+ "lung": {
+  "n_V": 5648,
+  "phys_any_within_V": 132077,
+  "string700_within_V": 14474,
+  "complex_cp_pairs_within_V": 1934,
+  "complex_cp_overlap_with_string700": 1688,
+  "complex_cp_nodes": 1055,
+  "complex_humap_pairs_within_V": 6782,
+  "complex_humap_overlap_with_string700": 1623,
+  "complex_humap_nodes": 2892
+ },
+ "lung_external": {
+  "n_V": 5616,
+  "phys_any_within_V": 127663,
+  "string700_within_V": 14132,
+  "complex_cp_pairs_within_V": 1863,
+  "complex_cp_overlap_with_string700": 1643,
+  "complex_cp_nodes": 1011,
+  "complex_humap_pairs_within_V": 6639,
+  "complex_humap_overlap_with_string700": 1600,
+  "complex_humap_nodes": 2834
+ },
+ "kidney_B": {
+  "n_V": 4780,
+  "phys_any_within_V": 112823,
+  "string700_within_V": 12434
+ },
+ "immune": {
+  "n_V": 2039,
+  "phys_any_within_V": 7803,
+  "string700_within_V": 1251
+ },
+ "kidney_A": {
+  "n_V": 1972,
+  "phys_any_within_V": 7938,
+  "string700_within_V": 1390
+ },
+ "immune_seed43": {
+  "n_V": 2080,
+  "phys_any_within_V": 7757,
+  "string700_within_V": 1293
+ },
+ "immune_seed44": {
+  "n_V": 1972,
+  "phys_any_within_V": 7666,
+  "string700_within_V": 1263
+ },
+ "immune_TSP14": {
+  "n_V": 1964,
+  "phys_any_within_V": 6453,
+  "string700_within_V": 1030
+ },
+ "immune_TSP21": {
+  "n_V": 1765,
+  "phys_any_within_V": 6492,
+  "string700_within_V": 1050
+ },
+ "immune_TSP25": {
+  "n_V": 1791,
+  "phys_any_within_V": 6361,
+  "string700_within_V": 1064
+ },
+ "immune_Bcell": {
+  "n_V": 1398,
+  "phys_any_within_V": 4251,
+  "string700_within_V": 615
+ },
+ "immune_CD4T": {
+  "n_V": 1465,
+  "phys_any_within_V": 5034,
+  "string700_within_V": 749
+ },
+ "immune_CD8T": {
+  "n_V": 1595,
+  "phys_any_within_V": 5891,
+  "string700_within_V": 896
+ },
+ "kidney_ckpt_whole_human": {
+  "n_V": 4923,
+  "phys_any_within_V": 117380,
+  "string700_within_V": 12689
+ },
+ "kidney_ckpt_kidney": {
+  "n_V": 4923,
+  "phys_any_within_V": 117380,
+  "string700_within_V": 12689
+ },
+ "kidney_ckpt_brain": {
+  "n_V": 4923,
+  "phys_any_within_V": 117380,
+  "string700_within_V": 12689
+ }
+}

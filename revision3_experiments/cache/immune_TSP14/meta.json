@@ -1,0 +1,22 @@
+{
+ "context": "immune_TSP14",
+ "tissue": "immune",
+ "group": "donor",
+ "note": "",
+ "emb": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_38_geometric_residual_stream_interpretability/implementation/outputs/cycle10_immune_donor_TSP14_seed42/layer_gene_embeddings.npy",
+ "h5ad": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/tabula_sapiens_immune_subset_hpn_processed.h5ad",
+ "expr_population": [
+  "donor_id",
+  [
+   "TSP14"
+  ]
+ ],
+ "population_size": 4513,
+ "G": 4941,
+ "n_observed": 1964,
+ "n_expr_cells": 3000,
+ "n_trrust": 521,
+ "n_string700": 1030,
+ "n_dorothea_chip_new": 798,
+ "n_any_regulatory": 7118
+}

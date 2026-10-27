@@ -1,0 +1,115 @@
+E4a_chipfix - corrected ChIP-seq-only independent-positive benchmark (E4a sensitivity E7), 2026-10-27
+CONVENTION3.md sha256 3e3249d1d0a8ce1bc3cf64639fe233b016535456f82432a8bbfcacdd64a05c01 (= FROZEN.txt; in results.json)
+Script: e4a_chipfix.py (build | sens | repro | aggregate); runner run_all.sh; logs build.log, w1-w5*.log.
+Nothing outside E4a_chipfix/ was written. prep_pairs.py, stats3.py, contexts.py, ../cache/ and ../E4a_edges/ were only read.
+
+0. THE DEFECT
+- prep_pairs.main() built cache/<ctx>/h3_chip_pairs.npz with build(ch_v, ..., anyreg - set(ch_v), ...).
+- So a TF's own ChIP-only positives, and their reverses, were not excluded from its candidate non-edges.
+- In lung, 52,908 of 557,447 candidate rows (9.5%) were copies of a positive row of the same TF. Another 1,769 had the reverse pair as a ChIP
+  positive; 54,427 rows were in anyreg in either direction.
+- The contaminated share is 9.5-13.9% in every context (build_audit.csv: old_neg_is_own_chip_positive / old_n_neg).
+- CONVENTION3 sections 3-4 require every pair in any regulatory resource to be excluded. anyreg = TRRUST + DoRothEA main + DoRothEA ChIP, any
+  level, both directions.
+
+1. REBUILD (build_audit.csv / .json; cache/<ctx>/h3_chip_pairs_fixed.npz, same layout as the old file: tf, tg, y, match_level)
+- RNG replay (direct evidence). I replayed prep_pairs.main() per context: default_rng(20261026); then the h3_pairs build and the legacy draws,
+  which consume the generator first; then the ChIP draw.
+  - The replay reproduces ../cache h3_pairs.npz, h3_legacy_pairs.npz and h3_chip_pairs.npz bit for bit in all 16 contexts.
+  - The fixed draw starts from a deep copy of the identical generator state. It calls the unmodified prep_pairs.build with the full anyreg.
+    That is the only change.
+- Positives are IDENTICAL to the old file: same rows in the same order, in all 16 contexts. No TF and no positive was dropped (lung 57,017 / 225 TFs;
+  lung_external 54,332 / 218).
+- Contamination after the fix: 0 candidate rows are in anyreg in either direction, in every context.
+- How the candidates changed:
+  - The candidate pools shrink, so rng.choice draws from different sets. The random stream therefore diverges at the first affected TF (AHR in
+    the lung/kidney contexts, BACH2 in immune/kidney_A). From there on, the remaining draws are re-randomised under the same procedure.
+  - Lung: 555,997 new vs 557,447 old candidates. 416,561 (74.7%) of the old candidate pairs are retained, 140,886 are dropped (54,427 of them
+    contaminated) and 139,436 are new.
+  - lung_external: 74.7% of the old candidates retained.
+  - kidney contexts: 77-78% retained. Immune contexts and kidney_A: 84-86% retained.
+  - The new candidate counts are smaller because some pools are exhausted: immune 21,456 -> 20,180; kidney_A 16,851 -> 14,841.
+- Share of candidates at each match level (chip_match_levels.csv; level 0 = in-degree AND detection decile, 1 = in-degree only, 2 = unmatched
+  fallback):
+    lung           old 0.511 / 0.057 / 0.432  ->  new 0.427 / 0.062 / 0.511
+    lung_external  old 0.503 / 0.071 / 0.426  ->  new 0.424 / 0.072 / 0.504
+    kidney_B       old 0.493 / 0.064 / 0.444  ->  new 0.410 / 0.068 / 0.522   (the three ckpt contexts: 0.414 / 0.069 / 0.517)
+    immune group   old 0.43-0.48 level 0      ->  new 0.35-0.41 level 0; level 2 rises to 0.49-0.55
+    kidney_A       old 0.455 / 0.099 / 0.447  ->  new 0.354 / 0.111 / 0.535
+  The contaminated rows were disproportionately fully matched. A factor's own ChIP targets share the in-degree and detection deciles of its
+  positives, which is what makes them the best matches. So the corrected benchmark is LESS well matched: about half the candidates are now
+  unmatched fallbacks.
+
+2. CODE-PATH CHECK (repro_old_sens_chip.csv)
+- I ran the same functions on the OLD pairs with E4a's settings:
+  - B = 2,000, or 1,000 for kidney_B and the ckpt contexts;
+  - seed [seed_of(ctx), 40];
+  - raw float comparator outside the lung pair, tie-corrected comparator in lung and lung_external.
+- This reproduces every value in E4a_edges/sens_chip.csv: AUROC, CI, UB, SD and both deltas, in all 16 contexts, max |diff| < 1e-16.
+- The new numbers therefore differ from the old ones only through the pairs, the uniform B = 2,000 and the uniform tie-corrected comparator.
+
+3. RESULTS ON THE FIXED PAIRS (sens_chip_fixed.csv: same columns as E4a_edges/sens_chip.csv; old vs new per row in chip_old_vs_new.csv)
+Settings:
+- Scorer: signed cosine of the V-centred full 512-d embedding, per layer.
+- Statistic: within-TF stratified AUROC.
+- Intervals: two-way TF x target pigeonhole bootstrap, B = 2,000 in all contexts, seed [seed_of(ctx), 40].
+- Comparator: |r| rounded to 12 decimals (the verifier's tie fix), on the extraction cells and on the 3,000-cell tier. Deltas use the same
+  resamples.
+Results:
+- lung:
+  - AUROC 0.525-0.534 -> 0.528-0.538. CI lower bound 0.506-0.514, > 0.5 at 12/12 layers. Max UB 0.552 -> 0.559.
+  - |co-expr| 0.536 / 0.551 -> 0.542 / 0.559 (extraction / 3k).
+  - Delta vs extraction cells: -0.014 to -0.004, max UB 0.018 (old 0.016).
+  - Delta vs 3k: -0.030 to -0.021, UB <= 0.0001 at every layer, and < 0 at 11/12 layers.
+- lung_external:
+  - AUROC 0.530-0.537 -> 0.533-0.541. CI > 0.5 at 12/12 layers. Max UB 0.555 -> 0.561.
+  - |co-expr| 0.513 / 0.524 -> 0.515 / 0.527.
+  - Delta vs extraction cells: +0.018 to +0.026, max UB 0.047 (old 0.042). The two-sided CI excludes 0 only at L3 (lower bound +0.0004;
+    unadjusted, Monte-Carlo-borderline).
+  - Delta vs 3k: +0.006 to +0.014, UB <= 0.034.
+- kidney_B 0.534-0.546 (CI > 0.5 at 12/12). ckpt_whole_human 0.531-0.541 (12/12). ckpt_kidney 0.523-0.529 (0/12). ckpt_brain 0.501-0.514 (0/12).
+  Max UB 0.539-0.568. Delta UB <= 0.037 (extraction) and <= 0.014 (3k).
+- Immune group and kidney_A: 0.526-0.594. Max UB 0.585-0.642: the immune UBs now exceed 0.60 (they did before as well, 0.601-0.624).
+  - Delta vs extraction-cell |co-expr|: the delta CI contains 0 at every layer in every context.
+  - Delta UB: 0.023 (kidney_A) to 0.109 (immune_Bcell).
+- Every new scGPT AUROC is above the old one: +0.003 to +0.012. The only exception is kidney_ckpt_brain, which changes by -0.0001
+  to +0.0013. The comparator moves the same way (+0.002 to +0.013).
+- Range over all contexts and layers: 0.501-0.594 (old 0.50-0.58).
+Decomposition (chip_old_vs_new.csv: old_minus_contaminated_auroc = old pairs with the contaminated candidate rows simply deleted):
+- Deleting the contaminated rows reproduces most of the shift: lung 0.528-0.537 vs fixed 0.528-0.538. The redraw adds <= 0.002.
+- Mechanism (inference, consistent with the numbers): a contaminated candidate is an exact copy of a positive of the same TF. Any symmetric
+  scorer ties it with that positive, which shrinks the AUROC toward 0.5 by about f x (A - 0.5), where f is the contaminated share.
+  - Lung: 0.095 x 0.035 = 0.003, which is the observed shift.
+  - This affects scGPT and |co-expression| alike, so the deltas barely move (<= 0.007).
+Match-level-0 block (sens_chip_fixed_matchlevel0.csv: fully matched candidates + all positives; seed [seed_of(ctx), 41]; B = 2,000):
+- lung: 0.521-0.531, CI > 0.5 at 12/12, UB <= 0.544. |co-expr| 0.516 / 0.521. Delta UB 0.030 / 0.027.
+- lung_external: 0.526-0.531, CI > 0.5 at 12/12, UB <= 0.546. Delta UB 0.040 / 0.030.
+- kidney_B / ckpt_whole_human: 12/12 > 0.5. Immune: CI > 0.5 at 0-7 layers, UB <= 0.595.
+- Every scorer falls when the fallback candidates are removed, |co-expr| most of all (lung 0.542 -> 0.516). Part of the all-candidate ChIP
+  AUROC is therefore carried by unmatched target properties (detection / in-degree), for both scorers.
+
+4. WHAT CHANGES IN THE E4a TEXT (E7 sensitivity; no pass/fail)
+- The qualitative conclusion is unchanged. With ChIP positives the effect is small, and its CI excludes 0.5 in the lung pair (12/12 layers in
+  both). AUROC >= 0.60 is excluded in the lung pair (UB <= 0.561), and scGPT shows no >= 0.05 advantage over |co-expression| in the lung pair
+  (delta UB <= 0.018 lung, <= 0.047 lung_external, extraction cells).
+- The numbers to replace:
+  - lung 0.525-0.534 -> 0.528-0.538; UB 0.552 -> 0.559; |co-expr| 0.536 / 0.551 -> 0.542 / 0.559; delta -0.011..-0.003 -> -0.014..-0.004.
+  - lung_external 0.530-0.537 -> 0.533-0.541; UB 0.555 -> 0.561; delta +0.017..+0.024 -> +0.018..+0.026; delta UB 0.042 -> 0.047.
+  - all contexts 0.50-0.58 -> 0.50-0.59.
+- The old E4a_edges/SUMMARY 'CI lower bound 0.505-0.512' for lung becomes 0.506-0.514.
+- The lung_external delta UB moves closer to the 0.05 margin (0.047). The match-level-0 block puts it at 0.040.
+- New and worth one sentence: in lung the scGPT delta vs the 3,000-cell |co-expression| is negative, with UB <= 0.0001 at every layer.
+  Co-expression outperforms the embedding on ChIP positives there (descriptive, unadjusted).
+
+5. LIMITATIONS
+- Fixing the exclusion forced a re-randomisation of about 25% of candidates (lung) once the RNG stream diverged. Old and new candidate sets are
+  therefore not a pure deletion. The 'old minus contaminated' points bound this: the redraw contributes <= 0.002 AUROC.
+- The corrected benchmark is less well matched (level-0 share 0.51 -> 0.43 in lung), so part of the signal reflects target properties. The
+  match-level-0 block is reported for this reason; its positives keep TFs with >= 1 level-0 candidate (lung loses 3 positives).
+- B = 2,000 in all contexts, where E4a used 1,000 in kidney_B / ckpt. The deltas share resamples within a context only.
+- The old sens_chip.csv rows outside the lung pair used the float-tie-broken comparator; the new rows are all tie-corrected. Per the verifier's
+  audit this shifts the comparator by <= 0.0011.
+- Candidate non-edges remain 'ChIP-negative candidate pairs', not confirmed negatives. Level-D ChIP pairs are noisy binding evidence. The contexts
+  are not independent: the three ckpt contexts share pairs and cells, and the immune subsets share cells.
+- work/ (825 MB of per-pair score checkpoints) can be regenerated with `python e4a_chipfix.py sens <ctx>` / `repro <ctx>`.
+- tracking/prompt.md was not updated (this task was restricted to E4a_chipfix/).

@@ -1,0 +1,19 @@
+{
+ "lung_nonpairs_overlap_edges": 0,
+ "lung_nonpairs_selfloops": 0,
+ "immune_nonpairs_overlap_edges": 0,
+ "immune_nonpairs_selfloops": 0,
+ "immune_W2V_s0_H1a_own_z_SV1_10": [
+  12.1,
+  21.16,
+  10.68,
+  10.67,
+  7.6,
+  13.79,
+  15.24,
+  12.51,
+  7.55,
+  11.25
+ ],
+ "immune_W2V_s0_H1a_own_max_null_z_quantile95": 2.4247678185556873
+}

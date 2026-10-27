@@ -1,0 +1,262 @@
+# E4a — H3 edge relation (confirmatory) — orchestrator copy of the verifier-written SUMMARY.txt
+
+```
+E4a_edges - H3 edge relation (pre-registered primary) + edge sensitivity analyses
+SUMMARY (written by the independent verifier, 2026-10-26; supersedes the implementer's returned report)
+CONVENTION3.md sha256 3e3249d1d0a8ce1bc3cf64639fe233b016535456f82432a8bbfcacdd64a05c01 (= FROZEN.txt; recorded in results.json)
+Verifier audit, corrections and recomputations: verify/ (see section V at the end).
+
+A. WHAT WAS RUN (matches CONVENTION3 section 4, H3, exactly)
+- Pairs: cache/<ctx>/h3_pairs.npz: TRRUST edges within V and target-matched TRRUST-negative candidate pairs, for TFs with
+  >= 3 positives and >= 3 candidates.
+- Scorer: signed cosine of the V-centred full 512-d embedding, at each of 12 layers.
+- Statistic: within-TF stratified AUROC (stats3.StratifiedPairs.auroc).
+- Detection test: one within-TF label permutation applied jointly to all 12 layers, N = 10,000, Westfall-Young max-T (stats3.max_t_adjust).
+  The tail is 'greater'; the two-sided version is stored as well. stats3.assert_resolution(10000, 0.05, 12) passed, with p floor 1.0e-4.
+- Intervals: two-way TF x target pigeonhole bootstrap, B = 2,000. Percentile 95% CI and one-sided 95% upper bound (UB). TF-only bootstrap as a check.
+- Comparator: |Pearson r| on the same pairs, from expr_extraction.npy (primary: the 256/192 extraction cells) and from expr.npy (3,000-cell tier).
+  The paired delta (layer minus |co-expression|) uses the same resamples.
+- Decision rule:
+  - 'detected': max-T p < 0.05.
+  - 'AUROC>=0.60 excluded': every layer's UB < 0.60.
+  - 'not above co-expression': every layer's delta UB < 0.05.
+  - Otherwise 'inconclusive'.
+  The labels are not mutually exclusive.
+- All 16 contexts were run. Primary context: lung. Replication context: lung_external.
+- Implementation: e4a_lib.FastStrat is a vectorised evaluator. It reproduces the stats3 point estimates and bootstrap replicates (same seed
+  stream) and the permuted-label AUROCs with max |diff| = 0 (results.json verification_*). The verifier also reproduced it with independent code
+  (section V).
+- Vertex subsampling (CONVENTION3_ERRATA item 3) is not used anywhere in E4a: there are no network statistics here, and every edge interval is a
+  two-way cluster bootstrap. The delta-d rescaling therefore does not apply.
+
+B. PRIMARY RESULTS (h3_summary.csv; per-layer values in h3_primary_<ctx>.csv)
+Each line gives: context, n pos/neg/TF, AUROC range over 12 layers, best layer AUROC [95% CI], max UB, min max-T p, |co-expr| AUROC (extraction / 3k),
+max delta UB (extraction / 3k), verdict (extraction comparator; [3k-comparator verdict if different]).
+  lung           5266/47160/312  0.516-0.542  L1 0.542 [0.496,0.589]  UB 0.583  p 1e-4  0.508/0.515  0.074/0.068  detected + AUROC>=0.60 excluded
+  lung_external  5093/45854/315  0.518-0.538  L1 0.538 [0.493,0.588]  UB 0.581  p 1e-4  0.524/0.551  0.058/0.033  detected + AUROC>=0.60 excluded [3k: + not above co-expression]
+  kidney_B       3668/32712/254  0.524-0.554  L0 0.554 [0.499,0.603]  UB 0.597  p 1e-4  0.515/0.522  0.090/0.084  detected + AUROC>=0.60 excluded
+  kidney_ckpt_whole_human 4111/36798/274 0.519-0.542 L0 0.542 [0.491,0.593] UB 0.587 p 1e-4 0.510/0.522 0.078/0.067 detected + AUROC>=0.60 excluded
+  kidney_ckpt_kidney      4111/36798/274 0.513-0.521 L2 0.521 [0.475,0.568] UB 0.561 p 2e-3 0.510/0.522 0.050/0.040 detected + AUROC>=0.60 excluded [3k: + not above co-expression]
+  kidney_ckpt_brain       4111/36798/274 0.516-0.523 L4 0.523 [0.464,0.573] UB 0.566 p 4e-4 0.510/0.522 0.069/0.055 detected + AUROC>=0.60 excluded
+  kidney_A       213/1446/29     0.601-0.652  L1 0.652 [0.561,0.747]  UB 0.731  p 1e-4  0.559/0.577  0.195/0.169  detected
+  immune         547/3144/36     0.577-0.638  L0 0.638 [0.574,0.715]  UB 0.700  p 1e-4  0.559/0.562  0.151/0.141  detected
+  immune_seed43/44, TSP14/21/25, Bcell/CD4T/CD8T: AUROC 0.549-0.651, max UB 0.684-0.717, p 1e-4, verdict 'detected' (see the CSV).
+- Lung, per layer: max-T p = 1e-4 (the floor) at L0-L7, 2e-4 at L8, 0.0029 at L9, 0.0083 at L10, 0.0062 at L11.
+  The signal is strongest at L0-L2 and decays with depth.
+- Lung delta vs extraction-cell co-expression: +0.008 to +0.034. The delta UB is 0.039-0.074 and falls below 0.05 only at L8-L11.
+  Every delta CI contains 0.
+- lung_external delta vs extraction cells: -0.007 to +0.014, delta UB up to 0.058. Against the 3k tier the delta is negative at every layer
+  (-0.034 to -0.013) and the max UB is 0.033.
+- kidney_ckpt_kidney misses 'not above co-expression' (extraction comparator) by 0.0002: the L2 delta UB is 0.0502. Independent bootstrap seeds
+  give 0.0528 and 0.0537 (verify/verify_part3.json). The label fails at every seed, but the margin is within Monte-Carlo error.
+- Unadjusted descriptive result (no decision label exists for 'above co-expression'): the two-sided delta CI excludes 0 at 6 layers in
+  immune_seed44 and 2 layers in immune_CD4T (column n_layers_delta_cxext_ci_above0). It excludes 0 in no other context.
+- REPLICATION (pre-declared: same sign and lung_external interval excludes 0.5; h3_replication_lung_external.csv). The sign agrees at 12/12
+  layers, but the two-way CI contains 0.5 at 12/12 layers in lung_external (and in lung). The criterion is NOT met.
+
+C. INTERPRETATION OF 'DETECTED' VS 'CI CONTAINS 0.5' (inference)
+- Direct evidence:
+  - Lung permutation null SD: 0.0057.
+  - Two-way bootstrap SD: 0.023 (TF-only 0.020).
+  - Between-TF effect heterogeneity: tau = 0.25 binormal-d units (power.json, method of moments).
+  - The verifier's own estimate of the between-TF SD of per-TF AUROC at L1 is 0.078, against 0.071 implied by tau (verify_part2.json).
+- Inference: the permutation tests the sharp null that documented targets are exchangeable within every TF. The bootstrap targets a population
+  of TFs and targets.
+- Simulation: TFs are resampled, effects are heterogeneous with the observed tau, and the population-mean AUROC is exactly 0.5.
+  - Implementer (power.csv): a two-sided Wald test with the permutation SD rejects in 65% of runs (lung) and 67% (kidney_B).
+  - Verifier's own code: 59% / 58% two-sided.
+  - In the direction of the primary test (one-sided, 'greater'): 34% / 34%.
+  - Small immune/kidney_A designs: implementer two-sided rates 10-25%.
+- 'Detected' therefore establishes a within-benchmark association. It is not evidence that the population-average edge AUROC exceeds 0.5.
+
+D. A PRIORI POWER (power.csv; power 0.8, two-sided alpha 0.05; cluster-respecting simulation; reported next to the observed values)
+- Lung:
+  - AUROC MDE: 0.559 with the oracle SD; 0.564 with the two-way bootstrap (size 0.025); Hanley-McNeil 0.512.
+  - Delta MDE: 0.056 oracle; 0.071 two-way.
+- lung_external:
+  - AUROC MDE: 0.540 oracle; 0.562 two-way.
+  - Delta MDE: 0.060 oracle; 0.072 two-way.
+- Large designs overall: AUROC MDE 0.540-0.572 (oracle) and 0.562-0.576 (two-way); delta MDE 0.056-0.075 (oracle) and 0.071-0.091 (two-way).
+- Small immune/kidney_A designs:
+  - AUROC MDE: 0.553-0.584 oracle; 0.583-0.632 two-way.
+  - Delta MDE: 0.067-0.143 oracle; 0.111-0.191 two-way.
+  - Hanley-McNeil AUROC MDE: 0.538-0.560.
+- The two-way bootstrap is conservative: simulated size 0.000-0.025 at nominal 0.05. Hanley-McNeil is optimistic because it ignores
+  TF/target clustering and between-TF heterogeneity.
+- Legacy design: kidney_A run_trees.py split, 49 positives / 147 candidates, 27 TFs, 117 targets.
+  - Pooled AUROC: oracle MDE 0.700; two-way MDE 0.716 (size 0.022); Hanley-McNeil 0.634.
+  - DeLong MDE 0.644, but it is anti-conservative (size 0.195). TF-only MDE 0.651 (size 0.163).
+  - Delta MDE: 0.216 oracle, 0.254 two-way, 0.161 Hanley-McNeil.
+  - Clustering in the uncentred cosine: target ICC 0.47, TF ICC 0.17, tau 0.39.
+  - The submitted 0.591 [0.499, 0.684] and delta +0.034 were far below what that design could detect.
+
+E. SENSITIVITY ANALYSES (effect sizes with intervals; no pass/fail)
+E1 Legacy repeated splits (legacy_splits.csv, legacy_split_reproduction.csv)
+- The run_trees.py split was reproduced exactly, including its CIs: 0.591 [0.499, 0.684]; SV2-7 0.589; SV5-7 0.541; |co-expr| 0.556; random 0.513.
+- Across 500 random 80/20 splits (submitted uncentred full-512):
+  - AUROC mean 0.580, SD 0.043, 2.5-97.5% range 0.501-0.664. 0.591 sits at the 60.8th percentile.
+  - Delta vs |co-expr|: mean +0.081 [-0.014, 0.169], > 0 in 95% of splits.
+  - The submitted split's |co-expr| of 0.556 was at the 90th percentile, and its delta at the 15th.
+- Under the V-centred paper convention: full-512 0.633 (SD 0.040) [0.553, 0.710]; SV2-7 0.607 (vs 0.598 submitted); SV5-7 0.567 (vs 0.545).
+- This spread is NOT a confidence interval: nothing is trained on the 80%.
+E2 Shortcuts and matching (sens_shortcut.csv, sens_matching.csv)
+- 'Target is a TRRUST target of any TF' = 0.500 on the matched pairs. This is TAUTOLOGICAL: every candidate's target is, by construction, a
+  TRRUST target of another TF, and the indicator is 1.0 in both classes. It does not test the matching.
+- On the legacy all-V non-edges the same indicator gives 0.855-0.969: the all-V construction rewards target identity.
+- Target in-degree is NOT neutralised by the matching:
+  - Total in-degree, which includes the pair's own edge, gives 0.67-0.78.
+  - Other-TF in-degree gives 0.626 [0.551, 0.702] in lung, 0.633 in lung_external and 0.56-0.60 in immune.
+- Holding it fixed (strata = TF x exact other-TF in-degree):
+  - Lung 0.510-0.531 and lung_external 0.522-0.542; all CIs contain 0.5.
+  - The immune contexts barely change (0.53-0.65).
+E3 Secondary scorers (sens_scorers.csv)
+- Lung |cos|: 0.505-0.529, below signed cosine.
+- Rank-k cosine rises with k. k <= 7 gives 0.47-0.51 (rank-1 now with exact sign: 0.469-0.514). k >= 64 is close to full rank. No truncation
+  beats full rank.
+- Nominal bands, hypothesis-generating: SV5-7 0.522-0.554 in lung, CI lower bound > 0.5 at 9/12 layers.
+- Mapped bands (sens_mapped_bands.csv) exist only for immune and kidney_A: immune SV5-7 <= 0.579; kidney_A SV1-6 <= 0.598.
+  Their delta UB is 0.02-0.16.
+E4 Metrics
+- Macro per-TF AUROC (sens_macro.csv): lung 0.554-0.580, with 68-75% of TFs above 0.5.
+- Legacy pooled AUROC with all-V non-edges (sens_legacy_pooled.csv): lung 0.538-0.559, vs 0.500-0.519 within-TF on the same pairs.
+  kidney_A 0.706-0.784.
+E5 Strata (sens_strata.csv)
+- Lung PMID >= 2: 0.535-0.593 (579 positives), vs PMID = 1: 0.512-0.532. lung_external: 0.539-0.588 vs 0.513-0.528.
+- Activation 0.521-0.550 vs Repression 0.503-0.530.
+- TF detection, with two definitions:
+  (a) Expression-based (fraction of extraction cells with expression > 0; implementer's definition). Lung: < 10% 0.536-0.577 (47 TFs) vs
+      >= 10% 0.515-0.540 (265 TFs).
+  (b) CONVENTION3 section 2 definition (n_obs = cells whose scGPT INPUT contained the TF; added by the verifier). The pattern REVERSES:
+      - lung n_obs >= 10%: 94 TFs, 1,753 positives, AUROC 0.557-0.584, CI excludes 0.5 at 12/12 layers, best L5 0.584 [0.540, 0.641],
+        max UB 0.633, delta vs |co-expr| +0.029 to +0.056.
+      - lung n_obs < 10%: 218 TFs, 0.493-0.527, CI excludes 0.5 at 0 layers.
+      - lung_external n_obs >= 10%: 111 TFs, 0.541-0.567, CI excludes 0.5 at 12/12 layers, max UB 0.610, delta +0.012 to +0.038.
+      - lung_external n_obs < 10%: 0.503-0.524.
+      - kidney_B / kidney_ckpt_whole_human n_obs >= 10%: 0.541-0.580, CIs mostly contain 0.5.
+  The two definitions coincide in the immune cell-type contexts. They differ in lung and kidney, where n_obs is a median 0.24-0.45 of the
+  expression count.
+E6 Label noise (sens_label_noise.csv), max corrected UB at pi = 0.05 / 0.1 / 0.2
+- Lung: 0.587 / 0.592 / 0.604. lung_external: 0.585 / 0.590 / 0.601.
+- 'AUROC>=0.60 excluded' therefore survives up to 10% contamination but not 20%.
+E7 Independent ChIP-only positives (sens_chip.csv)
+- Lung: 57,017 positives, 225 TFs. AUROC 0.525-0.534. CI lower bound 0.505-0.512, > 0.5 at 12/12 layers. UB <= 0.552.
+  |co-expr| 0.536 / 0.551 (extraction / 3k). Delta -0.011 to -0.003, delta UB <= 0.016.
+- lung_external: 54,332 positives, 218 TFs. AUROC 0.530-0.537, UB <= 0.555. Delta +0.017 to +0.024, delta UB <= 0.042.
+- Across all contexts: AUROC 0.50-0.58.
+- With ChIP positives, the effect is small, its CI excludes 0.5, it excludes 0.60, and scGPT shows no >= 0.05 advantage over |co-expression|
+  in the lung pair.
+E8 Contextual (sens_contextual.csv; TFs detected in >= 10% of that context's extraction cells, identical under both definitions here)
+- B cell, 21 TFs: L0 0.629 [0.537, 0.707] vs |co-expr| 0.519. Delta +0.110 [-0.010, 0.221].
+- CD4T, 22 TFs: L0 0.605 [0.520, 0.685] vs |co-expr| 0.487. Delta +0.118 [0.014, 0.222] (one-sided UB 0.196). The CI excludes 0 at L0-L2 only.
+  No multiplicity correction; post-hoc subset.
+- CD8T, 24 TFs: L1 0.627 [0.556, 0.693]. Delta CI contains 0.
+E9 Worked example PAX5 -> CD79A (sens_example_pax5_cd79a.csv)
+- In immune_Bcell (PAX5 detected in 79% of cells, CD79A in 91%) the pair ranks 5th-7th of PAX5's 94 candidates, above 95-98% of its candidate
+  non-edges at every layer. |co-expr| ranks it 5th.
+- Across the 9 immune contexts it ranks 1st-8th.
+- It ranks 1st-5th even in CD4T/CD8T, where PAX5 is detected in <= 0.8% of the extraction cells.
+- In lung (PAX5 1.6%, CD79A 0.4% of extraction cells) it ranks 2nd (L0) to 28th (L11) of 176.
+- Illustration only.
+
+F. WHAT THE DATA EXCLUDE (direct evidence)
+- In lung, lung_external, kidney_B and the three kidney checkpoints: a within-TF AUROC >= 0.60 for full-dimensional signed cosine at any layer,
+  over the full benchmark. This is robust to <= 10% label contamination.
+- In lung_external and kidney_ckpt_kidney (3k comparator), and with ChIP positives in the lung pair: an advantage >= 0.05 over |co-expression|.
+- NOT excluded: AUROC >= 0.60 in the subset of TFs that scGPT actually receives as input in >= 10% of cells (lung UB 0.633, lung_external 0.610).
+
+G. WHAT REMAINS INCONCLUSIVE
+- Whether the population-mean edge AUROC exceeds 0.5 on TRRUST labels. The two-way CIs contain 0.5 in the primary pair, and replication is not met.
+- Whether scGPT beats co-expression by >= 0.05 in lung at L0-L7 (UB 0.055-0.074).
+- Anything beyond 'detected' in the small immune and kidney_A benchmarks.
+- The 20%-contamination scenario.
+
+H. WHAT IS NOT SHOWN
+- That scGPT encodes no regulatory information. Only symmetric, linear, mean-pooled cosine read-outs were tested; nonlinear, contextual,
+  attention-level and directed encodings were not (E4b and E4c test some of these).
+- That candidate non-edges are true negatives.
+- Anything about direction.
+- That the input-presence stratum effect is causal. It is a TF-level selection, and n_obs is confounded with TF expression level and with
+  TF family.
+
+I. HYPOTHESES (not tested here)
+- The higher estimates in immune and kidney_A may reflect homogeneous cell populations, or small TF-selected benchmarks.
+- The n_obs stratum result suggests that edge signal is carried mainly by TFs the model actually sees as input tokens.
+- The PAX5 example suggests that some of this signal is a static gene-gene association rather than co-expression in the sampled cells.
+
+J. SURPRISES
+- Target in-degree survives the decile matching.
+- Signal is strongest at L0-L2 and decays with depth.
+- The TF-detection stratum reverses depending on whether detection is defined by expression or by scGPT input (E5).
+- V-centring raises the legacy full-512 AUROC by about 0.05.
+- The submitted split was unlucky for scGPT relative to co-expression.
+
+K. LIMITATIONS
+- TRRUST incompleteness and literature bias.
+- Incomplete target matching (in-degree).
+- The two-way bootstrap is conservative, and the permutation test is anti-conservative for population inference.
+- Binormal power model: tau by method of moments; 80-200 simulations per grid point (MDE Monte-Carlo error about 0.005).
+  power.json was not re-run after the comparator tie fix, which changes its inputs by <= 0.0011.
+- Contexts are not independent (shared donors; the checkpoints share cells and pairs).
+- Co-expression from 256/192 cells is noisy. lung_external's verdict depends on the comparator tier.
+- The kidney_ckpt_kidney co-expression label is Monte-Carlo-borderline.
+- Replicate counts: rank-k/band scorers B = 1,000. Strata on >= 20k-pair subsets and ChIP outside lung/lung_external: B = 1,000.
+
+V. VERIFIER AUDIT (verify/)
+Checks passed:
+- (1) The primary matches CONVENTION3 section 4: statistic, universe, null, N = 10,000, family of 12 layers, max-T, decision rule.
+  The tail choice ('greater') is justified and the two-sided version is stored.
+- (2) Zero rows: the non-zero rows equal obs_idx exactly. Centring is over V. The SVD is stats3.svd_observed. The full-rank US-row cosines equal
+  the centred cosines (asserted in code).
+- (3) Gene alignment (obs_idx / obs_genes / expression columns / pair indices): primary AUROCs were reproduced exactly from the raw embeddings
+  in 5 contexts.
+- (6) The null preserves per-TF positive counts.
+- (7) Bootstrap unit: TF x target. Vertex subsampling is not applicable.
+- (8) Resolution: floor 1e-4 < 0.05/12.
+- (10) Model labels: no ESM2 is used in E4a. Checkpoints: scGPT whole-human / kidney / brain.
+- (5) Leakage: nothing is trained.
+Independent recomputations (own code, no stats3/e4a imports):
+- verify_e4a.py -> verify_results.json, verify_primary.csv:
+  - Primary AUROC at all 12 layers in lung, lung_external, kidney_A, kidney_B and immune_Bcell (max |diff| = 0).
+  - Lung two-way bootstrap at L0/L1/L11. Replaying the implementer's stream reproduces CI/UB/SD exactly. An independent seed gives L1 CI
+    [0.495, 0.590] and UB 0.585 (vs [0.496, 0.589] and 0.583).
+  - Lung within-TF permutation, N = 2,000, own loop: max-T p 5e-4 (floor) at L0-L8, 0.0015 at L9, 0.0075 at L10, 0.004 at L11, consistent
+    with the implementer's.
+  - Immune_Bcell contextual AUROC: 0.6289 (exact).
+  - Legacy split percentiles: 60.8 / 89.6 / 15.4 / 95.4%.
+- verify_e4a_part2.py -> verify_part2.json:
+  - Tie-corrected |co-expr| (lung 0.50815, immune_Bcell 0.53122).
+  - ChIP lung L0 0.5253 and L1 0.5273 (exact); ChIP |co-expr| 0.5364.
+  - Lung other-TF in-degree 0.6260 and TF x in-degree strata L0 0.5304 (exact).
+  - Lung macro L0 0.5796 (exact).
+  - PAX5 ranks (exact).
+  - Label noise (exact).
+  - Own power-size simulation (section C).
+- verify_e4a_part3.py -> verify_part3.json: the kidney_ckpt_kidney L2 delta UB of 0.0502 was replayed exactly; independent seeds give
+  0.0528 and 0.0537.
+Bugs found and fixed (fix_ties.py, fix_nobs_strata.py, post_fix.py; originals in work/<ctx>/pre_verify_backup/ and verify/pre_verify_outputs/):
+- (i) |co-expression| ties. abs_corr_pairs returned unrounded float |r|, so pairs with mathematically identical |r| (identical expression
+  vectors in 192/256 cells) had their ties broken by float noise instead of counting 1/2.
+  - Fix: |r| rounded to 12 decimals. 10, 11 and 13 decimals give identical AUROCs.
+  - Recomputed with the original seeds: comparator rows, every primary delta (16 contexts), |cos| and rank-1 rows, comparator macro rows,
+    both TF-detection strata in every context, and ChIP in lung and lung_external.
+  - Effect: comparator AUROC changes of up to 0.0011 (immune_Bcell 0.5323 -> 0.5312; CD8T 0.5544 -> 0.5534; TSP21 0.5478 -> 0.5469).
+    Lung, lung_external and the kidney contexts change by <= 2e-5. NO verdict changed (verify/old_vs_new_summary.csv).
+  - Rows not recomputed carry delta_cx_basis = 'original float-tie-broken ...': rank-k >= 2, bands, mapped bands, PMID/mode strata,
+    sens_matching, legacy pooled, ChIP outside the lung pair. Their comparator shift is <= 0.00012 where audited (verify/cx_tie_audit.csv).
+- (ii) Rank-1 cosine. stats3.l2norm_rows uses a 1e-12 epsilon, which left ~0.8% of rank-1 scores off +-1, so ties were ordered by magnitude.
+  Fixed with exact signs. Changes are <= 0.003 (immune L11 0.516 -> 0.513; verify/old_vs_new_rank1.csv), and no conclusion changes.
+- (iii) Definition deviation. The 'TF detected >= 10%' strata used expression > 0 rather than CONVENTION3 section 2 n_obs. The n_obs strata were
+  added; the expression-based strata were kept and labelled. The contextual analysis is unaffected because the definitions coincide there.
+Wording corrections to the implementer's report:
+- (a) The 'target is a TRRUST target of anyone' = 0.500 row is tautological; it does not confirm the matching.
+- (b) '65%/67% rejection' refers to a two-sided Wald test with the permutation SD. One-sided it is about 34% (verifier simulation), and the
+  verifier's two-sided rate is 58-59%.
+- (c) CD4T delta: +0.117 [0.013, 0.196] -> +0.118 [0.014, 0.222]. 0.196 was the one-sided UB, not the CI's upper end.
+- (d) B-cell |co-expr| 0.520 -> 0.519.
+- (e) PAX5 -> CD79A in immune_Bcell ranks 5th-7th, not 5th-6th, above 95-98% of candidates. Across immune contexts it ranks 1st-8th,
+  not 4th-6th. In lung both genes are rarely detected, not 'not expressed'.
+- (f) Macro: 68-75% of TFs above 0.5, not 68-73%.
+- (g) Immune contexts under TF x in-degree strata: 0.53-0.65, not 0.55-0.65.
+- (h) 'Rarely detected TFs score higher' holds only for expression-based detection. It reverses under the CONVENTION3 definition.
+- (i) Mapped-band delta UB: 0.02-0.16, not 0.07-0.16.
+```

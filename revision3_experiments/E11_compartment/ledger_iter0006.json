@@ -1,0 +1,327 @@
+{
+ "convention_sha256": "3e3249d1d0a8ce1bc3cf64639fe233b016535456f82432a8bbfcacdd64a05c01",
+ "source": {
+  "script": "iterations/iter_0006/run_iter0006_screen.py::run_h02_svd_biology",
+  "record": "iterations/iter_0006/executor_hypothesis_screen.json H02; iter0006_results.json H02_svd_biology",
+  "matrix": "subproject_38 .../cycle1_main/layer_gene_embeddings.npy (12 x 4803 x 512) = context kidney_A (Tabula Sapiens KIDNEY h5ad; the screen labelled it immune)",
+  "named_genes": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_38_geometric_residual_stream_interpretability/implementation/outputs/cycle1_main/cycle1_edge_dataset.tsv",
+  "n_named": 209,
+  "n_named_zero_rows": 22
+ },
+ "own_convention": {
+  "reproduced": true,
+  "matching_orientation": [
+   "numpy_sign"
+  ],
+  "orientations": {
+   "numpy_sign": {
+    "OR": 6.367741935483871,
+    "p": 0.00025746446015579904,
+    "a_top": 21,
+    "c_bottom": 5,
+    "n25": 52,
+    "n_terms_tested": 284,
+    "top3": [
+     {
+      "term": "GO:0005615",
+      "OR": 6.367741935483871,
+      "p": 0.00025746446015579904
+     },
+     {
+      "term": "GO:0005576",
+      "OR": 5.193548387096774,
+      "p": 0.0007241104237534494
+     },
+     {
+      "term": "GO:0005788",
+      "OR": Infinity,
+      "p": 0.001339076455939058
+     }
+    ],
+    "zero_rows_in_top": 22,
+    "zero_rows_in_bottom": 0
+   },
+   "flipped": {
+    "OR": 0.15704154002026344,
+    "p": 0.9999638023189361,
+    "a_top": 5,
+    "c_bottom": 21,
+    "n25": 52,
+    "n_terms_tested": 284,
+    "top3": [
+     {
+      "term": "GO:0005829",
+      "OR": 2.956112852664577,
+      "p": 0.010391961347117801
+     },
+     {
+      "term": "GO:0005739",
+      "OR": Infinity,
+      "p": 0.02826107853503797
+     },
+     {
+      "term": "GO:0045087",
+      "OR": Infinity,
+      "p": 0.02826107853503797
+     }
+    ],
+    "zero_rows_in_top": 0,
+    "zero_rows_in_bottom": 22
+   }
+  },
+  "sv1_var_frac_L11": 0.9321852326393127,
+  "r_SV1_vs_observed_indicator_L11": -0.999835284872662,
+  "n_distinct_SV1_values_on_zero_rows": 1,
+  "extracellular_rate_zero_row_named": 0.6363636363636364,
+  "extracellular_rate_observed_named": 0.17647058823529413,
+  "n_zero_row_named": 22
+ },
+ "R2_retraction_convention": {
+  "source": "revision2_experiments/rebuild_headline.py [B]; headline_rebuilt.csv rows SV1_extracellular_L11 / _best_layer",
+  "submitted_values": {
+   "L11_OR": 0.4644303065355697,
+   "L11_p": 0.12909553549175648,
+   "best_layer": 8,
+   "best_OR": 2.4141201264488936,
+   "best_p": 0.031046878529548395
+  },
+  "reproduced": {
+   "GO:0005615": {
+    "L11": {
+     "OR": 0.4644303065355697,
+     "p": 0.12909553549175648,
+     "pole": "bottom"
+    },
+    "best_layer": 8,
+    "best": {
+     "OR": 2.4141201264488936,
+     "p": 0.031046878529548395,
+     "pole": "top"
+    },
+    "n": 187,
+    "K": 50
+   },
+   "GO:0005829": {
+    "L11": {
+     "OR": 1.1511167432282592,
+     "p": 0.7364960101694318,
+     "pole": "top"
+    },
+    "best_layer": 2,
+    "best": {
+     "OR": 0.508887127816144,
+     "p": 0.06307360130116171,
+     "pole": "top"
+    },
+    "n": 187,
+    "K": 50
+   }
+  },
+  "r_SV1_vs_observed_indicator_L11": -0.9998352848737397,
+  "reproduced_exactly": true
+ },
+ "paper_convention_named_genes": {
+  "lung": {
+   "n_named_in_V": 182,
+   "L11_SV1_extracellular_pole_vs_rest": {
+    "OR": 2.2264090177133657,
+    "p": 0.05993708290071573,
+    "pole": "bottom"
+   },
+   "L11_SV1_extracellular_own_best_orientation": {
+    "OR": 2.205357142857143,
+    "p": 0.10214296970736879
+   },
+   "best_layer_extracellular_pole_vs_rest": 4,
+   "min_p_extracellular_pole_vs_rest": 0.006234127125010249,
+   "L11_SV1_cytosol_pole_vs_rest": {
+    "OR": 1.4205898516211761,
+    "p": 0.3117175920934065
+   }
+  },
+  "lung_external": {
+   "n_named_in_V": 174,
+   "L11_SV1_extracellular_pole_vs_rest": {
+    "OR": 1.2270058708414873,
+    "p": 0.6684062781464876,
+    "pole": "top"
+   },
+   "L11_SV1_extracellular_own_best_orientation": {
+    "OR": 1.1447811447811447,
+    "p": 0.49999999999999994
+   },
+   "best_layer_extracellular_pole_vs_rest": 2,
+   "min_p_extracellular_pole_vs_rest": 0.0157981979195053,
+   "L11_SV1_cytosol_pole_vs_rest": {
+    "OR": 1.5757250268528464,
+    "p": 0.21975070580693123
+   }
+  },
+  "kidney_B": {
+   "n_named_in_V": 171,
+   "L11_SV1_extracellular_pole_vs_rest": {
+    "OR": 1.8823753330795585,
+    "p": 0.16879046873685352,
+    "pole": "top"
+   },
+   "L11_SV1_extracellular_own_best_orientation": {
+    "OR": 1.5625,
+    "p": 0.29400526593178905
+   },
+   "best_layer_extracellular_pole_vs_rest": 11,
+   "min_p_extracellular_pole_vs_rest": 0.16879046873685352,
+   "L11_SV1_cytosol_pole_vs_rest": {
+    "OR": 1.5454545454545454,
+    "p": 0.22471068955547419
+   }
+  },
+  "immune": {
+   "n_named_in_V": 95,
+   "L11_SV1_extracellular_pole_vs_rest": {
+    "OR": 0.7085678549093183,
+    "p": 0.5967081532411515,
+    "pole": "bottom"
+   },
+   "L11_SV1_extracellular_own_best_orientation": {
+    "OR": 1.575,
+    "p": 0.3690550623052042
+   },
+   "best_layer_extracellular_pole_vs_rest": 2,
+   "min_p_extracellular_pole_vs_rest": 0.062202617116112316,
+   "L11_SV1_cytosol_pole_vs_rest": {
+    "OR": 0.7694429123000551,
+    "p": 0.6271320679567679
+   }
+  },
+  "kidney_A": {
+   "n_named_in_V": 187,
+   "L11_SV1_extracellular_pole_vs_rest": {
+    "OR": 1.7592872244035034,
+    "p": 0.194779450103158,
+    "pole": "bottom"
+   },
+   "L11_SV1_extracellular_own_best_orientation": {
+    "OR": 1.0,
+    "p": 0.5963250572033495
+   },
+   "best_layer_extracellular_pole_vs_rest": 3,
+   "min_p_extracellular_pole_vs_rest": 0.194779450103158,
+   "L11_SV1_cytosol_pole_vs_rest": {
+    "OR": 0.508887127816144,
+    "p": 0.06307360130116171
+   }
+  }
+ },
+ "paper_convention_full_V_SV1": {
+  "lung": {
+   "GO:0005615": {
+    "L11": {
+     "OR_best_pole": 2.1091258241189164,
+     "p_best_pole": 3.4970860732672613e-16,
+     "best_pole": "bottom",
+     "auroc_signfree": 0.6108030047977591,
+     "p_adj_auroc": 0.0004997501249375
+    },
+    "best_layer_by_auroc": 3
+   },
+   "GO:0005829": {
+    "L11": {
+     "OR_best_pole": 0.8036197907345766,
+     "p_best_pole": 0.0006220829728061,
+     "best_pole": "top",
+     "auroc_signfree": 0.5047465899836364,
+     "p_adj_auroc": 1.0
+    },
+    "best_layer_by_auroc": 0
+   }
+  },
+  "lung_external": {
+   "GO:0005615": {
+    "L11": {
+     "OR_best_pole": 0.7197159927622107,
+     "p_best_pole": 0.0020764944151808,
+     "best_pole": "bottom",
+     "auroc_signfree": 0.547892772223704,
+     "p_adj_auroc": 0.0369815092453773
+    },
+    "best_layer_by_auroc": 3
+   },
+   "GO:0005829": {
+    "L11": {
+     "OR_best_pole": 0.4518956083861908,
+     "p_best_pole": 6.037265843901846e-33,
+     "best_pole": "bottom",
+     "auroc_signfree": 0.6246828083075457,
+     "p_adj_auroc": 0.0004997501249375
+    },
+    "best_layer_by_auroc": 10
+   }
+  },
+  "kidney_B": {
+   "GO:0005615": {
+    "L11": {
+     "OR_best_pole": 1.242890390800058,
+     "p_best_pole": 0.081278450212438,
+     "best_pole": "bottom",
+     "auroc_signfree": 0.5227705571341406,
+     "p_adj_auroc": 1.0
+    },
+    "best_layer_by_auroc": 2
+   },
+   "GO:0005829": {
+    "L11": {
+     "OR_best_pole": 0.7237714058894995,
+     "p_best_pole": 1.807926137351214e-06,
+     "best_pole": "bottom",
+     "auroc_signfree": 0.526563059848338,
+     "p_adj_auroc": 0.2253873063468265
+    },
+    "best_layer_by_auroc": 10
+   }
+  },
+  "immune": {
+   "GO:0005615": {
+    "L11": {
+     "OR_best_pole": 0.3765256555926152,
+     "p_best_pole": 2.0356693472139304e-08,
+     "best_pole": "top",
+     "auroc_signfree": 0.5848121210538457,
+     "p_adj_auroc": 0.000999500249875
+    },
+    "best_layer_by_auroc": 3
+   },
+   "GO:0005829": {
+    "L11": {
+     "OR_best_pole": 0.512375923812933,
+     "p_best_pole": 4.468953314147893e-07,
+     "best_pole": "top",
+     "auroc_signfree": 0.5284982072396138,
+     "p_adj_auroc": 0.9950024987506249
+    },
+    "best_layer_by_auroc": 0
+   }
+  },
+  "kidney_A": {
+   "GO:0005615": {
+    "L11": {
+     "OR_best_pole": 0.3672675295799253,
+     "p_best_pole": 1.6078587463190917e-05,
+     "best_pole": "top",
+     "auroc_signfree": 0.6463900433614909,
+     "p_adj_auroc": 0.0004997501249375
+    },
+    "best_layer_by_auroc": 0
+   },
+   "GO:0005829": {
+    "L11": {
+     "OR_best_pole": 0.0988080456642234,
+     "p_best_pole": 1.1767088310739384e-43,
+     "best_pole": "top",
+     "auroc_signfree": 0.714835935229041,
+     "p_adj_auroc": 0.0004997501249375
+    },
+    "best_layer_by_auroc": 3
+   }
+  }
+ }
+}

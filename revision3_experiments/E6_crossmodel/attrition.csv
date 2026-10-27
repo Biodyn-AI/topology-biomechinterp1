@@ -1,0 +1,53 @@
+stage,set,n_genes,note
+vocabulary,scgpt_static,60694,60694 rows in npz; 0 all-zero rows dropped
+vocabulary,gf_v2_316m,20271,20271 rows in npz; 0 all-zero rows dropped
+vocabulary,gf_v1_10m,21243,21243 rows in npz; 0 all-zero rows dropped
+vocabulary,gf_v2_104m,20271,20271 rows in npz; 0 all-zero rows dropped
+vocabulary,aido_100m,19264,19264 rows in npz; 0 all-zero rows dropped
+vocabulary,scfoundation,19264,19264 rows in npz; 0 all-zero rows dropped
+vocabulary,tgpt,21046,21046 rows in npz; 0 all-zero rows dropped
+vocabulary,esm2_uce,19790,19790 rows in npz; 0 all-zero rows dropped
+vocabulary,esm2_650m,20394,20394 rows in npz; 0 all-zero rows dropped
+vocabulary,seq_features,20213,20394 rows in npz; 181 all-zero rows dropped
+vocabulary,hpa_coexp,20151,20151 rows in npz; 0 all-zero rows dropped
+intersection,8 GPL-rollout models (scGPT..ESM2-UCE),17874,
+intersection,Geneformer V1-10M & V2-104M & ESM2-UCE (submitted models),18907,
+Tier A,intersection of all 11 static vocabularies,17693,
+Tier A,TRRUST-participating within Tier A,2742,
+Tier A,Lambert TFs in Tier A,1587,
+context lung,gene axis (h5ad var),8181,
+context lung,"V (observed, non-zero embedding)",5648,
+context lung,TRRUST-participating within V,1956,
+context lung,Tier B = V & Tier A,5226,
+context lung,TRRUST-participating within Tier B,1912,
+context lung,Lambert TFs in Tier B,579,
+context lung_external,gene axis (h5ad var),8229,
+context lung_external,"V (observed, non-zero embedding)",5616,
+context lung_external,TRRUST-participating within V,1971,
+context lung_external,Tier B = V & Tier A,5154,
+context lung_external,TRRUST-participating within Tier B,1948,
+context lung_external,Lambert TFs in Tier B,618,
+context kidney_B,gene axis (h5ad var),8143,
+context kidney_B,"V (observed, non-zero embedding)",4780,
+context kidney_B,TRRUST-participating within V,1577,
+context kidney_B,Tier B = V & Tier A,4441,
+context kidney_B,TRRUST-participating within Tier B,1542,
+context kidney_B,Lambert TFs in Tier B,509,
+context immune,gene axis (h5ad var),4941,
+context immune,"V (observed, non-zero embedding)",2039,
+context immune,TRRUST-participating within V,283,
+context immune,Tier B = V & Tier A,1338,
+context immune,TRRUST-participating within Tier B,281,
+context immune,Lambert TFs in Tier B,111,
+context kidney_A,gene axis (h5ad var),4803,
+context kidney_A,"V (observed, non-zero embedding)",1972,
+context kidney_A,TRRUST-participating within V,180,
+context kidney_A,Tier B = V & Tier A,1298,
+context kidney_A,TRRUST-participating within Tier B,172,
+context kidney_A,Lambert TFs in Tier B,90,
+legacy,genes named in cycle1_edge_dataset.tsv,209,1152 rows (label 1/0) of the round-1 TRRUST-filtered kidney_A edge list
+legacy,... in the kidney_A gene axis,209,
+legacy,... non-zero in kidney_A at L0 (curated set),187,22 never-observed genes dropped
+legacy,... & Geneformer V1-10M & V2-104M & ESM2-UCE vocabularies (submitted Table 1),186,lost: NEAT1
+legacy,... & Tier A (all 11 vocabularies),178,"lost (absent from tGPT): HLA-A,HLA-B,HLA-C,HLA-DMB,HLA-DOB,HLA-DPB1,HLA-DRA,HLA-DRB1"
+legacy,"kidney_A V & Tier A, TRRUST-participating (what the vocabularies would have allowed)",172,

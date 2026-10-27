@@ -1,0 +1,11 @@
+{
+ "n_total": 183,
+ "n_extractable": 112,
+ "n_resolution_limited": 18,
+ "n_bh_pass": 70,
+ "n_bonferroni_pass": 25,
+ "n_bonferroni_pass_resolution_limited": 0,
+ "bonferroni_alpha": 0.000273224043715847,
+ "headline_survivors_round1": 8,
+ "headline_survivors_round2": 5
+}

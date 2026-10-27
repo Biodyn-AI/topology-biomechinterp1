@@ -1,0 +1,36 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage{booktabs,longtable,array,amsmath,amssymb,graphicx,xcolor,multirow,threeparttable}
+\usepackage[hidelinks]{hyperref}
+\newcommand{\SV}[1]{\mathrm{SV}_{#1}}
+\renewcommand{\arraystretch}{1.1}
+\setlength{\LTcapwidth}{\textwidth}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}
+\renewcommand{\thetable}{S\arabic{table}}
+\title{\bfseries Supplementary Material\\[4pt]\large Multi-dimensional spectral geometry of biological knowledge in single-cell transformer representations}
+\author{Ihor Kendiukhov}
+\date{}
+\begin{document}
+\maketitle
+Each table below summarises one analysis; the complete values are in the file named in its caption (folder \texttt{supplementary\_tables/}).
+Extractions: lung (Tabula Sapiens lung, primary), lung (ext.) (lung atlas of Travaglini et al., replication), kidney~B, immune and kidney~A
+(see the main text, Table~1). $L_\ell$ is layer $\ell$ (0--11); $\SV{k}$ is the $k$-th direction of the singular value decomposition of the centred
+observed-gene matrix at that layer. Unless stated otherwise intervals are 95\%; network-statistic intervals use vertex subsampling with delete-$d$
+scaling; edge-statistic intervals use the two-way (factor $\times$ target) pigeonhole bootstrap; node-statistic intervals resample genes.
+
+\input{supplement/S1}
+\input{supplement/S2}
+\input{supplement/S3}
+\input{supplement/S4}
+\input{supplement/S5}
+\input{supplement/S6}
+\input{supplement/S7}
+\input{supplement/S8}
+\input{supplement/S9}
+\input{supplement/S10}
+\input{supplement/S11}
+\input{supplement/S12}
+\input{supplement/S13}
+\input{supplement/S14}
+\end{document}

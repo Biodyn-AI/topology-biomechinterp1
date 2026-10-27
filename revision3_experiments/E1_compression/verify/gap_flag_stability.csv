@@ -1,0 +1,4 @@
+subset,n_pairs,n_flagged,n_flagged_mc_unstable,n_unflagged_mc_unstable,n_flagged_stable
+all,2112,429,101,108,328
+k<=3,576,38,8,11,30
+core k<=3,180,9,4,0,5
