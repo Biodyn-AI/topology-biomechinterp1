@@ -1,0 +1,101 @@
+{
+ "verifier": "independent adversarial verifier",
+ "date": "2026-10-26",
+ "convention3_sha256": "3e3249d1d0a8ce1bc3cf64639fe233b016535456f82432a8bbfcacdd64a05c01",
+ "confirmed": [
+  "primary statistic/universe/bootstrap units/B=2000/no-test family match CONVENTION3 section 4",
+  "k* selected on immune_seed43 before any evaluation-context curve (kstar.json 14:05:16; first eval curve kidney_B 14:07:56)",
+  "obs_idx == non-zero rows of canonical embedding (L0, L11); obs_genes == h5ad var[obs_idx] for all verified contexts",
+  "U_k S_k columns: T_k = 0..k-1, R_j = j..511, bands = a-1..z-1; full-512 cosines equal V-centred cosines",
+  "joint permutations shared across k and layers; within detection strata (NODE), within TF (EDGE)",
+  "LOO excludes self for permuted TFs",
+  "full-dimension NODE/EDGE per-layer values equal E3 h2_primary / E4a h3_primary exactly (lung, lung_external, kidney_B, immune, immune_seed43)"
+ ],
+ "fixes": [
+  {
+   "id": "A",
+   "what": "PPI vertex-subsampling CI scaling per CONVENTION3_ERRATA item 3 (delete-d) added; pre-registered sqrt(m/n) kept",
+   "effect": "layer-mean PPI CI below 0: 1 of 4 (kidney_B) instead of 2 of 4; per-layer below-0 counts lung 6 (9), lung_external 0 (2), kidney_B 7 (10); decision unchanged (0 of 4 improve)",
+   "files": [
+    "delta.csv (ci_lo_deleted, ci_hi_deleted, ci_lo_ms, ci_hi_ms)",
+    "sens_R_N_ci.csv (same columns)",
+    "SUMMARY.txt",
+    "results.json"
+   ]
+  },
+  {
+   "id": "B",
+   "what": "k=1 cosine tie artefact: stats3.l2norm_rows epsilon ordered exact +-1 cosines by |SV1|; e7lib.unit_rep now exact",
+   "effect": "only k=1 values changed (curves, any-k nulls, static curves); k* unchanged; delta npz unchanged; lung EDGE any-layer any-k max +0.0072 (k=1) p=0.457 -> +0.0021 (k=128) p=0.934",
+   "files": [
+    "curves_*.csv",
+    "work/*_anyk_*.npz",
+    "any_k_test.csv",
+    "static_curves.csv",
+    "static_summary.csv",
+    "posthoc_best_k.csv",
+    "bands_vs_topk.csv",
+    "remove_top_j.csv"
+   ]
+  }
+ ],
+ "reproduced": {
+  "n_V": 5648,
+  "n_edges": 14474,
+  "n_nonpairs": 14315,
+  "layer_mean": {
+   "ppi_full": 0.6549320344976277,
+   "ppi_k": 0.653881078437538,
+   "edge_full": 0.5300020162996542,
+   "edge_k": 0.5303557927702784,
+   "node_full": 0.6541835925352982,
+   "node_R5": 0.7532646261154347,
+   "full_vs_centred": 1.0363888566788937e-14
+  },
+  "delta_ppi": -0.0010509560600897583,
+  "delta_edge": 0.00035377647062428963,
+  "diff_node_R5": 0.09908103358013642,
+  "ppi_ci": {
+   "prereg_sqrt_m_over_n": [
+    -0.002020625156991928,
+    -6.452697025577489e-05
+   ],
+   "errata_delete_d": [
+    -0.002422275247942878,
+    0.00034406533707280907
+   ]
+  },
+  "edge_ci": [
+   -0.002214454672515269,
+   0.002515499668187966
+  ],
+  "select": {
+   "PPI": {
+    "mine": 64,
+    "e7": 64,
+    "max_abs_curve_diff": 0.009512291182273258
+   },
+   "NODE": {
+    "mine": 512,
+    "e7": 512,
+    "max_abs_curve_diff": 1.1102230246251565e-16
+   },
+   "EDGE": {
+    "mine": 128,
+    "e7": 128,
+    "max_abs_curve_diff": 0.01192693617043683
+   }
+  },
+  "anyk_lung_external_NODE": {
+   "observed_max_gap": 0.001990433932302249,
+   "argmax_k": 64,
+   "p": 0.4091816367265469,
+   "null_q95": 0.020425281893020942
+  },
+  "static_gf_v2_104m": {
+   "ppi_k7": 0.667851787311883,
+   "ppi_k768": 0.6511917441660044
+  }
+ },
+ "note": "verify_select compare_kstar_json max_abs_curve_diff at k=1 reflects the pre-fix kstar.json k=1 entries; all k>=2 agree to 1.1e-16 and all k agree with the re-run curves to 1.1e-16"
+}

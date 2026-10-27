@@ -1,0 +1,22 @@
+{
+ "context": "immune_CD4T",
+ "tissue": "immune",
+ "group": "celltype",
+ "note": "",
+ "emb": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_38_geometric_residual_stream_interpretability/implementation/outputs/cycle11_immune_celltype_cd4_t/layer_gene_embeddings.npy",
+ "h5ad": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/tabula_sapiens_immune_subset_hpn_processed.h5ad",
+ "expr_population": [
+  "cell_type",
+  [
+   "CD4-positive, alpha-beta T cell"
+  ]
+ ],
+ "population_size": 3373,
+ "G": 4941,
+ "n_observed": 1465,
+ "n_expr_cells": 3000,
+ "n_trrust": 412,
+ "n_string700": 749,
+ "n_dorothea_chip_new": 549,
+ "n_any_regulatory": 5018
+}

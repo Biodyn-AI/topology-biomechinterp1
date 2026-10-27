@@ -1,0 +1,319 @@
+E4c_probes - supervised edge probes (SENSITIVITY analysis; answers R1.6 / R1.2; no pass/fail)
+SUMMARY rewritten by the independent verifier (2026-10-26). The implementer's text is kept verbatim in
+verify/SUMMARY_implementer_before_verification.txt. Corrections to it are listed in section V.
+CONVENTION3 sha256 3e3249d1d0a8ce1bc3cf64639fe233b016535456f82432a8bbfcacdd64a05c01 (= FROZEN.txt; recorded in results.json
+and verify/verification.json)
+
+QUESTION
+Can a supervised probe, given scGPT residual-stream gene embeddings of a TF and a candidate target, recover a TRRUST edge on
+genes it has never seen? We tested linear and non-linear pair encodings. We then asked whether any success goes beyond
+(a) what target identity alone predicts and (b) what the same probe learns from degree-preserving rewired labels.
+
+WHAT WAS RUN
+All numbers below come from probe_results.csv, probe_folds.csv, relational_signal.csv, null_results.csv, null_folds.csv,
+direction_test.csv, tuned_vs_fixed.csv and rewire_stats.csv (implementer), or from verify/v*.csv (verifier).
+- Pairs: cache/<ctx>/h3_pairs.npz (the same pairs as H3).
+  - lung: 52,426 pairs, 5,266 positives.
+  - lung_external: 50,947 / 5,093.
+  - kidney_B: 36,380 / 3,668.
+  - immune: node-only sanity check only.
+- Embedding: each layer's V x 512 matrix of observed genes, mean-centred over V.
+- Pair features:
+  - concat [x_i, x_j];
+  - Hadamard x_i*x_j;
+  - |x_i - x_j|;
+  - bilinear vec(p_i p_j^T), where p is a PCA-16 projection fitted on training-fold genes only.
+  - Sensitivity combinations beyond the specification, on identical folds: [x_j, Hadamard] and [x_j, bilinear].
+- Models:
+  - M1: L2 logistic regression, all 12 layers. alpha is chosen from {1e-4, 1e-3, 1e-2, 1e-1} on a regime-matched inner split of
+    each training fold.
+  - M2: HistGradientBoosting, on L0, L5 and L11.
+  - M3: sklearn MLP with 2 hidden layers and early stopping, on L0, L5 and L11.
+- Regimes:
+  - C3, pair-disjoint (primary): genes are dealt into 5 folds; training pairs have both genes in training folds; test pairs have
+    both genes in the held-out fold. Each C3 test fold therefore holds about 4% of pairs (lung: about 2,100 pairs, 22 TFs and
+    175 positives; kidney_B: about 1,450 pairs, 15 TFs and 111 positives).
+  - C2: held-out TFs.
+  - C1: random pairs.
+- Metric: within-TF stratified AUROC (stats3.StratifiedPairs) on every test fold. Every lung, lung_external and kidney_B fold
+  qualified. In immune C3, 1 of 25 folds per layer fell back to pooled AUROC (24 fold-rows in total).
+- Controls on identical folds:
+  - TF-only and target-only;
+  - co-expression pair features (|r|, r, mean and detection of both genes, from expr_extraction.npy);
+  - ESM2-15B (UCE per-protein), 5,120-d, PCA-128 fitted per training fold. The specification calls it ESM2-3B, which is wrong.
+  - the scGPT static gene-token embedding: whole-human checkpoint, encoder embedding after the encoder LayerNorm,
+    subproject_53 npz, 512-d, centred over V;
+  - the unsupervised H3 scorer (signed cosine, full 512-d) and |co-expression|, scored on the same test folds.
+- Null: degree-preserving MCMC target swaps restricted to the h3 candidate universe. Every TF's and every target's positive count
+  is preserved exactly (checked for all 100 draws by both verifiers). 100 draws for M1 and 10 for M2/M3, each retrained under
+  the same CV.
+  - A rewired draw retains 20-23% of the true positives. An independent 50x-burn-in chain gives the same retention, so this is
+    the stationary overlap of the constrained space, not poor mixing.
+  - Positive retention makes the null conservative for relational signal. The null is NOT clean for additive (target-level)
+    signal: see Direct evidence 3c.
+- Intervals:
+  - Implementer: Nadeau-Bengio (NB) corrected resampled t over outer folds, var = (1/J + n_test/n_train) s^2, with the ratio
+    counted in pairs (C3: about 0.0625).
+  - Verifier sensitivity: the same with ratio 0.25. In C3 the held-out unit is a fifth of the genes, and 0.25 is the ordinary
+    5-fold value.
+  - Both are reported below as [pair-ratio CI | gene-ratio CI].
+  - Empirical p = (b+1)/(N+1). Max-T over the 12 layers uses shared rewiring draws (stats3.max_t_adjust).
+    stats3.assert_resolution was applied to every null test.
+- CONVENTION3_ERRATA item 3 (vertex-subsampling delete-d scale) does not apply. E4c computes no network-statistic interval and
+  uses no vertex subsampling.
+
+REDUCTIONS (compute; listed in results.json)
+- C1 has 1 repeat. C2 and C3 have 5 x 5 for M1.
+- The M1 100-draw null was run on C3 repeat 0 only (5 folds).
+- M2/M3 were run only on C3 and C2 repeat 0, with concat and Hadamard features and with scGPT and co-expression sources only.
+  - Their TF-only control is 0.5 by construction under the within-TF metric.
+  - Their null has 10 draws (resolution floor 0.091), so no significance claim is possible. The M2 null covers concat only.
+  - M2/M3 hyperparameters were fixed a priori, with only early stopping in-fold. A tuned variant (small grids, regime-matched
+    inner split) was added for true labels only.
+- Run-to-run SD is the SD over the 5 CV repetitions (M1 only).
+
+DIRECT EVIDENCE
+1. Unseen genes (C3) give low AUROCs.
+   - Best C3 probe means: 0.597 (lung, scGPT bilinear, L2); 0.591 (lung_external, bilinear, L8); 0.589 (kidney_B,
+     [x_j, bilinear], L0).
+   - Upper NB bounds of the best scGPT probes: 0.621-0.625 with the pair ratio and 0.638-0.647 with the gene ratio. The 0.60 level
+     is not excluded for them.
+   - Other sources in lung reach 0.581 (static token), 0.567 (ESM2-15B) and 0.512 (co-expression).
+   - SD across CV repetitions is <= 0.027 AUROC in the three main contexts (M1, C3). Immune target-only reaches 0.070.
+2. Target identity carries most of what is learnable.
+   - Target-only probes reach 0.540-0.573 in C3, 0.600-0.632 in C2 and 0.600-0.631 in C1. TF-only is exactly 0.500 within TF.
+   - Linear concat probes are additive, f(x_i) + g(x_j), so within a TF they reduce to target-only.
+     - Their excess over target-only is -0.004 to +0.004 in C3.
+     - The excess is a consistent +0.002 to +0.005 in C2/C1 (pair-ratio interval > 0 at 5-10 of 12 layers). This is expected,
+       not relational: the TF block acts as TF fixed effects in the pooled loss, which improves the target weights.
+   - Hadamard and |diff| probes are never above target-only in any context or regime (no interval > 0).
+     - For |diff| in C3 the interval is below 0 at 7/12 (lung), 12/12 (lung_external) and 9/12 (kidney_B) layers with the pair
+       ratio, and at 0/12, 8/12 and 5/12 with the gene ratio.
+3. Interaction (bilinear) signal is small and layer-dependent, and it does not reach kidney_B.
+   a. Bilinear minus target-only, C3, 25 folds:
+      - lung: +0.015 to +0.051 at L0-L9, falling to -0.004 at L11. The interval is > 0 at 7/12 layers with the pair ratio and at
+        1/12 with the gene ratio. L2: +0.051 [0.026, 0.076 | 0.009, 0.093].
+      - lung_external: +0.002 to +0.029. The interval is > 0 at 2/12 layers (L8, L9) with the pair ratio and at 0/12 with the
+        gene ratio.
+      - kidney_B: -0.031 to +0.006, no layer > 0.
+   b. Against the same probe trained on rewired labels (C3 repeat 0, N = 100):
+      - lung: p = 0.0099 (the floor) at 11/12 layers and p = 0.030 at L11. Max-T < 0.05 at 11/12.
+      - lung_external: p < 0.05 at 8/12, max-T < 0.05 at 4/12 (L6-L9).
+      - kidney_B: p < 0.05 at 4/12, max-T < 0.05 at 1/12.
+   c. Added by the verifier (verify/v1_rewired_did.csv): the rewired null is not clean for additive signal. The additive concat
+      probe, which carries no within-TF relational information, still differs from its rewired-label version.
+      - It is above it in lung (raw p < 0.05 at 9/12 layers, max-T at 1/12).
+      - It is below it in lung_external (true 0.548-0.563 vs rewired 0.562-0.574).
+      - So 3b mixes an additive shift with interaction signal.
+      - A difference-in-differences test isolates the interaction term: D = AUROC(bilinear) - AUROC(concat) on true labels,
+        against the same D on each rewired draw. Rewired-label D is negative everywhere (-0.008 to -0.036), because a bilinear form
+        cannot use the target-level structure that rewiring preserves.
+        - lung: D = +0.026 to +0.046 at L0-L7. Max-T < 0.05 at 7/12 layers (L1-L7).
+        - lung_external: D = +0.000 to +0.028. Max-T < 0.05 at 7/12 layers (L4-L10; three of them at exactly 0.0495).
+        - kidney_B: 0/12.
+   d. Combined relational signal (implementer) = probe minus max(rewired-label AUROC, target-only), C3 repeat 0 (J = 5):
+      - lung: the interval excludes 0 at 1 layer with the pair ratio (L6: +0.038 [0.004, 0.072]) and at 0 layers with the gene
+        ratio (L6: [-0.006, 0.083]).
+      - lung_external and kidney_B: 0 layers.
+   e. Adding a bilinear block to the target-only block ([x_j, bilinear]) gains:
+      - lung: +0.001 to +0.025 (interval > 0 at 8/12 layers with the pair ratio, 3/12 with the gene ratio);
+      - lung_external: +0.009 to +0.022 (9/12 | 3/12);
+      - kidney_B: <= +0.016 (0/12 | 0/12).
+4. The interaction signal is not specific to the contextual residual stream.
+   - Static token embedding, lung: bilinear minus target-only +0.026 [0.003, 0.050 | -0.013, 0.066]. It beats its rewired-label
+     version at p = 0.0099.
+   - ESM2-15B, lung: +0.005 [-0.021, 0.031], with rewired p = 0.0099.
+   - Paired same-fold comparisons (verify/v3_paired_sources.csv):
+     - scGPT bilinear minus static bilinear has no layer with an interval > 0 in any context. It is < 0 at 4/12 layers in lung
+       and at 5/12 in kidney_B.
+     - The scGPT excess over its own target-only exceeds the static excess at 1/12 layers in lung (L2: +0.025 [0.003, 0.047],
+       pair ratio). It exceeds the ESM2-15B excess at 1/12 in lung and at 0/12 elsewhere.
+   - DiD (verify/v8_did_sources.csv) is also positive against rewiring for the layer-free sources:
+     - ESM2-15B: p = 0.0495 (lung), 0.0198 (lung_external), 0.079 (kidney_B).
+     - static: p = 0.069, 0.099, 0.21.
+5. Against the unsupervised scorers on identical C3 folds:
+   - The cosine scorer itself gives 0.521-0.561 on these folds.
+   - scGPT bilinear minus the signed-cosine H3 scorer: +0.020 to +0.059 in lung (interval > 0 at 10/12 layers with the pair
+     ratio, 3/12 with the gene ratio) and +0.035 to +0.062 in lung_external (12/12 | 0/12). kidney_B: -0.009 to +0.016 (0/12).
+   - scGPT bilinear minus |co-expression|: interval > 0 at 12/12 layers in both lungs with the pair ratio (8/12 and 5/12 with the
+     gene ratio).
+6. Non-linear probes add nothing detectable on unseen genes.
+   - M2/M3 C3 AUROCs are 0.49-0.56.
+   - In C3, no M2/M3 probe, fixed or tuned, exceeds its own target-only control with an interval above 0. Several are below it,
+     e.g. lung_external M3 Hadamard L5, tuned: -0.065 [-0.097, -0.032].
+   - In C2 (held-out TFs, targets seen), 5 of 72 scGPT M2/M3 probe rows exceed target-only with an interval above 0. All 5 are
+     concat rows (5 of 36 concat rows), by +0.028 to +0.041: lung M2 L11, lung_external M2/M3/M3-tuned L11, kidney_B M2-tuned L0. These are single repetitions, with no
+     multiplicity adjustment and no null.
+   - Tuning inside folds changes AUROC by -0.043 to +0.039 over both regimes. Mean change: +0.007 (M2) and -0.002 (M3) in C3;
+     +0.010 and +0.002 in C2.
+   - Against 10 rewired draws, lung M3 has z = 4.6 (concat L0) and z = 2.6-3.7 (Hadamard). These carry no significance claim,
+     because N = 10 is below the resolution needed.
+7. Ordered direction test (M1 concat, C3, both genes held out). Pairs are TRRUST i->j with both genes Lambert TFs and j->i
+   undocumented. The fraction of pairs scored forward > reverse:
+   - lung, 435 pairs over 241 genes: 0.494-0.543. No layer's interval excludes 0.5.
+   - lung_external, 453 pairs over 251 genes: 0.536-0.594.
+   - kidney_B, 325 pairs over 197 genes: 0.563-0.628.
+   - The implementer's exact binomial CIs treat pairs as independent. They exclude 0.5 at 11/12 (lung_external) and 12/12
+     (kidney_B) layers.
+   - The pairs share genes, so the verifier used a gene-cluster bootstrap (B = 2,000; pair weight = product of gene weights;
+     verify/v6_direction_cluster.csv). With it, the interval excludes 0.5 at only 2/12 layers in lung_external (L10, L11; L11:
+     0.594 [0.506, 0.677]), 1/12 in kidney_B (L7: 0.628 [0.512, 0.740]) and 0/12 in lung.
+   - An independent sklearn refit of lung_external L11 with the verifier's own alpha selection gives 0.570 instead of 0.594 (92%
+     sign agreement per pair), so the fraction also depends on regularisation.
+   - The strict subset (j->i absent from every regulatory set) behaves the same.
+   - Node-level baselines on the same pairs give 0.53-0.56 (TRRUST out-degree of i > j) and 0.55-0.59 (in-degree of j > i).
+8. Immune sanity check.
+   - TF-only is 0.498-0.501 (exactly 0.500 where no fold is pooled).
+   - Target-only is 0.61-0.62 in C1 and 0.57-0.58 in C2.
+   - In C3 target-only is 0.47-0.50. Immune C3 folds hold about 3 TFs and 18 positives, so they are uninformative.
+
+INFERENCE
+- On held-out genes, a small amount of TF-specific target preference is learnable from pairs of scGPT gene embeddings.
+  - It appears only through an explicit low-rank interaction (bilinear) term.
+  - It is about +0.02 to +0.05 AUROC above a target-only model in lung at L0-L7, at an absolute AUROC below 0.60.
+  - Its interval against target-only is robust to the interval choice at L2 only. It is smaller and interval-fragile in
+    lung_external, and absent in kidney_B.
+- The rank-based tests do not depend on the NB ratio:
+  - Interaction beyond an additive model, relative to degree-preserving rewiring (DiD), is detected in both lungs at 7 of 12
+    layers each.
+  - It is not detected in kidney_B.
+  - The lung -> lung_external sign agreement holds on this statistic. The DiD is a verifier-added sensitivity test, not a
+    pre-registered criterion.
+- The same structure is present in context-free gene representations: the static token embedding and, by DiD, ESM2-15B.
+  - The likeliest reading is a property of gene identity, i.e. which genes tend to be co-regulated or co-annotated. It is not a
+    property of the cell-contextual representation.
+- Boosting and MLPs over concatenated or Hadamard features find nothing more on unseen genes. Within this probe family and data
+  size, we found no evidence of a stronger non-linear or distributed encoding.
+- For a linear concat probe, the forward-minus-reverse score is a node-score difference, (w_TF/s_TF - w_tg/s_tg).(x_i - x_j),
+  up to block standardisation.
+  - The direction test therefore measures a node-level regulator-versus-target propensity, not a relation.
+  - Once gene sharing is accounted for, it is weak (2/12 layers in lung_external, 1/12 in kidney_B, 0/12 in lung). It does not
+    meet the replication pattern: null in lung.
+
+HYPOTHESIS (not tested here)
+- The bilinear term may pick up shared functional-module or annotation structure among TRRUST literature edges (study bias), not
+  mechanistic regulation. The parallels in the static embedding and ESM2-15B fit this explanation. We have not tested it.
+
+WHAT THIS DOES NOT SHOW
+- It does not show that scGPT encodes no regulatory relations. It shows that these probe families recover at most a small
+  relational component on unseen genes: linear, bilinear PCA-16, HGB and a 2-layer MLP, trained on about 20-35k TRRUST-benchmark
+  pairs.
+- It does not show direction. The direction result is node-level and weak under a gene-cluster interval.
+- It makes no pass/fail claim and no H3 decision. This is a sensitivity analysis.
+
+LIMITATIONS AND FAILURE MODES
+- C3 test folds are small (see WHAT WAS RUN), and fold AUROCs are noisy (fold SD median 0.037, up to 0.056).
+- Each C3 repetition evaluates only the about 20% of pairs whose two genes fall in the same fifth.
+- Interval method matters.
+  - The NB correction assumes exchangeable folds. The pair-count ratio (0.0625) gives intervals 1.68x narrower than the
+    gene-level ratio (0.25) for J = 25, and 1.31x narrower for J = 5.
+  - Every "interval > 0 at n/12 layers" count above is given under both ratios. The gene-ratio counts are the cautious reading.
+- The rewired null covers C3 repeat 0 only.
+  - It retains about 21% of true positives, which makes it conservative for relational signal.
+  - It is not neutral for additive target-level signal (3c).
+  - Max-T covers the 12 layers but not the features or sources. Multiplicity across feature families is not adjusted beyond the
+    BH column in relational_signal.csv.
+- M2/M3 cover a reduced grid. Their 10-draw nulls cannot support significance claims, and the tuned nulls were not run.
+- Labels are TRRUST. "Candidate non-edges" are undocumented, not confirmed absent.
+
+SURPRISES
+- The static, context-free token embedding matches the residual-stream bilinear signal in lung. ESM2-15B passes the DiD test in
+  lung_external.
+- The additive concat probe beats rewired labels in lung but falls below them in lung_external, so a rewired-label null is not
+  a pure relation null for supervised probes.
+- Fitting the true-label column jointly with the 100 rewired columns can change the in-fold alpha choice.
+  - 3 of 171 M1 null rows differ from the stand-alone true-label run by more than 0.01 on one fold: kidney_B concat L5 0.063, L8
+    0.059; lung concat L6 0.012. The median difference is 8e-5 (null_results.csv, max_abs_diff_vs_true_run).
+  - Null comparisons use the jointly fitted column, so they stay internally consistent.
+- The target-only control is far from 0.5 (0.54-0.63), even though non-edges are matched on target in-degree and detection
+  deciles.
+
+V. VERIFICATION (independent adversarial verifier; files in verify/)
+Scripts read in full: e4c_lib.py, e4c_m1.py, e4c_rewire.py, e4c_selftest.py, e4c_nonlin.py, e4c_nonlin_tuned.py, e4c_ref.py,
+e4c_aggregate.py, e4c_results.py, chain*.sh. A first verifier was cut off by the reboot; its v1-v3 checks were re-read and reused
+(sound). This verifier added v4-v9.
+
+Checks passed:
+(1) Design and status.
+    - E4c is a sensitivity analysis (CONVENTION3 §5, E4 extras). It runs no H1-H4 statistic, so §4 decision rules do not apply.
+    - Pairs, metric (stats3.StratifiedPairs) and the empirical-p rule match CONVENTION3.
+(2) Embedding.
+    - Only observed genes are used (Ctx.layer asserts no zero rows; v1: observed rows non-zero, unobserved rows zero).
+    - Each layer is V-centred.
+    - No SVD basis is indexed. The PCA-16 / PCA-128 bases are top right-singular vectors of training-gene rows, re-centred on
+      those genes.
+(3) Gene alignment (v1_alignment.csv).
+    - obs_genes equals the h5ad var index at obs_idx in all three contexts.
+    - The h3 labels equal TRRUST membership.
+    - Every candidate non-edge is absent from every regulatory set in both directions.
+    - Pair counts match.
+(4) Leakage.
+    - PCA, standardisation and alpha selection are inside training folds. Inner splits are regime-matched.
+    - The C3 train/test gene overlap is 0 and the C2 TF overlap is 0, over all repeats (v1_folds.csv).
+    - Node-only baselines, reference scorers and nulls use identical deterministic folds.
+    - Leaks found: none. Only label-free quantities use all of V: centring, the static/co-expression features, and the PCA fitted
+      on all training genes, which include the inner-validation genes and is used only for alpha choice.
+(5) Nulls.
+    - All 100 draws preserve every TF's and every target's positive count (v1).
+    - The swap proposal is symmetric, so its stationary law is uniform on the constrained space.
+    - The empirical p and max-T values were recomputed from raw per-draw checkpoints: max |diff| 1e-16.
+(6) Resolution. At N = 100 the floor is 0.0099, so claims at 0.05 are supported. The M2/M3 N = 10 nulls carry no claims (correct).
+(7) Bootstrap unit and errata. No vertex subsampling, so errata item 3 does not apply. Edge intervals are NB (allowed by the
+    specification). The verifier added gene-level NB and a gene-cluster bootstrap where the unit matters.
+(8) Model labels.
+    - ESM2-15B (UCE per-protein, 5,120-d) is correct everywhere.
+    - The static source is the scGPT whole-human checkpoint gene-token embedding after the encoder LayerNorm
+      (subproject_53_scgpt_gpl_replication/scripts/phase0_extract_embeddings.py).
+(9) SUMMARY numbers were checked line by line against the CSVs (verify/v4_summary_check.py/.log).
+
+Independent recomputation from raw inputs (own features, standardisation, sklearn solver, inner split and alpha selection, and
+within-TF AUROC; only the outer fold assignment is shared; verify/v5_independent.py, v7_independent_vs_implementer.csv):
+- lung scGPT bilinear L2, C3, 25 folds: 0.5958 vs 0.5968 (implementer).
+- lung target-only L2: 0.5420 vs 0.5459.
+- Bilinear minus target-only: +0.0511 [0.0235, 0.0786] vs +0.0509 [0.0259, 0.0759].
+- lung static bilinear: 0.5824 vs 0.5813. Static bilinear minus static target-only: +0.0275 [0.0017, 0.0533] vs +0.0263
+  [0.0028, 0.0497].
+- lung rewired draws 1-10 (bilinear L2, r0, implementer's alphas): null mean 0.5282 vs 0.5282 (max fold diff 2e-4). True 0.6058
+  vs 0.6058. 0/10 draws reach the true value.
+- lung_external concat L11, 25 folds: 0.5593 vs 0.5608. Direction fraction 0.570 vs 0.594 (alpha-dependent; 92% sign agreement).
+- First verifier (v2, implementer's alphas, sklearn): 4 units reproduced to <= 4e-5 per fold. The reference cosine was
+  reproduced to 6e-17 (v1).
+
+Corrections to the implementer's SUMMARY (no code bug; CSV values unchanged):
+C1. Direction test.
+    - Implementer: "lung_external CI > 0.5 at 11/12 layers; kidney_B 12/12".
+    - Corrected: with a gene-cluster bootstrap, 2/12 (lung_external) and 1/12 (kidney_B); lung 0/12. The binomial CIs ignore
+      shared genes.
+C2. NB interval ratio. The pair-count ratio is retained but no longer the only reading.
+    - Gene-level counts: bilinear > target-only at 1/12 lung layers (not 7/12) and 0/12 lung_external layers (not 2/12).
+    - [x_j, bilinear] gains at 3/12 and 3/12 (not 8/12 and 9/12).
+    - Gain over cosine at 3/12 and 0/12 (not 10/12 and 12/12).
+    - Relational signal at 0 layers (not 1).
+    - Static bilinear excess interval includes 0.
+    - Upper bounds reach 0.647.
+C3. "Beats rewired labels" is not a clean relational test, because the additive concat probe also departs from its rewired
+    version: above it in lung, below it in lung_external. The DiD statistic was added.
+    - On it, lung and lung_external are equally supported (7/12 layers each, max-T).
+    - This replaces the implementer's "more weakly in lung_external" for the rank-based evidence. On the effect-size scale,
+      lung_external remains weaker.
+C4. Static-embedding parallel extended: ESM2-15B also passes the DiD in both lungs (p = 0.0495, 0.0198), and the paired scGPT -
+    static comparisons show no scGPT advantage.
+C5. The concat excess over target-only is not "only -0.003 to +0.004 in all regimes". That range holds in C3. In C2/C1 it is
+    +0.002 to +0.005 with intervals > 0 at 5-10/12 layers, explained by TF fixed effects, not by relational information.
+C6. Non-linear C2 rows: 5 of 72 probe rows (all concat) exceed target-only (interval > 0). The implementer reported C3 only.
+C7. Tuned-minus-fixed means: +0.007 / -0.002 are C3-only values; C2 is +0.010 / +0.002.
+C8. Null consistency: 3 (not 2) M1 null rows differ by more than 0.01 (0.063, 0.059, 0.012).
+C9. SD across repetitions <= 0.027 holds for lung, lung_external and kidney_B only (immune up to 0.070).
+C10. The direction-test score difference was written (w_TF - w_target).(x_i - x_j). It holds up to the separate block
+     standardisation.
+C11. Implementer: lung bilinear "beats the same probe trained on rewired labels at all 12 layers (p = 0.0099)".
+     Corrected: p = 0.0099 at L0-L10 and p = 0.030 at L11 (still < 0.05 at 12/12). Max-T < 0.05 at 11/12.
+
+FILES
+- Implementer: probe_results.csv, probe_folds.csv, null_results.csv, null_folds.csv, relational_signal.csv, direction_test.csv,
+  tuned_vs_fixed.csv, rewire_stats.csv, results.json (now with a 'verification' block).
+- Code: e4c_*.py, chain*.sh, logs/.
+- Verifier: verify/v1_* (alignment, folds, rewiring, null recompute, DiD), v2_* (sklearn refits), v3_paired_sources.csv,
+  v4_summary_check.*, v5_independent.py + v5_*.csv/log, v6_interval_sensitivity.py + v6_nb_sensitivity.csv, v6_nb_counts.csv,
+  v6_auc_upper_ratio025.csv, v6_direction_cluster.csv, v7_compare.py + v7_*.csv, v8_did_sources.*, verification.json,
+  SUMMARY_implementer_before_verification.txt.

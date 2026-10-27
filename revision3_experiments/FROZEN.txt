@@ -1,0 +1,2 @@
+CONVENTION3.md sha256 3e3249d1d0a8ce1bc3cf64639fe233b016535456f82432a8bbfcacdd64a05c01
+frozen 2026-10-26 13:17 GMT, before any H1-H4 analysis

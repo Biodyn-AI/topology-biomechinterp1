@@ -1,0 +1,93 @@
+{
+ "kidA_L11_full_SV1_extracellular": {
+  "a": 21,
+  "c": 5,
+  "n25": 52,
+  "OR": 6.367741935483871,
+  "p": 0.00025746446015579904,
+  "best_pole_p": 0.00025746446015579904,
+  "term_size_in_named": 47
+ },
+ "kidA_L11_full_SV1_corr_with_observed_indicator": -0.9998352848737397,
+ "kidA_L11_full_SV1_varfrac": 0.9321852004427498,
+ "kidA_L11_observed_SV1_extracellular_projall": {
+  "a": 12,
+  "c": 12,
+  "n25": 52,
+  "OR": 1.0,
+  "p": 0.5918206478535486,
+  "best_pole_p": 0.5918206478535486,
+  "term_size_in_named": 47
+ },
+ "kidA_L11_observed_SV1_extracellular_observed_named_only": {
+  "a": 11,
+  "c": 11,
+  "n25": 46,
+  "OR": 1.0,
+  "p": 0.5963250572033495,
+  "best_pole_p": 0.5963250572033495,
+  "term_size_in_named": 33
+ },
+ "crosswalk_frac_legacy_k_best_is_observed_k-1": 0.946969696969697,
+ "crosswalk_mean_abs_cos_legacy_k_vs_obs_k-1": 0.9560297748136979,
+ "crosswalk_legacy_SV1_mean_best_abs_cos": 0.25375215649493127,
+ "crosswalk_band_mean_cos2_layer_avg": {
+  "SV2_7_vs_obs1_6": 0.965799474173911,
+  "SV2_7_vs_obs2_7": 0.8204961852807697,
+  "SV2_4_vs_obs1_3": 0.9900507624779787,
+  "SV5_7_vs_obs4_6": 0.9375513557514933
+ },
+ "kidA_ER_full_L0_L11_fold": [
+  19.54290831792965,
+  1.6305988116990031,
+  11.985111345424636
+ ],
+ "kidA_ER_observed_L0_L11_fold": [
+  209.53149457021445,
+  34.83805619710409,
+  6.01444275147681
+ ],
+ "immune_G_nobs": [
+  4941,
+  2039
+ ],
+ "immune_ER_observed_L0_L11_fold": [
+  236.89115104251857,
+  48.74449853509115,
+  4.859854099678156
+ ],
+ "immune_2000subsample_ER_fold_mean_range": [
+  14.262593219963275,
+  13.959073625736668,
+  14.656864564984522
+ ],
+ "immune_2000subsample_SV1frac_L0_L11_mean": [
+  0.5347040774920664,
+  0.9313795280521152
+ ],
+ "immune_edge_rows": {
+  "n_rows": 2940,
+  "n_pos": 735,
+  "n_neg": 2205,
+  "n_pos_both_obs": 589,
+  "n_neg_both_obs": 1523
+ },
+ "immune_edge_auroc_sv57_U_by_layer": [
+  0.6017232095977134,
+  0.6006173589566656,
+  0.5796440989156644,
+  0.5743968822146442,
+  0.5905588001520544,
+  0.5677261057670334,
+  0.5508473914967666,
+  0.5494115692934707,
+  0.5241029734227972,
+  0.4938760176445604,
+  0.49162864376114074,
+  0.49765062477216915
+ ],
+ "immune_edge_auroc_depth_spearman": [
+  -0.9580419580419581,
+  9.5435818268384e-07
+ ]
+}

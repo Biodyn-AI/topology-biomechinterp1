@@ -1,0 +1,133 @@
+{
+ "vocab": {
+  "sizes": {
+   "scgpt_static": 60694,
+   "gf_v2_316m": 20271,
+   "gf_v1_10m": 21243,
+   "gf_v2_104m": 20271,
+   "aido_100m": 19264,
+   "scfoundation": 19264,
+   "tgpt": 21046,
+   "esm2_uce": 19790,
+   "esm2_650m": 20394,
+   "seq_features": 20213,
+   "hpa_coexp": 20151
+  },
+  "tierA": 17693,
+  "three_submitted": 18907
+ },
+ "tierA_ppi_edge": {
+  "n_pairs": 73430,
+  "same_pairs_as_E6": true,
+  "degree_preserved": true,
+  "own_rewire_nonpairs": 71355,
+  "esm2_uce": {
+   "ppi_auc_own_rewiring": 0.6496659813182412,
+   "ppi_auc_E6_nonpairs": 0.6467884698815848,
+   "subsample_sd": 0.004161319647331495,
+   "deleted_d_halfwidth_approx": 0.008155725537988637,
+   "prereg_halfwidth_approx": 0.005767131804282118,
+   "_": null,
+   "edge_within_tf_auc": 0.4907286252309897
+  },
+  "scgpt_static": {
+   "ppi_auc_own_rewiring": 0.6718474333616056,
+   "ppi_auc_E6_nonpairs": 0.6691998547070991,
+   "subsample_sd": 0.005292727782827963,
+   "deleted_d_halfwidth_approx": 0.010373160151663143,
+   "prereg_halfwidth_approx": 0.007335139166088473,
+   "_": null,
+   "edge_within_tf_auc": 0.5746178228453619
+  },
+  "edge_checks": {
+   "n_pos": 7593,
+   "n_neg": 70882,
+   "n_tf": 430,
+   "all_pos_in_trrust": true,
+   "any_neg_in_anyreg": false,
+   "any_neg_reverse_in_anyreg": false,
+   "all_neg_target_of_other_tf": true,
+   "min_pos_per_tf": 3,
+   "n_trrust_within_tierA": 8063,
+   "dup_pairs": false
+  }
+ },
+ "selection_bias": {
+  "pool": 2753,
+  "n_tf_pool": 775,
+  "scgpt_static": {
+   "legacy": 0.8333760245901639,
+   "null_mean": 0.7369649077868853,
+   "percentile": 0.995
+  },
+  "esm2_uce": {
+   "legacy": 0.9538934426229508,
+   "null_mean": 0.8615723616803279,
+   "percentile": 1.0
+  }
+ },
+ "tierA_node": {
+  "esm2_uce": {
+   "lambert_auc": 0.8894201701378025,
+   "lambert_detstrat_own_deciles": 0.9018810253466615,
+   "lambert_detstrat_cache_deciles": 0.9023020982622286,
+   "trrust_auc": 0.8770449134022635,
+   "n_lambert": 1587,
+   "n_trrust_tf": 775,
+   "n_trrust_tgt": 1978
+  },
+  "scgpt_static": {
+   "lambert_auc": 0.7044388346861775,
+   "lambert_detstrat_own_deciles": 0.7462905351883861,
+   "lambert_detstrat_cache_deciles": 0.7470416406796282,
+   "trrust_auc": 0.7889768094197462,
+   "n_lambert": 1587,
+   "n_trrust_tf": 775,
+   "n_trrust_tgt": 1978
+  },
+  "gf_v2_104m": {
+   "lambert_auc": 0.8360290063208371,
+   "lambert_detstrat_own_deciles": 0.8633576323373292,
+   "lambert_detstrat_cache_deciles": 0.8644395549836908,
+   "trrust_auc": 0.8214273133500767,
+   "n_lambert": 1587,
+   "n_trrust_tf": 775,
+   "n_trrust_tgt": 1978
+  },
+  "n_imputed_detection": 12467
+ },
+ "tierB_lung_node": {
+  "n_tierB_lung": 5226,
+  "lung_L1_detstrat": 0.6680549577884456,
+  "lung_L1_unstrat": 0.667735939728233,
+  "lung_L1_detstrat_on_V_all_genes": 0.664094328259509,
+  "lung_L11_detstrat": 0.6384274126800198,
+  "lung_L11_unstrat": 0.6365467646220395,
+  "lung_L11_detstrat_on_V_all_genes": 0.6250369023298655,
+  "esm2_detstrat": 0.8798543287535177,
+  "scgpt_static_detstrat": 0.7512233073994372
+ },
+ "legacy": {
+  "n_named": 209,
+  "n_named_nonzero_kidneyA": 187,
+  "n_legacy": 186,
+  "n_tf": 64,
+  "legacy_set_identical_to_stored": true,
+  "kidney_A@L11": {
+   "est_i": 0.6837858606557377,
+   "subsetSVD_SV2_SV7": 0.649718237704918
+  },
+  "gf_v1_10m": {
+   "est_i": 0.8023821721311476,
+   "subsetSVD_SV2_SV7": 0.7128586065573771
+  },
+  "gf_v2_104m": {
+   "est_i": 0.874359631147541,
+   "subsetSVD_SV2_SV7": 0.8368340163934426
+  },
+  "esm2_uce": {
+   "est_i": 0.9538934426229508,
+   "subsetSVD_SV2_SV7": 0.924436475409836
+  }
+ }
+}

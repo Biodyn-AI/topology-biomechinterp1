@@ -1,0 +1,902 @@
+context,column,value,n_cells,frac
+immune,tissue,lymph node,41,0.16015625
+immune,tissue,blood,39,0.15234375
+immune,tissue,spleen,26,0.1015625
+immune,tissue,thymus,15,0.05859375
+immune,tissue,inguinal lymph node,13,0.05078125
+immune,tissue,lung,13,0.05078125
+immune,tissue,brown adipose tissue,10,0.0390625
+immune,tissue,bladder organ,10,0.0390625
+immune,tissue,liver,9,0.03515625
+immune,tissue,adipose tissue,8,0.03125
+immune,tissue,bone marrow,8,0.03125
+immune,tissue,subcutaneous adipose tissue,7,0.02734375
+immune,tissue,mesenteric lymph node,5,0.01953125
+immune,tissue,coronary artery,4,0.015625
+immune,tissue,skin of body,4,0.015625
+immune,tissue,vasculature,3,0.01171875
+immune,tissue,stomach smooth muscle,3,0.01171875
+immune,tissue,small intestine,3,0.01171875
+immune,tissue,ascending colon,3,0.01171875
+immune,tissue,mucosa of stomach,3,0.01171875
+immune,tissue,trachea,3,0.01171875
+immune,tissue,prostate gland,3,0.01171875
+immune,tissue,mammary gland,2,0.0078125
+immune,tissue,eye,2,0.0078125
+immune,tissue,stomach,2,0.0078125
+immune,tissue,sublingual gland,2,0.0078125
+immune,tissue,parotid gland,2,0.0078125
+immune,tissue,heart,2,0.0078125
+immune,tissue,posterior part of tongue,2,0.0078125
+immune,tissue,aorta,2,0.0078125
+immune,tissue,thoracic aorta,1,0.00390625
+immune,tissue,muscle of pelvic diaphragm,1,0.00390625
+immune,tissue,large intestine,1,0.00390625
+immune,tissue,myometrium,1,0.00390625
+immune,tissue,skin of abdomen,1,0.00390625
+immune,tissue,endometrium,1,0.00390625
+immune,tissue,eyelid,1,0.00390625
+immune,tissue_in_publication,Lymph_Node,59,0.23046875
+immune,tissue_in_publication,Blood,39,0.15234375
+immune,tissue_in_publication,Spleen,26,0.1015625
+immune,tissue_in_publication,Fat,25,0.09765625
+immune,tissue_in_publication,Thymus,15,0.05859375
+immune,tissue_in_publication,Lung,13,0.05078125
+immune,tissue_in_publication,Vasculature,10,0.0390625
+immune,tissue_in_publication,Bladder,10,0.0390625
+immune,tissue_in_publication,Liver,9,0.03515625
+immune,tissue_in_publication,Bone_Marrow,8,0.03125
+immune,tissue_in_publication,Stomach,8,0.03125
+immune,tissue_in_publication,Skin,5,0.01953125
+immune,tissue_in_publication,Salivary_Gland,4,0.015625
+immune,tissue_in_publication,Large_Intestine,4,0.015625
+immune,tissue_in_publication,Small_Intestine,3,0.01171875
+immune,tissue_in_publication,Eye,3,0.01171875
+immune,tissue_in_publication,Prostate,3,0.01171875
+immune,tissue_in_publication,Trachea,3,0.01171875
+immune,tissue_in_publication,Mammary,2,0.0078125
+immune,tissue_in_publication,Uterus,2,0.0078125
+immune,tissue_in_publication,Tongue,2,0.0078125
+immune,tissue_in_publication,Heart,2,0.0078125
+immune,tissue_in_publication,Muscle,1,0.00390625
+immune,compartment,Immune,256,1.0
+immune,broad_cell_class,t cell,88,0.34375
+immune,broad_cell_class,lymphocyte of b lineage,61,0.23828125
+immune,broad_cell_class,myeloid leukocyte,53,0.20703125
+immune,broad_cell_class,granulocyte,42,0.1640625
+immune,broad_cell_class,erythroid lineage cell,5,0.01953125
+immune,broad_cell_class,innate lymphoid cell,4,0.015625
+immune,broad_cell_class,stem cell,2,0.0078125
+immune,broad_cell_class,dendritic cell,1,0.00390625
+immune,donor_id,TSP14,66,0.2578125
+immune,donor_id,TSP25,44,0.171875
+immune,donor_id,TSP21,39,0.15234375
+immune,donor_id,TSP2,27,0.10546875
+immune,donor_id,TSP27,21,0.08203125
+immune,donor_id,TSP7,15,0.05859375
+immune,donor_id,TSP1,13,0.05078125
+immune,donor_id,TSP10,6,0.0234375
+immune,donor_id,TSP6,5,0.01953125
+immune,donor_id,TSP8,5,0.01953125
+immune,donor_id,TSP19,5,0.01953125
+immune,donor_id,TSP20,2,0.0078125
+immune,donor_id,TSP4,2,0.0078125
+immune,donor_id,TSP5,2,0.0078125
+immune,donor_id,TSP11,2,0.0078125
+immune,donor_id,TSP26,1,0.00390625
+immune,donor_id,TSP17,1,0.00390625
+immune,cell_type,B cell,50,0.1953125
+immune,cell_type,"CD4-positive, alpha-beta T cell",42,0.1640625
+immune,cell_type,"CD8-positive, alpha-beta T cell",35,0.13671875
+immune,cell_type,macrophage,35,0.13671875
+immune,cell_type,neutrophil,35,0.13671875
+immune,cell_type,plasma cell,11,0.04296875
+immune,cell_type,monocyte,9,0.03515625
+immune,cell_type,mast cell,6,0.0234375
+immune,cell_type,erythrocyte,5,0.01953125
+immune,cell_type,classical monocyte,5,0.01953125
+immune,cell_type,"CD4-positive, alpha-beta thymocyte",4,0.015625
+immune,cell_type,intermediate monocyte,3,0.01171875
+immune,cell_type,T cell,3,0.01171875
+immune,cell_type,erythroid progenitor cell,2,0.0078125
+immune,cell_type,innate lymphoid cell,2,0.0078125
+immune,cell_type,natural killer cell,2,0.0078125
+immune,cell_type,mature NK T cell,2,0.0078125
+immune,cell_type,regulatory T cell,1,0.00390625
+immune,cell_type,"naive thymus-derived CD4-positive, alpha-beta T cell",1,0.00390625
+immune,cell_type,myeloid dendritic cell,1,0.00390625
+immune,cell_type,basophil,1,0.00390625
+immune,cell_type,mononuclear phagocyte,1,0.00390625
+immune_seed43,tissue,blood,44,0.171875
+immune_seed43,tissue,lymph node,42,0.1640625
+immune_seed43,tissue,spleen,33,0.12890625
+immune_seed43,tissue,brown adipose tissue,13,0.05078125
+immune_seed43,tissue,thymus,12,0.046875
+immune_seed43,tissue,inguinal lymph node,11,0.04296875
+immune_seed43,tissue,lung,10,0.0390625
+immune_seed43,tissue,bone marrow,9,0.03515625
+immune_seed43,tissue,subcutaneous adipose tissue,6,0.0234375
+immune_seed43,tissue,adipose tissue,6,0.0234375
+immune_seed43,tissue,bladder organ,6,0.0234375
+immune_seed43,tissue,stomach smooth muscle,6,0.0234375
+immune_seed43,tissue,posterior part of tongue,5,0.01953125
+immune_seed43,tissue,liver,5,0.01953125
+immune_seed43,tissue,sublingual gland,4,0.015625
+immune_seed43,tissue,small intestine,4,0.015625
+immune_seed43,tissue,large intestine,4,0.015625
+immune_seed43,tissue,sigmoid colon,3,0.01171875
+immune_seed43,tissue,parotid gland,3,0.01171875
+immune_seed43,tissue,aorta,3,0.01171875
+immune_seed43,tissue,ascending colon,3,0.01171875
+immune_seed43,tissue,skin of body,3,0.01171875
+immune_seed43,tissue,exocrine pancreas,2,0.0078125
+immune_seed43,tissue,lacrimal gland,2,0.0078125
+immune_seed43,tissue,mesenteric lymph node,2,0.0078125
+immune_seed43,tissue,prostate gland,2,0.0078125
+immune_seed43,tissue,eyelid,2,0.0078125
+immune_seed43,tissue,stomach,2,0.0078125
+immune_seed43,tissue,coronary artery,2,0.0078125
+immune_seed43,tissue,cortex of kidney,1,0.00390625
+immune_seed43,tissue,trachea,1,0.00390625
+immune_seed43,tissue,heart,1,0.00390625
+immune_seed43,tissue,right ovary,1,0.00390625
+immune_seed43,tissue,mucosa of stomach,1,0.00390625
+immune_seed43,tissue,endometrium,1,0.00390625
+immune_seed43,tissue,muscle of pelvic diaphragm,1,0.00390625
+immune_seed43,tissue_in_publication,Lymph_Node,55,0.21484375
+immune_seed43,tissue_in_publication,Blood,44,0.171875
+immune_seed43,tissue_in_publication,Spleen,33,0.12890625
+immune_seed43,tissue_in_publication,Fat,25,0.09765625
+immune_seed43,tissue_in_publication,Thymus,12,0.046875
+immune_seed43,tissue_in_publication,Large_Intestine,10,0.0390625
+immune_seed43,tissue_in_publication,Lung,10,0.0390625
+immune_seed43,tissue_in_publication,Bone_Marrow,9,0.03515625
+immune_seed43,tissue_in_publication,Stomach,9,0.03515625
+immune_seed43,tissue_in_publication,Salivary_Gland,7,0.02734375
+immune_seed43,tissue_in_publication,Bladder,6,0.0234375
+immune_seed43,tissue_in_publication,Tongue,5,0.01953125
+immune_seed43,tissue_in_publication,Liver,5,0.01953125
+immune_seed43,tissue_in_publication,Vasculature,5,0.01953125
+immune_seed43,tissue_in_publication,Eye,4,0.015625
+immune_seed43,tissue_in_publication,Small_Intestine,4,0.015625
+immune_seed43,tissue_in_publication,Skin,3,0.01171875
+immune_seed43,tissue_in_publication,Pancreas,2,0.0078125
+immune_seed43,tissue_in_publication,Prostate,2,0.0078125
+immune_seed43,tissue_in_publication,Heart,1,0.00390625
+immune_seed43,tissue_in_publication,Muscle,1,0.00390625
+immune_seed43,tissue_in_publication,Ovary,1,0.00390625
+immune_seed43,tissue_in_publication,Trachea,1,0.00390625
+immune_seed43,tissue_in_publication,Kidney,1,0.00390625
+immune_seed43,tissue_in_publication,Uterus,1,0.00390625
+immune_seed43,compartment,Immune,256,1.0
+immune_seed43,broad_cell_class,t cell,91,0.35546875
+immune_seed43,broad_cell_class,lymphocyte of b lineage,66,0.2578125
+immune_seed43,broad_cell_class,myeloid leukocyte,45,0.17578125
+immune_seed43,broad_cell_class,granulocyte,34,0.1328125
+immune_seed43,broad_cell_class,innate lymphoid cell,11,0.04296875
+immune_seed43,broad_cell_class,erythroid lineage cell,7,0.02734375
+immune_seed43,broad_cell_class,stem cell,1,0.00390625
+immune_seed43,broad_cell_class,hematopoietic cell,1,0.00390625
+immune_seed43,donor_id,TSP14,64,0.25
+immune_seed43,donor_id,TSP21,40,0.15625
+immune_seed43,donor_id,TSP25,37,0.14453125
+immune_seed43,donor_id,TSP27,28,0.109375
+immune_seed43,donor_id,TSP2,28,0.109375
+immune_seed43,donor_id,TSP7,26,0.1015625
+immune_seed43,donor_id,TSP1,10,0.0390625
+immune_seed43,donor_id,TSP20,5,0.01953125
+immune_seed43,donor_id,TSP6,4,0.015625
+immune_seed43,donor_id,TSP10,4,0.015625
+immune_seed43,donor_id,TSP8,2,0.0078125
+immune_seed43,donor_id,TSP9,2,0.0078125
+immune_seed43,donor_id,TSP26,2,0.0078125
+immune_seed43,donor_id,TSP30,1,0.00390625
+immune_seed43,donor_id,TSP19,1,0.00390625
+immune_seed43,donor_id,TSP4,1,0.00390625
+immune_seed43,donor_id,TSP11,1,0.00390625
+immune_seed43,cell_type,B cell,50,0.1953125
+immune_seed43,cell_type,"CD4-positive, alpha-beta T cell",43,0.16796875
+immune_seed43,cell_type,"CD8-positive, alpha-beta T cell",38,0.1484375
+immune_seed43,cell_type,neutrophil,31,0.12109375
+immune_seed43,cell_type,macrophage,22,0.0859375
+immune_seed43,cell_type,plasma cell,16,0.0625
+immune_seed43,cell_type,monocyte,12,0.046875
+immune_seed43,cell_type,natural killer cell,9,0.03515625
+immune_seed43,cell_type,erythrocyte,7,0.02734375
+immune_seed43,cell_type,classical monocyte,7,0.02734375
+immune_seed43,cell_type,"CD4-positive, alpha-beta thymocyte",4,0.015625
+immune_seed43,cell_type,mast cell,3,0.01171875
+immune_seed43,cell_type,"naive thymus-derived CD4-positive, alpha-beta T cell",3,0.01171875
+immune_seed43,cell_type,innate lymphoid cell,2,0.0078125
+immune_seed43,cell_type,intermediate monocyte,2,0.0078125
+immune_seed43,cell_type,mature NK T cell,1,0.00390625
+immune_seed43,cell_type,erythroid progenitor cell,1,0.00390625
+immune_seed43,cell_type,T cell,1,0.00390625
+immune_seed43,cell_type,tissue-resident macrophage,1,0.00390625
+immune_seed43,cell_type,hematopoietic precursor cell,1,0.00390625
+immune_seed43,cell_type,mononuclear phagocyte,1,0.00390625
+immune_seed43,cell_type,regulatory T cell,1,0.00390625
+immune_seed44,tissue,lymph node,43,0.16796875
+immune_seed44,tissue,blood,37,0.14453125
+immune_seed44,tissue,spleen,31,0.12109375
+immune_seed44,tissue,lung,16,0.0625
+immune_seed44,tissue,brown adipose tissue,13,0.05078125
+immune_seed44,tissue,thymus,13,0.05078125
+immune_seed44,tissue,bone marrow,12,0.046875
+immune_seed44,tissue,bladder organ,12,0.046875
+immune_seed44,tissue,liver,11,0.04296875
+immune_seed44,tissue,trachea,6,0.0234375
+immune_seed44,tissue,inguinal lymph node,6,0.0234375
+immune_seed44,tissue,adipose tissue,5,0.01953125
+immune_seed44,tissue,small intestine,5,0.01953125
+immune_seed44,tissue,stomach smooth muscle,5,0.01953125
+immune_seed44,tissue,mesenteric lymph node,4,0.015625
+immune_seed44,tissue,large intestine,4,0.015625
+immune_seed44,tissue,ascending colon,3,0.01171875
+immune_seed44,tissue,skin of body,3,0.01171875
+immune_seed44,tissue,prostate gland,3,0.01171875
+immune_seed44,tissue,coronary artery,3,0.01171875
+immune_seed44,tissue,muscle of abdomen,2,0.0078125
+immune_seed44,tissue,subcutaneous adipose tissue,2,0.0078125
+immune_seed44,tissue,lacrimal gland,2,0.0078125
+immune_seed44,tissue,posterior part of tongue,2,0.0078125
+immune_seed44,tissue,duodenum,2,0.0078125
+immune_seed44,tissue,muscle of pelvic diaphragm,2,0.0078125
+immune_seed44,tissue,eye,1,0.00390625
+immune_seed44,tissue,endometrium,1,0.00390625
+immune_seed44,tissue,parotid gland,1,0.00390625
+immune_seed44,tissue,skin of abdomen,1,0.00390625
+immune_seed44,tissue,thoracic aorta,1,0.00390625
+immune_seed44,tissue,stomach,1,0.00390625
+immune_seed44,tissue,aorta,1,0.00390625
+immune_seed44,tissue,sclera,1,0.00390625
+immune_seed44,tissue,eyelid,1,0.00390625
+immune_seed44,tissue_in_publication,Lymph_Node,53,0.20703125
+immune_seed44,tissue_in_publication,Blood,37,0.14453125
+immune_seed44,tissue_in_publication,Spleen,31,0.12109375
+immune_seed44,tissue_in_publication,Fat,20,0.078125
+immune_seed44,tissue_in_publication,Lung,16,0.0625
+immune_seed44,tissue_in_publication,Thymus,13,0.05078125
+immune_seed44,tissue_in_publication,Bone_Marrow,12,0.046875
+immune_seed44,tissue_in_publication,Bladder,12,0.046875
+immune_seed44,tissue_in_publication,Liver,11,0.04296875
+immune_seed44,tissue_in_publication,Small_Intestine,7,0.02734375
+immune_seed44,tissue_in_publication,Large_Intestine,7,0.02734375
+immune_seed44,tissue_in_publication,Trachea,6,0.0234375
+immune_seed44,tissue_in_publication,Stomach,6,0.0234375
+immune_seed44,tissue_in_publication,Eye,5,0.01953125
+immune_seed44,tissue_in_publication,Vasculature,5,0.01953125
+immune_seed44,tissue_in_publication,Muscle,4,0.015625
+immune_seed44,tissue_in_publication,Skin,4,0.015625
+immune_seed44,tissue_in_publication,Prostate,3,0.01171875
+immune_seed44,tissue_in_publication,Tongue,2,0.0078125
+immune_seed44,tissue_in_publication,Salivary_Gland,1,0.00390625
+immune_seed44,tissue_in_publication,Uterus,1,0.00390625
+immune_seed44,compartment,Immune,256,1.0
+immune_seed44,broad_cell_class,t cell,91,0.35546875
+immune_seed44,broad_cell_class,myeloid leukocyte,63,0.24609375
+immune_seed44,broad_cell_class,lymphocyte of b lineage,56,0.21875
+immune_seed44,broad_cell_class,granulocyte,33,0.12890625
+immune_seed44,broad_cell_class,erythroid lineage cell,6,0.0234375
+immune_seed44,broad_cell_class,innate lymphoid cell,6,0.0234375
+immune_seed44,broad_cell_class,hematopoietic cell,1,0.00390625
+immune_seed44,donor_id,TSP14,53,0.20703125
+immune_seed44,donor_id,TSP25,41,0.16015625
+immune_seed44,donor_id,TSP21,39,0.15234375
+immune_seed44,donor_id,TSP2,31,0.12109375
+immune_seed44,donor_id,TSP27,24,0.09375
+immune_seed44,donor_id,TSP7,20,0.078125
+immune_seed44,donor_id,TSP1,17,0.06640625
+immune_seed44,donor_id,TSP19,8,0.03125
+immune_seed44,donor_id,TSP6,5,0.01953125
+immune_seed44,donor_id,TSP20,5,0.01953125
+immune_seed44,donor_id,TSP10,4,0.015625
+immune_seed44,donor_id,TSP8,2,0.0078125
+immune_seed44,donor_id,TSP11,2,0.0078125
+immune_seed44,donor_id,TSP15,1,0.00390625
+immune_seed44,donor_id,TSP17,1,0.00390625
+immune_seed44,donor_id,TSP5,1,0.00390625
+immune_seed44,donor_id,TSP4,1,0.00390625
+immune_seed44,donor_id,TSP26,1,0.00390625
+immune_seed44,cell_type,B cell,43,0.16796875
+immune_seed44,cell_type,"CD4-positive, alpha-beta T cell",41,0.16015625
+immune_seed44,cell_type,"CD8-positive, alpha-beta T cell",34,0.1328125
+immune_seed44,cell_type,neutrophil,31,0.12109375
+immune_seed44,cell_type,macrophage,30,0.1171875
+immune_seed44,cell_type,monocyte,16,0.0625
+immune_seed44,cell_type,plasma cell,13,0.05078125
+immune_seed44,cell_type,classical monocyte,7,0.02734375
+immune_seed44,cell_type,natural killer cell,6,0.0234375
+immune_seed44,cell_type,erythrocyte,6,0.0234375
+immune_seed44,cell_type,mature NK T cell,6,0.0234375
+immune_seed44,cell_type,"naive thymus-derived CD4-positive, alpha-beta T cell",4,0.015625
+immune_seed44,cell_type,intermediate monocyte,4,0.015625
+immune_seed44,cell_type,microglial cell,3,0.01171875
+immune_seed44,cell_type,"CD4-positive, alpha-beta thymocyte",3,0.01171875
+immune_seed44,cell_type,T cell,2,0.0078125
+immune_seed44,cell_type,mononuclear phagocyte,1,0.00390625
+immune_seed44,cell_type,non-classical monocyte,1,0.00390625
+immune_seed44,cell_type,granulocyte,1,0.00390625
+immune_seed44,cell_type,hematopoietic precursor cell,1,0.00390625
+immune_seed44,cell_type,myeloid leukocyte,1,0.00390625
+immune_seed44,cell_type,mast cell,1,0.00390625
+immune_seed44,cell_type,gamma-delta T cell,1,0.00390625
+immune_TSP14,tissue,blood,49,0.19140625
+immune_TSP14,tissue,lymph node,47,0.18359375
+immune_TSP14,tissue,spleen,46,0.1796875
+immune_TSP14,tissue,thymus,25,0.09765625
+immune_TSP14,tissue,small intestine,22,0.0859375
+immune_TSP14,tissue,bone marrow,14,0.0546875
+immune_TSP14,tissue,large intestine,13,0.05078125
+immune_TSP14,tissue,parotid gland,9,0.03515625
+immune_TSP14,tissue,lung,7,0.02734375
+immune_TSP14,tissue,adipose tissue,5,0.01953125
+immune_TSP14,tissue,sublingual gland,3,0.01171875
+immune_TSP14,tissue,liver,3,0.01171875
+immune_TSP14,tissue,skin of chest,2,0.0078125
+immune_TSP14,tissue,prostate gland,2,0.0078125
+immune_TSP14,tissue,vasculature,2,0.0078125
+immune_TSP14,tissue,subcutaneous adipose tissue,1,0.00390625
+immune_TSP14,tissue,coronary artery,1,0.00390625
+immune_TSP14,tissue,muscle of abdomen,1,0.00390625
+immune_TSP14,tissue,posterior part of tongue,1,0.00390625
+immune_TSP14,tissue,mesenteric lymph node,1,0.00390625
+immune_TSP14,tissue,bladder organ,1,0.00390625
+immune_TSP14,tissue,skin of abdomen,1,0.00390625
+immune_TSP14,tissue_in_publication,Blood,49,0.19140625
+immune_TSP14,tissue_in_publication,Lymph_Node,48,0.1875
+immune_TSP14,tissue_in_publication,Spleen,46,0.1796875
+immune_TSP14,tissue_in_publication,Thymus,25,0.09765625
+immune_TSP14,tissue_in_publication,Small_Intestine,22,0.0859375
+immune_TSP14,tissue_in_publication,Bone_Marrow,14,0.0546875
+immune_TSP14,tissue_in_publication,Large_Intestine,13,0.05078125
+immune_TSP14,tissue_in_publication,Salivary_Gland,12,0.046875
+immune_TSP14,tissue_in_publication,Lung,7,0.02734375
+immune_TSP14,tissue_in_publication,Fat,6,0.0234375
+immune_TSP14,tissue_in_publication,Skin,3,0.01171875
+immune_TSP14,tissue_in_publication,Liver,3,0.01171875
+immune_TSP14,tissue_in_publication,Vasculature,3,0.01171875
+immune_TSP14,tissue_in_publication,Prostate,2,0.0078125
+immune_TSP14,tissue_in_publication,Muscle,1,0.00390625
+immune_TSP14,tissue_in_publication,Tongue,1,0.00390625
+immune_TSP14,tissue_in_publication,Bladder,1,0.00390625
+immune_TSP14,compartment,Immune,256,1.0
+immune_TSP14,broad_cell_class,t cell,111,0.43359375
+immune_TSP14,broad_cell_class,granulocyte,63,0.24609375
+immune_TSP14,broad_cell_class,lymphocyte of b lineage,45,0.17578125
+immune_TSP14,broad_cell_class,myeloid leukocyte,26,0.1015625
+immune_TSP14,broad_cell_class,innate lymphoid cell,5,0.01953125
+immune_TSP14,broad_cell_class,erythroid lineage cell,5,0.01953125
+immune_TSP14,broad_cell_class,stem cell,1,0.00390625
+immune_TSP14,donor_id,TSP14,256,1.0
+immune_TSP14,cell_type,neutrophil,62,0.2421875
+immune_TSP14,cell_type,"CD4-positive, alpha-beta T cell",53,0.20703125
+immune_TSP14,cell_type,"CD8-positive, alpha-beta T cell",42,0.1640625
+immune_TSP14,cell_type,B cell,26,0.1015625
+immune_TSP14,cell_type,plasma cell,19,0.07421875
+immune_TSP14,cell_type,macrophage,12,0.046875
+immune_TSP14,cell_type,classical monocyte,6,0.0234375
+immune_TSP14,cell_type,erythrocyte,5,0.01953125
+immune_TSP14,cell_type,"naive thymus-derived CD4-positive, alpha-beta T cell",5,0.01953125
+immune_TSP14,cell_type,monocyte,5,0.01953125
+immune_TSP14,cell_type,natural killer cell,4,0.015625
+immune_TSP14,cell_type,"CD4-positive, alpha-beta thymocyte",3,0.01171875
+immune_TSP14,cell_type,intermediate monocyte,3,0.01171875
+immune_TSP14,cell_type,regulatory T cell,2,0.0078125
+immune_TSP14,cell_type,gamma-delta T cell,2,0.0078125
+immune_TSP14,cell_type,hematopoietic stem cell,1,0.00390625
+immune_TSP14,cell_type,innate lymphoid cell,1,0.00390625
+immune_TSP14,cell_type,thymocyte,1,0.00390625
+immune_TSP14,cell_type,mast cell,1,0.00390625
+immune_TSP14,cell_type,"activated CD4-positive, alpha-beta T cell",1,0.00390625
+immune_TSP14,cell_type,T cell,1,0.00390625
+immune_TSP14,cell_type,mature NK T cell,1,0.00390625
+immune_TSP21,tissue,lymph node,48,0.1875
+immune_TSP21,tissue,adipose tissue,42,0.1640625
+immune_TSP21,tissue,blood,38,0.1484375
+immune_TSP21,tissue,spleen,33,0.12890625
+immune_TSP21,tissue,inguinal lymph node,28,0.109375
+immune_TSP21,tissue,bone marrow,12,0.046875
+immune_TSP21,tissue,eyelid,9,0.03515625
+immune_TSP21,tissue,lacrimal gland,9,0.03515625
+immune_TSP21,tissue,subcutaneous adipose tissue,8,0.03125
+immune_TSP21,tissue,thymus,7,0.02734375
+immune_TSP21,tissue,skin of body,5,0.01953125
+immune_TSP21,tissue,endometrium,4,0.015625
+immune_TSP21,tissue,aorta,4,0.015625
+immune_TSP21,tissue,bladder organ,3,0.01171875
+immune_TSP21,tissue,trachea,2,0.0078125
+immune_TSP21,tissue,submandibular gland,2,0.0078125
+immune_TSP21,tissue,eye,2,0.0078125
+immune_TSP21,tissue_in_publication,Lymph_Node,76,0.296875
+immune_TSP21,tissue_in_publication,Fat,50,0.1953125
+immune_TSP21,tissue_in_publication,Blood,38,0.1484375
+immune_TSP21,tissue_in_publication,Spleen,33,0.12890625
+immune_TSP21,tissue_in_publication,Eye,20,0.078125
+immune_TSP21,tissue_in_publication,Bone_Marrow,12,0.046875
+immune_TSP21,tissue_in_publication,Thymus,7,0.02734375
+immune_TSP21,tissue_in_publication,Skin,5,0.01953125
+immune_TSP21,tissue_in_publication,Vasculature,4,0.015625
+immune_TSP21,tissue_in_publication,Uterus,4,0.015625
+immune_TSP21,tissue_in_publication,Bladder,3,0.01171875
+immune_TSP21,tissue_in_publication,Trachea,2,0.0078125
+immune_TSP21,tissue_in_publication,Salivary_Gland,2,0.0078125
+immune_TSP21,compartment,Immune,256,1.0
+immune_TSP21,broad_cell_class,t cell,83,0.32421875
+immune_TSP21,broad_cell_class,lymphocyte of b lineage,80,0.3125
+immune_TSP21,broad_cell_class,myeloid leukocyte,53,0.20703125
+immune_TSP21,broad_cell_class,granulocyte,32,0.125
+immune_TSP21,broad_cell_class,innate lymphoid cell,6,0.0234375
+immune_TSP21,broad_cell_class,hematopoietic cell,1,0.00390625
+immune_TSP21,broad_cell_class,erythroid lineage cell,1,0.00390625
+immune_TSP21,donor_id,TSP21,256,1.0
+immune_TSP21,cell_type,B cell,75,0.29296875
+immune_TSP21,cell_type,"CD4-positive, alpha-beta T cell",54,0.2109375
+immune_TSP21,cell_type,neutrophil,30,0.1171875
+immune_TSP21,cell_type,macrophage,27,0.10546875
+immune_TSP21,cell_type,"CD8-positive, alpha-beta T cell",21,0.08203125
+immune_TSP21,cell_type,classical monocyte,18,0.0703125
+immune_TSP21,cell_type,natural killer cell,6,0.0234375
+immune_TSP21,cell_type,intermediate monocyte,5,0.01953125
+immune_TSP21,cell_type,plasma cell,5,0.01953125
+immune_TSP21,cell_type,monocyte,3,0.01171875
+immune_TSP21,cell_type,"naive thymus-derived CD4-positive, alpha-beta T cell",2,0.0078125
+immune_TSP21,cell_type,mature NK T cell,2,0.0078125
+immune_TSP21,cell_type,"CD8-positive, alpha-beta thymocyte",2,0.0078125
+immune_TSP21,cell_type,hematopoietic precursor cell,1,0.00390625
+immune_TSP21,cell_type,"CD4-positive, alpha-beta thymocyte",1,0.00390625
+immune_TSP21,cell_type,erythrocyte,1,0.00390625
+immune_TSP21,cell_type,basophil,1,0.00390625
+immune_TSP21,cell_type,T cell,1,0.00390625
+immune_TSP21,cell_type,mast cell,1,0.00390625
+immune_TSP25,tissue,brown adipose tissue,55,0.21484375
+immune_TSP25,tissue,lymph node,48,0.1875
+immune_TSP25,tissue,mesenteric lymph node,31,0.12109375
+immune_TSP25,tissue,trachea,16,0.0625
+immune_TSP25,tissue,lung,11,0.04296875
+immune_TSP25,tissue,posterior part of tongue,11,0.04296875
+immune_TSP25,tissue,sublingual gland,10,0.0390625
+immune_TSP25,tissue,spleen,10,0.0390625
+immune_TSP25,tissue,subcutaneous adipose tissue,10,0.0390625
+immune_TSP25,tissue,stomach,8,0.03125
+immune_TSP25,tissue,bone marrow,8,0.03125
+immune_TSP25,tissue,adipose tissue,8,0.03125
+immune_TSP25,tissue,blood,7,0.02734375
+immune_TSP25,tissue,coronary artery,6,0.0234375
+immune_TSP25,tissue,aorta,5,0.01953125
+immune_TSP25,tissue,thoracic aorta,5,0.01953125
+immune_TSP25,tissue,ileum,2,0.0078125
+immune_TSP25,tissue,bladder organ,2,0.0078125
+immune_TSP25,tissue,crista ampullaris,1,0.00390625
+immune_TSP25,tissue,testis,1,0.00390625
+immune_TSP25,tissue,prostate gland,1,0.00390625
+immune_TSP25,tissue_in_publication,Lymph_Node,79,0.30859375
+immune_TSP25,tissue_in_publication,Fat,73,0.28515625
+immune_TSP25,tissue_in_publication,Vasculature,16,0.0625
+immune_TSP25,tissue_in_publication,Trachea,16,0.0625
+immune_TSP25,tissue_in_publication,Lung,11,0.04296875
+immune_TSP25,tissue_in_publication,Tongue,11,0.04296875
+immune_TSP25,tissue_in_publication,Spleen,10,0.0390625
+immune_TSP25,tissue_in_publication,Salivary_Gland,10,0.0390625
+immune_TSP25,tissue_in_publication,Stomach,8,0.03125
+immune_TSP25,tissue_in_publication,Bone_Marrow,8,0.03125
+immune_TSP25,tissue_in_publication,Blood,7,0.02734375
+immune_TSP25,tissue_in_publication,Small_Intestine,2,0.0078125
+immune_TSP25,tissue_in_publication,Bladder,2,0.0078125
+immune_TSP25,tissue_in_publication,Testis,1,0.00390625
+immune_TSP25,tissue_in_publication,Ear,1,0.00390625
+immune_TSP25,tissue_in_publication,Prostate,1,0.00390625
+immune_TSP25,compartment,Immune,256,1.0
+immune_TSP25,broad_cell_class,lymphocyte of b lineage,93,0.36328125
+immune_TSP25,broad_cell_class,t cell,82,0.3203125
+immune_TSP25,broad_cell_class,myeloid leukocyte,43,0.16796875
+immune_TSP25,broad_cell_class,granulocyte,31,0.12109375
+immune_TSP25,broad_cell_class,innate lymphoid cell,4,0.015625
+immune_TSP25,broad_cell_class,erythroid lineage cell,2,0.0078125
+immune_TSP25,broad_cell_class,hematopoietic cell,1,0.00390625
+immune_TSP25,donor_id,TSP25,256,1.0
+immune_TSP25,cell_type,B cell,86,0.3359375
+immune_TSP25,cell_type,"CD4-positive, alpha-beta T cell",44,0.171875
+immune_TSP25,cell_type,macrophage,30,0.1171875
+immune_TSP25,cell_type,"CD8-positive, alpha-beta T cell",29,0.11328125
+immune_TSP25,cell_type,neutrophil,26,0.1015625
+immune_TSP25,cell_type,plasma cell,7,0.02734375
+immune_TSP25,cell_type,mononuclear phagocyte,5,0.01953125
+immune_TSP25,cell_type,monocyte,5,0.01953125
+immune_TSP25,cell_type,mature NK T cell,4,0.015625
+immune_TSP25,cell_type,natural killer cell,4,0.015625
+immune_TSP25,cell_type,basophil,2,0.0078125
+immune_TSP25,cell_type,erythrocyte,2,0.0078125
+immune_TSP25,cell_type,T cell,2,0.0078125
+immune_TSP25,cell_type,intermediate monocyte,2,0.0078125
+immune_TSP25,cell_type,"naive thymus-derived CD4-positive, alpha-beta T cell",2,0.0078125
+immune_TSP25,cell_type,mast cell,2,0.0078125
+immune_TSP25,cell_type,tissue-resident macrophage,1,0.00390625
+immune_TSP25,cell_type,gamma-delta T cell,1,0.00390625
+immune_TSP25,cell_type,hematopoietic precursor cell,1,0.00390625
+immune_TSP25,cell_type,granulocyte,1,0.00390625
+immune_Bcell,tissue,lymph node,85,0.33203125
+immune_Bcell,tissue,inguinal lymph node,37,0.14453125
+immune_Bcell,tissue,spleen,36,0.140625
+immune_Bcell,tissue,brown adipose tissue,24,0.09375
+immune_Bcell,tissue,adipose tissue,16,0.0625
+immune_Bcell,tissue,mesenteric lymph node,12,0.046875
+immune_Bcell,tissue,parotid gland,8,0.03125
+immune_Bcell,tissue,blood,8,0.03125
+immune_Bcell,tissue,thymus,5,0.01953125
+immune_Bcell,tissue,bone marrow,5,0.01953125
+immune_Bcell,tissue,eyelid,4,0.015625
+immune_Bcell,tissue,lacrimal gland,4,0.015625
+immune_Bcell,tissue,stomach smooth muscle,2,0.0078125
+immune_Bcell,tissue,posterior part of tongue,1,0.00390625
+immune_Bcell,tissue,ascending colon,1,0.00390625
+immune_Bcell,tissue,sublingual gland,1,0.00390625
+immune_Bcell,tissue,prostate gland,1,0.00390625
+immune_Bcell,tissue,lung,1,0.00390625
+immune_Bcell,tissue,small intestine,1,0.00390625
+immune_Bcell,tissue,mucosa of stomach,1,0.00390625
+immune_Bcell,tissue,large intestine,1,0.00390625
+immune_Bcell,tissue,trachea,1,0.00390625
+immune_Bcell,tissue,sigmoid colon,1,0.00390625
+immune_Bcell,tissue_in_publication,Lymph_Node,134,0.5234375
+immune_Bcell,tissue_in_publication,Fat,40,0.15625
+immune_Bcell,tissue_in_publication,Spleen,36,0.140625
+immune_Bcell,tissue_in_publication,Salivary_Gland,9,0.03515625
+immune_Bcell,tissue_in_publication,Blood,8,0.03125
+immune_Bcell,tissue_in_publication,Eye,8,0.03125
+immune_Bcell,tissue_in_publication,Thymus,5,0.01953125
+immune_Bcell,tissue_in_publication,Bone_Marrow,5,0.01953125
+immune_Bcell,tissue_in_publication,Large_Intestine,3,0.01171875
+immune_Bcell,tissue_in_publication,Stomach,3,0.01171875
+immune_Bcell,tissue_in_publication,Prostate,1,0.00390625
+immune_Bcell,tissue_in_publication,Trachea,1,0.00390625
+immune_Bcell,tissue_in_publication,Small_Intestine,1,0.00390625
+immune_Bcell,tissue_in_publication,Lung,1,0.00390625
+immune_Bcell,tissue_in_publication,Tongue,1,0.00390625
+immune_Bcell,compartment,Immune,256,1.0
+immune_Bcell,broad_cell_class,lymphocyte of b lineage,256,1.0
+immune_Bcell,donor_id,TSP21,70,0.2734375
+immune_Bcell,donor_id,TSP25,69,0.26953125
+immune_Bcell,donor_id,TSP7,39,0.15234375
+immune_Bcell,donor_id,TSP27,27,0.10546875
+immune_Bcell,donor_id,TSP14,21,0.08203125
+immune_Bcell,donor_id,TSP2,21,0.08203125
+immune_Bcell,donor_id,TSP10,3,0.01171875
+immune_Bcell,donor_id,TSP1,2,0.0078125
+immune_Bcell,donor_id,TSP20,2,0.0078125
+immune_Bcell,donor_id,TSP8,1,0.00390625
+immune_Bcell,donor_id,TSP6,1,0.00390625
+immune_Bcell,cell_type,B cell,256,1.0
+immune_CD4T,tissue,lymph node,90,0.3515625
+immune_CD4T,tissue,small intestine,19,0.07421875
+immune_CD4T,tissue,brown adipose tissue,19,0.07421875
+immune_CD4T,tissue,adipose tissue,18,0.0703125
+immune_CD4T,tissue,blood,13,0.05078125
+immune_CD4T,tissue,thymus,13,0.05078125
+immune_CD4T,tissue,inguinal lymph node,12,0.046875
+immune_CD4T,tissue,stomach smooth muscle,10,0.0390625
+immune_CD4T,tissue,lung,8,0.03125
+immune_CD4T,tissue,spleen,7,0.02734375
+immune_CD4T,tissue,subcutaneous adipose tissue,7,0.02734375
+immune_CD4T,tissue,mesenteric lymph node,5,0.01953125
+immune_CD4T,tissue,mammary gland,5,0.01953125
+immune_CD4T,tissue,large intestine,4,0.015625
+immune_CD4T,tissue,bladder organ,4,0.015625
+immune_CD4T,tissue,lacrimal gland,4,0.015625
+immune_CD4T,tissue,muscle of pelvic diaphragm,3,0.01171875
+immune_CD4T,tissue,posterior part of tongue,2,0.0078125
+immune_CD4T,tissue,ileum,2,0.0078125
+immune_CD4T,tissue,heart right ventricle,1,0.00390625
+immune_CD4T,tissue,stomach,1,0.00390625
+immune_CD4T,tissue,anterior part of tongue,1,0.00390625
+immune_CD4T,tissue,parotid gland,1,0.00390625
+immune_CD4T,tissue,coronary artery,1,0.00390625
+immune_CD4T,tissue,bone marrow,1,0.00390625
+immune_CD4T,tissue,sublingual gland,1,0.00390625
+immune_CD4T,tissue,ascending colon,1,0.00390625
+immune_CD4T,tissue,muscle of abdomen,1,0.00390625
+immune_CD4T,tissue,kidney,1,0.00390625
+immune_CD4T,tissue,eyelid,1,0.00390625
+immune_CD4T,tissue_in_publication,Lymph_Node,107,0.41796875
+immune_CD4T,tissue_in_publication,Fat,44,0.171875
+immune_CD4T,tissue_in_publication,Small_Intestine,21,0.08203125
+immune_CD4T,tissue_in_publication,Blood,13,0.05078125
+immune_CD4T,tissue_in_publication,Thymus,13,0.05078125
+immune_CD4T,tissue_in_publication,Stomach,11,0.04296875
+immune_CD4T,tissue_in_publication,Lung,8,0.03125
+immune_CD4T,tissue_in_publication,Spleen,7,0.02734375
+immune_CD4T,tissue_in_publication,Eye,5,0.01953125
+immune_CD4T,tissue_in_publication,Mammary,5,0.01953125
+immune_CD4T,tissue_in_publication,Large_Intestine,5,0.01953125
+immune_CD4T,tissue_in_publication,Muscle,4,0.015625
+immune_CD4T,tissue_in_publication,Bladder,4,0.015625
+immune_CD4T,tissue_in_publication,Tongue,3,0.01171875
+immune_CD4T,tissue_in_publication,Salivary_Gland,2,0.0078125
+immune_CD4T,tissue_in_publication,Heart,1,0.00390625
+immune_CD4T,tissue_in_publication,Vasculature,1,0.00390625
+immune_CD4T,tissue_in_publication,Bone_Marrow,1,0.00390625
+immune_CD4T,tissue_in_publication,Kidney,1,0.00390625
+immune_CD4T,compartment,Immune,256,1.0
+immune_CD4T,broad_cell_class,t cell,256,1.0
+immune_CD4T,donor_id,TSP14,58,0.2265625
+immune_CD4T,donor_id,TSP21,57,0.22265625
+immune_CD4T,donor_id,TSP25,45,0.17578125
+immune_CD4T,donor_id,TSP27,35,0.13671875
+immune_CD4T,donor_id,TSP2,24,0.09375
+immune_CD4T,donor_id,TSP1,10,0.0390625
+immune_CD4T,donor_id,TSP20,10,0.0390625
+immune_CD4T,donor_id,TSP7,6,0.0234375
+immune_CD4T,donor_id,TSP4,5,0.01953125
+immune_CD4T,donor_id,TSP10,4,0.015625
+immune_CD4T,donor_id,TSP26,2,0.0078125
+immune_CD4T,cell_type,"CD4-positive, alpha-beta T cell",256,1.0
+immune_CD8T,tissue,lymph node,42,0.1640625
+immune_CD8T,tissue,spleen,36,0.140625
+immune_CD8T,tissue,thymus,16,0.0625
+immune_CD8T,tissue,blood,15,0.05859375
+immune_CD8T,tissue,bladder organ,15,0.05859375
+immune_CD8T,tissue,mammary gland,11,0.04296875
+immune_CD8T,tissue,adipose tissue,10,0.0390625
+immune_CD8T,tissue,lung,10,0.0390625
+immune_CD8T,tissue,brown adipose tissue,9,0.03515625
+immune_CD8T,tissue,small intestine,9,0.03515625
+immune_CD8T,tissue,prostate gland,8,0.03125
+immune_CD8T,tissue,endometrium,7,0.02734375
+immune_CD8T,tissue,large intestine,6,0.0234375
+immune_CD8T,tissue,bone marrow,6,0.0234375
+immune_CD8T,tissue,parotid gland,6,0.0234375
+immune_CD8T,tissue,skin of body,6,0.0234375
+immune_CD8T,tissue,inguinal lymph node,5,0.01953125
+immune_CD8T,tissue,posterior part of tongue,5,0.01953125
+immune_CD8T,tissue,liver,5,0.01953125
+immune_CD8T,tissue,stomach smooth muscle,4,0.015625
+immune_CD8T,tissue,kidney,3,0.01171875
+immune_CD8T,tissue,trachea,3,0.01171875
+immune_CD8T,tissue,coronary artery,3,0.01171875
+immune_CD8T,tissue,subcutaneous adipose tissue,3,0.01171875
+immune_CD8T,tissue,exocrine pancreas,2,0.0078125
+immune_CD8T,tissue,heart,2,0.0078125
+immune_CD8T,tissue,muscle of abdomen,2,0.0078125
+immune_CD8T,tissue,stomach,1,0.00390625
+immune_CD8T,tissue,sigmoid colon,1,0.00390625
+immune_CD8T,tissue,anterior segment of eyeball,1,0.00390625
+immune_CD8T,tissue,eye,1,0.00390625
+immune_CD8T,tissue,duodenum,1,0.00390625
+immune_CD8T,tissue,uterus,1,0.00390625
+immune_CD8T,tissue,sublingual gland,1,0.00390625
+immune_CD8T,tissue_in_publication,Lymph_Node,47,0.18359375
+immune_CD8T,tissue_in_publication,Spleen,36,0.140625
+immune_CD8T,tissue_in_publication,Fat,22,0.0859375
+immune_CD8T,tissue_in_publication,Thymus,16,0.0625
+immune_CD8T,tissue_in_publication,Blood,15,0.05859375
+immune_CD8T,tissue_in_publication,Bladder,15,0.05859375
+immune_CD8T,tissue_in_publication,Mammary,11,0.04296875
+immune_CD8T,tissue_in_publication,Small_Intestine,10,0.0390625
+immune_CD8T,tissue_in_publication,Lung,10,0.0390625
+immune_CD8T,tissue_in_publication,Uterus,8,0.03125
+immune_CD8T,tissue_in_publication,Prostate,8,0.03125
+immune_CD8T,tissue_in_publication,Salivary_Gland,7,0.02734375
+immune_CD8T,tissue_in_publication,Large_Intestine,7,0.02734375
+immune_CD8T,tissue_in_publication,Bone_Marrow,6,0.0234375
+immune_CD8T,tissue_in_publication,Skin,6,0.0234375
+immune_CD8T,tissue_in_publication,Stomach,5,0.01953125
+immune_CD8T,tissue_in_publication,Tongue,5,0.01953125
+immune_CD8T,tissue_in_publication,Liver,5,0.01953125
+immune_CD8T,tissue_in_publication,Vasculature,3,0.01171875
+immune_CD8T,tissue_in_publication,Trachea,3,0.01171875
+immune_CD8T,tissue_in_publication,Kidney,3,0.01171875
+immune_CD8T,tissue_in_publication,Eye,2,0.0078125
+immune_CD8T,tissue_in_publication,Muscle,2,0.0078125
+immune_CD8T,tissue_in_publication,Pancreas,2,0.0078125
+immune_CD8T,tissue_in_publication,Heart,2,0.0078125
+immune_CD8T,compartment,Immune,256,1.0
+immune_CD8T,broad_cell_class,t cell,256,1.0
+immune_CD8T,donor_id,TSP14,75,0.29296875
+immune_CD8T,donor_id,TSP21,42,0.1640625
+immune_CD8T,donor_id,TSP25,36,0.140625
+immune_CD8T,donor_id,TSP27,22,0.0859375
+immune_CD8T,donor_id,TSP2,20,0.078125
+immune_CD8T,donor_id,TSP7,19,0.07421875
+immune_CD8T,donor_id,TSP4,14,0.0546875
+immune_CD8T,donor_id,TSP10,9,0.03515625
+immune_CD8T,donor_id,TSP1,5,0.01953125
+immune_CD8T,donor_id,TSP19,5,0.01953125
+immune_CD8T,donor_id,TSP8,3,0.01171875
+immune_CD8T,donor_id,TSP9,2,0.0078125
+immune_CD8T,donor_id,TSP20,1,0.00390625
+immune_CD8T,donor_id,TSP26,1,0.00390625
+immune_CD8T,donor_id,TSP5,1,0.00390625
+immune_CD8T,donor_id,TSP11,1,0.00390625
+immune_CD8T,cell_type,"CD8-positive, alpha-beta T cell",256,1.0
+kidney_A,tissue,kidney,255,0.99609375
+kidney_A,tissue,cortex of kidney,1,0.00390625
+kidney_A,tissue_in_publication,Kidney,256,1.0
+kidney_A,compartment,Epithelium,213,0.83203125
+kidney_A,compartment,Immune,41,0.16015625
+kidney_A,compartment,Endothelium,2,0.0078125
+kidney_A,broad_cell_class,kidney epithelial cell,213,0.83203125
+kidney_A,broad_cell_class,t cell,23,0.08984375
+kidney_A,broad_cell_class,lymphocyte of b lineage,8,0.03125
+kidney_A,broad_cell_class,myeloid leukocyte,7,0.02734375
+kidney_A,broad_cell_class,endothelial cell,2,0.0078125
+kidney_A,broad_cell_class,innate lymphoid cell,2,0.0078125
+kidney_A,broad_cell_class,granulocyte,1,0.00390625
+kidney_A,donor_id,TSP2,256,1.0
+kidney_A,cell_type,kidney epithelial cell,213,0.83203125
+kidney_A,cell_type,"CD8-positive, alpha-beta T cell",16,0.0625
+kidney_A,cell_type,B cell,8,0.03125
+kidney_A,cell_type,"CD4-positive, alpha-beta T cell",7,0.02734375
+kidney_A,cell_type,macrophage,4,0.015625
+kidney_A,cell_type,monocyte,2,0.0078125
+kidney_A,cell_type,endothelial cell,2,0.0078125
+kidney_A,cell_type,natural killer cell,2,0.0078125
+kidney_A,cell_type,non-classical monocyte,1,0.00390625
+kidney_A,cell_type,neutrophil,1,0.00390625
+kidney_B,tissue,kidney,186,0.96875
+kidney_B,tissue,cortex of kidney,6,0.03125
+kidney_B,tissue_in_publication,Kidney,192,1.0
+kidney_B,compartment,Epithelium,152,0.7916666666666666
+kidney_B,compartment,Immune,39,0.203125
+kidney_B,compartment,Endothelium,1,0.005208333333333333
+kidney_B,broad_cell_class,kidney epithelial cell,152,0.7916666666666666
+kidney_B,broad_cell_class,lymphocyte of b lineage,15,0.078125
+kidney_B,broad_cell_class,t cell,13,0.06770833333333333
+kidney_B,broad_cell_class,myeloid leukocyte,7,0.036458333333333336
+kidney_B,broad_cell_class,innate lymphoid cell,4,0.020833333333333332
+kidney_B,broad_cell_class,endothelial cell,1,0.005208333333333333
+kidney_B,donor_id,TSP2,192,1.0
+kidney_B,cell_type,kidney epithelial cell,152,0.7916666666666666
+kidney_B,cell_type,B cell,15,0.078125
+kidney_B,cell_type,"CD8-positive, alpha-beta T cell",9,0.046875
+kidney_B,cell_type,macrophage,6,0.03125
+kidney_B,cell_type,natural killer cell,4,0.020833333333333332
+kidney_B,cell_type,"CD4-positive, alpha-beta T cell",4,0.020833333333333332
+kidney_B,cell_type,endothelial cell,1,0.005208333333333333
+kidney_B,cell_type,non-classical monocyte,1,0.005208333333333333
+kidney_ckpt_whole_human,tissue,kidney,185,0.9635416666666666
+kidney_ckpt_whole_human,tissue,cortex of kidney,7,0.036458333333333336
+kidney_ckpt_whole_human,tissue_in_publication,Kidney,192,1.0
+kidney_ckpt_whole_human,compartment,Epithelium,154,0.8020833333333334
+kidney_ckpt_whole_human,compartment,Immune,36,0.1875
+kidney_ckpt_whole_human,compartment,Endothelium,2,0.010416666666666666
+kidney_ckpt_whole_human,broad_cell_class,kidney epithelial cell,154,0.8020833333333334
+kidney_ckpt_whole_human,broad_cell_class,t cell,15,0.078125
+kidney_ckpt_whole_human,broad_cell_class,lymphocyte of b lineage,15,0.078125
+kidney_ckpt_whole_human,broad_cell_class,myeloid leukocyte,4,0.020833333333333332
+kidney_ckpt_whole_human,broad_cell_class,innate lymphoid cell,2,0.010416666666666666
+kidney_ckpt_whole_human,broad_cell_class,endothelial cell,2,0.010416666666666666
+kidney_ckpt_whole_human,donor_id,TSP2,192,1.0
+kidney_ckpt_whole_human,cell_type,kidney epithelial cell,154,0.8020833333333334
+kidney_ckpt_whole_human,cell_type,B cell,15,0.078125
+kidney_ckpt_whole_human,cell_type,"CD4-positive, alpha-beta T cell",8,0.041666666666666664
+kidney_ckpt_whole_human,cell_type,"CD8-positive, alpha-beta T cell",6,0.03125
+kidney_ckpt_whole_human,cell_type,macrophage,4,0.020833333333333332
+kidney_ckpt_whole_human,cell_type,natural killer cell,2,0.010416666666666666
+kidney_ckpt_whole_human,cell_type,endothelial cell,2,0.010416666666666666
+kidney_ckpt_whole_human,cell_type,T cell,1,0.005208333333333333
+kidney_ckpt_kidney,tissue,kidney,185,0.9635416666666666
+kidney_ckpt_kidney,tissue,cortex of kidney,7,0.036458333333333336
+kidney_ckpt_kidney,tissue_in_publication,Kidney,192,1.0
+kidney_ckpt_kidney,compartment,Epithelium,154,0.8020833333333334
+kidney_ckpt_kidney,compartment,Immune,36,0.1875
+kidney_ckpt_kidney,compartment,Endothelium,2,0.010416666666666666
+kidney_ckpt_kidney,broad_cell_class,kidney epithelial cell,154,0.8020833333333334
+kidney_ckpt_kidney,broad_cell_class,t cell,15,0.078125
+kidney_ckpt_kidney,broad_cell_class,lymphocyte of b lineage,15,0.078125
+kidney_ckpt_kidney,broad_cell_class,myeloid leukocyte,4,0.020833333333333332
+kidney_ckpt_kidney,broad_cell_class,innate lymphoid cell,2,0.010416666666666666
+kidney_ckpt_kidney,broad_cell_class,endothelial cell,2,0.010416666666666666
+kidney_ckpt_kidney,donor_id,TSP2,192,1.0
+kidney_ckpt_kidney,cell_type,kidney epithelial cell,154,0.8020833333333334
+kidney_ckpt_kidney,cell_type,B cell,15,0.078125
+kidney_ckpt_kidney,cell_type,"CD4-positive, alpha-beta T cell",8,0.041666666666666664
+kidney_ckpt_kidney,cell_type,"CD8-positive, alpha-beta T cell",6,0.03125
+kidney_ckpt_kidney,cell_type,macrophage,4,0.020833333333333332
+kidney_ckpt_kidney,cell_type,natural killer cell,2,0.010416666666666666
+kidney_ckpt_kidney,cell_type,endothelial cell,2,0.010416666666666666
+kidney_ckpt_kidney,cell_type,T cell,1,0.005208333333333333
+kidney_ckpt_brain,tissue,kidney,185,0.9635416666666666
+kidney_ckpt_brain,tissue,cortex of kidney,7,0.036458333333333336
+kidney_ckpt_brain,tissue_in_publication,Kidney,192,1.0
+kidney_ckpt_brain,compartment,Epithelium,154,0.8020833333333334
+kidney_ckpt_brain,compartment,Immune,36,0.1875
+kidney_ckpt_brain,compartment,Endothelium,2,0.010416666666666666
+kidney_ckpt_brain,broad_cell_class,kidney epithelial cell,154,0.8020833333333334
+kidney_ckpt_brain,broad_cell_class,t cell,15,0.078125
+kidney_ckpt_brain,broad_cell_class,lymphocyte of b lineage,15,0.078125
+kidney_ckpt_brain,broad_cell_class,myeloid leukocyte,4,0.020833333333333332
+kidney_ckpt_brain,broad_cell_class,innate lymphoid cell,2,0.010416666666666666
+kidney_ckpt_brain,broad_cell_class,endothelial cell,2,0.010416666666666666
+kidney_ckpt_brain,donor_id,TSP2,192,1.0
+kidney_ckpt_brain,cell_type,kidney epithelial cell,154,0.8020833333333334
+kidney_ckpt_brain,cell_type,B cell,15,0.078125
+kidney_ckpt_brain,cell_type,"CD4-positive, alpha-beta T cell",8,0.041666666666666664
+kidney_ckpt_brain,cell_type,"CD8-positive, alpha-beta T cell",6,0.03125
+kidney_ckpt_brain,cell_type,macrophage,4,0.020833333333333332
+kidney_ckpt_brain,cell_type,natural killer cell,2,0.010416666666666666
+kidney_ckpt_brain,cell_type,endothelial cell,2,0.010416666666666666
+kidney_ckpt_brain,cell_type,T cell,1,0.005208333333333333
+lung,tissue,lung,256,1.0
+lung,tissue_in_publication,Lung,256,1.0
+lung,compartment,Epithelium,117,0.45703125
+lung,compartment,Immune,108,0.421875
+lung,compartment,Stromal,20,0.078125
+lung,compartment,Endothelium,11,0.04296875
+lung,broad_cell_class,myeloid leukocyte,87,0.33984375
+lung,broad_cell_class,epithelial cell of lung,84,0.328125
+lung,broad_cell_class,epithelial cell,22,0.0859375
+lung,broad_cell_class,adventitial cell,13,0.05078125
+lung,broad_cell_class,endothelial cell,11,0.04296875
+lung,broad_cell_class,t cell,11,0.04296875
+lung,broad_cell_class,ciliated epithelial cell,7,0.02734375
+lung,broad_cell_class,granulocyte,7,0.02734375
+lung,broad_cell_class,fibroblast,6,0.0234375
+lung,broad_cell_class,glandular epithelial cell,2,0.0078125
+lung,broad_cell_class,lymphocyte of b lineage,2,0.0078125
+lung,broad_cell_class,dendritic cell,1,0.00390625
+lung,broad_cell_class,contractile cell,1,0.00390625
+lung,broad_cell_class,meso-epithelial cell,1,0.00390625
+lung,broad_cell_class,endo-epithelial cell,1,0.00390625
+lung,donor_id,TSP1,107,0.41796875
+lung,donor_id,TSP14,68,0.265625
+lung,donor_id,TSP25,67,0.26171875
+lung,donor_id,TSP2,14,0.0546875
+lung,cell_type,macrophage,76,0.296875
+lung,cell_type,pulmonary alveolar type 2 cell,52,0.203125
+lung,cell_type,pulmonary alveolar type 1 cell,32,0.125
+lung,cell_type,basal cell,22,0.0859375
+lung,cell_type,adventitial cell,13,0.05078125
+lung,cell_type,lung multiciliated epithelial cell,7,0.02734375
+lung,cell_type,capillary endothelial cell,6,0.0234375
+lung,cell_type,"CD4-positive, alpha-beta T cell",6,0.0234375
+lung,cell_type,alveolar adventitial fibroblast,6,0.0234375
+lung,cell_type,basophil,6,0.0234375
+lung,cell_type,"CD8-positive, alpha-beta T cell",5,0.01953125
+lung,cell_type,classical monocyte,5,0.01953125
+lung,cell_type,intermediate monocyte,4,0.015625
+lung,cell_type,vein endothelial cell,3,0.01171875
+lung,cell_type,respiratory tract goblet cell,2,0.0078125
+lung,cell_type,B cell,2,0.0078125
+lung,cell_type,non-classical monocyte,2,0.0078125
+lung,cell_type,myeloid dendritic cell,1,0.00390625
+lung,cell_type,neutrophil,1,0.00390625
+lung,cell_type,endothelial cell of artery,1,0.00390625
+lung,cell_type,bronchial smooth muscle cell,1,0.00390625
+lung,cell_type,endothelial cell of lymphatic vessel,1,0.00390625
+lung,cell_type,mesothelial cell,1,0.00390625
+lung,cell_type,club cell,1,0.00390625
+lung_external,tissue,lung,230,0.8984375
+lung_external,tissue,blood,26,0.1015625
+lung_external,compartment,epithelial,103,0.40234375
+lung_external,compartment,immune,71,0.27734375
+lung_external,compartment,endothelial,44,0.171875
+lung_external,compartment,stromal,38,0.1484375
+lung_external,donor_id,1,131,0.51171875
+lung_external,donor_id,2,88,0.34375
+lung_external,donor_id,3,37,0.14453125
+lung_external,cell_type,natural killer cell,26,0.1015625
+lung_external,cell_type,pulmonary alveolar type 2 cell,24,0.09375
+lung_external,cell_type,endothelial cell,23,0.08984375
+lung_external,cell_type,club cell,23,0.08984375
+lung_external,cell_type,lung multiciliated epithelial cell,20,0.078125
+lung_external,cell_type,capillary endothelial cell,19,0.07421875
+lung_external,cell_type,pericyte,15,0.05859375
+lung_external,cell_type,"naive thymus-derived CD8-positive, alpha-beta T cell",14,0.0546875
+lung_external,cell_type,bronchial smooth muscle cell,13,0.05078125
+lung_external,cell_type,lung goblet cell,10,0.0390625
+lung_external,cell_type,fibroblast,9,0.03515625
+lung_external,cell_type,epithelial cell,9,0.03515625
+lung_external,cell_type,pulmonary alveolar type 1 cell,7,0.02734375
+lung_external,cell_type,classical monocyte,6,0.0234375
+lung_external,cell_type,B cell,6,0.0234375
+lung_external,cell_type,respiratory basal cell,6,0.0234375
+lung_external,cell_type,neutrophil,6,0.0234375
+lung_external,cell_type,"effector memory CD8-positive, alpha-beta T cell",5,0.01953125
+lung_external,cell_type,"effector memory CD4-positive, alpha-beta T cell",4,0.015625
+lung_external,cell_type,pulmonary neuroendocrine cell,4,0.015625
+lung_external,cell_type,vein endothelial cell,2,0.0078125
+lung_external,cell_type,"naive thymus-derived CD4-positive, alpha-beta T cell",1,0.00390625
+lung_external,cell_type,vascular associated smooth muscle cell,1,0.00390625
+lung_external,cell_type,intermediate monocyte,1,0.00390625
+lung_external,cell_type,lymphocyte,1,0.00390625
+lung_external,cell_type,alveolar macrophage,1,0.00390625

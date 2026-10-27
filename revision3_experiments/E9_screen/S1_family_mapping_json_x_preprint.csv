@@ -1,0 +1,9 @@
+json_family,Persistent homology,Graph topology,Intrinsic dimensionality,Cross-model alignment,SVD biological axes,PPI network encoding,Cell-type/family clustering,Attention-SVD dissociation,Regulatory geometry (SV2-SV4),Regulatory geometry (SV5-SV7),Edge-level geometry,Signed regulation,B-cell attractor dynamics
+cross_model_alignment,0,0,0,5,0,0,0,0,0,0,0,0,0
+graph_topology,0,2,2,0,2,6,0,2,0,0,0,0,2
+intrinsic_dimensionality,0,0,10,0,18,0,0,0,0,3,1,0,9
+manifold_distance,0,3,1,0,0,10,0,0,0,6,3,2,17
+module_structure,0,2,1,0,13,6,3,0,4,12,2,6,3
+null_sensitivity,0,0,2,0,2,4,0,1,0,0,0,1,5
+persistent_homology,4,0,0,0,0,0,0,0,0,0,0,0,0
+topology_stability,1,2,1,0,1,1,0,0,0,2,0,0,0

@@ -1,0 +1,34 @@
+context,true_tissue,gene_axis,n_iterations_loading_script_level,n_iterations_with_records_on_it,n_iterations_any,first_iteration,last_iteration,n_records,n_records_183,sv_bands_recorded,preprint_claims_derived
+kidney_A,kidney (TS kidney; labelled immune in the preprint),4803,64,61,67,2,122,154,115,SV5-7(33);SV1(19);SV2(19);SV3(8);PC1(8);SV4(5);SV1/SV5-7(4);SV1/SV2(3);SV2/SV3(3);SV2+SV3+SV4(3),C03(related: kidney_A full-matrix 57.2->93.2%);C04;C06;C08;C09;C10;C11;C12;C13;C14;C15;C16;C18;C18(initial 0.853);C19;C20;C21;C22;C23;C24;C25;C26;C27;C39;C39(precursor);C40;C44;C50;C53;C56;C56(related);C57;C59;C60;C61
+geneformer_immune,"immune (Geneformer, not scGPT)",unknown,56,55,56,40,127,146,0,SV5-7(107);SV1(23);SV2-4(10);SV1/SV5-7(10);SV57(4);PC1(1);SV2-4/SV5-7(1);SV1/SV2-4/SV5-7(1),
+immune,immune,4941,39,56,57,39,122,141,67,SV5-7(74);SV2-4(23);SV1(18);SV57(7);SV2-7(6);SV1/SV5-7(6);SV8-10(3);SV1/SV2(2);SV2-SV4(2);SV5(2),C02;C03;C05;C07;C17;C28;C29;C30;C31;C32;C33;C34;C35;C36;C37;C38;C41;C42;C43;C45;C46;C47;C52;C54;C55;C58;contradicts C02 (not reported);contradicts C03 (not reported)
+geneformer_lung,"lung (Geneformer, not scGPT)",unknown,48,47,48,19,127,125,0,SV5-7(91);SV1(20);SV1/SV5-7(9);SV2-4(7);SV57(4);SV2-4/SV5-7(2);PC1(1),
+lung,lung,8181,39,36,39,64,122,79,0,SV5-7(59);SV1(10);SV1/SV5-7(7);SV2-4(6);SV57(4);PC1(2);SV2-4/SV5-7(2),
+lung_external,lung (Krasnow atlas),8229,33,28,33,65,122,57,0,SV5-7(48);SV1(9);SV1/SV5-7(6);SV2-4(4);SV57(3);PC1(2);SV2-4/SV5-7(1);SV1/SV2-4/SV5-7(1),
+geneformer_lung_external,"lung_external (Geneformer, not scGPT)",unknown,33,28,33,65,127,51,0,SV5-7(41);SV1(10);SV1/SV5-7(5);SV2-4(4);SV57(3);SV2-4/SV5-7(1);SV1/SV2-4/SV5-7(1),
+immune_seed43,immune,4941,12,14,20,46,127,21,12,SV5-7(10);SV2-4(5);SV2-7(4);SV57(2);SV24(1);SV5-7/SV2-4(1);SV1(1),C05;C29;C33;C34;C35;C52;C54;C55
+immune_TSP21,immune,4941,11,9,11,75,106,19,0,SV5-7(17);SV1(6);SV2-4(4);SV1/SV5-7(3);SV1/SV2-4/SV5-7(1),
+immune_seed44,immune,4941,9,12,17,46,122,19,12,SV5-7(11);SV2-4(5);SV2-7(4);SV57(2);SV24(1);SV5-7/SV2-4(1),C05;C29;C33;C34;C35;C52;C54;C55
+immune_TSP14,immune,4941,9,9,9,74,106,18,0,SV5-7(15);SV1(5);SV1/SV5-7(3);SV2-4(1);SV2-4/SV5-7(1),
+immune_TSP25,immune,4941,9,9,9,74,106,16,0,SV5-7(12);SV1(4);SV1/SV5-7(3);SV2-4(1);SV1/SV2-4/SV5-7(1),
+lung_external_seed43,lung (Krasnow atlas),8229,12,7,12,79,127,13,0,SV5-7(7);SV1(3);SV2-4(1);SV57(1),
+lung_seed43,lung,8181,14,6,14,79,127,11,0,SV5-7(5);SV2-4(1);SV57(1);SV1(1),
+geneformer_liver,"liver (Geneformer, not scGPT)",unknown,15,7,15,77,130,11,0,SV5-7(2);SV1(1),
+kidney_B,kidney,8143,4,4,4,72,86,11,0,SV5-7(8),
+geneformer_heart,"heart (Geneformer, not scGPT)",unknown,12,6,12,113,130,10,0,SV1(1);SV5-7(1),
+immune_Bcell,immune (B cells),4941,5,5,5,64,86,10,0,SV5-7(8),
+kidney_A_seed44,kidney,4803,9,6,10,2,122,9,3,SV5-7(4),C57
+geneformer_kidney,"kidney (Geneformer, not scGPT)",unknown,19,8,19,99,122,9,0,SV5-7(4);SV1(1),
+kidney_A_seed43,kidney,4803,11,6,12,2,122,7,3,SV5-7(1),C57
+lung_external_seed44,lung (Krasnow atlas),8229,9,5,9,108,122,7,0,SV5-7(3);SV1(1),
+kidney_A_maxgenes1024,kidney,4803,3,2,3,102,122,4,0,SV5-7(2);SV1/SV5-7(1);SV57(1);SV1(1),
+immune_CD4T,immune (CD4 T),4941,5,3,5,71,86,4,0,SV5-7(4),
+lung_seed44,lung,8181,10,4,10,81,122,4,0,SV5-7(1),
+kidney_A_v2env_seed42,kidney,4803,1,1,1,102,102,3,0,SV1/SV5-7(1);SV57(1);SV5-7(1),
+lung_attention,lung (scGPT attention matrix),8181,3,3,3,18,20,3,3,SV2+SV3+SV4(1),C56;C56(related)
+geneformer_static,none (Geneformer token embeddings),20275,0,2,2,19,40,2,2,,C50;C51
+kidney_ckpt_brain,kidney,8143,1,1,1,87,87,1,0,SV5-7(1),
+kidney_ckpt_kidney,kidney,8143,1,1,1,87,87,1,0,SV5-7(1),
+kidney_ckpt_whole_human,kidney,8143,1,1,1,87,87,1,0,SV5-7(1),
+random_gaussian,none (synthetic null),4803,0,1,1,18,18,1,1,SV2(1),
+immune_CD8T,immune (CD8 T),4941,3,0,3,73,87,0,0,,

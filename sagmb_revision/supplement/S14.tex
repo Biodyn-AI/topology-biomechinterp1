@@ -1,0 +1,83 @@
+\setcounter{table}{13}
+\begingroup
+\footnotesize
+\setlength{\tabcolsep}{2.4pt}
+\setlength{\LTpre}{6pt}\setlength{\LTpost}{6pt}
+\begin{longtable}{@{}>{\scriptsize\raggedright\arraybackslash}p{0.4cm}>{\scriptsize\raggedright\arraybackslash}p{1.35cm}>{\scriptsize\raggedright\arraybackslash}p{1.3cm}>{\scriptsize\raggedright\arraybackslash}p{2.35cm}>{\scriptsize\raggedright\arraybackslash}p{5.1cm}>{\scriptsize\raggedright\arraybackslash}p{5.4cm}@{}}
+\caption{\textbf{Correspondence of other spectral bases with the observed-gene basis, and provenance of the screen's three bands.} \emph{Panel A}, correspondence of single directions, from the right singular vectors (512-dimensional feature space; $|\cos|$ is sign-free) at each layer. kidney~A, full matrix: the decomposition of all 4,803 rows, mean-centred over all of them, including the 2,831 never-observed zero rows, whose first direction is therefore the observation indicator; it is compared with the decomposition of the 1,972 observed genes (this paper's convention). For its $\SV{k}$, $k = 2, \ldots, 12$: best $= \SV{k-1}$, number of directions whose best-matching observed direction (largest $|\cos|$ among observed $\SV{1}$--$\SV{40}$) is $\SV{k-1}$; mean and range of that best $|\cos|$ over the 11 directions; $\SV{1}$: best $|\cos|$ of its first direction with any observed direction (and that direction), showing that it has no counterpart. Pooled over the 132 layer--direction cases, the mean $|\cos|$ between full-matrix $\SV{k}$ and observed $\SV{k-1}$ exactly is 0.956 (independent re-derivation); at layers where all 11 best matches are $\SV{k-1}$ it equals the mean shown. kidney~A, 209-gene: mean best $|\cos|$ over $\SV{1}$--$\SV{12}$ for the decomposition fitted to the 209 named genes at their true rows (22 of them zero rows), on which the screen assembled $\SV{2}$--$\SV{4}$. immune, screen's basis: the screen's decomposition of the 2,039 observed rows (``centered nonzero embeddings'') against this paper's; best $= \SV{k}$, number of $\SV{1}$--$\SV{12}$ whose best match is the same index, with the mean $|\cos|$ at the same index. \emph{Panel B}, mapping of bands: band, the band's indices in that decomposition; matrix and decomposition (rows), the matrix and the rows the decomposition was fitted to (mean, mean embeddings; summed, the summed-embedding matrix the screen loaded in iterations 59--60); used in, the iterations of the screen whose records use the band in that decomposition (---, a reference basis: the full kidney~A decomposition, never-observed rows included); mapped, the contiguous observed-gene band of the same width (ending at or before $\SV{12}$) with the largest mean $\cos^2$ of the principal angles between the two subspaces, averaged over the 12 layers ($\overline{\cos^2}$; range, its range over the 12 layers); identity, the same quantity for the band with the same indices; runner-up, the second-best band; layers won, number of layers at which the mapped band is the best (other winning bands in parentheses). The mapping uses the geometry of the matrices only; no outcome data (interaction, regulatory or label sets) were read to fix it. \emph{Panel C}, provenance of the bands from the iteration files (JSON records, iteration reports, the language-model brainstormer's briefs and next-step notes): \#, step; iteration, iteration and hypothesis or file; band, the band the step bears on (all, every direction); text in quotation marks is verbatim from those files. ``sig'' is the screen's count of layers with empirical permutation $p < 0.05$; emp\_p and perm\_p, empirical permutation $p$; mean\_z, mean $z$ over layers; rbc, rank-biserial correlation; TRRUST, STRING, reference networks of documented regulation and protein interaction; PPI, protein--protein interaction; TF, transcription factor. None of the three bands was specified before the results that motivated it were seen. No sampling intervals apply: the matrices are fixed and all values are exact geometric quantities. Full values: \texttt{Table\_S14\_band\_crosswalk.csv}.}\label{tab:S14}\\
+\multicolumn{6}{@{}l}{\footnotesize\textbf{A.} $\SV{k}$ of the full-matrix, 209-gene and screen's immune decompositions against the observed-gene $\SV{k}$ and $\SV{k-1}$, per layer}\\[2pt]
+\multicolumn{6}{@{}l@{}}{\scriptsize\setlength{\tabcolsep}{3.2pt}\begin{tabular}{@{}lrrrrrrr@{}}
+\toprule
+ & \multicolumn{4}{c}{kidney~A: full matrix, zero rows included} & \multicolumn{1}{c}{kidney~A: 209-gene} & \multicolumn{2}{c}{immune: screen's basis} \\
+\cmidrule(lr){2-5}\cmidrule(lr){6-6}\cmidrule(lr){7-8}
+Layer & best $= \SV{k-1}$ & mean $|\cos|$ & range $|\cos|$ & $\SV{1}$: best $|\cos|$ & mean best $|\cos|$ & best $= \SV{k}$ & mean $|\cos|$ \\
+\midrule
+$L_{0}$ & 10/11 & 0.971 & 0.824--0.999 & 0.219 ($\SV{3}$) & 0.488 & 12/12 & 1.000 \\
+$L_{1}$ & 11/11 & 0.994 & 0.983--1.000 & 0.233 ($\SV{12}$) & 0.483 & 12/12 & 1.000 \\
+$L_{2}$ & 11/11 & 0.992 & 0.952--1.000 & 0.270 ($\SV{12}$) & 0.485 & 12/12 & 1.000 \\
+$L_{3}$ & 9/11 & 0.941 & 0.686--1.000 & 0.224 ($\SV{10}$) & 0.501 & 12/12 & 1.000 \\
+$L_{4}$ & 11/11 & 0.982 & 0.916--1.000 & 0.261 ($\SV{8}$) & 0.492 & 12/12 & 1.000 \\
+$L_{5}$ & 9/11 & 0.946 & 0.702--1.000 & 0.309 ($\SV{7}$) & 0.473 & 12/12 & 1.000 \\
+$L_{6}$ & 9/11 & 0.969 & 0.825--1.000 & 0.356 ($\SV{6}$) & 0.474 & 12/12 & 1.000 \\
+$L_{7}$ & 11/11 & 0.958 & 0.785--1.000 & 0.309 ($\SV{5}$) & 0.473 & 12/12 & 1.000 \\
+$L_{8}$ & 11/11 & 0.973 & 0.901--1.000 & 0.265 ($\SV{5}$) & 0.524 & 12/12 & 1.000 \\
+$L_{9}$ & 11/11 & 0.985 & 0.957--0.998 & 0.232 ($\SV{5}$) & 0.543 & 12/12 & 1.000 \\
+$L_{10}$ & 11/11 & 0.976 & 0.904--0.999 & 0.211 ($\SV{5}$) & 0.584 & 12/12 & 1.000 \\
+$L_{11}$ & 11/11 & 0.994 & 0.987--1.000 & 0.155 ($\SV{3}$) & 0.555 & 12/12 & 1.000 \\
+\midrule
+all layers & 125/132 (94.7\%) & 0.973 & 0.686--1.000 & 0.254 (mean) & 0.506 & 144/144 & 1.000 \\
+\bottomrule
+\end{tabular}}\\[6pt]
+\multicolumn{6}{@{}l}{\footnotesize\textbf{B.} The three bands in each decomposition, mapped to the observed-gene basis}\\[2pt]
+\multicolumn{6}{@{}l@{}}{\scriptsize\setlength{\tabcolsep}{2.4pt}\begin{tabular}{@{}l l >{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}p{2.25cm} l r r r l >{\raggedright\arraybackslash}p{1.85cm}@{}}
+\toprule
+Band & Matrix & Decomposition (rows) & Used in & Mapped & $\overline{\cos^2}$ & range & identity & runner-up & layers won \\
+\midrule
+$\SV{2}$--$\SV{4}$ & kidney~A & full matrix (2,831 zero rows) & --- (reference basis) & $\SV{1}$--$\SV{3}$ & 0.990 & 0.966--0.999 & 0.659 & $\SV{2}$--$\SV{4}$ (0.659) & 12/12 \\
+$\SV{5}$--$\SV{7}$ & kidney~A & full matrix (2,831 zero rows) & --- (reference basis) & $\SV{4}$--$\SV{6}$ & 0.938 & 0.697--0.993 & 0.649 & $\SV{3}$--$\SV{5}$ (0.650) & 12/12 \\
+$\SV{2}$--$\SV{7}$ & kidney~A & full matrix (2,831 zero rows) & --- (reference basis) & $\SV{1}$--$\SV{6}$ & 0.966 & 0.848--0.992 & 0.820 & $\SV{2}$--$\SV{7}$ (0.820) & 12/12 \\
+$\SV{2}$--$\SV{4}$ & kidney~A & 209 named genes (22 zero rows) & iterations 13--19 (co-pole axes) & $\SV{1}$--$\SV{3}$ & 0.489 & 0.350--0.640 & 0.452 & $\SV{2}$--$\SV{4}$ (0.452) & 8/12 ($\SV{2}$--$\SV{4}$ 3, $\SV{5}$--$\SV{7}$ 1) \\
+$\SV{5}$--$\SV{7}$ & kidney~A & observed (1,972), mean & later iterations on kidney~A & $\SV{5}$--$\SV{7}$ & 1.000 & 1.000--1.000 & 1.000 & $\SV{4}$--$\SV{6}$ (0.667) & 12/12 \\
+$\SV{5}$--$\SV{7}$ & kidney~A & observed (1,972), summed & iterations 59--60 & $\SV{3}$--$\SV{5}$ & 0.212 & 0.146--0.319 & 0.198 & $\SV{4}$--$\SV{6}$ (0.210) & 2/12 (7 other bands) \\
+$\SV{2}$--$\SV{4}$ & immune & observed (2,039) & iterations 49+ (TRRUST, TF/target) & $\SV{2}$--$\SV{4}$ & 1.000 & 1.000--1.000 & 1.000 & $\SV{1}$--$\SV{3}$ (0.667) & 12/12 \\
+$\SV{5}$--$\SV{7}$ & immune & observed (2,039) & iterations 50+ & $\SV{5}$--$\SV{7}$ & 1.000 & 1.000--1.000 & 1.000 & $\SV{4}$--$\SV{6}$ (0.667) & 12/12 \\
+$\SV{2}$--$\SV{7}$ & immune & observed (2,039) & iterations 56+ (joint classifier) & $\SV{2}$--$\SV{7}$ & 1.000 & 1.000--1.000 & 1.000 & $\SV{1}$--$\SV{6}$ (0.833) & 12/12 \\
+\bottomrule
+\end{tabular}}\\[6pt]
+\multicolumn{6}{@{}l}{\footnotesize\textbf{C.} How the bands were chosen}\\
+\toprule
+\# & Iteration & Band & Matrix, gene rows, convention & What was done or decided & Result or criterion (quotations verbatim) \\
+\midrule
+\endfirsthead
+\multicolumn{6}{@{}l}{\footnotesize\textit{Table~\thetable{} (continued)}}\\
+\toprule
+\# & Iteration & Band & Matrix, gene rows, convention & What was done or decided & Result or criterion (quotations verbatim) \\
+\midrule
+\endhead
+\midrule
+\multicolumn{6}{@{}r@{}}{\scriptsize\textit{continued on next page}}\\
+\endfoot
+\bottomrule
+\endlastfoot
+1 & 8 H01 & $\SV{2}$--$\SV{4}$ & kidney~A, 209 true rows, subset-fitted & first use of $\SV{2}$ and $\SV{3}$: ``SVD of layer-11 mean-centered 209-gene embedding. Project onto $\SV{2}$ and $\SV{3}$.'' & $\SV{2}$ IL-4 term emp\_\allowbreak{}p=0.000; $\SV{3}$ emp\_\allowbreak{}p=0.088 \\
+2 & 10 H02 & $\SV{2}$--$\SV{4}$ & same as above & TRRUST co-pole on $\SV{1}$ and $\SV{2}$ at $L_{11}$ (326 TRRUST rows, i.e. 288 distinct pairs) & ``$\SV{1}$: obs=0.163 vs null=0.123, emp\_\allowbreak{}p=0.016; $\SV{2}$: obs=0.206 vs null=0.122, emp\_\allowbreak{}p=0.000'' \\
+3 & 13 H01 & $\SV{2}$--$\SV{4}$ & same as above & STRING (score $\geq$ 0.7, 1,022 API pairs) co-pole on $\SV{1}$, $\SV{2}$ and $\SV{3}$ & ``$\SV{1}$ $z$=0.39 (2/\allowbreak{}12 sig), $\SV{2}$ $z$=10.04 (12/\allowbreak{}12 sig), $\SV{3}$ $z$=7.18 (12/\allowbreak{}12 sig)'' \\
+4 & 14 brief & $\SV{2}$--$\SV{4}$ & --- & brainstormer proposes extending to the next axes: ``H01: $\SV{4}$/\allowbreak{}$\SV{5}$ PPI co-pole test'', with the success criterion ``$\SV{4}$ or $\SV{5}$ $z$ $>$ 3 in $\geq$6/\allowbreak{}12 layers'' & --- \\
+5 & 15 H01 & $\SV{2}$--$\SV{4}$ & same, but 3,092 pairs at STRING $\geq$ 0.4, not the brief's 1,022 at $\geq$ 0.7 & $\SV{4}$ and $\SV{5}$ tested & ``$\SV{4}$ mean\_\allowbreak{}z=2.21, sig=7/\allowbreak{}12; $\SV{5}$ mean\_\allowbreak{}z=1.65, sig=6/\allowbreak{}12'' (``sig'' = emp\_\allowbreak{}p $<$ 0.05). Against the stated criterion ``$z$ $>$ 3 in $\geq$6/\allowbreak{}12'', $\SV{4}$ passes at 6/\allowbreak{}12 with $L_{1}$ $z$ = 3.00003, and $\SV{5}$ fails at 2/\allowbreak{}12 \\
+6 & 15 brief & $\SV{2}$--$\SV{4}$ & --- & $\SV{5}$ dropped: ``$\SV{5}$ (deprioritized; rescue only if $\SV{6}$+ shows new pattern)'' & $\SV{4}$ kept by a z-margin of $3\times10^{-5}$ at one layer; the group becomes $\SV{2}$, $\SV{3}$, $\SV{4}$ \\
+7 & 16 H02, 19 H02, 20 & $\SV{2}$--$\SV{4}$ & same as above & ``$\SV{2}$/\allowbreak{}$\SV{3}$/\allowbreak{}$\SV{4}$ axis independence''; ``multi-axis co-polarity count ($\SV{2}$+$\SV{3}$+$\SV{4}$)'' & the $\SV{2}$--$\SV{4}$ triple becomes a unit, defined by PPI co-pole on the kidney 209-gene subset \\
+8 & 47 H01/\allowbreak{}H02 & all & immune, 2,039 observed & the screen finds the zero rows: ``Found 2902 genes have zero norm at ALL layers'', and that the earlier ``93.4\%'' $\SV{1}$ figure ``was dominated by zero vectors'' & switch to observed rows only \\
+9 & 48 brief & $\SV{2}$--$\SV{4}$ & immune, observed & the kidney band is carried over unchanged: ``H02 (HIGH VALUE): $\SV{2}$--$\SV{4}$ PPI Geometry in 2039-Gene Active Set'', comparing with ``prior $\rho$ values ($\SV{2}$: 1.0, $\SV{3}$: 0.9, $\SV{4}$: 0.7)'' from the kidney matrix & --- \\
+10 & 49 H03 & $\SV{2}$--$\SV{4}$ & immune, observed; coordinates = left singular vectors & first band-level test of $\SV{2}$--$\SV{4}$ on TRRUST pairs & ``Best: $L_{8}$ $p$$<$0.0001 effect=0.268; significant ($p$$<$0.05) at 8/\allowbreak{}12 layers'' \\
+11 & 49 next steps & $\SV{5}$--$\SV{7}$ & --- & \textbf{origin of $\SV{5}$--$\SV{7}$}: ``Q: Is the effect specific to $\SV{2}$--$\SV{4}$, or does it extend further into the spectrum? Test $\SV{5}$--$\SV{7}$, $\SV{8}$--$\SV{10}$ subspaces'' & fixed-width windows of three, chosen after the $\SV{2}$--$\SV{4}$ result \\
+12 & 50 H03 & $\SV{5}$--$\SV{7}$ & immune, observed & first recorded $\SV{5}$--$\SV{7}$ (with $\SV{1}$, $\SV{2}$--$\SV{4}$, $\SV{8}$--$\SV{10}$) & ``$\SV{2}$--$\SV{4}$: rbc=+0.229 (10/\allowbreak{}12 layers $p$$<$0.05); $\SV{5}$--$\SV{7}$: rbc=+0.152 (7/\allowbreak{}12 layers); $\SV{8}$--$\SV{10}$: rbc=+0.123 (5/\allowbreak{}12 layers)'' \\
+13 & 50 H01, 51 H01 & $\SV{2}$--$\SV{4}$ & immune, observed & $\SV{2}$--$\SV{4}$ TRRUST proximity tested against ``co-expression'' (in practice the cosine of the full 512-d embeddings, not expression correlation) & ``0/\allowbreak{}12 layers specific''; residualised: ``1/\allowbreak{}12 layers significant ($L_{8}$: rbc=0.083, $p$=0.0016)'' \\
+14 & 51 brainstormer & $\SV{5}$--$\SV{7}$ & --- & $\SV{5}$--$\SV{7}$ promoted as the alternative: ``$\SV{5}$--$\SV{7}$ regulatory signal (independent of co-expression) \textbar{} UNTESTED \textbar{} High potential'' & --- \\
+15 & 52 H03 & $\SV{5}$--$\SV{7}$ & immune, observed & $\SV{5}$--$\SV{7}$ residualised & ``rbc\_\allowbreak{}resid=0.148 ($L_{0}$), 0.119 ($L_{1}$), 0.083 ($L_{2}$); all $p$$<$0.002. $L_{3}$+ lose significance''. Recomputed exactly (0.148 /\allowbreak{} 0.119 /\allowbreak{} 0.083); layers 5--11 have \emph{negative} rbc \\
+16 & 53 H01 & $\SV{5}$--$\SV{7}$ & immune, observed & other bands scanned only after $\SV{5}$--$\SV{7}$ had been chosen: ``$\SV{2}$--$\SV{4}$, $\SV{5}$--$\SV{7}$, $\SV{8}$--$\SV{10}$, $\SV{11}$--$\SV{14}$, $\SV{15}$--$\SV{20}$, $\SV{21}$--$\SV{30}$'' at $L_{0}$/\allowbreak{}$L_{1}$/\allowbreak{}$L_{2}$/\allowbreak{}$L_{8}$ & ``$\SV{5}$--$\SV{7}$ dominant at $L_{0}$--$L_{2}$; $\SV{2}$--$\SV{4}$ dominant at $L_{8}$'' \\
+17 & 55 H02 & $\SV{2}$--$\SV{7}$ & immune, observed & layer profiles of $\SV{5}$--$\SV{7}$ and $\SV{2}$--$\SV{4}$ classifiers & ``Complementary encoding: $\SV{5}$--$\SV{7}$ high early+late, $\SV{2}$--$\SV{4}$ high mid-depth'' \\
+18 & 55 brainstormer & $\SV{2}$--$\SV{7}$ & --- & \textbf{origin of $\SV{2}$--$\SV{7}$}: ``can we dissect the joint $\SV{2}$--$\SV{7}$ space to produce a layer-stable classifier?''; decision threshold ``joint AUROC $\geq$ 0.72 at 10+ of 12 layers'' & --- \\
+19 & 56 H01 & $\SV{2}$--$\SV{7}$ & immune, observed & joint 6-D classifier & ``joint $\geq$ 0.72 at 9/\allowbreak{}12 layers''. The threshold was then relaxed: ``Lower threshold for criterion since 9/\allowbreak{}12 vs 10/\allowbreak{}12 is minor; note claim should state `most layers''' \\
+20 & 63 H63-B & all & immune, observed & the screen's own systematic scan of $\SV{k}$--$\SV{k+2}$, k = 0\ldots{}9, at $L_{0}$ with Bonferroni over 10 windows & ``Best raw AUROC: $\SV{8}$--$\SV{10}$=0.619 (perm\_\allowbreak{}p=0.67); $\SV{5}$--$\SV{7}$=0.611 (perm\_\allowbreak{}p=0.28); no window survives Bonferroni'' \\
+\end{longtable}
+\endgroup

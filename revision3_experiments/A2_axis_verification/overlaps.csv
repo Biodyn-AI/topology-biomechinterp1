@@ -1,0 +1,14 @@
+a,b,how,same_h5ad,n_a,n_b,n_shared,jaccard,n_a_in_b_population,expected_shared_if_independent,p_hypergeom_ge_observed
+immune,immune_seed43,obs_names (immune h5ad),True,256,256,4,0.0078740157480314,256,3.2768,0.4153018700338028
+immune,immune_seed44,obs_names (immune h5ad),True,256,256,8,0.0158730158730158,256,3.2768,0.017635439988126198
+immune,immune_TSP14,obs_names (immune h5ad),True,256,256,5,0.009861932938856,66,3.743851096831376,0.3192684839756726
+immune,immune_TSP21,obs_names (immune h5ad),True,256,256,3,0.005893909626719,39,3.097735029475644,0.6096057847552523
+immune,immune_TSP25,obs_names (immune h5ad),True,256,256,2,0.0039215686274509,44,3.454155167126648,0.871652911245645
+immune,immune_Bcell,obs_names (immune h5ad),True,256,256,0,0.0,50,3.4024455077086655,1.0
+immune,immune_CD4T,obs_names (immune h5ad),True,256,256,3,0.005893909626719,42,3.187666765490661,0.6288747307788713
+immune,immune_CD8T,obs_names (immune h5ad),True,256,256,7,0.0138613861386138,35,3.5178641539065567,0.05517591790429343
+immune_seed43,immune_seed44,obs_names (immune h5ad),True,256,256,0,0.0,256,3.2768,1.0
+kidney_A,kidney_B,obs_names (different h5ads),False,256,192,12,0.0275229357798165,183,4.392,0.0014676946447209586
+kidney_A,kidney_ckpt_whole_human,obs_names (different h5ads),False,256,192,2,0.0044843049327354,183,4.392,0.9375547932218361
+kidney_B,kidney_ckpt_whole_human,obs_names (kidney_B h5ad),True,192,192,2,0.0052356020942408,192,4.608,0.9480152797204207
+lung,lung_external,obs_names (different h5ads),False,256,256,0,0.0,0,0.0,

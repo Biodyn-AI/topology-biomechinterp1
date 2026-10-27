@@ -1,0 +1,14 @@
+{
+ "immune": {
+  "n_trrust_pairs_in_V": 589,
+  "n_ffl": 264
+ },
+ "lung": {
+  "n_trrust_pairs_in_V": 5607,
+  "n_ffl": 4017
+ },
+ "lung_external": {
+  "n_trrust_pairs_in_V": 5442,
+  "n_ffl": 4056
+ }
+}

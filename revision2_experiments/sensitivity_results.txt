@@ -1,0 +1,23 @@
+Effective rank by basis   (manuscript claims 23.6 -> 1.6, a 14.4x drop)
+basis                              L0      L11    fold
+full 4,803 genes               383.36   133.02    2.9x
+curated 209                    155.86    89.76    1.7x
+curated 187 (L0 nonzero)       161.26   128.74    1.3x
+
+Participation ratio       (manuscript claims 58 -> 9.5, a 6.1x drop, on '195-gene submatrix')
+full 4,803 genes                 3.03     1.15    2.6x
+curated 209                     21.16     1.68   12.6x
+curated 187 (L0 nonzero)        59.47    10.28    5.8x
+
+SV1 variance fraction     (manuscript: 53.7% at L0 -> 93.4% at L11, full vocabulary)
+  full 4,803 genes       L0  SV1 var fraction =  57.2%
+  full 4,803 genes       L11 SV1 var fraction =  93.2%
+  curated 187            L0  SV1 var fraction =   7.1%
+  curated 187            L11 SV1 var fraction =  27.5%
+
+Subset-SVD sensitivity (loop convention) vs full-SVD (canonical), 187-gene set, N=20,000
+test                                     full-SVD             subset-SVD
+SV2 TRRUST co-pole         L11 obs=0.220 p=1.3e-02 L4 obs=0.237 p=3.3e-03
+SV2 STRING co-pole         L3 obs=0.246 p=1.0e-04 L3 obs=0.304 p=5.0e-05
+SV3 STRING co-pole         L0 obs=0.277 p=5.0e-05 L0 obs=0.272 p=5.0e-05
+TF/target AUROC (LOO)        mean=0.612 max=0.640   mean=0.738 max=0.813

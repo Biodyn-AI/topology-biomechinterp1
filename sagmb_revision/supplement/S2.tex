@@ -1,0 +1,103 @@
+\setcounter{table}{1}
+\begingroup
+\footnotesize
+\setlength{\LTleft}{0pt}\setlength{\LTright}{0pt}
+\begin{longtable}{@{}p{\textwidth}@{}}
+\caption[The early compartment axis]{\textbf{The early compartment axis.} Each of the first twelve directions ($\SV{1}$--$\SV{12}$) of the observed-gene decomposition at each layer, tested for separating genes directly annotated to extracellular space (GO:0005615) or cytosol (GO:0005829) from all other observed genes. AUROC, sign-free AUROC $\max(A, 1 - A)$; $z$, AUROC standardised by the mean and SD of its permutation null; $p_{\mathrm{adj}}$, Westfall--Young max-$T$ adjusted $p$ over the 288 tests of one extraction (12 directions $\times$ 12 layers $\times$ 2 terms; 2{,}000 joint permutations of the gene labels), 0.0005 $= 1/2{,}001$ being its floor. \textbf{A}, the cell (layer, direction) with the largest AUROC for each term; $n$, observed genes annotated to the term; under each extraction, $|V|$ / genes with any GO annotation. CI, 95\% gene-bootstrap percentile interval ($B = 2{,}000$, direction held fixed), extracellular cells only. 95th percentile of the null maximum of $z$: 4.68, 4.66, 4.59, 4.67, 4.55 (row order). Strat., AUROC within deciles of $\log n_{\mathrm{obs}}$, oriented like the AUROC (own max-$T$ family, labels permuted within deciles; $p_{\mathrm{adj}}$ at the floor except kidney~A cytosol, 0.0355); $|\rho|$, absolute Spearman correlation of the coordinate with $\log n_{\mathrm{obs}}$; Annot., AUROC of the same cell among annotated genes only ($p_{\mathrm{adj}}$ at the floor); OR, Fisher odds ratio (Haldane) for the term in the 27\% pole where it is enriched (two-sided $p$) and in the opposite pole. \textbf{B}, extracellular AUROC of the compartment direction ($\SV{1}$; $\SV{2}$ in immune) at every layer; for kidney~A the row shows $\SV{1}$, which is not the lung compartment direction ($r$ and lung-matched cell in D); $p_{\mathrm{adj}}$ as in A; each layer is decomposed separately; permutation-null mean 0.510--0.520. \textbf{C}, extracellular space on one common gene set per extraction (observed genes in the scGPT vocabulary and the ESM2 file; $n$, with extracellular genes in parentheses). Probe, out-of-fold AUROC of L2 logistic regression on the first 256 principal components (5 outer folds, regularisation by inner 5-fold cross-validation), with 95\% gene-bootstrap percentile interval ($B = 2{,}000$ resamples of the out-of-fold scores); $\Delta$, paired difference from scGPT $L_3$ on the same resamples; detection-stratified probe AUROCs differ from these by $\leq 0.013$ (cytosol probes in the CSV). Own-SVD, sign-free AUROC of $\SV{1}$ of the representation's own decomposition of these genes, and the best of its first twelve directions (index; optimistic by construction). Input-token embedding, scGPT's gene-embedding table, before any cell is processed; ESM2-15B, the 5{,}120-dimensional per-protein embedding of the 15-billion-parameter protein language model ESM2. \textbf{D}, on the extracellular cell of A, oriented so that extracellular genes score high: AUROC of cytosol, mitochondrion (GO:0005739) and endoplasmic-reticulum lumen (GO:0005788) against all other genes (below 0.5, the opposite end; $p_{\mathrm{adj}}$ for cytosol as in A, for the other two over the 288 tests of these two terms, same permutations); $r$, Pearson correlation with the lung coordinate on the $n$ shared genes; lung-matched cell, the extraction's cell most correlated with the lung coordinate ($|r|$), and its extracellular AUROC oriented like the lung coordinate. Full values: \texttt{Table\_S2\_compartment.csv}.}\label{tab:S2}\\
+\toprule
+\endfirsthead
+\multicolumn{1}{@{}l}{\scriptsize\itshape Table~\thetable\ (continued)}\\
+\toprule
+\endhead
+\multicolumn{1}{r@{}}{\scriptsize\itshape continued on next page}\\
+\endfoot
+\bottomrule
+\endlastfoot
+\scriptsize\setlength{\tabcolsep}{2.4pt}\renewcommand{\arraystretch}{1.05}%
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lllrcrrrrrrr@{}}
+\multicolumn{12}{@{}l}{\textbf{A\quad Best cell for each term (288 tests per extraction)}}\\
+\midrule
+Extraction & Term ($n$) & Cell & AUROC & 95\% CI & $z$ & $p_{\mathrm{adj}}$ & Strat. & $|\rho|$ & Annot. & OR, enriched pole ($p$) & OR, opposite \\
+\midrule
+lung & extracellular (591) & $L_{3}$ $\SV{1}$ & 0.773 & 0.754--0.792 & 34.5 & 0.0005 & 0.776 & 0.12 & 0.779 & 5.52 ($7.9\times10^{-81}$) & 0.13 \\
+5{,}648 / 5{,}343 & cytosol (1{,}989) & $L_{4}$ $\SV{2}$ & 0.633 & -- & 26.5 & 0.0005 & 0.589 & 0.53 & 0.615 & 1.96 ($7.8\times10^{-28}$) & 0.42 \\
+\addlinespace[1.5pt]
+lung (ext.) & extracellular (554) & $L_{3}$ $\SV{1}$ & 0.756 & 0.736--0.777 & 30.8 & 0.0005 & 0.767 & 0.20 & 0.763 & 5.02 ($1.0\times10^{-68}$) & 0.16 \\
+5{,}616 / 5{,}239 & cytosol (1{,}978) & $L_{4}$ $\SV{2}$ & 0.640 & -- & 26.2 & 0.0005 & 0.594 & 0.40 & 0.619 & 2.14 ($8.3\times10^{-35}$) & 0.37 \\
+\addlinespace[1.5pt]
+kidney~B & extracellular (354) & $L_{2}$ $\SV{1}$ & 0.707 & 0.681--0.733 & 20.4 & 0.0005 & 0.700 & 0.25 & 0.719 & 3.77 ($1.1\times10^{-31}$) & 0.24 \\
+4{,}780 / 4{,}544 & cytosol (1{,}876) & $L_{11}$ $\SV{2}$ & 0.603 & -- & 19.2 & 0.0005 & 0.554 & 0.58 & 0.580 & 1.80 ($5.4\times10^{-19}$) & 0.51 \\
+\addlinespace[1.5pt]
+immune & extracellular (258) & $L_{0}$ $\SV{2}$ & 0.760 & 0.732--0.788 & 21.6 & 0.0005 & 0.761 & 0.00 & 0.752 & 4.61 ($1.5\times10^{-28}$) & 0.09 \\
+2{,}039 / 1{,}389 & cytosol (427) & $L_{0}$ $\SV{1}$ & 0.714 & -- & 21.2 & 0.0005 & 0.615 & 0.64 & 0.610 & 3.52 ($9.4\times10^{-28}$) & 0.17 \\
+\addlinespace[1.5pt]
+kidney~A & extracellular (146) & $L_{0}$ $\SV{1}$ & 0.759 & 0.724--0.793 & 15.9 & 0.0005 & 0.804 & 0.56 & 0.658 & 3.79 ($4.2\times10^{-14}$) & 0.04 \\
+1{,}972 / 1{,}352 & cytosol (466) & $L_{3}$ $\SV{1}$ & 0.740 & -- & 24.8 & 0.0005 & 0.563 & 0.80 & 0.586 & 3.25 ($2.4\times10^{-25}$) & 0.04 \\
+\end{tabular*}\\
+\midrule
+\scriptsize\setlength{\tabcolsep}{2.4pt}\renewcommand{\arraystretch}{1.05}%
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll*{12}{r}@{}}
+\multicolumn{14}{@{}l}{\textbf{B\quad Extracellular AUROC of the compartment direction at every layer}}\\
+\midrule
+Extraction & & $L_{0}$ & $L_{1}$ & $L_{2}$ & $L_{3}$ & $L_{4}$ & $L_{5}$ & $L_{6}$ & $L_{7}$ & $L_{8}$ & $L_{9}$ & $L_{10}$ & $L_{11}$ \\
+\midrule
+lung & AUROC & 0.730 & 0.751 & 0.762 & 0.773 & 0.751 & 0.646 & 0.633 & 0.612 & 0.594 & 0.591 & 0.629 & 0.611 \\
+\quad $\SV{1}$ & $p_{\mathrm{adj}}$ & 0.0005 & 0.0005 & 0.0005 & 0.0005 & 0.0005 & 0.0005 & 0.0005 & 0.0005 & 0.0005 & 0.0005 & 0.0005 & 0.0005 \\
+\addlinespace[1.5pt]
+lung (ext.) & AUROC & 0.715 & 0.725 & 0.747 & 0.756 & 0.729 & 0.667 & 0.672 & 0.625 & 0.599 & 0.556 & 0.529 & 0.548 \\
+\quad $\SV{1}$ & $p_{\mathrm{adj}}$ & 0.0005 & 0.0005 & 0.0005 & 0.0005 & 0.0005 & 0.0005 & 0.0005 & 0.0005 & 0.0005 & 0.0015 & 0.9170 & 0.0370 \\
+\addlinespace[1.5pt]
+kidney~B & AUROC & 0.682 & 0.693 & 0.707 & 0.703 & 0.666 & 0.626 & 0.623 & 0.587 & 0.565 & 0.532 & 0.508 & 0.523 \\
+\quad $\SV{1}$ & $p_{\mathrm{adj}}$ & 0.0005 & 0.0005 & 0.0005 & 0.0005 & 0.0005 & 0.0005 & 0.0005 & 0.0005 & 0.0035 & 0.9705 & 1.0000 & 1.0000 \\
+\addlinespace[1.5pt]
+immune & AUROC & 0.760 & 0.740 & 0.643 & 0.563 & 0.620 & 0.647 & 0.632 & 0.588 & 0.583 & 0.546 & 0.542 & 0.596 \\
+\quad $\SV{2}$ & $p_{\mathrm{adj}}$ & 0.0005 & 0.0005 & 0.0005 & 0.1824 & 0.0005 & 0.0005 & 0.0005 & 0.0015 & 0.0040 & 0.8211 & 0.9465 & 0.0005 \\
+\addlinespace[1.5pt]
+kidney~A & AUROC & 0.759 & 0.744 & 0.714 & 0.707 & 0.722 & 0.722 & 0.721 & 0.701 & 0.690 & 0.671 & 0.659 & 0.646 \\
+\quad $\SV{1}$ & $p_{\mathrm{adj}}$ & 0.0005 & 0.0005 & 0.0005 & 0.0005 & 0.0005 & 0.0005 & 0.0005 & 0.0005 & 0.0005 & 0.0005 & 0.0005 & 0.0005 \\
+\end{tabular*}\\
+\midrule
+\scriptsize\setlength{\tabcolsep}{2.4pt}\renewcommand{\arraystretch}{1.05}%
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrr@{}}
+\multicolumn{5}{@{}l}{\textbf{C\quad Linear probe and own-decomposition AUROC for extracellular space, common gene sets}}\\
+\midrule
+Representation & lung & lung (ext.) & kidney~B & immune \\
+ & $n$ = 5{,}413 (591) & $n$ = 5{,}306 (554) & $n$ = 4{,}602 (354) & $n$ = 1{,}554 (258) \\
+\midrule
+\multicolumn{5}{@{}l}{\itshape Probe, out-of-fold AUROC (95\% CI)}\\
+\quad scGPT $L_0$ & 0.837 (0.819--0.855) & 0.834 (0.813--0.853) & 0.799 (0.771--0.824) & 0.832 (0.803--0.859) \\
+\quad scGPT $L_3$ & 0.836 (0.818--0.854) & 0.831 (0.810--0.851) & 0.806 (0.779--0.832) & 0.824 (0.792--0.852) \\
+\quad scGPT $L_{11}$ & 0.833 (0.815--0.850) & 0.829 (0.808--0.848) & 0.799 (0.772--0.825) & 0.827 (0.797--0.854) \\
+\quad scGPT input-token embedding & 0.838 (0.820--0.856) & 0.834 (0.814--0.854) & 0.797 (0.770--0.824) & 0.826 (0.796--0.853) \\
+\quad ESM2-15B & 0.900 (0.884--0.914) & 0.910 (0.895--0.924) & 0.868 (0.845--0.890) & 0.900 (0.877--0.921) \\
+\addlinespace[1.5pt]
+\multicolumn{5}{@{}l}{\itshape $\Delta$ probe AUROC from scGPT $L_3$ (95\% CI)}\\
+\quad scGPT $L_0$ & $+$0.001 ($-$0.005, $+$0.006) & $+$0.002 ($-$0.003, $+$0.008) & $-$0.007 ($-$0.015, $+$0.001) & $+$0.008 ($-$0.004, $+$0.021) \\
+\quad scGPT $L_{11}$ & $-$0.003 ($-$0.011, $+$0.005) & $-$0.003 ($-$0.011, $+$0.005) & $-$0.007 ($-$0.018, $+$0.004) & $+$0.003 ($-$0.010, $+$0.016) \\
+\quad scGPT input-token embedding & $+$0.002 ($-$0.004, $+$0.008) & $+$0.003 ($-$0.004, $+$0.010) & $-$0.008 ($-$0.018, $+$0.002) & $+$0.002 ($-$0.009, $+$0.012) \\
+\quad ESM2-15B & $+$0.064 ($+$0.048, $+$0.081) & $+$0.079 ($+$0.062, $+$0.095) & $+$0.062 ($+$0.040, $+$0.085) & $+$0.076 ($+$0.050, $+$0.105) \\
+\addlinespace[1.5pt]
+\multicolumn{5}{@{}l}{\itshape Own-SVD: $\SV{1}$ AUROC; best of $\SV{1}$--$\SV{12}$ (index)}\\
+\quad scGPT $L_0$ & 0.746; 0.746 (1) & 0.730; 0.730 (1) & 0.694; 0.694 (1) & 0.635; 0.715 (3) \\
+\quad scGPT $L_3$ & 0.779; 0.779 (1) & 0.766; 0.766 (1) & 0.724; 0.724 (1) & 0.642; 0.706 (4) \\
+\quad scGPT $L_{11}$ & 0.604; 0.705 (3) & 0.528; 0.722 (2) & 0.525; 0.660 (3) & 0.542; 0.729 (6) \\
+\quad scGPT input-token embedding & 0.545; 0.758 (2) & 0.530; 0.743 (2) & 0.505; 0.705 (2) & 0.516; 0.723 (3) \\
+\quad ESM2-15B & 0.542; 0.758 (8) & 0.539; 0.762 (8) & 0.542; 0.685 (8) & 0.557; 0.751 (8) \\
+\end{tabular*}\\
+\midrule
+\scriptsize\setlength{\tabcolsep}{2.4pt}\renewcommand{\arraystretch}{1.05}%
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llrrrrlr@{}}
+\multicolumn{8}{@{}l}{\textbf{D\quad Other compartments on the extracellular cell, and replication of the direction}}\\
+\midrule
+ & & \multicolumn{3}{c}{Oriented AUROC ($p_{\mathrm{adj}}$)} & & \multicolumn{2}{c}{Lung-matched cell} \\
+\cmidrule(lr){3-5}\cmidrule(l){7-8}
+Extraction & Cell & Cytosol & Mitochondrion & ER lumen & $r$ with lung ($n$) & Cell ($|r|$) & Extracellular ($p_{\mathrm{adj}}$) \\
+\midrule
+lung & $L_{3}$ $\SV{1}$ & 0.392 (0.0005) & 0.400 (0.0005) & 0.667 (0.0005) & -- & -- & -- \\
+lung (ext.) & $L_{3}$ $\SV{1}$ & 0.395 (0.0005) & 0.401 (0.0005) & 0.660 (0.0005) & 0.985 (4{,}535) & $L_{3}$ $\SV{1}$ (0.985) & 0.756 (0.0005) \\
+kidney~B & $L_{2}$ $\SV{1}$ & 0.426 (0.0005) & 0.438 (0.0010) & 0.613 (0.0420) & 0.970 (4{,}023) & $L_{2}$ $\SV{1}$ (0.970) & 0.707 (0.0005) \\
+immune & $L_{0}$ $\SV{2}$ & 0.465 (0.9330) & 0.420 (0.7406) & 0.665 (0.0315) & 0.920 (856) & $L_{1}$ $\SV{2}$ (0.929) & 0.740 (0.0005) \\
+kidney~A & $L_{0}$ $\SV{1}$ & 0.690 (0.0005) & 0.578 (0.0525) & 0.798 (0.0005) & 0.118 (840) & $L_{0}$ $\SV{2}$ (0.886) & 0.568 (0.5027) \\
+\end{tabular*}\\
+\end{longtable}
+\endgroup

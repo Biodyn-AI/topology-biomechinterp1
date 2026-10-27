@@ -1,0 +1,42 @@
+{
+ "round2_master": {
+  "n": 183,
+  "n_ext": 112,
+  "n_bonf": 25,
+  "n_bh": 70,
+  "n_res_lim": 18
+ },
+ "all": {
+  "n_records": 409,
+  "n_ext": 130,
+  "n_p0": 18,
+  "bonf_over_next": 28,
+  "bonf_over_183": 27,
+  "bonf_over_nrecords": 27,
+  "bh": 79
+ },
+ "excl_incomplete": {
+  "n_records": 406,
+  "n_ext": 127,
+  "n_p0": 18,
+  "bonf_over_next": 27,
+  "bonf_over_183": 26,
+  "bonf_over_nrecords": 26,
+  "bh": 76
+ },
+ "iter_1_63": {
+  "n_records": 183,
+  "n_ext": 112,
+  "n_p0": 18,
+  "bonf_over_next": 27,
+  "bonf_over_183": 25,
+  "bonf_over_nrecords": 25,
+  "bh": 70
+ },
+ "183_floored_p_match_round2": true,
+ "post63_records": 226,
+ "post63_with_broad_p_pattern": 16,
+ "post63_extracted_by_audit": 18,
+ "post63_broad_hits_not_extracted": 0,
+ "post63_missed_examples": []
+}

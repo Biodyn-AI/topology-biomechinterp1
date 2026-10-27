@@ -1,0 +1,4 @@
+context,genes_match_h5ad,n_V,observed_rows_nonzero,unobserved_rows_zero,emb_rows,h5ad_genes,labels_match_trrust,negatives_absent_from_any_regulatory_both_directions,n_pairs,n_pos
+lung,True,5648,True,True,8181,8181,True,True,52426,5266
+lung_external,True,5616,True,True,8229,8229,True,True,50947,5093
+kidney_B,True,4780,True,True,8143,8143,True,True,36380,3668

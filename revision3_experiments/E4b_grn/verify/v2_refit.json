@@ -1,0 +1,30 @@
+{
+ "kidney_A_T1_genie3_s0": {
+  "n_targets_checked": 152,
+  "max_abs_diff": 1.3497481965440983e-08,
+  "rows_identical_tol1e6": 152,
+  "n_unfitted_in_check": 0,
+  "unfitted_rows_all_zero": true
+ },
+ "kidney_A_T1_grnboost2_s0": {
+  "n_targets_checked": 152,
+  "max_abs_diff": NaN,
+  "rows_identical_tol1e6": 150,
+  "n_unfitted_in_check": 0,
+  "unfitted_rows_all_zero": true
+ },
+ "lung_T2_grnboost2_s1": {
+  "n_targets_checked": 34,
+  "max_abs_diff": 6.525311624372421e-09,
+  "rows_identical_tol1e6": 34,
+  "n_unfitted_in_check": 4,
+  "unfitted_rows_all_zero": true
+ },
+ "immune_T2_genie3_s1": {
+  "n_targets_checked": 30,
+  "max_abs_diff": 3.657425640124501e-09,
+  "rows_identical_tol1e6": 30,
+  "n_unfitted_in_check": 0,
+  "unfitted_rows_all_zero": true
+ }
+}

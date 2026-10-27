@@ -1,0 +1,20 @@
+{
+ "immune": {
+  "se_subsample_deleted": 0.022743365342465776,
+  "se_subsample_sqrt_m_over_n": 0.016085930974085283,
+  "se_e10_poisson_node_bootstrap": 0.02203494981183637,
+  "ratio_e10_over_deleted": 0.968851771936026
+ },
+ "kidney_A": {
+  "se_subsample_deleted": 0.021365746961675283,
+  "se_subsample_sqrt_m_over_n": 0.015107864561716467,
+  "se_e10_poisson_node_bootstrap": 0.021696971554419728,
+  "ratio_e10_over_deleted": 1.0155025983102102
+ },
+ "lung": {
+  "se_subsample_deleted": 0.008084148930043241,
+  "se_subsample_sqrt_m_over_n": 0.005716356528555549,
+  "se_e10_poisson_node_bootstrap": 0.008462654228276004,
+  "ratio_e10_over_deleted": 1.0468206735808785
+ }
+}

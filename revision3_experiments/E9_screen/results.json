@@ -1,0 +1,330 @@
+{
+ "records": {
+  "all": 409,
+  "json_files": 137,
+  "aborted_duplicate_run_records": 3,
+  "in_183": 183,
+  "json_families_all": 15,
+  "json_families_183": 8
+ },
+ "matrices_183": {
+  "kidney_A": 115,
+  "immune": 67,
+  "misaligned_gene_rows": 36,
+  "spectral": 108,
+  "by_svd_convention": {
+   "not spectral": 75,
+   "observed non-zero rows only (2,039)": 41,
+   "subset-fitted (209 true rows, incl. 22 all-zero rows)": 40,
+   "subset-fitted on misaligned rows (rows 0-208; 195 non-zero after iter_0030)": 12,
+   "observed non-zero rows only (1,972; summed, not mean, embeddings)": 5,
+   "not spectral (PCA-20 preprocessing of sampled genes)": 4,
+   "full matrix with zero rows (4,803 rows, 2,831 all-zero)": 3,
+   "subset-fitted (209 rows of a Gaussian matrix)": 1,
+   "random 2,000-row subsample incl. zero rows (centred over the subsample)": 1,
+   "unknown": 1
+  }
+ },
+ "audit_183_rederived": {
+  "n_total": 183,
+  "n_extractable": 112,
+  "n_p_equal_zero": 18,
+  "round1_bonferroni_pass_0p05_over_183": 43,
+  "round1_bh_pass": 70,
+  "round2_bonferroni_pass": 25,
+  "round2_bh_pass": 70,
+  "round2_bonferroni_pass_resolution_limited": 0,
+  "headline_bonferroni_round1": 8,
+  "headline_bonferroni_round2": 5,
+  "primary_p_identical_to_round1_master": true,
+  "floored_p_identical_to_round2_master": true,
+  "n_perm_identical_to_round2_master": true,
+  "expected": {
+   "n_extractable": 112,
+   "n_p0": 18,
+   "bonferroni_r1": 43,
+   "bonferroni_r2": 25,
+   "bh": 70,
+   "headline": "8->5"
+  },
+  "reproduces": true,
+  "headline_round2_sensitivity": {
+   "per_headline": {
+    "SV1_extracellular_enrichment": {
+     "p_round2": 0.1290955354917564,
+     "p_sensitivity": 0.1290955354917564,
+     "survives_round2": false,
+     "survives_exact_gradient_p": false
+    },
+    "SV1_secretory_pathway_layered": {
+     "p_round2": 0.0310468785295483,
+     "p_sensitivity": 0.0310468785295483,
+     "survives_round2": false,
+     "survives_exact_gradient_p": false
+    },
+    "SV2_PPI_copole_string07": {
+     "p_round2": 0.0001399986000139,
+     "p_sensitivity": 0.0001399986000139,
+     "survives_round2": true,
+     "survives_exact_gradient_p": true
+    },
+    "SV2_TRRUST_copole": {
+     "p_round2": 0.0120698793012069,
+     "p_sensitivity": 0.0120698793012069,
+     "survives_round2": false,
+     "survives_exact_gradient_p": false
+    },
+    "TF_vs_target_AUROC_joint": {
+     "p_round2": 1.7505298494516298e-18,
+     "p_sensitivity": 1.7505298494516298e-18,
+     "survives_round2": true,
+     "survives_exact_gradient_p": true
+    },
+    "celltype_marker_AUROC_851": {
+     "p_round2": 0.004,
+     "p_sensitivity": 0.004,
+     "survives_round2": false,
+     "survives_exact_gradient_p": false
+    },
+    "edge_AUROC_decay": {
+     "p_round2": 0.045,
+     "p_sensitivity": 0.045,
+     "survives_round2": false,
+     "survives_exact_gradient_p": false
+    },
+    "string_confidence_gradient": {
+     "p_round2": 1.4e-24,
+     "p_sensitivity": 0.016666666666666666,
+     "survives_round2": true,
+     "survives_exact_gradient_p": false
+    },
+    "bcell_attractor_convergence": {
+     "p_round2": 0.0001,
+     "p_sensitivity": 0.0001,
+     "survives_round2": true,
+     "survives_exact_gradient_p": true
+    },
+    "celltype_marker_AUROC_853_initial": {
+     "p_round2": 1e-06,
+     "p_sensitivity": 1e-06,
+     "survives_round2": true,
+     "survives_exact_gradient_p": true
+    },
+    "TF_target_AUROC_cross_seed": {
+     "p_round2": 0.000999000999000999,
+     "p_sensitivity": 0.000999000999000999,
+     "survives_round2": false,
+     "survives_exact_gradient_p": false
+    }
+   },
+   "survivors_with_exact_gradient_p": 4,
+   "survivors_with_exact_gradient_p_and_no_stouffer": 3
+  },
+  "note_headline_key_mismatch": "round-1 headline 'SV2_PPI_copole_string07' is keyed to iter_0010/H02, which is the TRRUST co-pole test (STRING co-pole records are iter_0012/H03 and iter_0013/H01)",
+  "note_round2_headline_remeasure": "round 2 replaced 5 headline p by re-measured values; the TF/target one is a Stouffer combination across layers, which stats3.stouffer() now rejects because layers are dependent"
+ },
+ "audit_all": {
+  "n_total": 409,
+  "n_extractable": 130,
+  "n_p_equal_zero": 18,
+  "bonferroni_alpha": 0.0003846153846153846,
+  "n_bonferroni_pass": 28,
+  "n_bonferroni_pass_resolution_limited": 0,
+  "n_bh_pass": 79,
+  "n_resolution_limited_that_cannot_pass_bonferroni": 18,
+  "by_phase": {
+   "iter_1_63": {
+    "n": 183,
+    "n_extractable": 112,
+    "n_bonferroni": 26,
+    "n_bh": 70
+   },
+   "iter_64_plus": {
+    "n": 226,
+    "n_extractable": 18,
+    "n_bonferroni": 2,
+    "n_bh": 9
+   }
+  },
+  "n_perm_source": {
+   "from_method": 25,
+   "default_1000": 384
+  },
+  "n_bonferroni_pass_denominator_all_records": 27
+ },
+ "audit_all_excl_aborted": {
+  "n_total": 406,
+  "n_extractable": 127,
+  "n_p_equal_zero": 18,
+  "bonferroni_alpha": 0.00039370078740157485,
+  "n_bonferroni_pass": 27,
+  "n_bh_pass": 76
+ },
+ "headline_survivors_all_records": {
+  "bonferroni": 4,
+  "bonferroni_exact_gradient_p": 3,
+  "bonferroni_denominator_409": 3,
+  "bonferroni_denominator_409_exact_gradient_p": 2,
+  "bh": 10
+ },
+ "ledger": {
+  "n_claims": 61,
+  "reproduces_counts": {
+   "not recomputed": 26,
+   "yes (exactly)": 5,
+   "yes (approx.)": 4,
+   "not recomputable (records not in iterations/)": 2,
+   "yes (exactly, on misaligned rows)": 2,
+   "yes": 2,
+   "yes (183/63); no (families: 8 in the JSON, 13 is the preprint's own regrouping)": 1,
+   "yes (p = 0.017 is right; the screen's 1.4e-24 is an artefact)": 1,
+   "no -- 195 / 14 OOV are artefacts of the misaligned mapping; truth is 187 observed / 22 never-observed": 1,
+   "partly: 589 yes; 270/141 are 'any' counts that overlap by 31, so they are not 'only' sets and 178 = 589-270-141 is not a count of anything": 1,
+   "yes (65 = 66 - 1)": 1,
+   "no -- 2,039 is the immune count; the 4,803-gene matrix has 1,972": 1,
+   "yes (exactly, with 1,523 negatives)": 1,
+   "no -- 1/12, not 0/12 (the JSON record says 1/12)": 1,
+   "yes (approx.; +-0.01, CV split seed unknown)": 1,
+   "yes for SV2/SV3 and N pairs; no for SV1 (0.128 vs 0.119)": 1,
+   "partly (pair count)": 1,
+   "yes on immune subsample (approx.; seed unknown); no on the matrix the text names": 1,
+   "no -- SIGN REVERSED in the preprint: AUROC DEcreases with depth": 1,
+   "yes (exactly in float32)": 1,
+   "yes (0.206)": 1,
+   "not recomputed (null = permuting named genes over rows of a matrix whose SV1 is the zero-row axis; the statistic is the min Fisher p over 296 terms)": 1,
+   "yes (exactly, on the misaligned rows)": 1,
+   "no (not exactly; seed and estimator of iter_0045 unknown, value depends on the sample: L0 range 27.8-34.4 across 3 seeds)": 1,
+   "yes (on 209 rows incl. 22 zero rows)": 1,
+   "yes as a row count; 288 distinct pairs": 1
+  }
+ },
+ "crosswalk_kidney_A_legacy_full_zero": {
+  "frac_layer_sv_pairs_with_best_match_k_minus_1": 0.946969696969697,
+  "mean_abs_cos_best_SV2_12": 0.9734877932211901,
+  "mean_abs_cos_best_SV1": 0.25375215649493116
+ },
+ "legacy_band_mapping": [
+  {
+   "legacy_band": "SV2-4",
+   "context": "kidney_A",
+   "legacy_convention": "screen_209_true",
+   "mapped_observed_band": "SV1-3",
+   "mean_cos2_layer_avg": 0.4889943459542605,
+   "identity_band_mean_cos2": 0.4517905882867803
+  },
+  {
+   "legacy_band": "SV2-4",
+   "context": "immune",
+   "legacy_convention": "screen_nonzero",
+   "mapped_observed_band": "SV2-4",
+   "mean_cos2_layer_avg": 0.9999999999999988,
+   "identity_band_mean_cos2": 0.9999999999999988
+  },
+  {
+   "legacy_band": "SV5-7",
+   "context": "immune",
+   "legacy_convention": "screen_nonzero",
+   "mapped_observed_band": "SV5-7",
+   "mean_cos2_layer_avg": 0.9999999999999992,
+   "identity_band_mean_cos2": 0.9999999999999992
+  },
+  {
+   "legacy_band": "SV2-7",
+   "context": "immune",
+   "legacy_convention": "screen_nonzero",
+   "mapped_observed_band": "SV2-7",
+   "mean_cos2_layer_avg": 0.9999999999999991,
+   "identity_band_mean_cos2": 0.9999999999999991
+  },
+  {
+   "legacy_band": "SV5-7",
+   "context": "kidney_A",
+   "legacy_convention": "screen_nonzero_sum",
+   "mapped_observed_band": "SV3-5",
+   "mean_cos2_layer_avg": 0.2119246554785288,
+   "identity_band_mean_cos2": 0.1980466595064144
+  },
+  {
+   "legacy_band": "SV5-7",
+   "context": "kidney_A",
+   "legacy_convention": "screen_nonzero",
+   "mapped_observed_band": "SV5-7",
+   "mean_cos2_layer_avg": 0.9999999999999991,
+   "identity_band_mean_cos2": 0.9999999999999991
+  },
+  {
+   "legacy_band": "SV2-4",
+   "context": "kidney_A",
+   "legacy_convention": "legacy_full_zero",
+   "mapped_observed_band": "SV1-3",
+   "mean_cos2_layer_avg": 0.990050762477979,
+   "identity_band_mean_cos2": 0.6594275775207042
+  },
+  {
+   "legacy_band": "SV5-7",
+   "context": "kidney_A",
+   "legacy_convention": "legacy_full_zero",
+   "mapped_observed_band": "SV4-6",
+   "mean_cos2_layer_avg": 0.9375513557514933,
+   "identity_band_mean_cos2": 0.6493467523984939
+  },
+  {
+   "legacy_band": "SV2-7",
+   "context": "kidney_A",
+   "legacy_convention": "legacy_full_zero",
+   "mapped_observed_band": "SV1-6",
+   "mean_cos2_layer_avg": 0.965799474173911,
+   "identity_band_mean_cos2": 0.8204961852807697
+  }
+ ],
+ "key_recomputations": {
+  "sv1_extracellular_OR": {
+   "OR": 6.367741935483871,
+   "p": 0.00025746446015579904,
+   "a": 21,
+   "c": 5
+  },
+  "sv1_zero_rows_in_top52": 22,
+  "sv1_extracellular_observed_variant": {
+   "OR": 1.0,
+   "p": 0.5963250572033495,
+   "a": 11,
+   "c": 11
+  },
+  "named_genes": {
+   "true_observed": 187,
+   "true_zero": 22,
+   "misaligned_zero": 14
+  },
+  "immune_labels": {
+   "n_named": 361,
+   "n_named_observed": 295,
+   "n_tf": 73,
+   "n_target_only": 222,
+   "n_pos_both_observed": 589,
+   "n_neg_both_observed": 1523,
+   "n_rows_other_than_valid_pos": 2351,
+   "n_edge_rows": 2940,
+   "n_pos_rows": 735,
+   "trrust_mode_split_of_valid_pos": {
+    "mixed_or_unknown": 342,
+    "activation_only": 148,
+    "repression_only": 99
+   },
+   "trrust_mode_split_alt": {
+    "activation_no_repression": 239,
+    "unknown_only": 209,
+    "repression_no_activation": 110,
+    "both": 31
+   },
+   "trrust_mode_any": {
+    "any_activation": 270,
+    "any_repression": 141
+   }
+  },
+  "tf_target_joint_mean": 0.7474134199134199,
+  "edge_auroc_L0": 0.6017232095977134,
+  "celltype_slope": -0.035721443840441555,
+  "string_local_links": 1477610
+ }
+}

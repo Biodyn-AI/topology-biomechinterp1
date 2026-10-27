@@ -1,0 +1,22 @@
+{
+ "kidA_zero_named_in_SV1_top52": [
+  22,
+  22
+ ],
+ "immune_named_observed_tf_targetonly": [
+  361,
+  295,
+  73,
+  222
+ ],
+ "iter15_SV4": {
+  "n_z_gt_3": 6,
+  "n_p_lt_05": 7,
+  "min_z_above_3": 3.0000339355349723
+ },
+ "iter15_SV5": {
+  "n_z_gt_3": 2,
+  "n_p_lt_05": 6,
+  "min_z_above_3": 3.211753631202363
+ }
+}

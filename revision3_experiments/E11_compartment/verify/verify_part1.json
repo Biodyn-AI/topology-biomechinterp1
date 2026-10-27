@@ -1,0 +1,168 @@
+{
+ "lung": {
+  "n_V": 5648,
+  "cache_genes_match": true,
+  "cache_idx_match": true,
+  "n_ext": 591,
+  "n_cyt": 1989,
+  "best_cell": "L3 SV1",
+  "best_ext_auroc_signfree": 0.7727266187459576,
+  "best_ext_auroc_signed": 0.22727338125404234,
+  "best_cyt_auroc_signed_same_cell": 0.6080829091294825,
+  "best_z": 34.0254788190266,
+  "best_padj": 0.0004997501249375312,
+  "maxnull_z_q95": 4.663689083557082,
+  "fisher_best_cell": {
+   "top": {
+    "a": 31,
+    "OR_sample": 0.13214524925844418,
+    "OR_haldane": 0.1341307425845031,
+    "p": 1.7514188333764092e-46
+   },
+   "bottom": {
+    "a": 367,
+    "OR_sample": 5.522672552166934,
+    "OR_haldane": 5.516203514409271,
+    "p": 7.893904065387406e-81
+   }
+  },
+  "L11_SV1_ext_auroc_signfree": 0.6108030047977591,
+  "L11_SV1_ext_padj": 0.0004997501249375312,
+  "L0_SV1_spearman_lognobs": null,
+  "n_cells_padj_lt_0p05": 165
+ },
+ "lung_external": {
+  "n_V": 5616,
+  "cache_genes_match": true,
+  "cache_idx_match": true,
+  "n_ext": 554,
+  "n_cyt": 1978,
+  "best_cell": "L3 SV1",
+  "best_ext_auroc_signfree": 0.7564585422351292,
+  "best_ext_auroc_signed": 0.7564585422351292,
+  "best_cyt_auroc_signed_same_cell": 0.39450683744387827,
+  "best_z": 31.714860365186276,
+  "best_padj": 0.0004997501249375312,
+  "maxnull_z_q95": 4.65147081535625,
+  "fisher_best_cell": {
+   "top": {
+    "a": 335,
+    "OR_sample": 5.02683276690677,
+    "OR_haldane": 5.021388972166766,
+    "p": 1.0150167039405958e-68
+   },
+   "bottom": {
+    "a": 34,
+    "OR_sample": 0.15794664175230977,
+    "OR_haldane": 0.16008378245719757,
+    "p": 2.3563175864956304e-39
+   }
+  },
+  "L11_SV1_ext_auroc_signfree": 0.547892772223704,
+  "L11_SV1_ext_padj": 0.04897551224387806,
+  "L0_SV1_spearman_lognobs": null,
+  "n_cells_padj_lt_0p05": 159,
+  "r_with_lung_best_cell": -0.9852967555995309,
+  "n_matched": 4535
+ },
+ "kidney_B": {
+  "n_V": 4780,
+  "cache_genes_match": true,
+  "cache_idx_match": true,
+  "n_ext": 354,
+  "n_cyt": 1876,
+  "best_cell": "L2 SV1",
+  "best_ext_auroc_signfree": 0.7070501479444781,
+  "best_ext_auroc_signed": 0.7070501479444781,
+  "best_cyt_auroc_signed_same_cell": 0.4255304425334954,
+  "best_z": 20.292767555756804,
+  "best_padj": 0.0004997501249375312,
+  "maxnull_z_q95": 4.580182682705548,
+  "fisher_best_cell": {
+   "top": {
+    "a": 196,
+    "OR_sample": 3.778214889038021,
+    "OR_haldane": 3.774745537264758,
+    "p": 1.1219925605125546e-31
+   },
+   "bottom": {
+    "a": 31,
+    "OR_sample": 0.2414245912402836,
+    "OR_haldane": 0.24488079160973203,
+    "p": 1.1392003161604196e-18
+   }
+  },
+  "L11_SV1_ext_auroc_signfree": 0.5227705571341406,
+  "L11_SV1_ext_padj": 0.9995002498750625,
+  "L0_SV1_spearman_lognobs": null,
+  "n_cells_padj_lt_0p05": 138,
+  "r_with_lung_best_cell": -0.9699233532676724,
+  "n_matched": 4023
+ },
+ "immune": {
+  "n_V": 2039,
+  "cache_genes_match": true,
+  "cache_idx_match": true,
+  "n_ext": 258,
+  "n_cyt": 427,
+  "best_cell": "L0 SV2",
+  "best_ext_auroc_signfree": 0.7602035264571336,
+  "best_ext_auroc_signed": 0.7602035264571336,
+  "best_cyt_auroc_signed_same_cell": 0.46523148982165374,
+  "best_z": 21.680806843069064,
+  "best_padj": 0.0004997501249375312,
+  "maxnull_z_q95": 4.680863485623283,
+  "fisher_best_cell": {
+   "top": {
+    "a": 148,
+    "OR_sample": 4.615377657168702,
+    "OR_haldane": 4.605958236137265,
+    "p": 1.5473153501584967e-28
+   },
+   "bottom": {
+    "a": 9,
+    "OR_sample": 0.08284524419303833,
+    "OR_haldane": 0.08722708575044827,
+    "p": 1.153587143725783e-25
+   }
+  },
+  "L11_SV1_ext_auroc_signfree": 0.5848121210538457,
+  "L11_SV1_ext_padj": 0.001999000499750125,
+  "L0_SV1_spearman_lognobs": null,
+  "n_cells_padj_lt_0p05": 127,
+  "r_with_lung_best_cell": -0.9195182016244874,
+  "n_matched": 856
+ },
+ "kidney_A": {
+  "n_V": 1972,
+  "cache_genes_match": true,
+  "cache_idx_match": true,
+  "n_ext": 146,
+  "n_cyt": 466,
+  "best_cell": "L0 SV1",
+  "best_ext_auroc_signfree": 0.7593399750933998,
+  "best_ext_auroc_signed": 0.24066002490660024,
+  "best_cyt_auroc_signed_same_cell": 0.3100117413037407,
+  "best_z": 16.065142497878313,
+  "best_padj": 0.0004997501249375312,
+  "maxnull_z_q95": 4.626452338024511,
+  "fisher_best_cell": {
+   "top": {
+    "a": 2,
+    "OR_sample": 0.033962264150943396,
+    "OR_haldane": 0.04228236729076506,
+    "p": 3.89973647761031e-18
+   },
+   "bottom": {
+    "a": 81,
+    "OR_sample": 3.799249530956848,
+    "OR_haldane": 3.7906976744186047,
+    "p": 4.217013840524114e-14
+   }
+  },
+  "L11_SV1_ext_auroc_signfree": 0.6463900433614908,
+  "L11_SV1_ext_padj": 0.0004997501249375312,
+  "L0_SV1_spearman_lognobs": null,
+  "n_cells_padj_lt_0p05": 111
+ }
+}

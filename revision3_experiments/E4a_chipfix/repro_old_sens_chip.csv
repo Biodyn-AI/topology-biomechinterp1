@@ -1,0 +1,17 @@
+context,B,comparator,max_absdiff_vs_sens_chip_csv,n_pos,n_neg
+immune,2000,raw float (as E4a),9.71445146547012e-17,2384,21456
+immune_seed43,2000,raw float (as E4a),9.71445146547012e-17,2275,20331
+immune_seed44,2000,raw float (as E4a),9.71445146547012e-17,2337,21033
+immune_TSP14,2000,raw float (as E4a),9.71445146547012e-17,2189,19187
+immune_TSP21,2000,raw float (as E4a),9.887923813067799e-17,2116,17849
+immune_TSP25,2000,raw float (as E4a),9.887923813067799e-17,2048,17041
+immune_Bcell,2000,raw float (as E4a),9.887923813067799e-17,1739,12846
+immune_CD4T,2000,raw float (as E4a),9.80118763926896e-17,1626,12225
+immune_CD8T,2000,raw float (as E4a),9.71445146547012e-17,1967,16024
+kidney_A,2000,raw float (as E4a),9.71445146547012e-17,2506,16851
+lung_external,2000,tie-corrected,9.714451465470121e-17,54332,531380
+lung,2000,tie-corrected,9.887923813067799e-17,57017,557447
+kidney_B,1000,raw float (as E4a),9.887923813067799e-17,43158,419666
+kidney_ckpt_whole_human,1000,raw float (as E4a),9.8879238130678e-17,47581,463208
+kidney_ckpt_kidney,1000,raw float (as E4a),9.71445146547012e-17,47581,463208
+kidney_ckpt_brain,1000,raw float (as E4a),9.71445146547012e-17,47581,463208

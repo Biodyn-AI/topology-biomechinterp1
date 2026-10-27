@@ -1,0 +1,130 @@
+{
+ "immune": {
+  "tokens": 60719,
+  "detected_entries": 60814,
+  "n_genes_detected_in_any_extraction_cell": 2043,
+  "n_observed": 2039,
+  "n_genes_detected_but_never_tokenised": 4,
+  "frac_detected_entries_tokenised": 0.9984378597033577
+ },
+ "immune_seed43": {
+  "tokens": 61019,
+  "detected_entries": 61271,
+  "n_genes_detected_in_any_extraction_cell": 2085,
+  "n_observed": 2080,
+  "n_genes_detected_but_never_tokenised": 5,
+  "frac_detected_entries_tokenised": 0.9958871244144865
+ },
+ "immune_seed44": {
+  "tokens": 63552,
+  "detected_entries": 63706,
+  "n_genes_detected_in_any_extraction_cell": 1982,
+  "n_observed": 1972,
+  "n_genes_detected_but_never_tokenised": 10,
+  "frac_detected_entries_tokenised": 0.99758264527674
+ },
+ "immune_TSP14": {
+  "tokens": 65865,
+  "detected_entries": 65883,
+  "n_genes_detected_in_any_extraction_cell": 1964,
+  "n_observed": 1964,
+  "n_genes_detected_but_never_tokenised": 0,
+  "frac_detected_entries_tokenised": 0.999726788397614
+ },
+ "immune_TSP21": {
+  "tokens": 60262,
+  "detected_entries": 60265,
+  "n_genes_detected_in_any_extraction_cell": 1765,
+  "n_observed": 1765,
+  "n_genes_detected_but_never_tokenised": 0,
+  "frac_detected_entries_tokenised": 0.999950219862275
+ },
+ "immune_TSP25": {
+  "tokens": 57818,
+  "detected_entries": 58045,
+  "n_genes_detected_in_any_extraction_cell": 1808,
+  "n_observed": 1791,
+  "n_genes_detected_but_never_tokenised": 17,
+  "frac_detected_entries_tokenised": 0.9960892411060385
+ },
+ "immune_Bcell": {
+  "tokens": 51069,
+  "detected_entries": 51069,
+  "n_genes_detected_in_any_extraction_cell": 1398,
+  "n_observed": 1398,
+  "n_genes_detected_but_never_tokenised": 0,
+  "frac_detected_entries_tokenised": 1.0
+ },
+ "immune_CD4T": {
+  "tokens": 49233,
+  "detected_entries": 49233,
+  "n_genes_detected_in_any_extraction_cell": 1465,
+  "n_observed": 1465,
+  "n_genes_detected_but_never_tokenised": 0,
+  "frac_detected_entries_tokenised": 1.0
+ },
+ "immune_CD8T": {
+  "tokens": 53430,
+  "detected_entries": 53430,
+  "n_genes_detected_in_any_extraction_cell": 1595,
+  "n_observed": 1595,
+  "n_genes_detected_but_never_tokenised": 0,
+  "frac_detected_entries_tokenised": 1.0
+ },
+ "kidney_A": {
+  "tokens": 109548,
+  "detected_entries": 113491,
+  "n_genes_detected_in_any_extraction_cell": 2009,
+  "n_observed": 1972,
+  "n_genes_detected_but_never_tokenised": 37,
+  "frac_detected_entries_tokenised": 0.9652571569551771
+ },
+ "kidney_B": {
+  "tokens": 98018,
+  "detected_entries": 209673,
+  "n_genes_detected_in_any_extraction_cell": 5873,
+  "n_observed": 4780,
+  "n_genes_detected_but_never_tokenised": 1093,
+  "frac_detected_entries_tokenised": 0.46748031458509204
+ },
+ "kidney_ckpt_whole_human": {
+  "tokens": 97904,
+  "detected_entries": 202946,
+  "n_genes_detected_in_any_extraction_cell": 5976,
+  "n_observed": 4923,
+  "n_genes_detected_but_never_tokenised": 1053,
+  "frac_detected_entries_tokenised": 0.48241404117351416
+ },
+ "kidney_ckpt_kidney": {
+  "tokens": 97904,
+  "detected_entries": 202946,
+  "n_genes_detected_in_any_extraction_cell": 5976,
+  "n_observed": 4923,
+  "n_genes_detected_but_never_tokenised": 1053,
+  "frac_detected_entries_tokenised": 0.48241404117351416
+ },
+ "kidney_ckpt_brain": {
+  "tokens": 97904,
+  "detected_entries": 202946,
+  "n_genes_detected_in_any_extraction_cell": 5976,
+  "n_observed": 4923,
+  "n_genes_detected_but_never_tokenised": 1053,
+  "frac_detected_entries_tokenised": 0.48241404117351416
+ },
+ "lung": {
+  "tokens": 130629,
+  "detected_entries": 403780,
+  "n_genes_detected_in_any_extraction_cell": 6762,
+  "n_observed": 5648,
+  "n_genes_detected_but_never_tokenised": 1114,
+  "frac_detected_entries_tokenised": 0.3235152805983456
+ },
+ "lung_external": {
+  "tokens": 128239,
+  "detected_entries": 248857,
+  "n_genes_detected_in_any_extraction_cell": 6297,
+  "n_observed": 5616,
+  "n_genes_detected_but_never_tokenised": 681,
+  "frac_detected_entries_tokenised": 0.5153120064936891
+ }
+}

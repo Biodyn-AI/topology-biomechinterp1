@@ -1,0 +1,81 @@
+e3_primary.py lung
+e3_primary.py lung_external
+e3_ledger.py none
+e3_bandscan.py lung lambert
+e3_bandscan.py lung_external lambert
+e3_primary.py immune
+e3_primary.py kidney_A
+e3_primary.py kidney_B
+e3_primary.py kidney_ckpt_whole_human
+e3_primary.py kidney_ckpt_kidney
+e3_primary.py kidney_ckpt_brain
+e3_primary.py immune_seed43
+e3_primary.py immune_seed44
+e3_primary.py immune_TSP14
+e3_primary.py immune_TSP21
+e3_primary.py immune_TSP25
+e3_primary.py immune_Bcell
+e3_primary.py immune_CD4T
+e3_primary.py immune_CD8T
+e3_crossfit.py lung lambert
+e3_crossfit.py lung_external lambert
+e3_crossfit.py immune lambert
+e3_crossfit.py kidney_A lambert
+e3_crossfit.py kidney_B lambert
+e3_crossfit.py kidney_ckpt_whole_human lambert
+e3_crossfit.py kidney_ckpt_kidney lambert
+e3_crossfit.py kidney_ckpt_brain lambert
+e3_crossfit.py immune_seed43 lambert
+e3_crossfit.py immune_seed44 lambert
+e3_crossfit.py immune_TSP14 lambert
+e3_crossfit.py immune_TSP21 lambert
+e3_crossfit.py immune_TSP25 lambert
+e3_crossfit.py immune_Bcell lambert
+e3_crossfit.py immune_CD4T lambert
+e3_crossfit.py immune_CD8T lambert
+e3_bandscan.py immune lambert
+e3_bandscan.py kidney_A lambert
+e3_bandscan.py kidney_B lambert
+e3_bandscan.py kidney_ckpt_whole_human lambert
+e3_bandscan.py kidney_ckpt_kidney lambert
+e3_bandscan.py kidney_ckpt_brain lambert
+e3_bandscan.py immune_seed43 lambert
+e3_bandscan.py immune_seed44 lambert
+e3_bandscan.py immune_TSP14 lambert
+e3_bandscan.py immune_TSP21 lambert
+e3_bandscan.py immune_TSP25 lambert
+e3_bandscan.py immune_Bcell lambert
+e3_bandscan.py immune_CD4T lambert
+e3_bandscan.py immune_CD8T lambert
+e3_bandscan.py lung trrust
+e3_bandscan.py lung_external trrust
+e3_bandscan.py immune trrust
+e3_bandscan.py kidney_A trrust
+e3_bandscan.py kidney_B trrust
+e3_bandscan.py kidney_ckpt_whole_human trrust
+e3_bandscan.py kidney_ckpt_kidney trrust
+e3_bandscan.py kidney_ckpt_brain trrust
+e3_bandscan.py immune_seed43 trrust
+e3_bandscan.py immune_seed44 trrust
+e3_bandscan.py immune_TSP14 trrust
+e3_bandscan.py immune_TSP21 trrust
+e3_bandscan.py immune_TSP25 trrust
+e3_bandscan.py immune_Bcell trrust
+e3_bandscan.py immune_CD4T trrust
+e3_bandscan.py immune_CD8T trrust
+e3_crossfit.py lung trrust
+e3_crossfit.py lung_external trrust
+e3_crossfit.py immune trrust
+e3_crossfit.py kidney_A trrust
+e3_crossfit.py kidney_B trrust
+e3_crossfit.py kidney_ckpt_whole_human trrust
+e3_crossfit.py kidney_ckpt_kidney trrust
+e3_crossfit.py kidney_ckpt_brain trrust
+e3_crossfit.py immune_seed43 trrust
+e3_crossfit.py immune_seed44 trrust
+e3_crossfit.py immune_TSP14 trrust
+e3_crossfit.py immune_TSP21 trrust
+e3_crossfit.py immune_TSP25 trrust
+e3_crossfit.py immune_Bcell trrust
+e3_crossfit.py immune_CD4T trrust
+e3_crossfit.py immune_CD8T trrust

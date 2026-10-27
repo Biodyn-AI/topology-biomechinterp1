@@ -1,0 +1,116 @@
+\setcounter{table}{9}
+\begingroup
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.05}
+\begin{longtable}{@{}>{\scriptsize\raggedright\arraybackslash}p{2.9cm}>{\scriptsize\raggedright\arraybackslash}p{2.0cm}*{2}{>{\scriptsize\raggedright\arraybackslash}p{2.1cm}}*{3}{>{\scriptsize\raggedright\arraybackslash}p{2.2cm}}@{}}
+\caption{\textbf{Cross-model comparison: gene sets, eleven static representations on 17{,}693 genes, scGPT's residual stream against static representations, and the bias of a 186-gene curated set.} Unless stated otherwise, values in Panels B--D are AUROCs of full-dimensional vectors centred over the analysed gene set and compared by cosine. \emph{Lambert}: leave-one-out (LOO) mean cosine to the census transcription factors (TFs) of Lambert et al., TFs against all other genes; \emph{TRRUST}: the same score, TRRUST TFs against genes that are only targets; \emph{PPI}: STRING physical pairs (score $\geq 700$) against non-pairs from one degree-preserving rewiring; \emph{edge}: within-TF AUROC of the TF--target cosine, TRRUST edges against candidate non-edges (targets of other TFs, absent from TRRUST and DoRothEA). 95\% intervals: node tasks, gene bootstrap ($B = 1{,}000$); PPI, vertex subsampling ($m = n/2$, $B = 200$) with delete-$d$ scaling; edge, two-way TF $\times$ target bootstrap ($B = 2{,}000$); paired differences reuse the same genes and draws for both representations. $d$, dimension; LM, language model; HPA, Human Protein Atlas; $G$, gene axis; $V$, observed genes. \textbf{A}: Tier A, genes in all 11 vocabularies; Tier B, $V \cap {}$Tier A; the curated set starts from the automated screen's kidney~A TRRUST edge list. \textbf{B}: token table, the model's input gene-embedding table ($^{a}$with its LayerNorm applied); $^{b}$gene outputs of one forward pass on the HPA mean-expression profile (no gene-token table, so not like-for-like with the token tables); ESM2-15B, the 5{,}120-dimensional per-protein embedding distributed with UCE; ESM2-650M, mean-pooled over the canonical sequence; HPA, single-cell expression over 154 cell types, 128 principal components. Lambert is pooled within lung detection deciles (unstratified in parentheses); the 12{,}467 genes not observed in lung all sit in the median decile, so this stratification is largely nominal (Panel C controls detection); within-decile permutation $p = 1/2{,}001$ throughout. TRRUST depends on the centring set: all Tier A genes, or only the 2{,}753 labelled genes (775 TFs, 1{,}978 target-only; point estimates; the convention of Panel D). Labelled-gene centring raises the single-cell models other than scFoundation by 0.048--0.119 and moves the others by at most 0.010, roughly halving the gap between protein and expression-trained representations (last two rows: paired differences from scGPT [95\% CI], for Lambert of the stratified values). \textbf{C}: scGPT whole-human residual stream, one extraction per context (192--256 cells), centred over the Tier B set; Lambert is stratified within the extraction's deciles of $\log n_{\mathrm{obs}}$ (the H2 statistic), the other tasks are unstratified. Positives / comparison set: TFs / other genes (Lambert), TFs / target-only genes (TRRUST), pairs / rewired non-pairs (PPI), documented edges / candidate non-edges (edge). Best layer: highest AUROC, chosen post hoc. Static columns: the representation's AUROC on the same genes; range over the 12 layers of the paired difference, static minus layer; $k_{+}/k_{-}$, layers whose interval lies entirely above / below 0. \textbf{D}: TRRUST AUROC (centred over the subset) on the curated set and in 10{,}000 random subsets of the 2{,}753 labelled Tier A genes matched on size, TF:target-only ratio (64:122 for 186) and lung mean-expression decile (degree-matched: TRRUST-degree quartiles and lung mean-expression quintiles; degree, TRRUST out-degree of a TF or in-degree of a target-only gene; pool, the labelled genes). Percentile: share of null subsets below the curated value (ties half); two-sided $p$ with $+1$ correction (floor $2.0\times10^{-4}$); excess, curated value minus null mean; $^{c}$scored on the 178 genes in tGPT's vocabulary. Kendall $\tau$: agreement of the representation orders, with a paired gene-bootstrap interval ($B = 1{,}000$). Projection: Gaussian random projection (5 seeds) at a 5:1 ratio, scored as in Panel B (Lambert unstratified). All comparisons are sensitivity analyses outside the pre-registered hypotheses. For PPI, the vertex-subsampling intervals with the pre-registered scaling factor $\sqrt{m/n}$, which omits the finite-population term and so gives half-widths smaller by a factor $\sqrt{2}$, are in the CSV (columns \texttt{ci\_lo\_preregistered}/\texttt{ci\_hi\_preregistered}). Full values: \texttt{Table\_S10\_cross\_model.csv}.}\label{tab:S10}\\
+\toprule
+\endfirsthead
+\multicolumn{7}{@{}l}{\footnotesize Table~\thetable\ (continued)}\\
+\toprule
+\endhead
+\midrule
+\multicolumn{7}{r@{}}{\footnotesize continued on next page}\\
+\endfoot
+\bottomrule
+\endlastfoot
+\multicolumn{7}{@{}p{16.9cm}@{}}{\footnotesize\textbf{A. Gene sets: vocabularies, intersections, the two tiers and the curated set}}\\*
+Gene set & Genes & \multicolumn{5}{>{\scriptsize\raggedright\arraybackslash}p{11.6cm}@{}}{Composition, or genes lost at this step}\\*
+\cmidrule(lr){1-7}
+Vocabulary of each static representation (genes with a non-zero vector) & 19{,}264--60{,}694 & \multicolumn{5}{>{\scriptsize\raggedright\arraybackslash}p{11.6cm}@{}}{scGPT (whole-human) 60{,}694; Geneformer V1-10M 21{,}243; Geneformer V2-104M 20{,}271; Geneformer V2-316M 20{,}271; tGPT 21{,}046; AIDO.Cell-100M 19{,}264; scFoundation 19{,}264; ESM2-15B 19{,}790; ESM2-650M 20{,}394; 32 sequence descriptors 20{,}213 (181 all-zero rows dropped); HPA co-expression 20{,}151}\\
+Geneformer V1-10M $\cap$ V2-104M $\cap$ ESM2-15B & 18{,}907 & \multicolumn{5}{>{\scriptsize\raggedright\arraybackslash}p{11.6cm}@{}}{the vocabularies used to define the 186-gene curated set (below)}\\
+Tier A: all 11 vocabularies & 17{,}693 & \multicolumn{5}{>{\scriptsize\raggedright\arraybackslash}p{11.6cm}@{}}{Lambert TFs 1{,}587 vs 16{,}106 other genes; TRRUST TFs 775 vs 1{,}978 target-only genes; STRING physical pairs 73{,}430 vs 72{,}416 rewired non-pairs; TRRUST edges 7{,}593 (430 TFs) vs 70{,}882 candidate non-edges; 12{,}467 genes not observed in lung (assigned the median lung detection decile)}\\
+Tier B, lung & 5{,}226 & \multicolumn{5}{>{\scriptsize\raggedright\arraybackslash}p{11.6cm}@{}}{gene axis $G$ 8{,}181; observed $V$ 5{,}648; Lambert TFs in Tier B 579; genes in a TRRUST edge within Tier B 1{,}912; 256 cells}\\
+Tier B, lung (ext.) & 5{,}154 & \multicolumn{5}{>{\scriptsize\raggedright\arraybackslash}p{11.6cm}@{}}{gene axis $G$ 8{,}229; observed $V$ 5{,}616; Lambert TFs in Tier B 618; genes in a TRRUST edge within Tier B 1{,}948; 256 cells}\\
+Tier B, kidney~B & 4{,}441 & \multicolumn{5}{>{\scriptsize\raggedright\arraybackslash}p{11.6cm}@{}}{gene axis $G$ 8{,}143; observed $V$ 4{,}780; Lambert TFs in Tier B 509; genes in a TRRUST edge within Tier B 1{,}542; 192 cells}\\
+Tier B, immune & 1{,}338 & \multicolumn{5}{>{\scriptsize\raggedright\arraybackslash}p{11.6cm}@{}}{gene axis $G$ 4{,}941; observed $V$ 2{,}039; Lambert TFs in Tier B 111; genes in a TRRUST edge within Tier B 281; 256 cells}\\
+Tier B, kidney~A & 1{,}298 & \multicolumn{5}{>{\scriptsize\raggedright\arraybackslash}p{11.6cm}@{}}{gene axis $G$ 4{,}803; observed $V$ 1{,}972; Lambert TFs in Tier B 90; genes in a TRRUST edge within Tier B 172; 256 cells}\\
+Genes named in the curated kidney~A edge list & 209 & \multicolumn{5}{>{\scriptsize\raggedright\arraybackslash}p{11.6cm}@{}}{1{,}152 TRRUST edge and sampled non-edge rows, so the list includes genes that occur only in non-edges; all 209 are on the kidney~A gene axis}\\
+\quad observed in kidney~A & 187 & \multicolumn{5}{>{\scriptsize\raggedright\arraybackslash}p{11.6cm}@{}}{22 never-observed genes dropped}\\
+\quad $\cap$ Geneformer V1-10M, V2-104M, ESM2-15B: the 186-gene set & 186 & \multicolumn{5}{>{\scriptsize\raggedright\arraybackslash}p{11.6cm}@{}}{lost: NEAT1 (lncRNA); 64 TRRUST TFs, 122 target-only genes; 13 genes not observed in lung}\\
+\quad $\cap$ Tier A: the 178-gene set & 178 & \multicolumn{5}{>{\scriptsize\raggedright\arraybackslash}p{11.6cm}@{}}{lost (absent from tGPT): HLA-A, HLA-B, HLA-C, HLA-DMB, HLA-DOB, HLA-DPB1, HLA-DRA, HLA-DRB1; 64 TRRUST TFs, 114 target-only genes}\\
+Kidney~A $V \cap {}$Tier A, in a TRRUST edge & 172 & \multicolumn{5}{>{\scriptsize\raggedright\arraybackslash}p{11.6cm}@{}}{the most a kidney~A-only analysis of the TRRUST tasks could use (kidney~A observes 1{,}972 of its 4{,}803 genes)}\\
+\midrule
+\multicolumn{7}{@{}p{16.9cm}@{}}{\footnotesize\textbf{B. Tier A (17{,}693 genes): every static representation, full dimension, centred over the analysed genes}}\\*
+Representation & Type; $d$ & Lambert: stratified (unstratified) [95\% CI] & TRRUST, centred over Tier A [95\% CI] & TRRUST, centred over labelled genes & PPI [95\% CI, delete-$d$] & Edge, within TF [95\% CI]\\*
+\cmidrule(lr){1-7}
+scGPT (whole-human) & token table; 512 & 0.747 (0.704)\newline [0.734, 0.760] & 0.684\newline [0.660, 0.708] & 0.789 & 0.669\newline [0.658, 0.679] & 0.575\newline [0.534, 0.610]\\
+Geneformer V1-10M & token table$^{a}$; 256 & 0.776 (0.742)\newline [0.761, 0.789] & 0.688\newline [0.659, 0.715] & 0.755 & 0.588\newline [0.579, 0.597] & 0.529\newline [0.502, 0.562]\\
+Geneformer V2-104M & token table$^{a}$; 768 & 0.864 (0.836)\newline [0.851, 0.876] & 0.774\newline [0.749, 0.796] & 0.821 & 0.662\newline [0.650, 0.671] & 0.580\newline [0.549, 0.610]\\
+Geneformer V2-316M & token table$^{a}$; 1{,}152 & 0.855 (0.817)\newline [0.842, 0.867] & 0.743\newline [0.717, 0.765] & 0.802 & 0.659\newline [0.650, 0.670] & 0.578\newline [0.542, 0.611]\\
+tGPT & token table; 1{,}024 & 0.690 (0.639)\newline [0.678, 0.703] & 0.520\newline [0.497, 0.543] & 0.639 & 0.571\newline [0.561, 0.582] & 0.544\newline [0.520, 0.570]\\
+\cmidrule(lr){1-7}
+AIDO.Cell-100M & forward pass$^{b}$; 640 & 0.623 (0.589)\newline [0.611, 0.636] & 0.579\newline [0.560, 0.600] & 0.690 & 0.603\newline [0.590, 0.614] & 0.552\newline [0.499, 0.591]\\
+scFoundation & forward pass$^{b}$; 512 & 0.554 (0.532)\newline [0.537, 0.570] & 0.487\newline [0.458, 0.511] & 0.496 & 0.559\newline [0.544, 0.571] & 0.500\newline [0.473, 0.530]\\
+\cmidrule(lr){1-7}
+ESM2-15B & protein LM (UCE file); 5{,}120 & 0.902 (0.889)\newline [0.893, 0.911] & 0.870\newline [0.856, 0.884] & 0.877 & 0.647\newline [0.638, 0.657] & 0.491\newline [0.466, 0.523]\\
+ESM2-650M & protein LM, mean-pooled; 1{,}280 & 0.861 (0.859)\newline [0.851, 0.870] & 0.826\newline [0.811, 0.843] & 0.826 & 0.610\newline [0.600, 0.618] & 0.492\newline [0.466, 0.530]\\
+32 sequence descriptors & hand-computed; 32 & 0.916 (0.902)\newline [0.908, 0.924] & 0.869\newline [0.855, 0.883] & 0.876 & 0.671\newline [0.660, 0.680] & 0.497\newline [0.465, 0.538]\\
+\cmidrule(lr){1-7}
+HPA co-expression & 154 cell types, PCA; 128 & 0.617 (0.576)\newline [0.604, 0.630] & 0.615\newline [0.590, 0.640] & 0.618 & 0.598\newline [0.588, 0.608] & 0.518\newline [0.485, 0.560]\\
+\cmidrule(lr){1-7}
+ESM2-15B minus scGPT (paired) &  & $+$0.155\newline [0.141, 0.168] & $+$0.186\newline [0.159, 0.212] & $+$0.088\newline [0.066, 0.111] & $-$0.022\newline [$-$0.032, $-$0.011] & $-$0.084\newline [$-$0.124, $-$0.042]\\
+Geneformer V2-104M minus scGPT (paired) &  & $+$0.117\newline [0.104, 0.130] & $+$0.089\newline [0.066, 0.111] & $+$0.032\newline [0.014, 0.051] & $-$0.007\newline [$-$0.012, $-$0.002] & $+$0.005\newline [$-$0.021, 0.029]\\
+\midrule
+\multicolumn{7}{@{}p{16.9cm}@{}}{\footnotesize\textbf{C. Tier B: scGPT's residual stream ($L_0$--$L_{11}$) against three static representations on each extraction's observed genes}}\\*
+Extraction: task & Positives / comparison set & Residual stream: range over 12 layers & Best layer: AUROC [95\% CI] & ESM2-15B: AUROC; minus layer; $k_{+}/k_{-}$ & scGPT token table: AUROC; minus layer; $k_{+}/k_{-}$ & Geneformer V2-104M: AUROC; minus layer; $k_{+}/k_{-}$\\*
+\cmidrule(lr){1-7}
+lung: Lambert (stratified) & 579 / 4{,}647 & 0.638--0.668 & $L_{1}$: 0.668\newline [0.652, 0.687] & 0.880\newline 0.212--0.241\newline 12/0 & 0.751\newline 0.083--0.113\newline 12/0 & 0.825\newline 0.157--0.187\newline 12/0\\
+lung: TRRUST & 597 / 1{,}454 & 0.658--0.718 & $L_{2}$: 0.718\newline [0.699, 0.737] & 0.857\newline 0.139--0.199\newline 12/0 & 0.779\newline 0.060--0.121\newline 12/0 & 0.797\newline 0.079--0.139\newline 12/0\\
+lung: PPI & 13{,}965 / 13{,}822 & 0.616--0.674 & $L_{1}$: 0.674\newline [0.658, 0.690] & 0.639\newline $-$0.036 to $+$0.022\newline 1/5 & 0.661\newline $-$0.013 to $+$0.044\newline 5/4 & 0.651\newline $-$0.023 to $+$0.035\newline 4/4\\
+lung: edge & 5{,}131 / 45{,}609 (304 TFs) & 0.515--0.542 & $L_{1}$: 0.542\newline [0.494, 0.589] & 0.498\newline $-$0.043 to $-$0.017\newline 0/3 & 0.566\newline 0.024--0.051\newline 4/0 & 0.562\newline 0.020--0.047\newline 3/0\\
+\cmidrule(lr){1-7}
+lung (ext.): Lambert (stratified) & 618 / 4{,}536 & 0.631--0.675 & $L_{1}$: 0.675\newline [0.654, 0.698] & 0.881\newline 0.206--0.250\newline 12/0 & 0.732\newline 0.056--0.100\newline 12/0 & 0.833\newline 0.158--0.201\newline 12/0\\
+lung (ext.): TRRUST & 621 / 1{,}450 & 0.672--0.725 & $L_{1}$: 0.725\newline [0.707, 0.745] & 0.857\newline 0.132--0.185\newline 12/0 & 0.775\newline 0.050--0.103\newline 12/0 & 0.807\newline 0.082--0.135\newline 12/0\\
+lung (ext.): PPI & 13{,}714 / 13{,}561 & 0.633--0.678 & $L_{2}$: 0.678\newline [0.660, 0.694] & 0.643\newline $-$0.035 to $+$0.010\newline 0/6 & 0.658\newline $-$0.020 to $+$0.026\newline 5/4 & 0.652\newline $-$0.026 to $+$0.020\newline 4/5\\
+lung (ext.): edge & 5{,}035 / 44{,}994 (311 TFs) & 0.520--0.539 & $L_{1}$: 0.539\newline [0.492, 0.592] & 0.494\newline $-$0.045 to $-$0.025\newline 0/3 & 0.562\newline 0.023--0.042\newline 4/0 & 0.569\newline 0.029--0.049\newline 3/0\\
+\cmidrule(lr){1-7}
+kidney~B: Lambert (stratified) & 509 / 3{,}932 & 0.616--0.657 & $L_{1}$: 0.657\newline [0.635, 0.680] & 0.861\newline 0.204--0.245\newline 12/0 & 0.737\newline 0.080--0.120\newline 12/0 & 0.819\newline 0.162--0.202\newline 12/0\\
+kidney~B: TRRUST & 548 / 1{,}188 & 0.637--0.711 & $L_{1}$: 0.711\newline [0.689, 0.732] & 0.843\newline 0.132--0.206\newline 12/0 & 0.754\newline 0.043--0.117\newline 12/0 & 0.791\newline 0.080--0.154\newline 12/0\\
+kidney~B: PPI & 11{,}990 / 11{,}830 & 0.617--0.671 & $L_{1}$: 0.671\newline [0.649, 0.688] & 0.630\newline $-$0.041 to $+$0.012\newline 0/6 & 0.659\newline $-$0.012 to $+$0.042\newline 6/2 & 0.646\newline $-$0.025 to $+$0.028\newline 4/4\\
+kidney~B: edge & 3{,}569 / 31{,}590 (248 TFs) & 0.522--0.553 & $L_{0}$: 0.553\newline [0.500, 0.602] & 0.500\newline $-$0.052 to $-$0.022\newline 0/3 & 0.568\newline 0.015--0.046\newline 4/0 & 0.569\newline 0.017--0.048\newline 4/0\\
+\cmidrule(lr){1-7}
+immune: Lambert (stratified) & 111 / 1{,}227 & 0.616--0.746 & $L_{2}$: 0.746\newline [0.677, 0.819] & 0.933\newline 0.187--0.317\newline 12/0 & 0.811\newline 0.065--0.195\newline 12/0 & 0.815\newline 0.069--0.199\newline 11/0\\
+immune: TRRUST & 95 / 350 & 0.643--0.774 & $L_{2}$: 0.774\newline [0.720, 0.824] & 0.943\newline 0.169--0.300\newline 12/0 & 0.800\newline 0.026--0.156\newline 10/0 & 0.832\newline 0.059--0.189\newline 12/0\\
+immune: PPI & 1{,}185 / 1{,}155 & 0.673--0.742 & $L_{2}$: 0.742\newline [0.701, 0.789] & 0.693\newline $-$0.050 to $+$0.020\newline 0/0 & 0.727\newline $-$0.015 to $+$0.054\newline 4/0 & 0.720\newline $-$0.022 to $+$0.047\newline 2/0\\
+immune: edge & 544 / 2{,}976 (36 TFs) & 0.576--0.632 & $L_{0}$: 0.632\newline [0.570, 0.706] & 0.483\newline $-$0.149 to $-$0.093\newline 0/8 & 0.650\newline 0.018--0.075\newline 0/0 & 0.634\newline 0.002--0.058\newline 0/0\\
+\cmidrule(lr){1-7}
+kidney~A: Lambert (stratified) & 90 / 1{,}208 & 0.637--0.763 & $L_{3}$: 0.763\newline [0.691, 0.830] & 0.914\newline 0.151--0.277\newline 12/0 & 0.779\newline 0.016--0.142\newline 9/0 & 0.804\newline 0.042--0.167\newline 7/0\\
+kidney~A: TRRUST & 91 / 288 & 0.707--0.828 & $L_{2}$: 0.828\newline [0.758, 0.885] & 0.940\newline 0.112--0.233\newline 12/0 & 0.831\newline 0.003--0.124\newline 7/0 & 0.839\newline 0.011--0.131\newline 6/0\\
+kidney~A: PPI & 1{,}235 / 1{,}176 & 0.746--0.786 & $L_{1}$: 0.786\newline [0.741, 0.831] & 0.730\newline $-$0.055 to $-$0.016\newline 0/2 & 0.785\newline $-$0.001 to $+$0.039\newline 4/0 & 0.772\newline $-$0.014 to $+$0.025\newline 0/0\\
+kidney~A: edge & 201 / 1{,}329 (28 TFs) & 0.618--0.664 & $L_{0}$: 0.664\newline [0.570, 0.761] & 0.529\newline $-$0.135 to $-$0.089\newline 0/2 & 0.650\newline $-$0.014 to $+$0.032\newline 0/0 & 0.636\newline $-$0.028 to $+$0.018\newline 0/0\\
+\midrule
+\multicolumn{7}{@{}p{16.9cm}@{}}{\footnotesize\textbf{D. The 186- and 178-gene curated sets against matched random subsets of Tier A (TRRUST task), and a projection control}}\\*
+Representation & 186 genes: AUROC & 186: null mean [2.5\%, 97.5\%] & 186: percentile; two-sided $p$ & 186: excess over null mean & 178 genes: AUROC; percentile; excess & 186, degree-matched: null mean; percentile; excess\\*
+\cmidrule(lr){1-7}
+scGPT (whole-human) & 0.833 & 0.739\newline [0.661, 0.810] & 0.9950\newline $p = 0.010$ & $+$0.095 & 0.821; 0.9878\newline $+$0.085 & 0.770; 0.9787\newline $+$0.064\\
+Geneformer V1-10M & 0.802 & 0.646\newline [0.536, 0.743] & 0.9996\newline $p = 1.0\times10^{-3}$ & $+$0.156 & 0.797; 0.9992\newline $+$0.149 & 0.667; 0.9987\newline $+$0.135\\
+Geneformer V2-104M & 0.874 & 0.745\newline [0.655, 0.824] & 0.9992\newline $p = 1.8\times10^{-3}$ & $+$0.129 & 0.867; 0.9994\newline $+$0.122 & 0.771; 0.9996\newline $+$0.104\\
+Geneformer V2-316M & 0.848 & 0.715\newline [0.624, 0.795] & 0.9996\newline $p = 1.0\times10^{-3}$ & $+$0.133 & 0.834; 0.9989\newline $+$0.118 & 0.747; 0.9980\newline $+$0.101\\
+tGPT & 0.723$^{c}$ & 0.587\newline [0.518, 0.669] & 0.9996\newline $p = 1.0\times10^{-3}$ & $+$0.136 & 0.723; 0.9997\newline $+$0.139 & 0.622; 0.9947\newline $+$0.101\\
+\cmidrule(lr){1-7}
+AIDO.Cell-100M & 0.769 & 0.648\newline [0.582, 0.716] & 0.9997\newline $p = 8.0\times10^{-4}$ & $+$0.121 & 0.759; 0.9990\newline $+$0.109 & 0.688; 0.9946\newline $+$0.082\\
+scFoundation & 0.549 & 0.300\newline [0.179, 0.434] & 0.9994\newline $p = 1.4\times10^{-3}$ & $+$0.250 & 0.533; 0.9972\newline $+$0.248 & 0.301; 0.9994\newline $+$0.249\\
+\cmidrule(lr){1-7}
+ESM2-15B & 0.954 & 0.862\newline [0.809, 0.911] & 1.0000\newline $p = 2.0\times10^{-4}$ & $+$0.092 & 0.949; 1.0000\newline $+$0.087 & 0.892; 0.9989\newline $+$0.062\\
+ESM2-650M & 0.907 & 0.819\newline [0.763, 0.872] & 0.9999\newline $p = 4.0\times10^{-4}$ & $+$0.088 & 0.902; 0.9994\newline $+$0.083 & 0.847; 0.9942\newline $+$0.060\\
+32 sequence descriptors & 0.966 & 0.865\newline [0.811, 0.913] & 1.0000\newline $p = 2.0\times10^{-4}$ & $+$0.101 & 0.962; 1.0000\newline $+$0.097 & 0.894; 1.0000\newline $+$0.071\\
+\cmidrule(lr){1-7}
+HPA co-expression & 0.688 & 0.594\newline [0.535, 0.649] & 0.9997\newline $p = 8.0\times10^{-4}$ & $+$0.094 & 0.685; 0.9970\newline $+$0.075 & 0.624; 0.9892\newline $+$0.063\\
+\cmidrule(lr){1-7}
+Kendall $\tau$, order of the representations, curated set vs Tier A &  & \multicolumn{5}{>{\scriptsize\raggedright\arraybackslash}p{11.6cm}@{}}{186 genes (10 representations, without tGPT): 0.867 [0.689, 0.956]; 178 genes (11): 0.855 [0.673, 0.964]; 178 genes vs Tier A centred over its TRRUST-labelled genes: 0.964 (point estimate)}\\
+Mean TRRUST degree, 186-gene set vs pool &  & \multicolumn{5}{>{\scriptsize\raggedright\arraybackslash}p{11.6cm}@{}}{TFs 16.6 vs 10.8; target-only genes 7.0 vs 3.2}\\
+\cmidrule(lr){1-7}
+Projection control (Tier A): representation, task & $d$: full $\to$ projected & Full: AUROC [95\% CI] & Projected: mean (SD) over 5 seeds & Projected: min--max & Projected minus full & scGPT token table, full 512-$d$\\*
+\cmidrule(lr){1-7}
+ESM2-15B: Lambert (unstratified) & 5{,}120 $\to$ 1{,}024 & 0.889\newline [0.882, 0.897] & 0.887 (0.007) & 0.877--0.895 & $-$0.002 & 0.704\\
+ESM2-15B: TRRUST & 5{,}120 $\to$ 1{,}024 & 0.870\newline [0.856, 0.884] & 0.870 (0.007) & 0.861--0.877 & $-$0.0005 & 0.684\\
+ESM2-15B: PPI & 5{,}120 $\to$ 1{,}024 & 0.647\newline [0.638, 0.657] & 0.648 (0.004) & 0.641--0.650 & $+$0.001 & 0.669\\
+ESM2-15B: edge & 5{,}120 $\to$ 1{,}024 & 0.491\newline [0.466, 0.523] & 0.490 (0.002) & 0.487--0.493 & $-$0.001 & 0.575\\
+scGPT (whole-human): Lambert (unstratified) & 512 $\to$ 102 & 0.704\newline [0.694, 0.713] & 0.678 (0.005) & 0.672--0.685 & $-$0.027 & --\\
+scGPT (whole-human): TRRUST & 512 $\to$ 102 & 0.684\newline [0.660, 0.708] & 0.635 (0.025) & 0.601--0.667 & $-$0.049 & --\\
+scGPT (whole-human): PPI & 512 $\to$ 102 & 0.669\newline [0.658, 0.679] & 0.634 (0.002) & 0.631--0.636 & $-$0.036 & --\\
+scGPT (whole-human): edge & 512 $\to$ 102 & 0.575\newline [0.534, 0.610] & 0.556 (0.012) & 0.540--0.572 & $-$0.019 & --\\
+\end{longtable}
+\endgroup

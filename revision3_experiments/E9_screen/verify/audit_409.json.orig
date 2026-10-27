@@ -1,0 +1,304 @@
+{
+ "n_records_all": 409,
+ "n_iterations_with_json": 137,
+ "iterations_with_json_first_last": [
+  "iter_0002",
+  "iter_0138"
+ ],
+ "duplicate_iteration_id_pairs": {},
+ "rederive_183": {
+  "n_total": 183,
+  "n_extractable": 112,
+  "n_p_equal_zero": 18,
+  "round1_bonferroni_pass_0p05_over_183": 43,
+  "round1_bh_pass": 70,
+  "round2_bonferroni_pass": 25,
+  "round2_bh_pass": 70,
+  "round2_bonferroni_pass_resolution_limited": 0,
+  "headline_bonferroni_round1": 8,
+  "headline_bonferroni_round2": 5,
+  "primary_p_identical_to_round1_master": true,
+  "floored_p_identical_to_round2_master": true,
+  "n_perm_identical_to_round2_master": true,
+  "expected": {
+   "n_extractable": 112,
+   "n_p0": 18,
+   "bonferroni_r1": 43,
+   "bonferroni_r2": 25,
+   "bh": 70,
+   "headline": "8->5"
+  },
+  "reproduces": true,
+  "headline_round2_sensitivity": {
+   "per_headline": {
+    "SV1_extracellular_enrichment": {
+     "p_round2": 0.1290955354917564,
+     "p_sensitivity": 0.1290955354917564,
+     "survives_round2": false,
+     "survives_exact_gradient_p": false
+    },
+    "SV1_secretory_pathway_layered": {
+     "p_round2": 0.0310468785295483,
+     "p_sensitivity": 0.0310468785295483,
+     "survives_round2": false,
+     "survives_exact_gradient_p": false
+    },
+    "SV2_PPI_copole_string07": {
+     "p_round2": 0.0001399986000139,
+     "p_sensitivity": 0.0001399986000139,
+     "survives_round2": true,
+     "survives_exact_gradient_p": true
+    },
+    "SV2_TRRUST_copole": {
+     "p_round2": 0.0120698793012069,
+     "p_sensitivity": 0.0120698793012069,
+     "survives_round2": false,
+     "survives_exact_gradient_p": false
+    },
+    "TF_vs_target_AUROC_joint": {
+     "p_round2": 1.7505298494516298e-18,
+     "p_sensitivity": 1.7505298494516298e-18,
+     "survives_round2": true,
+     "survives_exact_gradient_p": true
+    },
+    "celltype_marker_AUROC_851": {
+     "p_round2": 0.004,
+     "p_sensitivity": 0.004,
+     "survives_round2": false,
+     "survives_exact_gradient_p": false
+    },
+    "edge_AUROC_decay": {
+     "p_round2": 0.045,
+     "p_sensitivity": 0.045,
+     "survives_round2": false,
+     "survives_exact_gradient_p": false
+    },
+    "string_confidence_gradient": {
+     "p_round2": 1.4e-24,
+     "p_sensitivity": 0.016666666666666666,
+     "survives_round2": true,
+     "survives_exact_gradient_p": false
+    },
+    "bcell_attractor_convergence": {
+     "p_round2": 0.0001,
+     "p_sensitivity": 0.0001,
+     "survives_round2": true,
+     "survives_exact_gradient_p": true
+    },
+    "celltype_marker_AUROC_853_initial": {
+     "p_round2": 1e-06,
+     "p_sensitivity": 1e-06,
+     "survives_round2": true,
+     "survives_exact_gradient_p": true
+    },
+    "TF_target_AUROC_cross_seed": {
+     "p_round2": 0.000999000999000999,
+     "p_sensitivity": 0.000999000999000999,
+     "survives_round2": false,
+     "survives_exact_gradient_p": false
+    }
+   },
+   "survivors_with_exact_gradient_p": 4,
+   "survivors_with_exact_gradient_p_and_no_stouffer": 3
+  },
+  "note_headline_key_mismatch": "round-1 headline 'SV2_PPI_copole_string07' is keyed to iter_0010/H02, which is the TRRUST co-pole test (STRING co-pole records are iter_0012/H03 and iter_0013/H01)",
+  "note_round2_headline_remeasure": "round 2 replaced 5 headline p by re-measured values; the TF/target one is a Stouffer combination across layers, which stats3.stouffer() now rejects because layers are dependent"
+ },
+ "all_records": {
+  "n_total": 409,
+  "n_extractable": 130,
+  "n_p_equal_zero": 18,
+  "bonferroni_alpha": 0.0003846153846153846,
+  "n_bonferroni_pass": 28,
+  "n_bonferroni_pass_resolution_limited": 0,
+  "n_bh_pass": 79,
+  "n_resolution_limited_that_cannot_pass_bonferroni": 18,
+  "by_phase": {
+   "iter_1_63": {
+    "n": 183,
+    "n_extractable": 112,
+    "n_bonferroni": 26,
+    "n_bh": 70
+   },
+   "iter_64_plus": {
+    "n": 226,
+    "n_extractable": 18,
+    "n_bonferroni": 2,
+    "n_bh": 9
+   }
+  },
+  "n_perm_source": {
+   "from_method": 25,
+   "default_1000": 384
+  },
+  "n_bonferroni_pass_denominator_all_records": 27
+ },
+ "all_records_excluding_aborted_duplicate_run": {
+  "n_total": 406,
+  "n_extractable": 127,
+  "n_p_equal_zero": 18,
+  "bonferroni_alpha": 0.00039370078740157485,
+  "n_bonferroni_pass": 27,
+  "n_bh_pass": 76
+ },
+ "headline_findings_all_records": [
+  {
+   "headline": "SV1_extracellular_enrichment",
+   "iteration": "iter_0006",
+   "hypothesis_id": "H02",
+   "p_raw": 0.0003,
+   "n_perm": 1000,
+   "p_floored": 0.0003,
+   "resolution_limited": false,
+   "bh_q_all": 0.001392857142857143,
+   "bh_pass_all": true,
+   "bonferroni_pass_all": true,
+   "bonferroni_pass_denominator_409": false,
+   "bonferroni_pass_183_round2": false
+  },
+  {
+   "headline": "SV1_secretory_pathway_layered",
+   "iteration": "iter_0008",
+   "hypothesis_id": "H02",
+   "p_raw": 0.0,
+   "n_perm": 1000,
+   "p_floored": 0.000999000999000999,
+   "resolution_limited": true,
+   "bh_q_all": 0.0025490196078431374,
+   "bh_pass_all": true,
+   "bonferroni_pass_all": false,
+   "bonferroni_pass_denominator_409": false,
+   "bonferroni_pass_183_round2": false
+  },
+  {
+   "headline": "SV2_PPI_copole_string07",
+   "iteration": "iter_0010",
+   "hypothesis_id": "H02",
+   "p_raw": 0.0,
+   "n_perm": 1000,
+   "p_floored": 0.000999000999000999,
+   "resolution_limited": true,
+   "bh_q_all": 0.0025490196078431374,
+   "bh_pass_all": true,
+   "bonferroni_pass_all": false,
+   "bonferroni_pass_denominator_409": false,
+   "bonferroni_pass_183_round2": false
+  },
+  {
+   "headline": "SV2_TRRUST_copole",
+   "iteration": "iter_0011",
+   "hypothesis_id": "H01",
+   "p_raw": 0.0,
+   "n_perm": 1000,
+   "p_floored": 0.000999000999000999,
+   "resolution_limited": true,
+   "bh_q_all": 0.0025490196078431374,
+   "bh_pass_all": true,
+   "bonferroni_pass_all": false,
+   "bonferroni_pass_denominator_409": false,
+   "bonferroni_pass_183_round2": false
+  },
+  {
+   "headline": "TF_vs_target_AUROC_joint",
+   "iteration": "iter_0056",
+   "hypothesis_id": "H01",
+   "p_raw": 0.0,
+   "n_perm": 100,
+   "p_floored": 0.009900990099009901,
+   "resolution_limited": true,
+   "bh_q_all": 0.017631900176319003,
+   "bh_pass_all": true,
+   "bonferroni_pass_all": false,
+   "bonferroni_pass_denominator_409": false,
+   "bonferroni_pass_183_round2": false
+  },
+  {
+   "headline": "celltype_marker_AUROC_851",
+   "iteration": "iter_0023",
+   "hypothesis_id": "H01",
+   "p_raw": 0.004,
+   "n_perm": 1000,
+   "p_floored": 0.004,
+   "resolution_limited": false,
+   "bh_q_all": 0.008125,
+   "bh_pass_all": true,
+   "bonferroni_pass_all": false,
+   "bonferroni_pass_denominator_409": false,
+   "bonferroni_pass_183_round2": false
+  },
+  {
+   "headline": "edge_AUROC_decay",
+   "iteration": "iter_0062",
+   "hypothesis_id": "H01",
+   "p_raw": 0.045,
+   "n_perm": 1000,
+   "p_floored": 0.045,
+   "resolution_limited": false,
+   "bh_q_all": 0.0688235294117647,
+   "bh_pass_all": false,
+   "bonferroni_pass_all": false,
+   "bonferroni_pass_denominator_409": false,
+   "bonferroni_pass_183_round2": false
+  },
+  {
+   "headline": "string_confidence_gradient",
+   "iteration": "iter_0015",
+   "hypothesis_id": "H02",
+   "p_raw": 1.4e-24,
+   "n_perm": 1000,
+   "p_floored": 1.4e-24,
+   "resolution_limited": false,
+   "bh_q_all": 6.066666666666666e-23,
+   "bh_pass_all": true,
+   "bonferroni_pass_all": true,
+   "bonferroni_pass_denominator_409": true,
+   "bonferroni_pass_183_round2": true
+  },
+  {
+   "headline": "bcell_attractor_convergence",
+   "iteration": "iter_0042",
+   "hypothesis_id": "H03",
+   "p_raw": 0.0001,
+   "n_perm": 1000,
+   "p_floored": 0.0001,
+   "resolution_limited": false,
+   "bh_q_all": 0.00048148148148148155,
+   "bh_pass_all": true,
+   "bonferroni_pass_all": true,
+   "bonferroni_pass_denominator_409": true,
+   "bonferroni_pass_183_round2": true
+  },
+  {
+   "headline": "celltype_marker_AUROC_853_initial",
+   "iteration": "iter_0022",
+   "hypothesis_id": "H02",
+   "p_raw": 1e-06,
+   "n_perm": 500,
+   "p_floored": 1e-06,
+   "resolution_limited": false,
+   "bh_q_all": 9.999999999999999e-06,
+   "bh_pass_all": true,
+   "bonferroni_pass_all": true,
+   "bonferroni_pass_denominator_409": true,
+   "bonferroni_pass_183_round2": true
+  },
+  {
+   "headline": "TF_target_AUROC_cross_seed",
+   "iteration": "iter_0057",
+   "hypothesis_id": "H01",
+   "p_raw": 0.0,
+   "n_perm": 50,
+   "p_floored": 0.0196078431372549,
+   "resolution_limited": true,
+   "bh_q_all": 0.03398692810457516,
+   "bh_pass_all": true,
+   "bonferroni_pass_all": false,
+   "bonferroni_pass_denominator_409": false,
+   "bonferroni_pass_183_round2": false
+  }
+ ],
+ "headline_survivors_all_records_bonferroni": 4,
+ "headline_survivors_all_records_bonferroni_exact_gradient_p": 3,
+ "headline_survivors_denominator_409_bonferroni": 3,
+ "headline_survivors_all_records_bh": 10
+}

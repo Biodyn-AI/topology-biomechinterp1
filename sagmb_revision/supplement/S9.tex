@@ -1,0 +1,107 @@
+\setcounter{table}{8}
+\begingroup
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.05}
+\begin{longtable}{@{}>{\scriptsize\raggedright\arraybackslash}p{3.1cm}*{6}{>{\scriptsize\raggedright\arraybackslash}p{2.1cm}}@{}}
+\caption{\textbf{Differences between extractions: variance components, transfer of a TF read-out, lineage TFs, detection, and the two kidney extractions.} Statistics (all AUROCs, V-centred embeddings, layer mean over the 12 layers unless stated): S1, cosine of STRING physical pairs against one degree-preserving rewired non-pair set; S2, the H2 statistic (detection-stratified LOO-cosine AUROC, Lambert TFs against all other observed genes); S2b, TRRUST TFs against target-only genes, in the full representation or in the band $\SV{2}$--$\SV{7}$; S3, the H3 statistic (within-TF stratified AUROC of the TF--target cosine). \textbf{A}: moment estimate of the between-extraction SD $\tau$ (AUROC units; 0 when the estimate of $\tau^2$ is negative) among the $k$ extractions of each group: cell draws (immune, seed 43, seed 44; kidney~B and the whole-human checkpoint run), donors TSP14/21/25, B/CD4 T/CD8 T cells, kidney~A vs B, the three checkpoints on the same 192 cells, and the four tissue-level extractions (immune, kidney~B, lung, lung (ext.)). Sampling covariances come from one Poisson gene bootstrap shared by all extractions ($B = 1{,}000$; S3 two-way TF $\times$ target; S1 node bootstrap, whose SE is within 5\% of the delete-$d$ vertex-subsampling SE). A tissue effect is claimed only if $D$, the tissue component minus the pooled within-tissue floor (cell draws, donors, gene axis), has a 95\% lower bound $>0$ under a parametric random-effects bootstrap ($R = 10{,}000$); the lower bound exceeds 0 neither for the layer mean nor at any single layer (0 of 12 layers for every statistic). Rows marked $\times 10^{3}$ are in units of $10^{-3}$ AUROC$^2$. Q-profile bounds treat the extractions as random draws; with 2--4 extractions per group they are wide. \textbf{B}: L2-regularised logistic regression (balanced classes; $C$ chosen by 5-fold CV from $\{0.01, 0.1, 1, 10\}$) on unit-normalised $V$-centred embeddings, fitted per layer on immune genes; novel genes are not observed in immune, shared genes are; the in-context reference is a 5-fold out-of-fold classifier within the test extraction scored on the same genes; intervals are 95\% gene-bootstrap intervals ($B = 2{,}000$); AUROCs without stratification, with the detection-stratified AUROC (within deciles of the test extraction's $\log n_{\mathrm{obs}}$, as for S2) in parentheses; below the range over layers, the smallest lower bound over layers; the difference, its intervals and, in parentheses, the layers whose interval of the difference lies below 0 are without stratification; per-layer values in the CSV. \textbf{C}: sets of the 30 Lambert TFs most specific to each tissue in raw expression (18 for lung, which must be expressed in both lung studies), selected from raw expression alone, without any embedding statistic; for example immune BACH2, ETS1, BCL11B, IKZF1, PAX5, EBF1, IRF4; kidney PAX2, PAX8, HNF1B, HNF4A, EMX2, SALL1; lung NKX2-1, FOXA2, FOXF1, GATA6, EPAS1 (full lists in the CSV). Score: LOO cosine to the observed set members; at least 5 observed members required; centred Poisson gene-bootstrap intervals ($B = 500$) clipped to $[0, 1]$; observed, members in $V$; random, mean AUROC of 50 random Lambert-TF subsets of the same size; $^{h}$the set's own tissue; $^{d}$interval unreliable (fewer than 10 observed members). Across sets and extractions the AUROC falls with the set's median $n_{\mathrm{obs}}$ (Spearman $\rho = -0.39$, $n = 29$; rows not independent). \textbf{D}: AUROC of $\log n_{\mathrm{obs}}$ alone (no stratification), gene-bootstrap 95\% intervals ($B = 2{,}000$); values above 0.5 mean TFs are observed in more cells. Cells whose input exceeded scGPT's 512-gene cap are truncated. \textbf{E}: $M$, genes observed in both extractions, with labels recomputed on $M$; paired gene bootstrap on $M$ ($B = 2{,}000$), $\Delta = $ kidney~A $-$ kidney~B. Curated-gene comparison: TRRUST TFs / targets of the curated gene list derived from the screen's kidney~A edge list, with the SVD fitted on the full matrix including genes no sampled cell contained (zero rows); the Hanley--McNeil SE is that of a single AUROC at the stated value and sample sizes. Full values: \texttt{Table\_S9\_cross\_extraction.csv}.}\label{tab:S9}\\
+\toprule
+\endfirsthead
+\multicolumn{7}{@{}l}{\footnotesize Table~\thetable\ (continued)}\\
+\toprule
+\endhead
+\midrule
+\multicolumn{7}{r@{}}{\footnotesize continued on next page}\\
+\endfoot
+\bottomrule
+\endlastfoot
+\multicolumn{7}{@{}p{16.4cm}@{}}{\footnotesize\textbf{A. Variance components of the layer-mean statistic across the 16 extractions: between-extraction SD $\tau$ within each group, and the tissue decision}}\\*
+Component & $k$ & S1 interaction & S2 TF identity & S2b TRRUST, full & S2b TRRUST, band & S3 edges\\*
+\cmidrule(lr){1-7}
+Cell draw, immune & 3 & 0.000 & 0.027 & 0.016 & 0.033 & 0.000\\
+Cell draw, kidney & 2 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000\\
+Donor (immune) & 3 & 0.000 & 0.019 & 0.000 & 0.078 & 0.000\\
+Cell type (immune) & 3 & 0.000 & 0.000 & 0.000 & 0.070 & 0.000\\
+Gene axis (kidney~A vs B) & 2 & 0.075 & 0.073 & 0.000 & 0.000 & 0.052\\
+Checkpoint (same cells) & 3 & 0.023 & 0.027 & 0.043 & 0.030 & 0.000\\
+\cmidrule(lr){1-7}
+Tissue & 4 & 0.020 & 0.000 & 0.000 & 0.000 & 0.033\\
+Tissue, without lung (ext.) & 3 & 0.025 & 0.000 & 0.000 & 0.000 & 0.037\\
+Study (lung vs lung (ext.)) & 2 & 0.000 & 0.005 & 0.000 & 0.012 & 0.000\\
+Tissue $\tau$, upper Q-profile 95\% bound &  & 0.086 & 0.034 & 0.029 & 0.050 & 0.139\\
+\cmidrule(lr){1-7}
+$\tau^2_{\mathrm{tissue}}$ ($\times 10^{3}$) &  & 0.42 & $-$0.15 & $-$0.26 & $-$0.28 & 1.10\\
+Pooled within-tissue floor $\tau^2_{\mathrm{within}}$ ($\times 10^{3}$) &  & 0.89 & 1.25 & $-$0.15 & 2.17 & 0.38\\
+$D = \tau^2_{\mathrm{tissue}} - \tau^2_{\mathrm{within}}$ ($\times 10^{3}$) [95\% interval] &  & $-$0.47\newline [$-$2.33, 3.71] & $-$1.40\newline [$-$3.15, 2.68] & $-$0.12\newline [$-$1.51, 0.84] & $-$2.45\newline [$-$6.10, 5.00] & $+$0.72\newline [$-$2.69, 3.84]\\
+$p$ ($H_0$: tissue $=$ floor); tissue effect claimed &  & 0.73; no & 0.83; no & 0.45; no & 0.79; no & 0.18; no\\
+\midrule
+\multicolumn{7}{@{}p{16.4cm}@{}}{\footnotesize\textbf{B. A TF classifier trained on immune genes, applied unchanged to the other extractions (layer mean)}}\\*
+Test extraction & TFs / non-TFs (novel genes) & Novel genes: AUROC (detection-stratified) & Novel genes: range over layers & In-context classifier, same genes (detection-stratified) & Transfer minus in-context (layers CI $<0$) & Shared genes: AUROC\\*
+\cmidrule(lr){1-7}
+immune (training; 5-fold out-of-fold) & 113 / 1{,}926 & 0.835 (0.796) & -- & -- & -- & --\\
+kidney~B & 438 / 3{,}632 & 0.652 (0.672) & 0.625--0.669\newline lower $\geq$ 0.598 & 0.784 (0.774) & $-$0.131 (12/12) & 0.955\\
+lung & 495 / 4{,}297 & 0.674 (0.698) & 0.662--0.684\newline lower $\geq$ 0.636 & 0.786 (0.786) & $-$0.112 (12/12) & 0.966\\
+lung (ext.) & 539 / 4{,}292 & 0.672 (0.693) & 0.656--0.680\newline lower $\geq$ 0.631 & 0.798 (0.796) & $-$0.126 (12/12) & 0.959\\
+kidney~A & 45 / 1{,}414 & 0.871 (0.848) & 0.793--0.902\newline lower $\geq$ 0.728 & 0.876 (0.844) & $-$0.005 (0/12) & 0.964\\
+\midrule
+\multicolumn{7}{@{}p{16.4cm}@{}}{\footnotesize\textbf{C. Lineage-specific TF sets: detection-stratified AUROC of set members against non-TF genes (layer mean)}}\\*
+Extraction & Immune set: AUROC [95\% CI] & Immune set: observed (random) & Kidney set: AUROC [95\% CI] & Kidney set: observed (random) & Lung set: AUROC [95\% CI] & Lung set: observed (random)\\*
+\cmidrule(lr){1-7}
+lung & 0.911\newline [0.859, 0.984] & 28 (0.595) & 0.795\newline [0.653, 1.000] & 13 (0.560) & 0.903$^{h}$\newline [0.836, 1.000] & 16 (0.551)\\
+lung (ext.) & 0.908\newline [0.860, 0.973] & 27 (0.589) & 0.711\newline [0.545, 0.962] & 10 (0.539) & 0.916$^{h}$\newline [0.858, 1.000] & 16 (0.548)\\
+kidney~B & 0.873\newline [0.816, 0.932] & 29 (0.585) & 0.962$^{h}$\newline [0.941, 0.991] & 21 (0.570) & 0.937\newline [0.860, 1.000]$^{d}$ & 8 (0.507)\\
+immune & 0.709$^{h}$\newline [0.543, 0.911] & 20 (0.604) & -- & 3 & -- & 0\\
+kidney~A & 0.763\newline [0.667, 0.877] & 21 (0.697) & -- & 2 & -- & 3\\
+\cmidrule(lr){1-7}
+kidney (whole-human ckpt) & 0.890\newline [0.844, 0.950] & 30 (0.570) & 0.961$^{h}$\newline [0.940, 0.998] & 21 (0.565) & 0.885\newline [0.705, 1.000]$^{d}$ & 6 (0.512)\\
+kidney (kidney ckpt) & 0.776\newline [0.693, 0.872] & 30 (0.538) & 0.716$^{h}$\newline [0.582, 0.872] & 21 (0.537) & 0.883\newline [0.715, 1.000]$^{d}$ & 6 (0.448)\\
+kidney (brain ckpt) & 0.796\newline [0.709, 0.906] & 30 (0.515) & 0.829$^{h}$\newline [0.751, 0.947] & 21 (0.495) & 0.614\newline [0.322, 1.000]$^{d}$ & 6 (0.422)\\
+immune, 8 robustness extractions & 0.665--0.755 & 19--20 & 1 of 8 evaluable & 2--5 & -- & 0\\
+\midrule
+\multicolumn{7}{@{}p{16.4cm}@{}}{\footnotesize\textbf{D. Detection alone: AUROC of $\log n_{\mathrm{obs}}$ for separating TFs, and the extraction regime}}\\*
+Extraction & $|V|$; cells (input $>512$ genes) & Median non-zero genes per cell & Median $n_{\mathrm{obs}}$, Lambert TFs / non-TFs & Lambert TFs vs non-TFs: AUROC [95\% CI] & TRRUST TFs vs target-only: AUROC [95\% CI] & Lambert TFs with $n_{\mathrm{obs}} \geq 10$\\*
+\cmidrule(lr){1-7}
+lung & 5{,}648; 256 (249) & 1{,}668 & 6 / 8 & 0.458\newline [0.434, 0.482] & 0.519\newline [0.492, 0.548] & 38\%\\
+lung (ext.) & 5{,}616; 256 (220) & 935 & 9 / 12 & 0.454\newline [0.432, 0.476] & 0.534\newline [0.507, 0.560] & 48\%\\
+kidney~B & 4{,}780; 192 (191) & 1{,}054.5 & 6 / 7 & 0.461\newline [0.436, 0.486] & 0.535\newline [0.506, 0.564] & 39\%\\
+immune & 2{,}039; 256 (2) & 220 & 40 / 6 & 0.650\newline [0.590, 0.706] & 0.705\newline [0.623, 0.779] & 68\%\\
+kidney~A & 1{,}972; 256 (65) & 436.5 & 20.5 / 11 & 0.555\newline [0.509, 0.599] & 0.545\newline [0.458, 0.632] & 71\%\\
+\cmidrule(lr){1-7}
+immune (seed 43) & 2{,}080; 256 (2) & 221 & 47 / 6 & 0.698\newline [0.643, 0.748] & 0.730\newline [0.651, 0.803] & 71\%\\
+immune (seed 44) & 1{,}972; 256 (2) & 238 & 49 / 7 & 0.677\newline [0.621, 0.733] & 0.683\newline [0.603, 0.758] & 70\%\\
+immune (donor TSP14) & 1{,}964; 256 (2) & 254.5 & 45 / 9 & 0.676\newline [0.619, 0.735] & 0.724\newline [0.639, 0.798] & 75\%\\
+immune (donor TSP21) & 1{,}765; 256 (1) & 216 & 64 / 9 & 0.706\newline [0.651, 0.758] & 0.719\newline [0.638, 0.796] & 77\%\\
+immune (donor TSP25) & 1{,}791; 256 (5) & 199 & 59.5 / 9 & 0.709\newline [0.651, 0.762] & 0.707\newline [0.621, 0.784] & 76\%\\
+immune (B cells) & 1{,}398; 256 (0) & 197 & 54 / 4 & 0.708\newline [0.648, 0.763] & 0.703\newline [0.621, 0.789] & 72\%\\
+immune (CD4 T cells) & 1{,}465; 256 (0) & 185 & 66 / 4 & 0.720\newline [0.659, 0.780] & 0.739\newline [0.657, 0.812] & 73\%\\
+immune (CD8 T cells) & 1{,}595; 256 (0) & 201 & 43.5 / 4 & 0.650\newline [0.587, 0.708] & 0.682\newline [0.598, 0.763] & 59\%\\
+kidney (whole-human ckpt) & 4{,}923; 192 (188) & 998 & 5 / 7 & 0.450\newline [0.427, 0.475] & 0.525\newline [0.495, 0.553] & 36\%\\
+kidney (kidney ckpt) & 4{,}923; 192 (188) & 998 & 5 / 7 & 0.450\newline [0.427, 0.475] & 0.525\newline [0.497, 0.552] & 36\%\\
+kidney (brain ckpt) & 4{,}923; 192 (188) & 998 & 5 / 7 & 0.450\newline [0.427, 0.474] & 0.525\newline [0.497, 0.552] & 36\%\\
+\midrule
+\multicolumn{7}{@{}p{16.4cm}@{}}{\footnotesize\textbf{E. The two kidney extractions (one donor, different gene axes): mechanism, matched re-evaluation and the curated-gene comparison}}\\*
+Quantity & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{kidney~A} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{kidney~B} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{Shared / difference A $-$ B [95\% CI]}\\
+\cmidrule(lr){1-7}
+Gene axis $G$ & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{4{,}803} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{8{,}143} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{2{,}766 shared}\\
+Observed genes $|V|$ & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{1{,}972} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{4{,}780} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{1{,}126 observed in both ($M$)}\\
+Lambert TFs in $V$ & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{90} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{511} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{76 in $M$; 49 TRRUST TFs / 103 target-only}\\
+Cells (input $>512$ genes) & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{256 (65)} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{192 (191)} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{12 cells drawn in both}\\
+Median non-zero genes per cell & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{436.5} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{1{,}054.5} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{--}\\
+Mean fraction of a cell's detected genes not on the other axis & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{0.229} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{0.680} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{--}\\
+Median $n_{\mathrm{obs}}$ on $M$: Lambert TFs / TRRUST TFs / non-TFs & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{24 / 24 / 32} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{14 / 15 / 17} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{Spearman $\rho$ of $n_{\mathrm{obs}}$ on $M$ 0.970}\\
+\cmidrule(lr){1-7}
+Matched genes $M$: S2b, band $\SV{2}$--$\SV{7}$, each extraction's own SVD & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{0.628} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{0.573} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{$+$0.055 [$-$0.033, 0.134]}\\
+Matched genes $M$: S2b, band $\SV{2}$--$\SV{7}$, SVD fitted on $M$ & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{0.664} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{0.679} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{$-$0.016 [$-$0.057, 0.024]}\\
+Matched genes $M$: S2b, full dimension & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{0.676} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{0.646} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{$+$0.030 [$-$0.023, 0.088]}\\
+Matched genes $M$: S2, own detection strata & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{0.647} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{0.637} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{$+$0.011 [$-$0.035, 0.056]}\\
+Matched genes $M$: S2, shared detection strata & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{0.637} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{0.640} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{$-$0.003 [$-$0.039, 0.035]}\\
+Basis instability: $|\Delta_{\mathrm{band}}| - |\Delta_{\mathrm{full}}|$ (own SVD) & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{--} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{--} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{$+$0.025 [$-$0.053, 0.092]}\\
+\cmidrule(lr){1-7}
+TRRUST comparison on the curated genes & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{kidney~A, 187 genes (65 / 122)} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{kidney~A on kidney~B's 167 genes} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{kidney~B, 167 genes (59 / 108)}\\
+\cmidrule(lr){1-7}
+Band $\SV{2}$--$\SV{7}$, SVD including never-observed zero rows (the screen's convention), layer mean & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{0.612} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{0.636} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{0.590\newline $L_0$--$L_3$: 0.493, 0.500, 0.529, 0.551; $L_4$--$L_{11}$: 0.589--0.664}\\
+Same band, observed-gene SVD, layer mean & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{0.609} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{0.637} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{0.583\newline $L_0$--$L_3$: 0.677, 0.665, 0.648, 0.665}\\
+Full dimension, layer mean & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{0.676} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{0.681} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{0.644}\\
+Hanley--McNeil SE of one AUROC & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{0.044 (at 0.61)} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{--} & \multicolumn{2}{>{\scriptsize\raggedright\arraybackslash}p{4.2cm}}{0.047 (at 0.55)}\\
+\end{longtable}
+\endgroup

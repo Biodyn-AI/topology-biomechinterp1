@@ -1,0 +1,496 @@
+{
+ "immune": {
+  "obs_mask_equal_all_layers": true,
+  "obs_idx_matches": true,
+  "ncells_equals_count": true,
+  "count_zero_iff_unobserved": true,
+  "V": 2039,
+  "G": 4941,
+  "local_equals_original": true
+ },
+ "immune_seed43": {
+  "obs_mask_equal_all_layers": true,
+  "obs_idx_matches": true,
+  "ncells_equals_count": true,
+  "count_zero_iff_unobserved": true,
+  "V": 2080,
+  "G": 4941
+ },
+ "immune_seed44": {
+  "obs_mask_equal_all_layers": true,
+  "obs_idx_matches": true,
+  "ncells_equals_count": true,
+  "count_zero_iff_unobserved": true,
+  "V": 1972,
+  "G": 4941
+ },
+ "immune_TSP14": {
+  "obs_mask_equal_all_layers": true,
+  "obs_idx_matches": true,
+  "ncells_equals_count": true,
+  "count_zero_iff_unobserved": true,
+  "V": 1964,
+  "G": 4941
+ },
+ "immune_TSP21": {
+  "obs_mask_equal_all_layers": true,
+  "obs_idx_matches": true,
+  "ncells_equals_count": true,
+  "count_zero_iff_unobserved": true,
+  "V": 1765,
+  "G": 4941
+ },
+ "immune_TSP25": {
+  "obs_mask_equal_all_layers": true,
+  "obs_idx_matches": true,
+  "ncells_equals_count": true,
+  "count_zero_iff_unobserved": true,
+  "V": 1791,
+  "G": 4941
+ },
+ "immune_Bcell": {
+  "obs_mask_equal_all_layers": true,
+  "obs_idx_matches": true,
+  "ncells_equals_count": true,
+  "count_zero_iff_unobserved": true,
+  "V": 1398,
+  "G": 4941
+ },
+ "immune_CD4T": {
+  "obs_mask_equal_all_layers": true,
+  "obs_idx_matches": true,
+  "ncells_equals_count": true,
+  "count_zero_iff_unobserved": true,
+  "V": 1465,
+  "G": 4941
+ },
+ "immune_CD8T": {
+  "obs_mask_equal_all_layers": true,
+  "obs_idx_matches": true,
+  "ncells_equals_count": true,
+  "count_zero_iff_unobserved": true,
+  "V": 1595,
+  "G": 4941
+ },
+ "kidney_A": {
+  "obs_mask_equal_all_layers": true,
+  "obs_idx_matches": true,
+  "ncells_equals_count": true,
+  "count_zero_iff_unobserved": true,
+  "V": 1972,
+  "G": 4803,
+  "local_equals_original": true
+ },
+ "kidney_B": {
+  "obs_mask_equal_all_layers": true,
+  "obs_idx_matches": true,
+  "ncells_equals_count": true,
+  "count_zero_iff_unobserved": true,
+  "V": 4780,
+  "G": 8143
+ },
+ "kidney_ckpt_whole_human": {
+  "obs_mask_equal_all_layers": true,
+  "obs_idx_matches": true,
+  "ncells_equals_count": true,
+  "count_zero_iff_unobserved": true,
+  "V": 4923,
+  "G": 8143
+ },
+ "kidney_ckpt_kidney": {
+  "obs_mask_equal_all_layers": true,
+  "obs_idx_matches": true,
+  "ncells_equals_count": true,
+  "count_zero_iff_unobserved": true,
+  "V": 4923,
+  "G": 8143
+ },
+ "kidney_ckpt_brain": {
+  "obs_mask_equal_all_layers": true,
+  "obs_idx_matches": true,
+  "ncells_equals_count": true,
+  "count_zero_iff_unobserved": true,
+  "V": 4923,
+  "G": 8143
+ },
+ "lung": {
+  "obs_mask_equal_all_layers": true,
+  "obs_idx_matches": true,
+  "ncells_equals_count": true,
+  "count_zero_iff_unobserved": true,
+  "V": 5648,
+  "G": 8181,
+  "local_equals_original": true
+ },
+ "lung_external": {
+  "obs_mask_equal_all_layers": true,
+  "obs_idx_matches": true,
+  "ncells_equals_count": true,
+  "count_zero_iff_unobserved": true,
+  "V": 5616,
+  "G": 8229
+ },
+ "monotonicity": {
+  "lung": {
+   "er": [
+    457.3851199648054,
+    452.364166437171,
+    444.87001460022765,
+    435.13865869000904,
+    420.593958015508,
+    412.53840777315867,
+    402.3993279461226,
+    387.476036890114,
+    370.75489739535675,
+    354.23309653720565,
+    334.75817161946713,
+    324.13742978991064
+   ],
+   "pr": [
+    86.40082339986257,
+    86.12168125323655,
+    78.98514878863472,
+    65.25619880622692,
+    48.93211810776395,
+    42.54878192267806,
+    35.966426766603774,
+    27.9201516462835,
+    21.941351695565977,
+    18.445590254782722,
+    15.510103255894261,
+    12.277436514215884
+   ],
+   "er_strict_dec": true,
+   "pr_rises": [],
+   "rho_pr": -1.0
+  },
+  "lung_external": {
+   "er": [
+    459.42600214282385,
+    455.2936455089599,
+    448.07714060560625,
+    438.95286934210264,
+    425.8816121445819,
+    419.23735037159787,
+    409.79258503940537,
+    395.95556010062967,
+    377.9511960911069,
+    363.3307869866455,
+    346.24947468698946,
+    340.8434910758126
+   ],
+   "pr": [
+    87.78681013241665,
+    86.58097379513735,
+    77.65856911407289,
+    63.71111025764612,
+    47.9842354159905,
+    43.86471684964129,
+    37.205617538978046,
+    28.300057624191435,
+    20.074461964745517,
+    18.22765046826393,
+    16.826576832912618,
+    17.778592583627148
+   ],
+   "er_strict_dec": true,
+   "pr_rises": [
+    [
+     10,
+     11,
+     16.827,
+     17.779
+    ]
+   ],
+   "rho_pr": -0.9930069930069931
+  },
+  "kidney_B": {
+   "er": [
+    456.1785404212158,
+    451.9644433019272,
+    444.1380682175614,
+    433.96380501367315,
+    419.64427863381536,
+    411.5102671834412,
+    400.9668970337319,
+    385.66263446882374,
+    368.3689230945631,
+    352.76456621836684,
+    333.2628627675826,
+    324.13654807113335
+   ],
+   "pr": [
+    88.5474299368343,
+    87.86062657411497,
+    77.83498517287047,
+    63.30368484894325,
+    48.120516124301965,
+    42.48360096232774,
+    36.11258267624288,
+    28.242119660300663,
+    21.31138655050409,
+    19.109793003108315,
+    16.76789546090741,
+    14.848905905651876
+   ],
+   "er_strict_dec": true,
+   "pr_rises": [],
+   "rho_pr": -1.0
+  },
+  "immune": {
+   "er": [
+    442.3963634392489,
+    438.1430002959926,
+    431.0165101285956,
+    420.5097315756384,
+    407.0193122602441,
+    399.15119828646806,
+    388.5467645177536,
+    374.63681761309675,
+    359.284489949221,
+    342.83833014238303,
+    322.31633186509634,
+    309.6415461000803
+   ],
+   "pr": [
+    90.10836139034757,
+    90.98339439349049,
+    83.44107860997323,
+    68.07239579369724,
+    52.57889145255945,
+    46.064943253155406,
+    40.18966933168737,
+    33.43960239694903,
+    26.424900179153678,
+    22.842936420851323,
+    18.984048791371478,
+    15.188799033971247
+   ],
+   "er_strict_dec": true,
+   "pr_rises": [
+    [
+     0,
+     1,
+     90.108,
+     90.983
+    ]
+   ],
+   "rho_pr": -0.9930069930069931
+  },
+  "kidney_A": {
+   "er": [
+    437.4414036819215,
+    433.45745715605307,
+    425.8878615797312,
+    415.2207331672787,
+    400.808120460681,
+    392.1129222080091,
+    381.04569520578764,
+    364.4516103984171,
+    345.88400116228536,
+    329.2008631509659,
+    308.8445260668757,
+    297.0850845064061
+   ],
+   "pr": [
+    64.83616807978858,
+    65.92285659786339,
+    58.54219678577658,
+    46.25279205949003,
+    34.501909255619076,
+    29.753907692281125,
+    25.5175286685998,
+    20.676753506330865,
+    15.816419431571296,
+    14.324203933301105,
+    12.403230496610373,
+    10.668905627174981
+   ],
+   "er_strict_dec": true,
+   "pr_rises": [
+    [
+     0,
+     1,
+     64.836,
+     65.923
+    ]
+   ],
+   "rho_pr": -0.9930069930069931
+  },
+  "kidney_ckpt_kidney": {
+   "er": [
+    474.89647049900555,
+    432.8189501263037,
+    390.6720904273061,
+    357.6063010366092,
+    334.06659275834073,
+    314.5258371194123,
+    299.14601718927247,
+    279.195408353962,
+    252.1676094066007,
+    225.7001865293582,
+    205.1229510528586,
+    190.93502249418611
+   ],
+   "pr": [
+    69.54189283235172,
+    20.36056880207842,
+    12.693176085394096,
+    10.213989243102647,
+    9.022936064306522,
+    8.464256818333954,
+    8.330726848714297,
+    8.118876121141787,
+    7.445199280986489,
+    6.6470616339159845,
+    5.894266210774346,
+    5.333500615051131
+   ],
+   "er_strict_dec": true,
+   "pr_rises": [],
+   "rho_pr": -1.0
+  },
+  "kidney_ckpt_brain": {
+   "er": [
+    458.25622994969865,
+    451.11294372732164,
+    442.1926151742102,
+    418.99161802437396,
+    400.7465944129538,
+    382.16449067969717,
+    370.39272089762886,
+    346.58995471852603,
+    327.2399423457705,
+    313.1441325400221,
+    296.1412364167755,
+    280.0385127928788
+   ],
+   "pr": [
+    89.7775845591493,
+    66.18959255209886,
+    48.977651120805845,
+    22.370032568688107,
+    14.003723609755584,
+    11.092436455320787,
+    10.27485481631519,
+    8.379659371490511,
+    8.205532166645984,
+    8.616729364692558,
+    8.236290734824758,
+    8.500539018336159
+   ],
+   "er_strict_dec": true,
+   "pr_rises": [
+    [
+     8,
+     9,
+     8.206,
+     8.617
+    ],
+    [
+     10,
+     11,
+     8.236,
+     8.501
+    ]
+   ],
+   "rho_pr": -0.9090909090909092
+  }
+ },
+ "matched_quota_own": [
+  381,
+  106,
+  107,
+  110,
+  81,
+  96,
+  107,
+  81,
+  231
+ ],
+ "matched_quota_reported": [
+  381,
+  106,
+  107,
+  110,
+  81,
+  96,
+  107,
+  81,
+  231
+ ],
+ "gap_bootstrap_recheck": [
+  {
+   "context": "immune",
+   "layer": 0,
+   "k": 1,
+   "ratio": 1.042163280500153,
+   "own_basic_lo": 0.9990077223452676,
+   "own_flag": true,
+   "reported_basic_lo": 0.9982823528861824,
+   "reported_flag": true,
+   "own_boot_mean": 1.0496852140879185,
+   "reported_boot_mean": 1.0496196372411972
+  },
+  {
+   "context": "immune",
+   "layer": 10,
+   "k": 1,
+   "ratio": 1.0583377169266035,
+   "own_basic_lo": 0.9940583003836758,
+   "own_flag": true,
+   "reported_basic_lo": 0.9978880931475282,
+   "reported_flag": true,
+   "own_boot_mean": 1.0728600638116255,
+   "reported_boot_mean": 1.071342157412864
+  },
+  {
+   "context": "kidney_A",
+   "layer": 11,
+   "k": 2,
+   "ratio": 1.0955380719905283,
+   "own_basic_lo": 1.0108022171113114,
+   "own_flag": false,
+   "reported_basic_lo": 0.968218679556313,
+   "reported_flag": true,
+   "own_boot_mean": 1.1005026647576976,
+   "reported_boot_mean": 1.1062173169504126
+  },
+  {
+   "context": "lung",
+   "layer": 11,
+   "k": 3,
+   "ratio": 1.024273250499643,
+   "own_basic_lo": 0.987591642960794,
+   "own_flag": true,
+   "reported_basic_lo": 0.9935309959822516,
+   "reported_flag": true,
+   "own_boot_mean": 1.0304331456685631,
+   "reported_boot_mean": 1.0300990120648654
+  },
+  {
+   "context": "lung",
+   "layer": 11,
+   "k": 1,
+   "ratio": 1.5090961613709883,
+   "own_basic_lo": 1.4361276041929938,
+   "own_flag": false,
+   "reported_basic_lo": 1.4391631037370691,
+   "reported_flag": false,
+   "own_boot_mean": 1.5070683066674215,
+   "reported_boot_mean": 1.5053481009021357
+  },
+  {
+   "context": "kidney_A",
+   "layer": 11,
+   "k": 1,
+   "ratio": 1.2863360790836882,
+   "own_basic_lo": 1.2299505276697331,
+   "own_flag": false,
+   "reported_basic_lo": 1.2433410868132282,
+   "reported_flag": false,
+   "own_boot_mean": 1.2842508118662033,
+   "reported_boot_mean": 1.2861756654959875
+  }
+ ]
+}

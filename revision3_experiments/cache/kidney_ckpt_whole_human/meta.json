@@ -1,0 +1,17 @@
+{
+ "context": "kidney_ckpt_whole_human",
+ "tissue": "kidney",
+ "group": "checkpoint",
+ "note": "",
+ "emb": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/subproject_41_claude_topology_hypothesis_screening_autoloop/iterations/iter_0087/kidney_scgpt_whole_human_run/layer_gene_embeddings.npy",
+ "h5ad": "/Volumes/Crucial X6/MacBook/biomechinterp/biodyn-work/single_cell_mechinterp/outputs/invariant_causal_edges/kidney/processed.h5ad",
+ "expr_population": "whole h5ad",
+ "population_size": 8000,
+ "G": 8143,
+ "n_observed": 4923,
+ "n_expr_cells": 3000,
+ "n_trrust": 4431,
+ "n_string700": 12689,
+ "n_dorothea_chip_new": 11911,
+ "n_any_regulatory": 100222
+}

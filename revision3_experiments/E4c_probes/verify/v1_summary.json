@@ -1,0 +1,186 @@
+{
+ "c3_max_gene_overlap": 0,
+ "c2_max_tf_overlap": 0,
+ "max_pair_overlap": 0,
+ "rewiring": [
+  {
+   "context": "lung",
+   "n_draws": 100,
+   "tf_counts_preserved": true,
+   "target_counts_preserved": true,
+   "retained_mean": 0.20220850740600074
+  },
+  {
+   "context": "lung_external",
+   "n_draws": 100,
+   "tf_counts_preserved": true,
+   "target_counts_preserved": true,
+   "retained_mean": 0.22894561162379737
+  },
+  {
+   "context": "kidney_B",
+   "n_draws": 100,
+   "tf_counts_preserved": true,
+   "target_counts_preserved": true,
+   "retained_mean": 0.22902671755725193
+  }
+ ],
+ "ref_cosine_max_absdiff": 5.551115123125783e-17,
+ "ref_cosine_layer_means": [
+  {
+   "context": "kidney_B",
+   "layer": 0,
+   "mine": 0.5608
+  },
+  {
+   "context": "kidney_B",
+   "layer": 2,
+   "mine": 0.5595
+  },
+  {
+   "context": "kidney_B",
+   "layer": 6,
+   "mine": 0.5478
+  },
+  {
+   "context": "kidney_B",
+   "layer": 11,
+   "mine": 0.5263
+  },
+  {
+   "context": "lung",
+   "layer": 0,
+   "mine": 0.54
+  },
+  {
+   "context": "lung",
+   "layer": 2,
+   "mine": 0.5375
+  },
+  {
+   "context": "lung",
+   "layer": 6,
+   "mine": 0.5359
+  },
+  {
+   "context": "lung",
+   "layer": 11,
+   "mine": 0.5222
+  },
+  {
+   "context": "lung_external",
+   "layer": 0,
+   "mine": 0.543
+  },
+  {
+   "context": "lung_external",
+   "layer": 2,
+   "mine": 0.5433
+  },
+  {
+   "context": "lung_external",
+   "layer": 6,
+   "mine": 0.537
+  },
+  {
+   "context": "lung_external",
+   "layer": 11,
+   "mine": 0.5208
+  }
+ ],
+ "null_recompute_max_absdiff_obs": 0.0,
+ "null_recompute_max_absdiff_p": 1.1102230246251565e-16,
+ "null_recompute_max_absdiff_pmaxT": 5.551115123125783e-17,
+ "did_summary": [
+  {
+   "context": "kidney_B",
+   "test": "DiD_bilinear_minus_concat",
+   "obs_min": -0.0526,
+   "obs_max": 0.0081,
+   "null_mean_min": -0.0362,
+   "null_mean_max": -0.0258,
+   "n_p_lt05": 1,
+   "n_maxT_lt05": 0
+  },
+  {
+   "context": "kidney_B",
+   "test": "bilinear_vs_rewired",
+   "obs_min": 0.5004,
+   "obs_max": 0.5706,
+   "null_mean_min": 0.5236,
+   "null_mean_max": 0.5338,
+   "n_p_lt05": 4,
+   "n_maxT_lt05": 1
+  },
+  {
+   "context": "kidney_B",
+   "test": "concat_vs_rewired",
+   "obs_min": 0.5468,
+   "obs_max": 0.5727,
+   "null_mean_min": 0.5534,
+   "null_mean_max": 0.5633,
+   "n_p_lt05": 0,
+   "n_maxT_lt05": 0
+  },
+  {
+   "context": "lung",
+   "test": "DiD_bilinear_minus_concat",
+   "obs_min": -0.0111,
+   "obs_max": 0.046,
+   "null_mean_min": -0.0215,
+   "null_mean_max": -0.0077,
+   "n_p_lt05": 8,
+   "n_maxT_lt05": 7
+  },
+  {
+   "context": "lung",
+   "test": "bilinear_vs_rewired",
+   "obs_min": 0.5494,
+   "obs_max": 0.6058,
+   "null_mean_min": 0.5156,
+   "null_mean_max": 0.531,
+   "n_p_lt05": 12,
+   "n_maxT_lt05": 11
+  },
+  {
+   "context": "lung",
+   "test": "concat_vs_rewired",
+   "obs_min": 0.5598,
+   "obs_max": 0.5713,
+   "null_mean_min": 0.5342,
+   "null_mean_max": 0.5421,
+   "n_p_lt05": 9,
+   "n_maxT_lt05": 1
+  },
+  {
+   "context": "lung_external",
+   "test": "DiD_bilinear_minus_concat",
+   "obs_min": 0.0003,
+   "obs_max": 0.0284,
+   "null_mean_min": -0.0353,
+   "null_mean_max": -0.0241,
+   "n_p_lt05": 11,
+   "n_maxT_lt05": 7
+  },
+  {
+   "context": "lung_external",
+   "test": "bilinear_vs_rewired",
+   "obs_min": 0.5534,
+   "obs_max": 0.5759,
+   "null_mean_min": 0.5344,
+   "null_mean_max": 0.5496,
+   "n_p_lt05": 8,
+   "n_maxT_lt05": 4
+  },
+  {
+   "context": "lung_external",
+   "test": "concat_vs_rewired",
+   "obs_min": 0.5475,
+   "obs_max": 0.5626,
+   "null_mean_min": 0.5616,
+   "null_mean_max": 0.5742,
+   "n_p_lt05": 0,
+   "n_maxT_lt05": 0
+  }
+ ]
+}
